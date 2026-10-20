@@ -1,0 +1,11 @@
+{
+  "id": "S2",
+  "base": "http://localhost:3764",
+  "status": "PASS",
+  "project": "otoka-s2-brand-final-3194731225",
+  "guideSha256": "f060a7f18d9a12c9919a9baa7664156a75406ab682ff520785c198668b40887b",
+  "origin": "Final standalone CLI",
+  "scope": "Real generated project, Dev Container CLI and browser. VS Code UI NOT_RUN.",
+  "title": "ツクハコ｜ローカル学習メモ",
+  "database": "Fresh dedicated local Supabase, seed 2 notes loaded. Full CRUD suite not rerun for branding."
+}

@@ -1,0 +1,91 @@
+{
+  "number": 1,
+  "startedAt": "2026-10-20T04:57:35.839934+00:00",
+  "files": [
+    {
+      "path": ".devcontainer/Dockerfile",
+      "source": "starter-templates/B1/.devcontainer/Dockerfile",
+      "sha256": "33cccd255c90522870f2ab64a4c5f87b21f7abfeda11724cf52f0c0eb1710db0"
+    },
+    {
+      "path": "compose.yaml",
+      "source": "starter-templates/B1/compose.yaml",
+      "sha256": "06ed077f5673706bddafc7b20ff51cff22b382476277f96b254057faec815188"
+    },
+    {
+      "path": ".devcontainer/devcontainer.json",
+      "source": "starter-templates/B1/.devcontainer/devcontainer.json",
+      "sha256": "3adccae5881c32a03d97888bebc2d09ff06c8a676374ae3c8292002ac8a238c2"
+    },
+    {
+      "path": ".dockerignore",
+      "source": "starter-templates/B1/.dockerignore",
+      "sha256": "4a97a52cd3f61950197539cb9f5de3b437d9402519baac6cc578e2b8c25e1c89"
+    },
+    {
+      "path": ".gitignore",
+      "source": "starter-templates/B1/.gitignore",
+      "sha256": "8852ae21abc463dca2304a5b7a1c90bf7951f2e8e991f38bbc1a76bb9e873518"
+    },
+    {
+      "path": ".gitattributes",
+      "source": "starter-templates/B1/.gitattributes",
+      "sha256": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c"
+    },
+    {
+      "path": ".env.example",
+      "source": "starter-templates/B1/.env.example",
+      "sha256": "3ef9cb1f7897e437ac3cc6fa6d452051537385d6fd726b99bfac7976b09c0cb4"
+    },
+    {
+      "path": ".npmrc",
+      "source": "starter-templates/B1/.npmrc",
+      "sha256": "cde76ca04e048c3eba070a2c0dfcf5b723cf6014eab177157096b924f24ec4ca"
+    },
+    {
+      "path": ".nvmrc",
+      "source": "starter-templates/B1/.nvmrc",
+      "sha256": "a1c56e968c358e10872d64220b3ae759ffe7feaffc4da95fae425dbcca43fe44"
+    },
+    {
+      "path": "VERSION.json",
+      "source": "starter-templates/B1/VERSION.json",
+      "sha256": "1d69406d62571f1297ceab8df681323af20e5a39a2fbacabeaadb052e0ee7ee0"
+    },
+    {
+      "path": "scripts/configure.sh",
+      "source": "starter-templates/B1/scripts/configure.sh",
+      "sha256": "53e14ae56b7c3807ebc139899556507344868bf1fe24b48c7b6948e6e7a9aa86"
+    },
+    {
+      "path": "scripts/doctor-host.sh",
+      "source": "starter-templates/B1/scripts/doctor-host.sh",
+      "sha256": "022e5267d1484499f720efd62cfd15d8b78e40c2698112494b764fd7cced573f"
+    },
+    {
+      "path": "scripts/compose.sh",
+      "source": "starter-templates/B1/scripts/compose.sh",
+      "sha256": "cfcecfebf6b68075cec7a7af1b33fee3c8fdb5ed2627f90455a2cc5bbfb376be"
+    },
+    {
+      "path": "scripts/doctor.mjs",
+      "source": "starter-templates/B1/scripts/doctor.mjs",
+      "sha256": "36d014a2dc47bd9fb1c9f9c74821469bae051f38e787bd822b0d9252bae4e103"
+    },
+    {
+      "path": "scripts/initialize.sh",
+      "source": "starter-templates/B1/scripts/initialize.sh",
+      "sha256": "c883fd8b8d0dfac29ba54b9835b9ff11c07215b9a3886869e4a369fdafe92836"
+    },
+    {
+      "path": "docs/SETUP.md",
+      "source": "starter-templates/B1/docs/SETUP.md",
+      "sha256": "8a8b44c781e0678261cf0ba0de863898c814e8d862f2abe861501fd997e976d5"
+    },
+    {
+      "path": "docs/RECOVERY.md",
+      "source": "starter-templates/B1/docs/RECOVERY.md",
+      "sha256": "9ff0f843ccf126a9e5483a393d9e722cd385b8c0ce8f73609aa15a6de2d08f4f"
+    }
+  ]
+}

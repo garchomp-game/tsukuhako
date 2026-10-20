@@ -1,0 +1,14 @@
+{
+  "name": "19-browser-after-restart",
+  "startedAt": "2026-10-20T05:00:17.695286+00:00",
+  "elapsedSeconds": 4.021,
+  "command": [
+    "node",
+    "validation/revision-0.1.1/s2/fresh-browser.mjs",
+    "after-restart"
+  ],
+  "cwd": ".",
+  "exitCode": 0,
+  "result": "PASS",
+  "log": "19-browser-after-restart.log"
+}

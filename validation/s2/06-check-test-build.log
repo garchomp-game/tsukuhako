@@ -1,0 +1,32 @@
+v24.22.0
+11.17.0
+
+> otoka-s2-local-notes@0.1.0 check
+> next typegen && tsc --noEmit && eslint .
+
+Generating route types...
+✓ Types generated successfully
+
+/workspace/app/notes.tsx
+  19:40  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/workspace/app/notes.tsx:19:40
+  17 |     setNotes(data.notes);
+  18 |   }, []);
+> 19 |   useEffect(() => { let active = true; load().catch((cause: Error) => { if (active) setError(cause.message); }).finally(() => { if (active) setLoading(false); }); return () => { active = false; }; }, [load]);
+     |                                        ^^^^ Avoid calling setState() directly within an effect
+  20 |   async function mutate(method: "POST" | "PATCH" | "DELETE", id?: string) {
+  21 |     if (busy) return;
+  22 |     setBusy(true); setError(""); setMessage("");  react-hooks/set-state-in-effect
+
+/workspace/postcss.config.mjs
+  1:1  warning  Assign object to a variable before exporting as module default  import/no-anonymous-default-export
+
+✖ 2 problems (1 error, 1 warning)
+

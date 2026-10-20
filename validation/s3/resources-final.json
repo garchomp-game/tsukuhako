@@ -1,0 +1,130 @@
+{
+  "observedAt": "2026-10-20T02:59:47.787282+00:00",
+  "result": "PASS",
+  "state": "all task-owned application and Supabase containers stopped; volumes/images retained",
+  "projects": [
+    {
+      "project": "otoka-s3-2237852257",
+      "containers": [
+        {
+          "id": "06c24fd1027ace2f22434fe277cf5579ab03482888433da2979067391df93c8a",
+          "name": "/otoka-s3-2237852257-app-1",
+          "status": "exited",
+          "image": "vsc-s3-e7bd900fb9a6e97618e6ac701a7329cc26aaea63bcc396a4df68d063ce9e9e69-uid",
+          "ports": {
+            "3000/tcp": [
+              {
+                "HostIp": "127.0.0.1",
+                "HostPort": "3005"
+              }
+            ]
+          },
+          "mounts": [
+            {
+              "type": "bind",
+              "name": null,
+              "destination": "/workspace"
+            },
+            {
+              "type": "volume",
+              "name": "otoka-s3-2237852257_dependencies",
+              "destination": "/workspace/node_modules"
+            },
+            {
+              "type": "volume",
+              "name": "otoka-s3-2237852257_npm-cache",
+              "destination": "/home/node/.npm"
+            }
+          ]
+        }
+      ],
+      "volumes": [
+        "otoka-s3-2237852257_dependencies",
+        "otoka-s3-2237852257_npm-cache"
+      ],
+      "networks": [
+        {
+          "id": "291295273b27e54fc672fc6bab2c3af9a4df232d74735237ec8805ec59ac7a90",
+          "name": "otoka-s3-2237852257_default",
+          "labels": {
+            "com.docker.compose.config-hash": "18b1b96deeee416baf505942a4496cfabc89a93896b04ffb8a0440df9ec8f004",
+            "com.docker.compose.network": "default",
+            "com.docker.compose.project": "otoka-s3-2237852257",
+            "com.docker.compose.version": "5.6.0"
+          },
+          "options": {},
+          "connectedContainers": []
+        }
+      ],
+      "appImage": {
+        "tag": "otoka-s3-2237852257-dev:0.1.0",
+        "id": "sha256:9296670337b8802d87c2382e31abfef8ac657a9219836a61a424154673c948b7",
+        "bytes": 590100839
+      }
+    },
+    {
+      "project": "otoka-s3-243362404",
+      "containers": [
+        {
+          "id": "914abfcbf4177c87ff3b855693c6a261fc198e695f66633cd2079bc3dce21867",
+          "name": "/otoka-s3-243362404-app-1",
+          "status": "exited",
+          "image": "vsc-s3-45e94745e2f5d10f7ff74594783ae3d7726cafc2b7d03214d907895e932c69bf-uid",
+          "ports": {
+            "3000/tcp": [
+              {
+                "HostIp": "127.0.0.1",
+                "HostPort": "3015"
+              }
+            ]
+          },
+          "mounts": [
+            {
+              "type": "bind",
+              "name": null,
+              "destination": "/workspace"
+            },
+            {
+              "type": "volume",
+              "name": "otoka-s3-243362404_dependencies",
+              "destination": "/workspace/node_modules"
+            },
+            {
+              "type": "volume",
+              "name": "otoka-s3-243362404_npm-cache",
+              "destination": "/home/node/.npm"
+            }
+          ]
+        }
+      ],
+      "volumes": [
+        "otoka-s3-243362404_dependencies",
+        "otoka-s3-243362404_npm-cache"
+      ],
+      "networks": [
+        {
+          "id": "38946d613306888b49885652712720657f0a4fc1be0d009bc7da86e3abd17b3a",
+          "name": "otoka-s3-243362404_default",
+          "labels": {
+            "com.docker.compose.config-hash": "d60d7337a8c075e2be9f21a42d18765be2904a5598313744d119247c0e77eb62",
+            "com.docker.compose.network": "default",
+            "com.docker.compose.project": "otoka-s3-243362404",
+            "com.docker.compose.version": "5.6.0"
+          },
+          "options": {},
+          "connectedContainers": []
+        }
+      ],
+      "appImage": {
+        "tag": "otoka-s3-243362404-dev:0.1.0",
+        "id": "sha256:38b8c95defa2e316eded878dbaaea47011fe4c235cf36a5af0e44b80547020b6",
+        "bytes": 590100839
+      }
+    }
+  ],
+  "noGlobalPrune": true,
+  "unrelatedBaselineStillRunning": [
+    "b531d3443746",
+    "8e9f201539c5"
+  ]
+}

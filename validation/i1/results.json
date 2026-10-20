@@ -1,0 +1,658 @@
+{
+  "template": "I1",
+  "version": "0.1.0",
+  "date": "2026-10-20",
+  "artifact": "dist/I1-0.1.0.zip",
+  "artifactSha256": "2861fea034ced0baf1dd484f78c19be8bbfbb2ccc8ac8c880e0ec3f5e989e398",
+  "runtimeFingerprint": "0f04edf8624ef944dca0971b16d2c5d6b13e6e4808903d143a2bed02d638dad4",
+  "results": [
+    {
+      "id": "A01",
+      "applicable": true,
+      "environment": "Linux Mint 22.3 x86_64 / Dev Container CLI 0.89.0",
+      "result": "PASS",
+      "evidence": [
+        {
+          "commandId": "distzip-configure",
+          "log": "logs/distzip-configure.log",
+          "exitCode": 0,
+          "durationSeconds": 0.01
+        },
+        {
+          "commandId": "distzip-doctor",
+          "log": "logs/distzip-doctor.log",
+          "exitCode": 0,
+          "durationSeconds": 0.112
+        },
+        {
+          "commandId": "distzip-up",
+          "log": "logs/distzip-up.log",
+          "exitCode": 0,
+          "durationSeconds": 8.623
+        },
+        {
+          "commandId": "distzip-setup",
+          "log": "logs/distzip-setup.log",
+          "exitCode": 0,
+          "durationSeconds": 0.482
+        },
+        {
+          "commandId": "distzip-check",
+          "log": "logs/distzip-check.log",
+          "exitCode": 0,
+          "durationSeconds": 0.423
+        },
+        {
+          "commandId": "distzip-query",
+          "log": "logs/distzip-query.log",
+          "exitCode": 0,
+          "durationSeconds": 0.387
+        },
+        {
+          "commandId": "finalzip-up",
+          "log": "logs/finalzip-up.log",
+          "exitCode": 0,
+          "durationSeconds": 8.815
+        },
+        {
+          "commandId": "finalzip-setup",
+          "log": "logs/finalzip-setup.log",
+          "exitCode": 0,
+          "durationSeconds": 0.928
+        },
+        {
+          "commandId": "finalzip-check",
+          "log": "logs/finalzip-check.log",
+          "exitCode": 0,
+          "durationSeconds": 0.893
+        },
+        {
+          "commandId": "finalzip-practice",
+          "log": "logs/finalzip-practice.log",
+          "exitCode": 0,
+          "durationSeconds": 0.731
+        }
+      ]
+    },
+    {
+      "id": "A02",
+      "applicable": true,
+      "environment": "Linux Mint 22.3 x86_64 / Dev Container CLI 0.89.0",
+      "result": "PASS",
+      "evidence": [
+        {
+          "commandId": "docker-unreachable",
+          "log": "logs/docker-unreachable.log",
+          "exitCode": 1,
+          "durationSeconds": 0.038
+        },
+        {
+          "commandId": "config-missing",
+          "log": "logs/config-missing.log",
+          "exitCode": 1,
+          "durationSeconds": 0.066
+        },
+        {
+          "commandId": "config-invalid-port",
+          "log": "logs/config-invalid-port.log",
+          "exitCode": 1,
+          "durationSeconds": 0.006
+        },
+        {
+          "commandId": "copied-env-refused",
+          "log": "logs/copied-env-refused.log",
+          "exitCode": 1,
+          "durationSeconds": 0.065
+        },
+        {
+          "commandId": "distzip-conflict-env-files",
+          "log": "logs/distzip-conflict-env-files.log",
+          "exitCode": 1,
+          "durationSeconds": 0.01
+        },
+        {
+          "commandId": "distzip-conflict-compose-project",
+          "log": "logs/distzip-conflict-compose-project.log",
+          "exitCode": 1,
+          "durationSeconds": 0.01
+        },
+        {
+          "commandId": "distzip-conflict-project",
+          "log": "logs/distzip-conflict-project.log",
+          "exitCode": 1,
+          "durationSeconds": 0.066
+        },
+        {
+          "commandId": "distzip-conflict-file",
+          "log": "logs/distzip-conflict-file.log",
+          "exitCode": 1,
+          "durationSeconds": 0.009
+        },
+        {
+          "commandId": "distzip-conflict-port",
+          "log": "logs/distzip-conflict-port.log",
+          "exitCode": 1,
+          "durationSeconds": 0.065
+        },
+        {
+          "commandId": "distzip-dotenv-reserved",
+          "log": "logs/distzip-dotenv-reserved.log",
+          "exitCode": 0,
+          "durationSeconds": 0.032
+        }
+      ]
+    },
+    {
+      "id": "A03",
+      "applicable": true,
+      "environment": "Linux Mint 22.3 x86_64 / Dev Container CLI 0.89.0",
+      "result": "PASS",
+      "evidence": [
+        {
+          "commandId": "image-size",
+          "log": "logs/image-size.log",
+          "exitCode": 0,
+          "durationSeconds": 0.035
+        },
+        {
+          "commandId": "devcontainer-exec",
+          "log": "logs/devcontainer-exec.log",
+          "exitCode": 0,
+          "durationSeconds": 0.424
+        },
+        {
+          "commandId": "finalzip-up",
+          "log": "logs/finalzip-up.log",
+          "exitCode": 0,
+          "durationSeconds": 8.815
+        }
+      ]
+    },
+    {
+      "id": "A04",
+      "applicable": true,
+      "environment": "Linux Mint 22.3 x86_64 / Dev Container CLI 0.89.0",
+      "result": "PASS",
+      "evidence": [
+        {
+          "commandId": "devcontainer-up-prebuild",
+          "log": "logs/devcontainer-up-prebuild.log",
+          "exitCode": 0,
+          "durationSeconds": 10.978
+        },
+        {
+          "commandId": "devcontainer-exec",
+          "log": "logs/devcontainer-exec.log",
+          "exitCode": 0,
+          "durationSeconds": 0.424
+        },
+        {
+          "commandId": "distzip-up",
+          "log": "logs/distzip-up.log",
+          "exitCode": 0,
+          "durationSeconds": 8.623
+        },
+        {
+          "commandId": "distzip-check",
+          "log": "logs/distzip-check.log",
+          "exitCode": 0,
+          "durationSeconds": 0.423
+        }
+      ],
+      "scopeNote": "Dev Container CLI only; VS Code GUI remains NOT_RUN."
+    },
+    {
+      "id": "A05",
+      "applicable": true,
+      "environment": "Linux Mint 22.3 x86_64 / Dev Container CLI 0.89.0",
+      "result": "PASS",
+      "evidence": [
+        {
+          "commandId": "semantic-check",
+          "log": "logs/semantic-check.log",
+          "exitCode": 0,
+          "durationSeconds": 0.152
+        },
+        {
+          "commandId": "seed-two-rows",
+          "log": "logs/seed-two-rows.log",
+          "exitCode": 0,
+          "durationSeconds": 0.119
+        }
+      ]
+    },
+    {
+      "id": "A06",
+      "applicable": true,
+      "environment": "Linux Mint 22.3 x86_64 / Dev Container CLI 0.89.0",
+      "result": "PASS",
+      "evidence": [
+        {
+          "commandId": "source-change",
+          "log": "logs/source-change.log",
+          "exitCode": 0,
+          "durationSeconds": 0.116
+        },
+        {
+          "commandId": "migration-add-column",
+          "log": "logs/migration-add-column.log",
+          "exitCode": 0,
+          "durationSeconds": 0.134
+        },
+        {
+          "commandId": "column-use",
+          "log": "logs/column-use.log",
+          "exitCode": 0,
+          "durationSeconds": 0.151
+        }
+      ]
+    },
+    {
+      "id": "A07",
+      "applicable": true,
+      "environment": "Linux Mint 22.3 x86_64 / Dev Container CLI 0.89.0",
+      "result": "PASS",
+      "evidence": [
+        {
+          "commandId": "stop",
+          "log": "logs/stop.log",
+          "exitCode": 0,
+          "durationSeconds": 0.581
+        },
+        {
+          "commandId": "resume",
+          "log": "logs/resume.log",
+          "exitCode": 0,
+          "durationSeconds": 6.675
+        },
+        {
+          "commandId": "persist-after-stop",
+          "log": "logs/persist-after-stop.log",
+          "exitCode": 0,
+          "durationSeconds": 0.112
+        },
+        {
+          "commandId": "devcontainer-reconnect",
+          "log": "logs/devcontainer-reconnect.log",
+          "exitCode": 0,
+          "durationSeconds": 0.437
+        }
+      ],
+      "scopeNote": "Compose stop/start and CLI reconnect only; VS Code GUI remains NOT_RUN."
+    },
+    {
+      "id": "A08",
+      "applicable": true,
+      "environment": "Linux Mint 22.3 x86_64 / Dev Container CLI 0.89.0",
+      "result": "PASS",
+      "evidence": [
+        {
+          "commandId": "remove-containers-keep-data",
+          "log": "logs/remove-containers-keep-data.log",
+          "exitCode": 0,
+          "durationSeconds": 0.425
+        },
+        {
+          "commandId": "devcontainer-rebuild",
+          "log": "logs/devcontainer-rebuild.log",
+          "exitCode": 0,
+          "durationSeconds": 7.416
+        },
+        {
+          "commandId": "persist-after-recreate",
+          "log": "logs/persist-after-recreate.log",
+          "exitCode": 0,
+          "durationSeconds": 0.111
+        },
+        {
+          "commandId": "source-after-recreate",
+          "log": "logs/source-after-recreate.log",
+          "exitCode": 0,
+          "durationSeconds": 0.109
+        }
+      ]
+    },
+    {
+      "id": "A09",
+      "applicable": true,
+      "environment": "Linux Mint 22.3 x86_64 / Dev Container CLI 0.89.0",
+      "result": "PASS",
+      "evidence": [
+        {
+          "commandId": "setup-empty",
+          "log": "logs/setup-empty.log",
+          "exitCode": 0,
+          "durationSeconds": 0.2
+        },
+        {
+          "commandId": "setup-repeat",
+          "log": "logs/setup-repeat.log",
+          "exitCode": 0,
+          "durationSeconds": 0.191
+        },
+        {
+          "commandId": "seed-idempotent",
+          "log": "logs/seed-idempotent.log",
+          "exitCode": 0,
+          "durationSeconds": 0.113
+        },
+        {
+          "commandId": "scoped-reset",
+          "log": "logs/scoped-reset.log",
+          "exitCode": 0,
+          "durationSeconds": 0.758
+        },
+        {
+          "commandId": "other-copy-survives-reset",
+          "log": "logs/other-copy-survives-reset.log",
+          "exitCode": 0,
+          "durationSeconds": 0.113
+        },
+        {
+          "commandId": "reset-is-empty",
+          "log": "logs/reset-is-empty.log",
+          "exitCode": 0,
+          "durationSeconds": 0.109
+        },
+        {
+          "commandId": "reset-reconstruct",
+          "log": "logs/reset-reconstruct.log",
+          "exitCode": 0,
+          "durationSeconds": 0.186
+        }
+      ]
+    },
+    {
+      "id": "A10",
+      "applicable": true,
+      "environment": "Linux Mint 22.3 x86_64 / Dev Container CLI 0.89.0",
+      "result": "PASS",
+      "evidence": [
+        {
+          "commandId": "second-copy-start",
+          "log": "logs/second-copy-start.log",
+          "exitCode": 0,
+          "durationSeconds": 6.712
+        },
+        {
+          "commandId": "copies-isolated",
+          "log": "logs/copies-isolated.log",
+          "exitCode": 0,
+          "durationSeconds": 0.117
+        },
+        {
+          "commandId": "other-copy-survives-reset",
+          "log": "logs/other-copy-survives-reset.log",
+          "exitCode": 0,
+          "durationSeconds": 0.113
+        },
+        {
+          "commandId": "published-ports",
+          "log": "logs/published-ports.log",
+          "exitCode": 0,
+          "durationSeconds": 0.019
+        },
+        {
+          "commandId": "cross-f2-http",
+          "log": "logs/cross-f2-http.log",
+          "exitCode": 0
+        },
+        {
+          "commandId": "cross-i1-sql",
+          "log": "logs/cross-i1-sql.log",
+          "exitCode": 0
+        }
+      ],
+      "scopeNote": "Same-template copies plus representative F2 (HTTP3001) and I1 (SQL55432) concurrent probes PASS."
+    },
+    {
+      "id": "A11",
+      "applicable": true,
+      "environment": "Linux Mint 22.3 x86_64 / Dev Container CLI 0.89.0",
+      "result": "PASS",
+      "evidence": [
+        {
+          "commandId": "semantic-check",
+          "log": "logs/semantic-check.log",
+          "exitCode": 0,
+          "durationSeconds": 0.152
+        },
+        {
+          "commandId": "migration-drift-refused-fixed",
+          "log": "logs/migration-drift-refused-fixed.log",
+          "exitCode": 3,
+          "durationSeconds": 0.145
+        },
+        {
+          "commandId": "migration-failure-atomic",
+          "log": "logs/migration-failure-atomic.log",
+          "exitCode": 3,
+          "durationSeconds": 0.135
+        },
+        {
+          "commandId": "migration-rollback-proof",
+          "log": "logs/migration-rollback-proof.log",
+          "exitCode": 0,
+          "durationSeconds": 0.134
+        }
+      ]
+    },
+    {
+      "id": "A12",
+      "applicable": true,
+      "environment": "Linux Mint 22.3 x86_64 / Dev Container CLI 0.89.0",
+      "result": "PASS",
+      "evidence": [
+        {
+          "commandId": "workflow-syntax",
+          "log": "logs/workflow-syntax.log",
+          "exitCode": 0,
+          "durationSeconds": 0.035
+        },
+        {
+          "commandId": "setup-repeat",
+          "log": "logs/setup-repeat.log",
+          "exitCode": 0,
+          "durationSeconds": 0.191
+        },
+        {
+          "commandId": "final-semantic-check",
+          "log": "logs/final-semantic-check.log",
+          "exitCode": 0,
+          "durationSeconds": 0.141
+        }
+      ],
+      "scopeNote": "Workflow created, YAML parsed, equivalent local commands passed. Real GitHub Actions NOT_RUN."
+    },
+    {
+      "id": "A13",
+      "applicable": true,
+      "environment": "Linux Mint 22.3 x86_64 / Dev Container CLI 0.89.0",
+      "result": "PASS",
+      "evidence": [
+        {
+          "commandId": "published-ports",
+          "log": "logs/published-ports.log",
+          "exitCode": 0,
+          "durationSeconds": 0.019
+        }
+      ],
+      "scopeNote": "Loopback port verified; .env excluded from ZIP and generated local passwords absent from shared logs."
+    },
+    {
+      "id": "A14",
+      "applicable": true,
+      "environment": "Linux Mint 22.3 x86_64 / Dev Container CLI 0.89.0",
+      "result": "PASS",
+      "evidence": [
+        {
+          "commandId": "distzip-configure",
+          "log": "logs/distzip-configure.log",
+          "exitCode": 0,
+          "durationSeconds": 0.01
+        },
+        {
+          "commandId": "distzip-doctor",
+          "log": "logs/distzip-doctor.log",
+          "exitCode": 0,
+          "durationSeconds": 0.112
+        },
+        {
+          "commandId": "distzip-up",
+          "log": "logs/distzip-up.log",
+          "exitCode": 0,
+          "durationSeconds": 8.623
+        },
+        {
+          "commandId": "distzip-setup",
+          "log": "logs/distzip-setup.log",
+          "exitCode": 0,
+          "durationSeconds": 0.482
+        },
+        {
+          "commandId": "distzip-check",
+          "log": "logs/distzip-check.log",
+          "exitCode": 0,
+          "durationSeconds": 0.423
+        },
+        {
+          "commandId": "distzip-query",
+          "log": "logs/distzip-query.log",
+          "exitCode": 0,
+          "durationSeconds": 0.387
+        },
+        {
+          "commandId": "finalzip-configure",
+          "log": "logs/finalzip-configure.log",
+          "exitCode": 0,
+          "durationSeconds": 0.017
+        },
+        {
+          "commandId": "finalzip-doctor",
+          "log": "logs/finalzip-doctor.log",
+          "exitCode": 0,
+          "durationSeconds": 0.225
+        },
+        {
+          "commandId": "finalzip-up",
+          "log": "logs/finalzip-up.log",
+          "exitCode": 0,
+          "durationSeconds": 8.815
+        },
+        {
+          "commandId": "finalzip-setup",
+          "log": "logs/finalzip-setup.log",
+          "exitCode": 0,
+          "durationSeconds": 0.928
+        },
+        {
+          "commandId": "finalzip-check",
+          "log": "logs/finalzip-check.log",
+          "exitCode": 0,
+          "durationSeconds": 0.893
+        },
+        {
+          "commandId": "finalzip-practice",
+          "log": "logs/finalzip-practice.log",
+          "exitCode": 0,
+          "durationSeconds": 0.731
+        },
+        {
+          "commandId": "source-change",
+          "log": "logs/source-change.log",
+          "exitCode": 0,
+          "durationSeconds": 0.116
+        },
+        {
+          "commandId": "scoped-reset",
+          "log": "logs/scoped-reset.log",
+          "exitCode": 0,
+          "durationSeconds": 0.758
+        }
+      ],
+      "scopeNote": "Written steps verified with CLI; no novice user test and no VS Code GUI claim."
+    },
+    {
+      "id": "A15",
+      "applicable": true,
+      "environment": "Linux Mint 22.3 x86_64 / Dev Container CLI 0.89.0",
+      "result": "PASS",
+      "evidence": [
+        {
+          "commandId": "environment",
+          "log": "logs/environment.log",
+          "exitCode": 0,
+          "durationSeconds": 0.185
+        },
+        {
+          "commandId": "runtime-metadata",
+          "log": "logs/runtime-metadata.log",
+          "exitCode": 0,
+          "durationSeconds": 0.713
+        }
+      ]
+    },
+    {
+      "id": "A16",
+      "applicable": true,
+      "environment": "Linux Mint 22.3 x86_64 / Dev Container CLI 0.89.0",
+      "result": "PASS",
+      "evidence": [
+        {
+          "commandId": "finalzip-check",
+          "log": "logs/finalzip-check.log",
+          "exitCode": 0,
+          "durationSeconds": 0.893
+        },
+        {
+          "commandId": "distzip-up",
+          "log": "logs/distzip-up.log",
+          "exitCode": 0,
+          "durationSeconds": 8.623
+        },
+        {
+          "commandId": "distzip-check",
+          "log": "logs/distzip-check.log",
+          "exitCode": 0,
+          "durationSeconds": 0.423
+        }
+      ]
+    }
+  ],
+  "notRun": [
+    "VS Code GUI",
+    "Windows + WSL2",
+    "macOS / arm64",
+    "clean-machine installation",
+    "GitHub Actions run",
+    "novice user trial"
+  ],
+  "notApplicable": [
+    {
+      "item": "Type check / application build / browser UI",
+      "reason": "SQL workbench has no application source or browser UI."
+    },
+    {
+      "item": "npm lockfile",
+      "reason": "No npm dependencies; database and psql restored from exact pinned image digest."
+    }
+  ],
+  "resolvedFailures": [
+    {
+      "id": "devcontainer-up",
+      "category": "tool compatibility",
+      "fix": "Build image directly from project-local Dockerfile before Compose; no permission settings changed."
+    },
+    {
+      "id": "migration-drift-refused",
+      "category": "implementation",
+      "fix": "Use SQL RAISE EXCEPTION instead of unsupported psql quit code."
+    }
+  ],
+  "provisional": "All I1 trial containers stopped; isolated volumes/images retained. VSCode/Windows/macOS/actual hosted CI not verified.",
+  "finalArtifactNote": "Canonical dist ZIP from tools/package.py, freshly extracted to an independent directory and verified with distzip-* commands. Earlier complete SQL/isolation suite applies to unchanged SQL/image; final smoke repeats startup/setup/check/query and tests environment guards.",
+  "finalSourceDiffFromEarlierFullSuite": [
+    "docs/troubleshooting.md",
+    "scripts/lib.sh"
+  ]
+}

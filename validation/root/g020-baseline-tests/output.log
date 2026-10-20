@@ -1,0 +1,26 @@
+
+> meikyo-starter-generator@0.1.1 test
+> node --test tests/*.test.mjs
+
+✔ 必須6構成を日本語・空白パスへ生成し、カタログの版とフォルダ識別を保持する (79.408153ms)
+ℹ F1: version 0.1.1, ZIP SHA256 eec4b54362783a6c91379f785f983827db7cf7def57acaceaabfc65d1b5bef20, Japanese/space path PASS
+ℹ F2: version 0.1.0, ZIP SHA256 7175148d110a8d888549e3e7d9dc037960e2a692daf283d9dab8df06f0bdbba7, Japanese/space path PASS
+ℹ B1: version 0.1.1, ZIP SHA256 c3e106499f4e3e3154c38a20c68a115f86f6fd1e706e6df28e669c30f450790c, Japanese/space path PASS
+ℹ S1: version 0.1.1, ZIP SHA256 9e41c0096df9e0a9735c8f85668eb770666d5ffd3e4d17204fbf65f6d82dccf2, Japanese/space path PASS
+ℹ S2: version 0.1.1, ZIP SHA256 1fff412887ed8657a32326176d6162f7a8f73d5f79d38700e35aaf873368f673, Japanese/space path PASS
+ℹ I1: version 0.1.0, ZIP SHA256 2861fea034ced0baf1dd484f78c19be8bbfbb2ccc8ac8c880e0ec3f5e989e398, Japanese/space path PASS
+✔ 既存の空フォルダ・ファイル・symlink親は拒否し保持する (1.630726ms)
+✔ 名前・ポート・構成・DBポートの不正値で出力を作らない (6.753349ms)
+✔ カタログSHA256不一致を展開前に拒否する (3.117791ms)
+✔ ZIPの上位パスと実.envを拒否する (17.224986ms)
+✔ コミット途中の失敗は作成物とstageを戻す (5.706484ms)
+✔ 確定直前に出力先が作成された競合を拒否し、他の内容を残す (5.415368ms)
+✔ 失敗時でも作成中に利用者が変更したファイルを削除しない (6.062267ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 183.772312

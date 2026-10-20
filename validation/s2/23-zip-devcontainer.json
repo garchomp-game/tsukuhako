@@ -1,0 +1,15 @@
+{
+  "name": "23-zip-devcontainer",
+  "startedAt": "2026-10-20T02:34:54.062828+00:00",
+  "elapsedSeconds": 14.646,
+  "command": [
+    "<WORKSPACE>/tools/node_modules/.bin/devcontainer",
+    "up",
+    "--workspace-folder",
+    "."
+  ],
+  "cwd": "validation/s2/runs/ZIP 新規展開/S2",
+  "exitCode": 0,
+  "result": "PASS",
+  "log": "23-zip-devcontainer.log"
+}

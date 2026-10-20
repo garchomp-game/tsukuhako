@@ -1,0 +1,19 @@
+{
+  "id": "f2-browser",
+  "startedAt": "2026-10-20T02:22:32.492788+00:00",
+  "command": [
+    "../../tools/node_modules/.bin/devcontainer",
+    "exec",
+    "--workspace-folder",
+    ".",
+    "npm",
+    "run",
+    "test:browser"
+  ],
+  "cwd": "starter-templates/F2",
+  "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+  "exitCode": 1,
+  "elapsedSeconds": 9.084,
+  "result": "FAIL",
+  "log": "output.log"
+}

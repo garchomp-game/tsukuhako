@@ -1,0 +1,10 @@
+
+> otoka-f2@0.1.0 test:browser
+> playwright test
+
+
+Running 1 test using 1 worker
+
+  ✓  1 tests/browser/practice.spec.ts:2:5 › ページ遷移、入力、文字列の安全な表示、クリア、再読込 (672ms)
+
+  1 passed (2.7s)

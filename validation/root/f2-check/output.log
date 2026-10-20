@@ -1,0 +1,10 @@
+
+> otoka-f2@0.1.0 check
+> eslint . && tsc --noEmit
+
+
+/workspace/postcss.config.mjs
+  1:1  warning  Assign object to a variable before exporting as module default  import/no-anonymous-default-export
+
+✖ 1 problem (0 errors, 1 warning)
+

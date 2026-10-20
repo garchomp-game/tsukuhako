@@ -1,0 +1,99 @@
+{
+  "templateId": "S2",
+  "version": "0.1.1",
+  "testedAt": "2026-10-20T05:01:55.727940+00:00",
+  "result": "PASS",
+  "scope": "R2 regression and exact final ZIP from new path/new ID/new empty DB, Linux local validation only",
+  "artifact": {
+    "result": "PASS",
+    "artifact": "S2-0.1.1.zip",
+    "sha256": "1fff412887ed8657a32326176d6162f7a8f73d5f79d38700e35aaf873368f673",
+    "bytes": 100169,
+    "sourceMatchesAllManifestFiles": true,
+    "freshCopyMatchesHandAuthoredFiles": true,
+    "frameworkGeneratedDifferences": [
+      "next-env.d.ts"
+    ],
+    "sourceFrozen": true
+  },
+  "R2": {
+    "result": "PASS",
+    "change": "Direct Next process in a dedicated process group; HTTP and browser share it; finally waits for complete group exit and port release before the next build step. Existing servers are refused.",
+    "files": [
+      "scripts/managed-server.mjs",
+      "scripts/test-integration.mjs",
+      "tests/managed-server.test.mjs",
+      "playwright.config.ts",
+      ".github/workflows/check.yml"
+    ],
+    "regressionTests": {
+      "unit": 5,
+      "http": 2,
+      "browser": 2,
+      "failureCleanup": "child-server process group terminated on callback failure",
+      "occupiedPort": "fixture owner retained; actual running Next also refused and retained"
+    },
+    "ciEquivalent": "CI=true check/install browser/unit/HTTP/browser/verified shutdown/build in one consecutive shell run; PASS",
+    "boundary": "PID/group286 gone and internal3000 bindable before build; independent post-build check also PASS",
+    "actualGithubActions": "NOT_RUN",
+    "evidence": [
+      "03-preflight-final.log",
+      "10-ci-equivalent-sequence.json",
+      "11-server-boundary.json",
+      "13-existing-server-refused.json"
+    ]
+  },
+  "freshFinalZip": {
+    "result": "PASS",
+    "path": "validation/revision-0.1.1/s2/runs/最終配布 新規起動/S2",
+    "project": "otoka-s2-2811127744",
+    "sha256": "1fff412887ed8657a32326176d6162f7a8f73d5f79d38700e35aaf873368f673",
+    "initialState": "No app/DB containers, volumes, networks or generated DB config for this new project before first start",
+    "initialDatabase": "New supabase_db volume; exactly migration20261020000000 and the two fixed seed UUIDs before CRUD",
+    "commands": "configure → doctor → db start → DevContainer up/npm ci → SQL/migration/seed checks → CI-equivalent sequence → normal dev/browser create/edit/reload → app+DB stop → DB+app restart → same ID/body retained → browser delete/reload → final stop",
+    "stopRestart": "Same synthetic note ID/body and original seed2 retained; deletion after restart left seed2 only; no reset used",
+    "resourceIsolation": "All five host ports separate; no previous test DB or volume reused in acceptance. Image/download caches allowed.",
+    "evidence": [
+      "05-initial-state.json",
+      "06-fresh-db-start.json",
+      "07-fresh-devcontainer-up.json",
+      "08-initial-db.json",
+      "09-fresh-database-tests.json",
+      "14-browser-before-stop.json",
+      "16-normal-stop-state.json",
+      "17-normal-restart.json",
+      "19-browser-after-restart.json",
+      "20-final-stop.json"
+    ]
+  },
+  "environment": {
+    "host": "Linux Mint22.3 x86_64",
+    "docker": "29.9.1",
+    "compose": "5.6.0",
+    "devcontainerCLI": "0.89.0",
+    "nodeInContainer": "24.22.0",
+    "npmInContainer": "11.17.0",
+    "supabaseCLI": "2.121.0",
+    "postgres": "17.11.0.004",
+    "testBrowser": "Playwright1.64.1 / bundled Chromium156",
+    "visualBrowser": "host Google Chrome155; desktop/mobile screenshots inspected"
+  },
+  "notRun": [
+    "Actual GitHub Actions / push",
+    "VS Code GUI Reopen/edit/reconnect/Rebuild",
+    "Windows+WSL actual device",
+    "macOS / ARM",
+    "Fresh-PC tool installation",
+    "Beginner usability study",
+    "Cloud connection / deployment"
+  ],
+  "resources": "21-resources-final.json",
+  "sourceFreeze": "22-final-artifact.json",
+  "secrets": "No actual key/JWT patterns in revision evidence outside excluded runs; raw .env.local and CLI status not logged",
+  "preflightScope": "Existing source app dependency volume was used only for static/unit preflight and stopped before fresh acceptance; no old DB started. Final acceptance app, npm/dependency and DB volumes were all new.",
+  "notes": [
+    "Runtime image tag0.1.0 retains the unchanged fixed toolchain; template/package/lock/VERSION are0.1.1.",
+    "No S3/I1 files or resources modified.",
+    "Old0.1.0 validation and ZIP retained; this revision evidence is separate."
+  ]
+}

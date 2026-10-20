@@ -1,0 +1,20 @@
+{
+  "template": "S1",
+  "event": "tests-check",
+  "startedAt": "2026-10-20T05:01:06.704151+00:00",
+  "command": [
+    "<WORKSPACE>/tools/node_modules/.bin/devcontainer",
+    "exec",
+    "--workspace-folder",
+    "<WORKSPACE>/validation/revision-0.1.1/learning/runs/S1 空フォルダ 教材 0.1.1",
+    "npm",
+    "run",
+    "check"
+  ],
+  "cwd": "validation/revision-0.1.1/learning/runs/S1 空フォルダ 教材 0.1.1",
+  "endedAt": "2026-10-20T05:01:10.275601+00:00",
+  "exitCode": 0,
+  "elapsedSeconds": 3.571,
+  "result": "PASS",
+  "log": "output.log"
+}

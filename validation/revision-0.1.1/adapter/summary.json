@@ -1,0 +1,157 @@
+{
+  "result": "PASS",
+  "version": "0.1.1",
+  "completedAt": "2026-10-20T04:59:51.529843+00:00",
+  "environment": {
+    "os": "Linux Mint 22.3 x86_64",
+    "hostNode": "24.19.0",
+    "hostNpm": "11.17.0",
+    "runtimeTargetUnchanged": {
+      "node": "24.22.0",
+      "npm": "11.17.0",
+      "next": "16.4.x"
+    }
+  },
+  "findings": [
+    {
+      "id": "R1",
+      "result": "PASS",
+      "change": "Validate effective optional dependencies, npm optional override, declared/lock local references, missing/mismatched resolutions. Normal registry and OS-limited optional packages remain statically eligible.",
+      "evidence": [
+        {
+          "commandId": "regression-before-fix",
+          "log": "logs/regression-before-fix.log",
+          "exitCode": 1,
+          "expectedExitCode": 1,
+          "durationSeconds": 0.131
+        },
+        {
+          "commandId": "actual-npm-lock-fixture-final",
+          "log": "logs/actual-npm-lock-fixture-final.log",
+          "exitCode": 0,
+          "expectedExitCode": 0,
+          "durationSeconds": 0.508
+        },
+        {
+          "commandId": "cli-regression-final",
+          "log": "logs/cli-regression-final.log",
+          "exitCode": 0,
+          "expectedExitCode": 0,
+          "durationSeconds": 0.384
+        },
+        {
+          "commandId": "final-check-record-integrity",
+          "log": "logs/final-check-record-integrity.log",
+          "exitCode": 0,
+          "expectedExitCode": 0,
+          "durationSeconds": 0.417
+        }
+      ],
+      "observations": [
+        "actual-npm-lock-observation.json",
+        "cli-operations.json",
+        "protected-hashes.json"
+      ]
+    },
+    {
+      "id": "P3-adapter-record",
+      "result": "PASS",
+      "change": "Hash the original management fields, detect extra fields and text edits, preserve userNote/formatting/pending edits and ordinary generated-file edits. Managed-field changes stop undo without deleting files.",
+      "evidence": [
+        {
+          "commandId": "regression-before-fix",
+          "log": "logs/regression-before-fix.log",
+          "exitCode": 1,
+          "expectedExitCode": 1,
+          "durationSeconds": 0.131
+        },
+        {
+          "commandId": "cli-regression-final",
+          "log": "logs/cli-regression-final.log",
+          "exitCode": 0,
+          "expectedExitCode": 0,
+          "durationSeconds": 0.384
+        },
+        {
+          "commandId": "final-check-record-integrity",
+          "log": "logs/final-check-record-integrity.log",
+          "exitCode": 0,
+          "expectedExitCode": 0,
+          "durationSeconds": 0.417
+        },
+        {
+          "commandId": "p3-repeat-undo-final",
+          "log": "logs/p3-repeat-undo-final.log",
+          "exitCode": 0,
+          "expectedExitCode": 0,
+          "durationSeconds": 0.038
+        }
+      ],
+      "observations": [
+        "protected-hashes.json"
+      ]
+    }
+  ],
+  "tests": {
+    "passed": 26,
+    "failed": 0,
+    "existing": 17,
+    "added": 9
+  },
+  "protectedHashes": "protected-hashes.json",
+  "protectedHashSummary": {
+    "unsupportedAppPackageLockUnchanged": true,
+    "supportedOriginalFilesUnchanged": true,
+    "siblingHelperUnchanged": true,
+    "recordNoteBeforeUndo": "fdc76a2ff702b39d1b2b55e6fdc208df1b699a2d481f2a8d029227d88a191dea",
+    "recordNoteAfterUndo": "fdc76a2ff702b39d1b2b55e6fdc208df1b699a2d481f2a8d029227d88a191dea",
+    "dockerfileEditBeforeUndo": "ba35806623d43a46a0f3ea0a499d187a2fd579078d15ab1acac86eb9a3d1f45c",
+    "dockerfileEditAfterUndo": "ba35806623d43a46a0f3ea0a499d187a2fd579078d15ab1acac86eb9a3d1f45c"
+  },
+  "changedFiles": [
+    "README.md",
+    "VALIDATION.md",
+    "fixtures/README.md",
+    "package-lock.json",
+    "package.json",
+    "src/adapter.mjs",
+    "src/templates.mjs",
+    "tests/revision.test.mjs"
+  ],
+  "sourceManifest": "artifact-checksums.json",
+  "sources": "sources.json",
+  "notRun": [
+    {
+      "item": "Docker / browser startup in revision 0.1.1",
+      "reason": "Changes are static classification/file protection plus image tag; runtime/base image/startup commands unchanged. Previous 0.1.0 E12 evidence retained separately."
+    },
+    {
+      "item": "VS Code GUI, Windows+WSL, macOS, actual hosted CI, actual user projects",
+      "reason": "Outside this targeted regression run; no verification claim."
+    }
+  ],
+  "previousEvidence": "../../adapter/",
+  "resources": {
+    "dockerCreated": [],
+    "processesLeftRunning": [],
+    "userProjectsModified": false
+  },
+  "distributionExclusions": [
+    "runs/ (contains raw plans and copied fixture inputs)"
+  ],
+  "limitations": [
+    "optional/dev same-name overlap is manual; missing optional resolution is manual.",
+    "Static acceptance does not guarantee app behavior when OS-limited optional packages are omitted.",
+    "0.1.0 plans/records are not auto-migrated or removed by 0.1.1."
+  ],
+  "resolvedValidationIssues": [
+    {
+      "id": "cli-regression",
+      "resolution": "Corrected test harness relative import path; product code unaffected."
+    },
+    {
+      "id": "cli-regression-fixed",
+      "resolution": "Current F2 dev script has --port and is outside existing allowlist. Reused previously supported E12 package/lock instead of widening scope; fixture-origin.json documents this."
+    }
+  ]
+}

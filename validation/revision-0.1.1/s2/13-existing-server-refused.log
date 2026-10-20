@@ -1,0 +1,27 @@
+
+> otoka-s2-local-notes@0.1.1 test:integration
+> node scripts/test-integration.mjs
+
+file:///workspace/scripts/managed-server.mjs:32
+  await assertPortFree(port).catch(error => { throw new Error(`試験用ポート${port}を使用中です。既存サーバーは再利用しません。`, { cause: error }); });
+                                                    ^
+
+Error: 試験用ポート3000を使用中です。既存サーバーは再利用しません。
+    at file:///workspace/scripts/managed-server.mjs:32:53
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async withManagedServer (file:///workspace/scripts/managed-server.mjs:32:3)
+    at async file:///workspace/scripts/test-integration.mjs:14:1 {
+  [cause]: Error: listen EADDRINUSE: address already in use 0.0.0.0:3000
+      at Server.setupListenHandle [as _listen2] (node:net:2390:16)
+      at listenInCluster (node:net:2499:12)
+      at node:net:2728:7
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    code: 'EADDRINUSE',
+    errno: -98,
+    syscall: 'listen',
+    address: '0.0.0.0',
+    port: 3000
+  }
+}
+
+Node.js v24.22.0

@@ -1,0 +1,27 @@
+{
+  "recordedAt": "2026-10-20T08:41:45.706961+00:00",
+  "result": "PASS",
+  "scope": "Real Linux PTY, not piped mock input; no GUI claim",
+  "cases": [
+    {
+      "case": "create-back",
+      "exitCode": 0,
+      "planAndBackNoWrites": true,
+      "retainedInput": true,
+      "explicitCliBytesEqual": true,
+      "files": 44,
+      "result": "PASS"
+    },
+    {
+      "case": "cancel",
+      "exitCode": 0,
+      "planNoWrites": true,
+      "result": "PASS"
+    },
+    {
+      "case": "interrupt",
+      "exitCode": 130,
+      "result": "PASS"
+    }
+  ]
+}

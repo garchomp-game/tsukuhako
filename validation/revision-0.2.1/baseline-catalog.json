@@ -1,0 +1,554 @@
+{
+  "schemaVersion": 1,
+  "documentPurpose": "implemented-template-catalog",
+  "requirementsVersion": "0.3",
+  "createdDate": "2026-10-20",
+  "templates": [
+    {
+      "id": "F1",
+      "category": "frontend",
+      "title": "React + Vite + TypeScript",
+      "priority": "required",
+      "lifecycle": "implemented",
+      "externalAccountRequired": false,
+      "implementationVersion": "0.1.1",
+      "packageSha256": "eec4b54362783a6c91379f785f983827db7cf7def57acaceaabfc65d1b5bef20",
+      "validatedEnvironments": [
+        "Linux Mint 22.3 / x86_64 / Docker29.9.1 / Compose5.6.0 / DevContainerCLI0.89.0"
+      ],
+      "validationStatus": "PASS",
+      "packagePath": "dist/F1-0.1.1.zip",
+      "sourcePath": "starter-templates/F1",
+      "defaultPort": 3000,
+      "generatorEligible": true,
+      "validationScope": "Linux local: 0.1.1 lesson assembled from explicit file lists in a new empty folder; Dev Container CLI, stage checks, main operations, tests and build. Earlier 0.1.0 acceptance evidence retained separately.",
+      "validationEvidence": "validation/revision-0.1.1/learning/summary.json",
+      "notRun": [
+        "VS Code GUI",
+        "Windows + WSL",
+        "macOS / ARM",
+        "fresh-PC installation",
+        "GitHub-hosted CI",
+        "beginner trial"
+      ],
+      "prerequisites": [
+        "Docker Engine + Compose plugin",
+        "VS Code + Dev Containers extension",
+        "bash and coreutils",
+        "network for initial restore"
+      ],
+      "runtime": "Node24.22.0 / npm11.17.0 inside container",
+      "commands": {
+        "configure": "bash scripts/configure.sh",
+        "doctor": "bash scripts/doctor-host.sh",
+        "start": "npm run dev",
+        "check": "npm run check",
+        "test": "npm test",
+        "build": "npm run build",
+        "stop": "bash scripts/compose.sh stop"
+      },
+      "readme": "starter-templates/F1/README.md",
+      "packageBytes": 59168,
+      "acceptanceStatus": "NOT_RUN",
+      "initialSetupRequiresNetwork": true,
+      "services": [
+        "app"
+      ],
+      "hostPorts": {
+        "app": 3000
+      },
+      "commandLocations": {
+        "configure": "host",
+        "doctor": "host",
+        "start": "container",
+        "check": "container",
+        "test": "container",
+        "build": "container",
+        "stop": "host"
+      },
+      "docs": [
+        "starter-templates/F1/README.md",
+        "starter-templates/F1/docs/SETUP.md",
+        "starter-templates/F1/docs/ARCHITECTURE.md",
+        "starter-templates/F1/docs/EXERCISES.md",
+        "starter-templates/F1/docs/BUILD-YOUR-OWN.md",
+        "starter-templates/F1/docs/RECOVERY.md",
+        "starter-templates/F1/VALIDATION.md"
+      ],
+      "acceptanceEvidence": "validation/acceptance.json",
+      "previousValidationEvidence": "validation/frontend-api/F1-acceptance.json"
+    },
+    {
+      "id": "F2",
+      "category": "frontend",
+      "title": "Next.js + TypeScript + Tailwind",
+      "priority": "required",
+      "lifecycle": "implemented",
+      "externalAccountRequired": false,
+      "implementationVersion": "0.1.0",
+      "packageSha256": "7175148d110a8d888549e3e7d9dc037960e2a692daf283d9dab8df06f0bdbba7",
+      "validatedEnvironments": [
+        "Linux Mint 22.3 / x86_64 / Docker29.9.1 / Compose5.6.0 / DevContainerCLI0.89.0"
+      ],
+      "validationStatus": "PASS",
+      "packagePath": "dist/F2-0.1.0.zip",
+      "sourcePath": "starter-templates/F2",
+      "defaultPort": 3001,
+      "generatorEligible": true,
+      "validationScope": "Linux x86_64, Dev Container CLI, local functional/recreation/standalone ZIP checks",
+      "validationEvidence": "validation/root/F2-acceptance.json",
+      "notRun": [
+        "VS Code GUI",
+        "Windows + WSL",
+        "macOS / ARM",
+        "fresh-PC installation",
+        "GitHub-hosted CI",
+        "beginner trial"
+      ],
+      "prerequisites": [
+        "Docker Engine + Compose plugin",
+        "VS Code + Dev Containers extension",
+        "bash and coreutils",
+        "network for initial restore"
+      ],
+      "runtime": "Node24.22.0 / npm11.17.0 inside container",
+      "commands": {
+        "configure": "bash scripts/configure.sh",
+        "doctor": "bash scripts/doctor-host.sh",
+        "start": "npm run dev",
+        "check": "npm run check",
+        "test": "npm test",
+        "build": "npm run build",
+        "stop": "bash scripts/compose.sh stop"
+      },
+      "readme": "starter-templates/F2/README.md",
+      "packageBytes": 77585,
+      "acceptanceStatus": "NOT_RUN",
+      "initialSetupRequiresNetwork": true,
+      "services": [
+        "app"
+      ],
+      "hostPorts": {
+        "app": 3001
+      },
+      "commandLocations": {
+        "configure": "host",
+        "doctor": "host",
+        "start": "container",
+        "check": "container",
+        "test": "container",
+        "build": "container",
+        "stop": "host"
+      },
+      "docs": [
+        "starter-templates/F2/README.md",
+        "starter-templates/F2/docs/SETUP.md",
+        "starter-templates/F2/docs/ARCHITECTURE.md",
+        "starter-templates/F2/docs/EXERCISES.md",
+        "starter-templates/F2/docs/BUILD-YOUR-OWN.md",
+        "starter-templates/F2/docs/RECOVERY.md",
+        "starter-templates/F2/VALIDATION.md"
+      ],
+      "acceptanceEvidence": "validation/acceptance.json"
+    },
+    {
+      "id": "B1",
+      "category": "backend",
+      "title": "Next.js Route Handlers API only",
+      "priority": "required",
+      "lifecycle": "implemented",
+      "externalAccountRequired": false,
+      "implementationVersion": "0.1.1",
+      "packageSha256": "c3e106499f4e3e3154c38a20c68a115f86f6fd1e706e6df28e669c30f450790c",
+      "validatedEnvironments": [
+        "Linux Mint 22.3 / x86_64 / Docker29.9.1 / Compose5.6.0 / DevContainerCLI0.89.0"
+      ],
+      "validationStatus": "PASS",
+      "packagePath": "dist/B1-0.1.1.zip",
+      "sourcePath": "starter-templates/B1",
+      "defaultPort": 3002,
+      "generatorEligible": true,
+      "validationScope": "Linux local: 0.1.1 lesson assembled from explicit file lists in a new empty folder; Dev Container CLI, stage checks, main operations, tests and build. Earlier 0.1.0 acceptance evidence retained separately.",
+      "validationEvidence": "validation/revision-0.1.1/learning/summary.json",
+      "notRun": [
+        "VS Code GUI",
+        "Windows + WSL",
+        "macOS / ARM",
+        "fresh-PC installation",
+        "GitHub-hosted CI",
+        "beginner trial"
+      ],
+      "prerequisites": [
+        "Docker Engine + Compose plugin",
+        "VS Code + Dev Containers extension",
+        "bash and coreutils",
+        "network for initial restore"
+      ],
+      "runtime": "Node24.22.0 / npm11.17.0 inside container",
+      "commands": {
+        "configure": "bash scripts/configure.sh",
+        "doctor": "bash scripts/doctor-host.sh",
+        "start": "npm run dev",
+        "check": "npm run check",
+        "test": "npm test",
+        "build": "npm run build",
+        "stop": "bash scripts/compose.sh stop"
+      },
+      "readme": "starter-templates/B1/README.md",
+      "packageBytes": 82654,
+      "acceptanceStatus": "NOT_RUN",
+      "initialSetupRequiresNetwork": true,
+      "services": [
+        "app"
+      ],
+      "hostPorts": {
+        "app": 3002
+      },
+      "commandLocations": {
+        "configure": "host",
+        "doctor": "host",
+        "start": "container",
+        "check": "container",
+        "test": "container",
+        "build": "container",
+        "stop": "host"
+      },
+      "docs": [
+        "starter-templates/B1/README.md",
+        "starter-templates/B1/docs/SETUP.md",
+        "starter-templates/B1/docs/ARCHITECTURE.md",
+        "starter-templates/B1/docs/EXERCISES.md",
+        "starter-templates/B1/docs/BUILD-YOUR-OWN.md",
+        "starter-templates/B1/docs/RECOVERY.md",
+        "starter-templates/B1/VALIDATION.md"
+      ],
+      "acceptanceEvidence": "validation/acceptance.json",
+      "previousValidationEvidence": "validation/frontend-api/B1-acceptance.json"
+    },
+    {
+      "id": "S1",
+      "category": "fullstack",
+      "title": "Next.js + Route Handlers",
+      "priority": "required",
+      "lifecycle": "implemented",
+      "externalAccountRequired": false,
+      "implementationVersion": "0.1.1",
+      "packageSha256": "9e41c0096df9e0a9735c8f85668eb770666d5ffd3e4d17204fbf65f6d82dccf2",
+      "validatedEnvironments": [
+        "Linux Mint 22.3 / x86_64 / Docker29.9.1 / Compose5.6.0 / DevContainerCLI0.89.0"
+      ],
+      "validationStatus": "PASS",
+      "packagePath": "dist/S1-0.1.1.zip",
+      "sourcePath": "starter-templates/S1",
+      "defaultPort": 3003,
+      "generatorEligible": true,
+      "validationScope": "Linux local: 0.1.1 lesson assembled from explicit file lists in a new empty folder; Dev Container CLI, stage checks, main operations, tests and build. Earlier 0.1.0 acceptance evidence retained separately.",
+      "validationEvidence": "validation/revision-0.1.1/learning/summary.json",
+      "notRun": [
+        "VS Code GUI",
+        "Windows + WSL",
+        "macOS / ARM",
+        "fresh-PC installation",
+        "GitHub-hosted CI",
+        "beginner trial"
+      ],
+      "prerequisites": [
+        "Docker Engine + Compose plugin",
+        "VS Code + Dev Containers extension",
+        "bash and coreutils",
+        "network for initial restore"
+      ],
+      "runtime": "Node24.22.0 / npm11.17.0 inside container",
+      "commands": {
+        "configure": "bash scripts/configure.sh",
+        "doctor": "bash scripts/doctor-host.sh",
+        "start": "npm run dev",
+        "check": "npm run check",
+        "test": "npm test",
+        "build": "npm run build",
+        "stop": "bash scripts/compose.sh stop"
+      },
+      "readme": "starter-templates/S1/README.md",
+      "packageBytes": 96196,
+      "acceptanceStatus": "NOT_RUN",
+      "initialSetupRequiresNetwork": true,
+      "services": [
+        "app"
+      ],
+      "hostPorts": {
+        "app": 3003
+      },
+      "commandLocations": {
+        "configure": "host",
+        "doctor": "host",
+        "start": "container",
+        "check": "container",
+        "test": "container",
+        "build": "container",
+        "stop": "host"
+      },
+      "docs": [
+        "starter-templates/S1/README.md",
+        "starter-templates/S1/docs/SETUP.md",
+        "starter-templates/S1/docs/ARCHITECTURE.md",
+        "starter-templates/S1/docs/EXERCISES.md",
+        "starter-templates/S1/docs/BUILD-YOUR-OWN.md",
+        "starter-templates/S1/docs/RECOVERY.md",
+        "starter-templates/S1/VALIDATION.md"
+      ],
+      "acceptanceEvidence": "validation/acceptance.json",
+      "previousValidationEvidence": "validation/frontend-api/S1-acceptance.json"
+    },
+    {
+      "id": "S2",
+      "category": "fullstack",
+      "title": "Next.js + local Supabase",
+      "priority": "required",
+      "lifecycle": "implemented",
+      "externalAccountRequired": false,
+      "implementationVersion": "0.1.1",
+      "packageSha256": "1fff412887ed8657a32326176d6162f7a8f73d5f79d38700e35aaf873368f673",
+      "validatedEnvironments": [
+        "Linux Mint 22.3 / x86_64 / Docker29.9.1 / Compose5.6.0 / DevContainerCLI0.89.0"
+      ],
+      "validationStatus": "PASS",
+      "packagePath": "dist/S2-0.1.1.zip",
+      "sourcePath": "starter-templates/S2",
+      "defaultPort": 3004,
+      "generatorEligible": true,
+      "validationScope": "Linux local: exact 0.1.1 ZIP from new Japanese/space path, new project and empty DB; migration/seed, CRUD/reload/stop-restart, CI=true HTTP/browser/process and port shutdown/build. Earlier 0.1.0 evidence retained separately.",
+      "validationEvidence": "validation/revision-0.1.1/s2/summary.json",
+      "notRun": [
+        "VS Code GUI",
+        "Windows + WSL",
+        "macOS / ARM",
+        "fresh-PC installation",
+        "GitHub-hosted CI",
+        "beginner trial"
+      ],
+      "prerequisites": [
+        "Docker Engine + Compose plugin",
+        "VS Code + Dev Containers extension",
+        "bash and coreutils",
+        "network for initial restore"
+      ],
+      "runtime": "Node24.22.0 / npm11.17.0 inside container",
+      "commands": {
+        "configure": "bash scripts/configure.sh",
+        "doctor": "bash scripts/doctor-host.sh",
+        "start": "npm run dev",
+        "check": "npm run check",
+        "test": "npm test",
+        "build": "npm run build",
+        "stop": "bash scripts/app.sh stop"
+      },
+      "readme": "starter-templates/S2/README.md",
+      "packageBytes": 100169,
+      "acceptanceStatus": "NOT_RUN",
+      "initialSetupRequiresNetwork": true,
+      "services": [
+        "app",
+        "Supabase DB/Auth/REST/Kong/Studio/Meta"
+      ],
+      "hostPorts": {
+        "app": 3004,
+        "api": 54321,
+        "database": 54322,
+        "studio": 54323,
+        "shadow": 54320
+      },
+      "commandLocations": {
+        "configure": "host",
+        "doctor": "host",
+        "start": "container",
+        "check": "container",
+        "test": "container",
+        "build": "container",
+        "stop": "host"
+      },
+      "docs": [
+        "starter-templates/S2/README.md",
+        "starter-templates/S2/docs/SETUP.md",
+        "starter-templates/S2/docs/ARCHITECTURE.md",
+        "starter-templates/S2/docs/EXERCISES.md",
+        "starter-templates/S2/docs/BUILD-YOUR-OWN.md",
+        "starter-templates/S2/docs/RECOVERY.md",
+        "starter-templates/S2/VALIDATION.md"
+      ],
+      "acceptanceEvidence": "validation/acceptance.json",
+      "previousValidationEvidence": "validation/s2/summary.json"
+    },
+    {
+      "id": "I1",
+      "category": "infrastructure",
+      "title": "PostgreSQL + development workbench",
+      "priority": "required",
+      "lifecycle": "implemented",
+      "externalAccountRequired": false,
+      "implementationVersion": "0.1.0",
+      "packageSha256": "2861fea034ced0baf1dd484f78c19be8bbfbb2ccc8ac8c880e0ec3f5e989e398",
+      "validatedEnvironments": [
+        "Linux Mint 22.3 / x86_64 / Docker29.9.1 / Compose5.6.0 / DevContainerCLI0.89.0"
+      ],
+      "validationStatus": "PASS",
+      "packagePath": "dist/I1-0.1.0.zip",
+      "sourcePath": "starter-templates/I1",
+      "defaultPort": 55432,
+      "generatorEligible": true,
+      "validationScope": "Linux x86_64, Dev Container CLI, local functional/recreation/standalone ZIP checks",
+      "validationEvidence": "validation/i1/results.json",
+      "notRun": [
+        "VS Code GUI",
+        "Windows + WSL",
+        "macOS / ARM",
+        "fresh-PC installation",
+        "GitHub-hosted CI",
+        "beginner trial"
+      ],
+      "prerequisites": [
+        "Docker Engine + Compose plugin",
+        "VS Code + Dev Containers extension",
+        "bash and coreutils",
+        "network for initial restore"
+      ],
+      "runtime": "PostgreSQL + psql (no Node required)",
+      "commands": {
+        "configure": "bash scripts/configure.sh",
+        "doctor": "bash scripts/doctor.sh",
+        "start": "bash scripts/db.sh setup",
+        "check": "bash scripts/db.sh check",
+        "test": "bash scripts/db.sh test",
+        "build": null,
+        "stop": "bash scripts/project.sh stop"
+      },
+      "readme": "starter-templates/I1/README.md",
+      "packageBytes": 26663,
+      "acceptanceStatus": "NOT_RUN",
+      "initialSetupRequiresNetwork": true,
+      "services": [
+        "workbench",
+        "PostgreSQL"
+      ],
+      "hostPorts": {
+        "database": 55432
+      },
+      "commandLocations": {
+        "configure": "host",
+        "doctor": "host",
+        "start": "container",
+        "check": "container",
+        "test": "container",
+        "build": "not applicable",
+        "stop": "host"
+      },
+      "docs": [
+        "starter-templates/I1/README.md",
+        "starter-templates/I1/docs/setup.md",
+        "starter-templates/I1/docs/learning.md",
+        "starter-templates/I1/docs/recovery.md",
+        "starter-templates/I1/docs/troubleshooting.md",
+        "starter-templates/I1/docs/validation.md"
+      ],
+      "acceptanceEvidence": "validation/acceptance.json"
+    },
+    {
+      "id": "S3",
+      "category": "fullstack",
+      "title": "Next.js + cloud Supabase (read only demo)",
+      "priority": "additional",
+      "lifecycle": "implemented",
+      "externalAccountRequired": true,
+      "implementationVersion": "0.1.0",
+      "packageSha256": "0ac8439d5d23d7fa6bbac18aafc78c0894a3844bab75a5ec41e7089a540557de",
+      "validatedEnvironments": [
+        "Linux Mint 22.3 / x86_64 / Docker29.9.1 / Compose5.6.0 / DevContainerCLI0.89.0"
+      ],
+      "validationStatus": "BLOCKED",
+      "packagePath": "dist/S3-0.1.0.zip",
+      "sourcePath": "starter-templates/S3",
+      "defaultPort": 3005,
+      "generatorEligible": false,
+      "validationScope": "Local configuration handling, DevContainer, build, browser missing-config/failure display, PostgreSQL SELECT/grant/RLS checks PASS. Dedicated live cloud connection BLOCKED.",
+      "validationEvidence": "validation/s3/summary.json",
+      "notRun": [
+        "VS Code GUI",
+        "Windows + WSL",
+        "macOS / ARM",
+        "fresh-PC installation",
+        "GitHub-hosted CI",
+        "beginner trial"
+      ],
+      "prerequisites": [
+        "Docker Engine + Compose plugin",
+        "VS Code + Dev Containers extension",
+        "bash and coreutils",
+        "network for initial restore"
+      ],
+      "runtime": "Node24.22.0 / npm11.17.0 inside container",
+      "commands": {
+        "configure": "bash scripts/configure.sh",
+        "doctor": "bash scripts/doctor-host.sh",
+        "start": "npm run dev",
+        "check": "npm run check",
+        "test": "npm test",
+        "build": "npm run build",
+        "stop": "bash scripts/app.sh stop"
+      },
+      "readme": "starter-templates/S3/README.md",
+      "packageBytes": 80093,
+      "acceptanceStatus": "NOT_RUN",
+      "initialSetupRequiresNetwork": true,
+      "services": [
+        "app"
+      ],
+      "hostPorts": {
+        "app": 3005
+      },
+      "commandLocations": {
+        "configure": "host",
+        "doctor": "host",
+        "start": "container",
+        "check": "container",
+        "test": "container",
+        "build": "container",
+        "stop": "host"
+      },
+      "docs": [
+        "starter-templates/S3/README.md",
+        "starter-templates/S3/docs/SETUP.md",
+        "starter-templates/S3/docs/ARCHITECTURE.md",
+        "starter-templates/S3/docs/EXERCISES.md",
+        "starter-templates/S3/docs/BUILD-YOUR-OWN.md",
+        "starter-templates/S3/docs/RECOVERY.md",
+        "starter-templates/S3/VALIDATION.md"
+      ],
+      "cloudStatus": "BLOCKED",
+      "acceptanceEvidence": "validation/acceptance.json"
+    }
+  ],
+  "defaults": {
+    "api": "Next.js Route Handlers",
+    "newProjects": true,
+    "supabasePrimary": "local",
+    "packageManager": "npm (implementation default)",
+    "language": "TypeScript",
+    "existingProjects": "limited-single-nextjs-fixture-first"
+  },
+  "notYetImplemented": [
+    "arbitrary technology combinations",
+    "dedicated live cloud connection",
+    "Windows native GUI"
+  ],
+  "generatedDate": "2026-10-20",
+  "packageVersion": "0.2.0",
+  "statusNote": "Validation applies only to stated local CLI/function scope. VS Code GUI and other listed acceptance work remain NOT_RUN; no universal compatibility guarantee.",
+  "finalPackageEvidence": "validation/package-audit.json",
+  "previousPackageVersion": "0.1.1",
+  "reviewEvidence": "validation/revision-0.1.1/summary.json",
+  "supportingTools": {
+    "existingProjectAdapter": "0.1.1",
+    "generator": "0.2.0",
+    "generatorDesktop": "0.2.0"
+  },
+  "generatorEvidence": "validation/generator-0.2.0/summary.json"
+}

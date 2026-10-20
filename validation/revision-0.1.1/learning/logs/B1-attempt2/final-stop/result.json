@@ -1,0 +1,16 @@
+{
+  "template": "B1",
+  "event": "final-stop",
+  "startedAt": "2026-10-20T05:00:32.871862+00:00",
+  "command": [
+    "bash",
+    "scripts/compose.sh",
+    "stop"
+  ],
+  "cwd": "validation/revision-0.1.1/learning/runs/B1 空フォルダ 教材 0.1.1 再試行2",
+  "endedAt": "2026-10-20T05:00:33.386711+00:00",
+  "exitCode": 0,
+  "elapsedSeconds": 0.515,
+  "result": "PASS",
+  "log": "output.log"
+}

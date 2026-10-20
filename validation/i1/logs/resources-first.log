@@ -1,0 +1,5 @@
+project: otoka-i1-validation-598241935
+volume: otoka-i1-validation-598241935_pgdata
+157bd305a61d otoka-i1-validation-598241935-app-1 Up 1 second
+be8e7921825d otoka-i1-validation-598241935-db-1 Up 6 seconds (healthy)
+otoka-i1-validation-598241935_pgdata

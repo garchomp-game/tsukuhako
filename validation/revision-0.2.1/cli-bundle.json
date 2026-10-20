@@ -1,0 +1,127 @@
+{
+  "status": "PASS",
+  "case": "0.2.1 standalone CLI relocated; six templates, version and no-write plan",
+  "archive": "meikyo-generator-cli-0.2.1-linux.zip",
+  "sha256": "d1dc5e99ab86c4158a285c91ff13509452c6c00556f14e9fcf9ade07e2c32e97",
+  "records": [
+    {
+      "id": "F1",
+      "version": "0.1.1",
+      "status": "PASS",
+      "archiveFiles": 41,
+      "generation": {
+        "status": "created",
+        "destination": "<WORKSPACE>/validation/revision-0.2.1/runs/cli-relocated/別の 場所/F1 日本語 ; $(touch should-not-exist)",
+        "templateId": "F1",
+        "templateVersion": "0.1.1",
+        "archiveSha256": "eec4b54362783a6c91379f785f983827db7cf7def57acaceaabfc65d1b5bef20",
+        "projectName": "otoka-f1-908098480",
+        "ports": {
+          "app": 3000
+        },
+        "readme": "<WORKSPACE>/validation/revision-0.2.1/runs/cli-relocated/別の 場所/F1 日本語 ; $(touch should-not-exist)/README.md",
+        "startHere": "<WORKSPACE>/validation/revision-0.2.1/runs/cli-relocated/別の 場所/F1 日本語 ; $(touch should-not-exist)/START_HERE.md"
+      }
+    },
+    {
+      "id": "F2",
+      "version": "0.1.0",
+      "status": "PASS",
+      "archiveFiles": 42,
+      "generation": {
+        "status": "created",
+        "destination": "<WORKSPACE>/validation/revision-0.2.1/runs/cli-relocated/別の 場所/F2 日本語 ; $(touch should-not-exist)",
+        "templateId": "F2",
+        "templateVersion": "0.1.0",
+        "archiveSha256": "7175148d110a8d888549e3e7d9dc037960e2a692daf283d9dab8df06f0bdbba7",
+        "projectName": "otoka-f2-1913949920",
+        "ports": {
+          "app": 3001
+        },
+        "readme": "<WORKSPACE>/validation/revision-0.2.1/runs/cli-relocated/別の 場所/F2 日本語 ; $(touch should-not-exist)/README.md",
+        "startHere": "<WORKSPACE>/validation/revision-0.2.1/runs/cli-relocated/別の 場所/F2 日本語 ; $(touch should-not-exist)/START_HERE.md"
+      }
+    },
+    {
+      "id": "B1",
+      "version": "0.1.1",
+      "status": "PASS",
+      "archiveFiles": 40,
+      "generation": {
+        "status": "created",
+        "destination": "<WORKSPACE>/validation/revision-0.2.1/runs/cli-relocated/別の 場所/B1 日本語 ; $(touch should-not-exist)",
+        "templateId": "B1",
+        "templateVersion": "0.1.1",
+        "archiveSha256": "c3e106499f4e3e3154c38a20c68a115f86f6fd1e706e6df28e669c30f450790c",
+        "projectName": "otoka-b1-225136084",
+        "ports": {
+          "app": 3002
+        },
+        "readme": "<WORKSPACE>/validation/revision-0.2.1/runs/cli-relocated/別の 場所/B1 日本語 ; $(touch should-not-exist)/README.md",
+        "startHere": "<WORKSPACE>/validation/revision-0.2.1/runs/cli-relocated/別の 場所/B1 日本語 ; $(touch should-not-exist)/START_HERE.md"
+      }
+    },
+    {
+      "id": "S1",
+      "version": "0.1.1",
+      "status": "PASS",
+      "archiveFiles": 48,
+      "generation": {
+        "status": "created",
+        "destination": "<WORKSPACE>/validation/revision-0.2.1/runs/cli-relocated/別の 場所/S1 日本語 ; $(touch should-not-exist)",
+        "templateId": "S1",
+        "templateVersion": "0.1.1",
+        "archiveSha256": "9e41c0096df9e0a9735c8f85668eb770666d5ffd3e4d17204fbf65f6d82dccf2",
+        "projectName": "otoka-s1-4002765277",
+        "ports": {
+          "app": 3003
+        },
+        "readme": "<WORKSPACE>/validation/revision-0.2.1/runs/cli-relocated/別の 場所/S1 日本語 ; $(touch should-not-exist)/README.md",
+        "startHere": "<WORKSPACE>/validation/revision-0.2.1/runs/cli-relocated/別の 場所/S1 日本語 ; $(touch should-not-exist)/START_HERE.md"
+      }
+    },
+    {
+      "id": "S2",
+      "version": "0.1.1",
+      "status": "PASS",
+      "archiveFiles": 56,
+      "generation": {
+        "status": "created",
+        "destination": "<WORKSPACE>/validation/revision-0.2.1/runs/cli-relocated/別の 場所/S2 日本語 ; $(touch should-not-exist)",
+        "templateId": "S2",
+        "templateVersion": "0.1.1",
+        "archiveSha256": "1fff412887ed8657a32326176d6162f7a8f73d5f79d38700e35aaf873368f673",
+        "projectName": "otoka-s2-2862722189",
+        "ports": {
+          "app": 3004,
+          "shadow": 54320,
+          "api": 54321,
+          "database": 54322,
+          "studio": 54323
+        },
+        "readme": "<WORKSPACE>/validation/revision-0.2.1/runs/cli-relocated/別の 場所/S2 日本語 ; $(touch should-not-exist)/README.md",
+        "startHere": "<WORKSPACE>/validation/revision-0.2.1/runs/cli-relocated/別の 場所/S2 日本語 ; $(touch should-not-exist)/START_HERE.md"
+      }
+    },
+    {
+      "id": "I1",
+      "version": "0.1.0",
+      "status": "PASS",
+      "archiveFiles": 28,
+      "generation": {
+        "status": "created",
+        "destination": "<WORKSPACE>/validation/revision-0.2.1/runs/cli-relocated/別の 場所/I1 日本語 ; $(touch should-not-exist)",
+        "templateId": "I1",
+        "templateVersion": "0.1.0",
+        "archiveSha256": "2861fea034ced0baf1dd484f78c19be8bbfbb2ccc8ac8c880e0ec3f5e989e398",
+        "projectName": "otoka-i1-1062030228",
+        "ports": {
+          "database": 55432
+        },
+        "readme": "<WORKSPACE>/validation/revision-0.2.1/runs/cli-relocated/別の 場所/I1 日本語 ; $(touch should-not-exist)/README.md",
+        "startHere": "<WORKSPACE>/validation/revision-0.2.1/runs/cli-relocated/別の 場所/I1 日本語 ; $(touch should-not-exist)/START_HERE.md"
+      }
+    }
+  ],
+  "network": "No install or network operation during generation; NODE_PATH and NODE_OPTIONS empty; cwd /tmp."
+}

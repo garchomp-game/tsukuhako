@@ -1,0 +1,21 @@
+{
+  "scope": "Only generated S2 project; retained database and npm volumes",
+  "results": [
+    {
+      "command": [
+        "bash",
+        "scripts/db.sh",
+        "stop"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "down"
+      ],
+      "exitCode": 0
+    }
+  ]
+}

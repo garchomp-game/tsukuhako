@@ -1,0 +1,5 @@
+診断OK: otoka-f2-final-1465005102 / http://localhost:34901
+/dev/nvme0n1p2  468G  120G  325G  27% /
+容量不足なら不要な自分の試行資源を確認してください。全体pruneは行いません。
+ Container otoka-f2-final-1465005102-app-1 Stopping 
+ Container otoka-f2-final-1465005102-app-1 Stopped 

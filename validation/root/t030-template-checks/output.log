@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "<WORKSPACE>/tools/verify-template-brand-030.py", line 37, in <module>
+    build = run(command, E / (tid+'-build.log'))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>/tools/verify-template-brand-030.py", line 18, in run
+    assert result.returncode == 0, f'{log}: {log.read_text()[-2500:]}'
+           ^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: <WORKSPACE>/validation/brand-0.3.0/templates/F1-build.log: v24.22.0
+11.19.1
+npm error code EBADENGINE
+npm error engine Unsupported engine
+npm error engine Not compatible with your version of node/npm: otoka-f1@0.1.2
+npm error notsup Not compatible with your version of node/npm: otoka-f1@0.1.2
+npm error notsup Required: {"node":"24.22.0","npm":"11.17.0"}
+npm error notsup Actual:   {"node":"v24.22.0","npm":"11.19.1"}
+npm error A complete log of this run can be found in: /cache/_logs/2026-10-20T12_56_04_566Z-debug-0.log
+

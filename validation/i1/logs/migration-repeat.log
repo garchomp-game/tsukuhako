@@ -1,0 +1,11 @@
+BEGIN
+ pg_advisory_xact_lock 
+-----------------------
+ 
+(1 row)
+
+psql:/tmp/tmp.fJPBZQmcn8:3: NOTICE:  relation "schema_migrations" already exists, skipping
+CREATE TABLE
+skip: 001_create_sample_items.sql
+skip: 002_add_note.sql
+COMMIT

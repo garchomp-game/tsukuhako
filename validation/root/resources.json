@@ -1,0 +1,45 @@
+{
+  "at": "2026-10-20T02:32:49.888449+00:00",
+  "resources": [
+    {
+      "id": "6de81991a2fb2d51d8c8fa7e0a2c24c2c6d8ea695ff0b37461a1defc510d79fa",
+      "project": "otoka-f2-3543580151",
+      "state": "running",
+      "volumes": [
+        "otoka-f2-3543580151_dependencies",
+        "otoka-f2-3543580151_npm-cache"
+      ],
+      "networks": [
+        "otoka-f2-3543580151_default"
+      ],
+      "ports": {
+        "3000/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "3001"
+          }
+        ]
+      }
+    },
+    {
+      "id": "d7e5f50ad8ec62cd22b795bb6ba47e3a95196f8db46d36942fb7351eb44b180a",
+      "project": "otoka-f2-1589200076",
+      "state": "running",
+      "volumes": [
+        "otoka-f2-1589200076_dependencies",
+        "otoka-f2-1589200076_npm-cache"
+      ],
+      "networks": [
+        "otoka-f2-1589200076_default"
+      ],
+      "ports": {
+        "3000/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "3301"
+          }
+        ]
+      }
+    }
+  ]
+}

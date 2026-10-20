@@ -1,0 +1,22 @@
+[
+  {
+    "checked": "2026-10-20",
+    "url": "https://docs.npmjs.com/cli/v11/configuring-npm/package-json/#optionaldependencies",
+    "finding": "optionalDependencies overrides a same-name dependencies entry; application must handle optional absence."
+  },
+  {
+    "checked": "2026-10-20",
+    "url": "https://docs.npmjs.com/cli/v11/configuring-npm/package-lock-json/#packages",
+    "finding": "Lock packages carry resolved/link/version and optional/os/cpu metadata."
+  },
+  {
+    "checked": "2026-10-20",
+    "url": "https://docs.npmjs.com/cli/v11/using-npm/package-spec/",
+    "finding": "Distinguishes registry, local folder, tarball and git references."
+  },
+  {
+    "checked": "2026-10-20",
+    "url": "https://raw.githubusercontent.com/npm/cli/v11.17.0/workspaces/arborist/lib/node.js",
+    "finding": "Dependency edge loading has ordered prod/optional/dev handling; adapter treats optional/dev overlap conservatively as manual."
+  }
+]

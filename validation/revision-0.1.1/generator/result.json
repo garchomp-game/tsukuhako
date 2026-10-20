@@ -1,0 +1,50 @@
+{
+  "version": "0.1.1",
+  "startedAt": "2026-10-20T05:05:28.374216+00:00",
+  "command": [
+    "npm",
+    "test",
+    "--prefix",
+    "generator"
+  ],
+  "cwd": ".",
+  "node": "v24.19.0",
+  "npm": "11.17.0",
+  "scope": "8 regression tests; generate all six required templates in Japanese/space paths; verify catalog versions; no Docker startup in this check.",
+  "templates": [
+    {
+      "id": "F1",
+      "version": "0.1.1",
+      "sha256": "eec4b54362783a6c91379f785f983827db7cf7def57acaceaabfc65d1b5bef20"
+    },
+    {
+      "id": "F2",
+      "version": "0.1.0",
+      "sha256": "7175148d110a8d888549e3e7d9dc037960e2a692daf283d9dab8df06f0bdbba7"
+    },
+    {
+      "id": "B1",
+      "version": "0.1.1",
+      "sha256": "c3e106499f4e3e3154c38a20c68a115f86f6fd1e706e6df28e669c30f450790c"
+    },
+    {
+      "id": "S1",
+      "version": "0.1.1",
+      "sha256": "9e41c0096df9e0a9735c8f85668eb770666d5ffd3e4d17204fbf65f6d82dccf2"
+    },
+    {
+      "id": "S2",
+      "version": "0.1.1",
+      "sha256": "1fff412887ed8657a32326176d6162f7a8f73d5f79d38700e35aaf873368f673"
+    },
+    {
+      "id": "I1",
+      "version": "0.1.0",
+      "sha256": "2861fea034ced0baf1dd484f78c19be8bbfbb2ccc8ac8c880e0ec3f5e989e398"
+    }
+  ],
+  "result": "PASS",
+  "exitCode": 0,
+  "elapsedSeconds": 0.381,
+  "log": "output.log"
+}

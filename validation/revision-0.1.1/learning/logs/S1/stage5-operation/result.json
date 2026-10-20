@@ -1,0 +1,18 @@
+{
+  "template": "S1",
+  "event": "stage5-operation",
+  "startedAt": "2026-10-20T05:01:03.187494+00:00",
+  "command": [
+    "node",
+    "<WORKSPACE>/validation/revision-0.1.1/learning/probe.mjs",
+    "S1",
+    "http://localhost:3403",
+    "browser"
+  ],
+  "cwd": "validation/revision-0.1.1/learning/runs/S1 空フォルダ 教材 0.1.1",
+  "endedAt": "2026-10-20T05:01:06.459640+00:00",
+  "exitCode": 0,
+  "elapsedSeconds": 3.272,
+  "result": "PASS",
+  "log": "output.log"
+}

@@ -1,0 +1,22 @@
+{
+  "recordedAt": "2026-10-20T09:24:11.040994+00:00",
+  "originalWorkspace": "otoka-devcontainer-starters-0.2.0",
+  "newWorkspace": "otoka-devcontainer-starters-0.2.1",
+  "artifacts": [
+    {
+      "file": "otoka-devcontainer-starters-0.2.0-2026-10-20.zip",
+      "sha256": "c2c5b1a2583334a717d85bbe9dd1cdcc78689d374d48f5d52247c52e7f30bb0b",
+      "bytes": 6144572
+    },
+    {
+      "file": "meikyo-generator-cli-0.2.0-linux.zip",
+      "sha256": "a89ed883c807f03fb5da644bb7db4a138c090829297b998aa7404e90f6b67882",
+      "bytes": 717606
+    },
+    {
+      "file": "meikyo-generator-linux-x64-0.2.0.tar.gz",
+      "sha256": "a79d98db1bada410989abe5ae2dcf0634e5f138df091827a684edd5da10990cc",
+      "bytes": 123803728
+    }
+  ]
+}

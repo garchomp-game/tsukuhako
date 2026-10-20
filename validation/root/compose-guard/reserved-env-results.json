@@ -1,0 +1,40 @@
+{
+  "testedAt": "2026-10-20T02:47:24.211826+00:00",
+  "cases": [
+    {
+      "case": "COMPOSE_PROJECT_NAME in .env",
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "status": "PASS",
+      "observation": "診断NG: .envに未知のキーがあります。.env.exampleと照合してください。Compose予約キーは使用できません。\n復旧手順: docs/RECOVERY.md"
+    },
+    {
+      "case": "COMPOSE_FILE in .env",
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "status": "PASS",
+      "observation": "診断NG: .envに未知のキーがあります。.env.exampleと照合してください。Compose予約キーは使用できません。\n復旧手順: docs/RECOVERY.md"
+    },
+    {
+      "case": "COMPOSE_ENV_FILES in .env",
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "status": "PASS",
+      "observation": "診断NG: .envに未知のキーがあります。.env.exampleと照合してください。Compose予約キーは使用できません。\n復旧手順: docs/RECOVERY.md"
+    },
+    {
+      "case": "HOST_PORT in .env",
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "status": "PASS",
+      "observation": "診断NG: .envに同じキーが重複しています。\n復旧手順: docs/RECOVERY.md"
+    },
+    {
+      "case": "exported COMPOSE_ENV_FILES",
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "status": "PASS",
+      "observation": "診断NG: COMPOSE_ENV_FILESが設定されています。解除して再実行してください。\n復旧手順: docs/RECOVERY.md"
+    }
+  ]
+}

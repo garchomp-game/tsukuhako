@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "templateArchivesUnchanged": 7,
+  "frozenSources": {
+    "starter-templates": 297,
+    "existing-project-adapter": 10
+  },
+  "originalWorkspace": "otoka-devcontainer-starters-0.2.0",
+  "originalArtifacts": [
+    {
+      "file": "otoka-devcontainer-starters-0.2.0-2026-10-20.zip",
+      "sha256": "c2c5b1a2583334a717d85bbe9dd1cdcc78689d374d48f5d52247c52e7f30bb0b",
+      "bytes": 6144572
+    },
+    {
+      "file": "meikyo-generator-cli-0.2.0-linux.zip",
+      "sha256": "a89ed883c807f03fb5da644bb7db4a138c090829297b998aa7404e90f6b67882",
+      "bytes": 717606
+    },
+    {
+      "file": "meikyo-generator-linux-x64-0.2.0.tar.gz",
+      "sha256": "a79d98db1bada410989abe5ae2dcf0634e5f138df091827a684edd5da10990cc",
+      "bytes": 123803728
+    }
+  ],
+  "originalNonValidationFilesUnchanged": 387,
+  "changedExistingProductFiles": [
+    "generator/README.md",
+    "generator/package-lock.json",
+    "generator/package.json",
+    "generator/src/cli/wizard.mjs",
+    "generator/src/core/common.mjs",
+    "generator-desktop/README.md",
+    "generator-desktop/main.mjs",
+    "generator-desktop/package-lock.json",
+    "generator-desktop/package.json",
+    "generator-desktop/build/index.html",
+    "generator-desktop/build/assets/index-BvSMPq3F.js",
+    "generator-desktop/src/main.tsx"
+  ],
+  "sharedCoreAndGuiRuntimeChanges": "Only version literals; lockfile dependency graphs unchanged."
+}

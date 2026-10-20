@@ -1,0 +1,103 @@
+[2026-10-20T13:05:30.007Z] @devcontainers/cli 0.89.0. Node.js v24.19.0. linux 7.0.0-31-generic x64.
+[2026-10-20T13:05:30.552Z] Running the initializeCommand from devcontainer.json...
+
+[2026-10-20T13:05:30.553Z] Start: Run: bash scripts/initialize.sh
+[2026-10-20T13:05:30.561Z] .envは既存の設定を保持します。変更は.envを編集後、コンテナを再構築してください。
+[2026-10-20T13:05:30.674Z] 診断OK: otoka-f2-first-246531851 / http://localhost:3761
+[2026-10-20T13:05:30.675Z] /dev/nvme0n1p2  468G  133G  312G  30% /
+[2026-10-20T13:05:30.675Z] 容量不足なら不要な自分の試行資源を確認してください。全体pruneは行いません。
+[2026-10-20T13:05:30.752Z] #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+[2026-10-20T13:05:30.835Z] #1 transferring dockerfile: 730B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 93B done
+#3 DONE 0.0s
+
+#4 [1/4] FROM docker.io/library/node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5
+[2026-10-20T13:05:30.835Z] #4 resolve docker.io/library/node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5 done
+#4 DONE 0.0s
+
+#5 [2/4] RUN apt-get update && apt-get install -y --no-install-recommends     git curl ca-certificates libnss3 libatk1.0-0 libatk-bridge2.0-0     libx11-6 libxcomposite1 libxdamage1 libxext6 libxfixes3 libxrandr2     libgbm1 libdrm2 libxcb1 libxkbcommon0 libasound2 libglib2.0-0     libcups2 libdbus-1-3 libpango-1.0-0 libcairo2 fonts-liberation     && rm -rf /var/lib/apt/lists/*
+#5 CACHED
+
+#6 [3/4] RUN npm install --global npm@11.17.0     && mkdir -p /workspace/node_modules /home/node/.npm     && chown -R node:node /workspace /home/node/.npm
+#6 CACHED
+
+#7 [4/4] WORKDIR /workspace
+#7 CACHED
+
+#8 exporting to image
+#8 exporting layers done
+#8 exporting manifest sha256:261571f685bc49f14c55afc81349c084deae53107f9f175a02e4ae6e864783b9 done
+#8 exporting config sha256:7bb11ce0c801fbefa12797750fa188a5e8ee882e64f39c8e0b408e5ad273d41c done
+#8 exporting attestation manifest sha256:29e439d4c122b71188061b27e32ecdedf5869d47b8287e8d06b88792ed011f6e done
+#8 exporting manifest list sha256:50556442ace218717484356fb39fadf31fe3872391d1f04265da2b9efa4715ff done
+#8 naming to docker.io/library/otoka-f2-first-246531851-dev:0.1.0 done
+#8 unpacking to docker.io/library/otoka-f2-first-246531851-dev:0.1.0 done
+#8 DONE 0.0s
+[2026-10-20T13:05:30.840Z] 
+[2026-10-20T13:05:30.870Z] Start: Run: docker compose -f <WORKSPACE>/validation/brand-0.3.0/runs/startup/F2 学習/compose.yaml --profile * config
+[2026-10-20T13:05:30.934Z] Start: Run: docker compose -f <WORKSPACE>/validation/brand-0.3.0/runs/startup/F2 学習/compose.yaml --profile * config
+[2026-10-20T13:05:30.979Z] name: otoka-f2-first-246531851
+services:
+  app:
+    command:
+      - sleep
+      - infinity
+    environment:
+      NEXT_TELEMETRY_DISABLED: "1"
+    image: otoka-f2-first-246531851-dev:0.1.0
+    init: true
+    networks:
+      default: null
+    pull_policy: never
+    volumes:
+      - type: bind
+        source: <WORKSPACE>/validation/brand-0.3.0/runs/startup/F2
+          学習
+        target: /workspace
+        bind: {}
+      - type: volume
+        source: dependencies
+        target: /workspace/node_modules
+        volume: {}
+      - type: volume
+        source: npm-cache
+        target: /home/node/.npm
+        volume: {}
+    working_dir: /workspace
+    ports:
+      - mode: ingress
+        host_ip: 127.0.0.1
+        target: 3000
+        published: "3761"
+        protocol: tcp
+networks:
+  default:
+    name: otoka-f2-first-246531851_default
+volumes:
+  dependencies:
+    name: otoka-f2-first-246531851_dependencies
+  npm-cache:
+    name: otoka-f2-first-246531851_npm-cache
+[2026-10-20T13:05:30.980Z] Start: Run: docker inspect --type image otoka-f2-first-246531851-dev:0.1.0
+[2026-10-20T13:05:31.017Z] Start: Run: docker compose --project-name otoka-f2-first-246531851 -f <WORKSPACE>/validation/brand-0.3.0/runs/startup/F2 学習/compose.yaml build
+[2026-10-20T13:05:31.062Z] time="2026-10-20T22:05:31+09:00" level=warning msg="No services to build"
+
+[2026-10-20T13:05:31.401Z] Start: Run: docker compose --project-name otoka-f2-first-246531851 -f <WORKSPACE>/validation/brand-0.3.0/runs/startup/F2 学習/compose.yaml -f /tmp/devcontainercli-garchomp-game/docker-compose/docker-compose.devcontainer.containerFeatures-1792501531401-9fbc5254-26a8-4629-8b67-a4ffb8113324.yml up -d
+Error: Command failed: docker compose --project-name otoka-f2-first-246531851 -f <WORKSPACE>/validation/brand-0.3.0/runs/startup/F2 学習/compose.yaml -f /tmp/devcontainercli-garchomp-game/docker-compose/docker-compose.devcontainer.containerFeatures-1792501531401-9fbc5254-26a8-4629-8b67-a4ffb8113324.yml up -d
+    at eW (<WORKSPACE>/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:434:3348)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async AW (<WORKSPACE>/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:414:3976)
+    at async kW (<WORKSPACE>/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:488:4862)
+    at async hI (<WORKSPACE>/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:488:5808)
+    at async C9 (<WORKSPACE>/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:669:206)
+    at async I9 (<WORKSPACE>/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:668:16607)
+    at async <WORKSPACE>/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:488:1917
+{"outcome":"error","message":"Command failed: docker compose --project-name otoka-f2-first-246531851 -f <WORKSPACE>/validation/brand-0.3.0/runs/startup/F2 学習/compose.yaml -f /tmp/devcontainercli-garchomp-game/docker-compose/docker-compose.devcontainer.containerFeatures-1792501531401-9fbc5254-26a8-4629-8b67-a4ffb8113324.yml up -d","description":"An error occurred starting Docker Compose up."}

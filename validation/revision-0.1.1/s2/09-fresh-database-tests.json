@@ -1,0 +1,14 @@
+{
+  "name": "09-fresh-database-tests",
+  "startedAt": "2026-10-20T04:57:40.437293+00:00",
+  "elapsedSeconds": 0.465,
+  "command": [
+    "bash",
+    "scripts/db.sh",
+    "test"
+  ],
+  "cwd": "validation/revision-0.1.1/s2/runs/最終配布 新規起動/S2",
+  "exitCode": 0,
+  "result": "PASS",
+  "log": "09-fresh-database-tests.log"
+}

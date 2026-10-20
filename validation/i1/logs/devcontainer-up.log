@@ -1,0 +1,156 @@
+[2026-10-20T02:18:15.881Z] @devcontainers/cli 0.89.0. Node.js v24.19.0. linux 7.0.0-31-generic x64.
+[2026-10-20T02:18:15.987Z] Running the initializeCommand from devcontainer.json...
+
+[2026-10-20T02:18:15.987Z] Start: Run: bash scripts/configure.sh
+[2026-10-20T02:18:15.994Z] 設定を保持: otoka-i1-validation-598241935 / 127.0.0.1:55432
+[2026-10-20T02:18:15.994Z] 
+[2026-10-20T02:18:16.023Z] Start: Run: docker compose -f [work-root]/validation/i1/runs/初回 PostgreSQL/compose.yaml --profile * config
+[2026-10-20T02:18:16.089Z] Start: Run: docker compose -f [work-root]/validation/i1/runs/初回 PostgreSQL/compose.yaml --profile * config
+[2026-10-20T02:18:16.135Z] name: otoka-i1-validation-598241935
+services:
+  app:
+    environment:
+      OTOKA_PROJECT_NAME: otoka-i1-validation-598241935
+      PGCONNECT_TIMEOUT: "5"
+      PGDATABASE: otoka_learning
+      PGHOST: db
+      PGPASSWORD: [REDACTED_LOCAL_PASSWORD]
+      PGPORT: "5432"
+      PGUSER: otoka
+    init: true
+    networks:
+      default: null
+    tmpfs:
+      - /var/lib/postgresql
+    volumes:
+      - type: bind
+        source: [work-root]/validation/i1/runs/初回
+          PostgreSQL
+        target: /workspace
+    build:
+      context: [work-root]/validation/i1/runs/初回
+        PostgreSQL
+      dockerfile: .devcontainer/Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+        required: true
+  db:
+    environment:
+      POSTGRES_DB: otoka_learning
+      POSTGRES_INITDB_ARGS: --auth-host=scram-sha-256
+      POSTGRES_PASSWORD: [REDACTED_LOCAL_PASSWORD]
+      POSTGRES_USER: otoka
+    image: postgres:18.6-bookworm@sha256:afc7e2d441324c0388fa80c3d24f733b4194a4eb7f47dd8ee2b08eb1a24a647c
+    labels:
+      otoka.template: I1
+    networks:
+      default: null
+    shm_size: "134217728"
+    volumes:
+      - type: volume
+        source: pgdata
+        target: /var/lib/postgresql
+        volume: {}
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U otoka -d otoka_learning
+      timeout: 5s
+      interval: 2s
+      retries: 30
+      start_period: 10s
+    ports:
+      - mode: ingress
+        host_ip: 127.0.0.1
+        target: 5432
+        published: "55432"
+        protocol: tcp
+networks:
+  default:
+    name: otoka-i1-validation-598241935_default
+volumes:
+  pgdata:
+    name: otoka-i1-validation-598241935_pgdata
+    labels:
+      otoka.purpose: learning-database
+      otoka.template: I1
+[2026-10-20T02:18:16.137Z] Start: Run: docker inspect --type image postgres:18.6-bookworm@sha256:afc7e2d441324c0388fa80c3d24f733b4194a4eb7f47dd8ee2b08eb1a24a647c
+[2026-10-20T02:18:16.151Z] Path 'library/postgres:18.6-bookworm' for input 'docker.io/library/postgres:18.6-bookworm@sha256:afc7e2d441324c0388fa80c3d24f733b4194a4eb7f47dd8ee2b08eb1a24a647c' failed validation.  Expected path to match regex '/^[a-z0-9]+([._-][a-z0-9]+)*(\/[a-z0-9]+([._-][a-z0-9]+)*)*$/'.
+[2026-10-20T02:18:16.151Z] Error fetching image details: Could not parse image name 'postgres:18.6-bookworm@sha256:afc7e2d441324c0388fa80c3d24f733b4194a4eb7f47dd8ee2b08eb1a24a647c'
+[2026-10-20T02:18:16.151Z] Start: Run: docker pull postgres:18.6-bookworm@sha256:afc7e2d441324c0388fa80c3d24f733b4194a4eb7f47dd8ee2b08eb1a24a647c
+[2026-10-20T02:18:17.685Z] docker.io/library/postgres@sha256:afc7e2d441324c0388fa80c3d24f733b4194a4eb7f47dd8ee2b08eb1a24a647c: Pulling from library/postgres
+[2026-10-20T02:18:18.745Z] 99ce35cabaf9: Pulling fs layer
+[2026-10-20T02:18:18.745Z] 748f1c7b1aa5: Pulling fs layer
+7fd1ebe418b5: Pulling fs layer
+e590c436acb0: Pulling fs layer
+[2026-10-20T02:18:18.745Z] d3f84db5dc4c: Pulling fs layer
+[2026-10-20T02:18:18.745Z] 4597e57da557: Pulling fs layer
+[2026-10-20T02:18:18.745Z] 9b2148361c22: Pulling fs layer
+8dca3c457775: Pulling fs layer
+[2026-10-20T02:18:18.745Z] 0f0fb0a9ae5b: Pulling fs layer
+[2026-10-20T02:18:18.745Z] 1b8e0581bcf1: Pulling fs layer
+[2026-10-20T02:18:18.745Z] 6f76e9d43497: Pulling fs layer
+[2026-10-20T02:18:18.745Z] 3367705c2f4b: Pulling fs layer
+[2026-10-20T02:18:18.745Z] 5e3d1f2c4d0f: Pulling fs layer
+[2026-10-20T02:18:18.776Z] 7fd1ebe418b5: Already exists
+[2026-10-20T02:18:19.077Z] 99ce35cabaf9: Download complete
+[2026-10-20T02:18:19.576Z] 748f1c7b1aa5: Download complete
+[2026-10-20T02:18:21.076Z] 4597e57da557: Download complete
+[2026-10-20T02:18:21.377Z] 9b2148361c22: Download complete
+[2026-10-20T02:18:21.377Z] e590c436acb0: Download complete
+[2026-10-20T02:18:21.576Z] 0f0fb0a9ae5b: Download complete
+[2026-10-20T02:18:21.587Z] 0f0fb0a9ae5b: Pull complete
+[2026-10-20T02:18:21.876Z] 1b8e0581bcf1: Download complete
+[2026-10-20T02:18:22.177Z] 5e3d1f2c4d0f: Download complete
+[2026-10-20T02:18:22.377Z] 6f76e9d43497: Download complete
+[2026-10-20T02:18:22.676Z] 3367705c2f4b: Download complete
+[2026-10-20T02:18:22.976Z] 0b26500b5a5d: Download complete
+[2026-10-20T02:18:23.176Z] d3f84db5dc4c: Download complete
+[2026-10-20T02:18:23.196Z] d3f84db5dc4c: Pull complete
+[2026-10-20T02:18:23.286Z] e590c436acb0: Pull complete
+[2026-10-20T02:18:23.384Z] 4597e57da557: Pull complete
+[2026-10-20T02:18:23.479Z] 748f1c7b1aa5: Pull complete
+[2026-10-20T02:18:23.484Z] 6f76e9d43497: Pull complete
+[2026-10-20T02:18:23.488Z] 3367705c2f4b: Pull complete
+[2026-10-20T02:18:23.776Z] a5c18258fe06: Download complete
+[2026-10-20T02:18:35.876Z] 8dca3c457775: Download complete
+[2026-10-20T02:18:37.279Z] 9b2148361c22: Pull complete
+[2026-10-20T02:18:37.280Z] 1b8e0581bcf1: Pull complete
+[2026-10-20T02:18:37.283Z] 8dca3c457775: Pull complete
+[2026-10-20T02:18:37.306Z] 99ce35cabaf9: Pull complete
+[2026-10-20T02:18:37.308Z] 5e3d1f2c4d0f: Pull complete
+Digest: sha256:afc7e2d441324c0388fa80c3d24f733b4194a4eb7f47dd8ee2b08eb1a24a647c
+[2026-10-20T02:18:37.308Z] Status: Downloaded newer image for postgres@sha256:afc7e2d441324c0388fa80c3d24f733b4194a4eb7f47dd8ee2b08eb1a24a647c
+[2026-10-20T02:18:37.308Z] docker.io/library/postgres:18.6-bookworm@sha256:afc7e2d441324c0388fa80c3d24f733b4194a4eb7f47dd8ee2b08eb1a24a647c
+[2026-10-20T02:18:37.310Z] Start: Run: docker inspect --type image postgres:18.6-bookworm@sha256:afc7e2d441324c0388fa80c3d24f733b4194a4eb7f47dd8ee2b08eb1a24a647c
+[2026-10-20T02:18:37.344Z] Docker Compose override file for building image:
+services:
+  app:
+    build:
+      dockerfile: [devcontainer-temp]/container-features/0.89.0-1792462717343/Dockerfile-with-features
+      args:
+        - BUILDKIT_INLINE_CACHE=1
+        - _DEV_CONTAINERS_BASE_IMAGE=dev_container_auto_added_stage_label
+
+[2026-10-20T02:18:37.344Z] Start: Run: docker compose --project-name otoka-i1-validation-598241935 -f [work-root]/validation/i1/runs/初回 PostgreSQL/compose.yaml -f [devcontainer-temp]/docker-compose/docker-compose.devcontainer.build-1792462717344.yml build
+[2026-10-20T02:18:37.403Z]  Image otoka-i1-validation-598241935-app Building 
+
+[2026-10-20T02:18:37.434Z] #1 [internal] load local bake definitions
+[2026-10-20T02:18:37.436Z] #1 reading from stdin 813B done
+#1 DONE 0.0s
+[2026-10-20T02:18:37.436Z] additional privileges requested: pass "--allow=fs.read=[devcontainer-temp]/container-features/0.89.0-1792462717343/Dockerfile-with-features" to grant requested privileges
+
+
+[2026-10-20T02:18:37.439Z] Exit code 1
+Error: Command failed: docker compose --project-name otoka-i1-validation-598241935 -f [work-root]/validation/i1/runs/初回 PostgreSQL/compose.yaml -f [devcontainer-temp]/docker-compose/docker-compose.devcontainer.build-1792462717344.yml build
+    at Dp ([work-root]/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:434:525)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async eW ([work-root]/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:434:2475)
+    at async AW ([work-root]/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:414:3976)
+    at async kW ([work-root]/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:488:4862)
+    at async hI ([work-root]/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:488:5808)
+    at async C9 ([work-root]/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:669:206)
+    at async I9 ([work-root]/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:668:16607)
+    at async [work-root]/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:488:1917
+{"outcome":"error","message":"Command failed: docker compose --project-name otoka-i1-validation-598241935 -f [work-root]/validation/i1/runs/初回 PostgreSQL/compose.yaml -f [devcontainer-temp]/docker-compose/docker-compose.devcontainer.build-1792462717344.yml build","description":"An error occurred building the Docker Compose images."}

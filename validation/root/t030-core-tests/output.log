@@ -1,0 +1,74 @@
+
+> tsukuhako-generator@0.3.0 test
+> node --test tests/*.test.mjs
+
+✔ G01/G03/G09: six stable read-only plans; archive bytes and per-template guide match (247.769387ms)
+✔ G04: I1 secret is created only in mode0600 .env; absent from public outputs (18.306392ms)
+✔ G02: goals map to known IDs; core rejects S3 even if its eligibility is tampered (2.54178ms)
+✔ G05: modified catalog, ZIP, destination, parent identity and public plan are rejected (41.026085ms)
+✔ G06: reserved guide, duplicate ZIP names, symlink entry and oversized metadata are rejected before writes (8.838112ms)
+✔ G06: parent replacement by symlink is refused; no unrelated files are touched (4.958483ms)
+✔ G06: structured partial result preserves a changed generated file (18.351091ms)
+✔ G07: Docker/VSCode unavailable never prevents generation; unentered destination stays unknown (48.222532ms)
+✔ G07: diagnostic subprocess times out and its process exits (124.449137ms)
+✔ G08: old synchronous create and explicit JSON create produce identical files (120.923556ms)
+✔ G10: non-TTY wizard terminates; JSON emits one value; stale expectation is exit1 (253.46548ms)
+✔ G10: write permission failure is exit2 without a partial directory (82.871404ms)
+✔ G11: Japanese, spaces and shell metacharacters stay literal data (88.498371ms)
+✔ 必須6構成を日本語・空白パスへ生成し、カタログの版とフォルダ識別を保持する (184.250047ms)
+ℹ F1: version 0.1.2, ZIP SHA256 664b581be8a82943118ff1191471542beebb6af1e8a91fa46686d0d5303c38b5, Japanese/space path PASS
+ℹ F2: version 0.1.1, ZIP SHA256 8569037675079ff3e0e7a95b8517fa6d675223f8032210bebbc8cd59808d3a73, Japanese/space path PASS
+ℹ B1: version 0.1.2, ZIP SHA256 98e0add9dbca84ce3f9a153840158d874e860dac50fb68cb40e9b6e12cbb56c6, Japanese/space path PASS
+ℹ S1: version 0.1.2, ZIP SHA256 94e55d547b8971e3263eabd99da386018e7a9cd9662872ba46515900c088f714, Japanese/space path PASS
+ℹ S2: version 0.1.2, ZIP SHA256 04266262b25b930a586558856457ec8a36f0c6f7127533cb05fa68d56de29e8e, Japanese/space path PASS
+ℹ I1: version 0.1.0, ZIP SHA256 2861fea034ced0baf1dd484f78c19be8bbfbb2ccc8ac8c880e0ec3f5e989e398, Japanese/space path PASS
+✖ 既存の空フォルダ・ファイル・symlink親は拒否し保持する (1.63155ms)
+✔ 名前・ポート・構成・DBポートの不正値で出力を作らない (1.036895ms)
+✔ カタログSHA256不一致を展開前に拒否する (0.845901ms)
+✔ ZIPの上位パスと実.envを拒否する (13.320144ms)
+✔ コミット途中の失敗は作成物とstageを戻す (21.515189ms)
+✔ 確定直前に出力先が作成された競合を拒否し、他の内容を残す (19.46464ms)
+✔ 失敗時でも作成中に利用者が変更したファイルを削除しない (20.40296ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 20
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1122.066491
+
+✖ failing tests:
+
+test at tests/generator.test.mjs:37:1
+✖ 既存の空フォルダ・ファイル・symlink親は拒否し保持する (1.63155ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /存在|symlink/. Input:
+  
+  'GenerationError: この名前のフォルダは既にあります。'
+  
+      at TestContext.<anonymous> (file://<WORKSPACE>/generator/tests/generator.test.mjs:42:61)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: GenerationError: この名前のフォルダは既にあります。
+        at fail (file://<WORKSPACE>/generator/src/core/common.mjs:18:73)
+        at checkedParent (file://<WORKSPACE>/generator/src/core/configuration.mjs:25:48)
+        at planGeneration (file://<WORKSPACE>/generator/src/core/plan.mjs:79:18)
+        at create (file://<WORKSPACE>/generator/src/generator.mjs:11:18)
+        at file://<WORKSPACE>/generator/tests/generator.test.mjs:42:74
+        at getActual (node:assert:611:5)
+        at strict.throws (node:assert:759:24)
+        at TestContext.<anonymous> (file://<WORKSPACE>/generator/tests/generator.test.mjs:42:61)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1382:25) {
+      [cause]: undefined
+    },
+    expected: /存在|symlink/,
+    operator: 'throws',
+    diff: 'simple'
+  }

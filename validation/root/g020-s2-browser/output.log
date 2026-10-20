@@ -1,0 +1,1 @@
+{"status":"PASS","id":"S2","base":"http://localhost:3664","records":["Fresh database seed2; browser Unicode create201/trim/update200/reload persistence/delete204; seed2 retained"],"screenshots":true,"scope":"Final standalone generator output, real Dev Container CLI and browser; VS Code UI is NOT_RUN"}

@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "sourceRelease": "../tsukuhako-starters-0.4.0",
+  "knownOriginalHashesMatched": [
+    "tsukuhako-review-0.4.0-2026-10-21.zip",
+    "tsukuhako-starters-0.4.0-2026-10-21.zip",
+    "tsukuhako-linux-x64-0.4.0.tar.gz"
+  ],
+  "preexistingEvidenceDifferences": [
+    "validation/learning-0.4.0/cli-bundle.json",
+    "validation/learning-0.4.0/gui-results.json"
+  ],
+  "originalArchives": [
+    {
+      "file": "tsukuhako-darwin-arm64-0.4.0-UNVERIFIED.zip",
+      "bytes": 131193403,
+      "sha256": "288cd40c7d24488c40d0e3f5e74f2bc403a41a6e1b2ae770d82cebc221d2e689"
+    },
+    {
+      "file": "tsukuhako-darwin-x64-0.4.0-UNVERIFIED.zip",
+      "bytes": 135098122,
+      "sha256": "6202f62aea9b6b9ff71b5a358a1abe5bfa771962227a5bc9642c75d72fee600a"
+    },
+    {
+      "file": "tsukuhako-generator-cli-0.4.0-linux.zip",
+      "bytes": 721762,
+      "sha256": "557e0ad6d4c8d571eca717652c37491d84a87240c0829a9664802b5a0f67741c"
+    },
+    {
+      "file": "tsukuhako-linux-x64-0.4.0.tar.gz",
+      "bytes": 123921417,
+      "sha256": "7c95597a3113e5ab5ca1e1bbd8061856f4c5e05083cc1d0cbeada9db9ad89b48"
+    },
+    {
+      "file": "tsukuhako-review-0.4.0-2026-10-21.zip",
+      "bytes": 2017663,
+      "sha256": "ae59d8c0f97dd545da9f420e8cd24fbfa66077a8d437106d80ff973a59e24298"
+    },
+    {
+      "file": "tsukuhako-starters-0.4.0-2026-10-21.zip",
+      "bytes": 8630836,
+      "sha256": "1411b2259918fb7fec1dc9bb99579464f7a80773189f674aee51f811e777b082"
+    },
+    {
+      "file": "tsukuhako-win32-x64-0.4.0-UNVERIFIED.zip",
+      "bytes": 204320489,
+      "sha256": "b0af4bc7086a03be0947dc09765dd3fe8c0ca5c4f259f1f9d6b04ac6aa508817"
+    }
+  ],
+  "newRelease": "0.4.1 in separate directory"
+}

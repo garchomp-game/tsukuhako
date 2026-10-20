@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "portsReleased": [
+    3661,
+    3664,
+    54720,
+    54721,
+    54722,
+    54723
+  ],
+  "trialContainersStopped": true,
+  "retainedVolumes": 5,
+  "baselineUnrelated": [
+    {
+      "id": "b531d3443746",
+      "name": "ikiiki-project-hr132-133_devcontainer-db-1",
+      "state": "running",
+      "action": "not modified by this task"
+    },
+    {
+      "id": "8e9f201539c5",
+      "name": "ikiiki-backend-postgres",
+      "state": "running",
+      "action": "not modified by this task"
+    }
+  ],
+  "noGlobalPrune": true
+}

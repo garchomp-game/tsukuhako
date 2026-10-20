@@ -1,0 +1,50 @@
+ Container otoka-f2-first-246531851-app-1 Stopping 
+ Container otoka-f2-first-246531851-app-1 Stopped 
+ Container otoka-f2-first-246531851-app-1 Removing 
+ Container otoka-f2-first-246531851-app-1 Removed 
+ Network otoka-f2-first-246531851_default Removing 
+ Network otoka-f2-first-246531851_default Removed 
+ Container otoka-s2-brand-final-3194731225-app-1 Stopping 
+ Container otoka-s2-brand-final-3194731225-app-1 Stopped 
+Local data are backed up to docker volume. Use docker to show them: docker volume ls --filter label=com.supabase.cli.project=otoka-s2-brand-final-3194731225
+ Container otoka-s2-brand-final-3194731225-app-1 Stopping 
+ Container otoka-s2-brand-final-3194731225-app-1 Stopped 
+ Container otoka-s2-brand-final-3194731225-app-1 Removing 
+ Container otoka-s2-brand-final-3194731225-app-1 Removed 
+{
+  "status": "PASS",
+  "recordedAt": "2026-10-20T13:25:34.666709+00:00",
+  "projects": {
+    "F2": "otoka-f2-first-246531851",
+    "S2": "otoka-s2-brand-final-3194731225"
+  },
+  "fixtureComposeContainersRemoved": [
+    "e12e6179fcb2",
+    "5e59fa77bd05",
+    "729df71bf410",
+    "de736118fcbf",
+    "d5fe3b52f781",
+    "8275a9e37c44",
+    "cacc46d83003",
+    "f51c9f9c5fbc"
+  ],
+  "removedEmptySupabaseNetworks": [
+    "otoka-s2-brand-final-3194731225-network",
+    "otoka-s2-brand-3194731225-network"
+  ],
+  "releasedPorts": [
+    3761,
+    3764,
+    55320,
+    55321,
+    55322,
+    55323
+  ],
+  "baselineDatabasesStillHealthy": 2,
+  "allOriginalVolumesPreserved": 76,
+  "volumesNow": 82,
+  "networksNow": 5,
+  "runningContainersNow": 2,
+  "databaseVolumeDeletion": false,
+  "scope": "Only explicit 0.3.0 test resources stopped; sources, data volumes and image caches retained."
+}

@@ -1,0 +1,3 @@
+ローカルSupabaseを起動: otoka-s2-2226800358（初回の画像取得には数分かかります）
+準備完了。API http://127.0.0.1:54321 / Studio http://127.0.0.1:54323
+次: VS Codeで Reopen in Container → npm run dev

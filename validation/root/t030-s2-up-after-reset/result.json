@@ -1,0 +1,16 @@
+{
+  "id": "t030-s2-up-after-reset",
+  "startedAt": "2026-10-20T13:16:13.610772+00:00",
+  "command": [
+    "<WORKSPACE>/tools/node_modules/.bin/devcontainer",
+    "up",
+    "--workspace-folder",
+    "."
+  ],
+  "cwd": "validation/brand-0.3.0/runs/startup/S2 学習",
+  "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+  "exitCode": 0,
+  "elapsedSeconds": 14.351,
+  "result": "PASS",
+  "log": "output.log"
+}

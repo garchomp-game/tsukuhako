@@ -1,0 +1,4 @@
+PASS: missing configuration guidance, GET reload, mobile layout
+PASS: local unavailable endpoint produces safe failure UI; public fixture key absent from HTML
+PASS: removed temporary local-only settings; dev restart is required after removing loaded environment variables
+{"result":"PASS","baseURL":"http://localhost:3015","scope":"local missing/failure UI; live cloud BLOCKED","elapsedSeconds":4.06}

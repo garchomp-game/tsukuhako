@@ -1,0 +1,51 @@
+name: ${PROJECT_NAME:?先に bash scripts/configure.sh を実行してください}
+
+services:
+  app:
+    image: ${PROJECT_NAME}-dev:0.1.0
+    pull_policy: never
+    init: true
+    environment:
+      PGHOST: db
+      PGPORT: "5432"
+      PGDATABASE: otoka_learning
+      PGUSER: otoka
+      PGPASSWORD: ${POSTGRES_PASSWORD:?設定を確認してください}
+      PGCONNECT_TIMEOUT: "5"
+      OTOKA_PROJECT_NAME: ${PROJECT_NAME}
+    volumes:
+      - type: bind
+        source: .
+        target: /workspace
+    tmpfs:
+      - /var/lib/postgresql
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:18.6-bookworm@sha256:afc7e2d441324c0388fa80c3d24f733b4194a4eb7f47dd8ee2b08eb1a24a647c
+    environment:
+      POSTGRES_DB: otoka_learning
+      POSTGRES_USER: otoka
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?設定を確認してください}
+      POSTGRES_INITDB_ARGS: --auth-host=scram-sha-256
+    ports:
+      - "127.0.0.1:${HOST_PORT:?先に configure してください}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U otoka -d otoka_learning"]
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 10s
+    shm_size: 128mb
+    labels:
+      otoka.template: I1
+
+volumes:
+  pgdata:
+    labels:
+      otoka.template: I1
+      otoka.purpose: learning-database

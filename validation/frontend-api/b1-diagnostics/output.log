@@ -1,0 +1,3 @@
+missing-config: expected rejection and recovery guide PASS
+docker-unavailable: expected rejection and recovery guide PASS
+invalid port: expected rejection; no .env created PASS

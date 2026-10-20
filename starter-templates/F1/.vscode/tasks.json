@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "dev",
+      "type": "shell",
+      "command": "npm run dev",
+      "problemMatcher": []
+    },
+    {
+      "label": "check",
+      "type": "shell",
+      "command": "npm run check",
+      "problemMatcher": []
+    },
+    {
+      "label": "test",
+      "type": "shell",
+      "command": "npm run test",
+      "problemMatcher": []
+    },
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "npm run build",
+      "problemMatcher": []
+    },
+    {
+      "label": "doctor",
+      "type": "shell",
+      "command": "npm run doctor",
+      "problemMatcher": []
+    }
+  ]
+}

@@ -1,0 +1,390 @@
+{
+  "template": "F1",
+  "version": "0.1.1",
+  "startedAt": "2026-10-20T05:02:20.741719+00:00",
+  "source": "starter-templates/F1",
+  "lesson": "starter-templates/F1/docs/BUILD-YOUR-OWN.md",
+  "lessonSha256": "2fd9603be5f3caaa25f4653061421772cdce64b5fe4ed63e986c4e604531dac0",
+  "workspace": "validation/revision-0.1.1/learning/runs/F1 空フォルダ 教材 0.1.1",
+  "initialFiles": [],
+  "copyMethod": "Only individual paths listed in each assembly-stage text block; no directory copy.",
+  "stages": [
+    {
+      "number": 1,
+      "startedAt": "2026-10-20T05:02:20.741999+00:00",
+      "files": [
+        {
+          "path": ".devcontainer/Dockerfile",
+          "source": "starter-templates/F1/.devcontainer/Dockerfile",
+          "sha256": "33cccd255c90522870f2ab64a4c5f87b21f7abfeda11724cf52f0c0eb1710db0"
+        },
+        {
+          "path": "compose.yaml",
+          "source": "starter-templates/F1/compose.yaml",
+          "sha256": "06ed077f5673706bddafc7b20ff51cff22b382476277f96b254057faec815188"
+        },
+        {
+          "path": ".devcontainer/devcontainer.json",
+          "source": "starter-templates/F1/.devcontainer/devcontainer.json",
+          "sha256": "81474e439ebd56eafae4af9e44b72298c66634ade9a93dbbef35de746707f701"
+        },
+        {
+          "path": ".dockerignore",
+          "source": "starter-templates/F1/.dockerignore",
+          "sha256": "4a97a52cd3f61950197539cb9f5de3b437d9402519baac6cc578e2b8c25e1c89"
+        },
+        {
+          "path": ".gitignore",
+          "source": "starter-templates/F1/.gitignore",
+          "sha256": "8852ae21abc463dca2304a5b7a1c90bf7951f2e8e991f38bbc1a76bb9e873518"
+        },
+        {
+          "path": ".gitattributes",
+          "source": "starter-templates/F1/.gitattributes",
+          "sha256": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c"
+        },
+        {
+          "path": ".env.example",
+          "source": "starter-templates/F1/.env.example",
+          "sha256": "6744f6f08f722535eb9048336fc767031aac0276426254f29175cd38d88e8c95"
+        },
+        {
+          "path": ".npmrc",
+          "source": "starter-templates/F1/.npmrc",
+          "sha256": "cde76ca04e048c3eba070a2c0dfcf5b723cf6014eab177157096b924f24ec4ca"
+        },
+        {
+          "path": ".nvmrc",
+          "source": "starter-templates/F1/.nvmrc",
+          "sha256": "a1c56e968c358e10872d64220b3ae759ffe7feaffc4da95fae425dbcca43fe44"
+        },
+        {
+          "path": "VERSION.json",
+          "source": "starter-templates/F1/VERSION.json",
+          "sha256": "c457e3be2e44b6f08d9aedf1df4a789af311288a24827a9bf0125d2a29708a93"
+        },
+        {
+          "path": "scripts/configure.sh",
+          "source": "starter-templates/F1/scripts/configure.sh",
+          "sha256": "2a26c9e270532f3ed073945714c546034856a8d1261b3e5aa10c872478809ed3"
+        },
+        {
+          "path": "scripts/doctor-host.sh",
+          "source": "starter-templates/F1/scripts/doctor-host.sh",
+          "sha256": "022e5267d1484499f720efd62cfd15d8b78e40c2698112494b764fd7cced573f"
+        },
+        {
+          "path": "scripts/compose.sh",
+          "source": "starter-templates/F1/scripts/compose.sh",
+          "sha256": "cfcecfebf6b68075cec7a7af1b33fee3c8fdb5ed2627f90455a2cc5bbfb376be"
+        },
+        {
+          "path": "scripts/doctor.mjs",
+          "source": "starter-templates/F1/scripts/doctor.mjs",
+          "sha256": "36d014a2dc47bd9fb1c9f9c74821469bae051f38e787bd822b0d9252bae4e103"
+        },
+        {
+          "path": "scripts/initialize.sh",
+          "source": "starter-templates/F1/scripts/initialize.sh",
+          "sha256": "c883fd8b8d0dfac29ba54b9835b9ff11c07215b9a3886869e4a369fdafe92836"
+        },
+        {
+          "path": "docs/SETUP.md",
+          "source": "starter-templates/F1/docs/SETUP.md",
+          "sha256": "8a8b44c781e0678261cf0ba0de863898c814e8d862f2abe861501fd997e976d5"
+        },
+        {
+          "path": "docs/RECOVERY.md",
+          "source": "starter-templates/F1/docs/RECOVERY.md",
+          "sha256": "727da03706457d44642673702e6fb06721b9b5249a213b992f0bad49c9af731d"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "startedAt": "2026-10-20T05:02:20.867117+00:00",
+      "files": [
+        {
+          "path": "package.json",
+          "source": "starter-templates/F1/package.json",
+          "sha256": "3b0f67a5c7a94bc1c624a31e68b603ccf6a38c211f5ea6ebf6a9bd8cba71b0d2"
+        },
+        {
+          "path": "package-lock.json",
+          "source": "starter-templates/F1/package-lock.json",
+          "sha256": "f8eaf97d1c89d6e901680d8480353faf70af0ff4a39e6301210a3b81527af79c"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "startedAt": "2026-10-20T05:02:29.058633+00:00",
+      "files": [
+        {
+          "path": "tsconfig.json",
+          "source": "starter-templates/F1/tsconfig.json",
+          "sha256": "17cbadd288b777c6487dc950fbbe933324869fce039a8d1a34976ed1fd22b8dc"
+        },
+        {
+          "path": "eslint.config.mjs",
+          "source": "starter-templates/F1/eslint.config.mjs",
+          "sha256": "1c919f30d4ba5e06aee5104406b9c4335ccd143ed6ff8a3d4cba0492c910cd69"
+        },
+        {
+          "path": "vite.config.ts",
+          "source": "starter-templates/F1/vite.config.ts",
+          "sha256": "099316384050c3d7218e68808140ea3c9e69d0dab29e32b34c8540a24fc11e57"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "startedAt": "2026-10-20T05:02:29.474484+00:00",
+      "files": [
+        {
+          "path": "src/style.css",
+          "source": "starter-templates/F1/src/style.css",
+          "sha256": "d2956d63ad0c38eca53d7d43decce630e2f777b1ee950284051e7cc5aabf4d33"
+        },
+        {
+          "path": "src/App.tsx",
+          "source": "starter-templates/F1/src/App.tsx",
+          "sha256": "705287fcd8651a53682a08b52e7a0db368850d5e33fec110d30c79bb8470b370"
+        },
+        {
+          "path": "src/main.tsx",
+          "source": "starter-templates/F1/src/main.tsx",
+          "sha256": "d81c203421f2a3c44e2a08e17f7366496d93c926a580a1f64a8de5a169862399"
+        },
+        {
+          "path": "index.html",
+          "source": "starter-templates/F1/index.html",
+          "sha256": "a6b90cae8c8d305d9376f4d7cbcb4d8311add1572fed85cbb4aeed6c84eb7f1b"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "startedAt": "2026-10-20T05:02:33.118859+00:00",
+      "files": [
+        {
+          "path": "tests/server.mjs",
+          "source": "starter-templates/F1/tests/server.mjs",
+          "sha256": "050521869cce92a080456e01d4c58dc2cb478d3609e32a3bac08dee7739b142a"
+        },
+        {
+          "path": "tests/http.test.mjs",
+          "source": "starter-templates/F1/tests/http.test.mjs",
+          "sha256": "afd50f1bb2939715a2d4099ae48597a81afb919c25bb14e93ad09e743f8081b5"
+        },
+        {
+          "path": "playwright.config.ts",
+          "source": "starter-templates/F1/playwright.config.ts",
+          "sha256": "dc0c29218dbd078f05f24ad3ffb60cb4b3e1e80b57bdaf60da04744f5da44025"
+        },
+        {
+          "path": "tests/browser/input.spec.ts",
+          "source": "starter-templates/F1/tests/browser/input.spec.ts",
+          "sha256": "307325d005d208ab9efe7dc1f363f34936e212bbb9fb3be44dbe963bf8c2d50c"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "startedAt": "2026-10-20T05:03:18.199785+00:00",
+      "files": [
+        {
+          "path": ".vscode/tasks.json",
+          "source": "starter-templates/F1/.vscode/tasks.json",
+          "sha256": "b300fd62c01ab5a5ed8d93514b80ba286078d9075720ebcdd736e95eaad9567c"
+        },
+        {
+          "path": ".github/workflows/check.yml",
+          "source": "starter-templates/F1/.github/workflows/check.yml",
+          "sha256": "8a9bdad92e30e280684d1ab0c151ee0b4cf19613f8d63276ef340d35ac1a857f"
+        }
+      ]
+    }
+  ],
+  "port": 3400,
+  "notRun": [
+    "VS Code UI",
+    "Windows/WSL",
+    "macOS/ARM",
+    "live GitHub Actions",
+    "beginner usability trial"
+  ],
+  "attempt": 1,
+  "project": "otoka-f1-248664013",
+  "container": "6431848cca9229430efbacc1dfc1351d0e3890d49712c23ebc9fff9d6ec6f4e0",
+  "result": "PASS",
+  "endedAt": "2026-10-20T05:03:18.616677+00:00",
+  "explicitFiles": [
+    {
+      "path": ".devcontainer/Dockerfile",
+      "sourceSha256": "33cccd255c90522870f2ab64a4c5f87b21f7abfeda11724cf52f0c0eb1710db0",
+      "assembledSha256AfterChecks": "33cccd255c90522870f2ab64a4c5f87b21f7abfeda11724cf52f0c0eb1710db0"
+    },
+    {
+      "path": "compose.yaml",
+      "sourceSha256": "06ed077f5673706bddafc7b20ff51cff22b382476277f96b254057faec815188",
+      "assembledSha256AfterChecks": "06ed077f5673706bddafc7b20ff51cff22b382476277f96b254057faec815188"
+    },
+    {
+      "path": ".devcontainer/devcontainer.json",
+      "sourceSha256": "81474e439ebd56eafae4af9e44b72298c66634ade9a93dbbef35de746707f701",
+      "assembledSha256AfterChecks": "81474e439ebd56eafae4af9e44b72298c66634ade9a93dbbef35de746707f701"
+    },
+    {
+      "path": ".dockerignore",
+      "sourceSha256": "4a97a52cd3f61950197539cb9f5de3b437d9402519baac6cc578e2b8c25e1c89",
+      "assembledSha256AfterChecks": "4a97a52cd3f61950197539cb9f5de3b437d9402519baac6cc578e2b8c25e1c89"
+    },
+    {
+      "path": ".gitignore",
+      "sourceSha256": "8852ae21abc463dca2304a5b7a1c90bf7951f2e8e991f38bbc1a76bb9e873518",
+      "assembledSha256AfterChecks": "8852ae21abc463dca2304a5b7a1c90bf7951f2e8e991f38bbc1a76bb9e873518"
+    },
+    {
+      "path": ".gitattributes",
+      "sourceSha256": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c",
+      "assembledSha256AfterChecks": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c"
+    },
+    {
+      "path": ".env.example",
+      "sourceSha256": "6744f6f08f722535eb9048336fc767031aac0276426254f29175cd38d88e8c95",
+      "assembledSha256AfterChecks": "6744f6f08f722535eb9048336fc767031aac0276426254f29175cd38d88e8c95"
+    },
+    {
+      "path": ".npmrc",
+      "sourceSha256": "cde76ca04e048c3eba070a2c0dfcf5b723cf6014eab177157096b924f24ec4ca",
+      "assembledSha256AfterChecks": "cde76ca04e048c3eba070a2c0dfcf5b723cf6014eab177157096b924f24ec4ca"
+    },
+    {
+      "path": ".nvmrc",
+      "sourceSha256": "a1c56e968c358e10872d64220b3ae759ffe7feaffc4da95fae425dbcca43fe44",
+      "assembledSha256AfterChecks": "a1c56e968c358e10872d64220b3ae759ffe7feaffc4da95fae425dbcca43fe44"
+    },
+    {
+      "path": "VERSION.json",
+      "sourceSha256": "c457e3be2e44b6f08d9aedf1df4a789af311288a24827a9bf0125d2a29708a93",
+      "assembledSha256AfterChecks": "c457e3be2e44b6f08d9aedf1df4a789af311288a24827a9bf0125d2a29708a93"
+    },
+    {
+      "path": "scripts/configure.sh",
+      "sourceSha256": "2a26c9e270532f3ed073945714c546034856a8d1261b3e5aa10c872478809ed3",
+      "assembledSha256AfterChecks": "2a26c9e270532f3ed073945714c546034856a8d1261b3e5aa10c872478809ed3"
+    },
+    {
+      "path": "scripts/doctor-host.sh",
+      "sourceSha256": "022e5267d1484499f720efd62cfd15d8b78e40c2698112494b764fd7cced573f",
+      "assembledSha256AfterChecks": "022e5267d1484499f720efd62cfd15d8b78e40c2698112494b764fd7cced573f"
+    },
+    {
+      "path": "scripts/compose.sh",
+      "sourceSha256": "cfcecfebf6b68075cec7a7af1b33fee3c8fdb5ed2627f90455a2cc5bbfb376be",
+      "assembledSha256AfterChecks": "cfcecfebf6b68075cec7a7af1b33fee3c8fdb5ed2627f90455a2cc5bbfb376be"
+    },
+    {
+      "path": "scripts/doctor.mjs",
+      "sourceSha256": "36d014a2dc47bd9fb1c9f9c74821469bae051f38e787bd822b0d9252bae4e103",
+      "assembledSha256AfterChecks": "36d014a2dc47bd9fb1c9f9c74821469bae051f38e787bd822b0d9252bae4e103"
+    },
+    {
+      "path": "scripts/initialize.sh",
+      "sourceSha256": "c883fd8b8d0dfac29ba54b9835b9ff11c07215b9a3886869e4a369fdafe92836",
+      "assembledSha256AfterChecks": "c883fd8b8d0dfac29ba54b9835b9ff11c07215b9a3886869e4a369fdafe92836"
+    },
+    {
+      "path": "docs/SETUP.md",
+      "sourceSha256": "8a8b44c781e0678261cf0ba0de863898c814e8d862f2abe861501fd997e976d5",
+      "assembledSha256AfterChecks": "8a8b44c781e0678261cf0ba0de863898c814e8d862f2abe861501fd997e976d5"
+    },
+    {
+      "path": "docs/RECOVERY.md",
+      "sourceSha256": "727da03706457d44642673702e6fb06721b9b5249a213b992f0bad49c9af731d",
+      "assembledSha256AfterChecks": "727da03706457d44642673702e6fb06721b9b5249a213b992f0bad49c9af731d"
+    },
+    {
+      "path": "package.json",
+      "sourceSha256": "3b0f67a5c7a94bc1c624a31e68b603ccf6a38c211f5ea6ebf6a9bd8cba71b0d2",
+      "assembledSha256AfterChecks": "3b0f67a5c7a94bc1c624a31e68b603ccf6a38c211f5ea6ebf6a9bd8cba71b0d2"
+    },
+    {
+      "path": "package-lock.json",
+      "sourceSha256": "f8eaf97d1c89d6e901680d8480353faf70af0ff4a39e6301210a3b81527af79c",
+      "assembledSha256AfterChecks": "f8eaf97d1c89d6e901680d8480353faf70af0ff4a39e6301210a3b81527af79c"
+    },
+    {
+      "path": "tsconfig.json",
+      "sourceSha256": "17cbadd288b777c6487dc950fbbe933324869fce039a8d1a34976ed1fd22b8dc",
+      "assembledSha256AfterChecks": "17cbadd288b777c6487dc950fbbe933324869fce039a8d1a34976ed1fd22b8dc"
+    },
+    {
+      "path": "eslint.config.mjs",
+      "sourceSha256": "1c919f30d4ba5e06aee5104406b9c4335ccd143ed6ff8a3d4cba0492c910cd69",
+      "assembledSha256AfterChecks": "1c919f30d4ba5e06aee5104406b9c4335ccd143ed6ff8a3d4cba0492c910cd69"
+    },
+    {
+      "path": "vite.config.ts",
+      "sourceSha256": "099316384050c3d7218e68808140ea3c9e69d0dab29e32b34c8540a24fc11e57",
+      "assembledSha256AfterChecks": "099316384050c3d7218e68808140ea3c9e69d0dab29e32b34c8540a24fc11e57"
+    },
+    {
+      "path": "src/style.css",
+      "sourceSha256": "d2956d63ad0c38eca53d7d43decce630e2f777b1ee950284051e7cc5aabf4d33",
+      "assembledSha256AfterChecks": "d2956d63ad0c38eca53d7d43decce630e2f777b1ee950284051e7cc5aabf4d33"
+    },
+    {
+      "path": "src/App.tsx",
+      "sourceSha256": "705287fcd8651a53682a08b52e7a0db368850d5e33fec110d30c79bb8470b370",
+      "assembledSha256AfterChecks": "705287fcd8651a53682a08b52e7a0db368850d5e33fec110d30c79bb8470b370"
+    },
+    {
+      "path": "src/main.tsx",
+      "sourceSha256": "d81c203421f2a3c44e2a08e17f7366496d93c926a580a1f64a8de5a169862399",
+      "assembledSha256AfterChecks": "d81c203421f2a3c44e2a08e17f7366496d93c926a580a1f64a8de5a169862399"
+    },
+    {
+      "path": "index.html",
+      "sourceSha256": "a6b90cae8c8d305d9376f4d7cbcb4d8311add1572fed85cbb4aeed6c84eb7f1b",
+      "assembledSha256AfterChecks": "a6b90cae8c8d305d9376f4d7cbcb4d8311add1572fed85cbb4aeed6c84eb7f1b"
+    },
+    {
+      "path": "tests/server.mjs",
+      "sourceSha256": "050521869cce92a080456e01d4c58dc2cb478d3609e32a3bac08dee7739b142a",
+      "assembledSha256AfterChecks": "050521869cce92a080456e01d4c58dc2cb478d3609e32a3bac08dee7739b142a"
+    },
+    {
+      "path": "tests/http.test.mjs",
+      "sourceSha256": "afd50f1bb2939715a2d4099ae48597a81afb919c25bb14e93ad09e743f8081b5",
+      "assembledSha256AfterChecks": "afd50f1bb2939715a2d4099ae48597a81afb919c25bb14e93ad09e743f8081b5"
+    },
+    {
+      "path": "playwright.config.ts",
+      "sourceSha256": "dc0c29218dbd078f05f24ad3ffb60cb4b3e1e80b57bdaf60da04744f5da44025",
+      "assembledSha256AfterChecks": "dc0c29218dbd078f05f24ad3ffb60cb4b3e1e80b57bdaf60da04744f5da44025"
+    },
+    {
+      "path": "tests/browser/input.spec.ts",
+      "sourceSha256": "307325d005d208ab9efe7dc1f363f34936e212bbb9fb3be44dbe963bf8c2d50c",
+      "assembledSha256AfterChecks": "307325d005d208ab9efe7dc1f363f34936e212bbb9fb3be44dbe963bf8c2d50c"
+    },
+    {
+      "path": ".vscode/tasks.json",
+      "sourceSha256": "b300fd62c01ab5a5ed8d93514b80ba286078d9075720ebcdd736e95eaad9567c",
+      "assembledSha256AfterChecks": "b300fd62c01ab5a5ed8d93514b80ba286078d9075720ebcdd736e95eaad9567c"
+    },
+    {
+      "path": ".github/workflows/check.yml",
+      "sourceSha256": "8a9bdad92e30e280684d1ab0c151ee0b4cf19613f8d63276ef340d35ac1a857f",
+      "assembledSha256AfterChecks": "8a9bdad92e30e280684d1ab0c151ee0b4cf19613f8d63276ef340d35ac1a857f"
+    }
+  ],
+  "commands": "logs/F1",
+  "browserTests": 2,
+  "httpTests": 1,
+  "stopped": true,
+  "containerRemoved": true,
+  "namedVolumesRetained": true
+}

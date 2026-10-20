@@ -1,0 +1,48 @@
+
+> otoka-s2-local-notes@0.1.0 check
+> next typegen && tsc --noEmit && eslint .
+
+Generating route types...
+✓ Types generated successfully
+
+> otoka-s2-local-notes@0.1.0 test
+> node --test tests/input.test.mjs
+
+✔ trim and Unicode code point boundaries (1.446971ms)
+✔ missing, non-string, whitespace and invalid Unicode are rejected (0.184005ms)
+✔ markup remains literal data and IDs are constrained (0.241237ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 134.004489
+
+> otoka-s2-local-notes@0.1.0 build
+> next build
+
+▲ Next.js 16.4.2 (Turbopack)
+- Environments: .env.local, .env
+✓ Running next.config.ts took 29ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 3.3s
+  Running TypeScript ...
+  Finished TypeScript in 2.9s ...
+  Collecting page data using 6 workers ...
+  Generating static pages using 6 workers (0/3) ...
+✓ Generating static pages using 6 workers (3/3) in 504ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /api/notes
+└ ƒ /api/notes/[id]
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

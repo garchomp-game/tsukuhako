@@ -1,0 +1,18 @@
+{
+  "id": "f1-zip-configure",
+  "startedAt": "2026-10-20T02:24:56.415738+00:00",
+  "command": [
+    "bash",
+    "scripts/configure.sh",
+    "--name",
+    "otoka-f1-zip-20261020",
+    "--port",
+    "3300"
+  ],
+  "cwd": "validation/work/frontend-api/新規 展開/F1",
+  "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+  "exitCode": 0,
+  "elapsedSeconds": 0.009,
+  "result": "PASS",
+  "log": "output.log"
+}

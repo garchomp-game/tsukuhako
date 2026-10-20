@@ -1,0 +1,16 @@
+
+> otoka-s3-readonly-catalog@0.1.0 dev
+> next dev --hostname 0.0.0.0 --port 3000
+
+▲ Next.js 16.4.2 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://0.0.0.0:3000
+- Environments: .env
+✓ Ready in 283ms
+✓ Running next.config.ts took 27ms
+
+ GET / 200 in 218ms (next.js: 94ms, application-code: 124ms)
+ GET /? 200 in 24ms (next.js: 0.9ms, application-code: 23ms)
+  Reload env: .env.local
+ GET / 200 in 27ms (next.js: 0.7ms, application-code: 26ms)
+ GET / 200 in 47ms (next.js: 13ms, application-code: 34ms)

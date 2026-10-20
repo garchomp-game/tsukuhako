@@ -1,0 +1,10 @@
+{
+  "runtimeFileCount": 42,
+  "differences": [
+    "next-env.d.ts (Next auto-generated dev vs typegen paths)"
+  ],
+  "result": "PASS",
+  "compared": "final source versus standalone ZIP deployment; documentation-only verification updates excluded",
+  "handAuthoredRuntimeDifferences": [],
+  "note": "Generated next-env.d.ts is rewritten by Next dev/typegen; the 41 hand-authored runtime files match."
+}

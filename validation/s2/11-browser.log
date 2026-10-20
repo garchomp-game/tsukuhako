@@ -1,0 +1,44 @@
+
+> otoka-s2-local-notes@0.1.0 test:browser
+> playwright test
+
+
+Running 2 tests using 1 worker
+
+  ✓  1 tests/browser/notes.spec.ts:2:1 › 画面から保存・更新・再読込・削除を行う (1.7s)
+  ✘  2 tests/browser/notes.spec.ts:24:1 › 不正入力・通信障害・テキスト表示を確認する (668ms)
+
+
+  1) tests/browser/notes.spec.ts:24:1 › 不正入力・通信障害・テキスト表示を確認する ──────────────────────────────────────
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('alert')
+    Expected substring: "1文字以上"
+    Error: strict mode violation: getByRole('alert') resolved to 2 elements:
+        1) <p role="alert" class="error">本文を1文字以上入力してください</p> aka getByText('本文を1文字以上入力してください')
+        2) <div role="alert" aria-live="assertive" id="__next-route-announcer__"></div> aka locator('[id="__next-route-announcer__"]')
+
+    Call log:
+      - Expect "toContainText" getByRole('alert') with timeout 5000ms
+      - waiting for getByRole('alert')
+
+
+      25 |   await page.goto('/');
+      26 |   await page.getByRole('button', { name: '保存する', exact: true }).click();
+    > 27 |   await expect(page.getByRole('alert')).toContainText('1文字以上');
+         |                                         ^
+      28 |   await page.getByLabel('本文', { exact: true }).fill('📝'.repeat(201));
+      29 |   await page.getByRole('button', { name: '保存する', exact: true }).click();
+      30 |   await expect(page.getByRole('alert')).toContainText('200文字以内');
+        at /workspace/tests/browser/notes.spec.ts:27:41
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/notes-不正入力・通信障害・テキスト表示を確認する/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/notes-不正入力・通信障害・テキスト表示を確認する/error-context.md
+
+  1 failed
+    tests/browser/notes.spec.ts:24:1 › 不正入力・通信障害・テキスト表示を確認する ───────────────────────────────────────
+  1 passed (5.8s)

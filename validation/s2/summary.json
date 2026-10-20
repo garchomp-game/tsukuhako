@@ -1,0 +1,92 @@
+{
+  "templateId": "S2",
+  "version": "0.1.0",
+  "testedAt": "2026-10-20T02:59:47.787282+00:00",
+  "environment": {
+    "os": "Linux Mint 22.3",
+    "architecture": "x86_64",
+    "kernel": "7.0.0-31-generic",
+    "docker": "29.9.1",
+    "compose": "5.6.0",
+    "devcontainerCli": "0.89.0",
+    "node": "24.22.0",
+    "npm": "11.17.0",
+    "supabaseCli": "2.121.0",
+    "postgres": "17.11.0.004",
+    "browserAutomation": "Playwright 1.64.1 / Chromium 156",
+    "visualQA": "Google Chrome 155.0.8059.84 desktop/mobile; images inspected by agent"
+  },
+  "result": "PASS",
+  "scope": "Linux local CLI/container/browser/DB and standalone ZIP only",
+  "notRun": [
+    "VS Code UI connect/reconnect/rebuild",
+    "Windows + WSL actual device",
+    "macOS",
+    "ARM",
+    "fresh-PC install",
+    "GitHub-hosted CI",
+    "beginner usability study",
+    "alternative Docker-socket CLI execution"
+  ],
+  "evidence": {
+    "devcontainer": "05-devcontainer-up.log",
+    "staticUnitBuild": "07-check-test-build-fixed.log",
+    "api": "10-api.log",
+    "browser": "12-browser-fixed.log",
+    "hotReload": "13-hmr.log",
+    "stopRestartSeed": "14-stop-restart.log",
+    "noHostNode": "15-host-no-node.log",
+    "rebuild": "17-rebuild.log",
+    "reset": "19-reset.log",
+    "keyBoundary": "20-key-boundary.log",
+    "visualQA": "21-ui-qa.log",
+    "standaloneZip": "23-zip-devcontainer.json",
+    "coexistence": "27-zip-coexist-fixed.json",
+    "finalCheck": "28-final-check.json",
+    "resources": "26-resource-ledger-final.txt",
+    "finalZipRestart": "35-final-zip-fixed.json",
+    "finalZipStaticUnit": "36-final-zip-check.log",
+    "finalZipBrowser": "39-final-zip-browser-fixed.json",
+    "finalZipGuards": "41-final-zip-guards.json",
+    "finalZipStop": "40-final-stop.log",
+    "resourcesFinal": "resources-final.json"
+  },
+  "resourcePolicy": "Both task-owned S2 Supabase stacks and apps stopped. DB volumes, app dependency/cache volumes, local images and networks retained. Shared Docker was not pruned; unrelated baseline containers remained running.",
+  "ports": {
+    "primary": {
+      "app": 3004,
+      "api": 54321,
+      "db": 54322,
+      "studio": 54323,
+      "shadow": 54320
+    },
+    "zipCopy": {
+      "app": 3014,
+      "api": 54421,
+      "db": 54422,
+      "studio": 54423,
+      "shadow": 54420
+    }
+  },
+  "warnings": [
+    "Initial lint structural warning fixed and rerun passed.",
+    "Initial browser selector collided with Next announcer; named app alert fixed and rerun passed.",
+    "Initial ZIP verification harness reloaded before PATCH completion; harness waited for response and passed with unchanged runtime.",
+    "Container screenshot fonts lacked Japanese; host browser visual evidence used.",
+    "Image and npm caches were not globally cleared.",
+    "Final candidate ZIP exposed unquoted CLI version check in a space-containing path. Runtime fix quoted the executable; final ZIP c18b3b... reused cached CLI without downloading and passed.",
+    "Final smoke harness expected DELETE200, but API contract is DELETE204. Harness-only correction passed on the unchanged final ZIP; failed record38 retained."
+  ],
+  "timing": "23/27/28 records have measured wall-clock durations. Earlier logs include CLI timestamps when available; no inferred stopwatch durations are claimed.",
+  "finalZip": {
+    "result": "PASS",
+    "finalZip": "S2-0.1.0.zip",
+    "sha256": "c18b3b217a8b17f9fc9aa87854047d927550fa23aee8d12f1de913ec55543bac",
+    "unpackPath": "validation/s2/runs/ZIP 新規展開/S2",
+    "handAuthoredFilesMatch": true,
+    "generatedChanges": [
+      "next-env.d.ts"
+    ],
+    "sourceFrozen": true
+  }
+}

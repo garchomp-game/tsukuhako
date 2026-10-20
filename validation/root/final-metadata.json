@@ -1,0 +1,44 @@
+[
+  {
+    "id": "F1",
+    "lockConsistency": "PASS",
+    "devcontainer": true,
+    "readme": true
+  },
+  {
+    "id": "F2",
+    "lockConsistency": "PASS",
+    "devcontainer": true,
+    "readme": true
+  },
+  {
+    "id": "B1",
+    "lockConsistency": "PASS",
+    "devcontainer": true,
+    "readme": true
+  },
+  {
+    "id": "S1",
+    "lockConsistency": "PASS",
+    "devcontainer": true,
+    "readme": true
+  },
+  {
+    "id": "S2",
+    "lockConsistency": "PASS",
+    "devcontainer": true,
+    "readme": true
+  },
+  {
+    "id": "I1",
+    "lockConsistency": "not applicable: no npm",
+    "devcontainer": true,
+    "readme": true
+  },
+  {
+    "id": "S3",
+    "lockConsistency": "PASS",
+    "devcontainer": true,
+    "readme": true
+  }
+]

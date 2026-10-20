@@ -1,0 +1,123 @@
+[2026-10-20T02:25:31.288Z] @devcontainers/cli 0.89.0. Node.js v24.19.0. linux 7.0.0-31-generic x64.
+[2026-10-20T02:25:31.482Z] Running the initializeCommand from devcontainer.json...
+
+[2026-10-20T02:25:31.483Z] Start: Run: bash scripts/initialize.sh
+[2026-10-20T02:25:31.498Z] 設定を保持: otoka-i1-3298638797 / 127.0.0.1:55435
+[2026-10-20T02:25:31.734Z] PASS: Docker / Compose / 設定
+project: otoka-i1-3298638797
+host: 127.0.0.1:55435
+container: db:5432
+ホスト Node.js/npm/psql は不要です。起動時の port already allocated は docs/troubleshooting.md へ。
+[2026-10-20T02:25:32.097Z] #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 544B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/postgres:18.6-bookworm@sha256:afc7e2d441324c0388fa80c3d24f733b4194a4eb7f47dd8ee2b08eb1a24a647c
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 81B done
+#3 DONE 0.0s
+
+#4 [1/3] FROM docker.io/library/postgres:18.6-bookworm@sha256:afc7e2d441324c0388fa80c3d24f733b4194a4eb7f47dd8ee2b08eb1a24a647c
+#4 resolve docker.io/library/postgres:18.6-bookworm@sha256:afc7e2d441324c0388fa80c3d24f733b4194a4eb7f47dd8ee2b08eb1a24a647c 0.0s done
+#4 DONE 0.0s
+
+#5 [2/3] RUN groupadd --gid 1000 vscode     && useradd --uid 1000 --gid 1000 --create-home --shell /bin/bash vscode     && mkdir -p /workspace     && chown vscode:vscode /workspace
+#5 CACHED
+
+#6 [3/3] WORKDIR /workspace
+#6 CACHED
+
+#7 exporting to image
+#7 exporting layers done
+#7 exporting manifest sha256:d168af58ce3158de8f1b03c8715f69842ccc40288147ba30b9770def89357f72 done
+#7 exporting config sha256:cb4dadb980c837a69332371e229d40d3c3c42edc5e0c338e6afad354504f60b3 done
+#7 exporting attestation manifest sha256:c38713d92dd00730ba768ef360d95c7db186ef00bce13be407831b2426ece312 done
+#7 exporting manifest list sha256:2aff8c0ac64fc53cd2f0e0b12d7719b3866a46568abb8c855e22f4d355ff784a done
+#7 naming to docker.io/library/otoka-i1-3298638797-dev:0.1.0
+[2026-10-20T02:25:32.192Z] #7 naming to docker.io/library/otoka-i1-3298638797-dev:0.1.0 done
+#7 unpacking to docker.io/library/otoka-i1-3298638797-dev:0.1.0 done
+#7 DONE 0.1s
+[2026-10-20T02:25:32.205Z] 
+[2026-10-20T02:25:32.266Z] Start: Run: docker compose -f [work-root]/validation/i1/runs/最終ZIP 別展開/I1/compose.yaml --profile * config
+[2026-10-20T02:25:32.393Z] Start: Run: docker compose -f [work-root]/validation/i1/runs/最終ZIP 別展開/I1/compose.yaml --profile * config
+[2026-10-20T02:25:32.483Z] name: otoka-i1-3298638797
+services:
+  app:
+    environment:
+      OTOKA_PROJECT_NAME: otoka-i1-3298638797
+      PGCONNECT_TIMEOUT: "5"
+      PGDATABASE: otoka_learning
+      PGHOST: db
+      PGPASSWORD: [REDACTED_LOCAL_PASSWORD]
+      PGPORT: "5432"
+      PGUSER: otoka
+    image: otoka-i1-3298638797-dev:0.1.0
+    init: true
+    networks:
+      default: null
+    pull_policy: never
+    tmpfs:
+      - /var/lib/postgresql
+    volumes:
+      - type: bind
+        source: [work-root]/validation/i1/runs/最終ZIP
+          別展開/I1
+        target: /workspace
+    depends_on:
+      db:
+        condition: service_healthy
+        required: true
+  db:
+    environment:
+      POSTGRES_DB: otoka_learning
+      POSTGRES_INITDB_ARGS: --auth-host=scram-sha-256
+      POSTGRES_PASSWORD: [REDACTED_LOCAL_PASSWORD]
+      POSTGRES_USER: otoka
+    image: postgres:18.6-bookworm@sha256:afc7e2d441324c0388fa80c3d24f733b4194a4eb7f47dd8ee2b08eb1a24a647c
+    labels:
+      otoka.template: I1
+    networks:
+      default: null
+    shm_size: "134217728"
+    volumes:
+      - type: volume
+        source: pgdata
+        target: /var/lib/postgresql
+        volume: {}
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U otoka -d otoka_learning
+      timeout: 5s
+      interval: 2s
+      retries: 30
+      start_period: 10s
+    ports:
+      - mode: ingress
+        host_ip: 127.0.0.1
+        target: 5432
+        published: "55435"
+        protocol: tcp
+networks:
+  default:
+    name: otoka-i1-3298638797_default
+volumes:
+  pgdata:
+    name: otoka-i1-3298638797_pgdata
+    labels:
+      otoka.purpose: learning-database
+      otoka.template: I1
+[2026-10-20T02:25:32.485Z] Start: Run: docker inspect --type image otoka-i1-3298638797-dev:0.1.0
+[2026-10-20T02:25:32.553Z] Start: Run: docker compose --project-name otoka-i1-3298638797 -f [work-root]/validation/i1/runs/最終ZIP 別展開/I1/compose.yaml build
+[2026-10-20T02:25:32.640Z] time="2026-10-20T11:25:32+09:00" level=warning msg="No services to build"
+
+[2026-10-20T02:25:33.309Z] Start: Run: docker compose --project-name otoka-i1-3298638797 -f [work-root]/validation/i1/runs/最終ZIP 別展開/I1/compose.yaml -f [devcontainer-temp]/docker-compose/docker-compose.devcontainer.containerFeatures-1792463133309-42283470-ba81-4e59-b94c-0b0697b29242.yml up -d
+[2026-10-20T02:25:39.710Z] Running the postCreateCommand from devcontainer.json...
+
+[2026-10-20T02:25:39.926Z] PASS: otoka_learning / PostgreSQL 18.6 (Debian 18.6-1.pgdg12+2)
+[2026-10-20T02:25:39.930Z] workbench user: vscode (uid=1000)
+{"outcome":"success","containerId":"e5f155de8cdb35a5be3a2c9bc6f6fc6443400c488b0daf0aa808595a53900744","composeProjectName":"otoka-i1-3298638797","remoteUser":"vscode","remoteWorkspaceFolder":"/workspace","ociAuthDiagnostics":{"authLookupWouldBeBlocked":false,"registryRedirectWouldPreventCredentialForwarding":false,"authServerRedirect":false}}

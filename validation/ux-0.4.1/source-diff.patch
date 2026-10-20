@@ -1,0 +1,1683 @@
+--- a/DIFF.md
++++ b/DIFF.md
+@@ -1,13 +1,10 @@
+-# 0.3.0 → 0.4.0 の差分
++# 0.4.0 → 0.4.1
+ 
+-- 同じウィンドウへ教材Readerと準備チェックを追加。共有コア、既存の生成ウィザード、書込み保護は継続。
+-- curriculumに6構成＋OS準備の50章とローカル画像、版/hash付きmanifestを追加。HTML無効のMarkdown表示と章ID専用API。
+-- main/preload/workerに固定IPC、読み取り専用の並行読込、対象に結び付いたplan、読書位置保存、所有診断プロセスの終了待ち。
+-- adaptersにローカル診断・VS Code起動・Windows/WSL境界、helperに同梱Linux Node用のjob/cancel機構。
+-- coreへPOSIX cksum互換計算と協調キャンセル点を追加。CLI READMEのテスト適用範囲（R1）を明記。
+-- F1のHTTPテストに残った旧titleを修正し0.1.3へ更新。実アプリと依存版は維持。ほか6テンプレートZIPは0.3.0と同一bytes。
+-- Brain掲載文をローカル配布方式へ更新。会員サイト・公開・購入は対象外。
++変更一覧と統一差分は `validation/ux-0.4.1/source-changes.json` と `source-diff.patch` にあります。大きな実行ファイル・生成先・プロファイルは差分対象外です。
+ 
+-機械可読の変更一覧は validation/learning-0.4.0/source-changes.json、テキスト差分は同じ場所のsource-diff.patch。比較元はSHA256を照合した0.3.0全体ZIPです。新しい検証スクリプト、バイナリ画像、配布ランタイムはpatchだけでは再現できません。全体ソースZIPを使ってください。
+-
+-Windows/macOS実機検証、macOSホストスクリプト適合、とくにS2の起動補助は残っています。旧版の配布物は書き換えていません。
++- Renderer：準備の再列挙・中断・結果更新、教材のリンク種別、生成値の教材表示、戻る導線、次の作成、ポート警告、狭幅表示。
++- Main：WSL内診断のWindows向け案内変換。IPCの権限範囲は拡張しない。
++- 共有コア：最初の一歩の操作場所・作業フォルダ・確認結果を補足。
++- 教材：準備と再開の案内。対象テンプレート版は維持。
++- 版：アプリ・教材・helperを0.4.1。新しい依存なし。既存template ZIPはそのまま。
++- テスト・資料：回帰7件、実画面・実F2・fixtureの証拠、指定4資料、未公開の受取案。
+--- a/NEXT-ACTIONS.md
++++ b/NEXT-ACTIONS.md
+@@ -0,0 +1,9 @@
++# おとか本人が次に試すこと
++
++優先順・最大5件。出品や公開はこの確認の後です。
++
++1. **LinuxでF2を自分の操作だけで一周する。** 別配布の `tsukuhako-linux-x64-0.4.1.tar.gz` を展開して起動。「構成を選ぶ」から、日本語フォルダ名と空きポートで生成。「最初の一歩」どおり見出しを変え、元に戻してください。迷った画面名・文言を記録します。
++2. **再開と戻り道を試す。** 生成入力中に準備ガイドを往復し、完了後に「困ったとき」から戻ります。アプリを閉じて開き直した後は、保存先のSTART_HERE.mdから続けられるか確認してください。可能なら環境構築に不慣れな人にも、口頭で補足せず同じ一周を依頼します。
++3. **Windowsを販売対象にする前に実機を用意する。** Windows 11 x64で0.4.1の検証用ビルドを作る段階が残っています。候補なし→WSL導入→再取得、Docker DesktopのIntegration、WSL保存先、Code接続、変更・復元を通します。今回のfixture PASSをWindows合格として掲載しないでください。
++4. **macOSの対象範囲を決める。** 提供予定ならIntel／Apple Siliconの対象実機で検証します。現状のS2起動補助はLinux専用です。未確認OSを初回販売対象から外す選択もできます。
++5. **受取先と販売条件を確定する。** `docs/BRAIN-LAUNCH-DRAFT.md` の未確定箇所（配布先・価格・更新期間・サポート条件）を決め、販売者画面と購入者側で受取リンクの見え方を確認します。製品本体とレビューZIPを取り違えない案内にします。
+--- a/README.md
++++ b/README.md
+@@ -1,21 +1,26 @@
+-# ツクハコ 0.4.0
++# ツクハコ 0.4.1
+ 
+-プロジェクトを作り、同じアプリで学ぶためのローカル教材付きジェネレーターです。「作る・学ぶ・困ったとき」を一つのウィンドウにまとめました。
++学習用の開発環境を作り、同梱教材で起動・最初の変更・復元まで進むアプリです。React/Electron＋共有Nodeコア、ローカル教材の構成です。
+ 
+-## 確認する順序
++今回の変更は操作と教材のUX改善です。[UX-REVIEW.md](UX-REVIEW.md) → [UX-FLOWS.md](UX-FLOWS.md) → [TEST-RESULTS.md](TEST-RESULTS.md) → [NEXT-ACTIONS.md](NEXT-ACTIONS.md) の順に確認してください。
+ 
+-1. [REPORT.md](REPORT.md)：今回の実装、試験と未実施事項。
+-2. [開発準備・プラットフォーム表](validation/learning-0.4.0/PLATFORM-MATRIX.md)：OS / CPU / Docker方式 / 構成を分けた確認範囲。
+-3. [Desktopの使い方](generator-desktop/README.md)：配布版・教材・WSL用ファイル。
+-4. [CLIの使い方](generator/README.md)：対話生成と明示コマンド。単独CLI ZIPはテスト一式を含みません。
+-5. [掲載・受取案内の下書き](docs/BRAIN-LAUNCH-DRAFT.md)：未公開、配布先・価格・提供条件は未決。
++- Linux実行版：`dist/tsukuhako-linux-x64-0.4.1.tar.gz`。展開して `tsukuhako` を通常ユーザーで起動します。ホストのNodeは不要です。
++- レビュー資料：`dist/tsukuhako-ux-review-0.4.1-2026-10-21.zip`。製品ランタイムを含まない、ソースと検証記録です。
++- Linux Mint 22.3 x64で確認。Windows/WSL 2とmacOSの実機確認はNOT_RUN。0.4.1のWindows/macOS実行版は未作成です。
++- F1/F2/B1/S1/S2/I1が生成対象。S3は参考資料です。テンプレート実装版とZIPは0.4.0から変更していません。
+ 
+-## 配布
++制作側の操作：
+ 
+-Linux x64は`dist/tsukuhako-linux-x64-0.4.0.tar.gz`を展開し、`tsukuhako`を一般ユーザーで起動します。Windows x64とmacOS x64 / arm64の`UNVERIFIED.zip`は実機未確認の検証用ビルドです。macOSのホスト用スクリプトには未対応箇所が残っています。
++```sh
++npm ci --prefix generator
++npm ci --prefix generator-desktop
++npm ci --prefix tools
++npm test --prefix generator
++npm test --prefix generator-desktop
++npm run build --prefix generator-desktop
++python3 tools/package-desktop-041.py
++```
+ 
+-教材はアプリに同梱されています。教材閲覧とファイル生成にネット接続は不要ですが、Dockerの準備・初回依存取得・外部の公式サイト閲覧には必要です。生成後もコンテナは自動起動しません。
++教材再構築は `node tools/build-curriculum-041.mjs`、Windows用helperの再構築は `python3 tools/build-helper-041.py` です。helperの作成だけではWindows対応済みになりません。
+ 
+-0.3.0の配布物は別フォルダに保持しています。F1だけHTTPテストの旧タイトルを修正して0.1.3に上げ、ほか6つのテンプレートZIPは同一bytesを維持しました。教材版0.4.0と各テンプレート版はアプリの目次に表示します。生成済みプロジェクトは自動更新しません。
+-
+-レビューZIPはソース・報告・測定・画像を確認するための資料です。製品本体として配布しないでください。
++新規プロジェクトだけへ生成します。作成済みフォルダの自動更新、独自アカウント登録、認証メール、外部公開、会員サイトはこのアプリの操作に含みません。価格・配布先・更新期間・サポートは未確定です。
+--- a/REPORT.md
++++ b/REPORT.md
+@@ -1,62 +1,16 @@
+-# ツクハコ 0.4.0 実装・検証報告
++# ツクハコ 0.4.1 作業結果
+ 
+-2026-10-21 / おとか。最新依頼の「0節」を実装対象とした、未公開のレビュー候補です。0.3.0は元のフォルダに保持しています。後半の会員サイト案は保留のままです。
++UX点検、修正、再検証を完了しました。0.4.0の配布物は保持し、別ディレクトリで0.4.1を作成しています。
+ 
+-## 今回できたこと
++WSLの案内先と再列挙、開けないファイル参照、生成結果のポートに合う教材、準備・復旧との往復、次の新規生成、ポート見直し、WSL選択解除後の読書保存を改善しました。
+ 
+-既存のReact/Electronと共有Node.jsコアを維持し、同じBrowserWindowに「作る・学ぶ・困ったとき」を統合しました。6構成の教材と開発準備教材、計50章を同梱しています。目次、見出し移動、コードコピー、章リンク、前後の章、読書再開に対応しました。
++- [UX-REVIEW.md](UX-REVIEW.md)：問題・影響・修正・証拠・残課題
++- [UX-FLOWS.md](UX-FLOWS.md)：操作とガイドの往復
++- [TEST-RESULTS.md](TEST-RESULTS.md)：実機／自動／fixture／NOT_RUN
++- [NEXT-ACTIONS.md](NEXT-ACTIONS.md)：本人が次に試す5件
++- [レビューZIP](dist/tsukuhako-ux-review-0.4.1-2026-10-21.zip)：修正ソース・差分・検証記録・画面。製品ランタイムは含みません
++- [Linux実行版](dist/tsukuhako-linux-x64-0.4.1.tar.gz)：レビューZIPと別配布
+ 
+-起動時は教材一覧、本文は選んだ章、画像は表示位置に近づいてから読みます。mainの本文キャッシュは3章まで、rendererの本文DOMは現在の章だけです。全教材の先読み、常時ポーリング、CDN、教材用HTTPサーバーはありません。
++自動試験43件、配布GUIの14グループ、拡大表示、生成中の安全性、Linux helper試験を通過しました。F2は実VS CodeのDev Containerで起動し、見出し変更・ブラウザ反映・バイト一致の復元まで確認しました。
+ 
+-生成画面は画面切替でアンマウントせず、入力・確認・完了結果を保持します。教材読込は生成用utility processと分離し、生成中でも読めます。再起動時は教材・読書位置・選択WSLのIDを復元し、生成やインストールを再開しません。失われた章IDは目次へ戻します。
+-
+-開発準備チェックは「利用可能・未導入・未起動・設定不足・再起動等・確認不能」を分け、OS別の同梱手順と公式導入先へ案内します。Dockerの接続先、Linux containers、Compose、VS Codeと拡張、S2追加ツール、OSメモリとHOME空き容量を確認します。以前の成功を起動保証として再利用せず、初回・再確認・生成直前に診断します。診断だけではコンテナやボリュームを作りません。
+-
+-Windowsはnative GUIとWSL内Linuxヘルパーを分離しました。通常distroと既定の一般ユーザーを選び、Linux HOMEを初期保存先とします。固定wsl.exeと引数配列、構造化stdin、版・CPU・manifest照合、対象に結び付いたplan、協調キャンセルを実装しました。WindowsのNodeをLinuxランタイムとして扱わず、公式Linux Nodeを同梱します。実Windows/WSLの正常系は未実施です。
+-
+-## 実機で確認できた範囲
+-
+-端末はLinux Mint 22.3 x86_64、Core i7-10750H（12論理CPU）、RAM約23.23 GiB、kernel 7.0.0-31、Docker Engine 29.9.1です。Mintの結果をUbuntuの確認済み結果とは扱いません。
+-
+-|構成|今回の結果|確認方法|
+-|---|---|---|
+-|F1 0.1.3|PASS|生成→Dev Container CLI→npm test/check/build→ブラウザ→ソース変更・反映・復元|
+-|F2 0.1.1|PASS|実VS Code Reopen→統合ターミナルで起動→エディター編集→ブラウザ反映→復元。window reloadによる再接続、Rebuild後の起動も別確認|
+-|B1 0.1.2|PASS|生成→Dev Container CLI→npm test/check/build→API変更・反映・復元|
+-|S1 0.1.2|PASS|生成→Dev Container CLI→npm test/check/build→画面変更・反映・復元|
+-|S2 0.1.2|PASS|Supabase依存起動→Dev Container CLI→DB試験→ブラウザで作成201・更新200・再読込・削除204。初期2件へ復元|
+-|I1 0.1.0|PASS|生成→Dev Container CLI→PostgreSQL setup/check→SQL変更・再実行・復元|
+-|S3 0.1.1|NOT_RUN|引き続き参考資料。生成対象外、クラウド実接続未確認|
+-
+-F1以外の起動試験は最終化前の0.4.0 GUIが生成したプロジェクトで行いました。その後、最終tarを展開して6構成を再生成し、テンプレートの整合も再確認しました。F1は修正版の共有CLIコア出力を起動し、最終GUIにも同じ0.1.3を収録しました。F2以外のVS Code GUI操作を実施したという意味ではありません。
+-
+-実VS Codeは1.142.0、Dev Containers拡張0.470.0。専用プロファイルと検証用フォルダを使い、普段の設定を変更していません。エディター自動操作ではテストプロファイルのEditContext・自動インデント・自動整形を無効化しました。製品やElectronのsandboxを無効化する設定ではありません。
+-
+-詳細は[プラットフォーム表](validation/learning-0.4.0/PLATFORM-MATRIX.md)、[L/P受入表](validation/learning-0.4.0/ACCEPTANCE.md)、[測定結果](validation/learning-0.4.0/MEASUREMENTS.md)に分けています。
+-
+-## 修正した問題と安全性
+-
+-- F1 0.1.2のHTTPテストが改名前のtitleを要求して失敗しました。実画面に合う期待値へ修正し、F1 0.1.3として新しいZIP/hashを発行しました。依存版とアプリ動作は変更していません。
+-- 遅延読込前に読書位置を復元して0へ戻る問題を修正し、本文のDOM生成後に復元します。再起動で650px付近の位置に戻ることを実アプリで確認しました。
+-- 診断中のOS終了操作でも、mainが所有する診断プロセスの停止を待つよう修正しました。SIGTERMを無視する試験用コマンドも、所有グループへの終了処理で止まりました。
+-- WSLヘルパーはactive jobをキャンセルし、診断の子処理が終了してから閉じます。Windowsからの準備中断も同じジョブIDへ伝えます。wsl --shutdownやdistro全体の強制終了は行いません。
+-- POSIX cksum互換計算をJSへ移し、生成自体のホストcksum依存を除きました。既存Docker識別名が変わらないことをGNU cksumとの比較で検証しました。テンプレートのホスト用GNU依存は別です。
+-- R1を反映し、CLI READMEに「npm testは完全なソース配布向け。単独CLIにはtestsがなく、exit 0だけで検証済みとはしない」と追記しました。
+-
+-共有コア21件、Desktop15件の自動テストが合格しました。Linux同梱ヘルパーの6構成生成・キャンセル・対象変更拒否・診断中終了、配布GUIの切替・再開・生成・危険なMarkdown・生成中終了防止も検証しています。
+-
+-教材はID専用APIから、配布ルート内の既知ファイルだけを読みます。symlink、ルート逸脱、改ざん、過大ファイルを拒否します。Markdown生HTMLは実行せず、危険なURLは開きません。sandbox、contextIsolation、送信元・main frame・URL検査、CSP、生成先保護、変更済みファイルを残すrollbackは維持しています。
+-
+-診断はタイムアウトと出力上限を持ち、ログはユーザー操作で伏せ字を確認・編集して保存します。環境変数一覧や秘密設定を収集しません。通常終了後にツクハコ所有プロセスが残らず、併用中のVS Code・ブラウザ・Dockerが生存していることを確認しました。
+-
+-## 配布と未完了事項
+-
+-Linux x64配布版を展開して起動しました。Windows x64、macOS x64/arm64はクロスパッケージ済みですが、実機起動・初回警告・署名・公証はNOT_RUNです。UNVERIFIED.zipは検証用であり、対応済み製品として扱いません。macOSでは既存ホストスクリプトのGNU/Linux依存が未解消で、特にS2の起動補助はLinux専用です。
+-
+-WSLの再起動・仮想化・Desktop連携・実VS Code接続、Linux Desktop/rootless、Ubuntu実機、初めてのPC、長時間放置、利用者試用は残っています。fixtureによる分岐確認を実機合格へ読み替えません。教材オフライン試験はrendererのオフライン設定と通信制限で行い、ホストのネットワーク切断は行っていません。
+-
+-最新の掲載文と受取案内は[Brain下書き](docs/BRAIN-LAUNCH-DRAFT.md)です。会員サイト、認証メール、遠隔失効は初版の提供機能に記載しません。Brain販売者画面は接続済みブラウザがなく未確認。価格・配布先・更新提供期間・サポート条件は未決です。出品・購入・外部公開・アップロードは行っていません。
+-
+-distにはLinux GUI、単独CLI、Windows/macOS検証用ビルド、ソースZIP、レビューZIPを分けて置きます。各manifestとSHA256SUMS-0.4.0.txtで整合を確認できます。SHA256だけで配布者の真正性を保証するものではありません。小さなレビューZIPにはランタイム・node_modules・生成済みプロジェクト・秘密設定・生のVS Codeログを含めません。
+-
+-0.3.0の全体ZIP、CLI、GUI、7テンプレート、前回レビューZIPの保存確認は[preservation.json](validation/learning-0.4.0/preservation.json)に記録します。テスト用Compose/Supabaseだけを停止し、既存DB2件とデータボリュームは保持しました。
++Windows/macOS実機、未導入PC、本当の初心者による利用試験、販売・受取画面は未実施です。販売公開は行っていません。
+--- a/TEST-RESULTS.md
++++ b/TEST-RESULTS.md
+@@ -0,0 +1,55 @@
++# 検証記録 — 0.4.1
++
++2026-10-21。PASSは下記の条件内の結果です。Windowsを模した応答をLinux上の画面へ渡した試験を、Windows実機の合格に読み替えません。
++
++## 環境
++
++Linux Mint 22.3 / x64、kernel 7.0.0-31、Docker Engine 29.9.1 / Compose 5.6.0、VS Code 1.142.0 / Dev Containers 0.470.0。制作側Node 24.19.0、Electron 44.9.1。GUI、VS Code、ブラウザはそれぞれ試験専用プロファイルを使用しました。既存Dockerの2コンテナの起動時刻・稼働状態を維持しています。
++
++## 実機での操作（開発者による自動操作）
++
++|対象|結果|実施内容／境界|証拠|
++|---|---|---|---|
++|0.4.0事前点検|再現|ファイル参照ボタンのエラー、生成結果と教材のポート違い、次の新規生成入口なし。WSL一覧不更新はfixtureで確認|before.json、before-*画像|
++|配布Linux GUI|PASS|tarを日本語・空白パスに展開。sandbox/contextIsolation有効、nodeIntegration無効。6構成を用途選択から生成し、各教材・復旧へ往復|gui.json（全体14グループ。fixtureを含むため内訳に注意）|
++|入力／保存先／取消|PASS|不存在の親→入力保持→修正→成功。確認前の戻るは出力を作らない。別プロジェクト作成で以前の出力が残る|gui.json|
++|ポート競合|PASS|試験所有の127.0.0.1:3891待受に対して警告。戻って3892へ変更。待受は自分の試験分だけ終了|gui.json|
++|教材／アクセシビリティ|PASS（範囲限定）|見出しフォーカス、コピーした文字列とクリップボード一致、入力保持、復旧から元の章へ復帰、860×680の200%でキーボード・次章・戻る・ページ幅|gui.json、reader-zoom.json、zoom.json、画像。スクリーンリーダー実機は未実施|
++|読書再開|PASS|WSL候補消失fixtureの後も位置保存に成功。同一プロファイルで再起動して500px超の読書位置を再開。今回の生成結果は永続化せず、標準教材だと表示|gui.json|
++|F2初回の一周|PASS|GUIで作った日本語フォルダ／3892を使用。ホストdoctor成功→専用VS Codeで同じフォルダを開く→自分の生成物の信頼確認→Reopen in Container→内蔵ターミナルでpwd=/workspace、npm run dev→Ready→app/page.tsxのh1編集→ブラウザHMR→元に戻して保存→元の表示|f2-doctor.txt、vscode-f2.json、vscode-f2-start.png、f2-before/changed/restored.png|
++
++F2ではVS Codeの隔離プロファイルを起動するためテスト用ランチャーを使い、同梱ガイドにあるフォルダを開きました。コンテナ起動と編集は実際のVS Code UIで操作しています。ソース復元後のSHA256は `c519464d586ca774fbc969aeca14418aa10e837948cf22322317e3c61a5fd43e` です。今回はF2のRebuild／再接続試験を繰り返していません。旧0.4.0の記録は今回の結果とは分けます。
++
++## 自動回帰試験
++
++- `npm test --prefix generator`：**21/21 PASS**。新規生成、入力不正、ZIP整合、保存先競合、rollback、利用者変更の保護など。
++- `npm test --prefix generator-desktop`：**22/22 PASS**。従来15件に、WSL案内、再列挙時の選択、リンク分類、全教材の参照、現在教材の復旧、生成値の反映、選択解除後の読書保存の7件を追加。
++- `npm run build --prefix generator-desktop`：TypeScript／Vite成功。新しい外部依存は追加していません。
++- 最終配布物の画面試験：`tools/verify-ux-041.mjs`、補足拡大試験：`tools/verify-ux-final-041.mjs`。
++- 生成中のUI／安全性：教材へ移動しても進行表示を保持。二重applyはBUSY、終了は拒否。生成後に作る画面へ戻れる。危険なMarkdownからHTML・URL・ファイル操作を起動しない。`security.json`。
++
++文言の完全一致だけを目的にした試験は増やしていません。状態遷移、出力先、ポート、ID、リンク種別、クリップボード内容、復元したファイルの内容を確認しています。
++
++## Fixture／Linux上のhelper試験
++
++|項目|結果|代替できない範囲|
++|---|---|---|
++|Docker停止|PASS|応答を置き換えて「未起動」、OS教材、ファイル生成可を確認。実Dockerサービスは停止していない|
++|WSL候補なし→導入後再取得→再確認→消失|PASS|Windows用画面の応答fixture。実wsl.exe・再起動・権限・通常ユーザー作成は未実施|
++|WSL内Docker→Windows教材|PASS|Windows向け変換関数の単体試験＋画面fixture。実Desktop連携は未実施|
++|診断取消／遅延結果|PASS|中断後の遅れて届く成功を採用しない|
++|生成BUSY／終了拒否|PASS|自分のutility processだけをSIGSTOPし、UI操作と二重要求を観測。SIGCONTして実生成を完了|
++|アプリ終了時の診断停止|PASS|自分の診断コマンドがTERMを無視するfixture。1063msで終了し残存なし（計測に固定待ちを含む）|
++|同梱helper|PASS / Linux|全6構成生成、対象binding、中断、実行中診断のshutdown。Windowsからの配置・通信はNOT_RUN|
++
++## NOT_RUN
++
++Windows / WSL 2実機、macOS両CPU実機、Windows/macOSの0.4.1実行配布物作成、未導入PCでの全導入、初回のOS警告・署名・公証、実ユーザーの初心者試験、スクリーンリーダー、ホスト回線を切断した完全オフライン試験、今回のF1/B1/S1/S2/I1の実サーバー再起動、購入・受取・出品画面の実操作。S2のmacOS起動補助はLinux依存が残ります。
++
++## 保全と再現
++
++既存0.4.0のソースZIP・レビューZIP・Linux実行版のハッシュが既知の値と一致しました。新しい作業は別ディレクトリです。試験F2のコンテナ／ネットワークのみ `compose.sh down` し、volumeとソースを保持しました。試験VS Codeも終了済みです。`preservation.json`、`cleanup.json` を参照してください。
++
++レビューZIPでは `runs`、node_modules、生成した.env、プロファイル、巨大なランタイムを除外しています。試験を再現する場合はNode 24でgenerator、generator-desktop、toolsの依存をnpm ciし、ビルド後に `tools/package-desktop-041.py` を実行します。GUI試験にはLinuxの表示セッション、F2一周にはDockerとVS Codeが必要です。GUI試験は新しい `UX_RUN` 名で実施してください。
++
++試験途中には旧ラベルを使ったセレクター、非同期コピー完了を待たない検査、Windows fixtureの無効な仮IDなど、テスト手順側の失敗も修正しました。製品側の失敗（詳細設定の閉鎖、選択解除後の読書保存）はUX-REVIEWに記載しています。最終PASSは修正後の記録だけを採用しています。
+--- a/UX-FLOWS.md
++++ b/UX-FLOWS.md
+@@ -0,0 +1,33 @@
++# 操作の流れ — ツクハコ 0.4.1
++
++## 最初の一回
++
++起動 → 開発準備チェック → 構成を選ぶ → 保存先 → 内容確認 → ファイル生成 → 今回の「最初の一歩」 → VS Code → Dev Container → 最初の変更 → 元へ戻す。
++
++1. 「このOSの準備手順」を読み、「準備チェックへ戻る」→「もう一度確認」。WindowsはここでWSL候補も取り直します。選択したWSLの通常ユーザーと同梱ファイルを先に準備します。
++2. 「構成を選ぶ」で作りたいものを選択。迷ったときの初期値は画面の練習（Next.js / F2）です。
++3. 実在する親フォルダと、新しいフォルダ名を指定。既存のプロジェクトは生成先にしません。保存先・版・ポートを確認します。
++4. 完了後は「この構成の『最初の一歩』を読む」。今回生成した保存先・ポートが表示されます。ホスト側の準備確認後、完了画面へ戻って「VS Codeで開く」を押せます。
++5. VS CodeでReopen in Container。Dev Containerへ接続できたら、コンテナ内のターミナルで開発サーバーを起動します。ブラウザでは教材に示したホスト側URLを開きます。
++6. 指定ファイルをVS Codeで一か所変更→保存→結果を確認→元へ戻して保存→もう一度結果を確認。ここまでが最初の成功です。「空から組み立てる」は次の学習として選べます。
++
++## ガイドとの往復
++
++|出発点|読む場所|戻り先・維持するもの|
++|---|---|---|
++|準備の不足項目／OS準備手順|対象OSの準備教材|準備チェックへ戻る。構成・同じWSL・入力を保持して再確認|
++|完了画面の最初の一歩|今回の設定の教材|作る画面へ戻る。生成結果を保持|
++|学習中の困ったとき|その教材の復旧章|学んでいた章へ戻る。章と読書位置を保持|
++|生成中の困ったとき／エラー|選択した構成の復旧章|作る画面へ戻る。入力とエラーへの対処を続ける|
++|教材のソースファイル名|生成先のファイルをVS Codeで開く説明|アプリで開けないファイル名をエラーボタンにしない|
++
++## 取消・失敗・再開
++
++- 内容確認で「戻る」：まだファイルは作りません。ポート競合の「見直す」は設定を開いてポート欄へ移動します。
++- 準備チェックの「診断を中断」：遅れて届いた結果も成功扱いしません。「もう一度確認」でやり直せます。
++- 作成中：全画面共通の進行表示を確認できます。教材の閲覧は可能です。二重生成と終了は拒否され、完了後は「作る」へ戻れます。
++- 保存先のエラー：入力を保持して修正。Docker停止：ファイルは生成できますが、起動前に対象OSの準備を直します。
++- 別のプロジェクト：完了画面のボタンで用途選択へ戻ります。既に作ったファイルは残ります。
++- アプリ再起動：最後の教材と読書位置を再開します。生成入力・診断成功・生成結果は保存しません。作ったフォルダのSTART_HERE.mdをVS Codeで開けば、実際の設定のまま再開できます。作り直しは不要です。
++
++「ファイル生成済み」「Docker利用可能」「Dev Container起動済み」は別です。ツクハコは後二者を実行済みだと推測して完了表示しません。
+--- a/UX-REVIEW.md
++++ b/UX-REVIEW.md
+@@ -0,0 +1,48 @@
++# ツクハコ 0.4.1 UX点検・修正
++
++2026-10-21 / 対象：環境構築に不慣れな学習者。0.4.0の作業ツリー・設計・検証記録を確認し、別プロファイルの0.4.0実画面で再現してから0.4.1へ修正しました。既存の0.4.0配布物は別ディレクトリに保持しています。
++
++Linux Mint x64で、準備から生成、F2の起動・変更・復元まで到達しました。修正後の全6構成の画面遷移と重要な失敗経路も確認済みです。これは開発者による点検であり、本当の初心者による利用テストではありません。
++
++## 確認した問題と対応
++
++|ID・分類|再現条件／利用者への影響|修正|確認結果・証拠|
++|---|---|---|---|
++|UX01 誤解して進む|Windowsの準備チェックへWSL helperのLinux診断をそのまま合流。Docker不足時にLinux Engine導入教材を開く|観察した状態は保持し、WSL側の全チェックをWindows教材へ誘導。Docker Desktopの起動・選択WSLのIntegration・同じ通常ユーザーでの確認を案内|経路をコードで確認。状態別の単体試験とWindows画面fixtureでWindows教材への遷移PASS。実WindowsはNOT_RUN|
++|UX02 進めない|初回WSL候補0件→導入した想定→「もう一度確認」。一覧取得が再実行されず候補0件のまま|毎回一覧を再取得。有効な選択は維持、唯一の新候補は選択、消えた候補は解除。無効なIDで診断しない|0.4.0画面fixtureで再現。0.4.1で候補追加・再診断・手入力パス保持・候補消失を確認|
++|UX03 迷う|F1「最初の一歩」のsrc/App.tsxを押すとエラーになる|読める章／公式外部リンクと、生成先のファイル参照を分離。ソースは「VS Codeで開く」説明付きの通常文字。未収録資料も押せるボタンにしない|Linux実画面で前後確認。全50章の内部リンク・ファイル参照の回帰試験PASS|
++|UX04 誤解して進む|F2を3891で生成してもアプリ教材は標準例3001。注意文を読み替える必要がある|完了画面からの最初の一歩は、その生成結果のSTART_HERE本文を表示。保存先・ポート・版を共有コアから供給。標準教材には見本と明記。他の章へ移ったときも今回のポートと起動手順への戻り道を表示|0.4.0実画面で再現。6構成の変更ポートと教材一致、S2の連続4ポートもPASS。F2は3892で実起動|
++|UX05 迷う|準備教材を読んだ後、どこへ戻って再診断するかが分かりづらい|「準備チェックへ戻る」で見出しへフォーカス。構成・保存先・フォルダ名は保持。準備パネルに「構成を選ぶ」を追加|Linux実画面の往復・フォーカス・入力保持PASS。WSLの同一対象再診断でも手入力パスを保持|
++|UX06 進めない|生成完了画面に次のプロジェクトを作る操作がなく、再起動が必要|「別のプロジェクトを作る」でplanと画面内の結果をリセットし、用途選択へ戻る。作成済みフォルダは保持|0.4.0実画面で確認。0.4.1で全6構成を連続作成し、最初のF2が残ることも確認|
++|UX07 迷う|生成・学習の「困ったとき」が共通の準備教材に留まり、対象構成の復旧へ直結しない|現在の構成／読書中の教材の復旧章へ移動。学習中は「学んでいた章へ戻る」。生成エラーにも復旧入口を追加|6構成の教材選択、復旧、元の章／作る画面への復帰PASS|
++|UX08 誤解して進む|起動時の「ホスト側」や作業フォルダが曖昧。標準ポートとコンテナ内表示の違いも読み替えが必要|生成先へ移動するコピー用cd、PowerShell／WSL／コンテナ／VS Code／ブラウザの区別、doctorとサーバーの期待表示、パレット・ターミナルの開き方を追加|F2で同梱手順どおりdoctor→Reopen→npm run dev→編集→HMR→復元PASS。コマンドコピーは説明・プロンプトを含まない|
++|UX09 迷う|使用中ポートが折りたたまれた詳細内に埋もれる。修正途中の再検証では戻ると詳細設定が閉じることも発見|確認画面に起動前の不足を表示。「保存先・ポートを見直す」で詳細設定を開き、ポート欄へフォーカス|自分のTCP待受3891で競合を作り、戻る→3892へ変更→生成PASS。既存サーバーは停止していない|
++|UX10 進めない（再開）|WSL選択解除後に空文字IDを設定保存へ送り、検証エラーで読書位置が保存されない。再開試験で発見|未選択はundefinedとして保存。ID検証は緩めない|専用回帰試験と、候補消失→読書→終了→同じプロファイル再起動の試験PASS|
++|UX11 迷う|小画面の拡大表示で横並びナビ・手順が幅を取り、操作を探しにくい|ナビや手順を折り返し、狭幅の教材を上下配置。長いパスを折り返す。章見出し・戻り先・コピー後のフォーカスを維持|860×680 / 200%でフォームのキーボード操作、教材の見出し・次章・戻るを確認。ページ横はみ出しなし|
++|UX12 迷う|受取案内にOS版選択・展開・最初の操作のつながりが不足|未公開の受取案にLinuxファイル名、展開、起動、準備往復、生成後の順序を追加。未確認OSは販売可能と記載しない|原稿と配布名を照合。受取先・価格・更新期間・サポートは未確定のまま。出品・公開は未実施|
++
++見た目だけの変更を目的にした全面改修は行っていません。React/Electron、共有Nodeコア、ローカル教材、既存の安全な生成契約を維持しています。テンプレートZIPとテンプレート実装版は変更していません。カタログの製品版を0.4.1とし、F1のpackageBytesを実ファイルの長さへ合わせました。
++
++## 失敗時・安全境界の確認
++
++- 存在しない親フォルダはエラーを示して入力を保持。修正後に生成できます。既存フォルダへの生成拒否・競合時保護はコア試験でも継続確認しました。
++- Docker不足は「ファイル生成可能」と「起動の準備が必要」を分けます。再診断開始時は古い成功を消し、中断後の遅れて到着した成功も採用しません。
++- 作成前は「戻る」で取消できます。ファイル作成中の強制取消ボタンは設けず、短い配置処理の完了を待つ設計を維持しています。二重生成・作成中終了を拒否し、教材閲覧は可能です。共有コア／helperの協調中断とrollbackは別に試験しました。
++- 任意ファイル読込・任意コマンド・HTML実行の機能は追加していません。外部リンクは既存の本文照合を通します。診断ログは共有前に確認する案内を維持しています。
++- 復旧教材は対象プロジェクトの停止・再接続が先です。既存資源を壊す全体prune、WSL全体shutdown、OS設定変更は実施していません。
++
++## 残る確認
++
++|影響|未解決の理由|次に必要な確認|
++|---|---|---|
++|Windowsの実際の導入・WSL再列挙・Desktop連携・Code接続を保証できない|Windows実機がない。fixtureとLinux helperは輸送・権限・再起動を代替しない|Windows 11 x64実機で0.4.1をビルド・起動し、候補なし→導入→再確認→F2変更・復元|
++|macOSの実起動は保証できない。S2ホスト補助はLinux専用|実機がなく、既存GNU/Linux依存も残る|対象CPUの実機を決めて依存と起動を確認。S2は対応済みと扱わない|
++|初めてのPCで受取から開始できるか未確認|今回のホストはDocker/Code導入済み。配布先も未確定|配布先確定後、別のPCで取得・展開・起動・導入手順を通す|
++|初学者が自力で理解できるか未確認|開発者の観察だけでは初心者の迷いを測れない|説明を先回りしない本人／初心者試用で、止まった文言・操作を記録|
++|全画面の読み上げ・OSごとの表示差は未確認|キーボード、フォーカス、role=status/alert、200%表示までの範囲|スクリーンリーダーと実OSの表示・警告を試用|
++
++## 証拠と導入記述の照合
++
++前後の観察は `validation/ux-0.4.1/before.json`、修正後の画面試験は `gui.json`、実F2は `vscode-f2.json` にあります。詳細と試験区分は [TEST-RESULTS.md](TEST-RESULTS.md) を参照してください。
++
++WSL／Docker／VS Codeの操作記述は、2026-10-21に [Microsoft WSL導入手順](https://learn.microsoft.com/en-us/windows/wsl/install)、[Docker DesktopのWSL連携](https://docs.docker.com/desktop/features/wsl/)、[VS Code Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers) と照合しました。公式手順の確認は、当該OSの実機合格を意味しません。
+--- a/catalog.json
++++ b/catalog.json
+@@ -48,7 +48,7 @@
+         "stop": "bash scripts/compose.sh stop"
+       },
+       "readme": "starter-templates/F1/README.md",
+-      "packageBytes": 59377,
++      "packageBytes": 59528,
+       "acceptanceStatus": "NOT_RUN",
+       "initialSetupRequiresNetwork": true,
+       "services": [
+@@ -542,7 +542,7 @@
+     "Windows native GUI"
+   ],
+   "generatedDate": "2026-10-21",
+-  "packageVersion": "0.4.0",
++  "packageVersion": "0.4.1",
+   "statusNote": "Validation applies only to stated local CLI/function scope. VS Code GUI and other listed acceptance work remain NOT_RUN; no universal compatibility guarantee.",
+   "finalPackageEvidence": "validation/package-audit.json",
+   "previousPackageVersion": "0.2.1",
+--- a/curriculum/B1/first.md
++++ b/curriculum/B1/first.md
+@@ -12,6 +12,8 @@
+ 
+ 場所：開発ホスト（WindowsはWSL内）。生成したフォルダで行います。
+ 
++確認できる結果：診断OK と、このプロジェクトのURLが表示されます。
++
+ 不足があれば、次の準備手順を確認してください。生成済みの.envを最初から作り直す必要はありません。
+ 
+ ```sh
+@@ -24,13 +26,17 @@
+ 
+ 場所：VS Code。生成したフォルダで行います。
+ 
+-イメージの準備と依存の取得が終わるまで待ちます。初回はネット接続が必要です。
++確認できる結果：VS Code左下にDev Containerへの接続が表示され、/workspaceのファイルが開きます。
++
++生成完了画面の「VS Codeで開く」を押します。VS CodeでCtrl+Shift+P（macOSはCmd+Shift+P）を押し、Dev Containers: Reopen in Containerを検索して選びます。自身が生成したフォルダを確認して信頼します。初回のイメージ・依存取得を待ちます。
+ 
+ ## 3. 開発サーバーを起動する
+ 
+ 場所：Dev Container内。/workspaceで行います。
+ 
+-このターミナルを起動したまま、次の確認・編集へ進みます。
++確認できる結果：Ready が表示されます。ブラウザでは下記のホスト側URLを使います。
++
++Dev Containerへの接続後、VS Codeの「ターミナル」→「新しいターミナル」で実行します。pwd が /workspace であることを確認します。このターミナルを起動したまま、次の確認・編集へ進みます。
+ 
+ ```sh
+ 'npm' 'run' 'dev'
+--- a/curriculum/F1/first.md
++++ b/curriculum/F1/first.md
+@@ -12,6 +12,8 @@
+ 
+ 場所：開発ホスト（WindowsはWSL内）。生成したフォルダで行います。
+ 
++確認できる結果：診断OK と、このプロジェクトのURLが表示されます。
++
+ 不足があれば、次の準備手順を確認してください。生成済みの.envを最初から作り直す必要はありません。
+ 
+ ```sh
+@@ -24,13 +26,17 @@
+ 
+ 場所：VS Code。生成したフォルダで行います。
+ 
+-イメージの準備と依存の取得が終わるまで待ちます。初回はネット接続が必要です。
++確認できる結果：VS Code左下にDev Containerへの接続が表示され、/workspaceのファイルが開きます。
++
++生成完了画面の「VS Codeで開く」を押します。VS CodeでCtrl+Shift+P（macOSはCmd+Shift+P）を押し、Dev Containers: Reopen in Containerを検索して選びます。自身が生成したフォルダを確認して信頼します。初回のイメージ・依存取得を待ちます。
+ 
+ ## 3. 開発サーバーを起動する
+ 
+ 場所：Dev Container内。/workspaceで行います。
+ 
+-このターミナルを起動したまま、次の確認・編集へ進みます。
++確認できる結果：VITE と Local のURLが表示されます。ブラウザでは下記のホスト側URLを使います。
++
++Dev Containerへの接続後、VS Codeの「ターミナル」→「新しいターミナル」で実行します。pwd が /workspace であることを確認します。このターミナルを起動したまま、次の確認・編集へ進みます。
+ 
+ ```sh
+ 'npm' 'run' 'dev'
+--- a/curriculum/F2/first.md
++++ b/curriculum/F2/first.md
+@@ -12,6 +12,8 @@
+ 
+ 場所：開発ホスト（WindowsはWSL内）。生成したフォルダで行います。
+ 
++確認できる結果：診断OK と、このプロジェクトのURLが表示されます。
++
+ 不足があれば、次の準備手順を確認してください。生成済みの.envを最初から作り直す必要はありません。
+ 
+ ```sh
+@@ -24,13 +26,17 @@
+ 
+ 場所：VS Code。生成したフォルダで行います。
+ 
+-イメージの準備と依存の取得が終わるまで待ちます。初回はネット接続が必要です。
++確認できる結果：VS Code左下にDev Containerへの接続が表示され、/workspaceのファイルが開きます。
++
++生成完了画面の「VS Codeで開く」を押します。VS CodeでCtrl+Shift+P（macOSはCmd+Shift+P）を押し、Dev Containers: Reopen in Containerを検索して選びます。自身が生成したフォルダを確認して信頼します。初回のイメージ・依存取得を待ちます。
+ 
+ ## 3. 開発サーバーを起動する
+ 
+ 場所：Dev Container内。/workspaceで行います。
+ 
+-このターミナルを起動したまま、次の確認・編集へ進みます。
++確認できる結果：Ready が表示されます。ブラウザでは下記のホスト側URLを使います。
++
++Dev Containerへの接続後、VS Codeの「ターミナル」→「新しいターミナル」で実行します。pwd が /workspace であることを確認します。このターミナルを起動したまま、次の確認・編集へ進みます。
+ 
+ ```sh
+ 'npm' 'run' 'dev'
+--- a/curriculum/I1/first.md
++++ b/curriculum/I1/first.md
+@@ -12,6 +12,8 @@
+ 
+ 場所：開発ホスト（WindowsはWSL内）。生成したフォルダで行います。
+ 
++確認できる結果：PASS: Docker / Compose / 設定 が表示されます。
++
+ 不足があれば、次の準備手順を確認してください。生成済みの.envを最初から作り直す必要はありません。
+ 
+ ```sh
+@@ -24,7 +26,9 @@
+ 
+ 場所：VS Code。生成したフォルダで行います。
+ 
+-イメージの準備と依存の取得が終わるまで待ちます。初回はネット接続が必要です。
++確認できる結果：VS Code左下にDev Containerへの接続が表示され、/workspaceのファイルが開きます。
++
++生成完了画面の「VS Codeで開く」を押します。VS CodeでCtrl+Shift+P（macOSはCmd+Shift+P）を押し、Dev Containers: Reopen in Containerを検索して選びます。自身が生成したフォルダを確認して信頼します。初回のイメージ・依存取得を待ちます。
+ 
+ ## 3. migrationとサンプルデータを準備する
+ 
+--- a/curriculum/S1/first.md
++++ b/curriculum/S1/first.md
+@@ -12,6 +12,8 @@
+ 
+ 場所：開発ホスト（WindowsはWSL内）。生成したフォルダで行います。
+ 
++確認できる結果：診断OK と、このプロジェクトのURLが表示されます。
++
+ 不足があれば、次の準備手順を確認してください。生成済みの.envを最初から作り直す必要はありません。
+ 
+ ```sh
+@@ -24,13 +26,17 @@
+ 
+ 場所：VS Code。生成したフォルダで行います。
+ 
+-イメージの準備と依存の取得が終わるまで待ちます。初回はネット接続が必要です。
++確認できる結果：VS Code左下にDev Containerへの接続が表示され、/workspaceのファイルが開きます。
++
++生成完了画面の「VS Codeで開く」を押します。VS CodeでCtrl+Shift+P（macOSはCmd+Shift+P）を押し、Dev Containers: Reopen in Containerを検索して選びます。自身が生成したフォルダを確認して信頼します。初回のイメージ・依存取得を待ちます。
+ 
+ ## 3. 開発サーバーを起動する
+ 
+ 場所：Dev Container内。/workspaceで行います。
+ 
+-このターミナルを起動したまま、次の確認・編集へ進みます。
++確認できる結果：Ready が表示されます。ブラウザでは下記のホスト側URLを使います。
++
++Dev Containerへの接続後、VS Codeの「ターミナル」→「新しいターミナル」で実行します。pwd が /workspace であることを確認します。このターミナルを起動したまま、次の確認・編集へ進みます。
+ 
+ ```sh
+ 'npm' 'run' 'dev'
+--- a/curriculum/S2/first.md
++++ b/curriculum/S2/first.md
+@@ -11,6 +11,8 @@
+ ## 1. 準備と、このプロジェクトの設定を確認する
+ 
+ 場所：開発ホスト（WindowsはWSL内）。生成したフォルダで行います。
++
++確認できる結果：診断OK と、このプロジェクトのURLが表示されます。
+ 
+ 不足があれば、次の準備手順を確認してください。生成済みの.envを最初から作り直す必要はありません。
+ 
+@@ -32,13 +34,17 @@
+ 
+ 場所：VS Code。生成したフォルダで行います。
+ 
+-イメージの準備と依存の取得が終わるまで待ちます。初回はネット接続が必要です。
++確認できる結果：VS Code左下にDev Containerへの接続が表示され、/workspaceのファイルが開きます。
++
++生成完了画面の「VS Codeで開く」を押します。VS CodeでCtrl+Shift+P（macOSはCmd+Shift+P）を押し、Dev Containers: Reopen in Containerを検索して選びます。自身が生成したフォルダを確認して信頼します。初回のイメージ・依存取得を待ちます。
+ 
+ ## 4. 開発サーバーを起動する
+ 
+ 場所：Dev Container内。/workspaceで行います。
+ 
+-このターミナルを起動したまま、次の確認・編集へ進みます。
++確認できる結果：Ready が表示されます。ブラウザでは下記のホスト側URLを使います。
++
++Dev Containerへの接続後、VS Codeの「ターミナル」→「新しいターミナル」で実行します。pwd が /workspace であることを確認します。このターミナルを起動したまま、次の確認・編集へ進みます。
+ 
+ ```sh
+ 'npm' 'run' 'dev'
+--- a/curriculum/manifest.json
++++ b/curriculum/manifest.json
+@@ -1,12 +1,12 @@
+ {
+   "schemaVersion": 1,
+-  "appVersion": "0.4.0",
+-  "version": "0.4.0",
++  "appVersion": "0.4.1",
++  "version": "0.4.1",
+   "lessons": [
+     {
+       "id": "F1",
+       "title": "F1 · React + Vite + TypeScript",
+-      "version": "0.4.0",
++      "version": "0.4.1",
+       "templateVersion": "0.1.3",
+       "chapters": [
+         {
+@@ -14,8 +14,8 @@
+           "title": "最初の一歩",
+           "file": "F1/first.md",
+           "source": "START_HERE.md",
+-          "bytes": 3453,
+-          "sha256": "53d23c58397f8f8ef3cca20fa7b0b0cfd6d0067c5fd87e0d27c62f863e288468"
++          "bytes": 4169,
++          "sha256": "f9286bf2521c671ada0cfb21bc26d914c0072e225d597f98a98b7d0775b40a5a"
+         },
+         {
+           "id": "readme",
+@@ -70,7 +70,7 @@
+     {
+       "id": "F2",
+       "title": "F2 · Next.js + TypeScript + Tailwind",
+-      "version": "0.4.0",
++      "version": "0.4.1",
+       "templateVersion": "0.1.1",
+       "chapters": [
+         {
+@@ -78,8 +78,8 @@
+           "title": "最初の一歩",
+           "file": "F2/first.md",
+           "source": "START_HERE.md",
+-          "bytes": 3582,
+-          "sha256": "5142049244853e9c673d44598ab24b44ca0103800c4df3b007664066cc67924b"
++          "bytes": 4283,
++          "sha256": "76773a6d3db84ab34dd2035a43aaf367d6a512e3337889760ecdf00b273f8c2e"
+         },
+         {
+           "id": "readme",
+@@ -134,7 +134,7 @@
+     {
+       "id": "B1",
+       "title": "B1 · Next.js Route Handlers API only",
+-      "version": "0.4.0",
++      "version": "0.4.1",
+       "templateVersion": "0.1.2",
+       "chapters": [
+         {
+@@ -142,8 +142,8 @@
+           "title": "最初の一歩",
+           "file": "B1/first.md",
+           "source": "START_HERE.md",
+-          "bytes": 3537,
+-          "sha256": "9119c75a27469da017de8b12c48c4d873045a9c9bb2640c86f1f848d3ecea673"
++          "bytes": 4238,
++          "sha256": "3eb03f1490928eb30debbc85f8455d39d5994a24c7bacb4ca91b112d823ba438"
+         },
+         {
+           "id": "readme",
+@@ -206,7 +206,7 @@
+     {
+       "id": "S1",
+       "title": "S1 · Next.js + Route Handlers",
+-      "version": "0.4.0",
++      "version": "0.4.1",
+       "templateVersion": "0.1.2",
+       "chapters": [
+         {
+@@ -214,8 +214,8 @@
+           "title": "最初の一歩",
+           "file": "S1/first.md",
+           "source": "START_HERE.md",
+-          "bytes": 3497,
+-          "sha256": "f17f1f6a07b703a38467c2a1cef2292b34df3f0be9259502b8744143ab30048f"
++          "bytes": 4198,
++          "sha256": "6c8bd89d865e2ed439a74265372f569991ab4dab961d5f884e95691dd8553956"
+         },
+         {
+           "id": "readme",
+@@ -278,7 +278,7 @@
+     {
+       "id": "S2",
+       "title": "S2 · Next.js + local Supabase",
+-      "version": "0.4.0",
++      "version": "0.4.1",
+       "templateVersion": "0.1.2",
+       "chapters": [
+         {
+@@ -286,8 +286,8 @@
+           "title": "最初の一歩",
+           "file": "S2/first.md",
+           "source": "START_HERE.md",
+-          "bytes": 3741,
+-          "sha256": "5fccda0b5591e3a52fb2a8b777fcefa5acbc2f8393b59814090c21d191876a0a"
++          "bytes": 4442,
++          "sha256": "b8131fbba14dedfbdf40db59ba1af8e931752634efac3f06fae85a77a497cb51"
+         },
+         {
+           "id": "readme",
+@@ -342,7 +342,7 @@
+     {
+       "id": "I1",
+       "title": "I1 · PostgreSQL + development workbench",
+-      "version": "0.4.0",
++      "version": "0.4.1",
+       "templateVersion": "0.1.0",
+       "chapters": [
+         {
+@@ -350,8 +350,8 @@
+           "title": "最初の一歩",
+           "file": "I1/first.md",
+           "source": "START_HERE.md",
+-          "bytes": 3178,
+-          "sha256": "5413519ab4b94b2a8eed79a355f2521d58ace93259e20bb641eee1198dd3399f"
++          "bytes": 3579,
++          "sha256": "d962236e7d957df76a301ea5cdca728c4372a018ddec5cf870d9d6f65554891b"
+         },
+         {
+           "id": "readme",
+@@ -414,7 +414,7 @@
+     {
+       "id": "setup",
+       "title": "開発準備・困ったとき",
+-      "version": "0.4.0",
++      "version": "0.4.1",
+       "templateVersion": null,
+       "chapters": [
+         {
+@@ -430,32 +430,32 @@
+           "title": "Windows / WSL 2の準備",
+           "file": "setup/windows.md",
+           "source": "windows.md",
+-          "bytes": 2880,
+-          "sha256": "cbc17c8de4e6331bf06298f4b3e3a1618169f7335ea2801bf4f745ad5b31fb98"
++          "bytes": 3552,
++          "sha256": "cc2d09cc445c71789901776a974ead8dd11e75aae8718f233fbaa37a01ea69aa"
+         },
+         {
+           "id": "macos",
+           "title": "macOSの準備",
+           "file": "setup/macos.md",
+           "source": "macos.md",
+-          "bytes": 1166,
+-          "sha256": "624b2fd77be368620a9d8373bca5edb37fb23329d897acbcf431882dbf48b20e"
++          "bytes": 1273,
++          "sha256": "557d57c83447c1b3992cea3ed57c3aa9047fe44a34a4a50c3deb8e7646d18803"
+         },
+         {
+           "id": "linux",
+           "title": "Linuxの準備",
+           "file": "setup/linux.md",
+           "source": "linux.md",
+-          "bytes": 1514,
+-          "sha256": "c46a0bc4ec9f38a6e8868c777cd20625376e7fa9a6131926663a87b621221e34"
++          "bytes": 1621,
++          "sha256": "35dc66ea1519309fb76e68341eb9201244663dd115118d46bab34ccc9f317678"
+         },
+         {
+           "id": "trouble",
+           "title": "困ったとき：準備と起動",
+           "file": "setup/trouble.md",
+           "source": "trouble.md",
+-          "bytes": 1613,
+-          "sha256": "ffd8a8907bf916ea8277b5538be5641290b5be4b518970602589987137e47fed"
++          "bytes": 1985,
++          "sha256": "19c9bfb90389436d67ce299fa9960f90424a2a2f469f4318a71eeac6ac1f8841"
+         }
+       ]
+     }
+--- a/curriculum/setup/linux.md
++++ b/curriculum/setup/linux.md
+@@ -14,4 +14,6 @@
+ 
+ [Dev Containers公式ガイド](https://code.visualstudio.com/docs/devcontainers/containers)に沿ってVS Codeと拡張を用意します。生成後にReopen in Containerを選び、初回ダウンロード完了を待ちます。
+ 
++アプリ左の「準備チェックへ戻る」→「もう一度確認」で結果を更新します。
++
+ [再確認と復旧](lesson:setup/trouble)
+--- a/curriculum/setup/macos.md
++++ b/curriculum/setup/macos.md
+@@ -14,4 +14,6 @@
+ 
+ 生成処理はmacOS用アダプターを備えますが、既存テンプレートのホスト用bashスクリプトにはGNU coreutilsやLinux向け依存があります。特にS2のSupabase起動手順はLinux専用です。macOS実起動・全依存の適合は未確認のため販売対象として合格にしません。準備画面の制限を確認してください。
+ 
++アプリ左の「準備チェックへ戻る」→「もう一度確認」で結果を更新します。
++
+ [再確認と復旧](lesson:setup/trouble)
+--- a/curriculum/setup/trouble.md
++++ b/curriculum/setup/trouble.md
+@@ -20,6 +20,10 @@
+ 
+ 準備画面で診断を実行後、ログのプレビューを開きます。HOMEと接続先・ユーザー名は伏せ字化します。残るパスや組織情報を確認し、必要なら編集して「ログを書き出す」を押します。環境変数一覧・Docker認証設定・プロジェクト.envは収集しません。
+ 
++## アプリを再起動したあと
++
++最後に読んだ章と読書位置を再開します。入力・診断・生成結果は再起動でリセットされます。作ったフォルダは残っています。VS Codeで保存先のSTART_HERE.mdを開けば、そのポートと手順で続けられます。既存フォルダへ作り直す必要はありません。
++
+ ## 教材の版が変わった
+ 
+ 最後の章が新版にない場合は目次へ戻ります。生成済みプロジェクトは自動更新しません。旧版と教材の対象テンプレート版を照合してください。
+--- a/curriculum/setup/windows.md
++++ b/curriculum/setup/windows.md
+@@ -6,9 +6,17 @@
+ 
+ [Microsoft公式の導入手順](https://learn.microsoft.com/en-us/windows/wsl/install)に従います。管理者操作や再起動を要求されたら指示に従い、Linux初回起動で通常ユーザーを作ります。
+ 
+-`wsl --status`、`wsl --version`、`wsl --list --verbose`で状態を確認できます。WSL 1はそのまま対象にしません。[WSLコマンドの公式説明](https://learn.microsoft.com/en-us/windows/wsl/basic-commands)で変換・既定ユーザーの設定を確認します。仮想化・組織ポリシー・再起動待ちは別の問題です。勝手にディストリビューションを削除しないでください。Stoppedは正常な待機状態です。
++場所：WindowsのPowerShell（任意のフォルダ）。次を順に実行します。
+ 
+-ツクハコで通常のdistroを選びます。docker-desktopは開発先にしません。診断で選択したLinuxが起動することがあります。root既定なら通常ユーザーへ設定してから再確認します。
++```powershell
++wsl --status
++wsl --version
++wsl --list --verbose
++```
++
++一覧に通常のLinux名と VERSION 2 が表示されることを確認します。WSL 1はそのまま対象にしません。[WSLコマンドの公式説明](https://learn.microsoft.com/en-us/windows/wsl/basic-commands)で変換・既定ユーザーの設定を確認します。仮想化・組織ポリシー・再起動待ちは別の問題です。勝手にディストリビューションを削除しないでください。Stoppedは正常な待機状態です。
++
++導入後はアプリ左の「準備チェックへ戻る」を押し、「もう一度確認」で候補を更新します。ツクハコで通常のdistroを選びます。docker-desktopは開発先にしません。診断で選択したLinuxが起動することがあります。root既定なら通常ユーザーへ設定してから再確認します。
+ 
+ ## 保存場所とヘルパー
+ 
+@@ -20,10 +28,18 @@
+ 
+ [Windows版の公式導入先](https://docs.docker.com/desktop/setup/install/windows-install/)から導入し、初回起動と利用条件の同意は自身で行います。管理者要否は導入方式によります。Linux containersとWSL 2 backend、選んだUbuntuの[WSL Integration](https://docs.docker.com/desktop/features/wsl/)を有効にします。
+ 
+-Windows側の成功だけでは不十分です。同じWSL通常ユーザーでdocker versionを確認します。WSL内EngineとDesktopが混在する場合は、データを削除せず接続先を整理してください。ツクハコは切替・削除しません。
++Windows側の成功だけでは不十分です。場所：選択したWSLのターミナル（任意のフォルダ）。次を実行し、ClientとServerの両方が表示されることを確認します。
++
++```sh
++docker version
++```
++
++失敗したら、Windows側のDocker Desktopの起動と選択WSLのIntegrationを確認します。WSLに別のEngineを追加する手順へは進みません。WSL内EngineとDesktopが混在する場合は、データを削除せず接続先を整理してください。ツクハコは切替・削除しません。
+ 
+ ## Windows版VS Code
+ 
+ [VS Code WSLガイド](https://code.visualstudio.com/docs/remote/wsl)に沿ってWindows側へVS Code、WSL拡張、Dev Containers拡張を導入します。生成結果の「VS Codeで開く」は選択distroのフォルダへ接続します。失敗したらVS CodeのWSL接続で同じdistroとLinuxパスを選びます。初回はVS Code Serverの取得に時間がかかります。
+ 
++アプリ左の「準備チェックへ戻る」→「もう一度確認」で結果を更新します。
++
+ [再確認と復旧](lesson:setup/trouble)
+--- a/docs/BRAIN-LAUNCH-DRAFT.md
++++ b/docs/BRAIN-LAUNCH-DRAFT.md
+@@ -1,6 +1,6 @@
+ # ツクハコ 初版掲載文・受取案内（未公開）
+ 
+-0.4.0の確認結果を反映するための下書きです。価格・配布先・提供期間・サポート条件は未決です。出品・実購入・サイト公開は行っていません。
++0.4.1の確認結果を反映するための下書きです。価格・配布先・提供期間・サポート条件は未決です。出品・実購入・サイト公開は行っていません。
+ 
+ ## 紹介文案
+ 
+@@ -16,7 +16,17 @@
+ 
+ ご購入ありがとうございます。［配布物の受取先：未確定］から、確認済みの環境に合うツクハコを取得してください。レビュー専用ZIPは製品本体ではありません。
+ 
+-まず「開発準備チェック」を開き、表示される手順で必要なツールを準備します。確認済みの構成を選んで新しいプロジェクトを生成したら、対応する「最初の一歩」で、変更前・変更後・復元後を確かめましょう。
++受取後は、次の順番で始めます。
++
++1. 配布物一覧でOSとCPUを確認します。今回の実機確認はLinux Mint 22.3 / x64です。Windows / WSL 2、macOSは未確認のため、動作確認済み製品として選ばせません。0.4.1はLinux実行版のみ用意しています。
++2. `tsukuhako-linux-x64-0.4.1.tar.gz` を自分のフォルダへ展開し、中の `tsukuhako` を通常ユーザーで起動します。ZIPレビュー資料やCLI版は、このGUI本体とは別です。Linuxのファイルマネージャーでは「ここに展開」等を使えます。展開後に実行権限が失われた場合はファイルのプロパティを確認します。sandboxやOS保護は無効化しません。
++3. 「開発準備チェック」の結果を確認し、不足があれば「このOSの準備手順」を読みます。「準備チェックへ戻る」→「もう一度確認」で更新します。
++4. 「構成を選ぶ」から進みます。迷ったら「画面を作りたい」のNext.jsを選び、保存先を決めます。既存フォルダへは作りません。
++5. 生成後の「最初の一歩」を開きます。今回の保存先・ポートで、準備確認→VS Code→Dev Container→変更→復元まで進みます。
++
++初回起動に失敗したら同梱READMEとOSのエラーを確認してください。未導入のPCからの配布受取・依存導入は、現段階では実機未確認です。
++
++確認済みの構成を選んで新しいプロジェクトを生成したら、対応する「最初の一歩」で、変更前・変更後・復元後を確かめましょう。
+ 
+ 教材は「学ぶ」、つまずいたときの案内は「困ったとき」から開けます。教材はローカル配布方式です。アカウント登録、認証メール、ログインパスワードの発行は不要です。
+ 
+--- a/generator/package-lock.json
++++ b/generator/package-lock.json
+@@ -1,12 +1,12 @@
+ {
+   "name": "tsukuhako-generator",
+-  "version": "0.4.0",
++  "version": "0.4.1",
+   "lockfileVersion": 3,
+   "requires": true,
+   "packages": {
+     "": {
+       "name": "tsukuhako-generator",
+-      "version": "0.4.0",
++      "version": "0.4.1",
+       "dependencies": {
+         "fflate": "0.8.3"
+       },
+--- a/generator/package.json
++++ b/generator/package.json
+@@ -1,6 +1,6 @@
+ {
+   "name": "tsukuhako-generator",
+-  "version": "0.4.0",
++  "version": "0.4.1",
+   "private": true,
+   "type": "module",
+   "engines": {
+--- a/generator/src/core/common.mjs
++++ b/generator/src/core/common.mjs
+@@ -1,7 +1,7 @@
+ import fs from 'node:fs';
+ import { createHash } from 'node:crypto';
+ 
+-export const VERSION = '0.4.0';
++export const VERSION = '0.4.1';
+ export const hash = value => createHash('sha256').update(value).digest('hex');
+ export const stable = value => JSON.stringify(order(value));
+ function order(value) {
+--- a/generator/src/core/next-steps.mjs
++++ b/generator/src/core/next-steps.mjs
+@@ -16,16 +16,17 @@
+   const steps = [];
+   const cmd = (title, location, executable, args) => steps.push({ title, location, cwd: location === 'container' ? '/workspace' : 'destination', command: { executable, args } });
+   cmd('準備と、このプロジェクトの設定を確認する', 'host', 'bash', [id === 'I1' ? 'scripts/doctor.sh' : 'scripts/doctor-host.sh']);
+-  Object.assign(steps[0], {document:id === 'I1' ? 'README.md' : 'docs/SETUP.md', detail:'不足があれば、次の準備手順を確認してください。生成済みの.envを最初から作り直す必要はありません。'});
++  Object.assign(steps[0], {document:id === 'I1' ? 'README.md' : 'docs/SETUP.md', expected:id === 'I1' ? 'PASS: Docker / Compose / 設定 が表示されます。' : '診断OK と、このプロジェクトのURLが表示されます。', detail:'不足があれば、次の準備手順を確認してください。生成済みの.envを最初から作り直す必要はありません。'});
+   if (id === 'S2') cmd('ローカルDBを起動する（初回はネット接続が必要）', 'host', 'bash', ['scripts/db.sh', 'start']);
+-  steps.push({ title:'VS Codeでフォルダを開き、Dev Containers: Reopen in Containerを実行する', location:'editor', cwd:'destination', detail:'イメージの準備と依存の取得が終わるまで待ちます。初回はネット接続が必要です。' });
++  steps.push({ title:'VS Codeでフォルダを開き、Dev Containers: Reopen in Containerを実行する', location:'editor', cwd:'destination', detail:'生成完了画面の「VS Codeで開く」を押します。VS CodeでCtrl+Shift+P（macOSはCmd+Shift+P）を押し、Dev Containers: Reopen in Containerを検索して選びます。自身が生成したフォルダを確認して信頼します。初回のイメージ・依存取得を待ちます。', expected:'VS Code左下にDev Containerへの接続が表示され、/workspaceのファイルが開きます。' });
+   if (id === 'I1') {
+     cmd('migrationとサンプルデータを準備する', 'container', 'bash', ['scripts/db.sh', 'setup']);
+     cmd('SQLの主要操作を確認する', 'container', 'bash', ['scripts/db.sh', 'check']);
+     cmd('変更前の結果を確認する', 'container', 'bash', ['scripts/db.sh', 'query', 'sql/practice.sql']);
+   } else {
+     cmd('開発サーバーを起動する', 'container', 'npm', ['run', 'dev']);
+-    steps.at(-1).detail = 'このターミナルを起動したまま、次の確認・編集へ進みます。';
++    steps.at(-1).detail = 'Dev Containerへの接続後、VS Codeの「ターミナル」→「新しいターミナル」で実行します。pwd が /workspace であることを確認します。このターミナルを起動したまま、次の確認・編集へ進みます。';
++    steps.at(-1).expected = id === 'F1' ? 'VITE と Local のURLが表示されます。ブラウザでは下記のホスト側URLを使います。' : 'Ready が表示されます。ブラウザでは下記のホスト側URLを使います。';
+     if (id === 'B1') cmd('変更前のJSONを確認する', 'host', 'curl', ['-i', `http://localhost:${ports.app}/api/health`]);
+     else steps.push({ title:'変更前の画面を確認する', location:'host', cwd:'destination', url:`http://localhost:${ports.app}${firstExercise(id).route}` });
+   }
+@@ -46,14 +47,15 @@
+   return steps;
+ }
+ export function startHere(plan) {
+-  const labels = {host:'ホスト側', container:'コンテナ内', editor:'VS Code'};
+-  let text = `# ツクハコ — ここから始める\n\nプロジェクトのファイルができました。コンテナはまだ起動していません。\n起動して、一か所変えた結果を自分で確かめ、元へ戻すところまで進めましょう。\n\n## このプロジェクトの設定\n\n- 構成：${plan.request.templateId} / 版 ${plan.templateVersion}\n- 識別名：${plan.projectName}\n- ポート：${Object.entries(plan.ports).map(([key,value]) => `${key}=${value}`).join(' / ')}\n- .envは作成済みです。READMEの既定ポートと異なる場合は上の設定を使います。\n\n保存先：\n\n    ${plan.destination}\n\n生成時のネット接続は不要です。初回起動でイメージや依存を取得する際はネット接続が必要です。\n\n## 起動して、最初の変更を試す\n\n`;
++  const labels = {host:'開発ホストのターミナル（Windowsは選択したWSL内。PowerShellでは実行しません）', container:'VS CodeのDev Container内ターミナル', editor:'VS Codeの編集画面'};
++  let text = `# ${plan.request.templateId}：最初の一歩\n\nプロジェクトのファイルができました。コンテナはまだ起動していません。\n起動して、一か所変えた結果を自分で確かめ、元へ戻すところまで進めましょう。\n\n## このプロジェクトの設定\n\n- 構成：${plan.request.templateId} / 版 ${plan.templateVersion}\n- 識別名：${plan.projectName}\n- ポート：${Object.entries(plan.ports).map(([key,value]) => `${key}=${value}`).join(' / ')}\n- .envは作成済みです。READMEの既定ポートと異なる場合は上の設定を使います。\n\n保存先：\n\n    ${plan.destination}\n\n生成時のネット接続は不要です。初回起動でイメージや依存を取得する際はネット接続が必要です。\n\n## 最初に作業フォルダを開く\n\n開発ホストのターミナル（Windowsは選択したWSL内、Linux/macOSはそのOSのターミナル）で次をコピーして実行します。\n\n\`\`\`sh\ncd -- ${quoteArg(plan.destination)}\n\`\`\`\n\npwd で上の保存先が表示されれば準備完了です。以降のホスト用コマンドはここで実行します。\n\n[開発準備](${plan.request.templateId==='I1'?'docs/setup.md':'docs/SETUP.md'})に不足がある場合は、先にその手順を確認します。\n\n## 起動して、最初の変更を試す\n\n`;
+   for (const [index,step] of plan.nextSteps.entries()) {
+-    text += `### ${index + 1}. ${step.title}\n\n場所：${labels[step.location]}。${step.cwd === 'destination' ? 'このプロジェクトのフォルダ' : '/workspace'}で行います。\n\n`;
++    text += `### ${index + 1}. ${step.title}\n\n場所：${step.url ? 'OSのブラウザのアドレス欄' : labels[step.location]}。${step.url ? '下記URLを開きます。' : (step.cwd === 'destination' ? 'このプロジェクトのフォルダ' : '/workspace')+'で行います。'}\n\n`;
+     if (step.detail) text += step.detail.replaceAll('<br />','`<br />`') + '\n\n';
+     if (step.command) text += `\x60\x60\x60sh\n${commandText(step.command)}\n\x60\x60\x60\n\n`;
+-    if (step.url) text += `[${step.url}](${step.url})\n\n`;
++    if (step.url) text += `ブラウザのアドレス欄：\`${step.url}\`\n\n`;
++    if (step.expected) text += `確認できる結果：${step.expected}\n\n`;
+     if (step.document) text += `[${step.document}](${step.document})\n\n`;
+   }
+-  return text + '生成前の診断はその時点の観察です。ポートや起動成功の保証ではありません。秘密値は.envだけに保存し、この案内には載せません。\n';
++  return text + `## うまく進まないとき・次の学び\n\n[停止・復旧](${plan.request.templateId === 'I1' ? 'docs/recovery.md' : 'docs/RECOVERY.md'})で今の操作に合う項目を確認します。アプリの「作る画面へ戻る」で生成結果へ戻れます。再起動後は、VS Codeでこの START_HERE.md を開いて再開してください。\n\n変更前・変更後・復元後を確認できたら、最初の一歩は完了です。「空から組み立てる」は仕組みを学びながら自作する次の教材です。\n\n` + '生成前の診断はその時点の観察です。ポートや起動成功の保証ではありません。秘密値は.envだけに保存し、この案内には載せません。\n';
+ }
+--- a/generator-desktop/README.md
++++ b/generator-desktop/README.md
+@@ -1,4 +1,4 @@
+-# ツクハコ Desktop 0.4.0
++# ツクハコ Desktop 0.4.1
+ 
+ 同じウィンドウの「作る」「学ぶ」「困ったとき」でプロジェクト生成と教材閲覧を行います。React / Electron / Node共有コアを維持し、アカウント登録・ローカルHTTPサーバー・CDNは必要ありません。
+ 
+@@ -6,13 +6,13 @@
+ 
+ Linux x64 tar.gzを展開し、中の`tsukuhako`を一般ユーザーで起動します。ホストへのNode.js導入は不要です。Linux Mint 22.3で測定しています。初めてのPCの依存パッケージ導入は別の未実施項目です。OSの保護機能やElectron sandboxを無効化して動かす案内はしません。
+ 
+-Windows x64 / macOS x64・arm64の`UNVERIFIED.zip`は検証用です。実機起動・署名・公証・初回警告・全依存の実起動は未確認です。macOSでは既存テンプレートのホストスクリプトにGNU/Linux依存が残り、特にS2の起動補助はLinux専用です。対応済みとして販売しません。
++0.4.1ではLinux実行版のみ同梱検証しています。Windows/macOSの0.4.1実行配布物は未作成です。旧0.4.0のWindows x64 / macOS x64・arm64の`UNVERIFIED.zip`は旧版の検証用です。実機起動・署名・公証・初回警告・全依存の実起動は未確認です。macOSでは既存テンプレートのホストスクリプトにGNU/Linux依存が残り、特にS2の起動補助はLinux専用です。対応済みとして販売しません。
+ 
+-Windowsはnative Electron＋選んだWSL 2の通常ユーザーが対象です。「WSL用ファイルを準備」で同梱Node Linux x64、コア、テンプレートをHOME/.tsukuhako-helper/0.4.0-linux-x64へ配置します。版・CPU・manifest・SHA256を照合します。専用領域の不完全な同じ版は自動削除せず、確認して退避後に再配置します。一時領域は再試行ごとに分離します。旧版・既定distro・OSパッケージ・シェル設定は変更しません。Windows/WSL実機での設置・中断・再起動検証は残っています。
++Windowsはnative Electron＋選んだWSL 2の通常ユーザーが対象です。「WSL用ファイルを準備」で同梱Node Linux x64、コア、テンプレートをHOME/.tsukuhako-helper/0.4.1-linux-x64へ配置します。版・CPU・manifest・SHA256を照合します。専用領域の不完全な同じ版は自動削除せず、確認して退避後に再配置します。一時領域は再試行ごとに分離します。旧版・既定distro・OSパッケージ・シェル設定は変更しません。Windows/WSL実機での設置・中断・再起動検証は残っています。
+ 
+ ## 学ぶ
+ 
+-教材 v0.4.0は構成別6教材と準備教材、合計50章です。教材の対象テンプレート版を表示します。起動時はメタデータ、本文は選択章だけを読み込みます。main側本文キャッシュは3章までで、rendererは現在の章だけを表示します。画像も表示位置に来てから読みます。
++教材 v0.4.1は構成別6教材と準備教材、合計50章です。教材の対象テンプレート版を表示します。起動時はメタデータ、本文は選択章だけを読み込みます。main側本文キャッシュは3章までで、rendererは現在の章だけを表示します。画像も表示位置に来てから読みます。
+ 
+ 章リンクと見出しはReactの状態で移動します。コードコピーは実行しません。HTMLを有効化せず、教材IDから同梱ファイルだけを読みます。外部リンクは章本文に含まれるHTTPSリンクのみ標準ブラウザで開きます。生成先の任意ファイルを教材IPCで読むことはできません。
+ 
+@@ -29,4 +29,4 @@
+ npm start --prefix generator-desktop
+ ```
+ 
+-配布用はtools/package-desktop-040.py、tools/build-helper-040.py、tools/package-platforms-040.pyを使用します。署名用アカウントを持たないクロスビルドを署名済みと扱いません。詳細はREPORT.mdとvalidation/learning-0.4.0を確認してください。
++配布用はtools/package-desktop-041.py、tools/build-helper-041.pyを使用します。署名用アカウントを持たないクロスビルドを署名済みと扱いません。詳細はREPORT.mdとTEST-RESULTS.mdを確認してください。
+--- a/generator-desktop/adapters/wsl-guidance.mjs
++++ b/generator-desktop/adapters/wsl-guidance.mjs
+@@ -0,0 +1,12 @@
++// The helper diagnoses Linux tools, but a Windows user's setup is Desktop + WSL.
++// Keep observations/states intact; only route the next action to the right host.
++export function windowsGuidance(checks) {
++  return checks.map(check => ({
++    ...check,
++    guide: 'windows',
++    reason: `選択したWSL内の確認です。${check.reason}`,
++    ...(check.id.startsWith('docker-') || check.id === 'compose' ? {
++      nextAction: 'Windows側でDocker Desktopを起動し、Linux containers・WSL 2 backend・選択したWSLのIntegrationを確認します。そのWSLの通常ユーザーで docker version を確認してから、ツクハコで再確認してください。'
++    } : {})
++  }));
++}
+--- a/generator-desktop/adapters/wsl.mjs
++++ b/generator-desktop/adapters/wsl.mjs
+@@ -1,6 +1,6 @@
+ import fs from 'node:fs';import path from 'node:path';import {createHash,randomUUID} from 'node:crypto';import {spawn} from 'node:child_process';
+ import {run,decodeOutput} from './process.mjs';import {desktopError} from '../security.mjs';
+-export const HELPER_VERSION='0.4.0';
++export const HELPER_VERSION='0.4.1';
+ const fail=(code,message,nextAction='Windowsの準備教材を確認し、再診断してください。')=>{throw desktopError(code,message,nextAction)};
+ export function parseDistros(output){return output.replace(/^\uFEFF/,'').replaceAll('\0','').split(/\r?\n/).flatMap(line=>{const m=line.trim().replace(/^\*\s*/,'').match(/^(.+?)\s{2,}(\S+)\s+([12])$/);if(!m||/^docker-desktop(?:-data)?$/i.test(m[1])||/[\x00-\x1f]/.test(m[1]))return[];return[{id:createHash('sha256').update(m[1]).digest('hex').slice(0,16),name:m[1],state:m[2],generation:Number(m[3])}]})}
+ export function classifyWSLError(result){if(result.reason)return{state:'unknown',code:result.reason};if(result.error==='ENOENT')return{state:'missing',code:'WSL_MISSING'};const t=result.output||'';if(/0x80370102|HCS_E_HYPERV_NOT_INSTALLED|virtualization/i.test(t))return{state:'setup',code:'VIRTUALIZATION'};if(/0x8007019e|WSL_E_WSL_OPTIONAL_COMPONENT_REQUIRED/i.test(t))return{state:'missing',code:'WSL_COMPONENT'};if(/0x800701bc|reboot|restart/i.test(t))return{state:'restart',code:'RESTART'};if(/0x80070005|ACCESS_DENIED|policy/i.test(t))return{state:'setup',code:'POLICY_OR_PERMISSION'};if(/Create.*user|username|OOBE|WSL_E_USER_NOT_FOUND/i.test(t))return{state:'setup',code:'INITIAL_USER'};return{state:'unknown',code:result.error||'WSL_UNKNOWN'}}
+--- a/generator-desktop/helper/job.mjs
++++ b/generator-desktop/helper/job.mjs
+@@ -2,7 +2,7 @@
+ import {planGeneration} from './bundle/generator/src/core/plan.mjs';import {applyGeneration} from './bundle/generator/src/core/apply.mjs';import {destinationFromParts} from './bundle/generator/src/core/configuration.mjs';import {hash,stable,publicError,fail,readRegular} from './bundle/generator/src/core/common.mjs';import {startHere} from './bundle/generator/src/core/next-steps.mjs';import {diagnoseHost,probePort} from './bundle/generator/src/core/diagnostics.mjs';
+ import {diagnoseLocal} from './adapters/local.mjs';
+ const root=workerData.root+'/bundle',flag=new Int32Array(workerData.flag);let current;
+-const bindingCheck=b=>{if(b.helperVersion!=='0.4.0'||b.arch!==process.arch||b.user!==os.userInfo().username||b.uid!==process.getuid()||b.home!==os.homedir()||b.distro!==process.env.WSL_DISTRO_NAME)fail('TARGET_CHANGED','WSLの実行先が変わりました。','通常ユーザーとdistroを選び直してください。')};
++const bindingCheck=b=>{if(b.helperVersion!=='0.4.1'||b.arch!==process.arch||b.user!==os.userInfo().username||b.uid!==process.getuid()||b.home!==os.homedir()||b.distro!==process.env.WSL_DISTRO_NAME)fail('TARGET_CHANGED','WSLの実行先が変わりました。','通常ユーザーとdistroを選び直してください。')};
+ const cancel=()=>{if(Atomics.load(flag,0))fail('CANCELLED','作成を中断しました。','保存先を確認してから内容を確認し直してください。')};
+ parentPort.on('message',async m=>{if(m.method==='shutdown')process.exit(0);try{bindingCheck(m.binding);cancel();let value;
+  if(m.method==='reset'){current=null;value=null}
+--- a/generator-desktop/lib/content.mjs
++++ b/generator-desktop/lib/content.mjs
+@@ -11,7 +11,7 @@
+ }
+ export class ContentLibrary{
+  constructor(root){this.root=root;this.cache=new Map()}
+- async index(){if(!this.manifest){this.manifest=JSON.parse(await confinedRead(this.root,'manifest.json',262144));if(this.manifest.appVersion!=='0.4.0'||this.manifest.version!=='0.4.0')throw error()}return this.manifest}
++ async index(){if(!this.manifest){this.manifest=JSON.parse(await confinedRead(this.root,'manifest.json',262144));if(this.manifest.appVersion!=='0.4.1'||this.manifest.version!=='0.4.1')throw error()}return this.manifest}
+  async chapter(lessonId,chapterId){const m=await this.index();const meta=m.lessons.find(l=>l.id===lessonId)?.chapters.find(c=>c.id===chapterId);if(!meta)throw error();const key=lessonId+'/'+chapterId;if(this.cache.has(key)){const v=this.cache.get(key);this.cache.delete(key);this.cache.set(key,v);return v}const bytes=await confinedRead(this.root,meta.file);if(bytes.length!==meta.bytes||digest(bytes)!==meta.sha256)throw error();const value={text:bytes.toString('utf8')};this.cache.set(key,value);while(this.cache.size>3)this.cache.delete(this.cache.keys().next().value);return value}
+  async asset(id){const meta=(await this.index()).assets.find(a=>a.id===id);if(!meta||meta.mime!=='image/png')throw error();const bytes=await confinedRead(this.root,meta.file,1048576);if(bytes.length!==meta.bytes||digest(bytes)!==meta.sha256)throw error();return 'data:image/png;base64,'+bytes.toString('base64')}
+  async external(lessonId,chapterId,href){const {text}=await this.chapter(lessonId,chapterId);let u;try{u=new URL(href)}catch{throw error()};if(u.protocol!=='https:'||u.username||u.password||!text.includes(']('+href+')')||/[\x00-\x20\x7f]/.test(href))throw error();return u.href}
+--- a/generator-desktop/main.mjs
++++ b/generator-desktop/main.mjs
+@@ -4,6 +4,7 @@
+ import { fileURLToPath } from 'node:url';
+ import { ContentLibrary, ReadingSettings } from './lib/content.mjs';
+ import { diagnoseLocal, openLocalEditor, redact, STATUS } from './adapters/local.mjs';
++import { windowsGuidance } from './adapters/wsl-guidance.mjs';
+ import { WSLAdapter } from './adapters/wsl.mjs';
+ import { UI_URL, METHODS, desktopError, validateSender, validatePayload, publicFailure } from './security.mjs';
+ 
+@@ -70,7 +71,7 @@
+     const code=await diagnoseLocal({platform:'win32',includeDocker:false,templateId:payload.templateId,signal:controller.signal,runner:undefined});
+     const helperReady=await wsl.verifyRemote(controller.signal);
+     const linux=helperReady?await wsl.request('prepare',{templateId:payload.templateId},{signal:controller.signal}):{checks:[{id:'helper',state:'setup',label:STATUS.setup,message:'同梱のWSL用ファイルを準備してください。',reason:'選んだLinux内で同じ共有コアを実行します。',nextAction:'「WSL用ファイルを準備」を押してください。',guide:'windows'}],dockerReady:false};
+-    return {...linux,platform:'win32',arch:process.arch,checkedAt:new Date().toISOString(),target,defaultParent:target.home,helperReady,checks:[...linux.checks,...code.checks.filter(c=>['code','ms-vscode-remote.remote-containers','ms-vscode-remote.remote-wsl'].includes(c.id))],devContainerReady:null};
++    return {...linux,platform:'win32',arch:process.arch,checkedAt:new Date().toISOString(),target,defaultParent:target.home,helperReady,checks:[...windowsGuidance(linux.checks),...code.checks.filter(c=>['code','ms-vscode-remote.remote-containers','ms-vscode-remote.remote-wsl'].includes(c.id))],devContainerReady:null};
+   }finally{if(preparationController===controller)preparationController=undefined;finishPreparation();}
+ }
+ async function generateRpc(method,payload){
+@@ -98,7 +99,7 @@
+     else if(method==='checkPreparation'||method==='prepareWSL') value=await checkPreparation(payload,method==='prepareWSL');
+     else if(method==='cancelPreparation') {preparationController?.abort();value={cancelled:true};}
+     else if(method==='exportDiagnostic') {const result=await dialog.showSaveDialog(window,{title:'診断ログを書き出す',defaultPath:'tsukuhako-diagnostic.txt',filters:[{name:'テキスト',extensions:['txt']}]});if(result.canceled)value={saved:false};else{await fs.promises.writeFile(result.filePath,redact(payload.text),{mode:0o600});value={saved:true};}}
+-    else if (method === 'getTemplates') value = { ...await rpc(method), defaultParent: app.getPath('home'), version: '0.4.0' };
++    else if (method === 'getTemplates') value = { ...await rpc(method), defaultParent: app.getPath('home'), version: '0.4.1' };
+     else if (method === 'chooseParentDirectory') {
+       if(wsl)throw desktopError('WSL_PATH','WSLの保存先を手入力してください。','Windows側のフォルダ選択は使いません。');
+       const result = await dialog.showOpenDialog(window, { title: '親フォルダを選ぶ', buttonLabel: '親フォルダを選ぶ', properties: ['openDirectory'] });
+--- a/generator-desktop/package-lock.json
++++ b/generator-desktop/package-lock.json
+@@ -1,12 +1,12 @@
+ {
+   "name": "tsukuhako-desktop",
+-  "version": "0.4.0",
++  "version": "0.4.1",
+   "lockfileVersion": 3,
+   "requires": true,
+   "packages": {
+     "": {
+       "name": "tsukuhako-desktop",
+-      "version": "0.4.0",
++      "version": "0.4.1",
+       "dependencies": {
+         "markdown-it": "15.0.3",
+         "react": "19.3.1",
+@@ -944,7 +944,7 @@
+       "dev": true,
+       "license": "MIT",
+       "engines": {
+-        "node": ">=0.4.0"
++        "node": ">=0.4.1"
+       }
+     },
+     "node_modules/punycode.js": {
+--- a/generator-desktop/package.json
++++ b/generator-desktop/package.json
+@@ -1,6 +1,6 @@
+ {
+   "name": "tsukuhako-desktop",
+-  "version": "0.4.0",
++  "version": "0.4.1",
+   "private": true,
+   "type": "module",
+   "main": "main.mjs",
+--- a/generator-desktop/src/Generator.tsx
++++ b/generator-desktop/src/Generator.tsx
+@@ -3,15 +3,16 @@
+ import type { Catalog, Created, Plan, Problem, Report, Reply, Request } from './types';
+ import './style.css';
+ const stages = ['何を作るか', 'どこへ作るか', '内容の確認', '作成完了'];
+-const places = {host:'ホスト側',container:'コンテナ内',editor:'VS Code'};
++const places = {host:'開発ホスト（WindowsはWSL内）',container:'コンテナ内',editor:'VS Code'};
+ const quoted = (v:string) => `'${v.replaceAll("'", "'\\''")}'`;
+ function value<T>(reply:Reply<T>):T { if (!reply.ok) throw reply.error; return reply.value; }
+ const unknownProblem:Problem = {code:'CONNECTION_FAILED',message:'処理との接続を確認できませんでした。',nextAction:'入力へ戻り、内容を確認し直してください。',details:{}};
+-export function Generator({onBusy,onLearn,onTemplate,parentOverride,platform,preparation,distroId,onPreparation}:{onBusy:(v:string)=>void;onLearn:(id:string)=>void;onTemplate:(id:string)=>void;parentOverride?:string;platform?:string;onPreparation:(p:import('./types').Preparation)=>void;distroId?:string;preparation?:import('./types').Preparation}) {
++export function Generator({onBusy,onLearn,onTemplate,parentOverride,platform,preparation,distroId,onPreparation,onCreated,onHelp,externalBusy}:{onBusy:(v:string)=>void;onCreated:(p:Created|undefined)=>void;onHelp:()=>void;externalBusy:boolean;onLearn:(id:string)=>void;onTemplate:(id:string)=>void;parentOverride?:string;platform?:string;onPreparation:(p:import('./types').Preparation)=>void;distroId?:string;preparation?:import('./types').Preparation}) {
+   const [catalog,setCatalog] = useState<Catalog>();
+   const [goal,setGoal] = useState('screen'), [id,setId] = useState('F2');
+   const [parent,setParent] = useState(''), [folder,setFolder] = useState('my-app');
+   const [name,setName] = useState(''), [port,setPort] = useState(''), [dbBase,setDbBase] = useState('');
++  const [advancedOpen,setAdvancedOpen]=useState(false);
+   const [step,setStep] = useState(1), [busy,setBusy] = useState('');
+   const busyRef = useRef(false);
+   const [plan,setPlan] = useState<Plan>(), [report,setReport] = useState<Report>(), [created,setCreated] = useState<Created>();
+@@ -22,17 +23,18 @@
+   useEffect(()=>{ window.tsukuhako.getTemplates().then(value).then(c=>{setCatalog(c);setParent(parentOverride||c.defaultParent)}).catch(fail); },[]);
+   useEffect(()=>{onBusy(busy)},[busy]);
+   useEffect(()=>{onTemplate(id)},[id]);
+-  useEffect(()=>{if(platform==='win32'){invalidate();setCreated(undefined);setStep(1)}},[distroId]);
+-  useEffect(()=>{if(parentOverride){setParent(parentOverride);invalidate();setCreated(undefined);setStep(1)}},[parentOverride]);
++  useEffect(()=>{onCreated(created)},[created]);
++  useEffect(()=>{if(platform==='win32'){invalidate();setCreated(undefined);setParent('');setStep(1)}},[distroId]);
++  useEffect(()=>{if(parentOverride){setParent(p=>!p||p===catalog?.defaultParent?parentOverride:p)}},[parentOverride]);
+   useEffect(()=>{ heading.current?.focus(); },[step]);
+   useEffect(()=>{ if(problem) alert.current?.focus(); },[problem]);
+   function fail(error:unknown) { setProblem(error && typeof error==='object' && 'code' in error ? error as Problem : unknownProblem); }
+   async function action(label:string, fn:()=>Promise<void>) {
+-    if(busyRef.current)return; busyRef.current=true;setBusy(label);setProblem(undefined);setNote('');
++    if(busyRef.current||externalBusy)return; busyRef.current=true;setBusy(label);setProblem(undefined);setNote('');
+     try {await fn();} catch(error){fail(error)} finally{busyRef.current=false;setBusy('');}
+   }
+   function invalidate() {if(plan)void window.tsukuhako.plan(null).catch(fail);setPlan(undefined);setReport(undefined);setProblem(undefined);}
+-  function chooseGoal(next:string, templateId:string){if(next===goal)return;invalidate();setGoal(next);setId(templateId);setPort('');setDbBase('');}
++  function chooseGoal(next:string, templateId:string){if(next===goal||busyRef.current||externalBusy)return;invalidate();setGoal(next);setId(templateId);setPort('');setDbBase('');}
+   async function back(){await action('入力へ戻っています',async()=>{value(await window.tsukuhako.plan(null));invalidate();setStep(step-1)});}
+   async function preview(){
+     if(!parent.trim()){parentField.current?.focus();return}
+@@ -47,47 +49,47 @@
+   async function generate(){if(!plan)return;await action('ファイルを作成しています',async()=>{const result=value(await window.tsukuhako.apply({planId:plan.planId}));setCreated(result);setStep(4);setDocument('')});}
+   async function copy(text:string){
+     try{await navigator.clipboard.writeText(text)}catch{
+-      const field=window.document.createElement('textarea');field.value=text;field.className='copy-field';window.document.body.append(field);field.select();const copied=window.document.execCommand('copy');field.remove();if(!copied){setNote('コピーできませんでした。表示された文字列を選択してコピーしてください。');return}
++      const previous=window.document.activeElement;const field=window.document.createElement('textarea');field.value=text;field.className='copy-field';window.document.body.append(field);field.select();const copied=window.document.execCommand('copy');field.remove();if(previous instanceof HTMLElement&&previous.isConnected)previous.focus({preventScroll:true});if(!copied){setNote('コピーできませんでした。表示された文字列を選択してコピーしてください。');return}
+     }setNote('コピーしました。');
+   }
+-  return <div className="shell">
++  return <div className="shell" inert={externalBusy}>
+     <div className="layout"><aside><p className="eyebrow">NEW PROJECT</p><h2>動かして、<br/>変えて、<br/>仕組みを知る。</h2><ol className="steps">{stages.map((s,i)=><li key={s} aria-current={step===i+1?'step':undefined} className={step===i+1?'active':step>i+1?'done':''}><span>{step>i+1?'✓':String(i+1).padStart(2,'0')}</span>{s}</li>)}</ol><div className="aside-note">生成するのは、新しいプロジェクトのファイルです。<br/>起動の手順は、作成後にご案内します。</div><small>{platform==='win32'?'Windows → 選択したWSL':platform==='darwin'?'macOS · ローカルで作成':'Linux · ローカルで作成'}</small></aside>
+     <main aria-busy={!!busy}>
+       <p className="eyebrow">STEP {String(step).padStart(2,'0')} / 04</p>
+-      <h1 tabIndex={-1} ref={heading}>{step===1?'何から作り始めますか？':step===2?'プロジェクトの置き場所を決めます。':step===3?'この内容でプロジェクトを作成します。':'プロジェクトのファイルができました。'}</h1>
++      <h1 id="generator-title" tabIndex={-1} ref={heading}>{step===1?'何から作り始めますか？':step===2?'プロジェクトの置き場所を決めます。':step===3?'この内容でプロジェクトを作成します。':'プロジェクトのファイルができました。'}</h1>
+       <p className="intro">{step===1?'作りたいものに近い構成を選んでください。あとから自分で変更するための教材も入っています。':step===2?'親フォルダを選び、新しく作るフォルダの名前を入力してください。':step===3?'構成と保存先を確認してください。作成後に、環境の起動へ進みます。':'次は起動して、最初の変更を試してみましょう。'}</p>
+-      {problem&&<div className="error" role="alert" tabIndex={-1} ref={alert}><strong><span aria-hidden="true">! </span>{problem.code==='PARTIAL_PRESERVED'?'作成途中のファイルが残っています。':problem.message}</strong><p>{problem.nextAction}</p><details><summary>詳細ログを確認</summary><pre>{JSON.stringify(problem,null,2)}</pre></details>{step===2&&<button type="button" className="text-button" onClick={()=>problem.code==='UNSAFE_DESTINATION'?parentField.current?.focus():folderField.current?.focus()}>入力欄へ移動</button>}</div>}
++      {problem&&<div className="error" role="alert" tabIndex={-1} ref={alert}><strong><span aria-hidden="true">! </span>{problem.code==='PARTIAL_PRESERVED'?'作成途中のファイルが残っています。':problem.message}</strong><p>{problem.nextAction}</p><button className="lesson-link" onClick={onHelp}>この構成の復旧手順を読む</button><details><summary>詳細ログを確認</summary><pre>{JSON.stringify(problem,null,2)}</pre></details>{step===2&&<button type="button" className="text-button" onClick={()=>problem.code==='UNSAFE_DESTINATION'?parentField.current?.focus():folderField.current?.focus()}>入力欄へ移動</button>}</div>}
+       {!catalog&&!problem&&<p role="status">構成を読み込んでいます…</p>}
+       {step===1&&catalog&&<>
+         <p className="concept">作りたい気持ちを、環境構築で止めない。</p>
+         <p className="choice-hint">迷ったら、まず画面を動かす練習から（Next.js）。選んだ構成は、あとから確認して変更できます。</p>
+         <div className="goals" role="group" aria-label="作りたいもの">{catalog.goals.map((g,i)=><button type="button" className={`goal ${goal===g.id?'selected':''}`} aria-pressed={goal===g.id} key={g.id} onClick={()=>chooseGoal(g.id,g.templates[0])}><span className="goal-number">0{i+1}</span><span><strong>{g.title}</strong><small>{g.summary}</small></span><span className="radio" aria-hidden="true">{goal===g.id?'●':'○'}</span></button>)}</div>
+-        {goal==='screen'&&<fieldset className="framework"><legend>画面づくりの構成</legend>{['F2','F1'].map(t=><label key={t}><input type="radio" name="framework" checked={id===t} onChange={()=>{setId(t);setPort('');invalidate()}}/>{t==='F2'?'Next.js（初期候補）':'React + Vite'}</label>)}</fieldset>}
++        {goal==='screen'&&<fieldset className="framework"><legend>画面づくりの構成</legend>{['F2','F1'].map(t=><label key={t}><input type="radio" name="framework" checked={id===t} onChange={()=>{setId(t);setPort('');invalidate()}}/>{t==='F2'?'Next.js：画面とページ移動の練習（初期候補）':'React + Vite：一つの画面と部品の練習'}</label>)}</fieldset>}
+         <div className="reference"><span>参考資料</span> S3 · クラウドSupabaseは新規作成の対象外です。</div>
+       </>}
+       {step===2&&<form id="destination" onSubmit={e=>{e.preventDefault();void preview()}}><fieldset disabled={!!busy} className="inputs">
+-        <label htmlFor="parent">親フォルダ</label><div className="folder-row"><input id="parent" ref={parentField} value={parent} onChange={e=>{setParent(e.target.value);invalidate()}} required autoComplete="off"/><button type="button" className="secondary" disabled={platform==='win32'} onClick={()=>void action('親フォルダを選んでいます',async()=>{const selected=value(await window.tsukuhako.chooseParentDirectory());if(selected){setParent(selected);invalidate()}})}>親フォルダを選ぶ</button></div><p className="hint">手入力では ~/ を使えます。実在するフォルダを指定してください。</p>
++        <label htmlFor="parent">親フォルダ</label><div className="folder-row"><input id="parent" ref={parentField} value={parent} onChange={e=>{setParent(e.target.value);invalidate()}} required autoComplete="off"/><button type="button" className="secondary" disabled={platform==='win32'} onClick={()=>void action('親フォルダを選んでいます',async()=>{const selected=value(await window.tsukuhako.chooseParentDirectory());if(selected){setParent(selected);invalidate()}})}>親フォルダを選ぶ</button></div><p className="hint">{platform==='win32'?'選択したWSL内の /home/… または ~/ を入力します。WindowsのCドライブは使いません。':'手入力では ~/ を使えます。'}実在する親フォルダを指定してください。</p>
+         <label htmlFor="folder">新しいフォルダ名</label><input id="folder" ref={folderField} value={folder} onChange={e=>{setFolder(e.target.value);invalidate()}} required autoComplete="off"/><p className="hint">日本語・空白を使えます。既にあるフォルダは選べません。</p>
+-        <details className="advanced"><summary>詳細設定 <span>通常はそのままで使えます</span></summary><label htmlFor="name">識別ラベル（任意）</label><input id="name" value={name} placeholder="study" onChange={e=>{setName(e.target.value);invalidate()}} pattern="[a-z][a-z0-9-]{0,24}"/><p className="hint">フォルダ名とは別の、英小文字・数字・ハイフンの短いラベル。</p><label htmlFor="port">ホストポート</label><input id="port" type="number" min="1024" max="65535" placeholder={String(template?.defaultPort)} value={port} onChange={e=>{setPort(e.target.value);invalidate()}}/>{id==='S2'&&<><label htmlFor="dbBase">DB開始ポート</label><input id="dbBase" type="number" min="1024" max="65532" placeholder={String(template?.dbBase)} value={dbBase} onChange={e=>{setDbBase(e.target.value);invalidate()}}/><p className="hint">shadow・API・DB・Studioに連続4ポートを使います。</p></>}</details>
++        <details className="advanced" open={advancedOpen} onToggle={e=>setAdvancedOpen(e.currentTarget.open)}><summary>詳細設定 <span>通常はそのままで使えます</span></summary><label htmlFor="name">識別ラベル（任意）</label><input id="name" value={name} placeholder="study" onChange={e=>{setName(e.target.value);invalidate()}} pattern="[a-z][a-z0-9-]{0,24}"/><p className="hint">フォルダ名とは別の、英小文字・数字・ハイフンの短いラベル。</p><label htmlFor="port">ホストポート</label><input id="port" type="number" min="1024" max="65535" placeholder={String(template?.defaultPort)} value={port} onChange={e=>{setPort(e.target.value);invalidate()}}/>{id==='S2'&&<><label htmlFor="dbBase">DB開始ポート</label><input id="dbBase" type="number" min="1024" max="65532" placeholder={String(template?.dbBase)} value={dbBase} onChange={e=>{setDbBase(e.target.value);invalidate()}}/><p className="hint">shadow・API・DB・Studioに連続4ポートを使います。</p></>}</details>
+       </fieldset></form>}
+       {template&&step<3&&<section className="selection"><div><span className="tag">{template.id}</span><strong>{template.name}</strong><span className="muted">v{template.version}</span></div><p>{template.summary}</p><p className="hint">同梱：{template.includedFeatures.join(' / ')}</p><p className="hint">含まないもの：{template.notIncluded.join(' / ')}</p><details><summary>準備するもの・確認済みの範囲</summary><ul>{template.prerequisites.map(x=><li key={x}>{x}</li>)}</ul><p>検証：{template.validationScope}</p><p>未実施：{template.notRun.join(' / ')}</p></details></section>}
+       {step===3&&plan&&<>
+         <dl className="preview"><div><dt>構成</dt><dd>{plan.request.templateId} · {template?.name}<small>テンプレート v{plan.templateVersion}</small></dd></div><div><dt>保存先</dt><dd className="path">{plan.destination}</dd></div><div><dt>ポート</dt><dd>{Object.entries(plan.ports).map(([k,v])=><span className="port" key={k}>{k} <b>{v}</b></span>)}</dd></div><div><dt>作成内容</dt><dd>{plan.files.length}ファイル <small>サンプル・教材・テスト・CI設定・この構成の案内</small></dd></div></dl>
+         <div className="diagnosis"><Diagnostic label="生成準備" ready={report?.generationReady??null}/><Diagnostic label="Docker利用可能" ready={preparation?.dockerReady??null}/><Diagnostic label="Dev Container起動確認" ready={null}/></div>
+         {preparation?.dockerReady!==true&&<p className="notice">ファイルは作成できます。起動する前に、Dockerなどの準備が必要です。</p>}
+-        <details className="checks"><summary>診断の詳細を見る</summary><ul>{report?.checks.map(c=><li key={c.id}><b>{c.status}</b><span>{c.message}{c.nextAction&&<small>{c.nextAction}</small>}</span></li>)}</ul></details><p className="hint">診断は現在の状態です。ポートの予約や実起動の保証ではありません。</p>
++        {report?.checks.some(c=>c.scope==='runtime'&&c.status==='FAIL')&&<div className="notice"><strong>起動前に確認する項目があります。</strong><ul>{report.checks.filter(c=>c.scope==='runtime'&&c.status==='FAIL').map(c=><li key={c.id}>{c.message} {c.nextAction}</li>)}</ul><button className="secondary" onClick={async()=>{await back();setAdvancedOpen(true);requestAnimationFrame(()=>window.document.getElementById('port')?.focus())}}>保存先・ポートを見直す</button></div>}<details className="checks"><summary>診断の詳細を見る</summary><ul>{report?.checks.map(c=><li key={c.id}><b>{c.status}</b><span>{c.message}{c.nextAction&&<small>{c.nextAction}</small>}</span></li>)}</ul></details><p className="hint">診断は現在の状態です。ポートの予約や実起動の保証ではありません。</p>
+       </>}
+       {step===4&&created&&<>
+         <div className="success"><span aria-hidden="true">✓</span><div><strong>{created.templateId} · {template?.name}</strong><p className="path">{created.destination}</p><small>このフォルダに START_HERE.md と README.md があります。</small></div></div>
+         <div className="created-actions">
+           <button type="button" className="primary" onClick={()=>onLearn(created.templateId)}>この構成の「最初の一歩」を読む</button><button type="button" className="secondary" onClick={()=>setDocument('guide')}>この生成結果の手順を見る</button>
+-          <button type="button" className="secondary" onClick={()=>void action('VS Codeを開いています',async()=>{value(await window.tsukuhako.openInVSCode());setNote('VS Codeへフォルダを渡しました。Reopen in Containerで続けてください。')})} disabled={!!busy}>VS Codeで開く ↗</button>
++          <button type="button" className="secondary" onClick={()=>void action('VS Codeを開いています',async()=>{value(await window.tsukuhako.openInVSCode());setNote('VS Codeへフォルダを渡しました。起動手順の順番で準備を確認し、コマンドパレットからDev Containers: Reopen in Containerを選んでください。')})} disabled={!!busy}>VS Codeで開く ↗</button>
+           <button type="button" className="text-button" onClick={()=>void copy(created.guide)}>手順をコピー</button>
+           <button type="button" className="text-button" onClick={()=>setDocument('readme')}>READMEを見る</button>
+         </div>
+-        <p className="hint">ファイルの作成が完了しました。起動手順では、準備の確認から最初の変更・復元までを案内します。コンテナはまだ起動していません。</p>
++        <p className="hint">ファイルの作成が完了しました。「最初の一歩」で準備を確認 → VS Codeで開く → Dev Containerで起動 → 変更・復元の順に進みます。コンテナはまだ起動していません。</p>
+         {!document&&<ol className="next-steps">{created.nextSteps.slice(0,3).map((s,i)=><li key={i}><span>{places[s.location]}</span><div><strong>{s.title}</strong><small>場所：{s.cwd==='destination'?'上のプロジェクトフォルダ':s.cwd}</small>{s.detail&&<p>{s.detail}</p>}{s.command&&<code>{[s.command.executable,...s.command.args].map(quoted).join(' ')}</code>}{s.document&&<code>{s.document}</code>}</div></li>)}</ol>}
+-        {document&&<section className="document" aria-label={document==='guide'?'起動手順':'README'}><h2>{document==='guide'?'START_HERE.md':'README.md'}</h2><p className="hint">ファイル内の教材リンクはVS CodeのMarkdownプレビューで開けます。ここでは相対パスと案内を表示します。</p><pre>{document==='guide'?created.guide:created.readmeText}</pre></section>}
++        <button type="button" className="secondary" disabled={!!busy} onClick={()=>void action('次の作成を準備しています',async()=>{value(await window.tsukuhako.plan(null));setPlan(undefined);setReport(undefined);setCreated(undefined);setDocument('');setFolder('my-app');setStep(1)})}>別のプロジェクトを作る</button><p className="hint">作成済みのフォルダは残ります。アプリを再起動した後は、保存先の START_HERE.md から再開できます。</p>{document&&<section className="document" aria-label={document==='guide'?'起動手順':'README'}><h2>{document==='guide'?'START_HERE.md':'README.md'}</h2><p className="hint">ファイル内の教材リンクはVS CodeのMarkdownプレビューで開けます。ここでは相対パスと案内を表示します。</p><pre>{document==='guide'?created.guide:created.readmeText}</pre></section>}
+       </>}
+       <div role="status" className="status">{busy||note}</div>
+       {step<4&&<footer className="actions"><span>{step>1&&<button type="button" className="secondary" disabled={!!busy} onClick={()=>void back()}>← 戻る</button>}</span>{step===1?<button type="button" key="purpose" className="primary" disabled={!catalog||!!busy||(platform==='win32'&&(!preparation?.helperReady||preparation?.target?.distroId!==distroId))} onClick={()=>{invalidate();setStep(2)}}>保存先を決める</button>:step===2?<button type="submit" key="confirm" form="destination" className="primary" disabled={!!busy}>作成内容を確認</button>:<button type="button" key="apply" className="primary" disabled={!!busy||report?.generationReady!==true||!!problem} onClick={()=>void generate()}>プロジェクトを作成</button>}</footer>}
+--- a/generator-desktop/src/Markdown.tsx
++++ b/generator-desktop/src/Markdown.tsx
+@@ -1,10 +1,10 @@
+ import React,{useEffect,useLayoutEffect,useRef,useState} from 'react';
+-import MarkdownIt,{type Token} from 'markdown-it';import {headingId} from './links';
++import MarkdownIt,{type Token} from 'markdown-it';import {headingId,type LinkKind} from './links';
+ const parser=new MarkdownIt({html:false,linkify:false,typographer:false});
+ export function headings(text:string){const tokens=parser.parse(text,{}),counts=new Map<string,number>();return tokens.flatMap((t,i)=>{if(t.type!=='heading_open')return[];const title=tokens[i+1].content,base=headingId(title),n=counts.get(base)||0;counts.set(base,n+1);return[{id:base+(n?'-'+n:''),title}]})}
+ function Asset({id,alt}:{id:string;alt:string}){const ref=useRef<HTMLSpanElement>(null),[src,setSrc]=useState('');useEffect(()=>{let active=true;const observer=new IntersectionObserver(entries=>{if(!entries.some(e=>e.isIntersecting))return;observer.disconnect();void window.tsukuhako.readAsset({id}).then(r=>{if(active&&r.ok)setSrc(r.value)})});if(ref.current)observer.observe(ref.current);return()=>{active=false;observer.disconnect()}},[id]);return <span ref={ref} className="lesson-asset">{src?<img src={src} alt={alt} loading="lazy" width="96" height="96"/>:alt}</span>}
+-function Code({text,language}:{text:string;language:string}){const [note,setNote]=useState('');return <div className="code-block"><div className="code-toolbar"><span>{language||'コード'}</span><button type="button" onClick={async()=>{try{try{await navigator.clipboard.writeText(text)}catch{const field=document.createElement('textarea');field.value=text;field.className='copy-field';document.body.append(field);field.select();const ok=document.execCommand('copy');field.remove();if(!ok)throw new Error('copy')}setNote('コピーしました')}catch{setNote('文字列を選んでコピーしてください')}}}>コードをコピー</button><span role="status">{note}</span></div><pre><code>{text}</code></pre></div>}
+-export default function Markdown({text,onLink,onReady}:{text:string;onLink:(href:string)=>void;onReady?:()=>void}){
++function Code({text,language}:{text:string;language:string}){const [note,setNote]=useState('');return <div className="code-block"><div className="code-toolbar"><span>{language||'コード'}</span><button type="button" onClick={async()=>{try{try{await navigator.clipboard.writeText(text)}catch{const previous=document.activeElement;const field=document.createElement('textarea');field.value=text;field.className='copy-field';document.body.append(field);field.select();const ok=document.execCommand('copy');field.remove();if(previous instanceof HTMLElement&&previous.isConnected)previous.focus({preventScroll:true});if(!ok)throw new Error('copy')}setNote('コピーしました')}catch{setNote('文字列を選んでコピーしてください')}}}>コードをコピー</button><span role="status">{note}</span></div><pre><code>{text}</code></pre></div>}
++export default function Markdown({text,onLink,onReady,linkKind}:{text:string;onLink:(href:string)=>void;onReady?:()=>void;linkKind?:(href:string)=>LinkKind}){
+  useLayoutEffect(()=>{onReady?.()},[text]);
+  const tokens=parser.parse(text,{});const hs=headings(text);let hn=0;
+  function render(tokens:Token[]):React.ReactNode[]{let pos=0;const sequence=(closing=false):React.ReactNode[]=>{const out:React.ReactNode[]=[];while(pos<tokens.length){const index=pos,t=tokens[pos++];if(t.nesting===-1){if(closing)return out;continue}
+@@ -14,7 +14,7 @@
+   if(t.type==='code_inline'){out.push(<code key={index}>{t.content}</code>);continue}
+   if(t.type==='softbreak'||t.type==='hardbreak'){out.push(<br key={index}/>);continue}
+   if(t.type==='hr'){out.push(<hr key={index}/>);continue}
+-  if(t.nesting===1){const children=sequence(true);if(t.type==='link_open'){const href=String(t.attrGet('href')||'');out.push(<button className="lesson-link" type="button" key={index} onClick={()=>onLink(href)}>{children}</button>)}else{const tags=['p','h1','h2','h3','h4','h5','h6','ul','ol','li','blockquote','strong','em','s','table','thead','tbody','tr','th','td'];const tag=tags.includes(t.tag)?t.tag:'span';const id=t.type==='heading_open'?hs[hn++]?.id:undefined;out.push(React.createElement(tag,{key:index,id,tabIndex:id?-1:undefined},children))}continue}
++  if(t.nesting===1){const children=sequence(true);if(t.type==='link_open'){const href=String(t.attrGet('href')||'');const kind=linkKind?.(href);out.push(kind&&"path" in kind?<span className="file-reference" key={index}>{children}<small>{kind.kind==="file"?` — 生成先の ${kind.path} をVS Codeで開きます`:kind.kind==="reference"?" — 参照資料（アプリには未収録）":" — 参照先（この画面からは開きません）"}</small></span>:<button className="lesson-link" type="button" key={index} onClick={()=>onLink(href)}>{children}{kind?.kind==="external"&&" ↗"}</button>)}else{const tags=['p','h1','h2','h3','h4','h5','h6','ul','ol','li','blockquote','strong','em','s','table','thead','tbody','tr','th','td'];const tag=tags.includes(t.tag)?t.tag:'span';const id=t.type==='heading_open'?hs[hn++]?.id:undefined;out.push(React.createElement(tag,{key:index,id,tabIndex:id?-1:undefined},children))}continue}
+   if(t.content)out.push(t.content);
+  }return out};return sequence()}
+  return <article className="markdown">{render(tokens)}</article>
+--- a/generator-desktop/src/Preparation.tsx
++++ b/generator-desktop/src/Preparation.tsx
+@@ -1,14 +1,38 @@
+-import {useEffect,useState} from 'react';import type {Preparation as Prep,Problem} from './types';
+-export function Preparation({templateId,onResult,onGuide,disabled,distro,onDistro}:{templateId:string;onResult:(p:Prep)=>void;onGuide:(chapter:string)=>void;disabled:boolean;distro?:string;onDistro:(id:string)=>void}){
+- const [platform,setPlatform]=useState<Prep>(),[result,setResult]=useState<Prep>(),[busy,setBusy]=useState(false),[problem,setProblem]=useState<Problem>(),[log,setLog]=useState(''),[note,setNote]=useState('');
+- useEffect(()=>{let live=true;void window.tsukuhako.getPreparation().then(r=>{if(!live)return;if(r.ok){setPlatform(r.value);onResult(r.value);if(r.value.distros?.length===1&&!distro)onDistro(r.value.distros[0].id);if(r.value.platform!=='win32')void check(false)}else setProblem(r.error)});return()=>{live=false}},[]);
+- async function check(install:boolean){if(busy||disabled)return;setBusy(true);setProblem(undefined);setNote('');try{const payload={templateId,...(distro?{distroId:distro}:{})};const r=await(install?window.tsukuhako.prepareWSL(payload):window.tsukuhako.checkPreparation(payload));if(!r.ok){setProblem(r.error);return}setResult(r.value);onResult(r.value);const sanitized=JSON.stringify(r.value,null,2).replace(/(?:[A-Za-z]:\\Users\\|\/home\/|\/Users\/)[^\s/\\"<>]+/g,'<HOME>').replace(/"user":\s*"[^"]*"/g,'"user": "<USER>"');setLog(sanitized)}finally{setBusy(false)}}
++import {useEffect,useRef,useState} from 'react';
++import type {Preparation as Prep,Problem} from './types';
++import {selectDistro} from './flow';
++const osName=(p?:string)=>p==='win32'?'Windows / WSL 2':p==='darwin'?'macOS':'Linux';
++export function Preparation({templateId,onResult,onGuide,disabled,distro,onDistro,result,onBusy}:{templateId:string;onResult:(p:Prep)=>void;onGuide:(chapter:string)=>void;disabled:boolean;distro?:string;onDistro:(id:string)=>void;result?:Prep;onBusy:(busy:boolean)=>void}){
++ const [platform,setPlatform]=useState<Prep>(),[busy,setBusy]=useState(false),[problem,setProblem]=useState<Problem>(),[log,setLog]=useState(''),[note,setNote]=useState('');
++ const active=useRef(false),cancelled=useRef(false);
++ useEffect(()=>{void check(false,true)},[]);
++ useEffect(()=>{setLog(result?.checkedAt?JSON.stringify(result,null,2).replace(/(?:[A-Za-z]:\\Users\\|\/home\/|\/Users\/)[^\s/\\"<>]+/g,'<HOME>').replace(/"user":\s*"[^"]*"/g,'"user": "<USER>"'):'')},[result]);
++ async function check(install=false,initial=false){
++  if(active.current||disabled)return;active.current=true;cancelled.current=false;setBusy(true);onBusy(true);setProblem(undefined);setNote('');if(platform)onResult(platform);
++  try{
++   // Re-enumerate after installation, and never send a disappeared selection to diagnosis.
++   const listed=await window.tsukuhako.getPreparation();if(cancelled.current)return;
++   if(!listed.ok){setProblem(listed.error);if(platform)onResult({...platform,checks:[],dockerReady:undefined,helperReady:false,target:undefined});return}
++   const fresh=listed.value;setPlatform(fresh);let selected=distro;
++   if(fresh.platform==='win32'){selected=selectDistro(fresh.distros||[],distro);if(selected!==(distro||''))onDistro(selected)}
++   onResult(fresh);
++   if(fresh.platform==='win32'&&(initial||!selected)){
++    setNote(selected?'選んだWSLで「もう一度確認」を押してください。':fresh.distros?.length?'開発するWSLを選んで、もう一度確認してください。':'WSLの候補がありません。準備手順で導入したあと、この画面で「もう一度確認」を押してください。');return;
++   }
++   const payload={templateId,...(selected?{distroId:selected}:{})};
++   const r=await(install?window.tsukuhako.prepareWSL(payload):window.tsukuhako.checkPreparation(payload));if(cancelled.current)return;
++   if(!r.ok){setProblem(r.error);return}onResult(r.value);
++  }catch{setProblem({code:'PREPARATION_FAILED',message:'準備を確認できませんでした。',nextAction:'このOSの準備手順を確認し、もう一度確認してください。',details:{}})}
++  finally{if(cancelled.current)setNote('診断を中断しました。必要なときにもう一度確認できます。');active.current=false;setBusy(false);onBusy(false)}
++ }
+  const guide=platform?.platform==='win32'?'windows':platform?.platform==='darwin'?'macos':'linux';
+- return <section className="preparation"><div className="prep-heading"><div><p className="eyebrow">作る前に</p><h2>開発準備チェック</h2><p>{platform?`${platform.platform} / ${platform.arch}`:'OSを確認しています…'} · 教材は未準備でも読めます</p></div><button className="secondary" onClick={()=>onGuide(guide)}>このOSの準備手順</button></div>
+- {platform?.platform==='win32'&&<><p className="notice">診断で選択したLinuxが起動する場合があります。ヘルパーは同梱ファイルを通常ユーザーの専用領域へ配置します。</p><label htmlFor="wsl-distro">開発するWSL</label><select id="wsl-distro" disabled={busy||disabled} value={distro||''} onChange={e=>{onDistro(e.target.value);setResult(undefined)}}><option value="">選択してください</option>{platform.distros?.map(d=><option value={d.id} key={d.id}>{d.name} / WSL {d.generation} / {d.state}</option>)}</select>{!platform.distros?.length&&<p>通常のLinuxディストリビューションを確認できません。準備教材を確認してください。</p>}<p>{platform.status?.code}</p></>}
+- <div className="prep-actions"><button className="primary" disabled={busy||disabled||!platform} onClick={()=>void check(false)}>もう一度確認</button>{busy&&<button className="secondary" onClick={()=>void window.tsukuhako.cancelPreparation()}>診断を中断</button>}{platform?.platform==='win32'&&distro&&<button className="secondary" disabled={busy||disabled} onClick={()=>void check(true)}>WSL用ファイルを準備</button>}</div>
+- {busy&&<p role="status">確認しています。教材も引き続き読めます。</p>}{problem&&<div className="error" role="alert"><strong>{problem.message}</strong><p>{problem.nextAction}</p><small>{problem.code}</small></div>}
+- {result&&<><p className="hint">確認日時：{result.checkedAt}。前回の成功は今回の起動を保証しません。{result.target&&` 対象：${result.target.distro} / ${result.target.user}`}</p><div className="prep-summary"><span>Docker：{result.dockerReady?'利用可能':'準備・確認が必要'}</span><span>Dev Container起動：未確認</span></div><details className="prep-details" open={result.checks?.some(c=>c.state!=='ready')}><summary>項目別の結果と次の操作</summary><ul>{result.checks?.map(c=><li key={c.id}><span className={'state '+c.state}>{c.label}</span><div><strong>{c.message}</strong><p className="hint">{c.reason}</p>{c.state!=='ready'&&<><p>{c.nextAction}</p><button className="lesson-link" onClick={()=>onGuide(c.guide)}>公式導入先・手順を読む</button><button className="text-button" disabled={busy||disabled} onClick={()=>void check(false)}>もう一度確認</button></>}</div></li>)}</ul></details>{result.capacity&&<p className="hint">OSメモリ：{(result.capacity.totalMemoryBytes/1073741824).toFixed(1)} GiB / HOMEの空き：{result.capacity.availableBytes===null?'確認不可':(result.capacity.availableBytes/1073741824).toFixed(1)+' GiB'}。Docker割当・必要量は別です。</p>}
+- <details className="log-preview"><summary>診断ログの確認・書き出し</summary><p className="hint">パス・ユーザー名を伏せ字化しています。共有前に内容を確認し、必要なら編集してください。環境変数一覧や秘密ファイルは収集しません。</p><textarea aria-label="共有する診断ログ" value={log} onChange={e=>setLog(e.target.value)} maxLength={65536}/><button className="secondary" onClick={async()=>{const r=await window.tsukuhako.exportDiagnostic({text:log});setNote(r.ok?(r.value.saved?'ログを書き出しました。':'書き出しを中止しました。'):r.error.message)}}>ログを書き出す</button><p role="status">{note}</p></details></>}
+- <p className="hint">Docker待ちでもファイル生成は可能です。Windowsは通常ユーザーとWSL用ファイルの準備が必要です。設定変更・インストール・既存資源の削除は自動実行しません。</p></section>
++ return <section className="preparation" aria-labelledby="preparation-title"><div className="prep-heading"><div><p className="eyebrow">1 · 準備する</p><h2 id="preparation-title" tabIndex={-1}>開発準備チェック</h2><p>{platform?`${osName(platform.platform)} / ${platform.arch}`:'OSを確認しています…'} · 教材は未準備でも読めます</p></div><button className="secondary" onClick={()=>onGuide(guide)}>このOSの準備手順</button></div>
++ {platform?.platform==='win32'&&<><p className="notice">Windows / WSL 2は実機未確認です。診断で選択したLinuxが起動する場合があります。</p><label htmlFor="wsl-distro">開発するWSL</label><select id="wsl-distro" disabled={busy||disabled} value={distro||''} onChange={e=>{onDistro(e.target.value);onResult(platform);setProblem(undefined);setNote('WSLを変更しました。もう一度確認してください。')}}><option value="">選択してください</option>{platform.distros?.map(d=><option value={d.id} key={d.id}>{d.name} / WSL {d.generation} / {d.state}</option>)}</select>{!platform.distros?.length&&<p>通常のLinuxディストリビューションを確認できません。準備手順から導入してください。</p>}</>}
++ {platform?.platform==='darwin'&&<p className="notice">macOSは実機未確認です。S2の起動手順はLinux専用です。</p>}
++ <div className="prep-actions"><button className="primary" disabled={busy||disabled} onClick={()=>void check()}>もう一度確認</button>{busy&&<button className="secondary" onClick={()=>{cancelled.current=true;void window.tsukuhako.cancelPreparation()}}>診断を中断</button>}{platform?.platform==='win32'&&distro&&<button className="secondary" disabled={busy||disabled} onClick={()=>void check(true)}>WSL用ファイルを準備</button>}</div>
++ <p role="status">{busy?'確認しています。教材も引き続き読めます。':note}</p>
++ {problem&&<div className="error" role="alert"><strong>{problem.message}</strong><p>{problem.nextAction}</p><button className="lesson-link" onClick={()=>onGuide(guide)}>このOSの準備手順を読む</button><small> {problem.code}</small></div>}
++ {result?.checkedAt&&<><p className="hint">確認日時：{new Date(result.checkedAt).toLocaleString('ja-JP')}。この時点の結果です。再開時は再確認してください。{result.target&&` 対象：${result.target.distro} / ${result.target.user}`}</p><div className="prep-summary"><span>Docker：{result.dockerReady?'利用可能':'準備・確認が必要'}</span><span>Dev Container起動：未確認</span></div><details className="prep-details" open={result.checks?.some(c=>c.state!=='ready')}><summary>項目別の結果と次の操作</summary><ul>{result.checks?.map(c=><li key={c.id}><span className={'state '+c.state}>{c.label}</span><div><strong>{c.message}</strong><p className="hint">{c.reason}</p>{c.state!=='ready'&&<><p>{c.nextAction}</p><button className="lesson-link" onClick={()=>onGuide(c.guide)}>公式導入先・手順を読む</button><button className="text-button" disabled={busy||disabled} onClick={()=>void check()}>もう一度確認</button></>}</div></li>)}</ul></details>
++ <details className="log-preview"><summary>容量・診断ログの確認・書き出し</summary>{result.capacity&&<p className="hint">OSメモリ：{(result.capacity.totalMemoryBytes/1073741824).toFixed(1)} GiB / HOMEの空き：{result.capacity.availableBytes===null?'確認不可':(result.capacity.availableBytes/1073741824).toFixed(1)+' GiB'}。Docker割当・必要量は別です。</p>}<p className="hint">パス・ユーザー名を伏せ字化しています。共有前に内容を確認し、必要なら編集してください。環境変数一覧や秘密ファイルは収集しません。</p><textarea aria-label="共有する診断ログ" value={log} onChange={e=>setLog(e.target.value)} maxLength={65536}/><button className="secondary" onClick={async()=>{const r=await window.tsukuhako.exportDiagnostic({text:log});setNote(r.ok?(r.value.saved?'ログを書き出しました。':'書き出しを中止しました。'):r.error.message)}}>ログを書き出す</button></details></>}
++ <p className="hint">次は下の「何から作り始めますか？」で構成を選びます。Docker待ちでもファイルは生成できます。WindowsはWSLの通常ユーザーと同梱ファイルの準備が先です。</p><button className="secondary" disabled={busy||disabled} onClick={()=>document.getElementById('generator-title')?.focus()}>構成を選ぶ ↓</button></section>
+ }
+--- a/generator-desktop/src/Reader.tsx
++++ b/generator-desktop/src/Reader.tsx
+@@ -1,21 +1,21 @@
+-import {lazy,Suspense,useEffect,useRef,useState} from 'react';import type {Curriculum,Reading} from './types';import {resolveChapter} from './links';
++import {lazy,Suspense,useEffect,useRef,useState} from 'react';import type {Curriculum,Reading,Created} from './types';import {resolveChapter,classifyLink} from './links';
+ const Markdown=lazy(()=>import('./Markdown'));
+-export function Reader({index,reading,onReading,help}:{index:Curriculum;reading:Reading;onReading:(r:Reading)=>void;help:boolean}){
++export function Reader({index,reading,onReading,help,project,onReturn,returnLabel}:{index:Curriculum;reading:Reading;onReading:(r:Reading)=>void;help:boolean;project?:Created;onReturn:()=>void;returnLabel?:string}){
+  const [body,setBody]=useState(''),[error,setError]=useState(''),[heading,setHeading]=useState(''),[heads,setHeads]=useState<{id:string;title:string}[]>([]);const area=useRef<HTMLDivElement>(null);const latest=useRef(reading);latest.current=reading;const scrollRef=useRef(reading.scroll);const write=useRef(onReading);write.current=onReading;
+  const lesson=index.lessons.find(l=>l.id===reading.lessonId),chapter=lesson?.chapters.find(c=>c.id===reading.chapterId);const place=lesson?.chapters.findIndex(c=>c.id===reading.chapterId)??-1;
+- useEffect(()=>{let active=true;setBody('');setHeads([]);setError('');scrollRef.current=reading.scroll;if(chapter)void window.tsukuhako.readChapter({lessonId:reading.lessonId,chapterId:reading.chapterId}).then(async r=>{if(!active)return;if(!r.ok){setError(r.error.message);return}const m=await import('./Markdown');if(active){setHeads(m.headings(r.value.text));setBody(r.value.text)}}).catch(()=>{if(active)setError('教材を読み込めませんでした。')});return()=>{active=false}},[reading.lessonId,reading.chapterId]);
++ useEffect(()=>{let active=true;setBody('');setHeads([]);setError('');scrollRef.current=reading.scroll;if(chapter)void window.tsukuhako.readChapter({lessonId:reading.lessonId,chapterId:reading.chapterId}).then(async r=>{if(!active)return;if(!r.ok){setError(r.error.message);return}const m=await import('./Markdown');if(active){const text=reading.chapterId==='first'&&project?.templateId===reading.lessonId?project.guide:r.value.text;setHeads(m.headings(text));setBody(text)}}).catch(()=>{if(active)setError('教材を読み込めませんでした。')});return()=>{active=false}},[reading.lessonId,reading.chapterId,project]);
+  useEffect(()=>{if(!body)return;const frame=requestAnimationFrame(()=>{if(heading){document.getElementById(heading)?.scrollIntoView();document.getElementById(heading)?.focus();setHeading('')}});return()=>cancelAnimationFrame(frame)},[body,heading]);
+  useEffect(()=>()=>{write.current({...latest.current,scroll:scrollRef.current})},[]);
+  function open(lessonId:string,chapterId:string,anchor=''){setHeading(anchor);scrollRef.current=0;onReading({...reading,lessonId,chapterId,scroll:0})}
+  function follow(href:string){const target=resolveChapter(index,reading.lessonId,reading.chapterId,href);if(target){open(target.lessonId,target.chapterId,target.heading);return}if(href.startsWith('https://')){void window.tsukuhako.openLessonLink({lessonId:reading.lessonId,chapterId:reading.chapterId,href}).then(r=>{if(!r.ok)setError(r.error.message)});return}setError('このリンクは実行しません。生成先の該当ファイルや対応する教材を確認してください。')}
+  let timer:ReturnType<typeof setTimeout>;const timerRef=useRef<typeof timer|undefined>(undefined);useEffect(()=>()=>clearTimeout(timerRef.current),[]);
+- return <div className="reader-layout"><aside className="curriculum-toc"><p className="eyebrow">{help?'困ったとき':'学ぶ'}</p><label htmlFor="lesson-choice">教材を選ぶ</label><select id="lesson-choice" value={reading.lessonId} onChange={e=>open(e.target.value,'')}>{index.lessons.map(l=><option value={l.id} key={l.id}>{l.title}</option>)}</select><button type="button" className="text-button" onClick={()=>open(reading.lessonId,'')}>この教材の目次</button><nav aria-label="章の一覧">{lesson?.chapters.filter(c=>!help||['trouble','recovery','troubleshooting','setup','windows','macos','linux','overview'].includes(c.id)).map(c=><button type="button" className={c.id===reading.chapterId?'current':''} key={c.id} aria-current={c.id===reading.chapterId?'page':undefined} onClick={()=>open(reading.lessonId,c.id)}>{c.title}</button>)}</nav><p className="hint">教材 v{lesson?.version}<br/>{lesson?.templateVersion?'対象テンプレート v'+lesson.templateVersion:'OS別の準備手順'}</p></aside>
++ return <div className="reader-layout"><aside className="curriculum-toc"><button className="secondary" onClick={onReturn}>{returnLabel||(reading.lessonId==='setup'?'準備チェックへ戻る':'作る画面へ戻る')}</button><p className="eyebrow">{help?'困ったとき':'学ぶ'}</p><label htmlFor="lesson-choice">教材を選ぶ</label><select id="lesson-choice" value={reading.lessonId} onChange={e=>open(e.target.value,'')}>{index.lessons.map(l=><option value={l.id} key={l.id}>{l.title}</option>)}</select><button type="button" className="text-button" onClick={()=>open(reading.lessonId,'')}>この教材の目次</button><nav aria-label="章の一覧">{lesson?.chapters.filter(c=>!help||['trouble','recovery','troubleshooting','setup','windows','macos','linux','overview'].includes(c.id)).map(c=><button type="button" className={c.id===reading.chapterId?'current':''} key={c.id} aria-current={c.id===reading.chapterId?'page':undefined} onClick={()=>open(reading.lessonId,c.id)}>{c.title}</button>)}</nav><p className="hint">教材 v{lesson?.version}<br/>{lesson?.templateVersion?'対象テンプレート v'+lesson.templateVersion:'OS別の準備手順'}</p></aside>
+  <div ref={area} className="reader-scroll" onScroll={()=>{if(!body)return;scrollRef.current=area.current?.scrollTop||0;clearTimeout(timerRef.current);timerRef.current=setTimeout(()=>onReading({...latest.current,scroll:scrollRef.current}),400)}}>
+  {error&&<p role="alert" className="error">{error}</p>}
+  {!chapter?<section className="lesson-overview"><p className="eyebrow">目次</p><h1>{lesson?.title||'教材を選んでください'}</h1><p>必要な章から読めます。教材はこのアプリに同梱されています。</p><ol>{lesson?.chapters.map(c=><li key={c.id}><button type="button" className="lesson-link" onClick={()=>open(reading.lessonId,c.id)}>{c.title}</button></li>)}</ol></section>:<>
+- <div className="chapter-meta">{lesson?.id} / {place+1} · {chapter.title}</div>
++ {reading.chapterId==='first'&&<p className="notice">{project?.templateId===reading.lessonId?'今回生成した保存先・ポートの手順です。READMEなどの標準例より、この設定を優先します。':'標準設定の見本です。生成済みの方は、完了画面の教材または生成先のSTART_HERE.mdを使ってください。'}</p>}{reading.chapterId!=='first'&&project?.templateId===reading.lessonId&&<div className="notice">この章には標準設定の例があります。今回の設定：{Object.entries(project.ports).map(([name,port])=>`${name}=${port}`).join(' / ')}。<button className="lesson-link" onClick={()=>open(reading.lessonId,'first')}>今回の起動手順に戻る</button></div>}<div className="chapter-meta">{lesson?.id} / {place+1} · {chapter.title}</div>
+  <details className="heading-toc"><summary>この章の見出し</summary><ul>{heads.map(h=><li key={h.id}><button className="lesson-link" onClick={()=>setHeading(h.id)}>{h.title}</button></li>)}</ul></details>
+- <Suspense fallback={<p role="status">教材の表示を準備しています…</p>}>{body?<Markdown text={body} onLink={follow} onReady={()=>{if(area.current)area.current.scrollTop=latest.current.scroll}}/>:!error&&<p role="status">章を読み込んでいます…</p>}</Suspense>
++ <Suspense fallback={<p role="status">教材の表示を準備しています…</p>}>{body?<Markdown text={body} linkKind={href=>classifyLink(index,reading.lessonId,reading.chapterId,href)} onLink={follow} onReady={()=>{if(area.current)area.current.scrollTop=latest.current.scroll}}/>:!error&&<p role="status">章を読み込んでいます…</p>}</Suspense>
+  <nav className="chapter-navigation" aria-label="前後の章"><button className="secondary" disabled={place<=0} onClick={()=>open(reading.lessonId,lesson!.chapters[place-1].id)}>← 前の章</button><button className="secondary" disabled={!lesson||place>=lesson.chapters.length-1} onClick={()=>open(reading.lessonId,lesson!.chapters[place+1].id)}>次の章 →</button></nav></>}
+  </div></div>
+ }
+--- a/generator-desktop/src/flow.ts
++++ b/generator-desktop/src/flow.ts
+@@ -0,0 +1,16 @@
++import type {Preparation, Curriculum, Reading} from './types';
++
++export function withDistro(reading:Reading, id:string):Reading {
++  return {...reading, distroId:id || undefined};
++}
++
++export function selectDistro(distros: NonNullable<Preparation['distros']>, current?: string) {
++  if (distros.some(d => d.id === current)) return current!;
++  return distros.length === 1 ? distros[0].id : '';
++}
++
++export function helpChapter(index: Curriculum, id: string) {
++  const lesson = index.lessons.find(l => l.id === id);
++  const chapter = lesson?.chapters.find(c => ['recovery', 'troubleshooting', 'trouble'].includes(c.id));
++  return chapter ? {lessonId: id, chapterId: chapter.id} : {lessonId: 'setup', chapterId: 'trouble'};
++}
+--- a/generator-desktop/src/links.ts
++++ b/generator-desktop/src/links.ts
+@@ -6,6 +6,17 @@
+  if(/^[a-zA-Z][\w+.-]*:/.test(target)||target.startsWith('//'))return null;
+  const l=m.lessons.find(l=>l.id===lessonId),c=l?.chapters.find(c=>c.id===chapterId);if(!c)return null;
+  if(!target)return{lessonId,chapterId,heading};let u:URL;try{u=new URL(target,'https://content.invalid/'+c.source)}catch{return null}
+- const found=l?.chapters.find(x=>'/'+x.source===decodeURIComponent(u.pathname));return found?{lessonId,chapterId:found.id,heading}:null;
++ let pathname:string;try{pathname=decodeURIComponent(u.pathname)}catch{return null}
++ const found=l?.chapters.find(x=>'/'+x.source===pathname);return found?{lessonId,chapterId:found.id,heading}:null;
++}
++export type LinkKind = {kind:'chapter'|'external'} | {kind:'file'|'reference'|'unavailable';path:string};
++export function classifyLink(m:Curriculum,lessonId:string,chapterId:string,href:string):LinkKind {
++ if(resolveChapter(m,lessonId,chapterId,href))return{kind:'chapter'};
++ if(/^https:\/\/[^\s]+$/.test(href))return{kind:'external'};
++ const chapter=m.lessons.find(l=>l.id===lessonId)?.chapters.find(c=>c.id===chapterId);
++ if(chapter&&!/^[a-zA-Z][\w+.-]*:|^\/|[\x00-\x20\x7f\\]/.test(href)){
++  try{const u=new URL(href,'https://content.invalid/'+chapter.source),p=decodeURIComponent(u.pathname).slice(1);if(p&&!href.startsWith('#'))return{kind:/\.md$/i.test(p)?'reference':'file',path:p}}catch{}
++ }
++ return{kind:'unavailable',path:href};
+ }
+ export const headingId=(text:string)=>text.toLowerCase().trim().replace(/[^\p{L}\p{N}\s_-]/gu,'').replace(/\s+/g,'-');
+--- a/generator-desktop/src/main.tsx
++++ b/generator-desktop/src/main.tsx
+@@ -1,16 +1,18 @@
+ import {useEffect,useRef,useState} from 'react';import {createRoot} from 'react-dom/client';
+-import {Generator} from './Generator';import {Reader} from './Reader';import {Preparation} from './Preparation';import type {Curriculum,Reading,Preparation as Prep} from './types';import './style.css';
++import {Generator} from './Generator';import {Reader} from './Reader';import {Preparation} from './Preparation';import type {Curriculum,Reading,Created,Preparation as Prep} from './types';import './style.css';import {helpChapter,withDistro} from './flow';
+ const initial:Reading={view:'create',lessonId:'F2',chapterId:'',scroll:0};
+-function App(){const [index,setIndex]=useState<Curriculum>(),[reading,setReading]=useState<Reading>(initial),[help,setHelp]=useState<Reading>({...initial,view:'help',lessonId:'setup',chapterId:'trouble'}),[ready,setReady]=useState(false),[busy,setBusy]=useState(''),[template,setTemplate]=useState('F2'),[prep,setPrep]=useState<Prep>(),[problem,setProblem]=useState('');const lastSaved=useRef('');
++function App(){const [index,setIndex]=useState<Curriculum>(),[reading,setReading]=useState<Reading>(initial),[help,setHelp]=useState<Reading>({...initial,view:'help',lessonId:'setup',chapterId:'trouble'}),[ready,setReady]=useState(false),[busy,setBusy]=useState(''),[prepBusy,setPrepBusy]=useState(false),[project,setProject]=useState<Created>(),[returnTo,setReturnTo]=useState<'create'|'learn'>('create'),[template,setTemplate]=useState('F2'),[prep,setPrep]=useState<Prep>(),[problem,setProblem]=useState('');const lastSaved=useRef('');
+  useEffect(()=>{void Promise.all([window.tsukuhako.getLearningIndex(),window.tsukuhako.readSettings()]).then(([m,s])=>{if(!m.ok){setProblem(m.error.message);setReady(true);return}setIndex(m.value);if(s.ok){const saved=s.value,l=m.value.lessons.find(l=>l.id===saved.lessonId);const restored:Reading={...initial,...saved,view:saved.view==='help'?'help':saved.view==='learn'?'learn':'create',lessonId:l?.id||'F2',chapterId:l?.chapters.some(c=>c.id===saved.chapterId)?saved.chapterId!:'',scroll:Number.isFinite(saved.scroll)&&saved.scroll!>=0&&saved.scroll!<10000000?saved.scroll!:0};setReading(restored);if(restored.view==='help')setHelp(restored)}setReady(true)}).catch(()=>{setProblem('教材一覧を読み込めませんでした。');setReady(true)})},[]);
+  useEffect(()=>{if(!ready)return;const record=reading.view==='help'?{...help,distroId:reading.distroId}:reading;const value=JSON.stringify(record);if(value===lastSaved.current)return;lastSaved.current=value;void window.tsukuhako.saveSettings(record).then(r=>{if(!r.ok)setProblem('読書位置を保存できませんでした。')})},[reading,help,ready]);
++ function returnCreate(){setReading(p=>({...p,view:'create'}));requestAnimationFrame(()=>document.getElementById(reading.lessonId==='setup'?'preparation-title':'generator-title')?.focus())}
++ function showHelp(){if(!index)return;const from=reading.view==='learn'?'learn':'create';setReturnTo(from);setHelp({...initial,view:'help',...helpChapter(index!,from==='learn'?reading.lessonId:template)});setReading(p=>({...p,view:'help'}))}
+  function learn(id:string,chapter='first'){setReading(p=>({...p,view:'learn',lessonId:id,chapterId:chapter,scroll:0}))}
+  const updateReading=(r:Reading)=>setReading(p=>({...r,view:p.view,distroId:p.distroId}));
+- return <div className="app-shell"><header className="top"><div className="brand"><img className="mark" src="./brand-mark.svg" alt=""/><div><strong>ツクハコ</strong><span>開発環境と学びの道具箱</span></div></div><span className="version">LOCAL EDITION <b>0.4.0</b></span></header>
+- <nav className="app-nav" aria-label="ツクハコの画面">{(['create','learn','help'] as const).map((v,i)=><button type="button" aria-current={reading.view===v?'page':undefined} key={v} onClick={()=>setReading(p=>({...p,view:v}))}>{['作る','学ぶ','困ったとき'][i]}</button>)}<span>教材 v{index?.version||'…'} · ローカルで読む</span></nav>
+- <div className="global-status" role="status">{busy||'教材の閲覧中も、入力した生成条件と結果を保持します。'}</div>{problem&&<p role="alert" className="error">{problem}</p>}
+- {ready&&<><div hidden={reading.view!=='create'}><Preparation templateId={template} onResult={p=>setPrep(old=>({...old,...p}))} onGuide={c=>learn('setup',c)} disabled={!!busy} distro={reading.distroId} onDistro={id=>setReading(p=>({...p,distroId:id}))}/><Generator onBusy={setBusy} onTemplate={setTemplate} onLearn={id=>learn(id)} parentOverride={prep?.target?.home} platform={prep?.platform} preparation={prep} onPreparation={p=>setPrep(old=>({...old,...p}))} distroId={reading.distroId}/></div>
+- {reading.view!=='create'&&index&&<Reader key={reading.view} index={index} reading={reading.view==='help'?help:reading} onReading={reading.view==='help'?setHelp:updateReading} help={reading.view==='help'}/>}</>}
++ return <div className="app-shell"><header className="top"><div className="brand"><img className="mark" src="./brand-mark.svg" alt=""/><div><strong>ツクハコ</strong><span>開発環境と学びの道具箱</span></div></div><span className="version">LOCAL EDITION <b>0.4.1</b></span></header>
++ <nav className="app-nav" aria-label="ツクハコの画面">{(['create','learn','help'] as const).map((v,i)=><button type="button" aria-current={reading.view===v?'page':undefined} key={v} onClick={()=>v==='help'&&index?showHelp():setReading(p=>({...p,view:v}))}>{['作る','学ぶ','困ったとき'][i]}</button>)}<span>教材 v{index?.version||'…'} · ローカルで読む</span></nav>
++ <div className="global-status" role="status">{busy|| (prepBusy?'開発準備を確認しています。「作る」に戻ると結果を確認できます。':'準備 → 生成 → VS Codeで起動 → 一か所変更 → 元へ戻す')}</div>{problem&&<p role="alert" className="error">{problem}</p>}
++ {ready&&<><div hidden={reading.view!=='create'}><p className="app-intro">ツクハコは、学習用の開発環境を作るアプリです。まず準備を確認し、その下で作りたいものを選びます。</p><Preparation result={prep} onBusy={setPrepBusy} templateId={template} onResult={setPrep} onGuide={c=>learn('setup',c)} disabled={!!busy} distro={reading.distroId} onDistro={id=>setReading(p=>withDistro(p,id))}/><Generator externalBusy={prepBusy} onCreated={setProject} onHelp={showHelp} onBusy={setBusy} onTemplate={setTemplate} onLearn={id=>learn(id)} parentOverride={prep?.target?.home} platform={prep?.platform} preparation={prep} onPreparation={setPrep} distroId={reading.distroId}/></div>
++ {reading.view!=='create'&&index&&<Reader key={reading.view} index={index} reading={reading.view==='help'?help:reading} onReading={reading.view==='help'?setHelp:updateReading} help={reading.view==='help'} project={project} returnLabel={reading.view==='help'&&returnTo==='learn'?'学んでいた章へ戻る':undefined} onReturn={reading.view==='help'&&returnTo==='learn'?()=>setReading(p=>({...p,view:'learn'})):returnCreate}/>}</>}
+  </div>
+ }
+ createRoot(document.getElementById('root')!).render(<App/>);
+--- a/generator-desktop/src/style.css
++++ b/generator-desktop/src/style.css
+@@ -1,2 +1,5 @@
+ :root{font-family:"Noto Sans CJK JP","Noto Sans JP",sans-serif;color:#172B4D;background:#F7F9FC;font-synthesis:none;font-size:16px;line-height:1.7}*{box-sizing:border-box}body{margin:0}button,input{font:inherit}button{cursor:pointer}button:disabled{background:#E5EBF4;color:#526079;border-color:#CAD5E2;cursor:wait}button,input,summary{outline-offset:4px}button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #2457D6}h1:focus{outline:0}h1{font-size:28px;line-height:1.5;letter-spacing:.02em;margin:8px 0 12px}h2{font-size:24px;line-height:1.6;margin:12px 0 28px}p{margin:8px 0}.shell{max-width:1440px;margin:auto}.top{min-height:108px;border-bottom:1px solid #CAD5E2;padding:24px 40px;display:flex;gap:20px;justify-content:space-between;align-items:center;background:#FFFFFF}.brand{display:flex;gap:16px;align-items:center}.brand strong{font-size:28px;letter-spacing:.08em;line-height:1.25}.brand div>span{display:block;font-size:14px;color:#526079;margin-top:5px}.mark{width:54px;height:54px;flex-shrink:0}.version{font-size:14px;color:#526079;white-space:nowrap}.version b{margin-left:8px;background:#EDF2FD;border-radius:6px;padding:6px 10px;color:#2457D6}.layout{display:grid;grid-template-columns:240px minmax(0,1fr);min-height:710px}aside{padding:36px 24px 24px 32px;border-right:1px solid #CAD5E2;background:#EDF2F9;display:flex;flex-direction:column}.eyebrow{font-size:14px;font-weight:700;letter-spacing:.12em;color:#526079;margin:0}.steps{padding:0;margin:0 0 36px;list-style:none}.steps li{color:#526079;display:flex;align-items:center;gap:12px;padding:15px 0;font-size:16px}.steps li>span{width:32px;height:32px;border:1px solid #CAD5E2;border-radius:50%;display:grid;place-items:center;font-size:14px;background:#FFFFFF;flex-shrink:0}.steps .active{font-weight:700;color:#2457D6}.steps .active>span{background:#2457D6;color:white;border-color:#2457D6}.steps .done>span{background:#DFE9FC;color:#1D46AD}.aside-note{font-size:14px;color:#526079;border-top:1px solid #CAD5E2;padding-top:18px;margin-top:auto}aside>small{font-size:14px;color:#526079;margin-top:18px}main{padding:36px 40px 30px;max-width:1100px;min-width:0}.intro{color:#526079;font-size:16px;margin-bottom:24px}.concept{font-weight:700;color:#172B4D;margin:0 0 12px}.choice-hint{font-size:14px;color:#526079;border-left:4px solid #F4B740;padding:8px 12px;margin:0 0 22px;background:#FFF9EC}.goals{display:grid;gap:12px}.goal{display:flex;width:100%;text-align:left;align-items:center;padding:16px;gap:14px;border:1px solid #CAD5E2;background:#FFFFFF;border-radius:12px;color:inherit;transition:border-color .15s,background .15s}.goal:hover{background:#F1F5FE;border-color:#2457D6}.goal.selected{border:2px solid #2457D6;background:#EDF3FF;padding:15px}.goal-number{font-size:14px;color:#526079;font-family:monospace}.goal strong{display:block;font-size:16px}.goal small{display:block;font-size:14px;color:#526079;margin-top:4px}.radio{margin-left:auto;color:#2457D6;font-size:18px}.framework{display:flex;flex-wrap:wrap;gap:12px 24px;border:0;padding:12px 0 0;margin:20px 0;font-size:16px}.framework legend{font-size:14px;color:#526079}.framework input{accent-color:#2457D6;margin-right:8px;width:17px;height:17px}.reference{color:#526079;font-size:14px;margin:20px 0}.reference span{border:1px solid #CAD5E2;border-radius:4px;padding:3px 7px;margin-right:7px}.selection{margin-top:24px;padding:20px;border:1px solid #CAD5E2;border-radius:12px;background:#FFFFFF;font-size:16px}.selection>div{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.selection>p{margin:12px 0 4px}.tag{padding:3px 8px;background:#E3ECFD;border-radius:4px;font-size:14px;color:#1D46AD}.muted{font-size:14px;color:#526079;margin-left:auto}.hint{font-size:14px;color:#526079;line-height:1.8}.selection details{margin-top:14px;font-size:14px}.selection ul{padding-left:20px}summary{cursor:pointer;color:#2457D6;font-size:16px}.inputs{border:0;padding:0;margin:0;min-width:0}.inputs label{display:block;font-size:16px;font-weight:600;margin:22px 0 8px}.inputs>label:first-child{margin-top:0}.inputs input{display:block;width:100%;background:#FFFFFF;border:1px solid #8D9DB4;padding:12px;border-radius:8px;color:#172B4D;font-size:16px}.folder-row{display:flex;flex-wrap:wrap;gap:10px}.folder-row input{min-width:200px;flex:1}.folder-row button{white-space:nowrap}.advanced{margin-top:24px;border-top:1px solid #CAD5E2;padding-top:20px}.advanced summary span{font-size:14px;margin-left:10px;color:#526079}.advanced input[type=number]{max-width:240px}.primary,.secondary,.text-button{padding:12px 18px;border-radius:8px;font-size:16px;font-weight:600;line-height:1.5}.primary{color:#FFFFFF;background:#2457D6;border:1px solid #2457D6}.primary:hover:not(:disabled){background:#1D46AD;border-color:#1D46AD}.secondary{background:#FFFFFF;color:#2457D6;border:1px solid #CAD5E2}.secondary:hover:not(:disabled){background:#EDF3FF;border-color:#2457D6}.text-button{background:none;color:#2457D6;border:1px solid transparent;text-decoration:underline;text-underline-offset:4px}.text-button:hover:not(:disabled){background:#EDF3FF}.actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;padding-top:22px;border-top:1px solid #CAD5E2;margin-top:12px}.status{min-height:27px;font-size:16px;color:#2457D6;margin-top:18px}.bottom{padding:18px 40px;border-top:1px solid #CAD5E2;font-size:14px;color:#526079;display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between}.preview{background:#FFFFFF;border:1px solid #CAD5E2;border-radius:12px;padding:4px 22px;margin-bottom:24px}.preview>div{display:grid;grid-template-columns:90px minmax(0,1fr);gap:12px;padding:18px 0;border-bottom:1px solid #CAD5E2}.preview>div:last-child{border:0}.preview dt{font-size:14px;color:#526079}.preview dd{margin:0;font-size:16px;min-width:0}.preview small{display:block;color:#526079;font-size:14px;margin-top:6px}.path{overflow-wrap:anywhere;font-family:monospace;font-size:16px}.port{display:inline-block;border-radius:5px;background:#EDF2FD;padding:4px 9px;font-size:14px;margin:0 6px 6px 0}.port b{font-size:16px}.diagnosis{display:flex;flex-wrap:wrap;gap:12px}.diagnostic{display:flex;align-items:center;gap:12px;flex:1;min-width:190px;border-radius:10px;padding:16px;background:#EAF5F0;color:#1B5942}.diagnostic>span{border:1px solid currentColor;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;flex-shrink:0}.diagnostic strong,.diagnostic small{display:block}.diagnostic strong{font-size:16px}.diagnostic small{font-size:14px}.diagnostic.pending{background:#FFF2D5;color:#725315}.notice{font-size:16px;color:#725315;background:#FFF2D5;padding:14px;border-radius:8px;margin-top:18px}.checks{margin:22px 0 14px}.checks ul{list-style:none;padding:0}.checks li{display:flex;gap:12px;padding:12px 0;font-size:14px;border-bottom:1px solid #CAD5E2}.checks b{font-size:14px;min-width:90px}.checks small{display:block;font-size:14px;color:#526079}.error{border:1px solid #BC635D;background:#FFF0EF;border-radius:10px;padding:18px;margin:18px 0;color:#92332E;font-size:16px}.error strong{display:block}.error pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px}.success{display:flex;gap:16px;background:#EAF5F0;border:1px solid #88B8A4;border-radius:12px;padding:22px}.success>span{width:36px;height:36px;background:#24664D;color:#FFFFFF;border-radius:50%;display:grid;place-items:center;flex-shrink:0}.success>div{min-width:0}.success strong{font-size:18px}.success small{font-size:14px;color:#526079}.created-actions{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0}.next-steps{padding:0;list-style:none}.next-steps li{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid #CAD5E2}.next-steps li>span{font-size:14px;background:#EAF0F9;border-radius:6px;padding:4px 8px;height:fit-content;min-width:92px;text-align:center}.next-steps li>div{min-width:0}.next-steps strong{font-size:16px}.next-steps small,.next-steps p{font-size:14px;color:#526079;display:block;overflow-wrap:anywhere}.next-steps code{display:block;background:#EDF2F9;font-size:14px;padding:10px 12px;margin-top:10px;border-radius:6px;overflow-wrap:anywhere}.document{border:1px solid #CAD5E2;border-radius:12px;padding:22px;margin-top:24px;background:#FFFFFF}.document h2{font-size:20px;margin:0 0 12px}.document pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;line-height:1.85}.copy-field{position:fixed;top:0;left:0;opacity:0}@media(max-width:950px){.layout{display:block}aside{padding:18px 28px;border-right:0;border-bottom:1px solid #CAD5E2}aside>.eyebrow,aside>h2,.aside-note,aside>small{display:none}.steps{display:flex;gap:12px;margin:0;justify-content:space-between}.steps li{padding:0;font-size:14px;gap:7px}.steps li>span{width:28px;height:28px}main{padding:28px;max-width:none}.top{padding:20px 28px}.bottom{padding:18px 28px}h1{font-size:26px}}@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+ [hidden]{display:none!important}.app-shell{max-width:1440px;margin:auto}.app-nav{display:flex;align-items:center;gap:12px;background:white;padding:12px 32px;border-bottom:1px solid #CAD5E2}.app-nav button{padding:10px 24px;border:0;border-radius:7px;background:#EDF2F9;color:#172B4D;font-weight:700}.app-nav button[aria-current=page]{background:#2457D6;color:white}.app-nav span{margin-left:auto;font-size:14px;color:#526079}.global-status{padding:8px 32px;min-height:42px;font-size:14px;color:#2457D6;background:#EDF3FF}.preparation{margin:28px 32px 0;padding:24px;background:white;border:1px solid #CAD5E2;border-radius:12px}.prep-heading{display:flex;align-items:center;justify-content:space-between;gap:16px}.prep-heading h2{margin:0;font-size:22px}.prep-heading p{font-size:14px}.prep-actions{display:flex;gap:10px;margin:16px 0}.prep-summary{display:flex;gap:24px;color:#1D46AD;font-weight:600}.prep-details{margin:16px 0}.prep-details ul{padding:0;list-style:none}.prep-details li{display:flex;gap:18px;border-top:1px solid #CAD5E2;padding:14px 0}.state{font-size:14px;flex-shrink:0;border-radius:5px;padding:3px 8px;height:fit-content;background:#FFF2D5;color:#725315}.state.ready{background:#EAF5F0;color:#1B5942}.log-preview textarea{width:100%;min-height:220px;font:14px/1.7 monospace;display:block;margin:12px 0;padding:12px}.reader-layout{display:grid;grid-template-columns:290px minmax(0,1fr);height:calc(100vh - 215px);min-height:450px}.curriculum-toc{padding:24px;overflow:auto}.curriculum-toc select,select{font:inherit;max-width:100%;padding:9px;border:1px solid #8D9DB4;border-radius:6px;background:white;color:#172B4D}.curriculum-toc label{font-size:14px;margin:12px 0 5px}.curriculum-toc nav{display:grid;gap:5px}.curriculum-toc nav button{border:0;border-radius:6px;background:none;color:#172B4D;text-align:left;padding:10px;font-size:14px}.curriculum-toc nav button.current{background:#2457D6;color:white}.reader-scroll{overflow-y:auto;overflow-x:hidden;padding:28px 36px;background:white;scrollbar-gutter:stable}.chapter-meta{font-size:14px;color:#526079}.heading-toc{margin:18px 0;border-bottom:1px solid #CAD5E2;padding-bottom:16px}.markdown{max-width:850px;overflow-wrap:anywhere}.markdown h1{font-size:28px}.markdown h2{font-size:23px;border-bottom:1px solid #CAD5E2;padding-bottom:9px;margin:38px 0 16px}.markdown h3{margin-top:28px}.markdown p{margin:14px 0;line-height:1.9}.markdown li{margin:8px 0}.markdown blockquote{margin:20px 0;padding:10px 16px;border-left:4px solid #F4B740;background:#FFF9EC}.markdown table{border-collapse:collapse;width:100%;font-size:14px}.markdown td,.markdown th{border:1px solid #CAD5E2;padding:10px;text-align:left}.markdown th{background:#EDF2F9}.markdown code{font-size:14px;background:#EDF2F9;padding:2px 4px;border-radius:3px}.code-block{background:#EDF2F9;border:1px solid #CAD5E2;border-radius:8px;margin:18px 0;overflow:hidden}.code-toolbar{display:flex;gap:12px;align-items:center;padding:8px 12px;background:#E4EAF3;font-size:14px;flex-wrap:wrap}.code-toolbar button{margin-left:auto;background:white;color:#2457D6;border:1px solid #CAD5E2;border-radius:5px;padding:6px 12px;font-size:14px}.code-block pre{overflow-x:auto;margin:0;padding:18px;font-size:14px}.code-block code{background:none;padding:0;white-space:pre}.lesson-link{display:inline;padding:0;border:0;color:#2457D6;background:none;text-decoration:underline;text-underline-offset:3px;text-align:left;font:inherit;overflow-wrap:anywhere}.lesson-asset{display:inline-block;min-height:96px}.chapter-navigation{display:flex;justify-content:space-between;border-top:1px solid #CAD5E2;padding-top:24px;margin:32px 0}.lesson-overview ol{padding-left:24px}.lesson-overview li{margin:14px 0}@media(max-width:950px){.app-nav{padding:10px 24px}.app-nav span{display:none}.reader-layout{grid-template-columns:225px minmax(0,1fr)}.curriculum-toc{padding:18px}.reader-scroll{padding:22px}.preparation{margin:24px 28px 0}.prep-heading{align-items:flex-start;flex-direction:column}}
++/* UX: preserve reading and actions at 200% zoom and with long project paths. */
++.app-intro{margin:24px 32px 0}.file-reference{color:#172B4D}.file-reference small{color:#526079;font-size:.875em}.prep-actions,.prep-summary,.top{flex-wrap:wrap}.prep-details li>div{min-width:0;overflow-wrap:anywhere}select:focus-visible{outline:3px solid #2457D6;outline-offset:4px}.app-nav{flex-wrap:wrap}.steps{flex-wrap:wrap}.chapter-navigation{gap:12px;flex-wrap:wrap}.app-shell{overflow-wrap:anywhere}.curriculum-toc>.secondary{margin-bottom:14px}.preparation h2:focus{outline:3px solid #2457D6;outline-offset:5px}
++@media(max-width:600px){.top{padding:16px}.app-nav{padding:10px 16px;gap:6px}.app-nav button{padding:9px 12px;flex:1}.global-status{padding:8px 16px}.app-intro{margin:16px}.preparation{margin:16px;padding:16px}.reader-layout{display:block;height:auto;min-height:0}.curriculum-toc{max-height:260px;border-bottom:1px solid #CAD5E2}.reader-scroll{height:70vh;min-height:260px;padding:18px}.steps{justify-content:flex-start}main{padding:18px}.preview>div{grid-template-columns:1fr}.next-steps li{flex-direction:column}.brand strong{font-size:24px}.markdown h1{font-size:24px}.markdown h2{font-size:21px}.prep-details li{flex-direction:column;gap:8px}}
+--- a/generator-desktop/tests/ux.test.mjs
++++ b/generator-desktop/tests/ux.test.mjs
+@@ -0,0 +1,12 @@
++import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import path from 'node:path';import MarkdownIt from 'markdown-it';
++import {resolveChapter,classifyLink} from '../src/links.ts';import {selectDistro,helpChapter,withDistro} from '../src/flow.ts';import {windowsGuidance} from '../adapters/wsl-guidance.mjs';import {nextSteps,startHere,quoteArg} from '../../generator/src/core/next-steps.mjs';
++const root=path.resolve(import.meta.dirname,'../..'),m=JSON.parse(fs.readFileSync(root+'/curriculum/manifest.json')),parser=new MarkdownIt();
++test('UX: WSL observations survive routing and all Docker states go to Windows setup',()=>{for(const state of ['missing','stopped','setup','unknown','ready']){const input={id:'docker-server',state,guide:'linux',message:'observation',reason:'reason'};const [r]=windowsGuidance([input]);assert.equal(r.state,state);assert.equal(r.message,'observation');assert.equal(r.guide,'windows');assert.equal(input.guide,'linux');assert.match(r.nextAction,/WSL/)}assert.equal(windowsGuidance([{id:'s2-tar',guide:'linux',reason:''}])[0].guide,'windows')});
++test('UX: re-list preserves valid distro, clears removed candidates, selects a sole new candidate',()=>{const list=[{id:'a'},{id:'b'}];assert.equal(selectDistro([], 'old'),'');assert.equal(selectDistro([{id:'a'}], 'old'),'a');assert.equal(selectDistro(list,'b'),'b');assert.equal(selectDistro(list,'old'),'');assert.equal(selectDistro([],undefined),'')});
++test('UX: source references are not actionable, chapter links round-trip, malformed paths do not throw',()=>{assert.equal(classifyLink(m,'F1','first','src/App.tsx').kind,'file');assert.deepEqual(resolveChapter(m,'F2','first','docs/EXERCISES.md'),{lessonId:'F2',chapterId:'exercises',heading:''});assert.equal(resolveChapter(m,'F2','exercises','../README.md').chapterId,'readme');for(const s of ['%ZZ.md','file:///etc/passwd','javascript:alert(1)','//example.com','lesson:missing/first']){assert.equal(resolveChapter(m,'F2','first',s),null);assert.equal(classifyLink(m,'F2','first',s).kind,'unavailable')}});
++test('UX: all shipped chapter links resolve, source references exist or are labelled as historical',()=>{for(const l of m.lessons)for(const c of l.chapters){const tokens=parser.parse(fs.readFileSync(root+'/curriculum/'+c.file,'utf8'),{}).flatMap(t=>t.children||[]);for(const t of tokens.filter(t=>t.type==='link_open')){const href=t.attrGet('href'),kind=classifyLink(m,l.id,c.id,href);if(href.startsWith('lesson:'))assert.equal(kind.kind,'chapter',href);if(kind.kind==='file')assert.ok(fs.existsSync(root+'/starter-templates/'+l.id+'/'+kind.path),l.id+':'+href)}}});
++test('UX: help follows the current lesson and falls back to setup',()=>{for(const id of ['F1','F2','B1','S1','S2','I1'])assert.equal(helpChapter(m,id).lessonId,id);assert.deepEqual(helpChapter(m,'absent'),{lessonId:'setup',chapterId:'trouble'})});
++test('UX: generated first steps use actual ports, target version and safely quoted directory for every template',()=>{for(const id of ['F1','F2','B1','S1','S2','I1']){const destination="/home/test/日本語 app's $(literal)",ports=id==='I1'?{database:54001}:{app:3897};if(id==='S2')Object.assign(ports,{shadow:54010,api:54011,database:54012,studio:54013});const guide=startHere({request:{templateId:id},destination,ports,templateVersion:'test-version',projectName:'unit',nextSteps:nextSteps(id,ports)});assert.ok(guide.includes(quoteArg(destination)));assert.ok(guide.includes('test-version'));for(const port of Object.values(ports))assert.ok(guide.includes(String(port)));assert.ok(!guide.includes('(lesson:'));assert.match(guide,/PowerShell/);assert.ok(!guide.includes('http://localhost:3001'));}});
++
++import {validatePayload} from '../security.mjs';
++test('UX: clearing a WSL selection still allows reading position to be saved',()=>{const reading={view:'learn',lessonId:'F2',chapterId:'first',scroll:550,distroId:'abc0123456789def'};assert.equal(validatePayload('saveSettings',withDistro(reading,'')).scroll,550);assert.equal(withDistro(reading,'').distroId,undefined);assert.equal(validatePayload('saveSettings',withDistro(reading,'abc0123456789def')).distroId,'abc0123456789def')});
+--- a/generator-desktop/worker.mjs
++++ b/generator-desktop/worker.mjs
+@@ -7,7 +7,7 @@
+ const [{ getTemplates }, { destinationFromParts }, { planGeneration }, { applyGeneration }, { diagnoseHost, probePort }, { publicError, readRegular }, { startHere }] = await Promise.all(
+   ['catalog','configuration','plan','apply','diagnostics','common','next-steps'].map(core));
+ let current, publicId;
+-const execution={os:process.platform,arch:process.arch,user:os.userInfo().username,helperVersion:'0.4.0'};
++const execution={os:process.platform,arch:process.arch,user:os.userInfo().username,helperVersion:'0.4.1'};
+ const stale = () => Object.assign(new Error('確認した内容が現在の状態と一致しません。'), { code: 'PLAN_STALE', nextAction: '保存先の入力へ戻り、内容を確認し直してください。', details: {} });
+ process.parentPort.on('message', async ({ data }) => {
+   const { id, method, payload } = data;
+--- a/generator-desktop/wsl-helper/bundle.json
++++ b/generator-desktop/wsl-helper/bundle.json
+@@ -1,10 +1,10 @@
+ {
+-  "version": "0.4.0",
++  "version": "0.4.1",
+   "arch": "x64",
+   "bytes": 127672320,
+-  "sha256": "61cbf1e3a734e5622918a1d9d178cafe4bf69ec9dec45efe72e9838c45b279ce",
++  "sha256": "031c9f4f8e0181fc9f61f59ef946a35309074371f2a3dfdaa881a3491b200f8c",
+   "nodeSha256": "bc17c508ffeed0ec622934f9b7fa72f8e78da65350e63c3eceb56fa688aa5e12",
+-  "manifestSha256": "b0a0f220300a9f73f18b18ea00a04aa79443dff3372434cbbd934d2aeb3eff3f",
++  "manifestSha256": "aeae51d15c36537c9069e00ee74099e7998d917d267772fe5636f649e793140d",
+   "helperSha256": "f739cd03f1d0c6c91c35d6c41b01146de7f5051c222f43482c032f5a9a7b1d00",
+   "runtimeArchiveSha256": "14b342e71204f811bde6153be8e04b62aef63c236fef92b55f9c83154b409647",
+   "runtimeSource": "https://nodejs.org/dist/v24.19.0/node-v24.19.0-linux-x64.tar.xz"
+--- a/tools/build-curriculum-041.mjs
++++ b/tools/build-curriculum-041.mjs
+@@ -0,0 +1,29 @@
++import fs from 'node:fs';import path from 'node:path';import {createHash} from 'node:crypto';
++import {nextSteps,firstExercise,commandText} from '../generator/src/core/next-steps.mjs';
++const root=path.resolve(import.meta.dirname,'..'),dest=path.join(root,'curriculum');fs.mkdirSync(dest,{recursive:true});
++const catalog=JSON.parse(fs.readFileSync(root+'/catalog.json'));const lessons=[];
++function lesson(id,title,templateVersion,rows){const dir=dest+'/'+id;fs.mkdirSync(dir,{recursive:true});const chapters=rows.map(([chapterId,title,body,source])=>{const file=id+'/'+chapterId+'.md';fs.writeFileSync(dest+'/'+file,body);return{id:chapterId,title,file,source:source||chapterId+'.md',bytes:Buffer.byteLength(body),sha256:createHash('sha256').update(body).digest('hex')}});lessons.push({id,title,version:'0.4.1',templateVersion,chapters})}
++for(const t of catalog.templates.filter(t=>t.generatorEligible)){
++ const ports=t.id==='I1'?{database:t.defaultPort}:{app:t.defaultPort};if(t.id==='S2')Object.assign(ports,{shadow:t.hostPorts.shadow,api:t.hostPorts.shadow+1,database:t.hostPorts.shadow+2,studio:t.hostPorts.shadow+3});
++ const ex=firstExercise(t.id);let first=`# ${t.id}：最初の一歩\n\n![ツクハコの目印](asset:learning-cycle)\n\n## この章の進め方\n\n生成完了画面の保存先とポートを使います。下のコマンドは標準ポートの例です。秘密値はアプリに貼り付けず、生成先の.envで管理してください。\n\n[開発準備](lesson:setup/overview)を確認し、プロジェクトをVS Codeで開きます。Windowsでは選択したWSLの通常ユーザーで操作してください。\n\n`;
++ for(const [n,s] of nextSteps(t.id,ports).entries()){
++ first+=`## ${n+1}. ${s.title}\n\n場所：${{host:'開発ホスト（WindowsはWSL内）',container:'Dev Container内',editor:'VS Code'}[s.location]}。${s.cwd==='destination'?'生成したフォルダ':'/workspace'}で行います。\n\n`;
++ if(s.expected)first+='確認できる結果：'+s.expected+'\n\n';if(s.detail)first+=s.detail.replaceAll('<br />','`<br />`')+'\n\n';if(s.command)first+='```sh\n'+commandText(s.command)+'\n```\n\n';if(s.url)first+='ブラウザのアドレス欄：`'+s.url+'`（ポートは生成結果に合わせます）\n\n';if(s.document)first+=`[${s.document}](${s.document})\n\n`;
++ }
++ first+='## 振り返り\n\n変更前・変更後・復元後の3つを確認できれば、この章は完了です。\n\n[練習を続ける]('+ex.lesson+')\n';
++ const files=fs.readdirSync(root+'/'+t.sourcePath+'/docs').filter(x=>x.endsWith('.md')).sort();
++ const rows=[['first','最初の一歩',first,'START_HERE.md'],['readme','全体の使い方',fs.readFileSync(root+'/'+t.sourcePath+'/README.md','utf8'),'README.md']];
++ for(const f of files){const body=fs.readFileSync(root+'/'+t.sourcePath+'/docs/'+f,'utf8');rows.push([f.replace(/\.md$/,'').toLowerCase(),body.match(/^#\s+(.+)$/m)?.[1]||f,body,'docs/'+f])}
++ lesson(t.id,t.id+' · '+t.title,t.implementationVersion,rows);
++}
++const setup={
++ overview:['開発準備の全体像',`# 開発準備の全体像\n\n教材はネット接続やDockerなしでも読めます。コンテナの初回起動・依存取得にはネット接続が必要です。\n\n1. OS・CPUに合う準備手順を読む\n2. DockerとVS Codeを準備する\n3. 「作る」で「もう一度確認」を押す\n4. 新しいフォルダへ生成する\n5. 対応教材の「最初の一歩」へ進む\n\n[Windows / WSL 2](lesson:setup/windows) · [macOS](lesson:setup/macos) · [Linux](lesson:setup/linux)\n\n## 状態を分けて確認\n\nファイル生成済み、Docker利用可能、Dev Container起動確認済みは別の状態です。準備チェックの成功だけでは起動を保証しません。古い結果は現在の準備完了として使いません。\n\n## 容量とメモリ\n\n診断はOSの総メモリとHOMEの空き容量を表示します。Docker Desktopの割当と実際の不足は別です。全テンプレート共通の推奨容量は未測定です。起動失敗時はDockerログ、空き容量、OSのメモリ圧迫を確認してください。\n`],
++ windows:['Windows / WSL 2の準備',`# Windows / WSL 2の準備\n\n対象目標：Windows 11 x64、サポート中のUbuntu LTS / WSL 2。実機未確認です。Windows ARMは対象外です。\n\n## WSLと通常ユーザー\n\n[Microsoft公式の導入手順](https://learn.microsoft.com/en-us/windows/wsl/install)に従います。管理者操作や再起動を要求されたら指示に従い、Linux初回起動で通常ユーザーを作ります。\n\n場所：WindowsのPowerShell（任意のフォルダ）。次を順に実行します。\n\n\`\`\`powershell\nwsl --status\nwsl --version\nwsl --list --verbose\n\`\`\`\n\n一覧に通常のLinux名と VERSION 2 が表示されることを確認します。WSL 1はそのまま対象にしません。[WSLコマンドの公式説明](https://learn.microsoft.com/en-us/windows/wsl/basic-commands)で変換・既定ユーザーの設定を確認します。仮想化・組織ポリシー・再起動待ちは別の問題です。勝手にディストリビューションを削除しないでください。Stoppedは正常な待機状態です。\n\n導入後はアプリ左の「準備チェックへ戻る」を押し、「もう一度確認」で候補を更新します。ツクハコで通常のdistroを選びます。docker-desktopは開発先にしません。診断で選択したLinuxが起動することがあります。root既定なら通常ユーザーへ設定してから再確認します。\n\n## 保存場所とヘルパー\n\n[Linux側のファイルシステム](https://learn.microsoft.com/en-us/windows/wsl/filesystems)を使います。初期保存先は通常ユーザーのHOMEです。projectsを使う場合は先にLinux側でフォルダを作成してください。Cドライブ・/mnt/c・他distroのUNCパスは使えません。\n\n「WSL用ファイルを準備」で、同梱Linuxランタイムと共有コア・テンプレートをHOMEの.tsukuhako-helper配下へ配置します。OSパッケージやシェル設定は変更しません。版ごとに分離し、旧版は自動削除しません。\n\n## Docker Desktopの連携\n\n[Windows版の公式導入先](https://docs.docker.com/desktop/setup/install/windows-install/)から導入し、初回起動と利用条件の同意は自身で行います。管理者要否は導入方式によります。Linux containersとWSL 2 backend、選んだUbuntuの[WSL Integration](https://docs.docker.com/desktop/features/wsl/)を有効にします。\n\nWindows側の成功だけでは不十分です。場所：選択したWSLのターミナル（任意のフォルダ）。次を実行し、ClientとServerの両方が表示されることを確認します。\n\n\`\`\`sh\ndocker version\n\`\`\`\n\n失敗したら、Windows側のDocker Desktopの起動と選択WSLのIntegrationを確認します。WSLに別のEngineを追加する手順へは進みません。WSL内EngineとDesktopが混在する場合は、データを削除せず接続先を整理してください。ツクハコは切替・削除しません。\n\n## Windows版VS Code\n\n[VS Code WSLガイド](https://code.visualstudio.com/docs/remote/wsl)に沿ってWindows側へVS Code、WSL拡張、Dev Containers拡張を導入します。生成結果の「VS Codeで開く」は選択distroのフォルダへ接続します。失敗したらVS CodeのWSL接続で同じdistroとLinuxパスを選びます。初回はVS Code Serverの取得に時間がかかります。\n\nアプリ左の「準備チェックへ戻る」→「もう一度確認」で結果を更新します。\n\n[再確認と復旧](lesson:setup/trouble)\n`],
++ macos:['macOSの準備',`# macOSの準備\n\nApple Silicon arm64とIntel x64は別の配布物です。実機未確認です。\n\n## Docker\n\n[Docker Desktop公式導入先](https://docs.docker.com/desktop/setup/install/mac-install/)でCPUに合う版と対応macOSを確認し、Dockerを起動して利用条件を確認します。すべての利用条件で無料とは限りません。amd64エミュレーションをツクハコが強制することはありません。\n\n## VS Code\n\n[VS Code macOSガイド](https://code.visualstudio.com/docs/setup/mac)から導入し、Dev Containers拡張を追加します。GUIのPATHにcodeがなくても既知のApplications内を調べます。シェル設定は書き換えません。\n\n## テンプレートの制限\n\n生成処理はmacOS用アダプターを備えますが、既存テンプレートのホスト用bashスクリプトにはGNU coreutilsやLinux向け依存があります。特にS2のSupabase起動手順はLinux専用です。macOS実起動・全依存の適合は未確認のため販売対象として合格にしません。準備画面の制限を確認してください。\n\nアプリ左の「準備チェックへ戻る」→「もう一度確認」で結果を更新します。\n\n[再確認と復旧](lesson:setup/trouble)\n`],
++ linux:['Linuxの準備',`# Linuxの準備\n\n初期目標はUbuntu系 x86_64です。Linux Mintの結果をUbuntu実機合格に置き換えません。\n\n## Docker Engine + Compose\n\n[Docker公式Ubuntu手順](https://docs.docker.com/engine/install/ubuntu/)で対象ディストリビューションを確認し、EngineとComposeプラグインを導入します。Mint等の派生版では公式対象と差があります。既存環境は消さず、提供元の案内と合わせて確認してください。EngineにDesktopのVM・KVMは不要です。\n\n[Linux導入後の設定](https://docs.docker.com/engine/install/linux-postinstall/)を読み、普段の一般ユーザーでDockerへ接続します。dockerグループは高い権限を与えます。ツクハコはグループを変更しません。常時sudoやchmod 666によるソケット開放を解決策にしません。設定後にログアウト・ログインが必要な場合は、戻って再診断します。\n\nrootlessやDocker Desktopを使っている場合は自動置換しません。テンプレート適合性は別途未確認として扱います。[接続先とcontext](https://docs.docker.com/engine/manage-resources/contexts/)を確認してください。\n\n## VS Code\n\n[Dev Containers公式ガイド](https://code.visualstudio.com/docs/devcontainers/containers)に沿ってVS Codeと拡張を用意します。生成後にReopen in Containerを選び、初回ダウンロード完了を待ちます。\n\nアプリ左の「準備チェックへ戻る」→「もう一度確認」で結果を更新します。\n\n[再確認と復旧](lesson:setup/trouble)\n`],
++ trouble:['困ったとき：準備と起動',`# 準備と起動で困ったとき\n\n## チェックが終わらない\n\n「診断を中断」できます。タイムアウト・通信制限は未導入と断定しません。教材はそのまま読めます。戻ったら「もう一度確認」を押してください。常時監視はしません。\n\n## Docker CLIはあるがServerへ接続できない\n\nDocker Desktopの起動、Linuxユーザーのソケット権限、WSL Integration、Linux containers、接続先contextを確認します。リモートcontextをアプリが勝手に変更しません。\n\n## ポートが使用中\n\n既存サーバーを勝手に止めず、生成の詳細設定で別のポートを選び直します。S2の連続4ポートも確認してください。\n\n## 依存のダウンロードに失敗\n\n初回起動はネット接続が必要です。プロキシ・組織の制限・レジストリ障害を確認します。秘密値をログへ貼らないでください。再接続とRebuildは異なる操作です。\n\n## ログを相談する\n\n準備画面で診断を実行後、ログのプレビューを開きます。HOMEと接続先・ユーザー名は伏せ字化します。残るパスや組織情報を確認し、必要なら編集して「ログを書き出す」を押します。環境変数一覧・Docker認証設定・プロジェクト.envは収集しません。\n\n## アプリを再起動したあと\n\n最後に読んだ章と読書位置を再開します。入力・診断・生成結果は再起動でリセットされます。作ったフォルダは残っています。VS Codeで保存先のSTART_HERE.mdを開けば、そのポートと手順で続けられます。既存フォルダへ作り直す必要はありません。\n\n## 教材の版が変わった\n\n最後の章が新版にない場合は目次へ戻ります。生成済みプロジェクトは自動更新しません。旧版と教材の対象テンプレート版を照合してください。\n`]
++};
++lesson('setup','開発準備・困ったとき',null,Object.entries(setup).map(([id,[title,body]])=>[id,title,body]));
++const img=fs.readFileSync(root+'/generator-desktop/public/brand-mark.png');fs.mkdirSync(dest+'/assets',{recursive:true});fs.writeFileSync(dest+'/assets/learning-cycle.png',img);
++fs.writeFileSync(dest+'/manifest.json',JSON.stringify({schemaVersion:1,appVersion:'0.4.1',version:'0.4.1',lessons,assets:[{id:'learning-cycle',file:'assets/learning-cycle.png',sha256:createHash('sha256').update(img).digest('hex'),bytes:img.length,mime:'image/png'}]},null,2)+'\n');
++console.log(lessons.length,'lessons',lessons.reduce((n,l)=>n+l.chapters.length,0),'chapters');
+--- a/tools/build-helper-041.py
++++ b/tools/build-helper-041.py
+@@ -0,0 +1,31 @@
++from pathlib import Path
++import shutil,hashlib,json,tarfile,urllib.request
++R=Path(__file__).resolve().parents[1];P=R/'validation/ux-0.4.1/runs/helper-build';P.mkdir(parents=True,exist_ok=True)
++version='24.19.0';name=f'node-v{version}-linux-x64';archive=P/(name+'.tar.xz')
++url=f'https://nodejs.org/dist/v{version}/'
++sums=urllib.request.urlopen(url+'SHASUMS256.txt',timeout=30).read();(P/'node-SHASUMS256.txt').write_bytes(sums)
++expected=next(l.split()[0] for l in sums.decode().splitlines() if l.endswith(name+'.tar.xz'))
++if not archive.exists():urllib.request.urlretrieve(url+archive.name,archive)
++sha=lambda b:hashlib.sha256(b).hexdigest()
++assert sha(archive.read_bytes())==expected
++stage=P/'stage'
++if stage.exists():shutil.rmtree(stage)
++stage.mkdir()
++with tarfile.open(archive) as t:
++ for source,target in [(name+'/bin/node','node'),(name+'/LICENSE','Node-LICENSE')]:
++  (stage/target).write_bytes(t.extractfile(source).read())
++(stage/'node').chmod(0o755)
++for f in ['helper.mjs','job.mjs']:shutil.copy2(R/'generator-desktop/helper'/f,stage/f)
++(stage/'adapters').mkdir()
++for f in ['local.mjs','process.mjs']:shutil.copy2(R/'generator-desktop/adapters'/f,stage/'adapters'/f)
++shutil.copy2(R/'generator-desktop/security.mjs',stage/'security.mjs')
++b=stage/'bundle';b.mkdir();shutil.copy2(R/'catalog.json',b/'catalog.json');shutil.copytree(R/'generator/src',b/'generator/src');shutil.copy2(R/'generator/package.json',b/'generator/package.json');shutil.copytree(R/'generator/node_modules/fflate',b/'generator/node_modules/fflate');(b/'dist').mkdir()
++for t in json.loads((R/'catalog.json').read_text())['templates']:shutil.copy2(R/t['packagePath'],b/t['packagePath'])
++files=[{'path':p.relative_to(stage).as_posix(),'sha256':sha(p.read_bytes()),'bytes':p.stat().st_size} for p in sorted(stage.rglob('*')) if p.is_file()]
++manifest={'version':'0.4.1','arch':'x64','runtime':'Node '+version,'runtimeSource':url+archive.name,'runtimeArchiveSha256':expected,'files':files}
++(stage/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
++out=R/'generator-desktop/wsl-helper';out.mkdir(exist_ok=True)
++with tarfile.open(out/'helper.tar','w') as t:
++ for p in sorted(stage.iterdir()):t.add(p,arcname=p.name)
++meta={'version':'0.4.1','arch':'x64','bytes':(out/'helper.tar').stat().st_size,'sha256':sha((out/'helper.tar').read_bytes()),'nodeSha256':sha((stage/'node').read_bytes()),'manifestSha256':sha((stage/'manifest.json').read_bytes()),'helperSha256':sha((stage/'helper.mjs').read_bytes()),'runtimeArchiveSha256':expected,'runtimeSource':url+archive.name}
++(out/'bundle.json').write_text(json.dumps(meta,indent=2)+'\n');print(json.dumps(meta))
+--- a/tools/inspect-ux-before-041.mjs
++++ b/tools/inspect-ux-before-041.mjs
+@@ -0,0 +1,12 @@
++import {_electron as electron,expect} from '@playwright/test';import fs from 'node:fs';import path from 'node:path';
++const root=path.resolve(import.meta.dirname,'..'),out=root+'/validation/ux-0.4.1',run=out+'/runs/before-5';fs.mkdirSync(run,{recursive:true});
++const bin=path.resolve(root,'../tsukuhako-starters-0.4.0/validation/learning-0.4.0/runs/desktop-build/tsukuhako-linux-x64-0.4.0/tsukuhako');const env={...process.env};delete env.ELECTRON_RUN_AS_NODE;
++const app=await electron.launch({executablePath:bin,args:['--user-data-dir='+run+'/profile'],env,chromiumSandbox:true});const page=await app.firstWindow();const observations=[];
++try{
++await page.getByRole('button',{name:'保存先を決める',exact:true}).waitFor();await page.getByText('Docker：利用可能',{exact:true}).waitFor();await page.screenshot({path:out+'/screenshots/before-first-run.png',fullPage:true});
++await page.getByRole('button',{name:'学ぶ',exact:true}).click();await page.getByLabel('教材を選ぶ').selectOption('F1');await page.getByRole('button',{name:'最初の一歩',exact:true}).first().click();await page.getByRole('button',{name:'src/App.tsx',exact:true}).click();await expect(page.getByRole('alert')).toContainText('このリンクは実行しません');observations.push({id:'UX03',kind:'actual Linux UI',observed:'src/App.tsx is a button that produces an error'});await page.screenshot({path:out+'/screenshots/before-source-link.png',fullPage:true});
++await page.getByRole('button',{name:'作る',exact:true}).click();await page.getByRole('button',{name:'保存先を決める',exact:true}).click();await page.getByLabel('親フォルダ',{exact:true}).fill(run);await page.getByLabel('新しいフォルダ名',{exact:true}).fill('before F2');await page.locator('.advanced summary').click();await page.getByLabel('ホストポート',{exact:true}).fill('3891');await page.getByRole('button',{name:'作成内容を確認',exact:true}).click();await page.getByRole('button',{name:'プロジェクトを作成',exact:true}).click();await page.getByRole('button',{name:'この構成の「最初の一歩」を読む',exact:true}).waitFor();observations.push({id:'UX06',kind:'actual Linux UI',observed:'Completion has no new-project or back action'});await page.getByRole('button',{name:'この構成の「最初の一歩」を読む',exact:true}).click();await page.locator('.markdown h1').waitFor();const text=await page.locator('.markdown').innerText();expect(text).not.toContain('3891');expect(text).toContain('3001');observations.push({id:'UX04',kind:'actual Linux UI',observed:'Generated port 3891 but first lesson shows generic 3001'});
++await app.evaluate(({ipcMain})=>{globalThis.uxListCount=0;ipcMain.removeHandler('tsukuhako:getPreparation');ipcMain.handle('tsukuhako:getPreparation',()=>({ok:true,value:{platform:'win32',arch:'x64',distros:++globalThis.uxListCount===1?[]:[{id:'ubuntu',name:'Ubuntu',state:'Stopped',generation:2}]}}));ipcMain.removeHandler('tsukuhako:checkPreparation');ipcMain.handle('tsukuhako:checkPreparation',()=>({ok:false,error:{code:'WSL_SELECTION',message:'開発するWSLを選んでください。',nextAction:'通常のLinuxディストリビューションを選びます。',details:{}}}));});
++await page.reload();await page.getByRole('button',{name:'作る',exact:true}).click();await page.getByText('通常のLinuxディストリビューションを確認できません。準備教材を確認してください。').waitFor();await page.getByRole('button',{name:'もう一度確認',exact:true}).first().click();await expect(page.getByLabel('開発するWSL').locator('option')).toHaveCount(1);expect(await app.evaluate(()=>globalThis.uxListCount)).toBe(1);observations.push({id:'UX02',kind:'Windows IPC fixture on Linux Electron',observed:'Recheck calls checkPreparation only, no fresh list; zero choices remain'});
++fs.writeFileSync(out+'/before.json',JSON.stringify({status:'OBSERVED',observations,originalVersion:'0.4.0',note:'Fresh isolated profile. Windows actual host not available.'},null,2));
++}finally{await app.close()}
+--- a/tools/launch-vscode-041.mjs
++++ b/tools/launch-vscode-041.mjs
+@@ -0,0 +1,3 @@
++import {spawn} from 'node:child_process';import fs from 'node:fs';import path from 'node:path';
++const root=path.resolve(import.meta.dirname,'..'),base=root+'/validation/ux-0.4.1/runs/vscode';const out=fs.openSync(base+'/launch.log','w');
++const env={...process.env};delete env.ELECTRON_RUN_AS_NODE;const child=spawn('/usr/bin/code',['--user-data-dir',base+'/profile','--extensions-dir',base+'/extensions','--remote-debugging-port=9421','--remote-debugging-address=127.0.0.1','--new-window','--wait',root+'/validation/ux-0.4.1/runs/gui-final3/F2 日本語 長い保存先.dir'],{env,stdio:['ignore',out,out],shell:false});fs.writeFileSync(base+'/launcher.json',JSON.stringify({pid:child.pid,port:9421}));child.on('exit',code=>console.log('VS Code closed',code));
+--- a/tools/package-desktop-041.py
++++ b/tools/package-desktop-041.py
+@@ -0,0 +1,46 @@
++#!/usr/bin/env python3
++from pathlib import Path
++import shutil,json,hashlib,tarfile,gzip,os
++ROOT=Path(__file__).resolve().parents[1]
++GUI=ROOT/'generator-desktop'
++NAME='tsukuhako-linux-x64-0.4.1'
++STAGE=ROOT/'validation/ux-0.4.1/runs/desktop-build'/NAME
++if STAGE.exists():shutil.rmtree(STAGE)
++shutil.copytree(GUI/'node_modules/electron/dist',STAGE,symlinks=True)
++(STAGE/'electron').rename(STAGE/'tsukuhako')
++default=STAGE/'resources/default_app.asar'
++if default.exists():default.unlink()
++app=STAGE/'resources/app';app.mkdir()
++for file in ['main.mjs','preload.cjs','worker.mjs','security.mjs']:
++    shutil.copy2(GUI/file,app/file)
++(app/'package.json').write_text(json.dumps({'name':'tsukuhako-desktop','productName':'ツクハコ','version':'0.4.1','main':'main.mjs','type':'module'}))
++shutil.copytree(GUI/'build',app/'build')
++for folder in ['lib','adapters']:
++    shutil.copytree(GUI/folder,app/folder)
++bundle=app/'bundle';bundle.mkdir()
++shutil.copy2(ROOT/'catalog.json',bundle/'catalog.json')
++shutil.copytree(ROOT/'curriculum',bundle/'curriculum')
++shutil.copytree(ROOT/'generator/src',bundle/'generator/src')
++shutil.copy2(ROOT/'generator/package.json',bundle/'generator/package.json')
++shutil.copytree(ROOT/'generator/node_modules/fflate',bundle/'generator/node_modules/fflate')
++(bundle/'dist').mkdir()
++for t in json.loads((ROOT/'catalog.json').read_text())['templates']:
++    shutil.copy2(ROOT/t['packagePath'],bundle/t['packagePath'])
++licenses=STAGE/'third-party';licenses.mkdir()
++for name in ['react','react-dom','markdown-it','entities','linkify-it','mdurl','punycode.js','uc.micro','argparse']:
++    source=GUI/'node_modules'/name
++    license=next((p for p in source.iterdir() if p.name.lower().startswith('license')),None)
++    if license:shutil.copy2(license,licenses/f'{name}-LICENSE.txt')
++shutil.copy2(GUI/'README.md',STAGE/'README.md')
++sha=lambda b:hashlib.sha256(b).hexdigest()
++manifest=[]
++for p in sorted(STAGE.rglob('*')):
++    if p.is_symlink():assert p.resolve().is_relative_to(STAGE.resolve()),p
++    if p.is_file():manifest.append({'path':p.relative_to(STAGE).as_posix(),'bytes':p.stat().st_size,'sha256':sha(p.read_bytes())})
++OUT=ROOT/'dist'/f'{NAME}.tar.gz'
++with OUT.open('wb') as file,gzip.GzipFile(filename='',mode='wb',fileobj=file,mtime=0,compresslevel=6) as gz,tarfile.open(fileobj=gz,mode='w') as tar:
++    def fixed(info):info.uid=info.gid=0;info.uname=info.gname='';info.mtime=1792454400;return info
++    tar.add(STAGE,arcname=NAME,filter=fixed)
++result={'file':OUT.name,'sha256':sha(OUT.read_bytes()),'bytes':OUT.stat().st_size,'files':manifest}
++OUT.with_name(OUT.name+'.manifest.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
++print(json.dumps({k:v for k,v in result.items() if k!='files'}))
+--- a/tools/package-ux-review-041.py
++++ b/tools/package-ux-review-041.py
+@@ -0,0 +1,66 @@
++from pathlib import Path
++import os,json,hashlib,zipfile,difflib,re,tarfile
++R=Path(__file__).resolve().parents[1];V=R/'validation/ux-0.4.1';OLD=R.parent/'tsukuhako-starters-0.4.0';sha=lambda b:hashlib.sha256(b).hexdigest()
++skip={'node_modules','build','runs','.git','.next','.cache','.local','__pycache__','playwright-report','test-results','.temp','.branches'}
++rootfiles=['README.md','REPORT.md','UX-REVIEW.md','UX-FLOWS.md','TEST-RESULTS.md','NEXT-ACTIONS.md','DIFF.md','catalog.json','.gitignore']
++evidence=['before.json','gui.json','core-tests.txt','desktop-tests.txt','renderer-build.txt','security.json','reader-zoom.json','zoom.json','environment.json','f2-doctor.txt','vscode-f2.json','f2-guide-integrity.json','helper-linux-tests.json','helper-shutdown.json','app-diagnosis-shutdown.json','cleanup.json','preservation.json','release-check.json']
++shots=['before-first-run.png','before-source-link.png','after-first-run.png','after-complete.png','after-project-guide.png','after-windows-fixture.png','after-200-percent.png','reader-200-percent.png','vscode-f2-start.png','vscode-f2-edited.png','f2-before.png','f2-changed.png','f2-restored.png']
++def walk(folder):
++ for base,dirs,names in os.walk(R/folder):
++  dirs[:]=sorted(n for n in dirs if n not in skip)
++  for name in sorted(names):
++   p=Path(base)/name
++   if p.is_symlink() or name.startswith('.env') and name!='.env.example':continue
++   if p.suffix in {'.tar','.gz','.xz','.zip','.pyc','.tsbuildinfo'}:continue
++   if p.name=='config.toml' and p.parent.name=='supabase':continue
++   yield p
++source=[R/n for n in rootfiles]+[R/'docs/BRAIN-LAUNCH-DRAFT.md']
++for folder in ['generator','generator-desktop','curriculum','starter-templates']:source.extend(walk(folder))
++source += [p for p in (R/'tools').iterdir() if p.name.endswith(('041.py','041.mjs')) or p.name in {'package.json','package-lock.json'}]
++cat=json.loads((R/'catalog.json').read_text())
++for t in cat['templates']:
++ p=R/t['packagePath'];source.append(p)
++ if p.with_suffix('.manifest.json').exists():source.append(p.with_suffix('.manifest.json'))
++source=sorted(set(source));changes=[];patch=[]
++for p in source:
++ rel=p.relative_to(R).as_posix();before=OLD/rel;b=p.read_bytes()
++ if before.exists() and before.read_bytes()==b:continue
++ changes.append({'path':rel,'change':'modified' if before.exists() else 'added','sha256':sha(b)})
++ try:
++  after=b.decode();prior=before.read_text() if before.exists() else ''
++  patch.extend(difflib.unified_diff(prior.splitlines(True),after.splitlines(True),fromfile='a/'+rel,tofile='b/'+rel))
++ except UnicodeError:pass
++(V/'source-changes.json').write_text(json.dumps({'baseline':'0.4.0','release':'0.4.1','files':changes},ensure_ascii=False,indent=2)+'\n')
++(V/'source-diff.patch').write_text(''.join(patch))
++# Check final tested product, content, and the unchanged template ZIPs.
++linux=R/'dist/tsukuhako-linux-x64-0.4.1.tar.gz';manifest=json.loads(Path(str(linux)+'.manifest.json').read_text());gui=json.loads((V/'gui.json').read_text());assert gui['status']=='PASS' and gui['artifact']==sha(linux.read_bytes())==manifest['sha256']
++with tarfile.open(linux) as tar:
++ for f in manifest['files']:
++  assert sha(tar.extractfile('tsukuhako-linux-x64-0.4.1/'+f['path']).read())==f['sha256'],f['path']
++for t in cat['templates']:
++ p=R/t['packagePath'];assert sha(p.read_bytes())==t['packageSha256'];assert p.read_bytes()==(OLD/t['packagePath']).read_bytes();assert len(p.read_bytes())==t['packageBytes']
++content=json.loads((R/'curriculum/manifest.json').read_text());assert content['version']==content['appVersion']=='0.4.1'
++for l in content['lessons']:
++ for c in l['chapters']:
++  data=(R/'curriculum'/c['file']).read_bytes();assert len(data)==c['bytes'] and sha(data)==c['sha256']
++for name in ['security.json','reader-zoom.json','vscode-f2.json','f2-guide-integrity.json','helper-linux-tests.json','helper-shutdown.json','app-diagnosis-shutdown.json','cleanup.json','preservation.json']:assert json.loads((V/name).read_text())['status']=='PASS',name
++(V/'release-check.json').write_text(json.dumps({'status':'PASS','linuxSha256':manifest['sha256'],'linuxManifestFilesChecked':len(manifest['files']),'testedGuiArtifactMatches':True,'templateZipsUnchanged':7,'curriculumChaptersChecked':sum(len(l['chapters']) for l in content['lessons']),'changedSourceFiles':len(changes),'actualWindowsMac':'NOT_RUN'},indent=2)+'\n')
++selected=source+[V/n for n in evidence]+[V/'source-changes.json',V/'source-diff.patch']+[V/'screenshots'/n for n in shots]+[Path(str(linux)+'.manifest.json')]
++secret=re.compile(rb'eyJ[A-Za-z0-9_-]{16,}\.[A-Za-z0-9_-]{16,}\.[A-Za-z0-9_-]{16,}|sb_(?:secret|publishable)_[A-Za-z0-9_-]{20,}')
++name='tsukuhako-ux-review-0.4.1-2026-10-21';out=R/'dist'/(name+'.zip');entries=[]
++with zipfile.ZipFile(out,'w',zipfile.ZIP_DEFLATED,compresslevel=9) as z:
++ z.writestr(name+'/REVIEW-ONLY.txt','レビュー専用です。製品の実行ファイルは別のLinux tar.gzです。UX-REVIEW.mdからお読みください。Windows/macOSは実機未確認です。\n')
++ for p in sorted(set(selected)):
++  rel=p.relative_to(R).as_posix();data=p.read_bytes()
++  assert not secret.search(data),rel
++  info=zipfile.ZipInfo(name+'/'+rel,(2026,10,21,0,0,0));info.create_system=3;info.external_attr=(0o100755 if p.suffix=='.sh' else 0o100644)<<16;info.compress_type=zipfile.ZIP_DEFLATED;z.writestr(info,data);entries.append({'path':name+'/'+rel,'bytes':len(data),'sha256':sha(data)})
++result={'file':out.name,'bytes':out.stat().st_size,'sha256':sha(out.read_bytes()),'purpose':'Review source and evidence; product runtime excluded','files':entries}
++with zipfile.ZipFile(out) as z:
++ assert z.testzip() is None and len(z.namelist())==len(set(z.namelist()))
++ for f in entries:assert sha(z.read(f['path']))==f['sha256']
++ assert not any('/runs/' in n or '/node_modules/' in n or '/.env' in n and not n.endswith('/.env.example') for n in z.namelist())
++out.with_suffix('.manifest.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
++artifacts=[{k:v for k,v in result.items() if k!='files'},{k:v for k,v in manifest.items() if k!='files'}]
++(R/'dist/SHA256SUMS-0.4.1.txt').write_text(''.join(f"{a['sha256']}  {a['file']}\n" for a in artifacts))
++(V/'artifacts.json').write_text(json.dumps(artifacts,ensure_ascii=False,indent=2)+'\n')
++print(json.dumps({'review':{k:v for k,v in result.items() if k!='files'},'changedFiles':len(changes),'includedFiles':len(entries)+1},ensure_ascii=False))
+--- a/tools/verify-app-diagnosis-shutdown-041.mjs
++++ b/tools/verify-app-diagnosis-shutdown-041.mjs
+@@ -0,0 +1,24 @@
++import {_electron as electron,expect} from '@playwright/test';
++import fs from 'node:fs';
++import os from 'node:os';
++import path from 'node:path';
++import {setTimeout as delay} from 'node:timers/promises';
++const root=path.resolve(import.meta.dirname,'..'),out=root+'/validation/ux-0.4.1';
++const tmp=fs.mkdtempSync(os.tmpdir()+'/tsukuhako-app-stop-');
++fs.writeFileSync(tmp+'/docker','#!/bin/sh\nprintf "%s\\n" "$$" >> "$TSUKUHAKO_TEST_PIDS"\ntrap "" TERM\nsleep 30\n',{mode:0o755});
++const env={...process.env,PATH:tmp+':'+process.env.PATH,TSUKUHAKO_TEST_PIDS:tmp+'/pids'};delete env.ELECTRON_RUN_AS_NODE;
++let app;
++try{
++  app=await electron.launch({executablePath:out+'/runs/desktop-build/tsukuhako-linux-x64-0.4.1/tsukuhako',args:['--user-data-dir='+tmp+'/profile'],env,chromiumSandbox:true});
++  const pid=app.process().pid;
++  await app.firstWindow();
++  for(let n=0;n<100&&!fs.existsSync(tmp+'/pids');n++)await delay(50);
++  expect(fs.existsSync(tmp+'/pids')).toBe(true);
++  const began=Date.now();await app.close();app=null;await delay(700);
++  expect(Date.now()-began).toBeLessThan(5000);
++  const pids=fs.readFileSync(tmp+'/pids','utf8').trim().split('\n').map(Number);
++  expect(pids.every(p=>!fs.existsSync('/proc/'+p))).toBe(true);
++  expect(fs.existsSync('/proc/'+pid)).toBe(false);
++  fs.writeFileSync(out+'/app-diagnosis-shutdown.json',JSON.stringify({status:'PASS',fixture:'Owned docker diagnostic blocks and ignores SIGTERM; app must wait for process-group shutdown',elapsedMs:Date.now()-began,pids,processRemaining:false},null,2)+'\n');
++  console.log('App close during active diagnosis PASS');
++}finally{await app?.close().catch(()=>{});fs.rmSync(tmp,{recursive:true,force:true})}
+--- a/tools/verify-helper-041.mjs
++++ b/tools/verify-helper-041.mjs
+@@ -0,0 +1,10 @@
++import fs from 'node:fs';import path from 'node:path';import os from 'node:os';import {spawn} from 'node:child_process';import {randomUUID} from 'node:crypto';import assert from 'node:assert/strict';
++const root=path.resolve(import.meta.dirname,'..'),stage=root+'/validation/ux-0.4.1/runs/helper-build/stage',out=root+'/validation/ux-0.4.1';const meta=JSON.parse(fs.readFileSync(root+'/generator-desktop/wsl-helper/bundle.json'));const tmp=fs.mkdtempSync(os.tmpdir()+'/tsukuhako-helper-');
++const binding={distro:'Fixture Linux',distroId:'0011223344556677',user:os.userInfo().username,uid:process.getuid(),home:os.homedir(),arch:'x64',helperVersion:'0.4.1'};
++const child=spawn(stage+'/node',[stage+'/helper.mjs',meta.manifestSha256],{env:{...process.env,WSL_DISTRO_NAME:binding.distro},stdio:['pipe','pipe','pipe']});const jobs=new Map();let data='',stderr='';child.stderr.on('data',b=>stderr+=b);child.stdout.on('data',b=>{data+=b;let at;while((at=data.indexOf('\n'))>=0){const msg=JSON.parse(data.slice(0,at));data=data.slice(at+1);jobs.get(msg.id)?.(msg);jobs.delete(msg.id)}});
++const send=(method,payload,b=binding)=>{const id=randomUUID();const promise=new Promise(resolve=>jobs.set(id,resolve));child.stdin.write(JSON.stringify({id,method,payload,binding:b})+'\n');return{id,promise}};const records=[];
++try{for(const id of ['F1','F2','B1','S1','S2','I1']){const p=await send('plan',{templateId:id,parent:tmp,folder:id+' 日本語 空白.dir ; $(touch injected)'}).promise;assert.equal(p.ok,true);const create=await send('apply',{planId:p.value.planId}).promise;assert.equal(create.ok,true);assert.ok(fs.existsSync(create.value.destination+'/START_HERE.md'));records.push({id,status:'PASS',version:create.value.templateVersion})}
++const plan=await send('plan',{templateId:'F2',parent:tmp,folder:'cancelled'}).promise;const job=send('apply',{planId:plan.value.planId});child.stdin.write(JSON.stringify({id:job.id,method:'cancel'})+'\n');const cancelled=await job.promise;assert.equal(cancelled.ok,false);assert.equal(cancelled.error.code,'CANCELLED');assert.ok(!fs.existsSync(tmp+'/cancelled'));
++const wrong=await send('plan',{templateId:'F2',parent:tmp,folder:'wrong'},{...binding,distro:'Another'}).promise;assert.equal(wrong.error.code,'TARGET_CHANGED');child.stdin.end(JSON.stringify({method:'shutdown'})+'\n');await new Promise((resolve,reject)=>{child.on('close',code=>code===0?resolve():reject(new Error('exit '+code)));setTimeout(()=>reject(new Error('shutdown timeout')),5000).unref()});assert.ok(!fs.existsSync('/proc/'+child.pid));
++fs.writeFileSync(out+'/helper-linux-tests.json',JSON.stringify({status:'PASS',records,cancellation:cancelled.error.code,targetBinding:wrong.error.code,processRemaining:false,scope:'Actual bundled Linux Node + worker-thread helper on Mint x64. WSL_DISTRO_NAME fixture only; not Windows/WSL integration test.',stderr},null,2));console.log('helper tests PASS')
++}finally{child.stdin.end();fs.rmSync(tmp,{recursive:true,force:true})}
+--- a/tools/verify-helper-shutdown-041.mjs
++++ b/tools/verify-helper-shutdown-041.mjs
+@@ -0,0 +1,39 @@
++import fs from 'node:fs';
++import path from 'node:path';
++import os from 'node:os';
++import {spawn} from 'node:child_process';
++import {randomUUID} from 'node:crypto';
++import assert from 'node:assert/strict';
++import {setTimeout as delay} from 'node:timers/promises';
++
++const root=path.resolve(import.meta.dirname,'..');
++const stage=root+'/validation/ux-0.4.1/runs/helper-build/stage';
++const meta=JSON.parse(fs.readFileSync(root+'/generator-desktop/wsl-helper/bundle.json'));
++const tmp=fs.mkdtempSync(os.tmpdir()+'/tsukuhako-shutdown-');
++const fixture=tmp+'/docker';
++fs.writeFileSync(fixture,'#!/bin/sh\nprintf "%s\\n" "$$" >> "$TSUKUHAKO_TEST_PIDS"\nsleep 30\n',{mode:0o755});
++const binding={distro:'Fixture Linux',distroId:'0011223344556677',user:os.userInfo().username,uid:process.getuid(),home:os.homedir(),arch:'x64',helperVersion:'0.4.1'};
++const child=spawn(stage+'/node',[stage+'/helper.mjs',meta.manifestSha256],{env:{...process.env,PATH:tmp+':'+process.env.PATH,TSUKUHAKO_TEST_PIDS:tmp+'/pids',WSL_DISTRO_NAME:binding.distro},stdio:['pipe','pipe','pipe']});
++let closed=false,code,output='';
++child.on('close',value=>{closed=true;code=value});
++child.stdout.on('data',b=>output+=b);
++child.stderr.resume();
++try{
++  child.stdin.write(JSON.stringify({id:randomUUID(),method:'prepare',payload:{templateId:'F2'},binding})+'\n');
++  for(let n=0;n<100&&!fs.existsSync(tmp+'/pids');n++)await delay(50);
++  assert.ok(fs.existsSync(tmp+'/pids'),'fixture command must actually be running');
++  const began=Date.now();
++  child.stdin.end(JSON.stringify({method:'shutdown'})+'\n');
++  for(let n=0;n<120&&!closed;n++)await delay(50);
++  assert.equal(closed,true,'cooperative shutdown deadline');
++  assert.equal(code,0);
++  const pids=fs.readFileSync(tmp+'/pids','utf8').trim().split('\n').map(Number);
++  assert.ok(pids.length>0);
++  assert.ok(pids.every(pid=>!fs.existsSync('/proc/'+pid)),'owned diagnostic processes must exit');
++  assert.ok(!fs.existsSync('/proc/'+child.pid),'helper must exit');
++  fs.writeFileSync(root+'/validation/ux-0.4.1/helper-shutdown.json',JSON.stringify({status:'PASS',elapsedMs:Date.now()-began,fixtureCommandWasRunning:true,ownedCommandPids:pids,processRemaining:false,scope:'Actual Linux helper shutdown while diagnostic fixture command blocks. Windows/WSL transport NOT_RUN.'},null,2)+'\n');
++  console.log('helper active diagnosis shutdown PASS');
++}finally{
++  if(!closed)child.kill('SIGTERM');
++  fs.rmSync(tmp,{recursive:true,force:true});
++}
+--- a/tools/verify-ux-041.mjs
++++ b/tools/verify-ux-041.mjs
+@@ -0,0 +1,31 @@
++import {_electron as electron,expect} from '@playwright/test';import fs from 'node:fs';import path from 'node:path';import net from 'node:net';import {spawnSync} from 'node:child_process';
++const root=path.resolve(import.meta.dirname,'..'),out=root+'/validation/ux-0.4.1',run=out+'/runs/gui-'+(process.env.UX_RUN||'final');fs.mkdirSync(run,{recursive:true});const extracted=run+'/アプリ 展開';fs.mkdirSync(extracted);const archive=root+'/dist/tsukuhako-linux-x64-0.4.1.tar.gz';expect(spawnSync('tar',['-xzf',archive,'-C',extracted]).status).toBe(0);const bin=extracted+'/tsukuhako-linux-x64-0.4.1/tsukuhako',profile=run+'/profile',env={...process.env};delete env.ELECTRON_RUN_AS_NODE;
++const records=[],errors=[];let app,page;const add=(id,detail={})=>{records.push({id,status:'PASS',...detail});console.log('PASS',id)};
++async function launch(p=profile){app=await electron.launch({executablePath:bin,args:['--user-data-dir='+p],env,chromiumSandbox:true});page=await app.firstWindow();page.setDefaultTimeout(12000);page.on('pageerror',e=>errors.push(e.message));await page.getByRole('button',{name:'作る',exact:true}).waitFor();}
++const shot=name=>page.screenshot({path:out+'/screenshots/'+name+'.png',fullPage:true});const button=name=>['作る','学ぶ','困ったとき'].includes(name)?page.getByRole('navigation',{name:'ツクハコの画面'}).getByRole('button',{name,exact:true}):page.getByRole('button',{name,exact:true});
++async function toCreate(){await button('作る').click();await button('保存先を決める').waitFor({state:'visible'})}
++const goals={F2:0,F1:0,B1:1,S1:2,S2:3,I1:4};let server;
++try{
++await launch();await expect(page.getByText('Docker：利用可能',{exact:true})).toBeVisible();await shot('after-first-run');const prefs=await app.evaluate(({BrowserWindow})=>BrowserWindow.getAllWindows()[0].webContents.getLastWebPreferences());expect(prefs.sandbox).toBe(true);expect(prefs.contextIsolation).toBe(true);expect(prefs.nodeIntegration).toBe(false);add('fresh-linux-profile-and-sandbox');
++await button('このOSの準備手順').click();await expect(page.locator('.markdown h1')).toHaveText('Linuxの準備');await button('準備チェックへ戻る').click();await expect(page.locator('#preparation-title')).toBeFocused();
++await button('保存先を決める').click();await page.getByLabel('親フォルダ',{exact:true}).fill(run+'/missing');await page.getByLabel('新しいフォルダ名',{exact:true}).fill('F2 日本語 長い保存先.dir');await button('作成内容を確認').click();await expect(page.getByRole('alert')).toBeVisible();expect(fs.existsSync(run+'/missing')).toBe(false);await expect(page.getByLabel('新しいフォルダ名',{exact:true})).toHaveValue('F2 日本語 長い保存先.dir');await page.getByLabel('親フォルダ',{exact:true}).fill(run);
++await button('このOSの準備手順').click();await page.locator('.markdown h1').waitFor();await button('準備チェックへ戻る').click();await expect(page.getByLabel('親フォルダ',{exact:true})).toHaveValue(run);add('guide-return-preserves-input-and-focus-invalid-parent-retry');
++if(!await page.getByLabel('ホストポート',{exact:true}).isVisible())await page.locator('.advanced summary').click();await page.getByLabel('ホストポート',{exact:true}).fill('3891');server=net.createServer();await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(3891,'127.0.0.1',resolve)});
++await button('作成内容を確認').click();await expect(page.locator('.notice').filter({hasText:'起動前に確認する項目'})).toContainText('3891');await button('保存先・ポートを見直す').click();expect(fs.existsSync(run+'/F2 日本語 長い保存先.dir')).toBe(false);await page.getByLabel('ホストポート',{exact:true}).fill('3892');await new Promise(r=>server.close(r));server=null;add('real-owned-port-conflict-and-cancel-before-generation');
++await button('作成内容を確認').click();await button('プロジェクトを作成').click();await button('別のプロジェクトを作る').waitFor();await shot('after-complete');await button('この構成の「最初の一歩」を読む').click();await expect(page.locator('.markdown h1')).toHaveText('F2：最初の一歩');await expect(page.locator('.markdown')).toContainText('3892');await expect(page.locator('.markdown')).toContainText('F2 日本語 長い保存先.dir');await expect(page.locator('.markdown')).not.toContainText('http://localhost:3001');expect(await page.getByRole('button',{name:'app/page.tsx',exact:true}).count()).toBe(0);await expect(page.locator('.file-reference').filter({hasText:'app/page.tsx'})).toContainText('VS Code');await shot('after-project-guide');await page.locator('.markdown').getByRole('button',{name:'README.md',exact:true}).click();await expect(page.locator('.notice')).toContainText('3892');await button('今回の起動手順に戻る').click();await expect(page.locator('.markdown h1')).toHaveText('F2：最初の一歩');
++await page.context().setOffline(true);await page.getByRole('button',{name:'コードをコピー',exact:true}).nth(1).click();await expect(page.getByText('コピーしました',{exact:true})).toBeVisible();await expect(page.getByRole('button',{name:'コードをコピー',exact:true}).nth(1)).toBeFocused();const code=await page.locator('.code-block code').nth(1).innerText();expect(await app.evaluate(({clipboard})=>clipboard.readText())).toBe(code);await page.context().setOffline(false);
++await page.locator('.heading-toc summary').click();await page.locator('.heading-toc button').last().click();await expect(page.locator('.markdown h2').last()).toBeFocused();await button('困ったとき').click();await expect(page.getByLabel('教材を選ぶ')).toHaveValue('F2');await button('学んでいた章へ戻る').click();await expect(page.locator('.markdown')).toContainText('3892');await button('作る画面へ戻る').click();await expect(button('別のプロジェクトを作る')).toBeVisible();add('F2-custom-guide-source-reference-code-copy-and-contextual-recovery',{destination:run+'/F2 日本語 長い保存先.dir',port:3892});
++await button('別のプロジェクトを作る').click();expect(fs.existsSync(run+'/F2 日本語 長い保存先.dir/app/page.tsx')).toBe(true);
++for(const [id,goal] of Object.entries(goals).filter(([id])=>id!=='F2')){
++await page.locator('.goal').nth(goal).click();if(id==='F1')await page.getByRole('radio',{name:/React \+ Vite/}).check();await button('保存先を決める').click();await page.getByLabel('親フォルダ',{exact:true}).fill(run);await page.getByLabel('新しいフォルダ名',{exact:true}).fill(id+' 生成確認');if(!await page.getByLabel('ホストポート',{exact:true}).isVisible())await page.locator('.advanced summary').click();await page.getByLabel('ホストポート',{exact:true}).fill(id==='I1'?'54920':'3893');if(id==='S2')await page.getByLabel('DB開始ポート',{exact:true}).fill('54930');await button('作成内容を確認').click();await button('プロジェクトを作成').click();await button('この構成の「最初の一歩」を読む').click();await expect(page.locator('.markdown h1')).toHaveText(id+'：最初の一歩');const text=await page.locator('.markdown').innerText();expect(text).toContain(id==='I1'?'54920':'3893');if(id==='S2')expect(text).toContain('54933');await button('困ったとき').click();await expect(page.getByLabel('教材を選ぶ')).toHaveValue(id);await button('学んでいた章へ戻る').click();await button('作る画面へ戻る').click();add('actual-ui-select-generate-matching-guide-'+id,{runtimeStartupThisTurn:'NOT_RUN'});await button('別のプロジェクトを作る').click();}
++// Minimum window / real Chromium zoom, keyboard reaches the primary action.
++await app.evaluate(({BrowserWindow})=>{const w=BrowserWindow.getAllWindows()[0];w.setSize(860,680);w.webContents.setZoomFactor(2)});await page.waitForTimeout(300);const zoomMetrics=await page.evaluate(()=>({width:innerWidth,scrollWidth:document.documentElement.scrollWidth,height:innerHeight}));expect(zoomMetrics.scrollWidth<=zoomMetrics.width+1).toBe(true);const zoomShot=await app.evaluate(async({BrowserWindow})=>(await BrowserWindow.getAllWindows()[0].webContents.capturePage()).toPNG().toString('base64'));fs.writeFileSync(out+'/screenshots/after-200-percent.png',Buffer.from(zoomShot,'base64'));fs.writeFileSync(out+'/zoom.json',JSON.stringify(zoomMetrics));await button('保存先を決める').focus();await page.keyboard.press('Enter');await expect(page.getByLabel('新しいフォルダ名',{exact:true})).toBeVisible();await app.evaluate(({BrowserWindow})=>{const w=BrowserWindow.getAllWindows()[0];w.webContents.setZoomFactor(1);w.setSize(1200,900)});add('minimum-860x680-200percent-zoom-keyboard');
++// Only diagnosis responses are replaced; no Docker service or OS configuration is stopped.
++await app.evaluate(({ipcMain})=>{ipcMain.removeHandler('tsukuhako:checkPreparation');ipcMain.handle('tsukuhako:checkPreparation',()=>({ok:true,value:{platform:'linux',arch:'x64',checkedAt:new Date().toISOString(),dockerReady:false,checks:[{id:'docker-server',state:'stopped',label:'導入済みだが未起動',message:'Docker Serverへ接続できません。',reason:'fixture',nextAction:'Dockerを起動して再確認します。',guide:'linux'}]}}))});await button('もう一度確認').first().click();await expect(page.getByText('導入済みだが未起動',{exact:true})).toBeVisible();await button('公式導入先・手順を読む').click();await expect(page.locator('.markdown h1')).toHaveText('Linuxの準備');await button('準備チェックへ戻る').click();await page.getByLabel('新しいフォルダ名',{exact:true}).fill('stopped fixture generation');await button('作成内容を確認').click();await expect(button('プロジェクトを作成')).toBeEnabled();await button('← 戻る').click();expect(fs.existsSync(run+'/stopped fixture generation')).toBe(false);add('docker-stopped-fixture-keeps-generation-separate');
++await app.evaluate(({ipcMain})=>{globalThis.uxCancel=false;ipcMain.removeHandler('tsukuhako:checkPreparation');ipcMain.handle('tsukuhako:checkPreparation',()=>new Promise(resolve=>{globalThis.uxResolve=resolve}));ipcMain.removeHandler('tsukuhako:cancelPreparation');ipcMain.handle('tsukuhako:cancelPreparation',()=>{globalThis.uxCancel=true;globalThis.uxResolve({ok:true,value:{platform:'linux',arch:'x64',checkedAt:new Date().toISOString(),dockerReady:true}});return{ok:true,value:{cancelled:true}}})});await button('もう一度確認').first().click();await button('診断を中断').click();await expect(page.getByText('診断を中断しました。必要なときにもう一度確認できます。',{exact:true})).toBeVisible();expect(await app.evaluate(()=>globalThis.uxCancel)).toBe(true);expect(await page.getByText('Docker：利用可能',{exact:true}).count()).toBe(0);add('cancel-diagnosis-discards-late-success-fixture');
++await app.close();
++// A fresh Windows UI profile on Linux: explicit fixture, never a Windows/WSL pass.
++await launch(run+'/windows-fixture-profile');await expect(button('保存先を決める')).toBeEnabled();await app.evaluate(({ipcMain})=>{globalThis.uxListCount=0;globalThis.uxChosen=[];globalThis.uxDistros=[];const base={platform:'win32',arch:'x64'};ipcMain.removeHandler('tsukuhako:getPreparation');ipcMain.handle('tsukuhako:getPreparation',()=>{globalThis.uxListCount++;return{ok:true,value:{...base,distros:globalThis.uxDistros}}});for(const method of ['checkPreparation','prepareWSL']){ipcMain.removeHandler('tsukuhako:'+method);ipcMain.handle('tsukuhako:'+method,(_,p)=>{globalThis.uxChosen.push(p.distroId);return{ok:true,value:{...base,checkedAt:new Date().toISOString(),target:{home:'/home/student',user:'student',distro:'Ubuntu',distroId:p.distroId},helperReady:true,dockerReady:false,checks:[{id:'docker-server',state:'stopped',label:'導入済みだが未起動',message:'WSL内Docker Serverへ接続できません。',reason:'fixture; adapter routing covered by unit tests',nextAction:'WindowsのDocker DesktopとWSL Integrationを確認します。',guide:'windows'}]}}})}});await page.reload();await page.getByText('通常のLinuxディストリビューションを確認できません。準備手順から導入してください。').waitFor();await app.evaluate(()=>{globalThis.uxDistros=[{id:'abc0123456789def',name:'Ubuntu',generation:2,state:'Stopped'}]});await button('もう一度確認').first().click();await expect(page.getByLabel('開発するWSL')).toHaveValue('abc0123456789def');await expect(button('保存先を決める')).toBeEnabled();expect(await app.evaluate(()=>globalThis.uxListCount)).toBe(2);await button('公式導入先・手順を読む').click();await expect(page.locator('.markdown h1')).toHaveText('Windows / WSL 2の準備');await shot('after-windows-fixture');await button('準備チェックへ戻る').click();await button('保存先を決める').click();await page.getByLabel('親フォルダ',{exact:true}).fill('/home/student/自分の場所');await button('もう一度確認').first().click();await expect(page.getByLabel('親フォルダ',{exact:true})).toHaveValue('/home/student/自分の場所');await expect(page.getByLabel('開発するWSL')).toHaveValue('abc0123456789def');await app.evaluate(()=>{globalThis.uxDistros=[]});await button('もう一度確認').first().click();await expect(page.getByLabel('開発するWSL')).toHaveValue('');await expect(button('保存先を決める')).toBeDisabled();expect(await app.evaluate(()=>globalThis.uxChosen)).toEqual(['abc0123456789def','abc0123456789def']);add('windows-fixture-empty-install-relist-preserve-remove-and-guide');
++await button('学ぶ').click();await page.getByLabel('教材を選ぶ').selectOption('F2');await page.locator('.curriculum-toc nav button').first().click();await page.locator('.markdown h1').waitFor();await page.locator('.reader-scroll').evaluate(el=>el.scrollTop=550);await page.waitForTimeout(650);const saved=await page.evaluate(()=>window.tsukuhako.readSettings());expect(saved.ok&&saved.value.view).toBe('learn');expect(saved.ok&&saved.value.scroll).toBeGreaterThan(500);await app.close();await launch(run+'/windows-fixture-profile');await page.locator('.markdown h1').waitFor();await page.waitForTimeout(200);expect(await page.locator('.reader-scroll').evaluate(el=>el.scrollTop)).toBeGreaterThan(500);await expect(page.locator('.notice')).toContainText('標準設定の見本');add('restart-reading-restored-generated-context-explicitly-not-persisted');await app.close();
++expect(errors).toEqual([]);fs.writeFileSync(out+'/gui.json',JSON.stringify({status:'PASS',artifact:JSON.parse(fs.readFileSync(archive+'.manifest.json')).sha256,records,errors,run,windowsMacReal:'NOT_RUN',beginnerTrial:'NOT_RUN'},null,2));
++}catch(error){fs.writeFileSync(out+'/gui-failure.json',JSON.stringify({error:String(error),records,errors},null,2));await shot('failure').catch(()=>{});console.error(error);await app?.close().catch(()=>{});process.exitCode=1}finally{server?.close()}
+--- a/tools/verify-ux-final-041.mjs
++++ b/tools/verify-ux-final-041.mjs
+@@ -0,0 +1,4 @@
++import {_electron as electron,expect} from '@playwright/test';import fs from 'node:fs';import path from 'node:path';
++const root=path.resolve(import.meta.dirname,'..'),out=root+'/validation/ux-0.4.1',env={...process.env};delete env.ELECTRON_RUN_AS_NODE;
++const app=await electron.launch({executablePath:out+'/runs/desktop-build/tsukuhako-linux-x64-0.4.1/tsukuhako',args:['--user-data-dir='+out+'/runs/reader-zoom-profile'],env,chromiumSandbox:true});const p=await app.firstWindow();p.setDefaultTimeout(10000);
++try{await p.getByRole('button',{name:'学ぶ',exact:true}).click();await p.locator('.curriculum-toc nav button').first().click();await p.locator('.markdown h1').waitFor();await app.evaluate(({BrowserWindow})=>{const w=BrowserWindow.getAllWindows()[0];w.setSize(860,680);w.webContents.setZoomFactor(2)});await p.waitForTimeout(300);expect(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);await p.locator('.heading-toc summary').click();await p.locator('.heading-toc button').last().click();await expect(p.locator('.markdown h2').last()).toBeFocused();const data=await app.evaluate(async({BrowserWindow})=>(await BrowserWindow.getAllWindows()[0].webContents.capturePage()).toPNG().toString('base64'));fs.writeFileSync(out+'/screenshots/reader-200-percent.png',Buffer.from(data,'base64'));await p.getByRole('button',{name:'次の章 →',exact:true}).click();await expect(p.locator('.markdown h1')).not.toHaveText('F2：最初の一歩');await p.getByRole('button',{name:'作る画面へ戻る',exact:true}).click();await expect(p.locator('#generator-title')).toBeFocused();fs.writeFileSync(out+'/reader-zoom.json',JSON.stringify({status:'PASS',window:[860,680],zoom:2,headingFocus:true,nextChapter:true,returnToGenerator:true,horizontalPageOverflow:false},null,2));}finally{await app.close()}
+--- a/tools/verify-ux-security-041.mjs
++++ b/tools/verify-ux-security-041.mjs
+@@ -0,0 +1,10 @@
++import {_electron as electron,expect} from '@playwright/test';import path from 'node:path';import fs from 'node:fs';
++const root=path.resolve(import.meta.dirname,'..'),out=root+'/validation/ux-0.4.1',run=out+'/runs/security-'+(process.env.UX_RUN||'final');fs.mkdirSync(run,{recursive:true});const env={...process.env};delete env.ELECTRON_RUN_AS_NODE;
++const app=await electron.launch({executablePath:out+'/runs/desktop-build/tsukuhako-linux-x64-0.4.1/tsukuhako',args:['--user-data-dir='+run+'/profile'],env,chromiumSandbox:true});const page=await app.firstWindow();page.setDefaultTimeout(12000);let pid;
++try{
++await expect(page.getByRole('button',{name:'保存先を決める',exact:true})).toBeEnabled();await page.getByRole('button',{name:'保存先を決める',exact:true}).click();await page.getByLabel('親フォルダ',{exact:true}).fill(run);await page.getByLabel('新しいフォルダ名',{exact:true}).fill('busy-owned');await page.getByRole('button',{name:'作成内容を確認',exact:true}).click();await page.getByRole('button',{name:'プロジェクトを作成',exact:true}).waitFor();
++pid=await app.evaluate(({app})=>app.getAppMetrics().find(m=>m.name==='Tsukuhako Generator').pid);process.kill(pid,'SIGSTOP');await page.getByRole('button',{name:'プロジェクトを作成',exact:true}).click();await expect(page.locator('.global-status')).toContainText('ファイルを作成しています');await page.getByRole('button',{name:'学ぶ',exact:true}).click();await page.locator('.curriculum-toc nav button').first().click();await page.locator('.markdown h1').waitFor();await expect(page.locator('.global-status')).toContainText('ファイルを作成しています');
++const duplicate=await page.evaluate(()=>window.tsukuhako.apply({planId:'a'.repeat(64)}));expect(duplicate.ok).toBe(false);expect(duplicate.error.code).toBe('BUSY');expect(await app.evaluate(({BrowserWindow})=>{const w=BrowserWindow.getAllWindows()[0];w.close();return !w.isDestroyed()})).toBe(true);process.kill(pid,'SIGCONT');await page.getByRole('button',{name:'作る画面へ戻る',exact:true}).click();await page.getByRole('button',{name:'別のプロジェクトを作る',exact:true}).waitFor();expect(fs.readdirSync(run).filter(x=>x==='busy-owned')).toHaveLength(1);
++await app.evaluate(({ipcMain})=>{ipcMain.removeHandler('tsukuhako:readChapter');ipcMain.handle('tsukuhako:readChapter',()=>({ok:true,value:{text:'# 安全性フィクスチャ\n\n<script>document.body.dataset.executed="yes"</script>\n\n<img src="x" onerror="document.body.dataset.executed=\'yes\'">\n\n[ローカルファイル](file:///etc/passwd)\n\n[削除操作](tsukuhako:apply)\n\n[JavaScript](javascript:alert(1))\n\n```sh\ntouch SHOULD_NOT_EXECUTE\n```\n'}}))});await page.getByRole('button',{name:'学ぶ',exact:true}).click();await page.getByLabel('教材を選ぶ').selectOption('F1');await page.locator('.curriculum-toc nav button').first().click();await expect(page.locator('.markdown h1')).toHaveText('安全性フィクスチャ');expect(await page.locator('.markdown script,.markdown iframe,.markdown img,.markdown a').count()).toBe(0);expect(await page.evaluate(()=>document.body.dataset.executed)).toBeUndefined();expect(await page.getByRole('button',{name:'削除操作',exact:true}).count()).toBe(0);expect(page.url()).toBe('app://tsukuhako/index.html');const bad=await page.evaluate(()=>Promise.all([window.tsukuhako.readAsset({id:'../secrets'}),window.tsukuhako.openLessonLink({lessonId:'F1',chapterId:'first',href:'file:///etc/passwd'})]));expect(bad.every(r=>!r.ok)).toBe(true);
++fs.writeFileSync(out+'/security.json',JSON.stringify({status:'PASS',generationViaUI:true,readDuringBusy:true,duplicate:'BUSY',closeRefused:true,dangerousMarkdown:'non-actionable references; no DOM execution or navigation',arbitraryPathAndURLRejected:true,fixture:'SIGSTOP/SIGCONT only own utility process; unsafe Markdown IPC fixture only in own test app'},null,2));console.log('UX security and busy UI PASS');
++}finally{if(pid)try{process.kill(pid,'SIGCONT')}catch{}await app.close()}
+--- a/tools/vscode-edit-restore-041.mjs
++++ b/tools/vscode-edit-restore-041.mjs
+@@ -0,0 +1,8 @@
++import {chromium,expect} from '@playwright/test';import fs from 'node:fs';import path from 'node:path';import {createHash} from 'node:crypto';import {spawnSync} from 'node:child_process';
++const root=path.resolve(import.meta.dirname,'..'),out=root+'/validation/ux-0.4.1',file=out+'/runs/gui-final3/F2 日本語 長い保存先.dir/app/page.tsx';const original=fs.readFileSync(file,'utf8'),changed=original.replace('小さく変えて、<br />動きを確かめよう。','わたしの練習室');expect(changed).not.toBe(original);
++const code=await chromium.connectOverCDP('http://127.0.0.1:9421');const editor=code.contexts()[0].pages()[0];const web=await chromium.launch({executablePath:'/usr/bin/google-chrome',headless:true});const page=await web.newPage();
++try{await page.goto('http://localhost:3892/');await expect(page.locator('h1')).toContainText('小さく変えて、');await page.screenshot({path:out+'/screenshots/f2-before.png'});
++editor.setDefaultTimeout(10000);page.setDefaultTimeout(15000);const input=editor.locator('.part.editor textarea.inputarea').first();await editor.bringToFront();await editor.locator('.part.editor .view-lines').click({position:{x:200,y:30}});await input.focus();await editor.keyboard.press('Control+a');await editor.keyboard.insertText(changed);await editor.keyboard.press('Control+s');for(let i=0;i<40&&fs.readFileSync(file,'utf8')!==changed;i++)await editor.waitForTimeout(100);expect(fs.readFileSync(file,'utf8')).toBe(changed);await expect(page.locator('h1')).toHaveText('わたしの練習室');await editor.screenshot({path:out+'/screenshots/vscode-f2-edited.png'});await page.screenshot({path:out+'/screenshots/f2-changed.png'});
++await editor.bringToFront();await editor.locator('.part.editor .view-lines').click({position:{x:200,y:30}});await input.focus();await editor.keyboard.press('Control+a');await editor.keyboard.insertText(original);await editor.keyboard.press('Control+s');for(let i=0;i<40&&fs.readFileSync(file,'utf8')!==original;i++)await editor.waitForTimeout(100);expect(fs.readFileSync(file,'utf8')).toBe(original);await expect(page.locator('h1')).toContainText('小さく変えて、');await page.screenshot({path:out+'/screenshots/f2-restored.png'});
++fs.writeFileSync(out+'/vscode-f2.json',JSON.stringify({status:'PASS',os:'Linux Mint22.3 x64',vscode:'1.142.0',extension:'0.470.0',template:'F2 0.1.1',container:'3fe761ab81fa',operations:['Actual VS Code: trust this generated folder','Command Palette: Dev Containers: Reopen in Container','Actual VS Code integrated terminal: npm run dev','VS Code editor: replace heading, save','Browser: HMR result verified','VS Code editor: restore bytes, save','Browser: restored heading verified'],fileSha256:createHash('sha256').update(original).digest('hex'),port:3892,reconnect:'NOT_RUN this UX turn',rebuild:'NOT_RUN this UX turn',method:'Developer-led actual VS Code UI + browser; not a beginner trial; isolated profiles'},null,2));console.log('VS Code edit/HMR/restore PASS');
++}finally{if(fs.readFileSync(file,'utf8')!==original)fs.writeFileSync(file,original);await web.close();await code.close()}

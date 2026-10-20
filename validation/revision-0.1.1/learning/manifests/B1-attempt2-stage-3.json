@@ -1,0 +1,26 @@
+{
+  "number": 3,
+  "startedAt": "2026-10-20T05:00:18.125456+00:00",
+  "files": [
+    {
+      "path": "tsconfig.json",
+      "source": "starter-templates/B1/tsconfig.json",
+      "sha256": "16a2c249d6875ac168ee0cc4359487570689f5618a36e409f54eab83844645c0"
+    },
+    {
+      "path": "next-env.d.ts",
+      "source": "starter-templates/B1/next-env.d.ts",
+      "sha256": "879741880b6ab48da99dcc06dcc674d381c9826137b0496bf7bb368f302de9fc"
+    },
+    {
+      "path": "next.config.ts",
+      "source": "starter-templates/B1/next.config.ts",
+      "sha256": "aa21fd07841c9b9ef8a4c25f10214d03359ece3fc96782473b28f18f2238d675"
+    },
+    {
+      "path": "eslint.config.mjs",
+      "source": "starter-templates/B1/eslint.config.mjs",
+      "sha256": "30d8bbbd55900859b46ba6b0d3c2f0e3768edafff83deb5ff7b00a8d54ba644f"
+    }
+  ]
+}

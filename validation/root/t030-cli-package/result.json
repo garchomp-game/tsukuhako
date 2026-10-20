@@ -1,0 +1,14 @@
+{
+  "id": "t030-cli-package",
+  "startedAt": "2026-10-20T13:00:46.595033+00:00",
+  "command": [
+    "python3",
+    "tools/package-generator-030.py"
+  ],
+  "cwd": ".",
+  "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+  "exitCode": 0,
+  "elapsedSeconds": 0.114,
+  "result": "PASS",
+  "log": "output.log"
+}

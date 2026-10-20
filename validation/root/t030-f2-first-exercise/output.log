@@ -1,0 +1,28 @@
+{
+  "id": "F2",
+  "base": "http://localhost:3761",
+  "status": "PASS",
+  "project": "otoka-f2-first-246531851",
+  "guideSha256": "c2f0106a666e9299d3b2f1dd779704bfda79d425b37bbf33932838a55024d7b9",
+  "origin": "Final packaged GUI, actual window",
+  "scope": "Real generated project, Dev Container CLI and browser. VS Code UI NOT_RUN.",
+  "title": "ツクハコ｜画面づくりの練習",
+  "firstExercise": {
+    "file": "app/page.tsx",
+    "before": "小さく変えて、<br />動きを確かめよう。",
+    "after": "わたしの練習室",
+    "reflection": "PASS: HMR without reloading or restarting",
+    "restoration": "PASS: exact original bytes and heading",
+    "sourceSha256": "c519464d586ca774fbc969aeca14418aa10e837948cf22322317e3c61a5fd43e"
+  },
+  "guiEvidence": {
+    "status": "PASS",
+    "source": "Final packaged GUI; real UI generation. This folder is retained for T10 startup.",
+    "destination": "<WORKSPACE>/validation/brand-0.3.0/runs/startup/F2 学習",
+    "port": 3761,
+    "templateVersion": "0.1.1",
+    "guideSha256": "c2f0106a666e9299d3b2f1dd779704bfda79d425b37bbf33932838a55024d7b9",
+    "archive": "tsukuhako-linux-x64-0.3.0.tar.gz",
+    "archiveSha256": "0a79dd001834c92ac58261c43c00924150d3d3e5392f1f959febfb18f1192277"
+  }
+}

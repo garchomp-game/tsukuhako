@@ -1,0 +1,1 @@
+No creator-specific paths or credential patterns; actual .env excluded; ports loopback-only; no Docker socket or privileged container; rendered input is text PASS

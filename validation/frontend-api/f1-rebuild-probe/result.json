@@ -1,0 +1,18 @@
+{
+  "id": "f1-rebuild-probe",
+  "startedAt": "2026-10-20T02:24:14.189177+00:00",
+  "command": [
+    "node",
+    "validation/frontend-api/probe.mjs",
+    "F1",
+    "validation/work/frontend-api/F1",
+    "http://127.0.0.1:23100",
+    "preserved"
+  ],
+  "cwd": ".",
+  "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+  "exitCode": 0,
+  "elapsedSeconds": 0.865,
+  "result": "PASS",
+  "log": "output.log"
+}

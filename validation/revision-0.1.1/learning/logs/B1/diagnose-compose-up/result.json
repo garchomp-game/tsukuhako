@@ -1,0 +1,23 @@
+{
+  "template": "B1",
+  "event": "diagnose-compose-up",
+  "startedAt": "2026-10-20T04:58:52.046753+00:00",
+  "command": [
+    "docker",
+    "compose",
+    "--project-name",
+    "otoka-b1-2857543899",
+    "-f",
+    "<WORKSPACE>/validation/revision-0.1.1/learning/runs/B1 空フォルダ 教材 0.1.1/compose.yaml",
+    "-f",
+    "/tmp/devcontainercli-garchompomp-game/docker-compose/docker-compose.devcontainer.containerFeatures-1792472257084-8f145cb2-d7ba-4aca-8f9d-65e730e54f5c.yml",
+    "up",
+    "-d"
+  ],
+  "cwd": "validation/revision-0.1.1/learning/runs/B1 空フォルダ 教材 0.1.1",
+  "endedAt": "2026-10-20T04:58:52.110810+00:00",
+  "exitCode": 1,
+  "elapsedSeconds": 0.064,
+  "result": "FAIL",
+  "log": "output.log"
+}

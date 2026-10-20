@@ -1,0 +1,185 @@
+[
+  {
+    "id": "01-start",
+    "at": "2026-10-20T02:26:11.467Z",
+    "command": [
+      "docker",
+      "compose",
+      "exec",
+      "-d",
+      "app",
+      "sh",
+      "-c",
+      "echo $$ > /tmp/otoka-f2-next.pid; exec node node_modules/next/dist/bin/next dev --hostname 0.0.0.0 --port 3000 > /tmp/otoka-f2-next.log 2>&1"
+    ],
+    "exitCode": 0,
+    "elapsedMs": 185,
+    "result": "PASS"
+  },
+  {
+    "id": "02-hmr",
+    "result": "PASS",
+    "observation": "保存後に同じブラウザ画面へ反映。手動reload/server restartなし",
+    "automaticPageLoads": 0,
+    "sourceHash": "09f74561da4c3824bcd221000621a0727fb3b5c8aafb2c1e9948b987a6a9ec60"
+  },
+  {
+    "id": "03-process-stop",
+    "at": "2026-10-20T02:26:14.941Z",
+    "command": [
+      "docker",
+      "compose",
+      "exec",
+      "app",
+      "sh",
+      "-c",
+      "kill \"$(cat /tmp/otoka-f2-next.pid)\""
+    ],
+    "exitCode": 0,
+    "elapsedMs": 158,
+    "result": "PASS"
+  },
+  {
+    "id": "04-process-restart",
+    "at": "2026-10-20T02:26:15.569Z",
+    "command": [
+      "docker",
+      "compose",
+      "exec",
+      "-d",
+      "app",
+      "sh",
+      "-c",
+      "echo $$ > /tmp/otoka-f2-next.pid; exec node node_modules/next/dist/bin/next dev --hostname 0.0.0.0 --port 3000 > /tmp/otoka-f2-next.log 2>&1"
+    ],
+    "exitCode": 0,
+    "elapsedMs": 127,
+    "result": "PASS"
+  },
+  {
+    "id": "05-compose-stop",
+    "at": "2026-10-20T02:26:18.634Z",
+    "command": [
+      "docker",
+      "compose",
+      "stop"
+    ],
+    "exitCode": 0,
+    "elapsedMs": 394,
+    "result": "PASS"
+  },
+  {
+    "id": "06-container-resume",
+    "at": "2026-10-20T02:26:20.566Z",
+    "command": [
+      "<WORKSPACE>/tools/node_modules/.bin/devcontainer",
+      "up",
+      "--workspace-folder",
+      "."
+    ],
+    "exitCode": 0,
+    "elapsedMs": 1932,
+    "result": "PASS"
+  },
+  {
+    "id": "07-resume-dev",
+    "at": "2026-10-20T02:26:20.745Z",
+    "command": [
+      "docker",
+      "compose",
+      "exec",
+      "-d",
+      "app",
+      "sh",
+      "-c",
+      "echo $$ > /tmp/otoka-f2-next.pid; exec node node_modules/next/dist/bin/next dev --hostname 0.0.0.0 --port 3000 > /tmp/otoka-f2-next.log 2>&1"
+    ],
+    "exitCode": 0,
+    "elapsedMs": 179,
+    "result": "PASS"
+  },
+  {
+    "id": "08-old-container",
+    "at": "2026-10-20T02:26:23.545Z",
+    "command": [
+      "docker",
+      "compose",
+      "ps",
+      "-q",
+      "app"
+    ],
+    "exitCode": 0,
+    "elapsedMs": 116,
+    "result": "PASS"
+  },
+  {
+    "id": "09-compose-down",
+    "at": "2026-10-20T02:26:24.128Z",
+    "command": [
+      "docker",
+      "compose",
+      "down"
+    ],
+    "exitCode": 0,
+    "elapsedMs": 583,
+    "result": "PASS"
+  },
+  {
+    "id": "10-container-recreate",
+    "at": "2026-10-20T02:26:36.359Z",
+    "command": [
+      "<WORKSPACE>/tools/node_modules/.bin/devcontainer",
+      "up",
+      "--workspace-folder",
+      "."
+    ],
+    "exitCode": 0,
+    "elapsedMs": 12231,
+    "result": "PASS"
+  },
+  {
+    "id": "11-new-container",
+    "at": "2026-10-20T02:26:36.431Z",
+    "command": [
+      "docker",
+      "compose",
+      "ps",
+      "-q",
+      "app"
+    ],
+    "exitCode": 0,
+    "elapsedMs": 72,
+    "result": "PASS"
+  },
+  {
+    "id": "12-recreated-dev",
+    "at": "2026-10-20T02:26:36.535Z",
+    "command": [
+      "docker",
+      "compose",
+      "exec",
+      "-d",
+      "app",
+      "sh",
+      "-c",
+      "echo $$ > /tmp/otoka-f2-next.pid; exec node node_modules/next/dist/bin/next dev --hostname 0.0.0.0 --port 3000 > /tmp/otoka-f2-next.log 2>&1"
+    ],
+    "exitCode": 0,
+    "elapsedMs": 104,
+    "result": "PASS"
+  },
+  {
+    "id": "13-rebuild-retention",
+    "result": "PASS",
+    "oldContainer": "85ffae1b8f57b9166ac15f53ac8535893535b17ab93a53bd42dec5eb26debd7d",
+    "newContainer": "6de81991a2fb2d51d8c8fa7e0a2c24c2c6d8ea695ff0b37461a1defc510d79fa",
+    "sourceHash": "09f74561da4c3824bcd221000621a0727fb3b5c8aafb2c1e9948b987a6a9ec60",
+    "observation": "コンテナを削除・再作成し編集済みソースが保持、HTTP/画面一致。DBは非搭載のため対象外。"
+  },
+  {
+    "id": "14-browser-visual",
+    "result": "PASS",
+    "browser": "Google Chrome 155.0.8059.84 / automated",
+    "observation": "日本語UI 1200px/390px screenshot、横スクロールなし。人間の試用は未実施。"
+  }
+]

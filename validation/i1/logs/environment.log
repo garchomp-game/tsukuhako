@@ -1,0 +1,9 @@
+Linux 7.0.0-31-generic x86_64 GNU/Linux
+client=29.9.1 server=29.9.1
+Docker Compose version v5.6.0
+0.89.0
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p2  468G  110G  335G  25% /
+               total        used        free      shared  buff/cache   available
+Mem:            23Gi       7.6Gi       4.9Gi       134Mi        11Gi        15Gi
+Swap:          2.0Gi          0B       2.0Gi

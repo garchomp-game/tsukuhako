@@ -1,0 +1,65 @@
+
+> otoka-existing-project-adapter@0.1.0 check
+> node --check cli.mjs && node --check src/adapter.mjs && node --check src/templates.mjs && node --test tests/*.test.mjs
+
+✔ E01: compatible single Next/npm has evidence and a bounded proposal (6.830694ms)
+✔ E02: Vite, React-only, general Node are distinct and cannot auto-apply (3.432348ms)
+✔ E03: conflicting lockfiles, runtime and manager cannot be forced (5.764082ms)
+✔ E04: monorepo and existing Docker/Dev Container are preserved with next steps (4.788836ms)
+✔ E05: inspection and preview do not execute config JS or package lifecycle scripts (3.15556ms)
+✔ E06: inspect/recommend/preview do not write; plans must be outside project (2.735977ms)
+✔ E07: explicit apply adds only generated settings; all original hashes stay equal (4.90851ms)
+✔ E08: changed inputs, new output, newly appeared Docker config and moved roots reject stale plans (9.234955ms)
+✔ E09: applying the same unchanged proposal is an unchanged success (6.812545ms)
+✔ E10: undo preserves user edits/new files and removes only unchanged generated files (9.431671ms)
+✔ E11: mid-write failure rolls back only created files and clears staging (3.47428ms)
+✔ E11: path tampering and input/output symlinks never change outside files (3.065323ms)
+✔ E11: undo does not follow a generated file replaced with a symlink (4.074377ms)
+✔ Conservative versions, invalid JSON, invalid ports and edited records are rejected (5.286ms)
+✔ E03: partial comparators are manual and cannot silently widen npm engine ranges (8.283207ms)
+✖ E03/E05/E08: dotenv Compose keys block application without collecting secret values (3.391129ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 15
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 144.550258
+
+✖ failing tests:
+
+test at tests/adapter.test.mjs:222:1
+✖ E03/E05/E08: dotenv Compose keys block application without collecting secret values (3.391129ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    Comparison {
+  +   code: 'INPUT_DRIFT'
+  -   code: 'INPUT_CHANGED'
+    }
+  
+      at TestContext.<anonymous> (file://[work-root]/existing-project-adapter/tests/adapter.test.mjs:230:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: AdapterError: 提案後に入力ファイル・設定の有無・rootが変わりました。新しいpreviewが必要です。
+        at fail (file://[work-root]/existing-project-adapter/src/adapter.mjs:31:50)
+        at applyPlan (file://[work-root]/existing-project-adapter/src/adapter.mjs:269:50)
+        at assert.throws.code (file://[work-root]/existing-project-adapter/tests/adapter.test.mjs:230:23)
+        at getActual (node:assert:611:5)
+        at strict.throws (node:assert:759:24)
+        at TestContext.<anonymous> (file://[work-root]/existing-project-adapter/tests/adapter.test.mjs:230:10)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1382:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+        at Test.postRun (node:internal/test_runner/test:1522:19),
+    expected: { code: 'INPUT_CHANGED' },
+    operator: 'throws',
+    diff: 'simple'
+  }

@@ -1,0 +1,260 @@
+{
+  "adapterVersion": "0.1.0",
+  "date": "2026-10-20",
+  "unitTests": {
+    "passed": 17,
+    "failed": 0
+  },
+  "results": [
+    {
+      "id": "E01",
+      "applicable": true,
+      "result": "PASS",
+      "fixture": "synthetic metadata fixtures",
+      "environment": "Linux Mint 22.3 x86_64",
+      "observed": "single Next/npm evidence and bounded preview",
+      "evidence": [
+        {
+          "commandId": "final-check",
+          "log": "logs/final-check.log",
+          "exitCode": 0,
+          "durationSeconds": 0.457
+        }
+      ]
+    },
+    {
+      "id": "E02",
+      "applicable": true,
+      "result": "PASS",
+      "fixture": "synthetic metadata fixtures",
+      "environment": "Linux Mint 22.3 x86_64",
+      "observed": "Vite, React-only and Node distinguished",
+      "evidence": [
+        {
+          "commandId": "final-check",
+          "log": "logs/final-check.log",
+          "exitCode": 0,
+          "durationSeconds": 0.457
+        }
+      ]
+    },
+    {
+      "id": "E03",
+      "applicable": true,
+      "result": "PASS",
+      "fixture": "synthetic metadata fixtures",
+      "environment": "Linux Mint 22.3 x86_64",
+      "observed": "lock/runtime/manager, partial comparator and dotenv conflicts",
+      "evidence": [
+        {
+          "commandId": "final-check",
+          "log": "logs/final-check.log",
+          "exitCode": 0,
+          "durationSeconds": 0.457
+        }
+      ]
+    },
+    {
+      "id": "E04",
+      "applicable": true,
+      "result": "PASS",
+      "fixture": "synthetic metadata fixtures",
+      "environment": "Linux Mint 22.3 x86_64",
+      "observed": "monorepo and existing Docker/Dev Container preservation",
+      "evidence": [
+        {
+          "commandId": "final-check",
+          "log": "logs/final-check.log",
+          "exitCode": 0,
+          "durationSeconds": 0.457
+        }
+      ]
+    },
+    {
+      "id": "E05",
+      "applicable": true,
+      "result": "PASS",
+      "fixture": "synthetic metadata fixtures",
+      "environment": "Linux Mint 22.3 x86_64",
+      "observed": "no config/script execution; no secret values in reports",
+      "evidence": [
+        {
+          "commandId": "final-check",
+          "log": "logs/final-check.log",
+          "exitCode": 0,
+          "durationSeconds": 0.457
+        }
+      ]
+    },
+    {
+      "id": "E06",
+      "applicable": true,
+      "result": "PASS",
+      "fixture": "synthetic metadata fixtures",
+      "environment": "Linux Mint 22.3 x86_64",
+      "observed": "inspect/recommend/preview read-only and external plan",
+      "evidence": [
+        {
+          "commandId": "final-check",
+          "log": "logs/final-check.log",
+          "exitCode": 0,
+          "durationSeconds": 0.457
+        }
+      ]
+    },
+    {
+      "id": "E07",
+      "applicable": true,
+      "result": "PASS",
+      "fixture": "synthetic metadata fixtures",
+      "environment": "Linux Mint 22.3 x86_64",
+      "observed": "only .devcontainer added; original file hashes unchanged",
+      "evidence": [
+        {
+          "commandId": "final-check",
+          "log": "logs/final-check.log",
+          "exitCode": 0,
+          "durationSeconds": 0.457
+        }
+      ],
+      "hashEvidence": "apply-hashes-final.json"
+    },
+    {
+      "id": "E08",
+      "applicable": true,
+      "result": "PASS",
+      "fixture": "synthetic metadata fixtures",
+      "environment": "Linux Mint 22.3 x86_64",
+      "observed": "input/root/config/output drift rejected with re-proposal",
+      "evidence": [
+        {
+          "commandId": "final-check",
+          "log": "logs/final-check.log",
+          "exitCode": 0,
+          "durationSeconds": 0.457
+        }
+      ]
+    },
+    {
+      "id": "E09",
+      "applicable": true,
+      "result": "PASS",
+      "fixture": "synthetic metadata fixtures",
+      "environment": "Linux Mint 22.3 x86_64",
+      "observed": "identical reapply unchanged; edited output preserved",
+      "evidence": [
+        {
+          "commandId": "final-check",
+          "log": "logs/final-check.log",
+          "exitCode": 0,
+          "durationSeconds": 0.457
+        }
+      ]
+    },
+    {
+      "id": "E10",
+      "applicable": true,
+      "result": "PASS",
+      "fixture": "synthetic metadata fixtures",
+      "environment": "Linux Mint 22.3 x86_64",
+      "observed": "undo removes matching generated files, preserves user edits",
+      "evidence": [
+        {
+          "commandId": "final-check",
+          "log": "logs/final-check.log",
+          "exitCode": 0,
+          "durationSeconds": 0.457
+        }
+      ]
+    },
+    {
+      "id": "E11",
+      "applicable": true,
+      "result": "PASS",
+      "fixture": "synthetic metadata fixtures",
+      "environment": "Linux Mint 22.3 x86_64",
+      "observed": "transaction rollback, path/symlink guards and runtime env guards",
+      "evidence": [
+        {
+          "commandId": "final-check",
+          "log": "logs/final-check.log",
+          "exitCode": 0,
+          "durationSeconds": 0.457
+        }
+      ]
+    },
+    {
+      "id": "E12",
+      "applicable": true,
+      "result": "PASS",
+      "fixture": "F2 application-only copy in isolated Next fixture",
+      "environment": "Linux Mint 22.3 x86_64",
+      "observed": "CLI startup, exact runtime, page/input interaction and same-document HMR",
+      "evidence": [
+        {
+          "commandId": "adapter-apply-guarded",
+          "log": "logs/adapter-apply-guarded.log",
+          "exitCode": 0,
+          "durationSeconds": 0.043
+        },
+        {
+          "commandId": "generated-shellcheck",
+          "log": "logs/generated-shellcheck.log",
+          "exitCode": 0,
+          "durationSeconds": 0.048
+        },
+        {
+          "commandId": "e12-devcontainer-up",
+          "log": "logs/e12-devcontainer-up.log",
+          "exitCode": 0,
+          "durationSeconds": 24.817
+        },
+        {
+          "commandId": "e12-devcontainer-up-guarded",
+          "log": "logs/e12-devcontainer-up-guarded.log",
+          "exitCode": 0,
+          "durationSeconds": 0.82
+        },
+        {
+          "commandId": "e12-runtime",
+          "log": "logs/e12-runtime.log",
+          "exitCode": 0,
+          "durationSeconds": 0.509
+        },
+        {
+          "commandId": "e12-browser",
+          "log": "logs/e12-browser.log",
+          "exitCode": 0,
+          "durationSeconds": 3.08
+        },
+        {
+          "commandId": "e12-stop",
+          "log": "logs/e12-stop.log",
+          "exitCode": 0,
+          "durationSeconds": 0.28
+        }
+      ]
+    }
+  ],
+  "notRun": [
+    "VS Code GUI",
+    "Windows + WSL",
+    "macOS / arm64",
+    "actual user project",
+    "GitHub Actions"
+  ],
+  "scope": [
+    "Only dedicated synthetic metadata and copied F2 fixture used.",
+    "Application source, package scripts and lockfile untouched by adapter.",
+    "Next runtime updated next-env.d.ts after separate apply hash proof.",
+    "Generated shell guard is part of latest E12 run.",
+    "Frozen adapter runtime files hashed in artifact-checksums.json."
+  ],
+  "resources": "resources.json",
+  "resolvedFailures": [
+    {
+      "commandId": "unit-e01-e11-guarded",
+      "cause": "Test expected INPUT_CHANGED while implementation correctly returned INPUT_DRIFT; expected assertion corrected."
+    }
+  ]
+}

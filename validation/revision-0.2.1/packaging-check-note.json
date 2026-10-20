@@ -1,0 +1,11 @@
+{
+  "scope": "Validation script correction; CLI/GUI archives unchanged",
+  "initialResult": "FAIL in handoff-attempt-01.json",
+  "cause": "Tar directories were incorrectly required to be regular files and included in the file-only manifest inventory comparison.",
+  "observedTarMembers": {
+    "directories": 18,
+    "regularFiles": 119,
+    "manifestFiles": 119
+  },
+  "correction": "Allow only regular files and directories; compare file inventory with manifest and directory inventory with the derived parent directories. Continue rejecting links and other member types."
+}

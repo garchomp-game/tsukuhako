@@ -1,0 +1,31 @@
+{
+  "number": 5,
+  "startedAt": "2026-10-20T05:00:59.750073+00:00",
+  "files": [
+    {
+      "path": "app/globals.css",
+      "source": "starter-templates/S1/app/globals.css",
+      "sha256": "9e3f7e5899220096a1328e11245487a573d8fa2ed1cbc1e8fc55d1f4b621caac"
+    },
+    {
+      "path": "app/layout.tsx",
+      "source": "starter-templates/S1/app/layout.tsx",
+      "sha256": "15635b65403ffa24a8206bd20926767e57509bc89b5c948f6e8de4b835ee204a"
+    },
+    {
+      "path": "components/PreviewForm.tsx",
+      "source": "starter-templates/S1/components/PreviewForm.tsx",
+      "sha256": "8d630780d77c49ee58b7a3ab96b80c089ac9a7e101f17cc8e11fdc76c6145298"
+    },
+    {
+      "path": "app/practice/page.tsx",
+      "source": "starter-templates/S1/app/practice/page.tsx",
+      "sha256": "a188a506d626bfc61551249f0ec95991c595d24967f44e9a429795b259e9eb25"
+    },
+    {
+      "path": "app/page.tsx",
+      "source": "starter-templates/S1/app/page.tsx",
+      "sha256": "bd917a465fc3ac85ed80693458dbd0a4dd739149dcab11baeb5aa363081a83f0"
+    }
+  ]
+}

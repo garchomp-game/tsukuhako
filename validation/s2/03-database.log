@@ -1,0 +1,10 @@
+BEGIN
+DO
+SET
+DO
+ROLLBACK
+                                    result                                     
+-------------------------------------------------------------------------------
+ PASS: anon CRUD, RLS, grants, timestamps, missing id, Unicode and constraints
+(1 row)
+

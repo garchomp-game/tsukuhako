@@ -1,0 +1,14 @@
+{
+  "id": "t030-guide-alignment-final",
+  "startedAt": "2026-10-20T13:22:37.140943+00:00",
+  "command": [
+    "node",
+    "tools/verify-guides-030.mjs"
+  ],
+  "cwd": ".",
+  "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+  "exitCode": 0,
+  "elapsedSeconds": 0.064,
+  "result": "PASS",
+  "log": "output.log"
+}

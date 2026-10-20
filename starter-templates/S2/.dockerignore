@@ -1,0 +1,10 @@
+.git
+node_modules
+.next
+dist
+.env*
+.cache
+validation
+.local
+supabase/.temp
+supabase/.branches

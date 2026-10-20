@@ -1,0 +1,84 @@
+明鏡 / 新しいプロジェクト
+各入力で :back（戻る）、:cancel（中止）が使えます。
+まず何を作りますか？
+1. 画面を作りたい — 入力やページ移動を、サンプル画面から学びます。
+2. APIを作りたい — HTTPで入力を受け取り、結果を返します。
+3. 画面とAPIをつなぎたい — フォームからAPIへ送信します。
+4. データをDBへ保存したい — ローカルDBで、メモの保存・編集・削除を学びます。
+5. SQL・DBを学びたい — SQLの作業環境で、テーブルとデータを扱います。
+用途 [1]: 4
+親フォルダ [<WORKSPACE>/validation/revision-0.2.1/runs/packaged-pty]: <WORKSPACE>/validation/revision-0.2.1/runs/packaged-pty/advanced-s2
+新しいフォルダ名 [my-app]: 日本語 詳細設定 ; $(literal)
+識別ラベル・ポートを変更しますか？ [y/N]: y
+識別ラベル（省略可） []: custom
+ホストポート [3004]: 3409
+DB開始ポート [54320]: 54820
+
+構成: S2 / 版 0.1.1
+保存先: <WORKSPACE>/validation/revision-0.2.1/runs/packaged-pty/advanced-s2/日本語 詳細設定 ; $(literal)
+識別名: otoka-s2-custom-2613462708
+ポート: app=3409 / shadow=54820 / api=54821 / database=54822 / studio=54823
+ファイル: 58件（サンプル・教材・テスト・CI設定、.env、START_HERE.md）
+まだファイルは書き込んでいません。
+planId: 597f2ce9066b5f26fe29da47c49c4c74842df512050721371a3a8c21cc06f238
+生成準備: 確認済み
+起動準備: 確認済み
+[PASS] bash: 確認済み
+[PASS] カタログと配布ZIPの整合を確認しました。
+[PASS] cksumを利用できます。
+[PASS] VS Code: 確認済み
+[PASS] Docker Compose: 確認済み
+[PASS] 入力・保存先・親フォルダを確認しました。書込み成功の保証ではありません。
+[PASS] Dev Containers拡張: 確認済み
+[PASS] Docker daemon: 確認済み
+[PASS] 実行基盤 Node 24.19.0
+[PASS] api 54821: 現在は利用可能（予約なし）
+[PASS] app 3409: 現在は利用可能（予約なし）
+[PASS] database 54822: 現在は利用可能（予約なし）
+[PASS] shadow 54820: 現在は利用可能（予約なし）
+[PASS] studio 54823: 現在は利用可能（予約なし）
+[PASS] S2: awk: 確認済み
+[PASS] S2: curl: 確認済み
+[PASS] S2: sed: 確認済み
+[PASS] S2: sha256sum: 確認済み
+[PASS] S2: tar: 確認済み
+[PASS] S2: timeout: 確認済み
+この内容で作成しますか？ [y / :back / :cancel]: :back
+親フォルダ [<WORKSPACE>/validation/revision-0.2.1/runs/packaged-pty/advanced-s2]: 
+新しいフォルダ名 [日本語 詳細設定 ; $(literal)]: 
+識別ラベル・ポートを変更しますか？ [Y/n]: 
+識別ラベル（省略可） [custom]: 
+ホストポート [3409]: 
+DB開始ポート [54820]: 
+
+構成: S2 / 版 0.1.1
+保存先: <WORKSPACE>/validation/revision-0.2.1/runs/packaged-pty/advanced-s2/日本語 詳細設定 ; $(literal)
+識別名: otoka-s2-custom-2613462708
+ポート: app=3409 / shadow=54820 / api=54821 / database=54822 / studio=54823
+ファイル: 58件（サンプル・教材・テスト・CI設定、.env、START_HERE.md）
+まだファイルは書き込んでいません。
+planId: 597f2ce9066b5f26fe29da47c49c4c74842df512050721371a3a8c21cc06f238
+生成準備: 確認済み
+起動準備: 確認済み
+[PASS] bash: 確認済み
+[PASS] カタログと配布ZIPの整合を確認しました。
+[PASS] cksumを利用できます。
+[PASS] VS Code: 確認済み
+[PASS] Docker Compose: 確認済み
+[PASS] 入力・保存先・親フォルダを確認しました。書込み成功の保証ではありません。
+[PASS] Dev Containers拡張: 確認済み
+[PASS] Docker daemon: 確認済み
+[PASS] 実行基盤 Node 24.19.0
+[PASS] api 54821: 現在は利用可能（予約なし）
+[PASS] app 3409: 現在は利用可能（予約なし）
+[PASS] database 54822: 現在は利用可能（予約なし）
+[PASS] shadow 54820: 現在は利用可能（予約なし）
+[PASS] studio 54823: 現在は利用可能（予約なし）
+[PASS] S2: awk: 確認済み
+[PASS] S2: curl: 確認済み
+[PASS] S2: sed: 確認済み
+[PASS] S2: sha256sum: 確認済み
+[PASS] S2: tar: 確認済み
+[PASS] S2: timeout: 確認済み
+この内容で作成しますか？ [y / :back / :cancel]: :cancel
+生成前に中止しました。ファイルは作成していません。

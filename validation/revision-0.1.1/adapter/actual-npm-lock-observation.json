@@ -1,0 +1,13 @@
+{
+  "npmCommand": "npm install --package-lock-only --ignore-scripts --offline --no-audit --no-fund --engine-strict=false",
+  "packageDependenciesValue": "9.9.9",
+  "packageOptionalValue": "file:../local-helper",
+  "lockRootDependencyValue": null,
+  "lockRootOptionalValue": "file:../local-helper",
+  "lockEntry": {
+    "resolved": "../local-helper",
+    "link": true
+  },
+  "result": "PASS",
+  "note": "Package/lock fixture generation is separate from read-only adapter checks. Host engine override used only for metadata fixture generation; no package installation or lifecycle execution."
+}

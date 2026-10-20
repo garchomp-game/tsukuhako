@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "generationViaUI": true,
+  "readDuringBusy": true,
+  "duplicate": "BUSY",
+  "closeRefused": true,
+  "dangerousMarkdown": "non-actionable references; no DOM execution or navigation",
+  "arbitraryPathAndURLRejected": true,
+  "fixture": "SIGSTOP/SIGCONT only own utility process; unsafe Markdown IPC fixture only in own test app"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "14-browser-before-stop",
+  "startedAt": "2026-10-20T04:59:03.492207+00:00",
+  "elapsedSeconds": 3.978,
+  "command": [
+    "node",
+    "validation/revision-0.1.1/s2/fresh-browser.mjs",
+    "before-stop"
+  ],
+  "cwd": ".",
+  "exitCode": 0,
+  "result": "PASS",
+  "log": "14-browser-before-stop.log"
+}

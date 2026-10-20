@@ -1,0 +1,11 @@
+このプロジェクトのポートは起動中です。
+診断OK: otoka-s2-2226800358 / http://localhost:3004
+/dev/nvme0n1p2  468G  115G  330G  26% /
+容量不足なら不要な自分の試行資源を確認してください。全体pruneは行いません。
+supabase_studio_otoka-s2-2226800358 Up About a minute (healthy) 127.0.0.1:54323->3000/tcp
+supabase_pg_meta_otoka-s2-2226800358 Up About a minute (healthy) 8080/tcp
+supabase_rest_otoka-s2-2226800358 Up About a minute 3000/tcp
+supabase_auth_otoka-s2-2226800358 Up About a minute (healthy) 9999/tcp
+supabase_kong_otoka-s2-2226800358 Up About a minute (healthy) 8001/tcp, 8088/tcp, 8443-8444/tcp, 127.0.0.1:54321->8000/tcp
+supabase_db_otoka-s2-2226800358 Up About a minute (healthy) 127.0.0.1:54322->5432/tcp
+API http://127.0.0.1:54321 / Studio http://127.0.0.1:54323 / DB 127.0.0.1:54322

@@ -1,0 +1,14 @@
+PASS: otoka_learning / PostgreSQL 18.6 (Debian 18.6-1.pgdg12+2)
+workbench user: vscode (uid=1000)
+BEGIN
+ pg_advisory_xact_lock 
+-----------------------
+ 
+(1 row)
+
+CREATE TABLE
+CREATE TABLE
+COMMENT
+INSERT 0 1
+COMMIT
+INSERT 0 2

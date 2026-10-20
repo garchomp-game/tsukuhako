@@ -1,0 +1,16 @@
+{
+  "number": 2,
+  "startedAt": "2026-10-20T04:59:58.054924+00:00",
+  "files": [
+    {
+      "path": "package.json",
+      "source": "starter-templates/B1/package.json",
+      "sha256": "caac49b987438e1548604ae7a856b175f46157fff77e8826d6285e2aee698152"
+    },
+    {
+      "path": "package-lock.json",
+      "source": "starter-templates/B1/package-lock.json",
+      "sha256": "13b9c9cc03a2063a0662d4afb964492795196d434564a30e76b003ae43f82215"
+    }
+  ]
+}

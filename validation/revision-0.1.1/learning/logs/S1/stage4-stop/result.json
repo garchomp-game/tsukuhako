@@ -1,0 +1,21 @@
+{
+  "template": "S1",
+  "event": "stage4-stop",
+  "startedAt": "2026-10-20T05:00:59.506992+00:00",
+  "command": [
+    "docker",
+    "exec",
+    "--user",
+    "node",
+    "e7d6711876c237d9f81c30cef1e1c51ec8644d76af9f8168c03d0a498b3e7927",
+    "bash",
+    "-c",
+    "read -r lesson_pid < /tmp/meikyo-lesson-dev.pid; kill -TERM -- \"-$lesson_pid\""
+  ],
+  "cwd": "validation/revision-0.1.1/learning/runs/S1 空フォルダ 教材 0.1.1",
+  "endedAt": "2026-10-20T05:00:59.571027+00:00",
+  "exitCode": 0,
+  "elapsedSeconds": 0.064,
+  "result": "PASS",
+  "log": "output.log"
+}

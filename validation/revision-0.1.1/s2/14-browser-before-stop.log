@@ -1,0 +1,1 @@
+PASS: exact seed2 → browser create/trim/update → reload preserved; synthetic note retained for stop/restart

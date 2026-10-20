@@ -1,0 +1,29 @@
+name: Checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  checks:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.22.0
+          cache: npm
+      - run: npm install --global npm@11.17.0
+      - run: npm ci --no-audit --no-fund
+      - run: bash scripts/configure.sh --name otoka-s2-ci
+      - run: bash scripts/db.sh start
+      - run: bash scripts/db.sh test
+      - name: CI runs Next on the host; use the localhost API endpoint
+        run: sed -i 's#SUPABASE_URL=.*#SUPABASE_URL=http://127.0.0.1:54321#' .env.local
+      - run: npm run check
+      - run: npx --no-install playwright install --with-deps chromium
+      - run: npm test
+      - name: HTTP then browser, with one managed server and verified shutdown
+        run: npm run test:integration
+      - run: npm run build
+      - if: always()
+        run: bash scripts/db.sh stop

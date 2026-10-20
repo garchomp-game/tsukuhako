@@ -1,0 +1,47 @@
+[
+  {
+    "template": "F1",
+    "version": "0.1.0",
+    "at": "2026-10-20T02:18:55.657970+00:00",
+    "operation": "prepare-lock-and-static-files",
+    "command": "npm install --package-lock-only --ignore-scripts --engine-strict=false --no-audit --no-fund; JSON parse; node --check tests/*.mjs",
+    "environment": {
+      "node": "24.19.0 (author host, not template runtime)",
+      "npm": "11.17.0"
+    },
+    "exitCode": 0,
+    "status": "PASS",
+    "observation": "Fixed-version package-lock.json generated. Host engine mismatch explicitly allowed for lock generation only; npm ci and runtime verification have not been executed. JSON and test module syntax parsed.",
+    "packageLockSha256": "e4ed6642769525c5afd0144e755be01252cb7e81f18f01913ecd205742fd16d2"
+  },
+  {
+    "template": "B1",
+    "version": "0.1.0",
+    "at": "2026-10-20T02:18:55.658249+00:00",
+    "operation": "prepare-lock-and-static-files",
+    "command": "npm install --package-lock-only --ignore-scripts --engine-strict=false --no-audit --no-fund; JSON parse; node --check tests/*.mjs",
+    "environment": {
+      "node": "24.19.0 (author host, not template runtime)",
+      "npm": "11.17.0"
+    },
+    "exitCode": 0,
+    "status": "PASS",
+    "observation": "Fixed-version package-lock.json generated. Host engine mismatch explicitly allowed for lock generation only; npm ci and runtime verification have not been executed. JSON and test module syntax parsed.",
+    "packageLockSha256": "156ed166671885cc5dfe6fab52c7d4338543584f3d15a72a10b778eb5ff78055"
+  },
+  {
+    "template": "S1",
+    "version": "0.1.0",
+    "at": "2026-10-20T02:18:55.658782+00:00",
+    "operation": "prepare-lock-and-static-files",
+    "command": "npm install --package-lock-only --ignore-scripts --engine-strict=false --no-audit --no-fund; JSON parse; node --check tests/*.mjs",
+    "environment": {
+      "node": "24.19.0 (author host, not template runtime)",
+      "npm": "11.17.0"
+    },
+    "exitCode": 0,
+    "status": "PASS",
+    "observation": "Fixed-version package-lock.json generated. Host engine mismatch explicitly allowed for lock generation only; npm ci and runtime verification have not been executed. JSON and test module syntax parsed.",
+    "packageLockSha256": "4a8658d2f5c2c061a645f36a25ba7028b25915c083ff065bf2ced59fb899b887"
+  }
+]

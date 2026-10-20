@@ -1,0 +1,32 @@
+[
+  {
+    "file": "tsukuhako-win32-x64-0.4.0-UNVERIFIED.zip",
+    "bytes": 204320489,
+    "sha256": "b0af4bc7086a03be0947dc09765dd3fe8c0ca5c4f259f1f9d6b04ac6aa508817",
+    "platform": "win32",
+    "arch": "x64",
+    "build": "PACKAGED",
+    "runtimeTest": "NOT_RUN",
+    "signing": "UNSIGNED / NOT_NOTARIZED"
+  },
+  {
+    "file": "tsukuhako-darwin-x64-0.4.0-UNVERIFIED.zip",
+    "bytes": 135098122,
+    "sha256": "6202f62aea9b6b9ff71b5a358a1abe5bfa771962227a5bc9642c75d72fee600a",
+    "platform": "darwin",
+    "arch": "x64",
+    "build": "PACKAGED",
+    "runtimeTest": "NOT_RUN",
+    "signing": "UNSIGNED / NOT_NOTARIZED"
+  },
+  {
+    "file": "tsukuhako-darwin-arm64-0.4.0-UNVERIFIED.zip",
+    "bytes": 131193403,
+    "sha256": "288cd40c7d24488c40d0e3f5e74f2bc403a41a6e1b2ae770d82cebc221d2e689",
+    "platform": "darwin",
+    "arch": "arm64",
+    "build": "PACKAGED",
+    "runtimeTest": "NOT_RUN",
+    "signing": "UNSIGNED / NOT_NOTARIZED"
+  }
+]

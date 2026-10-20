@@ -1,0 +1,80 @@
+{
+  "recordedAt": "2026-10-20T04:53:55.696770+00:00",
+  "os": "Linux Mint 22.3",
+  "scope": "Revision verification; host read-only baseline",
+  "tools": [
+    {
+      "command": [
+        "docker",
+        "version",
+        "--format",
+        "{{.Client.Version}} / {{.Server.Version}}"
+      ],
+      "exitCode": 0,
+      "output": "29.9.1 / 29.9.1"
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "version"
+      ],
+      "exitCode": 0,
+      "output": "Docker Compose version v5.6.0"
+    },
+    {
+      "command": [
+        "node",
+        "--version"
+      ],
+      "exitCode": 0,
+      "output": "v24.19.0"
+    },
+    {
+      "command": [
+        "npm",
+        "--version"
+      ],
+      "exitCode": 0,
+      "output": "11.17.0"
+    },
+    {
+      "command": [
+        "google-chrome",
+        "--version"
+      ],
+      "exitCode": 0,
+      "output": "Google Chrome 155.0.8059.84"
+    },
+    {
+      "command": [
+        "free",
+        "-h"
+      ],
+      "exitCode": 0,
+      "output": "total        used        free      shared  buff/cache   available\nMem:            23Gi       7.7Gi       1.8Gi        80Mi        14Gi        15Gi\nSwap:          2.0Gi        12Ki       2.0Gi"
+    },
+    {
+      "command": [
+        "df",
+        "-h",
+        "."
+      ],
+      "exitCode": 0,
+      "output": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/nvme0n1p2  468G  122G  323G  28% /"
+    }
+  ],
+  "baselineUnrelatedContainerIds": [
+    "b531d3443746",
+    "8e9f201539c5"
+  ],
+  "unavailableOrNotRun": [
+    "Native VS Code GUI control",
+    "Windows + WSL actual machine",
+    "GitHub-hosted CI",
+    "novice user trial"
+  ],
+  "blocked": [
+    "S3 cloud credentials not provided"
+  ]
+}

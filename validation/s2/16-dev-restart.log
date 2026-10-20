@@ -1,0 +1,13 @@
+
+> otoka-s2-local-notes@0.1.0 dev
+> next dev --hostname 0.0.0.0 --port 3000
+
+▲ Next.js 16.4.2 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://0.0.0.0:3000
+- Environments: .env.local, .env
+✓ Ready in 239ms
+✓ Running next.config.ts took 24ms
+
+ GET /api/notes 200 in 212ms (next.js: 167ms, application-code: 46ms)
+ GET / 200 in 145ms (next.js: 37ms, application-code: 108ms)

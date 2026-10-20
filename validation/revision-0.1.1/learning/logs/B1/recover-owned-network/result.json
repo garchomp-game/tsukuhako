@@ -1,0 +1,24 @@
+{
+  "template": "B1",
+  "event": "recover-owned-network",
+  "startedAt": "2026-10-20T04:59:45.864346+00:00",
+  "command": [
+    "docker",
+    "compose",
+    "--project-directory",
+    "<WORKSPACE>/validation/work/frontend-api/B1",
+    "--env-file",
+    "<WORKSPACE>/validation/work/frontend-api/B1/.env",
+    "--project-name",
+    "otoka-b1-frontend-20261020",
+    "-f",
+    "<WORKSPACE>/validation/work/frontend-api/B1/compose.yaml",
+    "down"
+  ],
+  "cwd": "validation/work/frontend-api/B1",
+  "endedAt": "2026-10-20T04:59:46.078591+00:00",
+  "exitCode": 0,
+  "elapsedSeconds": 0.214,
+  "result": "PASS",
+  "log": "output.log"
+}

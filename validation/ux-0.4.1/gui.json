@@ -1,0 +1,73 @@
+{
+  "status": "PASS",
+  "artifact": "1d05a8d2e004bd7c8a3c9acd48a7e5982ee96a44b87f4a548ed0e8dd6bb098cf",
+  "records": [
+    {
+      "id": "fresh-linux-profile-and-sandbox",
+      "status": "PASS"
+    },
+    {
+      "id": "guide-return-preserves-input-and-focus-invalid-parent-retry",
+      "status": "PASS"
+    },
+    {
+      "id": "real-owned-port-conflict-and-cancel-before-generation",
+      "status": "PASS"
+    },
+    {
+      "id": "F2-custom-guide-source-reference-code-copy-and-contextual-recovery",
+      "status": "PASS",
+      "destination": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/ux-0.4.1/runs/gui-release/F2 日本語 長い保存先.dir",
+      "port": 3892
+    },
+    {
+      "id": "actual-ui-select-generate-matching-guide-F1",
+      "status": "PASS",
+      "runtimeStartupThisTurn": "NOT_RUN"
+    },
+    {
+      "id": "actual-ui-select-generate-matching-guide-B1",
+      "status": "PASS",
+      "runtimeStartupThisTurn": "NOT_RUN"
+    },
+    {
+      "id": "actual-ui-select-generate-matching-guide-S1",
+      "status": "PASS",
+      "runtimeStartupThisTurn": "NOT_RUN"
+    },
+    {
+      "id": "actual-ui-select-generate-matching-guide-S2",
+      "status": "PASS",
+      "runtimeStartupThisTurn": "NOT_RUN"
+    },
+    {
+      "id": "actual-ui-select-generate-matching-guide-I1",
+      "status": "PASS",
+      "runtimeStartupThisTurn": "NOT_RUN"
+    },
+    {
+      "id": "minimum-860x680-200percent-zoom-keyboard",
+      "status": "PASS"
+    },
+    {
+      "id": "docker-stopped-fixture-keeps-generation-separate",
+      "status": "PASS"
+    },
+    {
+      "id": "cancel-diagnosis-discards-late-success-fixture",
+      "status": "PASS"
+    },
+    {
+      "id": "windows-fixture-empty-install-relist-preserve-remove-and-guide",
+      "status": "PASS"
+    },
+    {
+      "id": "restart-reading-restored-generated-context-explicitly-not-persisted",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "run": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/ux-0.4.1/runs/gui-release",
+  "windowsMacReal": "NOT_RUN",
+  "beginnerTrial": "NOT_RUN"
+}

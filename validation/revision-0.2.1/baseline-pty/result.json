@@ -1,0 +1,66 @@
+{
+  "status": "REPRODUCED",
+  "recordedAt": "2026-10-20T09:26:48.075834+00:00",
+  "bundle": "<WORKSPACE>",
+  "scope": "Real Linux PTY; normal CLI, real diagnostics, no piped-input or readline mocks",
+  "cases": [
+    {
+      "case": "advanced-f2",
+      "before": {
+        "template": "F2",
+        "project": "otoka-f2-custom-2457167918",
+        "ports": "app=3409"
+      },
+      "advancedDefault": "y/N",
+      "fieldDefaults": {},
+      "after": {
+        "template": "F2",
+        "project": "otoka-f2-2457167918",
+        "ports": "app=3001"
+      },
+      "retained": false,
+      "status": "REPRODUCED",
+      "cancelNoWrites": true,
+      "exitCode": 0
+    },
+    {
+      "case": "purpose-i1",
+      "purposeDefault": "1",
+      "after": {
+        "template": "F2",
+        "project": "otoka-f2-3743238955",
+        "ports": "app=3001"
+      },
+      "retained": false,
+      "status": "REPRODUCED",
+      "cancelNoWrites": true,
+      "exitCode": 0
+    },
+    {
+      "case": "framework-f1",
+      "frameworkDefault": "1",
+      "after": {
+        "template": "F2",
+        "project": "otoka-f2-1966281643",
+        "ports": "app=3001"
+      },
+      "retained": false,
+      "status": "REPRODUCED",
+      "cancelNoWrites": true,
+      "exitCode": 0
+    },
+    {
+      "case": "same-purpose-f1",
+      "frameworkDefault": "1",
+      "after": {
+        "template": "F2",
+        "project": "otoka-f2-1855799858",
+        "ports": "app=3001"
+      },
+      "retained": false,
+      "status": "REPRODUCED",
+      "cancelNoWrites": true,
+      "exitCode": 0
+    }
+  ]
+}

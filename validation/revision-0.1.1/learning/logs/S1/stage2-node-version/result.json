@@ -1,0 +1,19 @@
+{
+  "template": "S1",
+  "event": "stage2-node-version",
+  "startedAt": "2026-10-20T05:00:53.327710+00:00",
+  "command": [
+    "<WORKSPACE>/tools/node_modules/.bin/devcontainer",
+    "exec",
+    "--workspace-folder",
+    "<WORKSPACE>/validation/revision-0.1.1/learning/runs/S1 空フォルダ 教材 0.1.1",
+    "node",
+    "--version"
+  ],
+  "cwd": "validation/revision-0.1.1/learning/runs/S1 空フォルダ 教材 0.1.1",
+  "endedAt": "2026-10-20T05:00:53.692082+00:00",
+  "exitCode": 0,
+  "elapsedSeconds": 0.364,
+  "result": "PASS",
+  "log": "output.log"
+}

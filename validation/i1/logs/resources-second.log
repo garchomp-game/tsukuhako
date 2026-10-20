@@ -1,0 +1,5 @@
+project: otoka-i1-validation-3071882351
+volume: otoka-i1-validation-3071882351_pgdata
+83017b06ec10 otoka-i1-validation-3071882351-app-1 Up 25 seconds
+6d77b0213751 otoka-i1-validation-3071882351-db-1 Up 30 seconds (healthy)
+otoka-i1-validation-3071882351_pgdata

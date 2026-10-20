@@ -1,0 +1,5 @@
+PASS: Docker / Compose / 設定
+project: otoka-i1-1615752074
+host: 127.0.0.1:55434
+container: db:5432
+ホスト Node.js/npm/psql は不要です。起動時の port already allocated は docs/troubleshooting.md へ。

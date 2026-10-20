@@ -1,0 +1,27 @@
+
+> tsukuhako-desktop@0.4.0 test
+> node --test tests/*.test.mjs
+
+✔ L01/L05/L10: metadata only, 50 lazy chapters with hashes and bounded cache (22.754138ms)
+✔ L05: traversals, symlinks, oversized and changed content rejected (4.004734ms)
+✔ L09: reading settings serialized, no generation inputs persisted (18.339758ms)
+✔ L05/P12: content and preparation IPC has no arbitrary path or command (0.350697ms)
+✔ P02/P03: WSL Unicode/localized lists, spaces, stopped, internal exclusion (1.362089ms)
+✔ P05: WSL Linux paths, literal metacharacters, forbidden Windows paths (0.353028ms)
+✔ P03/P12: default root and WSL1 refused; only selected distro arguments (1.027435ms)
+✔ P09/P12: preparation abort sends a cancellation for only its structured helper job (1.470735ms)
+✔ P04: unknown vs absent vs stopped vs permissions; no remote server contact (1.333462ms)
+✔ P04/P07: Linux containers and required extensions differentiated (0.527576ms)
+✔ P09: timeout, abort, output limit; only own process group stopped (234.612033ms)
+✔ P06: portable cksum preserves every existing identity (15.99466ms)
+✔ L04/P08/P12: cooperative cancellation rolls back only own output (39.084618ms)
+✔ G13 IPC: exact sender, main frame and local URL are all required (1.863214ms)
+✔ G13 IPC: fixed methods, strict bounded arguments; shell/root/files/hooks cannot be supplied (1.203662ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 653.693618

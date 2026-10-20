@@ -1,0 +1,17 @@
+
+> otoka-f2@0.1.0 dev
+> next dev --hostname 0.0.0.0 --hostname 0.0.0.0 --port 3000
+
+▲ Next.js 16.4.2 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://0.0.0.0:3000
+✓ Ready in 309ms
+✓ Running next.config.ts took 85ms
+
+ GET / 200 in 211ms (next.js: 87ms, application-code: 125ms)
+ GET / 200 in 28ms (next.js: 1.0ms, application-code: 27ms)
+✓ Compiled in 12ms
+ GET / 200 in 19ms (next.js: 1.9ms, application-code: 17ms)
+✓ Compiled in 9ms
+ GET / 200 in 16ms (next.js: 1.2ms, application-code: 15ms)
+ GET /practice 200 in 19ms (next.js: 4ms, application-code: 15ms)

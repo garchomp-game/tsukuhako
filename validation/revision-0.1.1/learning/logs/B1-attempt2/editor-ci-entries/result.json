@@ -1,0 +1,20 @@
+{
+  "template": "B1",
+  "event": "editor-ci-entries",
+  "startedAt": "2026-10-20T05:00:32.455394+00:00",
+  "command": [
+    "<WORKSPACE>/tools/node_modules/.bin/devcontainer",
+    "exec",
+    "--workspace-folder",
+    "<WORKSPACE>/validation/revision-0.1.1/learning/runs/B1 空フォルダ 教材 0.1.1 再試行2",
+    "node",
+    "-e",
+    "const f=require('node:fs');const t=JSON.parse(f.readFileSync('.vscode/tasks.json'));if(!Array.isArray(t.tasks))process.exit(1);const w=f.readFileSync('.github/workflows/check.yml','utf8');for(const c of ['npm run check','npm test','npm run build'])if(!w.includes(c))process.exit(1);console.log(JSON.stringify({tasks:t.tasks.length,workflowCommands:true,liveCI:'NOT_RUN'}))"
+  ],
+  "cwd": "validation/revision-0.1.1/learning/runs/B1 空フォルダ 教材 0.1.1 再試行2",
+  "endedAt": "2026-10-20T05:00:32.869912+00:00",
+  "exitCode": 0,
+  "elapsedSeconds": 0.415,
+  "result": "PASS",
+  "log": "output.log"
+}

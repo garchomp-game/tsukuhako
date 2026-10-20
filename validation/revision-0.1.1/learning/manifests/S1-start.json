@@ -1,0 +1,21 @@
+{
+  "template": "S1",
+  "version": "0.1.1",
+  "startedAt": "2026-10-20T05:00:38.434999+00:00",
+  "source": "starter-templates/S1",
+  "lesson": "starter-templates/S1/docs/BUILD-YOUR-OWN.md",
+  "lessonSha256": "c7cb335bcc88f48c08bdb59c6809b907e5d8cf7eb1b23917e33945062c7f0dcc",
+  "workspace": "validation/revision-0.1.1/learning/runs/S1 空フォルダ 教材 0.1.1",
+  "initialFiles": [],
+  "copyMethod": "Only individual paths listed in each assembly-stage text block; no directory copy.",
+  "stages": [],
+  "port": 3403,
+  "notRun": [
+    "VS Code UI",
+    "Windows/WSL",
+    "macOS/ARM",
+    "live GitHub Actions",
+    "beginner usability trial"
+  ],
+  "attempt": 1
+}

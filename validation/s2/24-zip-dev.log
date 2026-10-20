@@ -1,0 +1,33 @@
+
+> otoka-s2-local-notes@0.1.0 dev
+> next dev --hostname 0.0.0.0 --port 3000
+
+▲ Next.js 16.4.2 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://0.0.0.0:3000
+- Environments: .env.local, .env
+✓ Ready in 240ms
+✓ Running next.config.ts took 23ms
+
+ GET /api/notes 200 in 107ms (next.js: 73ms, application-code: 34ms)
+ POST /api/notes 201 in 22ms (next.js: 1.2ms, application-code: 21ms)
+ GET / 200 in 138ms (next.js: 34ms, application-code: 104ms)
+ GET /api/notes 200 in 12ms (next.js: 1.2ms, application-code: 11ms)
+ GET /api/notes 200 in 10ms (next.js: 1.1ms, application-code: 9ms)
+ GET / 200 in 30ms (next.js: 1.3ms, application-code: 29ms)
+ GET /api/notes 200 in 9ms (next.js: 1.1ms, application-code: 8ms)
+ GET /api/notes 200 in 7ms (next.js: 0.6ms, application-code: 6ms)
+ DELETE /api/notes/b363940a-a6c5-4af0-86f5-0a0a2387ca93 204 in 447ms (next.js: 422ms, application-code: 25ms)
+ GET /api/notes 200 in 17ms (next.js: 0.8ms, application-code: 16ms)
+ POST /api/notes 201 in 8ms (next.js: 0.7ms, application-code: 8ms)
+ GET / 200 in 30ms (next.js: 0.7ms, application-code: 29ms)
+ GET /api/notes 200 in 16ms (next.js: 1.2ms, application-code: 15ms)
+ GET /api/notes 200 in 11ms (next.js: 1.0ms, application-code: 10ms)
+ PATCH /api/notes/be279c88-c259-4ef4-b32f-9f151de15002 200 in 33ms (next.js: 15ms, application-code: 19ms)
+ GET /api/notes 200 in 7ms (next.js: 0.6ms, application-code: 6ms)
+ GET / 200 in 27ms (next.js: 0.6ms, application-code: 26ms)
+ GET /api/notes 200 in 7ms (next.js: 0.6ms, application-code: 7ms)
+ GET /api/notes 200 in 6ms (next.js: 0.9ms, application-code: 5ms)
+ DELETE /api/notes/be279c88-c259-4ef4-b32f-9f151de15002 204 in 17ms (next.js: 0.8ms, application-code: 16ms)
+ GET /api/notes 200 in 5ms (next.js: 0.5ms, application-code: 4ms)
+ DELETE /api/notes/be279c88-c259-4ef4-b32f-9f151de15002 404 in 6ms (next.js: 0.5ms, application-code: 6ms)

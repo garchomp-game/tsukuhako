@@ -1,0 +1,20 @@
+PASS G13-renderer-and-sandbox
+PASS G13-real-ipc-validation
+PASS G13-protocol-allowlist
+PASS G03-G07-G11-G12-back-correct-preview
+PASS G12-worker-failure-retry-and-created-actions
+PASS G08-ui-cli-parity
+PASS G12-reload-invalidates
+PASS G12-double-apply
+PASS G01-G04-G08-F1
+PASS G01-G04-G08-F2
+PASS G01-G04-G08-B1
+PASS G01-G04-G08-S1
+PASS G01-G04-G08-S2
+PASS G01-G04-G08-I1
+PASS G14-relocated-binary
+{
+  "status": "PASS",
+  "checks": 15,
+  "errors": []
+}

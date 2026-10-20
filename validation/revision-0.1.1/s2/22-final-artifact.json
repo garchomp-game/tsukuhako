@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "artifact": "S2-0.1.1.zip",
+  "sha256": "1fff412887ed8657a32326176d6162f7a8f73d5f79d38700e35aaf873368f673",
+  "bytes": 100169,
+  "sourceMatchesAllManifestFiles": true,
+  "freshCopyMatchesHandAuthoredFiles": true,
+  "frameworkGeneratedDifferences": [
+    "next-env.d.ts"
+  ],
+  "sourceFrozen": true
+}

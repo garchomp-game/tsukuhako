@@ -1,0 +1,72 @@
+{
+  "status": "PASS",
+  "scope": "Final relocated CLI output: six guides, literal source targets, existing first exercises, restoration instructions, actual files and selected ports.",
+  "records": [
+    {
+      "id": "F1",
+      "status": "PASS",
+      "file": "src/App.tsx",
+      "before": "表示することば",
+      "after": "今日のことば",
+      "lesson": "docs/EXERCISES.md",
+      "route": "/",
+      "templateVersion": "0.1.2",
+      "guideSha256": "81546cca1e631c8aa859d8a1311b61d697a72a7a82e2a6cfe06a9bfd04842a80"
+    },
+    {
+      "id": "F2",
+      "status": "PASS",
+      "file": "app/page.tsx",
+      "before": "小さく変えて、<br />動きを確かめよう。",
+      "after": "わたしの練習室",
+      "lesson": "docs/EXERCISES.md",
+      "route": "/",
+      "templateVersion": "0.1.1",
+      "guideSha256": "ab2408d166fabd7787a2315401e62bafc08e6db40b4f723579254b10e09bbd91"
+    },
+    {
+      "id": "B1",
+      "status": "PASS",
+      "file": "app/api/health/route.ts",
+      "before": "{ status: \"ok\" }",
+      "after": "lesson: \"preview\"",
+      "lesson": "docs/EXERCISES.md",
+      "route": "/api/health",
+      "templateVersion": "0.1.2",
+      "guideSha256": "611f20e5d91b924d371e56f9d69f6f6f64f519d84f31b4fc93162b32ab4da371"
+    },
+    {
+      "id": "S1",
+      "status": "PASS",
+      "file": "app/practice/page.tsx",
+      "before": "ことばを送ってみる",
+      "after": "今日の便り",
+      "lesson": "docs/EXERCISES.md",
+      "route": "/practice",
+      "templateVersion": "0.1.2",
+      "guideSha256": "22267680f3f97fe04c08966875520446ec5a2070abc1df28a88e69ab2c8c3dec"
+    },
+    {
+      "id": "S2",
+      "status": "PASS",
+      "file": "app/page.tsx",
+      "before": "ローカル学習メモ",
+      "after": "わたしの学習メモ",
+      "lesson": "docs/EXERCISES.md",
+      "route": "/",
+      "templateVersion": "0.1.2",
+      "guideSha256": "54a72d58760511b0a68cf7fe868b6d2644df0f683198d378633bd27d0d58b8fa"
+    },
+    {
+      "id": "I1",
+      "status": "PASS",
+      "file": "sql/practice.sql",
+      "before": "SQLの練習",
+      "after": "在庫を調べる",
+      "lesson": "docs/learning.md",
+      "route": null,
+      "templateVersion": "0.1.0",
+      "guideSha256": "24214d9de89180b051b5e6deca8a635b8d2f4341837557c1fe132a4a0e101c26"
+    }
+  ]
+}

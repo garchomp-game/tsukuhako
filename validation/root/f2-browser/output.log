@@ -1,0 +1,50 @@
+
+> otoka-f2@0.1.0 test:browser
+> playwright test
+
+
+Running 1 test using 1 worker
+
+[WebServer] ⚠ Blocked cross-origin request to Next.js dev resource /_next/hmr from "127.0.0.1".
+[WebServer] Cross-origin access to Next.js dev resources is blocked by default for safety.
+[WebServer] 
+[WebServer] To allow this host in development, add it to "allowedDevOrigins" in next.config.js and restart the dev server:
+[WebServer] 
+[WebServer] // next.config.js
+[WebServer] module.exports = {
+[WebServer]   allowedDevOrigins: ['127.0.0.1'],
+[WebServer] }
+[WebServer] 
+[WebServer] Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+  ✘  1 tests/browser/practice.spec.ts:2:5 › ページ遷移、入力、文字列の安全な表示、クリア、再読込 (5.5s)
+
+
+  1) tests/browser/practice.spec.ts:2:5 › ページ遷移、入力、文字列の安全な表示、クリア、再読込 ───────────────────────────────
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  getByRole('status')
+    Expected: "学習ノート📓"
+    Received: "ここに、あなたのアイデアが表示されます。"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveText" getByRole('status') with timeout 5000ms
+      - waiting for getByRole('status')
+        14 × locator resolved to <p role="status" class="mt-4 min-h-8 break-words text-xl leading-8">ここに、あなたのアイデアが表示されます。</p>
+           - unexpected value "ここに、あなたのアイデアが表示されます。"
+
+
+       6 |   await expect(page).toHaveURL(/\/practice$/);
+       7 |   await page.getByLabel('つくりたいもの').fill('学習ノート📓');
+    >  8 |   await expect(page.getByRole('status')).toHaveText('学習ノート📓');
+         |                                          ^
+       9 |   await page.getByLabel('つくりたいもの').fill('<script>window.__injected=true</script>');
+      10 |   await expect(page.getByRole('status')).toHaveText('<script>window.__injected=true</script>');
+      11 |   expect(await page.evaluate(() => '__injected' in window)).toBe(false);
+        at /workspace/tests/browser/practice.spec.ts:8:42
+
+    Error Context: test-results/practice-ページ遷移、入力、文字列の安全な表示、クリア、再読込/error-context.md
+
+  1 failed
+    tests/browser/practice.spec.ts:2:5 › ページ遷移、入力、文字列の安全な表示、クリア、再読込 ────────────────────────────────

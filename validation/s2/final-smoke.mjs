@@ -1,0 +1,32 @@
+import { chromium } from '../../tools/node_modules/playwright/index.mjs';
+import assert from 'node:assert/strict';
+const base='http://localhost:3014';
+const initial=await (await fetch(base+'/api/notes')).json();
+const body=`最終 ZIP ${Date.now()} 📝`;
+const browser=await chromium.launch({executablePath:'/usr/bin/google-chrome',headless:true});
+let id;
+try {
+  const page=await browser.newPage();
+  await page.goto(base,{waitUntil:'networkidle'});
+  await page.getByRole('heading',{name:'ローカル学習メモ'}).waitFor();
+  await page.getByLabel('本文',{exact:true}).fill(`　${body}　`);
+  const created=page.waitForResponse(r=>r.request().method()==='POST' && r.url().endsWith('/api/notes'));
+  await page.getByRole('button',{name:'保存する',exact:true}).click();
+  const response=await created;assert.equal(response.status(),201);
+  const note=(await response.json()).note;id=note.id;assert.equal(note.body,body);
+  await page.getByRole('button',{name:`編集: ${body}`,exact:true}).click();
+  await page.getByLabel('本文',{exact:true}).fill(`${body} 更新`);
+  const updated=page.waitForResponse(r=>r.request().method()==='PATCH');
+  await page.getByRole('button',{name:'更新する',exact:true}).click();
+  assert.equal((await updated).status(),200);
+  await page.reload({waitUntil:'networkidle'});
+  await page.getByText(`${body} 更新`,{exact:true}).waitFor();
+  const deleted=page.waitForResponse(r=>r.request().method()==='DELETE');
+  await page.getByRole('button',{name:`削除: ${body} 更新`,exact:true}).click();
+  assert.equal((await deleted).status(),204);
+  await page.getByText(`${body} 更新`,{exact:true}).waitFor({state:'detached'});
+  assert.equal((await fetch(base+'/api/notes/'+id,{method:'DELETE'})).status,404);
+  assert.equal((await fetch(base+'/api/notes',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({body:'📝'.repeat(201)})})).status,400);
+  const final=await (await fetch(base+'/api/notes')).json();assert.equal(final.notes.length,initial.notes.length);
+  console.log('PASS: final ZIP browser create/Unicode trim/update/reload/delete; missing ID404; 201 codepoints400; fixture cleaned');
+} finally {await browser.close();if(id)await fetch(base+'/api/notes/'+id,{method:'DELETE'});}

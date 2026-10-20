@@ -1,0 +1,44 @@
+[
+  {
+    "startedAt": "2026-10-20T02:50:25.326759+00:00",
+    "command": [
+      "docker",
+      "compose",
+      "--project-directory",
+      "<WORKSPACE>/starter-templates/F2",
+      "--env-file",
+      "<WORKSPACE>/starter-templates/F2/.env",
+      "--project-name",
+      "otoka-f2-3543580151",
+      "-f",
+      "<WORKSPACE>/starter-templates/F2/compose.yaml",
+      "stop"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.291,
+    "status": "PASS",
+    "output": " Container otoka-f2-3543580151-app-1 Stopping \n Container otoka-f2-3543580151-app-1 Stopped \n",
+    "policy": "Only this task F2 projects stopped; volumes retained."
+  },
+  {
+    "startedAt": "2026-10-20T02:50:25.559549+00:00",
+    "command": [
+      "docker",
+      "compose",
+      "--project-directory",
+      "<WORKSPACE>/validation/root/f2-package/runs/新規 展開/F2",
+      "--env-file",
+      "<WORKSPACE>/validation/root/f2-package/runs/新規 展開/F2/.env",
+      "--project-name",
+      "otoka-f2-1589200076",
+      "-f",
+      "<WORKSPACE>/validation/root/f2-package/runs/新規 展開/F2/compose.yaml",
+      "stop"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.233,
+    "status": "PASS",
+    "output": " Container otoka-f2-1589200076-app-1 Stopping \n Container otoka-f2-1589200076-app-1 Stopped \n",
+    "policy": "Only this task F2 projects stopped; volumes retained."
+  }
+]

@@ -1,0 +1,94 @@
+明
+明鏡
+プロジェクトの、はじまりに。
+GENERATOR 0.2.0
+
+NEW PROJECT
+
+つくる準備を、
+ひとつずつ。
+01
+何を作るか
+02
+どこへ作るか
+03
+内容の確認
+04
+作成完了
+生成するのは、新しいプロジェクトのファイルです。
+起動の手順は、作成後にご案内します。
+Linux · ローカルで作成
+
+STEP 01 / 04
+
+まず何を作りますか？
+
+作りたいものに近い目的を選んでください。
+
+01
+画面を作りたい
+入力やページ移動を、サンプル画面から学びます。
+●
+02
+APIを作りたい
+HTTPで入力を受け取り、結果を返します。
+○
+03
+画面とAPIをつなぎたい
+フォームからAPIへ送信します。
+○
+04
+データをDBへ保存したい
+ローカルDBで、メモの保存・編集・削除を学びます。
+○
+05
+SQL・DBを学びたい
+SQLの作業環境で、テーブルとデータを扱います。
+○
+画面づくりの構成
+Next.js（初期候補）
+React + Vite
+参考資料 S3 · クラウドSupabaseは新規作成の対象外です。
+F2
+Next.js
+v0.1.0
+
+ページ移動と入力から、画面づくりを始めます。
+
+同梱：Next.js / Tailwind / ページと入力 / サンプル / 教材 / テスト / CI設定
+
+含まないもの：DB保存
+
+準備するもの・確認済みの範囲
+保存先へ進む →
+サンプルから、自分のプロジェクトへ。
+生成時のネット接続は不要です。
+{
+  electron: '44.9.1',
+  node: '24.22.0',
+  visible: true,
+  preferences: {
+    allowRunningInsecureContent: false,
+    contextIsolation: true,
+    disableDialogs: false,
+    disablePopups: false,
+    enableBlinkFeatures: '',
+    experimentalFeatures: false,
+    javascript: true,
+    nodeIntegration: false,
+    nodeIntegrationInSubFrames: false,
+    nodeIntegrationInWorker: false,
+    safeDialogs: false,
+    safeDialogsMessage: '',
+    sandbox: true,
+    webSecurity: true,
+    webviewTag: false
+  },
+  metrics: [
+    { type: 'Browser', name: undefined, pid: 1014815 },
+    { type: 'GPU', name: undefined, pid: 1014849 },
+    { type: 'Utility', name: 'Network Service', pid: 1014852 },
+    { type: 'Tab', name: undefined, pid: 1014859 },
+    { type: 'Utility', name: 'Meikyo Generator', pid: 1014877 }
+  ]
+}

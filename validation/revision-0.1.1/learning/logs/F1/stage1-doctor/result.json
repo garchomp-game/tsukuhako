@@ -1,0 +1,15 @@
+{
+  "template": "F1",
+  "event": "stage1-doctor",
+  "startedAt": "2026-10-20T05:02:20.752880+00:00",
+  "command": [
+    "bash",
+    "scripts/doctor-host.sh"
+  ],
+  "cwd": "validation/revision-0.1.1/learning/runs/F1 空フォルダ 教材 0.1.1",
+  "endedAt": "2026-10-20T05:02:20.866803+00:00",
+  "exitCode": 0,
+  "elapsedSeconds": 0.114,
+  "result": "PASS",
+  "log": "output.log"
+}

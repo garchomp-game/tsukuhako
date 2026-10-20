@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "dangerousMarkdown": "literal / rejected; no DOM execution or navigation",
+  "busyClose": "close refused while own worker was paused; continued and generated successfully",
+  "readDuringBusy": true,
+  "fixture": "read-only chapter IPC replaced in test process only; product files untouched; SIGSTOP/SIGCONT only owned utility PID",
+  "windowCount": 1
+}

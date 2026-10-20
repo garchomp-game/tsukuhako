@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "existingContainers": [
+    {
+      "id": "b531d3443746",
+      "startedAt": "2026-10-20T22:56:25.276121169Z",
+      "running": true,
+      "unchangedStart": true
+    },
+    {
+      "id": "8e9f201539c5",
+      "startedAt": "2026-10-20T22:56:25.275517745Z",
+      "running": true,
+      "unchangedStart": true
+    }
+  ],
+  "ownedF2Compose": "down without --volumes; own container/network removed; volumes retained",
+  "globalPrune": false,
+  "OSSettingsChanged": false,
+  "ownedRunningContainers": 0,
+  "ownedAppProcessesRemaining": []
+}

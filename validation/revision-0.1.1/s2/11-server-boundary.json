@@ -1,0 +1,32 @@
+{
+  "result": "PASS",
+  "observedAt": "2026-10-20T04:58:44.195394+00:00",
+  "environment": {
+    "CI": "true",
+    "location": "Node24.22.0/npm11.17.0 Dev Container; same integration→build commands as workflow",
+    "actualGithubActions": "NOT_RUN"
+  },
+  "order": [
+    "HTTP contract",
+    "browser CRUD",
+    "owned process group terminated",
+    "internal3000 rebind succeeded",
+    "production build"
+  ],
+  "started": {
+    "event": "managed-server-started",
+    "pid": 286,
+    "port": 3000,
+    "reused": false
+  },
+  "stopped": {
+    "event": "managed-server-stopped",
+    "pid": 286,
+    "processGroupTerminated": true,
+    "port": 3000,
+    "portBindable": true
+  },
+  "independentAfterBuild": "exact PID and process group ESRCH; internal port3000 bindable",
+  "host3504": "Docker published port stays bound until app container stops; this is distinct from internal Next3000 lifecycle",
+  "sequenceLog": "10-ci-equivalent-sequence.log"
+}

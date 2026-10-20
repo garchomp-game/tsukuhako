@@ -1,0 +1,13 @@
+{
+  "name": "25-zip-coexist",
+  "startedAt": "2026-10-20T02:36:01.153705+00:00",
+  "elapsedSeconds": 32.966,
+  "command": [
+    "node",
+    "validation/s2/coexist.mjs"
+  ],
+  "cwd": ".",
+  "exitCode": 1,
+  "result": "FAIL",
+  "log": "25-zip-coexist.log"
+}

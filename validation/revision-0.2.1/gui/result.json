@@ -1,0 +1,110 @@
+{
+  "status": "PASS",
+  "scope": "0.2.1 rebuilt GUI: relocated sandboxed window, version, six plans, one actual F2 creation. Historical G01-G15 suite is not rerun here.",
+  "archive": "meikyo-generator-linux-x64-0.2.1.tar.gz",
+  "sha256": "e782ece617b63b6121e9eba02df9e13653505ead30f9cc277515b199489b5749",
+  "records": [
+    {
+      "id": "packaged-version-and-isolation",
+      "status": "PASS",
+      "metadata": {
+        "version": "0.2.1",
+        "electron": "44.9.1",
+        "node": "24.22.0",
+        "appPath": "<WORKSPACE>/validation/revision-0.2.1/runs/gui-relocated/別の 場所/meikyo-generator-linux-x64-0.2.1/resources/app",
+        "visible": true,
+        "preferences": {
+          "allowRunningInsecureContent": false,
+          "contextIsolation": true,
+          "disableDialogs": false,
+          "disablePopups": false,
+          "enableBlinkFeatures": "",
+          "experimentalFeatures": false,
+          "javascript": true,
+          "nodeIntegration": false,
+          "nodeIntegrationInSubFrames": false,
+          "nodeIntegrationInWorker": false,
+          "safeDialogs": false,
+          "safeDialogsMessage": "",
+          "sandbox": true,
+          "webSecurity": true,
+          "webviewTag": false
+        },
+        "arguments": [
+          "<WORKSPACE>/validation/revision-0.2.1/runs/gui-relocated/別の 場所/meikyo-generator-linux-x64-0.2.1/meikyo-generator",
+          "--inspect=0",
+          "--remote-debugging-port=0",
+          "--user-data-dir=<WORKSPACE>/validation/revision-0.2.1/runs/gui-relocated/別の 場所/profile"
+        ]
+      },
+      "exposed": {
+        "require": "undefined",
+        "process": "undefined",
+        "methods": [
+          "apply",
+          "chooseParentDirectory",
+          "diagnose",
+          "getTemplates",
+          "openInVSCode",
+          "plan"
+        ]
+      },
+      "hostPathContains": [
+        "cksum"
+      ]
+    },
+    {
+      "id": "plan-parity-F1",
+      "status": "PASS",
+      "entirePlanEqual": true,
+      "noWrites": true,
+      "generatorVersion": "0.2.1"
+    },
+    {
+      "id": "plan-parity-F2",
+      "status": "PASS",
+      "entirePlanEqual": true,
+      "noWrites": true,
+      "generatorVersion": "0.2.1"
+    },
+    {
+      "id": "plan-parity-B1",
+      "status": "PASS",
+      "entirePlanEqual": true,
+      "noWrites": true,
+      "generatorVersion": "0.2.1"
+    },
+    {
+      "id": "plan-parity-S1",
+      "status": "PASS",
+      "entirePlanEqual": true,
+      "noWrites": true,
+      "generatorVersion": "0.2.1"
+    },
+    {
+      "id": "plan-parity-S2",
+      "status": "PASS",
+      "entirePlanEqual": true,
+      "noWrites": true,
+      "generatorVersion": "0.2.1"
+    },
+    {
+      "id": "plan-parity-I1",
+      "status": "PASS",
+      "entirePlanEqual": true,
+      "noWrites": true,
+      "generatorVersion": "0.2.1"
+    },
+    {
+      "id": "actual-window-f2-generation",
+      "status": "PASS",
+      "files": 44,
+      "allBytesMatchCli": true,
+      "customPort": 3409,
+      "noWritesBeforeApply": true,
+      "hostNodeDockerCodeAbsent": true,
+      "commandSubstitutionNotExecuted": true
+    }
+  ],
+  "errors": []
+}

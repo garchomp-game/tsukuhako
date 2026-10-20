@@ -1,0 +1,1 @@
+{"template":"S1","baseURL":"http://localhost:3403","mode":"api","startedAt":"2026-10-20T05:00:58.799Z","endedAt":"2026-10-20T05:00:59.489Z","result":"PASS","observations":["health 200 with status only","real preview POST 200 with normalized text and length 5","whitespace input 400 INVALID_INPUT"]}

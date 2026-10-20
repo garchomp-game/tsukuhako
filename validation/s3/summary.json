@@ -1,0 +1,72 @@
+{
+  "templateId": "S3",
+  "version": "0.1.0",
+  "testedAt": "2026-10-20T02:59:47.787282+00:00",
+  "result": "BLOCKED",
+  "localResult": "PASS",
+  "scope": "Additional read-only cloud starter; Linux local container/build/missing-and-failure UI/SQL permissions/standalone final ZIP validated. Dedicated live cloud endpoint/key not provided.",
+  "environment": {
+    "os": "Linux Mint 22.3",
+    "architecture": "x86_64",
+    "kernel": "7.0.0-31-generic",
+    "docker": "29.9.1",
+    "compose": "5.6.0",
+    "devcontainerCli": "0.89.0",
+    "node": "24.22.0",
+    "npm": "11.17.0",
+    "visualQA": "Google Chrome 155.0.8059.84 desktop/mobile; images inspected by agent",
+    "sql": "Supabase PostgreSQL17.11 isolated temporary DB; PostgreSQL18.6 portless temporary container",
+    "browserAutomation": "Playwright1.64.1 controlling host Chrome155.0.8059.84"
+  },
+  "blocked": [
+    {
+      "item": "Live Supabase cloud data fetch and SQL application",
+      "reason": "Dedicated learning project URL/public key not provided; no account/project was created."
+    }
+  ],
+  "notRun": [
+    "VS Code UI",
+    "Windows/WSL device",
+    "macOS",
+    "ARM",
+    "fresh-PC install",
+    "GitHub-hosted CI",
+    "source HMR-specific test",
+    "cloud-data persistence/rebuild",
+    "beginner usability study"
+  ],
+  "finalZip": {
+    "result": "PASS",
+    "finalZip": "S3-0.1.0.zip",
+    "sha256": "0ac8439d5d23d7fa6bbac18aafc78c0894a3844bab75a5ec41e7089a540557de",
+    "unpackPath": "validation/s3/runs/最終 ZIP 新規展開/S3",
+    "handAuthoredFilesMatch": true,
+    "generatedChanges": [],
+    "sourceFrozen": true
+  },
+  "evidence": {
+    "localSupabaseSQL": "01-local-permissions.log",
+    "portlessSQL": "02-portless-sql-harness.log",
+    "devcontainer": "03-devcontainer.log",
+    "staticUnitBuild": "05-check-unit-build-fixed.log",
+    "finalZipUp": "12-final-zip-up.log",
+    "finalZipStaticUnitBuild": "13-final-zip-check.log",
+    "finalZipBrowser": "15-final-zip-browser.log",
+    "finalZipGuards": "16-final-zip-guards.json",
+    "restart": "17-final-zip-restart.log",
+    "settingsRemovedAfterRestart": "19-restarted-guidance.log",
+    "finalZipSQL": "20-final-zip-sql.log",
+    "finalStop": "21-final-stop.log",
+    "resources": "resources-final.json",
+    "desktop": "ui-desktop.png",
+    "mobile": "ui-mobile.png"
+  },
+  "resourcePolicy": "Both S3 app containers stopped, dependency/cache volumes/images retained. Temporary SQL containers self-removed; temporary DB in task-owned S2 stack dropped. No cloud resources or shared Docker resources modified.",
+  "warnings": [
+    "Initial lint link issue fixed; check/test/build rerun passed.",
+    "Initial browser harness counted Next development button; scoped to main. A follow-up env-removal assertion assumed live values unload; README requires dev restart and final ZIP restart verified missing state.",
+    "S3 disables Next dev indicator to keep the mobile reload button unobstructed.",
+    "Live cloud BLOCKED is not converted to PASS by local SQL or fixture results."
+  ],
+  "timing": "CLI log timestamps record startup. Browser15 measured4.06s and restarted guidance19 measured1.83s. No inferred end-to-end install duration claimed."
+}

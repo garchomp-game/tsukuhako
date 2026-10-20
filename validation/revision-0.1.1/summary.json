@@ -1,0 +1,133 @@
+{
+  "version": "0.1.1",
+  "recordedAt": "2026-10-20T05:06:35.827506+00:00",
+  "result": "PASS",
+  "scope": "Requested review corrections and targeted Linux local regression; final archive checks are separate in validation/package-audit.json and external handoff-check.json.",
+  "findings": {
+    "R1": {
+      "result": "PASS",
+      "evidence": "validation/revision-0.1.1/adapter/summary.json"
+    },
+    "R2": {
+      "result": "PASS",
+      "evidence": "validation/revision-0.1.1/s2/summary.json"
+    },
+    "R3": {
+      "result": "PASS",
+      "evidence": "validation/revision-0.1.1/learning/summary.json"
+    },
+    "P3-adapter-record": {
+      "result": "PASS",
+      "evidence": "validation/revision-0.1.1/adapter/summary.json"
+    },
+    "P3-F1-eslint-rationale": {
+      "result": "PASS",
+      "evidence": "validation/revision-0.1.1/learning/summary.json"
+    },
+    "S2-fresh-final-zip": {
+      "result": "PASS",
+      "evidence": "validation/revision-0.1.1/s2/summary.json"
+    },
+    "generator-current-catalog": {
+      "result": "PASS",
+      "evidence": "validation/revision-0.1.1/generator/result.json"
+    }
+  },
+  "components": [
+    {
+      "id": "F1",
+      "version": "0.1.1",
+      "archive": "dist/F1-0.1.1.zip",
+      "sha256": "eec4b54362783a6c91379f785f983827db7cf7def57acaceaabfc65d1b5bef20"
+    },
+    {
+      "id": "F2",
+      "version": "0.1.0",
+      "archive": "dist/F2-0.1.0.zip",
+      "sha256": "7175148d110a8d888549e3e7d9dc037960e2a692daf283d9dab8df06f0bdbba7"
+    },
+    {
+      "id": "B1",
+      "version": "0.1.1",
+      "archive": "dist/B1-0.1.1.zip",
+      "sha256": "c3e106499f4e3e3154c38a20c68a115f86f6fd1e706e6df28e669c30f450790c"
+    },
+    {
+      "id": "S1",
+      "version": "0.1.1",
+      "archive": "dist/S1-0.1.1.zip",
+      "sha256": "9e41c0096df9e0a9735c8f85668eb770666d5ffd3e4d17204fbf65f6d82dccf2"
+    },
+    {
+      "id": "S2",
+      "version": "0.1.1",
+      "archive": "dist/S2-0.1.1.zip",
+      "sha256": "1fff412887ed8657a32326176d6162f7a8f73d5f79d38700e35aaf873368f673"
+    },
+    {
+      "id": "I1",
+      "version": "0.1.0",
+      "archive": "dist/I1-0.1.0.zip",
+      "sha256": "2861fea034ced0baf1dd484f78c19be8bbfbb2ccc8ac8c880e0ec3f5e989e398"
+    },
+    {
+      "id": "S3",
+      "version": "0.1.0",
+      "archive": "dist/S3-0.1.0.zip",
+      "sha256": "0ac8439d5d23d7fa6bbac18aafc78c0894a3844bab75a5ec41e7089a540557de"
+    }
+  ],
+  "preservedOriginal": {
+    "fullArchive": "dist/otoka-devcontainer-starters-0.1.0-2026-10-20.zip",
+    "sha256": "a3c569b795419aa1b16be3019ca6be9cdfb1f81d89ea64f9e876d7baef5766d1",
+    "individualArchives": [
+      {
+        "file": "dist/F1-0.1.0.zip",
+        "sha256": "dd95c335370d9d7bd926d10e2ddda58cb4295591301b32e171e10e2a8dac2cee"
+      },
+      {
+        "file": "dist/F2-0.1.0.zip",
+        "sha256": "7175148d110a8d888549e3e7d9dc037960e2a692daf283d9dab8df06f0bdbba7"
+      },
+      {
+        "file": "dist/B1-0.1.0.zip",
+        "sha256": "cdbeb3954971d048c835d558e02a1ef924d550c6b1c86810fa3ca86366e88ec3"
+      },
+      {
+        "file": "dist/S1-0.1.0.zip",
+        "sha256": "f6549c73145644c5d5f277f2cd6c000e8b96b93808ab0555ca497eb235a9644c"
+      },
+      {
+        "file": "dist/S2-0.1.0.zip",
+        "sha256": "c18b3b217a8b17f9fc9aa87854047d927550fa23aee8d12f1de913ec55543bac"
+      },
+      {
+        "file": "dist/I1-0.1.0.zip",
+        "sha256": "2861fea034ced0baf1dd484f78c19be8bbfbb2ccc8ac8c880e0ec3f5e989e398"
+      },
+      {
+        "file": "dist/S3-0.1.0.zip",
+        "sha256": "0ac8439d5d23d7fa6bbac18aafc78c0894a3844bab75a5ec41e7089a540557de"
+      }
+    ]
+  },
+  "evidence": {
+    "adapter": "validation/revision-0.1.1/adapter/summary.json",
+    "learning": "validation/revision-0.1.1/learning/summary.json",
+    "s2": "validation/revision-0.1.1/s2/summary.json",
+    "generator": "validation/revision-0.1.1/generator/result.json"
+  },
+  "notRun": [
+    "VS Code GUI",
+    "Windows + WSL",
+    "macOS / ARM",
+    "fresh PC setup",
+    "GitHub-hosted CI",
+    "beginner usability trial",
+    "adapter Docker/browser rerun in 0.1.1"
+  ],
+  "blocked": [
+    "S3 dedicated cloud connection: credentials/endpoint not provided"
+  ],
+  "resources": "validation/resources-final.json"
+}

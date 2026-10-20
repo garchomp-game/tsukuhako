@@ -1,0 +1,6 @@
+{
+  "changedOriginalFiles": [
+    "next-env.d.ts"
+  ],
+  "note": "Apply hash equality was captured separately before Next runtime. Next may normally regenerate next-env.d.ts."
+}

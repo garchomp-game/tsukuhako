@@ -1,0 +1,18 @@
+{
+  "id": "f1-hmr",
+  "startedAt": "2026-10-20T02:23:32.642379+00:00",
+  "command": [
+    "node",
+    "validation/frontend-api/probe.mjs",
+    "F1",
+    "validation/work/frontend-api/F1",
+    "http://127.0.0.1:23100",
+    "hmr"
+  ],
+  "cwd": ".",
+  "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+  "exitCode": 0,
+  "elapsedSeconds": 1.016,
+  "result": "PASS",
+  "log": "output.log"
+}

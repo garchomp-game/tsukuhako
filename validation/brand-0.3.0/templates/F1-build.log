@@ -1,0 +1,36 @@
+v24.22.0
+11.17.0
+npm warn deprecated eslint@9.39.5: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+
+added 174 packages in 3s
+npm notice
+npm notice New major version of npm available! 11.17.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
+
+> otoka-f1@0.1.2 check
+> npm run lint && npm run typecheck
+
+
+> otoka-f1@0.1.2 lint
+> eslint .
+
+
+> otoka-f1@0.1.2 typecheck
+> tsc --noEmit
+
+
+> otoka-f1@0.1.2 build
+> tsc --noEmit && vite build
+
+vite v8.3.4 building client environment for production...
+transforming...
+✓ 16 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.52 kB │ gzip:  0.38 kB
+dist/assets/index-CHK5pQsb.css    1.40 kB │ gzip:  0.69 kB
+dist/assets/index-CIYteDUN.js   220.81 kB │ gzip: 69.30 kB
+
+✓ built in 109ms

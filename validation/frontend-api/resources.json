@@ -1,0 +1,83 @@
+{
+  "scope": "Only trial resources created for frontend-api validation",
+  "projects": [
+    {
+      "template": "F1",
+      "composeProject": "otoka-f1-frontend-20261020",
+      "workspace": "validation/work/frontend-api/F1",
+      "hostPort": 23100,
+      "containerPort": 3000,
+      "volumes": [
+        "otoka-f1-frontend-20261020_dependencies",
+        "otoka-f1-frontend-20261020_npm-cache"
+      ],
+      "image": "otoka-f1-frontend-20261020-dev:0.1.0",
+      "state": "stopped; source and named volumes retained"
+    },
+    {
+      "template": "B1",
+      "composeProject": "otoka-b1-frontend-20261020",
+      "workspace": "validation/work/frontend-api/B1",
+      "hostPort": 23102,
+      "containerPort": 3000,
+      "volumes": [
+        "otoka-b1-frontend-20261020_dependencies",
+        "otoka-b1-frontend-20261020_npm-cache"
+      ],
+      "image": "otoka-b1-frontend-20261020-dev:0.1.0",
+      "state": "stopped; source and named volumes retained"
+    },
+    {
+      "template": "S1",
+      "composeProject": "otoka-s1-frontend-20261020",
+      "workspace": "validation/work/frontend-api/S1",
+      "hostPort": 23103,
+      "containerPort": 3000,
+      "volumes": [
+        "otoka-s1-frontend-20261020_dependencies",
+        "otoka-s1-frontend-20261020_npm-cache"
+      ],
+      "image": "otoka-s1-frontend-20261020-dev:0.1.0",
+      "state": "stopped; source and named volumes retained"
+    },
+    {
+      "template": "F1",
+      "composeProject": "otoka-f1-zip-20261020",
+      "workspace": "validation/work/frontend-api/新規 展開/F1",
+      "hostPort": 3300,
+      "containerPort": 3000,
+      "volumes": [
+        "otoka-f1-zip-20261020_dependencies",
+        "otoka-f1-zip-20261020_npm-cache"
+      ],
+      "image": "otoka-f1-zip-20261020-dev:0.1.0",
+      "state": "stopped; source and named volumes retained"
+    },
+    {
+      "template": "B1",
+      "composeProject": "otoka-b1-zip-20261020",
+      "workspace": "validation/work/frontend-api/新規 展開/B1",
+      "hostPort": 3302,
+      "containerPort": 3000,
+      "volumes": [
+        "otoka-b1-zip-20261020_dependencies",
+        "otoka-b1-zip-20261020_npm-cache"
+      ],
+      "image": "otoka-b1-zip-20261020-dev:0.1.0",
+      "state": "stopped; source and named volumes retained"
+    },
+    {
+      "template": "S1",
+      "composeProject": "otoka-s1-zip-20261020",
+      "workspace": "validation/work/frontend-api/新規 展開/S1",
+      "hostPort": 3303,
+      "containerPort": 3000,
+      "volumes": [
+        "otoka-s1-zip-20261020_dependencies",
+        "otoka-s1-zip-20261020_npm-cache"
+      ],
+      "image": "otoka-s1-zip-20261020-dev:0.1.0",
+      "state": "stopped; source and named volumes retained"
+    }
+  ]
+}

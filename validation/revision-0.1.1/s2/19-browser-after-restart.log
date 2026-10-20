@@ -1,0 +1,1 @@
+PASS: same note ID/body and original seed2 survived normal stop/restart; browser delete204 and reload; only seed2 remain

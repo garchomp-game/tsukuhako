@@ -1,0 +1,26 @@
+{
+  "number": 4,
+  "startedAt": "2026-10-20T05:00:18.694760+00:00",
+  "files": [
+    {
+      "path": "lib/preview.ts",
+      "source": "starter-templates/B1/lib/preview.ts",
+      "sha256": "b433f2c75b5b878e6a531552304aa5f7e989803b3d48b14896f2197b3b2d1b89"
+    },
+    {
+      "path": "app/api/health/route.ts",
+      "source": "starter-templates/B1/app/api/health/route.ts",
+      "sha256": "9350fa8f310cbc106c9467aaa9e53ecf15436509c4e3bb0efc5412c30e4d3826"
+    },
+    {
+      "path": "app/api/preview/route.ts",
+      "source": "starter-templates/B1/app/api/preview/route.ts",
+      "sha256": "b1e438bf73569098fa21c7817effb0101da597dea8de5b2224c5fe17aec45a6b"
+    },
+    {
+      "path": "docs/API.md",
+      "source": "starter-templates/B1/docs/API.md",
+      "sha256": "6bac884e88bf338286dbec74bc79fdb9874cc7813090e801d840087b043d149e"
+    }
+  ]
+}

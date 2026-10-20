@@ -1,0 +1,52 @@
+import { chromium } from '../../../tools/node_modules/playwright/index.mjs';
+import fs from 'node:fs/promises';
+import assert from 'node:assert/strict';
+import path from 'node:path';
+const base='http://localhost:3504';
+const mode=process.argv[2];
+const evidence=path.join(import.meta.dirname,'lifecycle-note.json');
+const browser=await chromium.launch({executablePath:'/usr/bin/google-chrome',headless:true});
+try {
+  const page=await browser.newPage({viewport:{width:1280,height:960}});
+  await page.goto(base,{waitUntil:'networkidle'});
+  await page.getByRole('heading',{name:'ローカル学習メモ'}).waitFor();
+  const listed=await (await fetch(base+'/api/notes')).json();
+  if(mode==='before-stop') {
+    assert.equal(listed.notes.length,2);
+    const body=`0.1.1新規ZIPの保持試験 ${Date.now()} 📝`;
+    await page.getByLabel('本文',{exact:true}).fill(`　${body}　`);
+    const created=page.waitForResponse(r=>r.request().method()==='POST' && r.url().endsWith('/api/notes'));
+    await page.getByRole('button',{name:'保存する',exact:true}).click();
+    const response=await created;assert.equal(response.status(),201);
+    const note=(await response.json()).note;assert.equal(note.body,body);
+    await page.getByRole('button',{name:`編集: ${body}`,exact:true}).click();
+    const updatedBody=`${body} 更新済み`;
+    await page.getByLabel('本文',{exact:true}).fill(updatedBody);
+    const updated=page.waitForResponse(r=>r.request().method()==='PATCH');
+    await page.getByRole('button',{name:'更新する',exact:true}).click();
+    assert.equal((await updated).status(),200);
+    await page.reload({waitUntil:'networkidle'});
+    await page.getByText(updatedBody,{exact:true}).waitFor();
+    await fs.writeFile(evidence,JSON.stringify({id:note.id,body:updatedBody,seedIds:listed.notes.map(n=>n.id),scope:'synthetic learning data; must survive normal app/DB stop and restart'},null,2)+'\n');
+    await page.screenshot({path:path.join(import.meta.dirname,'fresh-desktop.png'),fullPage:true});
+    await page.setViewportSize({width:390,height:844});
+    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+    await page.screenshot({path:path.join(import.meta.dirname,'fresh-mobile.png'),fullPage:true});
+    console.log('PASS: exact seed2 → browser create/trim/update → reload preserved; synthetic note retained for stop/restart');
+  } else if(mode==='after-restart') {
+    const note=JSON.parse(await fs.readFile(evidence,'utf8'));
+    assert.equal(listed.notes.length,3);
+    assert.equal(listed.notes.find(n=>n.id===note.id)?.body,note.body);
+    for(const id of note.seedIds)assert.ok(listed.notes.some(n=>n.id===id));
+    await page.getByText(note.body,{exact:true}).waitFor();
+    await page.reload({waitUntil:'networkidle'});
+    await page.getByText(note.body,{exact:true}).waitFor();
+    const deleted=page.waitForResponse(r=>r.request().method()==='DELETE');
+    await page.getByRole('button',{name:`削除: ${note.body}`,exact:true}).click();
+    assert.equal((await deleted).status(),204);
+    await page.reload({waitUntil:'networkidle'});
+    assert.equal(await page.getByText(note.body,{exact:true}).count(),0);
+    assert.equal((await (await fetch(base+'/api/notes')).json()).notes.length,2);
+    console.log('PASS: same note ID/body and original seed2 survived normal stop/restart; browser delete204 and reload; only seed2 remain');
+  } else throw new Error('Expected before-stop or after-restart');
+} finally {await browser.close();}

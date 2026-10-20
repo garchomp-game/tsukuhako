@@ -1,0 +1,22 @@
+[
+  {
+    "url": "https://docs.npmjs.com/cli/v11/commands/npm-ci/",
+    "checked": "2026-10-20",
+    "purpose": "Frozen install and lifecycle behavior"
+  },
+  {
+    "url": "https://code.visualstudio.com/docs/devcontainers/create-dev-container",
+    "checked": "2026-10-20",
+    "purpose": "Existing project Dev Container/Compose workflow"
+  },
+  {
+    "url": "https://nodejs.org/api/fs.html",
+    "checked": "2026-10-20",
+    "purpose": "Exclusive write/open and symlink-safe filesystem operations"
+  },
+  {
+    "url": "https://github.com/npm/node-semver/blob/main/classes/range.js",
+    "checked": "2026-10-20",
+    "purpose": "Partial comparator semantics; unsupported forms route to manual review"
+  }
+]

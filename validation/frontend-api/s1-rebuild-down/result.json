@@ -1,0 +1,15 @@
+{
+  "id": "s1-rebuild-down",
+  "startedAt": "2026-10-20T02:33:08.025512+00:00",
+  "command": [
+    "docker",
+    "compose",
+    "down"
+  ],
+  "cwd": "validation/work/frontend-api/S1",
+  "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+  "exitCode": 0,
+  "elapsedSeconds": 0.415,
+  "result": "PASS",
+  "log": "output.log"
+}

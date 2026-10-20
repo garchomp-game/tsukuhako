@@ -1,0 +1,20 @@
+{
+  "template": "F1",
+  "event": "stage2-doctor",
+  "startedAt": "2026-10-20T05:02:28.593536+00:00",
+  "command": [
+    "<WORKSPACE>/tools/node_modules/.bin/devcontainer",
+    "exec",
+    "--workspace-folder",
+    "<WORKSPACE>/validation/revision-0.1.1/learning/runs/F1 空フォルダ 教材 0.1.1",
+    "npm",
+    "run",
+    "doctor"
+  ],
+  "cwd": "validation/revision-0.1.1/learning/runs/F1 空フォルダ 教材 0.1.1",
+  "endedAt": "2026-10-20T05:02:29.058308+00:00",
+  "exitCode": 0,
+  "elapsedSeconds": 0.465,
+  "result": "PASS",
+  "log": "output.log"
+}

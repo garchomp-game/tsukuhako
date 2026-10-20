@@ -1,0 +1,86 @@
+
+> otoka-s1@0.1.0 test:browser
+> playwright test
+
+
+Running 5 tests using 1 worker
+
+  ✓  1 [chromium] › tests/browser/preview.spec.ts:3:1 › navigate, submit to the real API, show normalized result, and clear (1.1s)
+  ✘  2 [chromium] › tests/browser/preview.spec.ts:22:1 › API input errors can be corrected and retried (481ms)
+  ✓  3 [chromium] › tests/browser/preview.spec.ts:35:1 › pending state blocks repeated submissions and editing until the response (515ms)
+  ✘  4 [chromium] › tests/browser/preview.spec.ts:62:1 › network failure and API failure show retryable public messages (491ms)
+  ✓  5 [chromium] › tests/browser/preview.spec.ts:78:1 › script-shaped input remains text and reload clears transient state (526ms)
+
+
+  1) [chromium] › tests/browser/preview.spec.ts:22:1 › API input errors can be corrected and retried 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: getByRole('alert')
+    Expected: "空白以外の文字を入力してください"
+    Error: strict mode violation: getByRole('alert') resolved to 2 elements:
+        1) <p role="alert" class="rounded-lg bg-red-50 p-4 text-red-900">空白以外の文字を入力してください</p> aka getByText('空白以外の文字を入力してください')
+        2) <div role="alert" aria-live="assertive" id="__next-route-announcer__"></div> aka locator('[id="__next-route-announcer__"]')
+
+    Call log:
+      - Expect "toHaveText" getByRole('alert') with timeout 5000ms
+      - waiting for getByRole('alert')
+
+
+      24 |   await page.getByLabel("送信することば").fill("   ");
+      25 |   await page.getByRole("button", { name: "プレビューを送信" }).click();
+    > 26 |   await expect(page.getByRole("alert")).toHaveText("空白以外の文字を入力してください");
+         |                                         ^
+      27 |   await page.getByLabel("送信することば").fill("😀".repeat(201));
+      28 |   await page.getByRole("button", { name: "プレビューを送信" }).click();
+      29 |   await expect(page.getByRole("alert")).toHaveText("200コードポイント以内で入力してください");
+        at /workspace/tests/browser/preview.spec.ts:26:41
+
+    Error Context: test-results/preview-API-input-errors-can-be-corrected-and-retried-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/preview-API-input-errors-can-be-corrected-and-retried-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/preview-API-input-errors-can-be-corrected-and-retried-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › tests/browser/preview.spec.ts:62:1 › network failure and API failure show retryable public messages 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('alert')
+    Expected substring: "通信に失敗しました"
+    Error: strict mode violation: getByRole('alert') resolved to 2 elements:
+        1) <p role="alert" class="rounded-lg bg-red-50 p-4 text-red-900">通信に失敗しました。開発サーバーと接続を確認して、もう一度お試しください。</p> aka getByText('通信に失敗しました。開発サーバーと接続を確認して、もう一度お試しください。')
+        2) <div role="alert" aria-live="assertive" id="__next-route-announcer__"></div> aka locator('[id="__next-route-announcer__"]')
+
+    Call log:
+      - Expect "toContainText" getByRole('alert') with timeout 5000ms
+      - waiting for getByRole('alert')
+
+
+      65 |   await page.route("**/api/preview", (route) => route.abort("internetdisconnected"));
+      66 |   await page.getByRole("button", { name: "プレビューを送信" }).click();
+    > 67 |   await expect(page.getByRole("alert")).toContainText("通信に失敗しました");
+         |                                         ^
+      68 |   await page.unroute("**/api/preview");
+      69 |   await page.route("**/api/preview", (route) => route.fulfill({ status: 500, contentType: "application/json", body: JSON.stringify({ stack: "internal host secret", error: { message: "internal failure" } }) }));
+      70 |   await page.getByRole("button", { name: "プレビューを送信" }).click();
+        at /workspace/tests/browser/preview.spec.ts:67:41
+
+    Error Context: test-results/preview-network-failure-an-2c3d2-w-retryable-public-messages-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/preview-network-failure-an-2c3d2-w-retryable-public-messages-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/preview-network-failure-an-2c3d2-w-retryable-public-messages-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [chromium] › tests/browser/preview.spec.ts:22:1 › API input errors can be corrected and retried 
+    [chromium] › tests/browser/preview.spec.ts:62:1 › network failure and API failure show retryable public messages 
+  3 passed (6.9s)

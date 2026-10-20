@@ -1,0 +1,16 @@
+{
+  "id": "g020-core-cli-tests",
+  "startedAt": "2026-10-20T08:39:39.288211+00:00",
+  "command": [
+    "npm",
+    "test",
+    "--prefix",
+    "generator"
+  ],
+  "cwd": ".",
+  "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+  "exitCode": 1,
+  "elapsedSeconds": 1.317,
+  "result": "FAIL",
+  "log": "output.log"
+}

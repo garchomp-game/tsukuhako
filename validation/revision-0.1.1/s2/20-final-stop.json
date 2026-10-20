@@ -1,0 +1,14 @@
+{
+  "name": "20-final-stop",
+  "startedAt": "2026-10-20T05:00:45.167414+00:00",
+  "elapsedSeconds": 3.124,
+  "command": [
+    "bash",
+    "-c",
+    "bash scripts/app.sh stop && bash scripts/db.sh stop"
+  ],
+  "cwd": "validation/revision-0.1.1/s2/runs/最終配布 新規起動/S2",
+  "exitCode": 0,
+  "result": "PASS",
+  "log": "20-final-stop.log"
+}

@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "counts": {
+    "originalNonValidationFiles": 394,
+    "inheritedHistoricalFiles": 952,
+    "I1SourceFiles": 28,
+    "adapterFiles": 10
+  },
+  "checks": [
+    "Original artifacts/sources, inherited evidence, I1 and adapter byte identity",
+    "Eight package/lock dependency graphs unchanged; only own name/version/productName differ",
+    "Six runtime images/configurations/scripts/DB IDs unchanged; only Dev Container display names differ",
+    "Seven template ZIP hashes, manifests, catalog versions and source bytes match"
+  ],
+  "issues": []
+}

@@ -1,0 +1,6 @@
+ Network otoka-f2-first-246531851_default Creating 
+ Network otoka-f2-first-246531851_default Creating 
+ Network otoka-f2-first-246531851_default Error Error response from daemon: all predefined address pools have been fully subnetted
+ network:default failed to create network otoka-f2-first-246531851_default: Error response from daemon: all predefined address pools have been fully subnetted 
+ Container otoka-f2-first-246531851-app-1 Creating 
+failed to create network otoka-f2-first-246531851_default: Error response from daemon: all predefined address pools have been fully subnetted

@@ -1,0 +1,1 @@
+{"status":"PASS","id":"F2","base":"http://localhost:3661","records":["Source edit reflected in running Dev Container by HMR","Two-page navigation, input and clear"],"screenshots":true,"scope":"Final standalone generator output, real Dev Container CLI and browser; VS Code UI is NOT_RUN"}

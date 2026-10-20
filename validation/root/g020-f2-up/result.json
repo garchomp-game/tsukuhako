@@ -1,0 +1,16 @@
+{
+  "id": "g020-f2-up",
+  "startedAt": "2026-10-20T08:58:58.796433+00:00",
+  "command": [
+    "<WORKSPACE>/tools/node_modules/.bin/devcontainer",
+    "up",
+    "--workspace-folder",
+    "."
+  ],
+  "cwd": "validation/generator-0.2.0/runs/startup/F2 学習",
+  "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+  "exitCode": 0,
+  "elapsedSeconds": 16.562,
+  "result": "PASS",
+  "log": "output.log"
+}

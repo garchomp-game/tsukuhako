@@ -1,0 +1,19 @@
+{
+  "template": "F1",
+  "event": "tests-http",
+  "startedAt": "2026-10-20T05:02:35.689063+00:00",
+  "command": [
+    "<WORKSPACE>/tools/node_modules/.bin/devcontainer",
+    "exec",
+    "--workspace-folder",
+    "<WORKSPACE>/validation/revision-0.1.1/learning/runs/F1 空フォルダ 教材 0.1.1",
+    "npm",
+    "test"
+  ],
+  "cwd": "validation/revision-0.1.1/learning/runs/F1 空フォルダ 教材 0.1.1",
+  "endedAt": "2026-10-20T05:02:36.555134+00:00",
+  "exitCode": 0,
+  "elapsedSeconds": 0.866,
+  "result": "PASS",
+  "log": "output.log"
+}

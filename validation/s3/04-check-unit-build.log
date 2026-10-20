@@ -1,0 +1,12 @@
+
+> otoka-s3-readonly-catalog@0.1.0 check
+> next typegen && tsc --noEmit && eslint .
+
+Generating route types...
+✓ Types generated successfully
+
+/workspace/app/page.tsx
+  21:25  error  Do not use an `<a>` element to navigate to `/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+
+✖ 1 problem (1 error, 0 warnings)
+

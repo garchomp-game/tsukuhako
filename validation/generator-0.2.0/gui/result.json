@@ -1,0 +1,151 @@
+{
+  "status": "PASS",
+  "records": [
+    {
+      "id": "G13-renderer-and-sandbox",
+      "status": "PASS",
+      "metadata": {
+        "electron": "44.9.1",
+        "node": "24.22.0",
+        "appPath": "<WORKSPACE>/validation/generator-0.2.0/runs/gui-relocated-tested/別の 場所/meikyo-generator-linux-x64-0.2.0/resources/app",
+        "visible": true,
+        "preferences": {
+          "allowRunningInsecureContent": false,
+          "contextIsolation": true,
+          "disableDialogs": false,
+          "disablePopups": false,
+          "enableBlinkFeatures": "",
+          "experimentalFeatures": false,
+          "javascript": true,
+          "nodeIntegration": false,
+          "nodeIntegrationInSubFrames": false,
+          "nodeIntegrationInWorker": false,
+          "safeDialogs": false,
+          "safeDialogsMessage": "",
+          "sandbox": true,
+          "webSecurity": true,
+          "webviewTag": false
+        },
+        "arguments": [
+          "<WORKSPACE>/validation/generator-0.2.0/runs/gui-relocated-tested/別の 場所/meikyo-generator-linux-x64-0.2.0/meikyo-generator",
+          "--inspect=0",
+          "--remote-debugging-port=0",
+          "--user-data-dir=<WORKSPACE>/validation/generator-0.2.0/runs/gui-relocated-tested/別の 場所/profile"
+        ]
+      },
+      "exposed": {
+        "require": "undefined",
+        "process": "undefined",
+        "keys": [
+          "apply",
+          "chooseParentDirectory",
+          "diagnose",
+          "getTemplates",
+          "openInVSCode",
+          "plan"
+        ]
+      },
+      "hostNode": "PATH contains only test code, cksum and bash; no node/npm/Docker"
+    },
+    {
+      "id": "G13-real-ipc-validation",
+      "status": "PASS",
+      "codes": [
+        "INVALID_OPTIONS",
+        "INVALID_OPTIONS",
+        "INVALID_OPTIONS",
+        "NOT_CREATED"
+      ]
+    },
+    {
+      "id": "G13-protocol-allowlist",
+      "status": "PASS",
+      "mainSourceStatus": 404
+    },
+    {
+      "id": "G03-G07-G11-G12-back-correct-preview",
+      "status": "PASS",
+      "noWritesBeforeApply": true,
+      "inputRetained": true,
+      "errorFocused": true,
+      "DockerMissingDoesNotBlock": true
+    },
+    {
+      "id": "G12-worker-failure-retry-and-created-actions",
+      "status": "PASS",
+      "workerTerminated": 1023681,
+      "guideAndReadme": true,
+      "clipboardMatches": true,
+      "editor": "Explicit button; test launcher receives separate -- and destination arguments. Actual VS Code UI NOT_RUN."
+    },
+    {
+      "id": "G08-ui-cli-parity",
+      "status": "PASS",
+      "files": 44
+    },
+    {
+      "id": "G12-reload-invalidates",
+      "status": "PASS",
+      "code": "PLAN_STALE"
+    },
+    {
+      "id": "G12-double-apply",
+      "status": "PASS",
+      "results": [
+        "created",
+        "BUSY"
+      ]
+    },
+    {
+      "id": "G01-G04-G08-F1",
+      "status": "PASS",
+      "files": 43,
+      "version": "0.1.1",
+      "parity": true
+    },
+    {
+      "id": "G01-G04-G08-F2",
+      "status": "PASS",
+      "files": 44,
+      "version": "0.1.0",
+      "parity": true
+    },
+    {
+      "id": "G01-G04-G08-B1",
+      "status": "PASS",
+      "files": 42,
+      "version": "0.1.1",
+      "parity": true
+    },
+    {
+      "id": "G01-G04-G08-S1",
+      "status": "PASS",
+      "files": 50,
+      "version": "0.1.1",
+      "parity": true
+    },
+    {
+      "id": "G01-G04-G08-S2",
+      "status": "PASS",
+      "files": 58,
+      "version": "0.1.1",
+      "parity": true
+    },
+    {
+      "id": "G01-G04-G08-I1",
+      "status": "PASS",
+      "files": 30,
+      "version": "0.1.0",
+      "parity": true
+    },
+    {
+      "id": "G14-relocated-binary",
+      "status": "PASS",
+      "archive": "meikyo-generator-linux-x64-0.2.0.tar.gz",
+      "sha256": "a79d98db1bada410989abe5ae2dcf0634e5f138df091827a684edd5da10990cc",
+      "noHostNode": true,
+      "sourceDependency": false
+    }
+  ],
+  "errors": []
+}

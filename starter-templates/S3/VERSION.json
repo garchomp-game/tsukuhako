@@ -1,0 +1,13 @@
+{
+  "id": "S3",
+  "version": "0.1.1",
+  "requirementsVersion": "0.3",
+  "node": "24.22.0",
+  "npm": "11.17.0",
+  "image": "node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5",
+  "next": "16.4.2",
+  "react": "19.3.1",
+  "typescript": "5.9.3",
+  "tailwind": "4.3.3",
+  "connection": "Supabase public read-only; live cloud BLOCKED: dedicated URL/public key not provided"
+}

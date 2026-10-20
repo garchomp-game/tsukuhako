@@ -1,0 +1,16 @@
+{
+  "result": "PASS",
+  "observedAt": "2026-10-20T04:59:32.569126+00:00",
+  "project": "otoka-s2-2811127744",
+  "runningOwnedContainers": [],
+  "releasedHostPorts": [
+    3504,
+    54621,
+    54622,
+    54623,
+    54620
+  ],
+  "dbVolumeRetained": "supabase_db_otoka-s2-2811127744",
+  "sameVolumeCreatedAt": "2026-10-20T13:55:56+09:00",
+  "resetUsed": false
+}

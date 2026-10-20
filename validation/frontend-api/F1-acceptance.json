@@ -1,0 +1,667 @@
+{
+  "template": "F1",
+  "version": "0.1.0",
+  "recordedAt": "2026-10-20T02:35:03.555692+00:00",
+  "environment": {
+    "os": "Linux Mint 22.3",
+    "architecture": "x86_64",
+    "docker": "29.9.1",
+    "compose": "5.6.0",
+    "devcontainerCLI": "0.89.0",
+    "containerNode": "24.22.0",
+    "containerNpm": "11.17.0",
+    "browser": "Chromium 156.0.8078.4 (Playwright 1.64.1); host Chrome 155.0.8059.84"
+  },
+  "cache": "Fresh project dependency/cache volumes; shared Docker image/layers were reused. Host caches were not globally deleted.",
+  "criteria": [
+    {
+      "id": "A01",
+      "applicable": true,
+      "status": "PASS",
+      "evidence": [
+        "f1-zip-up",
+        "f1-zip-probe"
+      ],
+      "observation": "別フォルダへZIP展開・単独起動"
+    },
+    {
+      "id": "A02",
+      "applicable": true,
+      "status": "PASS",
+      "evidence": [
+        "f1-diagnostics"
+      ],
+      "observation": "設定欠落・Docker未接続・不正ポートの診断"
+    },
+    {
+      "id": "A03",
+      "applicable": true,
+      "status": "PASS",
+      "evidence": [
+        "f1-up",
+        "f1-zip-up"
+      ],
+      "observation": "固定Node/npmとlockfileから新規volumeにnpm ci"
+    },
+    {
+      "id": "A04",
+      "applicable": true,
+      "status": "PASS",
+      "evidence": [
+        "f1-up",
+        "f1-check"
+      ],
+      "observation": "Dev Container CLIで作成・接続・check実行。VS Code UIは別の未実測項目"
+    },
+    {
+      "id": "A05",
+      "applicable": true,
+      "status": "PASS",
+      "evidence": [
+        "f1-http",
+        "f1-browser"
+      ],
+      "observation": "実HTTP契約と構成固有の主要操作"
+    },
+    {
+      "id": "A06",
+      "applicable": true,
+      "status": "PASS",
+      "evidence": [
+        "f1-hmr"
+      ],
+      "observation": "ソース変更が開発サーバー再起動なしで反映"
+    },
+    {
+      "id": "A07",
+      "applicable": true,
+      "status": "NOT_RUN",
+      "evidence": [
+        "f1-stop",
+        "f1-restart-probe"
+      ],
+      "observation": "CLIによる停止・再開と編集保持はPASS。VS Code再接続の実操作はNOT_RUN。"
+    },
+    {
+      "id": "A08",
+      "applicable": true,
+      "status": "PASS",
+      "evidence": [
+        "f1-rebuild-down",
+        "f1-rebuild-up",
+        "f1-rebuild-probe"
+      ],
+      "observation": "compose down（volume保持）→up後も編集と主要動作を保持"
+    },
+    {
+      "id": "A09",
+      "applicable": false,
+      "status": "NOT_RUN",
+      "evidence": [],
+      "observation": "DBなしのステートレス構成のためmigration/seed/DB resetは対象外。"
+    },
+    {
+      "id": "A10",
+      "applicable": true,
+      "status": "PASS",
+      "evidence": [
+        "f1-zip-probe",
+        "f1-coexist-original"
+      ],
+      "observation": "同一テンプレートの別ZIPコピーを異なるproject/port/volumeで同時利用"
+    },
+    {
+      "id": "A11",
+      "applicable": true,
+      "status": "PASS",
+      "evidence": [
+        "f1-http",
+        "f1-browser"
+      ],
+      "observation": "固定のHTTP契約・ブラウザ操作テストを実行"
+    },
+    {
+      "id": "A12",
+      "applicable": true,
+      "status": "NOT_RUN",
+      "evidence": [
+        "f1-check",
+        "f1-http",
+        "f1-build"
+      ],
+      "observation": "workflow同梱、同じcheck/test/buildはローカルPASS。GitHubへのpush/実CIは依頼範囲外でNOT_RUN。"
+    },
+    {
+      "id": "A13",
+      "applicable": true,
+      "status": "PASS",
+      "evidence": [
+        "f1-audit",
+        "f1-up"
+      ],
+      "observation": "実.env・資格情報パターン・制作者パスを除外しloopback公開を確認"
+    },
+    {
+      "id": "A14",
+      "applicable": true,
+      "status": "NOT_RUN",
+      "evidence": [
+        "f1-zip-up",
+        "f1-hmr",
+        "f1-diagnostics"
+      ],
+      "observation": "日本語教材のconfigure/doctor/依存復元/起動/変更/復旧はCLIで実測。教材のVS Code操作と未導入PC・初学者による試用はNOT_RUN。"
+    },
+    {
+      "id": "A15",
+      "applicable": true,
+      "status": "PASS",
+      "evidence": [],
+      "observation": "環境・未検証OS・CLIとVS Code実操作の区別を記録"
+    },
+    {
+      "id": "A16",
+      "applicable": true,
+      "status": "NOT_RUN",
+      "evidence": [],
+      "observation": "この構成のソース・教材・実測・試験ZIPは完了。全体catalog/REPORT/最終配布は統合担当の確認対象。"
+    }
+  ],
+  "runs": [
+    {
+      "id": "f1-audit",
+      "startedAt": "2026-10-20T02:26:23.731547+00:00",
+      "command": [
+        "python3",
+        "validation/frontend-api/audit.py",
+        "F1"
+      ],
+      "cwd": ".",
+      "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+      "exitCode": 0,
+      "elapsedSeconds": 0.07,
+      "result": "PASS",
+      "log": "f1-audit/output.log"
+    },
+    {
+      "id": "f1-browser",
+      "startedAt": "2026-10-20T02:22:52.143364+00:00",
+      "command": [
+        "devcontainer",
+        "exec",
+        "--workspace-folder",
+        ".",
+        "npm",
+        "run",
+        "test:browser"
+      ],
+      "cwd": "validation/work/frontend-api/F1",
+      "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+      "exitCode": 0,
+      "elapsedSeconds": 2.669,
+      "result": "PASS",
+      "log": "f1-browser/output.log"
+    },
+    {
+      "id": "f1-browser-setup",
+      "startedAt": "2026-10-20T02:22:02.982648+00:00",
+      "command": [
+        "devcontainer",
+        "exec",
+        "--workspace-folder",
+        ".",
+        "npm",
+        "run",
+        "test:setup"
+      ],
+      "cwd": "validation/work/frontend-api/F1",
+      "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+      "exitCode": 0,
+      "elapsedSeconds": 49.13,
+      "result": "PASS",
+      "log": "f1-browser-setup/output.log"
+    },
+    {
+      "id": "f1-build",
+      "startedAt": "2026-10-20T02:22:00.724815+00:00",
+      "command": [
+        "devcontainer",
+        "exec",
+        "--workspace-folder",
+        ".",
+        "npm",
+        "run",
+        "build"
+      ],
+      "cwd": "validation/work/frontend-api/F1",
+      "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+      "exitCode": 0,
+      "elapsedSeconds": 2.218,
+      "result": "PASS",
+      "log": "f1-build/output.log"
+    },
+    {
+      "id": "f1-check",
+      "startedAt": "2026-10-20T02:21:38.683150+00:00",
+      "command": [
+        "devcontainer",
+        "exec",
+        "--workspace-folder",
+        ".",
+        "npm",
+        "run",
+        "check"
+      ],
+      "cwd": "validation/work/frontend-api/F1",
+      "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+      "exitCode": 0,
+      "elapsedSeconds": 3.627,
+      "result": "PASS",
+      "log": "f1-check/output.log"
+    },
+    {
+      "id": "f1-coexist-original",
+      "startedAt": "2026-10-20T02:25:05.771964+00:00",
+      "command": [
+        "node",
+        "validation/frontend-api/probe.mjs",
+        "F1",
+        "validation/work/frontend-api/F1",
+        "http://localhost:23100",
+        "preserved"
+      ],
+      "cwd": ".",
+      "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+      "exitCode": 0,
+      "elapsedSeconds": 1.376,
+      "result": "PASS",
+      "log": "f1-coexist-original/output.log"
+    },
+    {
+      "id": "f1-configure",
+      "startedAt": "2026-10-20T02:21:12.811656+00:00",
+      "command": [
+        "bash",
+        "scripts/configure.sh",
+        "--name",
+        "otoka-f1-frontend-20261020",
+        "--port",
+        "23100"
+      ],
+      "cwd": "validation/work/frontend-api/F1",
+      "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+      "exitCode": 0,
+      "elapsedSeconds": 0.008,
+      "result": "PASS",
+      "log": "f1-configure/output.log"
+    },
+    {
+      "id": "f1-dev-start",
+      "startedAt": "2026-10-20T02:23:32.494995+00:00",
+      "command": [
+        "docker",
+        "compose",
+        "exec",
+        "-d",
+        "app",
+        "sh",
+        "-c",
+        "npm run dev > /tmp/otoka-dev.log 2>&1"
+      ],
+      "cwd": "validation/work/frontend-api/F1",
+      "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+      "exitCode": 0,
+      "elapsedSeconds": 0.114,
+      "result": "PASS",
+      "log": "f1-dev-start/output.log"
+    },
+    {
+      "id": "f1-diagnostics",
+      "startedAt": "2026-10-20T02:23:52.761976+00:00",
+      "command": [
+        "python3",
+        "validation/frontend-api/diagnose.py",
+        "F1"
+      ],
+      "cwd": ".",
+      "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+      "exitCode": 0,
+      "elapsedSeconds": 0.114,
+      "result": "PASS",
+      "log": "f1-diagnostics/output.log"
+    },
+    {
+      "id": "f1-final-stop",
+      "startedAt": "2026-10-20T02:25:55.581524+00:00",
+      "command": [
+        "docker",
+        "compose",
+        "stop"
+      ],
+      "cwd": "validation/work/frontend-api/F1",
+      "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+      "exitCode": 0,
+      "elapsedSeconds": 0.317,
+      "result": "PASS",
+      "log": "f1-final-stop/output.log"
+    },
+    {
+      "id": "f1-finalzip-configure",
+      "startedAt": "2026-10-20T02:28:12.707152+00:00",
+      "command": [
+        "bash",
+        "scripts/configure.sh",
+        "--name",
+        "otoka-f1-finaldoctor-20261020",
+        "--port",
+        "4300"
+      ],
+      "cwd": "validation/work/frontend-api/最終 追加/F1",
+      "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+      "exitCode": 0,
+      "elapsedSeconds": 0.008,
+      "result": "PASS",
+      "log": "f1-finalzip-configure/output.log"
+    },
+    {
+      "id": "f1-finalzip-doctor",
+      "startedAt": "2026-10-20T02:28:12.757113+00:00",
+      "command": [
+        "bash",
+        "scripts/doctor-host.sh"
+      ],
+      "cwd": "validation/work/frontend-api/最終 追加/F1",
+      "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+      "exitCode": 0,
+      "elapsedSeconds": 0.164,
+      "result": "PASS",
+      "log": "f1-finalzip-doctor/output.log"
+    },
+    {
+      "id": "f1-hmr",
+      "startedAt": "2026-10-20T02:23:32.642379+00:00",
+      "command": [
+        "node",
+        "validation/frontend-api/probe.mjs",
+        "F1",
+        "validation/work/frontend-api/F1",
+        "http://127.0.0.1:23100",
+        "hmr"
+      ],
+      "cwd": ".",
+      "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+      "exitCode": 0,
+      "elapsedSeconds": 1.016,
+      "result": "PASS",
+      "log": "f1-hmr/output.log"
+    },
+    {
+      "id": "f1-http",
+      "startedAt": "2026-10-20T02:21:59.826751+00:00",
+      "command": [
+        "devcontainer",
+        "exec",
+        "--workspace-folder",
+        ".",
+        "npm",
+        "test"
+      ],
+      "cwd": "validation/work/frontend-api/F1",
+      "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+      "exitCode": 0,
+      "elapsedSeconds": 0.865,
+      "result": "PASS",
+      "log": "f1-http/output.log"
+    },
+    {
+      "id": "f1-rebuild-dev",
+      "startedAt": "2026-10-20T02:24:14.041846+00:00",
+      "command": [
+        "docker",
+        "compose",
+        "exec",
+        "-d",
+        "app",
+        "sh",
+        "-c",
+        "npm run dev > /tmp/otoka-dev.log 2>&1"
+      ],
+      "cwd": "validation/work/frontend-api/F1",
+      "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+      "exitCode": 0,
+      "elapsedSeconds": 0.114,
+      "result": "PASS",
+      "log": "f1-rebuild-dev/output.log"
+    },
+    {
+      "id": "f1-rebuild-down",
+      "startedAt": "2026-10-20T02:24:10.644770+00:00",
+      "command": [
+        "docker",
+        "compose",
+        "down"
+      ],
+      "cwd": "validation/work/frontend-api/F1",
+      "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+      "exitCode": 0,
+      "elapsedSeconds": 0.365,
+      "result": "PASS",
+      "log": "f1-rebuild-down/output.log"
+    },
+    {
+      "id": "f1-rebuild-probe",
+      "startedAt": "2026-10-20T02:24:14.189177+00:00",
+      "command": [
+        "node",
+        "validation/frontend-api/probe.mjs",
+        "F1",
+        "validation/work/frontend-api/F1",
+        "http://127.0.0.1:23100",
+        "preserved"
+      ],
+      "cwd": ".",
+      "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+      "exitCode": 0,
+      "elapsedSeconds": 0.865,
+      "result": "PASS",
+      "log": "f1-rebuild-probe/output.log"
+    },
+    {
+      "id": "f1-rebuild-up",
+      "startedAt": "2026-10-20T02:24:11.040494+00:00",
+      "command": [
+        "devcontainer",
+        "up",
+        "--workspace-folder",
+        "."
+      ],
+      "cwd": "validation/work/frontend-api/F1",
+      "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+      "exitCode": 0,
+      "elapsedSeconds": 2.969,
+      "result": "PASS",
+      "log": "f1-rebuild-up/output.log"
+    },
+    {
+      "id": "f1-restart",
+      "startedAt": "2026-10-20T02:24:08.500120+00:00",
+      "command": [
+        "devcontainer",
+        "up",
+        "--workspace-folder",
+        "."
+      ],
+      "cwd": "validation/work/frontend-api/F1",
+      "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+      "exitCode": 0,
+      "elapsedSeconds": 0.966,
+      "result": "PASS",
+      "log": "f1-restart/output.log"
+    },
+    {
+      "id": "f1-restart-dev",
+      "startedAt": "2026-10-20T02:24:09.500011+00:00",
+      "command": [
+        "docker",
+        "compose",
+        "exec",
+        "-d",
+        "app",
+        "sh",
+        "-c",
+        "npm run dev > /tmp/otoka-dev.log 2>&1"
+      ],
+      "cwd": "validation/work/frontend-api/F1",
+      "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+      "exitCode": 0,
+      "elapsedSeconds": 0.114,
+      "result": "PASS",
+      "log": "f1-restart-dev/output.log"
+    },
+    {
+      "id": "f1-restart-probe",
+      "startedAt": "2026-10-20T02:24:09.649935+00:00",
+      "command": [
+        "node",
+        "validation/frontend-api/probe.mjs",
+        "F1",
+        "validation/work/frontend-api/F1",
+        "http://127.0.0.1:23100",
+        "preserved"
+      ],
+      "cwd": ".",
+      "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+      "exitCode": 0,
+      "elapsedSeconds": 0.966,
+      "result": "PASS",
+      "log": "f1-restart-probe/output.log"
+    },
+    {
+      "id": "f1-stop",
+      "startedAt": "2026-10-20T02:24:08.201939+00:00",
+      "command": [
+        "docker",
+        "compose",
+        "stop"
+      ],
+      "cwd": "validation/work/frontend-api/F1",
+      "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+      "exitCode": 0,
+      "elapsedSeconds": 0.264,
+      "result": "PASS",
+      "log": "f1-stop/output.log"
+    },
+    {
+      "id": "f1-up",
+      "startedAt": "2026-10-20T02:21:12.849311+00:00",
+      "command": [
+        "devcontainer",
+        "up",
+        "--workspace-folder",
+        "."
+      ],
+      "cwd": "validation/work/frontend-api/F1",
+      "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+      "exitCode": 0,
+      "elapsedSeconds": 5.875,
+      "result": "PASS",
+      "log": "f1-up/output.log"
+    },
+    {
+      "id": "f1-zip-configure",
+      "startedAt": "2026-10-20T02:24:56.415738+00:00",
+      "command": [
+        "bash",
+        "scripts/configure.sh",
+        "--name",
+        "otoka-f1-zip-20261020",
+        "--port",
+        "3300"
+      ],
+      "cwd": "validation/work/frontend-api/新規 展開/F1",
+      "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+      "exitCode": 0,
+      "elapsedSeconds": 0.009,
+      "result": "PASS",
+      "log": "f1-zip-configure/output.log"
+    },
+    {
+      "id": "f1-zip-dev",
+      "startedAt": "2026-10-20T02:25:03.970657+00:00",
+      "command": [
+        "docker",
+        "compose",
+        "exec",
+        "-d",
+        "app",
+        "sh",
+        "-c",
+        "npm run dev > /tmp/otoka-dev.log 2>&1"
+      ],
+      "cwd": "validation/work/frontend-api/新規 展開/F1",
+      "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+      "exitCode": 0,
+      "elapsedSeconds": 0.167,
+      "result": "PASS",
+      "log": "f1-zip-dev/output.log"
+    },
+    {
+      "id": "f1-zip-final-stop",
+      "startedAt": "2026-10-20T02:25:55.945207+00:00",
+      "command": [
+        "docker",
+        "compose",
+        "stop"
+      ],
+      "cwd": "validation/work/frontend-api/新規 展開/F1",
+      "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+      "exitCode": 0,
+      "elapsedSeconds": 0.268,
+      "result": "PASS",
+      "log": "f1-zip-final-stop/output.log"
+    },
+    {
+      "id": "f1-zip-probe",
+      "startedAt": "2026-10-20T02:25:04.200218+00:00",
+      "command": [
+        "node",
+        "validation/frontend-api/probe.mjs",
+        "F1",
+        "validation/work/frontend-api/新規 展開/F1",
+        "http://localhost:3300",
+        "baseline"
+      ],
+      "cwd": ".",
+      "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+      "exitCode": 0,
+      "elapsedSeconds": 1.522,
+      "result": "PASS",
+      "log": "f1-zip-probe/output.log"
+    },
+    {
+      "id": "f1-zip-up",
+      "startedAt": "2026-10-20T02:24:56.490502+00:00",
+      "command": [
+        "devcontainer",
+        "up",
+        "--workspace-folder",
+        "."
+      ],
+      "cwd": "validation/work/frontend-api/新規 展開/F1",
+      "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+      "exitCode": 0,
+      "elapsedSeconds": 7.429,
+      "result": "PASS",
+      "log": "f1-zip-up/output.log"
+    }
+  ],
+  "unverified": [
+    "VS Code UI operations",
+    "Windows + WSL",
+    "macOS",
+    "ARM",
+    "First installation on a PC without prerequisites",
+    "Live GitHub Actions",
+    "Beginner usability testing"
+  ]
+}

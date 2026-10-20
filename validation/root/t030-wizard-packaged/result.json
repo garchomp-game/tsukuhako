@@ -1,0 +1,18 @@
+{
+  "id": "t030-wizard-packaged",
+  "startedAt": "2026-10-20T13:01:14.758915+00:00",
+  "command": [
+    "python3",
+    "tools/verify-wizard-030.py",
+    "--label",
+    "packaged-pty",
+    "--bundle",
+    "validation/brand-0.3.0/runs/cli-relocated/別の 場所/tsukuhako-generator-cli-0.3.0-linux"
+  ],
+  "cwd": ".",
+  "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+  "exitCode": 0,
+  "elapsedSeconds": 2.969,
+  "result": "PASS",
+  "log": "output.log"
+}

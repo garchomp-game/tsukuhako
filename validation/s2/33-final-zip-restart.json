@@ -1,0 +1,14 @@
+{
+  "name": "33-final-zip-restart",
+  "startedAt": "2026-10-20T02:54:29.613436+00:00",
+  "elapsedSeconds": 38.746,
+  "command": [
+    "bash",
+    "-c",
+    "bash scripts/doctor-host.sh && bash scripts/db.sh start && <WORKSPACE>/tools/node_modules/.bin/devcontainer up --workspace-folder ."
+  ],
+  "cwd": "validation/s2/runs/ZIP 新規展開/S2",
+  "exitCode": 0,
+  "result": "PASS",
+  "log": "33-final-zip-restart.log"
+}

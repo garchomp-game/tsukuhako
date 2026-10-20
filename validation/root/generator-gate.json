@@ -1,0 +1,20 @@
+{
+  "recordedAt": "2026-10-20T02:42:35.891215+00:00",
+  "status": "PASS",
+  "requiredSixLocalCore": "All six have actual CLI, functional, recreate/source retention and standalone ZIP evidence.",
+  "prerequisiteEvidence": {
+    "F1": "validation/frontend-api/F1-acceptance.json",
+    "F2": "validation/root/F2-acceptance.json",
+    "B1": "validation/frontend-api/B1-acceptance.json",
+    "S1": "validation/frontend-api/S1-acceptance.json",
+    "S2": "validation/s2/summary.json",
+    "I1": "validation/i1/results.json"
+  },
+  "twoCompleteTypes": [
+    "F1",
+    "F2",
+    "I1"
+  ],
+  "distribution": "Six standalone dist ZIPs and catalog.json exist before generator implementation.",
+  "limits": "No VS Code GUI/Windows/hosted CI claim; S3 cloud is outside local guarantee."
+}

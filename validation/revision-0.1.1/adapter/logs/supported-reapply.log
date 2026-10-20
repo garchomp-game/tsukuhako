@@ -1,0 +1,12 @@
+{
+  "status": "unchanged",
+  "files": [
+    ".devcontainer/Dockerfile",
+    ".devcontainer/devcontainer.json",
+    ".devcontainer/compose.yaml",
+    ".devcontainer/initialize.sh",
+    ".devcontainer/manage.sh",
+    ".devcontainer/README.md"
+  ],
+  "message": "同じ提案は適用済みです。変更はありません。"
+}

@@ -1,0 +1,13 @@
+{
+  "template": "F1",
+  "status": "PASS",
+  "scenario": "Final extracted doctor rejects the same project name owned by another (stopped) workspace",
+  "command": "bash scripts/doctor-host.sh",
+  "exitCode": 1,
+  "expectedExitCode": 1,
+  "output": "診断NG: PROJECT_NAMEは別フォルダで使用されています。.envで未使用の識別名を選んでください。\n復旧手順: docs/RECOVERY.md\n",
+  "runtimeChangeSinceFullZIPTest": [
+    "scripts/doctor-host.sh"
+  ],
+  "note": "Application code and remaining runtime files unchanged; new guard received targeted positive and negative checks."
+}

@@ -1,0 +1,234 @@
+{
+  "version": "0.2.0",
+  "recordedAt": "2026-10-20T09:08:06.035298+00:00",
+  "status": "PASS",
+  "scope": "Linux Mint22.3 x86_64; shared core, CLI, real Electron window and relocated binary, representative Dev Container CLI F2/S2. Not universal OS/user acceptance.",
+  "checks": [
+    {
+      "id": "G01",
+      "status": "PASS",
+      "scope": "全6構成・混在版・元ZIP内容の一致",
+      "evidence": [
+        "cli-bundle.json",
+        "gui/result.json"
+      ]
+    },
+    {
+      "id": "G02",
+      "status": "PASS",
+      "scope": "目的の対応、S3のcore拒否",
+      "evidence": [
+        "../root/g020-core-cli-final/result.json"
+      ]
+    },
+    {
+      "id": "G03",
+      "status": "PASS",
+      "scope": "plan・back・生成前中止は書込みなし",
+      "evidence": [
+        "wizard/result.json",
+        "gui/result.json"
+      ]
+    },
+    {
+      "id": "G04",
+      "status": "PASS",
+      "scope": "I1秘密値はapplyの.envのみ0600",
+      "evidence": [
+        "../root/g020-core-cli-final/result.json",
+        "gui/result.json",
+        "gui/plan-parity.json"
+      ]
+    },
+    {
+      "id": "G05",
+      "status": "PASS",
+      "scope": "catalog・ZIP・先の出現・親・計画改変を拒否",
+      "evidence": [
+        "../root/g020-core-cli-final/result.json"
+      ]
+    },
+    {
+      "id": "G06",
+      "status": "PASS",
+      "scope": "既存保護、ZIP、競合、rollbackと編集保持",
+      "evidence": [
+        "../root/g020-core-cli-final/result.json"
+      ]
+    },
+    {
+      "id": "G07",
+      "status": "PASS",
+      "scope": "生成と起動の診断を分離、未確認はnull",
+      "evidence": [
+        "../root/g020-core-cli-final/result.json",
+        "gui/plan-parity.json"
+      ]
+    },
+    {
+      "id": "G08",
+      "status": "PASS",
+      "scope": "旧create・wizard・GUI/CLIで一致。GUI/CLIはplan全体も一致",
+      "evidence": [
+        "../root/g020-core-cli-final/result.json",
+        "wizard/result.json",
+        "gui/result.json",
+        "gui/plan-parity.json"
+      ]
+    },
+    {
+      "id": "G09",
+      "status": "PASS",
+      "scope": "構成別の場所・コマンド・ポート・実在教材リンク",
+      "evidence": [
+        "../root/g020-core-cli-final/result.json"
+      ]
+    },
+    {
+      "id": "G10",
+      "status": "PASS",
+      "scope": "非TTY・JSON・終了コード・PTY割込み",
+      "evidence": [
+        "../root/g020-core-cli-final/result.json",
+        "wizard/result.json"
+      ]
+    },
+    {
+      "id": "G11",
+      "status": "PASS",
+      "scope": "日本語・空白・メタ文字をパスとして処理",
+      "evidence": [
+        "../root/g020-core-cli-final/result.json",
+        "gui/result.json"
+      ]
+    },
+    {
+      "id": "G12",
+      "status": "PASS",
+      "scope": "実GUIの戻る・エラー修正・BUSY・worker再試行・reload",
+      "evidence": [
+        "gui/result.json",
+        "gui/plan-parity.json"
+      ]
+    },
+    {
+      "id": "G13",
+      "status": "PASS",
+      "scope": "renderer制限・IPCの入力/送信元・protocol制限",
+      "evidence": [
+        "../root/g020-desktop-ipc-unit/result.json",
+        "gui/result.json"
+      ]
+    },
+    {
+      "id": "G14",
+      "status": "PASS",
+      "scope": "別フォルダのCLI/GUI配布物から独立して生成",
+      "evidence": [
+        "cli-bundle.json",
+        "gui/result.json"
+      ]
+    },
+    {
+      "id": "G15",
+      "status": "PASS",
+      "scope": "最終CLI ZIP生成のF2/S2を実Dev Containerで起動・主要操作",
+      "evidence": [
+        "startup-generation.json",
+        "startup/F2-browser.json",
+        "startup/S2-initial.json",
+        "startup/S2-browser.json",
+        "startup/final-state.json"
+      ]
+    }
+  ],
+  "testCounts": {
+    "coreIncludingOriginal8": 21,
+    "realPty": 3,
+    "ipcUnit": 2,
+    "guiAcceptanceChecks": 15,
+    "planParityAndEditorFailure": 7
+  },
+  "commandEvidence": [
+    "validation/root/g020-baseline-tests/result.json",
+    "validation/root/g020-core-cli-final/result.json",
+    "validation/root/g020-wizard/result.json",
+    "validation/root/g020-desktop-build-final/result.json",
+    "validation/root/g020-desktop-ipc-unit/result.json",
+    "validation/root/g020-gui-acceptance-tested/result.json",
+    "validation/root/g020-gui-plan-parity/result.json",
+    "validation/root/g020-f2-up/result.json",
+    "validation/root/g020-f2-check/result.json",
+    "validation/root/g020-f2-http/result.json",
+    "validation/root/g020-f2-browser-tested/result.json",
+    "validation/root/g020-f2-down/result.json",
+    "validation/root/g020-s2-db-start/result.json",
+    "validation/root/g020-s2-up/result.json",
+    "validation/root/g020-s2-check/result.json",
+    "validation/root/g020-s2-unit/result.json",
+    "validation/root/g020-s2-database/result.json",
+    "validation/root/g020-s2-browser/result.json",
+    "validation/root/g020-s2-api/result.json",
+    "validation/root/g020-s2-app-stop/result.json",
+    "validation/root/g020-s2-db-stop/result.json"
+  ],
+  "artifacts": [
+    {
+      "file": "meikyo-generator-cli-0.2.0-linux.zip",
+      "sha256": "a89ed883c807f03fb5da644bb7db4a138c090829297b998aa7404e90f6b67882",
+      "bytes": 717606,
+      "sameBytesAsTested": true
+    },
+    {
+      "file": "meikyo-generator-linux-x64-0.2.0.tar.gz",
+      "sha256": "a79d98db1bada410989abe5ae2dcf0634e5f138df091827a684edd5da10990cc",
+      "bytes": 123803728,
+      "sameBytesAsTested": true
+    }
+  ],
+  "repairedAttempts": [
+    {
+      "attempt": "g020-core-cli-tests",
+      "reasonAndRepair": "試験cleanupの順序を修正。製品の書込拒否は動作していた。",
+      "successfulFollowup": "g020-core-cli-final"
+    },
+    {
+      "attempt": "g020-gui-probe",
+      "reasonAndRepair": "内部file取得もネットワーク拒否対象。allowlist内の静的bytes配信へ修正。",
+      "successfulFollowup": "g020-gui-probe-fixed"
+    },
+    {
+      "attempt": "g020-gui-acceptance",
+      "reasonAndRepair": "画面切替後の既定submitを防ぐためbutton type/keyを明示。",
+      "successfulFollowup": "g020-gui-acceptance-tested"
+    },
+    {
+      "attempt": "g020-gui-acceptance-final",
+      "reasonAndRepair": "試験の別プロセスevaluateへPIDを引数として渡すよう修正。",
+      "successfulFollowup": "g020-gui-acceptance-tested"
+    },
+    {
+      "attempt": "g020-f2-browser",
+      "reasonAndRepair": "試験locatorを既存の「クリア」文言へ修正し、所有サーバー再起動後に再試験。",
+      "successfulFollowup": "g020-f2-browser-tested"
+    },
+    {
+      "attempt": "g020-s2-app-down",
+      "reasonAndRepair": "検証側が共通helper名を誤用。S2 READMEのapp.sh stopへ修正。",
+      "successfulFollowup": "g020-s2-app-stop"
+    }
+  ],
+  "notRun": [
+    "VS Code actual Reopen/reconnect/rebuild",
+    "Windows/WSL",
+    "macOS/ARM",
+    "fresh-PC installation",
+    "GitHub Actions on hosted runner",
+    "beginner trial",
+    "native OS parent-folder picker automation"
+  ],
+  "blocked": [
+    "S3 dedicated live cloud connection remains outside generator and blocked; existing evidence retained"
+  ],
+  "resources": "../resources-final.json"
+}

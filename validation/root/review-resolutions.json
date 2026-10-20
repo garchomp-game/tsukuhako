@@ -1,0 +1,51 @@
+{
+  "recordedAt": "2026-10-20T02:59:11.794402+00:00",
+  "reviewScope": "Read-only review followed by owned fixes and focused verification",
+  "results": [
+    {
+      "finding": "Recovery commands could inherit another Compose project",
+      "resolution": "Guarded helpers, explicit project/file/env-file, cross-folder identity checks",
+      "evidence": [
+        "validation/root/compose-guard/results.json",
+        "validation/root/final-packages/corrected/results.json"
+      ]
+    },
+    {
+      "finding": "DevCLI also resolves project names from .env and COMPOSE_ENV_FILES",
+      "resolution": "Reserved/unknown dotenv keys and inherited conflicting Compose environment rejected",
+      "evidence": [
+        "validation/root/compose-guard/reserved-env-results.json",
+        "validation/adapter/results.json"
+      ]
+    },
+    {
+      "finding": "Adapter partial semver comparators differed from npm semantics",
+      "resolution": "Ambiguous partial comparator grammar becomes manual; 17 fixture tests pass",
+      "evidence": [
+        "validation/adapter/results.json"
+      ]
+    },
+    {
+      "finding": "F2 could retry another internal dev port after a collision",
+      "resolution": "dev/start explicitly use port3000; duplicate-server exit1 observed",
+      "evidence": [
+        "validation/root/final-packages/corrected/F2-duplicate-server-refused.log"
+      ]
+    },
+    {
+      "finding": "ZIP runtime hashes reread mutable source",
+      "resolution": "runtimeFiles comes from the exact bytes written into the ZIP manifest",
+      "evidence": [
+        "tools/package.py",
+        "validation/package-audit.json"
+      ]
+    },
+    {
+      "finding": "Generator preservation and package exclusions review",
+      "resolution": "No further major concrete defect found in the requested scope; read-only review",
+      "evidence": [
+        "validation/root/generator-tests-final/result.json"
+      ]
+    }
+  ]
+}

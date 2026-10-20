@@ -1,0 +1,124 @@
+[
+  {
+    "id": "F1",
+    "step": "generator-create",
+    "command": [
+      "node",
+      "generator/cli.mjs",
+      "create",
+      "F1",
+      "<WORKSPACE>/validation/root/final-packages/runs/最終 展開/F1",
+      "--name",
+      "final",
+      "--port",
+      "34900"
+    ],
+    "cwd": ".",
+    "startedAt": "2026-10-20T02:47:04.025074+00:00",
+    "durationSeconds": 0.054,
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "status": "PASS",
+    "log": "F1-generator-create.log",
+    "testedArchiveSha256": "dd95c335370d9d7bd926d10e2ddda58cb4295591301b32e171e10e2a8dac2cee"
+  },
+  {
+    "id": "F1",
+    "step": "devcontainer-up",
+    "command": [
+      "<WORKSPACE>/tools/node_modules/.bin/devcontainer",
+      "up",
+      "--workspace-folder",
+      "<WORKSPACE>/validation/root/final-packages/runs/最終 展開/F1"
+    ],
+    "cwd": ".",
+    "startedAt": "2026-10-20T02:47:10.436086+00:00",
+    "durationSeconds": 6.411,
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "status": "PASS",
+    "log": "F1-devcontainer-up.log"
+  },
+  {
+    "id": "F1",
+    "step": "check",
+    "command": [
+      "<WORKSPACE>/tools/node_modules/.bin/devcontainer",
+      "exec",
+      "--workspace-folder",
+      "<WORKSPACE>/validation/root/final-packages/runs/最終 展開/F1",
+      "npm",
+      "run",
+      "check"
+    ],
+    "cwd": ".",
+    "startedAt": "2026-10-20T02:47:13.058405+00:00",
+    "durationSeconds": 2.622,
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "status": "PASS",
+    "log": "F1-check.log"
+  },
+  {
+    "id": "F1",
+    "step": "dev",
+    "command": [
+      "docker",
+      "compose",
+      "--project-directory",
+      "<WORKSPACE>/validation/root/final-packages/runs/最終 展開/F1",
+      "--env-file",
+      "<WORKSPACE>/validation/root/final-packages/runs/最終 展開/F1/.env",
+      "--project-name",
+      "otoka-f1-final-1213098503",
+      "-f",
+      "<WORKSPACE>/validation/root/final-packages/runs/最終 展開/F1/compose.yaml",
+      "exec",
+      "-d",
+      "app",
+      "sh",
+      "-c",
+      "npm run dev > /tmp/meikyo-final-dev.log 2>&1"
+    ],
+    "cwd": ".",
+    "startedAt": "2026-10-20T02:47:13.130318+00:00",
+    "durationSeconds": 0.072,
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "status": "PASS",
+    "log": "F1-dev.log"
+  },
+  {
+    "id": "F1",
+    "step": "function",
+    "command": [
+      "node",
+      "validation/root/final-ui-probe.mjs",
+      "F1",
+      "34900"
+    ],
+    "cwd": ".",
+    "startedAt": "2026-10-20T02:47:13.157983+00:00",
+    "durationSeconds": 0.027,
+    "exitCode": 1,
+    "expectedExitCode": 0,
+    "status": "FAIL",
+    "log": "F1-function.log"
+  },
+  {
+    "id": "F1",
+    "step": "stop",
+    "command": [
+      "bash",
+      "scripts/compose.sh",
+      "stop"
+    ],
+    "cwd": "validation/root/final-packages/runs/最終 展開/F1",
+    "startedAt": "2026-10-20T02:47:13.460569+00:00",
+    "durationSeconds": 0.302,
+    "exitCode": 0,
+    "expectedExitCode": 0,
+    "status": "PASS",
+    "log": "F1-stop.log"
+  }
+]

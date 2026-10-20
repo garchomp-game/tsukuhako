@@ -1,0 +1,105 @@
+{"outcome":"success","containerId":"f88a0c3d5bb58e45815790f7078ba1dc895201dc5056db2afd541dbcf08cbee4","composeProjectName":"otoka-f1-final-1213098503","remoteUser":"node","remoteWorkspaceFolder":"/workspace","ociAuthDiagnostics":{"authLookupWouldBeBlocked":false,"registryRedirectWouldPreventCredentialForwarding":false,"authServerRedirect":false}}
+[2026-10-20T02:47:04.117Z] @devcontainers/cli 0.89.0. Node.js v24.19.0. linux 7.0.0-31-generic x64.
+[2026-10-20T02:47:04.433Z] Running the initializeCommand from devcontainer.json...
+
+[2026-10-20T02:47:04.434Z] Start: Run: bash scripts/initialize.sh
+[2026-10-20T02:47:04.441Z] .envは既存の設定を保持します。変更は.envを編集後、コンテナを再構築してください。
+[2026-10-20T02:47:04.553Z] 診断OK: otoka-f1-final-1213098503 / http://localhost:34900
+[2026-10-20T02:47:04.554Z] /dev/nvme0n1p2  468G  119G  326G  27% /
+[2026-10-20T02:47:04.554Z] 容量不足なら不要な自分の試行資源を確認してください。全体pruneは行いません。
+[2026-10-20T02:47:04.720Z] #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 730B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 93B done
+#3 DONE 0.0s
+
+#4 [1/4] FROM docker.io/library/node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5
+[2026-10-20T02:47:04.720Z] #4 resolve docker.io/library/node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5 done
+#4 DONE 0.0s
+
+#5 [2/4] RUN apt-get update && apt-get install -y --no-install-recommends     git curl ca-certificates libnss3 libatk1.0-0 libatk-bridge2.0-0     libx11-6 libxcomposite1 libxdamage1 libxext6 libxfixes3 libxrandr2     libgbm1 libdrm2 libxcb1 libxkbcommon0 libasound2 libglib2.0-0     libcups2 libdbus-1-3 libpango-1.0-0 libcairo2 fonts-liberation     && rm -rf /var/lib/apt/lists/*
+#5 CACHED
+
+#6 [3/4] RUN npm install --global npm@11.17.0     && mkdir -p /workspace/node_modules /home/node/.npm     && chown -R node:node /workspace /home/node/.npm
+#6 CACHED
+
+#7 [4/4] WORKDIR /workspace
+#7 CACHED
+
+#8 exporting to image
+#8 exporting layers done
+#8 exporting manifest sha256:261571f685bc49f14c55afc81349c084deae53107f9f175a02e4ae6e864783b9 done
+#8 exporting config sha256:7bb11ce0c801fbefa12797750fa188a5e8ee882e64f39c8e0b408e5ad273d41c done
+#8 exporting attestation manifest sha256:f959292aa0bad93c774c23c481a0842561bb453c7cdf07993a71ef2c6fb36356 done
+#8 exporting manifest list sha256:5fb27e5d24905d3345acd691e4f74f7c0ba32cf93e6c4bd23e0f9716122a9655 done
+#8 naming to docker.io/library/otoka-f1-final-1213098503-dev:0.1.0 done
+#8 unpacking to docker.io/library/otoka-f1-final-1213098503-dev:0.1.0 done
+#8 DONE 0.0s
+[2026-10-20T02:47:04.725Z] 
+[2026-10-20T02:47:04.754Z] Start: Run: docker compose -f <WORKSPACE>/validation/root/final-packages/runs/最終 展開/F1/compose.yaml --profile * config
+[2026-10-20T02:47:04.819Z] Start: Run: docker compose -f <WORKSPACE>/validation/root/final-packages/runs/最終 展開/F1/compose.yaml --profile * config
+[2026-10-20T02:47:04.865Z] name: otoka-f1-final-1213098503
+services:
+  app:
+    command:
+      - sleep
+      - infinity
+    environment:
+      NEXT_TELEMETRY_DISABLED: "1"
+    image: otoka-f1-final-1213098503-dev:0.1.0
+    init: true
+    networks:
+      default: null
+    pull_policy: never
+    volumes:
+      - type: bind
+        source: <WORKSPACE>/validation/root/final-packages/runs/最終
+          展開/F1
+        target: /workspace
+        bind: {}
+      - type: volume
+        source: dependencies
+        target: /workspace/node_modules
+        volume: {}
+      - type: volume
+        source: npm-cache
+        target: /home/node/.npm
+        volume: {}
+    working_dir: /workspace
+    ports:
+      - mode: ingress
+        host_ip: 127.0.0.1
+        target: 3000
+        published: "34900"
+        protocol: tcp
+networks:
+  default:
+    name: otoka-f1-final-1213098503_default
+volumes:
+  dependencies:
+    name: otoka-f1-final-1213098503_dependencies
+  npm-cache:
+    name: otoka-f1-final-1213098503_npm-cache
+[2026-10-20T02:47:04.865Z] Start: Run: docker inspect --type image otoka-f1-final-1213098503-dev:0.1.0
+[2026-10-20T02:47:04.901Z] Start: Run: docker compose --project-name otoka-f1-final-1213098503 -f <WORKSPACE>/validation/root/final-packages/runs/最終 展開/F1/compose.yaml build
+[2026-10-20T02:47:04.946Z] time="2026-10-20T11:47:04+09:00" level=warning msg="No services to build"
+
+[2026-10-20T02:47:05.299Z] Start: Run: docker compose --project-name otoka-f1-final-1213098503 -f <WORKSPACE>/validation/root/final-packages/runs/最終 展開/F1/compose.yaml -f /tmp/devcontainercli-garchomp-game/docker-compose/docker-compose.devcontainer.containerFeatures-1792464425299-bac7292a-73ad-4f67-ab12-ef8825a93be0.yml up -d
+[2026-10-20T02:47:05.645Z] Running the postCreateCommand from devcontainer.json...
+
+[2026-10-20T02:47:07.666Z] npm warn deprecated eslint@9.39.5: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+[2026-10-20T02:47:10.391Z] 
+added 174 packages in 5s
+[2026-10-20T02:47:10.392Z] npm notice
+npm notice New major version of npm available! 11.17.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
+[2026-10-20T02:47:10.425Z] 準備完了。npm run dev で開始、npm run check で静的確認します。

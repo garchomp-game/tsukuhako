@@ -1,0 +1,23 @@
+{
+  "name": "10-ci-equivalent-sequence",
+  "startedAt": "2026-10-20T04:57:40.937056+00:00",
+  "elapsedSeconds": 44.4,
+  "command": [
+    "docker",
+    "exec",
+    "-e",
+    "CI=true",
+    "-u",
+    "node",
+    "-w",
+    "/workspace",
+    "otoka-s2-2811127744-app-1",
+    "bash",
+    "-c",
+    "npm run check && npm run test:setup && npm test && npm run test:integration && npm run build"
+  ],
+  "cwd": ".",
+  "exitCode": 0,
+  "result": "PASS",
+  "log": "10-ci-equivalent-sequence.log"
+}

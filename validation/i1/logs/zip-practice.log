@@ -1,0 +1,6 @@
+  lesson   |   code   |     name     | quantity 
+-----------+----------+--------------+----------
+ SQLの練習 | notebook | 架空のノート |        3
+ SQLの練習 | pencil   | 架空の鉛筆   |        8
+(2 rows)
+

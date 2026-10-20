@@ -1,0 +1,19 @@
+診断OK: otoka-f2-first-246531851 / http://localhost:3761
+/dev/nvme0n1p2  468G  132G  314G  30% /
+容量不足なら不要な自分の試行資源を確認してください。全体pruneは行いません。
+ Container otoka-f2-first-246531851-app-1 Stopping 
+ Container otoka-f2-first-246531851-app-1 Stopped 
+ Container otoka-f2-first-246531851-app-1 Removing 
+ Container otoka-f2-first-246531851-app-1 Removed 
+ Network otoka-f2-first-246531851_default Removing 
+ Network otoka-f2-first-246531851_default Removed 
+ Container otoka-s2-brand-3194731225-app-1 Stopping 
+ Container otoka-s2-brand-3194731225-app-1 Stopped 
+Stopping containers...
+Stopped supabase local development setup.
+Local data are backed up to docker volume. Use docker to show them: docker volume ls --filter label=com.supabase.cli.project=otoka-s2-brand-3194731225
+停止しました。DB volumeと編集したソースは保持されます。
+ Container otoka-s2-brand-3194731225-app-1 Stopping 
+ Container otoka-s2-brand-3194731225-app-1 Stopped 
+ Container otoka-s2-brand-3194731225-app-1 Removing 
+ Container otoka-s2-brand-3194731225-app-1 Removed 

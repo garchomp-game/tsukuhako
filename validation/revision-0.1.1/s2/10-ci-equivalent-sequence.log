@@ -1,0 +1,171 @@
+
+> otoka-s2-local-notes@0.1.1 check
+> next typegen && tsc --noEmit && eslint .
+
+Generating route types...
+✓ Types generated successfully
+
+> otoka-s2-local-notes@0.1.1 test:setup
+> playwright install chromium
+
+Downloading Chrome for Testing 156.0.8078.4 (playwright chromium v1248) from https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux64/chrome-linux64.zip
+|                                                                                |   0% of 191.1 MiB
+|■■■■■■■■                                                                        |  10% of 191.1 MiB
+|■■■■■■■■■■■■■■■■                                                                |  20% of 191.1 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 191.1 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 191.1 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 191.1 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 191.1 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 191.1 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 191.1 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 191.1 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 191.1 MiB
+Chrome for Testing 156.0.8078.4 (playwright chromium v1248) downloaded to /home/node/.cache/ms-playwright/chromium-1248
+Downloading FFmpeg (playwright ffmpeg v1013) from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1013/ffmpeg-linux.zip
+|                                                                                |   0% of 2.2 MiB
+|■■■■■■■■                                                                        |  10% of 2.2 MiB
+|■■■■■■■■■■■■■■■■                                                                |  20% of 2.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 2.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 2.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 2.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 2.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 2.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 2.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 2.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 2.2 MiB
+FFmpeg (playwright ffmpeg v1013) downloaded to /home/node/.cache/ms-playwright/ffmpeg-1013
+Downloading Chrome Headless Shell 156.0.8078.4 (playwright chromium-headless-shell v1248) from https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux64/chrome-headless-shell-linux64.zip
+|                                                                                |   0% of 120 MiB
+|■■■■■■■■                                                                        |  10% of 120 MiB
+|■■■■■■■■■■■■■■■■                                                                |  20% of 120 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 120 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 120 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 120 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 120 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 120 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 120 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 120 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 120 MiB
+Chrome Headless Shell 156.0.8078.4 (playwright chromium-headless-shell v1248) downloaded to /home/node/.cache/ms-playwright/chromium_headless_shell-1248
+
+> otoka-s2-local-notes@0.1.1 test
+> node --test tests/input.test.mjs tests/managed-server.test.mjs
+
+✔ trim and Unicode code point boundaries (1.282367ms)
+✔ missing, non-string, whitespace and invalid Unicode are rejected (0.163358ms)
+✔ markup remains literal data and IDs are constrained (0.242847ms)
+{"event":"managed-server-started","pid":251,"port":46477,"reused":false}
+{"event":"managed-server-stopped","pid":251,"processGroupTerminated":true,"port":46477,"portBindable":true}
+✔ callback failure still stops owned server and releases its port (260.94954ms)
+✔ an occupied port is refused without reusing or stopping its owner (1.026297ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 312.534861
+
+> otoka-s2-local-notes@0.1.1 test:integration
+> node scripts/test-integration.mjs
+
+{"event":"managed-server-started","pid":286,"port":3000,"reused":false}
+▲ Next.js 16.4.2 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://0.0.0.0:3000
+- Environments: .env.local, .env
+✓ Ready in 230ms
+✓ Running next.config.ts took 22ms
+
+ GET /api/notes 200 in 120ms (next.js: 74ms, application-code: 46ms)
+STEP 1/2: HTTP contract against the local DB
+ POST /api/notes 201 in 21ms (next.js: 1.1ms, application-code: 20ms)
+ GET /api/notes 200 in 7ms (next.js: 0.7ms, application-code: 6ms)
+ PATCH /api/notes/82a4ca0c-c28f-4c21-8fa7-22cf8c7f1bec 200 in 436ms (next.js: 413ms, application-code: 23ms)
+ DELETE /api/notes/82a4ca0c-c28f-4c21-8fa7-22cf8c7f1bec 204 in 21ms (next.js: 9ms, application-code: 12ms)
+ DELETE /api/notes/82a4ca0c-c28f-4c21-8fa7-22cf8c7f1bec 404 in 10ms (next.js: 0.8ms, application-code: 9ms)
+ PATCH /api/notes/ffffffff-ffff-4fff-8fff-ffffffffffff 404 in 7ms (next.js: 0.6ms, application-code: 6ms)
+ DELETE /api/notes/invalid 400 in 3ms (next.js: 0.6ms, application-code: 2ms)
+✔ real local API persists trimmed Unicode CRUD and returns missing ID errors (619.427719ms)
+ POST /api/notes 400 in 3ms (next.js: 0.8ms, application-code: 3ms)
+ POST /api/notes 400 in 4ms (next.js: 0.7ms, application-code: 4ms)
+ POST /api/notes 400 in 3ms (next.js: 0.6ms, application-code: 3ms)
+ POST /api/notes 400 in 3ms (next.js: 0.5ms, application-code: 2ms)
+ POST /api/notes 400 in 3ms (next.js: 0.4ms, application-code: 2ms)
+ POST /api/notes 400 in 3ms (next.js: 0.5ms, application-code: 2ms)
+ POST /api/notes 400 in 3ms (next.js: 0.5ms, application-code: 2ms)
+ POST /api/notes 415 in 2ms (next.js: 0.5ms, application-code: 1.8ms)
+ PUT /api/notes 405 in 2ms (next.js: 0.5ms, application-code: 1.5ms)
+ POST /api/notes/ffffffff-ffff-4fff-8fff-ffffffffffff 405 in 2ms (next.js: 0.5ms, application-code: 2ms)
+ HEAD /api/notes 200 in 5ms (next.js: 0.5ms, application-code: 5ms)
+ OPTIONS /api/notes 204 in 2ms (next.js: 0.6ms, application-code: 1.7ms)
+✔ invalid content and unsupported methods have predictable statuses (66.905411ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 734.471073
+STEP 2/2: browser CRUD against the same managed server
+
+Running 2 tests using 1 worker
+ GET / 200 in 136ms (next.js: 38ms, application-code: 97ms)
+ GET /api/notes 200 in 10ms (next.js: 0.9ms, application-code: 10ms)
+ GET /api/notes 200 in 10ms (next.js: 0.7ms, application-code: 9ms)
+ POST /api/notes 201 in 11ms (next.js: 0.7ms, application-code: 10ms)
+ GET /api/notes 200 in 8ms (next.js: 1.3ms, application-code: 7ms)
+ PATCH /api/notes/b541058b-ab78-422d-881b-888991f12b86 200 in 35ms (next.js: 18ms, application-code: 18ms)
+ GET /api/notes 200 in 6ms (next.js: 1.0ms, application-code: 5ms)
+ GET / 200 in 24ms (next.js: 0.7ms, application-code: 23ms)
+ GET /api/notes 200 in 10ms (next.js: 0.6ms, application-code: 9ms)
+ GET /api/notes 200 in 8ms (next.js: 0.6ms, application-code: 7ms)
+ DELETE /api/notes/b541058b-ab78-422d-881b-888991f12b86 204 in 17ms (next.js: 0.8ms, application-code: 16ms)
+ GET /api/notes 200 in 5ms (next.js: 0.7ms, application-code: 4ms)
+ GET / 200 in 24ms (next.js: 0.4ms, application-code: 23ms)
+ GET /api/notes 200 in 8ms (next.js: 0.8ms, application-code: 8ms)
+ GET /api/notes 200 in 6ms (next.js: 0.7ms, application-code: 6ms)
+· GET / 200 in 20ms (next.js: 0.4ms, application-code: 19ms)
+ GET /api/notes 200 in 9ms (next.js: 0.7ms, application-code: 8ms)
+ GET /api/notes 200 in 6ms (next.js: 0.7ms, application-code: 5ms)
+ POST /api/notes 400 in 3ms (next.js: 0.6ms, application-code: 3ms)
+ POST /api/notes 400 in 3ms (next.js: 0.7ms, application-code: 2ms)
+ POST /api/notes 201 in 17ms (next.js: 0.5ms, application-code: 16ms)
+ GET /api/notes 200 in 4ms (next.js: 0.7ms, application-code: 4ms)
+ DELETE /api/notes/ae75f919-482a-48d7-a95f-189b785f42a9 204 in 23ms (next.js: 18ms, application-code: 5ms)
+ GET /api/notes 200 in 7ms (next.js: 0.8ms, application-code: 6ms)
+·
+  2 passed (3.3s)
+[?25h
+{"event":"managed-server-stopped","pid":286,"processGroupTerminated":true,"port":3000,"portBindable":true}
+PASS: HTTP → browser → server/group exit → port released. Ready for npm run build.
+
+> otoka-s2-local-notes@0.1.1 build
+> next build
+
+▲ Next.js 16.4.2 (Turbopack)
+- Environments: .env.local, .env
+✓ Running next.config.ts took 22ms
+⚠ No build cache found. Please configure build caching for faster rebuilds. Read more: https://nextjs.org/docs/messages/no-cache
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 1610ms
+  Running TypeScript ...
+  Finished TypeScript in 1526ms ...
+  Collecting page data using 6 workers ...
+  Generating static pages using 6 workers (0/3) ...
+✓ Generating static pages using 6 workers (3/3) in 286ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /api/notes
+└ ƒ /api/notes/[id]
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

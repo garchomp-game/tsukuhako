@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "projectName": "otoka-s2-g020-618952831",
+  "allFivePortsBindable": true,
+  "previousContainers": [],
+  "previousVolumes": [],
+  "previousNetworks": [],
+  "localConfigAbsent": true
+}

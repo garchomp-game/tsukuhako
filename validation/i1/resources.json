@@ -1,0 +1,72 @@
+[
+  {
+    "trial": "validation/i1/runs/初回 PostgreSQL",
+    "project": "otoka-i1-validation-598241935",
+    "containers": [
+      "otoka-i1-validation-598241935-app-1",
+      "otoka-i1-validation-598241935-db-1"
+    ],
+    "network": "otoka-i1-validation-598241935_default",
+    "volume": "otoka-i1-validation-598241935_pgdata",
+    "image": "otoka-i1-validation-598241935-dev:0.1.0",
+    "hostPort": 55432,
+    "bindAddress": "127.0.0.1",
+    "status": "stopped; isolated volume and image retained, no prune"
+  },
+  {
+    "trial": "validation/i1/runs/別コピー PostgreSQL",
+    "project": "otoka-i1-validation-3071882351",
+    "containers": [
+      "otoka-i1-validation-3071882351-app-1",
+      "otoka-i1-validation-3071882351-db-1"
+    ],
+    "network": "otoka-i1-validation-3071882351_default",
+    "volume": "otoka-i1-validation-3071882351_pgdata",
+    "image": "otoka-i1-validation-3071882351-dev:0.1.0",
+    "hostPort": 55433,
+    "bindAddress": "127.0.0.1",
+    "status": "stopped; isolated volume and image retained, no prune"
+  },
+  {
+    "trial": "validation/i1/runs/ZIP 新規展開/I1",
+    "project": "otoka-i1-1615752074",
+    "containers": [
+      "otoka-i1-1615752074-app-1",
+      "otoka-i1-1615752074-db-1"
+    ],
+    "network": "otoka-i1-1615752074_default",
+    "volume": "otoka-i1-1615752074_pgdata",
+    "image": "otoka-i1-1615752074-dev:0.1.0",
+    "hostPort": 55434,
+    "bindAddress": "127.0.0.1",
+    "status": "stopped; isolated volume and image retained, no prune"
+  },
+  {
+    "trial": "validation/i1/runs/最終ZIP 別展開/I1",
+    "project": "otoka-i1-3298638797",
+    "containers": [
+      "otoka-i1-3298638797-app-1",
+      "otoka-i1-3298638797-db-1"
+    ],
+    "network": "otoka-i1-3298638797_default",
+    "volume": "otoka-i1-3298638797_pgdata",
+    "image": "otoka-i1-3298638797-dev:0.1.0",
+    "hostPort": 55435,
+    "bindAddress": "127.0.0.1",
+    "status": "stopped; isolated volume and image retained, no prune"
+  },
+  {
+    "trial": "validation/i1/runs/配布ZIP 最終/I1",
+    "project": "otoka-i1-2114039080",
+    "containers": [
+      "otoka-i1-2114039080-app-1",
+      "otoka-i1-2114039080-db-1"
+    ],
+    "network": "otoka-i1-2114039080_default",
+    "volume": "otoka-i1-2114039080_pgdata",
+    "image": "otoka-i1-2114039080-dev:0.1.0",
+    "hostPort": 55436,
+    "bindAddress": "127.0.0.1",
+    "status": "stopped; isolated volume and image retained, no prune"
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "status": "partial-preserved",
+  "removed": [],
+  "preserved": [
+    ".devcontainer/.adapter-record.json",
+    ".devcontainer/Dockerfile"
+  ],
+  "message": "利用者の編集・追加を保持しました。残った設定は手動で確認してください。"
+}

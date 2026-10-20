@@ -1,0 +1,72 @@
+{
+  "recordedAt": "2026-10-20T04:58:07.317142+00:00",
+  "commands": [
+    {
+      "command": [
+        "node",
+        "--version"
+      ],
+      "exitCode": 0,
+      "stdout": "v24.19.0",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "--version"
+      ],
+      "exitCode": 0,
+      "stdout": "11.17.0",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "version",
+        "--format",
+        "{{.Server.Version}}"
+      ],
+      "exitCode": 0,
+      "stdout": "29.9.1",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "version",
+        "--short"
+      ],
+      "exitCode": 0,
+      "stdout": "5.6.0",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "<WORKSPACE>/tools/node_modules/.bin/devcontainer",
+        "--version"
+      ],
+      "exitCode": 0,
+      "stdout": "0.89.0",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "google-chrome",
+        "--version"
+      ],
+      "exitCode": 0,
+      "stdout": "Google Chrome 155.0.8059.84",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "uname",
+        "-m"
+      ],
+      "exitCode": 0,
+      "stdout": "x86_64",
+      "stderr": ""
+    }
+  ]
+}

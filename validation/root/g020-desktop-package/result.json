@@ -1,0 +1,14 @@
+{
+  "id": "g020-desktop-package",
+  "startedAt": "2026-10-20T08:55:32.729730+00:00",
+  "command": [
+    "python3",
+    "tools/package-desktop-020.py"
+  ],
+  "cwd": ".",
+  "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+  "exitCode": 0,
+  "elapsedSeconds": 9.78,
+  "result": "PASS",
+  "log": "output.log"
+}

@@ -1,0 +1,12 @@
+{
+  "status": "applied",
+  "files": [
+    ".devcontainer/Dockerfile",
+    ".devcontainer/devcontainer.json",
+    ".devcontainer/compose.yaml",
+    ".devcontainer/initialize.sh",
+    ".devcontainer/README.md",
+    ".devcontainer/.adapter-record.json"
+  ],
+  "next": "追加READMEを読み、VS CodeでReopen in Container。依存取得/起動はapplyでは実行していません。"
+}

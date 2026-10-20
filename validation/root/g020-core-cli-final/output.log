@@ -1,0 +1,39 @@
+
+> meikyo-starter-generator@0.2.0 test
+> node --test tests/*.test.mjs
+
+✔ G01/G03/G09: six stable read-only plans; archive bytes and per-template guide match (242.886138ms)
+✔ G04: I1 secret is created only in mode0600 .env; absent from public outputs (17.39688ms)
+✔ G02: goals map to known IDs; core rejects S3 even if its eligibility is tampered (2.412361ms)
+✔ G05: modified catalog, ZIP, destination, parent identity and public plan are rejected (41.239628ms)
+✔ G06: reserved guide, duplicate ZIP names, symlink entry and oversized metadata are rejected before writes (8.252142ms)
+✔ G06: parent replacement by symlink is refused; no unrelated files are touched (5.441936ms)
+✔ G06: structured partial result preserves a changed generated file (18.703809ms)
+✔ G07: Docker/VSCode unavailable never prevents generation; unentered destination stays unknown (49.013042ms)
+✔ G07: diagnostic subprocess times out and its process exits (127.763752ms)
+✔ G08: old synchronous create and explicit JSON create produce identical files (124.329187ms)
+✔ G10: non-TTY wizard terminates; JSON emits one value; stale expectation is exit1 (245.02522ms)
+✔ G10: write permission failure is exit2 without a partial directory (78.701504ms)
+✔ G11: Japanese, spaces and shell metacharacters stay literal data (91.053195ms)
+✔ 必須6構成を日本語・空白パスへ生成し、カタログの版とフォルダ識別を保持する (195.361623ms)
+ℹ F1: version 0.1.1, ZIP SHA256 eec4b54362783a6c91379f785f983827db7cf7def57acaceaabfc65d1b5bef20, Japanese/space path PASS
+ℹ F2: version 0.1.0, ZIP SHA256 7175148d110a8d888549e3e7d9dc037960e2a692daf283d9dab8df06f0bdbba7, Japanese/space path PASS
+ℹ B1: version 0.1.1, ZIP SHA256 c3e106499f4e3e3154c38a20c68a115f86f6fd1e706e6df28e669c30f450790c, Japanese/space path PASS
+ℹ S1: version 0.1.1, ZIP SHA256 9e41c0096df9e0a9735c8f85668eb770666d5ffd3e4d17204fbf65f6d82dccf2, Japanese/space path PASS
+ℹ S2: version 0.1.1, ZIP SHA256 1fff412887ed8657a32326176d6162f7a8f73d5f79d38700e35aaf873368f673, Japanese/space path PASS
+ℹ I1: version 0.1.0, ZIP SHA256 2861fea034ced0baf1dd484f78c19be8bbfbb2ccc8ac8c880e0ec3f5e989e398, Japanese/space path PASS
+✔ 既存の空フォルダ・ファイル・symlink親は拒否し保持する (1.829488ms)
+✔ 名前・ポート・構成・DBポートの不正値で出力を作らない (1.350792ms)
+✔ カタログSHA256不一致を展開前に拒否する (0.847261ms)
+✔ ZIPの上位パスと実.envを拒否する (3.757229ms)
+✔ コミット途中の失敗は作成物とstageを戻す (21.280836ms)
+✔ 確定直前に出力先が作成された競合を拒否し、他の内容を残す (19.316804ms)
+✔ 失敗時でも作成中に利用者が変更したファイルを削除しない (20.381977ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1114.4965

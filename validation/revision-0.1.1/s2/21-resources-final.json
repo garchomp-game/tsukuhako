@@ -1,0 +1,74 @@
+{
+  "result": "PASS",
+  "observedAt": "2026-10-20T05:01:55.727940+00:00",
+  "project": "otoka-s2-2811127744",
+  "app": {
+    "id": "42cc5b8278cfe65e06bdac546106fb97871f7006ef3eb8fe4a224cec5edad52e",
+    "name": "/otoka-s2-2811127744-app-1",
+    "status": "exited",
+    "image": "vsc-s2-83bccd7ff0fe5586c7613e8ee2552b8579481da711d12edfdd28291e171af7c6-uid"
+  },
+  "runningOwnedContainers": [],
+  "releasedHostPorts": [
+    3504,
+    54621,
+    54622,
+    54623,
+    54620
+  ],
+  "retainedVolumes": [
+    {
+      "name": "otoka-s2-2811127744_dependencies",
+      "createdAt": "2026-10-20T13:56:55+09:00",
+      "labels": {
+        "com.docker.compose.config-hash": "a9cf6904bf5c50342eb03f81fb26b8e4984a3f2bb4902ef282825ef8fa85b5b5",
+        "com.docker.compose.project": "otoka-s2-2811127744",
+        "com.docker.compose.version": "5.6.0",
+        "com.docker.compose.volume": "dependencies"
+      }
+    },
+    {
+      "name": "otoka-s2-2811127744_npm-cache",
+      "createdAt": "2026-10-20T13:56:55+09:00",
+      "labels": {
+        "com.docker.compose.config-hash": "784d0d67d0bb469e84fa21b4a4cf0a173b1cb31b82bc1a97de0183f25bf58045",
+        "com.docker.compose.project": "otoka-s2-2811127744",
+        "com.docker.compose.version": "5.6.0",
+        "com.docker.compose.volume": "npm-cache"
+      }
+    },
+    {
+      "name": "supabase_db_otoka-s2-2811127744",
+      "createdAt": "2026-10-20T13:55:56+09:00",
+      "labels": {
+        "com.docker.compose.project": "otoka-s2-2811127744",
+        "com.supabase.cli.project": "otoka-s2-2811127744"
+      }
+    }
+  ],
+  "retainedNetwork": {
+    "id": "4ce9e2cfdd02b4908d7199ab31855c796ccd1bdebfdf3cbdf29e8636bc937b15",
+    "name": "otoka-s2-2811127744-network",
+    "options": {
+      "com.docker.network.bridge.host_binding_ipv4": "127.0.0.1"
+    },
+    "connectedContainers": []
+  },
+  "priorS2State": [
+    {
+      "project": "otoka-s2-2226800358",
+      "running": false,
+      "databaseUsedInFreshAcceptance": false
+    },
+    {
+      "project": "otoka-s2-410292944",
+      "running": false,
+      "databaseUsedInFreshAcceptance": false
+    }
+  ],
+  "unrelatedBaselineStillRunning": [
+    "b531d3443746",
+    "8e9f201539c5"
+  ],
+  "cleanup": "Only current app/db stop helpers used. No reset, volume deletion or global prune. Images/volumes/network retained for learning restart."
+}

@@ -1,0 +1,14 @@
+{
+  "name": "06-fresh-db-start",
+  "startedAt": "2026-10-20T04:55:47.466432+00:00",
+  "elapsedSeconds": 34.659,
+  "command": [
+    "bash",
+    "-c",
+    "bash scripts/configure.sh && bash scripts/doctor-host.sh && bash scripts/db.sh start"
+  ],
+  "cwd": "validation/revision-0.1.1/s2/runs/最終配布 新規起動/S2",
+  "exitCode": 0,
+  "result": "PASS",
+  "log": "06-fresh-db-start.log"
+}

@@ -1,0 +1,30 @@
+@import "tailwindcss";
+:root { color-scheme: light; font-family: system-ui, -apple-system, "Noto Sans JP", sans-serif; color: #18323a; background: #f3f7f7; }
+* { box-sizing: border-box; }
+body { margin: 0; line-height: 1.7; }
+.eyebrow { color: #357577; letter-spacing: .15em; font-size: .75rem; font-weight: 700; }
+.intro { margin-top: 1rem; color: #4b636a; }
+.notice { background: #e3efec; border-left: 4px solid #3e8074; border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin: 1.75rem 0; font-size: .875rem; }
+h2 { font-size: 1.1rem; font-weight: 650; }
+.panel { background: white; border: 1px solid #d6e2e2; border-radius: 12px; padding: 1.5rem; }
+label { display: block; font-size: .875rem; margin: 1rem 0 .35rem; }
+textarea { width: 100%; padding: .8rem; border: 1px solid #a9bdbe; border-radius: 6px; font: inherit; resize: vertical; background: #fcfefe; }
+textarea:focus { outline: 3px solid #b5d9d3; border-color: #327b70; }
+button { border: 1px solid transparent; border-radius: 6px; padding: .5rem .9rem; background: #176e62; color: white; cursor: pointer; font: inherit; font-size: .85rem; font-weight: 600; }
+button:hover { filter: brightness(.95); }
+button:disabled { opacity: .5; cursor: wait; }
+button:focus-visible { outline: 3px solid #76b8ac; outline-offset: 2px; }
+.secondary { background: white; border-color: #cbd9da; color: #294f54; }
+.danger { background: white; border-color: #e1c9ca; color: #97484b; }
+.actions, .form-bottom, .note-bottom, .list-title { display: flex; gap: .6rem; align-items: center; }
+.form-bottom, .note-bottom, .list-title { justify-content: space-between; flex-wrap: wrap; }
+.form-bottom { margin-top: .7rem; }
+#limit, time { color: #64797d; font-size: .75rem; }
+.status { min-height: 1.7em; color: #116052; margin: .5rem 0 1rem; }
+.error { border: 1px solid #dfb9bc; background: #fff1f0; color: #92353d; padding: .8rem 1rem; border-radius: 7px; margin-top: 1rem; }
+.list-title span { font-size: .8rem; margin-left: .35rem; background: #dce9e7; border-radius: 20px; padding: .1rem .5rem; }
+.notes { list-style: none; padding: 0; margin: 1rem 0; display: grid; gap: .8rem; }
+.notes li { padding: 1.1rem 1.25rem; background: white; border: 1px solid #d6e2e2; border-radius: 9px; }
+.note-body { white-space: pre-wrap; overflow-wrap: anywhere; margin-bottom: .8rem; }
+.empty { padding: 2rem 0; color: #64797d; }
+footer { border-top: 1px solid #d3e0df; margin-top: 3rem; padding-top: 1.5rem; font-size: .75rem; color: #64797d; }

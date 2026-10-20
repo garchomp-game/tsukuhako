@@ -1,0 +1,18 @@
+{
+  "template": "B1",
+  "event": "stage4-server-log",
+  "startedAt": "2026-10-20T05:00:23.262430+00:00",
+  "command": [
+    "docker",
+    "exec",
+    "612d1a0d7dbda743ccdbba356655427620a1ea330425ec2f03d7da2b7a37ebf1",
+    "cat",
+    "/tmp/meikyo-lesson-dev.log"
+  ],
+  "cwd": "validation/revision-0.1.1/learning/runs/B1 空フォルダ 教材 0.1.1 再試行2",
+  "endedAt": "2026-10-20T05:00:23.326461+00:00",
+  "exitCode": 0,
+  "elapsedSeconds": 0.064,
+  "result": "PASS",
+  "log": "output.log"
+}

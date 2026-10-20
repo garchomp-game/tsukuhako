@@ -1,0 +1,10 @@
+BEGIN
+ pg_advisory_xact_lock 
+-----------------------
+ 
+(1 row)
+
+psql:/tmp/tmp.lgP9z1rD9i:3: NOTICE:  relation "schema_migrations" already exists, skipping
+CREATE TABLE
+psql:/tmp/tmp.lgP9z1rD9i:11: warning: \quit: extra argument "3" ignored
+ERROR: 適用済みmigrationを変更しました。元に戻して新しいmigrationを追加してください: 001_create_sample_items.sql

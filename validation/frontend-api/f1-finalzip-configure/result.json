@@ -1,0 +1,18 @@
+{
+  "id": "f1-finalzip-configure",
+  "startedAt": "2026-10-20T02:28:12.707152+00:00",
+  "command": [
+    "bash",
+    "scripts/configure.sh",
+    "--name",
+    "otoka-f1-finaldoctor-20261020",
+    "--port",
+    "4300"
+  ],
+  "cwd": "validation/work/frontend-api/最終 追加/F1",
+  "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+  "exitCode": 0,
+  "elapsedSeconds": 0.008,
+  "result": "PASS",
+  "log": "output.log"
+}

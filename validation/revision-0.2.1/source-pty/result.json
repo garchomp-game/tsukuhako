@@ -1,0 +1,132 @@
+{
+  "status": "PASS",
+  "recordedAt": "2026-10-20T09:27:48.334872+00:00",
+  "bundle": "<WORKSPACE>",
+  "scope": "Real Linux PTY; normal CLI, real diagnostics, no piped-input or readline mocks",
+  "cases": [
+    {
+      "case": "advanced-f2",
+      "before": {
+        "template": "F2",
+        "project": "otoka-f2-custom-1427110225",
+        "ports": "app=3409"
+      },
+      "advancedDefault": "Y/n",
+      "fieldDefaults": {
+        "name": "custom",
+        "port": "3409"
+      },
+      "after": {
+        "template": "F2",
+        "project": "otoka-f2-custom-1427110225",
+        "ports": "app=3409"
+      },
+      "retained": true,
+      "status": "PASS",
+      "generatedSettingsCorrect": true,
+      "files": 44,
+      "exitCode": 0
+    },
+    {
+      "case": "purpose-i1",
+      "purposeDefault": "5",
+      "after": {
+        "template": "I1",
+        "project": "otoka-i1-4170787241",
+        "ports": "database=55432"
+      },
+      "retained": true,
+      "status": "PASS",
+      "cancelNoWrites": true,
+      "exitCode": 0
+    },
+    {
+      "case": "framework-f1",
+      "frameworkDefault": "2",
+      "after": {
+        "template": "F1",
+        "project": "otoka-f1-567657396",
+        "ports": "app=3000"
+      },
+      "retained": true,
+      "status": "PASS",
+      "cancelNoWrites": true,
+      "exitCode": 0
+    },
+    {
+      "case": "same-purpose-f1",
+      "frameworkDefault": "2",
+      "after": {
+        "template": "F1",
+        "project": "otoka-f1-3338615936",
+        "ports": "app=3000"
+      },
+      "retained": true,
+      "status": "PASS",
+      "cancelNoWrites": true,
+      "exitCode": 0
+    },
+    {
+      "case": "advanced-s2",
+      "before": {
+        "template": "S2",
+        "project": "otoka-s2-custom-946795792",
+        "ports": "app=3409 / shadow=54820 / api=54821 / database=54822 / studio=54823"
+      },
+      "advancedDefault": "Y/n",
+      "fieldDefaults": {
+        "name": "custom",
+        "port": "3409",
+        "dbBase": "54820"
+      },
+      "after": {
+        "template": "S2",
+        "project": "otoka-s2-custom-946795792",
+        "ports": "app=3409 / shadow=54820 / api=54821 / database=54822 / studio=54823"
+      },
+      "retained": true,
+      "status": "PASS",
+      "cancelNoWrites": true,
+      "exitCode": 0
+    },
+    {
+      "case": "explicit-n-and-y",
+      "before": {
+        "template": "F2",
+        "project": "otoka-f2-custom-384489948",
+        "ports": "app=3409"
+      },
+      "explicitN": {
+        "template": "F2",
+        "project": "otoka-f2-384489948",
+        "ports": "app=3001"
+      },
+      "after": {
+        "template": "F2",
+        "project": "otoka-f2-custom-384489948",
+        "ports": "app=3409"
+      },
+      "retained": true,
+      "status": "PASS",
+      "cancelNoWrites": true,
+      "exitCode": 0
+    },
+    {
+      "case": "changed-purpose",
+      "after": {
+        "template": "B1",
+        "project": "otoka-b1-1386233006",
+        "ports": "app=3002"
+      },
+      "retained": true,
+      "status": "PASS",
+      "cancelNoWrites": true,
+      "exitCode": 0
+    },
+    {
+      "case": "interrupt",
+      "status": "PASS",
+      "exitCode": 130
+    }
+  ]
+}

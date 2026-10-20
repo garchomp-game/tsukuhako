@@ -1,0 +1,16 @@
+{
+  "number": 5,
+  "startedAt": "2026-10-20T05:00:23.442865+00:00",
+  "files": [
+    {
+      "path": "tests/server.mjs",
+      "source": "starter-templates/B1/tests/server.mjs",
+      "sha256": "050521869cce92a080456e01d4c58dc2cb478d3609e32a3bac08dee7739b142a"
+    },
+    {
+      "path": "tests/api.test.mjs",
+      "source": "starter-templates/B1/tests/api.test.mjs",
+      "sha256": "ab01e7738ae1f733934259412f5d611a40c72c7f7be3ca6530ae8941d2a6308b"
+    }
+  ]
+}

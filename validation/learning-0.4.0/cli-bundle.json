@@ -1,0 +1,127 @@
+{
+  "status": "PASS",
+  "case": "0.4.0 standalone CLI relocated; six templates, version and no-write plan",
+  "archive": "tsukuhako-generator-cli-0.4.0-linux.zip",
+  "sha256": "557e0ad6d4c8d571eca717652c37491d84a87240c0829a9664802b5a0f67741c",
+  "records": [
+    {
+      "id": "F1",
+      "version": "0.1.3",
+      "status": "PASS",
+      "archiveFiles": 41,
+      "generation": {
+        "status": "created",
+        "destination": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.0/validation/learning-0.4.0/runs/cli-final/別の 場所/F1 日本語 ; $(touch should-not-exist)",
+        "templateId": "F1",
+        "templateVersion": "0.1.3",
+        "archiveSha256": "12fe4bc2bf113e006a7bb7f68ed595920e9a8aa435e55bcf51a990d1464b0d8a",
+        "projectName": "otoka-f1-653646661",
+        "ports": {
+          "app": 3000
+        },
+        "readme": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.0/validation/learning-0.4.0/runs/cli-final/別の 場所/F1 日本語 ; $(touch should-not-exist)/README.md",
+        "startHere": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.0/validation/learning-0.4.0/runs/cli-final/別の 場所/F1 日本語 ; $(touch should-not-exist)/START_HERE.md"
+      }
+    },
+    {
+      "id": "F2",
+      "version": "0.1.1",
+      "status": "PASS",
+      "archiveFiles": 42,
+      "generation": {
+        "status": "created",
+        "destination": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.0/validation/learning-0.4.0/runs/cli-final/別の 場所/F2 日本語 ; $(touch should-not-exist)",
+        "templateId": "F2",
+        "templateVersion": "0.1.1",
+        "archiveSha256": "7a093c2bf9292bfbdcb1fc06178bdd0c14ac5e14b3ef6b51bf5676b7ce1ba0fe",
+        "projectName": "otoka-f2-1656827413",
+        "ports": {
+          "app": 3001
+        },
+        "readme": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.0/validation/learning-0.4.0/runs/cli-final/別の 場所/F2 日本語 ; $(touch should-not-exist)/README.md",
+        "startHere": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.0/validation/learning-0.4.0/runs/cli-final/別の 場所/F2 日本語 ; $(touch should-not-exist)/START_HERE.md"
+      }
+    },
+    {
+      "id": "B1",
+      "version": "0.1.2",
+      "status": "PASS",
+      "archiveFiles": 40,
+      "generation": {
+        "status": "created",
+        "destination": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.0/validation/learning-0.4.0/runs/cli-final/別の 場所/B1 日本語 ; $(touch should-not-exist)",
+        "templateId": "B1",
+        "templateVersion": "0.1.2",
+        "archiveSha256": "98e0add9dbca84ce3f9a153840158d874e860dac50fb68cb40e9b6e12cbb56c6",
+        "projectName": "otoka-b1-499051809",
+        "ports": {
+          "app": 3002
+        },
+        "readme": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.0/validation/learning-0.4.0/runs/cli-final/別の 場所/B1 日本語 ; $(touch should-not-exist)/README.md",
+        "startHere": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.0/validation/learning-0.4.0/runs/cli-final/別の 場所/B1 日本語 ; $(touch should-not-exist)/START_HERE.md"
+      }
+    },
+    {
+      "id": "S1",
+      "version": "0.1.2",
+      "status": "PASS",
+      "archiveFiles": 48,
+      "generation": {
+        "status": "created",
+        "destination": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.0/validation/learning-0.4.0/runs/cli-final/別の 場所/S1 日本語 ; $(touch should-not-exist)",
+        "templateId": "S1",
+        "templateVersion": "0.1.2",
+        "archiveSha256": "94e55d547b8971e3263eabd99da386018e7a9cd9662872ba46515900c088f714",
+        "projectName": "otoka-s1-4265670952",
+        "ports": {
+          "app": 3003
+        },
+        "readme": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.0/validation/learning-0.4.0/runs/cli-final/別の 場所/S1 日本語 ; $(touch should-not-exist)/README.md",
+        "startHere": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.0/validation/learning-0.4.0/runs/cli-final/別の 場所/S1 日本語 ; $(touch should-not-exist)/START_HERE.md"
+      }
+    },
+    {
+      "id": "S2",
+      "version": "0.1.2",
+      "status": "PASS",
+      "archiveFiles": 56,
+      "generation": {
+        "status": "created",
+        "destination": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.0/validation/learning-0.4.0/runs/cli-final/別の 場所/S2 日本語 ; $(touch should-not-exist)",
+        "templateId": "S2",
+        "templateVersion": "0.1.2",
+        "archiveSha256": "04266262b25b930a586558856457ec8a36f0c6f7127533cb05fa68d56de29e8e",
+        "projectName": "otoka-s2-3128167544",
+        "ports": {
+          "app": 3004,
+          "shadow": 54320,
+          "api": 54321,
+          "database": 54322,
+          "studio": 54323
+        },
+        "readme": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.0/validation/learning-0.4.0/runs/cli-final/別の 場所/S2 日本語 ; $(touch should-not-exist)/README.md",
+        "startHere": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.0/validation/learning-0.4.0/runs/cli-final/別の 場所/S2 日本語 ; $(touch should-not-exist)/START_HERE.md"
+      }
+    },
+    {
+      "id": "I1",
+      "version": "0.1.0",
+      "status": "PASS",
+      "archiveFiles": 28,
+      "generation": {
+        "status": "created",
+        "destination": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.0/validation/learning-0.4.0/runs/cli-final/別の 場所/I1 日本語 ; $(touch should-not-exist)",
+        "templateId": "I1",
+        "templateVersion": "0.1.0",
+        "archiveSha256": "2861fea034ced0baf1dd484f78c19be8bbfbb2ccc8ac8c880e0ec3f5e989e398",
+        "projectName": "otoka-i1-1427799025",
+        "ports": {
+          "database": 55432
+        },
+        "readme": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.0/validation/learning-0.4.0/runs/cli-final/別の 場所/I1 日本語 ; $(touch should-not-exist)/README.md",
+        "startHere": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.0/validation/learning-0.4.0/runs/cli-final/別の 場所/I1 日本語 ; $(touch should-not-exist)/START_HERE.md"
+      }
+    }
+  ],
+  "network": "No install or network operation during generation; NODE_PATH and NODE_OPTIONS empty; cwd /tmp."
+}

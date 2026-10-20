@@ -1,0 +1,26 @@
+{
+  "template": "B1",
+  "event": "stage2-container-id",
+  "startedAt": "2026-10-20T05:00:16.715912+00:00",
+  "command": [
+    "docker",
+    "compose",
+    "--project-directory",
+    "<WORKSPACE>/validation/revision-0.1.1/learning/runs/B1 空フォルダ 教材 0.1.1 再試行2",
+    "--env-file",
+    "<WORKSPACE>/validation/revision-0.1.1/learning/runs/B1 空フォルダ 教材 0.1.1 再試行2/.env",
+    "--project-name",
+    "otoka-b1-3104954418",
+    "-f",
+    "<WORKSPACE>/validation/revision-0.1.1/learning/runs/B1 空フォルダ 教材 0.1.1 再試行2/compose.yaml",
+    "ps",
+    "-q",
+    "app"
+  ],
+  "cwd": "validation/revision-0.1.1/learning/runs/B1 空フォルダ 教材 0.1.1 再試行2",
+  "endedAt": "2026-10-20T05:00:16.779952+00:00",
+  "exitCode": 0,
+  "elapsedSeconds": 0.064,
+  "result": "PASS",
+  "log": "output.log"
+}

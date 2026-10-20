@@ -1,0 +1,30 @@
+{
+  "folder": "existing-project-adapter",
+  "version": "0.1.1",
+  "files": {
+    "README.md": "ebc26565a086e054d3f18dca656fcbeab70a086fe45fce8d72a02dc15b744fb1",
+    "VALIDATION.md": "cc7aa644f8adcc3fe998c0770afd20f6e0e639f5c8fbfea72a38d34d45dc0022",
+    "cli.mjs": "7c31d5c6d965748cdd97807261db334f59e84d2b0f09c0d2ae38ced860ea4028",
+    "fixtures/README.md": "7ac2e75b2cfed1f112c020d72ddded16bb8005284e9af001f8a68503848c4a6a",
+    "package-lock.json": "019d1a6c75e7e2e864827707d9afbde0b6bba961aae374e3077212819087c557",
+    "package.json": "17a68d030789b419dd2c33caecc33b5e66620efce704ec77507bee2c43a00b2d",
+    "src/adapter.mjs": "a51de268b19b7d2db44f804b54636686329f70e317dcd5aa2ae177dc17b10e64",
+    "src/templates.mjs": "676cc5519516dbc63f7b1db44fb89dec8c9d0a113b2f1fa3a472a8a9eaf467c2",
+    "tests/adapter.test.mjs": "0c4d8d30f0386323a9973d7faf59d7246680f86104fe604be384301ae17ad357",
+    "tests/revision.test.mjs": "b6b2cf115c8852910d4bce42e462842e7e8cbcf905815f80aa209f598bbdbd87"
+  },
+  "changedFiles": [
+    "README.md",
+    "VALIDATION.md",
+    "fixtures/README.md",
+    "package-lock.json",
+    "package.json",
+    "src/adapter.mjs",
+    "src/templates.mjs",
+    "tests/revision.test.mjs"
+  ],
+  "unchangedFrom0_1_0": [
+    "cli.mjs",
+    "tests/adapter.test.mjs"
+  ]
+}

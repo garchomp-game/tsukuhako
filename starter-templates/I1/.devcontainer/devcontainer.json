@@ -1,0 +1,19 @@
+{
+  "name": "I1 PostgreSQL workbench",
+  "dockerComposeFile": "../compose.yaml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "remoteUser": "vscode",
+  "updateRemoteUserUID": true,
+  "initializeCommand": ["bash", "scripts/initialize.sh"],
+  "postCreateCommand": "bash scripts/db.sh doctor",
+  "shutdownAction": "stopCompose",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "files.eol": "\n"
+      }
+    }
+  }
+}

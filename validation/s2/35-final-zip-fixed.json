@@ -1,0 +1,14 @@
+{
+  "name": "35-final-zip-fixed",
+  "startedAt": "2026-10-20T02:55:51.094652+00:00",
+  "elapsedSeconds": 1.917,
+  "command": [
+    "bash",
+    "-c",
+    "bash scripts/doctor-host.sh && bash scripts/db.sh status && <WORKSPACE>/tools/node_modules/.bin/devcontainer up --workspace-folder . && bash scripts/db.sh test"
+  ],
+  "cwd": "validation/s2/runs/ZIP 新規展開/S2",
+  "exitCode": 0,
+  "result": "PASS",
+  "log": "35-final-zip-fixed.log"
+}

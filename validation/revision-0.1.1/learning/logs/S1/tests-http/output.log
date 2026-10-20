@@ -1,0 +1,22 @@
+
+> otoka-s1@0.1.1 test
+> node --test tests/*.test.mjs
+
+✔ health exposes only the status (819.862315ms)
+✔ preview normalizes surrounding whitespace and returns code point length (89.484111ms)
+✔ Unicode counts code points, not UTF-16 code units or graphemes (7.869915ms)
+✔ malformed JSON has the exact public error (9.883141ms)
+✔ missing, non-string and non-object values are rejected (37.511803ms)
+✔ empty or whitespace-only input is rejected (16.971141ms)
+✔ 200 code points are accepted after trim; 201 are rejected (17.966322ms)
+✔ Content-Type accepts a JSON parameter and rejects other media types (19.139288ms)
+✔ undefined methods return 405; automatic HEAD and OPTIONS follow Next.js (43.883655ms)
+✔ script-shaped text remains text and responses have no stored state (9.336492ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1166.661715

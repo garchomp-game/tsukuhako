@@ -1,0 +1,41 @@
+[2026-10-20T02:47:54.288Z] @devcontainers/cli 0.89.0. Node.js v24.19.0. linux 7.0.0-31-generic x64.
+[2026-10-20T02:47:54.400Z] Running the initializeCommand from devcontainer.json...
+
+[2026-10-20T02:47:54.400Z] Start: Run: bash .devcontainer/initialize.sh
+[2026-10-20T02:47:54.611Z] #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 348B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5
+#2 DONE 0.0s
+
+[2026-10-20T02:47:54.611Z] #3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/3] FROM docker.io/library/node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5
+#4 resolve docker.io/library/node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5 done
+#4 DONE 0.0s
+
+#5 [2/3] RUN npm install --global npm@11.17.0     && mkdir -p /workspace/node_modules /home/node/.npm     && chown -R node:node /workspace /home/node/.npm
+#5 CACHED
+
+#6 [3/3] WORKDIR /workspace
+#6 CACHED
+
+#7 exporting to image
+#7 exporting layers done
+#7 exporting manifest sha256:491e4828e2c4b4adec1446c357b654081b5d9af31df6065cfb88263acabac6b6 done
+#7 exporting config sha256:bca3816cfd780fe4c51bf68e758c31227b1387c0758bf4f89bdacb85339d6617 done
+#7 exporting attestation manifest sha256:8721f066a18df398d3dc12cd055a45060cb4eaad5f47e27c7152f6ef4559239e done
+#7 exporting manifest list sha256:75100ba4ab268b12b5fa9c8359189ea5a20ee1d3d7870e9ed6c73a5a33db21ca done
+#7 naming to docker.io/library/otoka-existing-0b7152d453f0-dev:0.1.0 done
+#7 unpacking to docker.io/library/otoka-existing-0b7152d453f0-dev:0.1.0 done
+#7 DONE 0.0s
+[2026-10-20T02:47:54.615Z] 
+[2026-10-20T02:47:54.645Z] Start: Run: docker compose -f [work-root]/validation/adapter/runs/単一Next fixture/.devcontainer/compose.yaml --profile * config
+[2026-10-20T02:47:54.728Z] Expected to find a docker-compose file prefixed with docker-compose.devcontainer.build, but did not.
+[2026-10-20T02:47:54.729Z] Start: Run: docker compose --project-name otoka-existing-0b7152d453f0 -f [work-root]/validation/adapter/runs/単一Next fixture/.devcontainer/compose.yaml -f [devcontainer-temp]/docker-compose/docker-compose.devcontainer.containerFeatures-1792464107585-997cd2b7-dbd3-4304-a95e-7b2259866120.yml up -d --no-recreate
+{"outcome":"success","containerId":"3bec6a7024b8ce567a459097e0c18548a800c67ca433b435b048fd846c02876a","composeProjectName":"otoka-existing-0b7152d453f0","remoteUser":"node","remoteWorkspaceFolder":"/workspace","ociAuthDiagnostics":{"authLookupWouldBeBlocked":false,"registryRedirectWouldPreventCredentialForwarding":false,"authServerRedirect":false}}

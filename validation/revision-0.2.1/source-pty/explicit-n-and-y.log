@@ -1,0 +1,112 @@
+明鏡 / 新しいプロジェクト
+各入力で :back（戻る）、:cancel（中止）が使えます。
+まず何を作りますか？
+1. 画面を作りたい — 入力やページ移動を、サンプル画面から学びます。
+2. APIを作りたい — HTTPで入力を受け取り、結果を返します。
+3. 画面とAPIをつなぎたい — フォームからAPIへ送信します。
+4. データをDBへ保存したい — ローカルDBで、メモの保存・編集・削除を学びます。
+5. SQL・DBを学びたい — SQLの作業環境で、テーブルとデータを扱います。
+用途 [1]: 1
+1. Next.js (F2) / 2. React + Vite (F1)
+画面の構成 [1]: 1
+親フォルダ [<WORKSPACE>/validation/revision-0.2.1/runs/source-pty]: <WORKSPACE>/validation/revision-0.2.1/runs/source-pty/explicit-n-and-y
+新しいフォルダ名 [my-app]: 日本語 詳細設定 ; $(literal)
+識別ラベル・ポートを変更しますか？ [y/N]: y
+識別ラベル（省略可） []: custom
+ホストポート [3001]: 3409
+
+構成: F2 / 版 0.1.0
+保存先: <WORKSPACE>/validation/revision-0.2.1/runs/source-pty/explicit-n-and-y/日本語 詳細設定 ; $(literal)
+識別名: otoka-f2-custom-384489948
+ポート: app=3409
+ファイル: 44件（サンプル・教材・テスト・CI設定、.env、START_HERE.md）
+まだファイルは書き込んでいません。
+planId: c160eb855c982653ddabe186f60546e79599787199809387d61d5acbfad3a429
+生成準備: 確認済み
+起動準備: 確認済み
+[PASS] bash: 確認済み
+[PASS] カタログと配布ZIPの整合を確認しました。
+[PASS] cksumを利用できます。
+[PASS] VS Code: 確認済み
+[PASS] Docker Compose: 確認済み
+[PASS] 入力・保存先・親フォルダを確認しました。書込み成功の保証ではありません。
+[PASS] Dev Containers拡張: 確認済み
+[PASS] Docker daemon: 確認済み
+[PASS] 実行基盤 Node 24.19.0
+[PASS] app 3409: 現在は利用可能（予約なし）
+この内容で作成しますか？ [y / :back / :cancel]: :back
+親フォルダ [<WORKSPACE>/validation/revision-0.2.1/runs/source-pty/explicit-n-and-y]: 
+新しいフォルダ名 [日本語 詳細設定 ; $(literal)]: 
+識別ラベル・ポートを変更しますか？ [Y/n]: n
+
+構成: F2 / 版 0.1.0
+保存先: <WORKSPACE>/validation/revision-0.2.1/runs/source-pty/explicit-n-and-y/日本語 詳細設定 ; $(literal)
+識別名: otoka-f2-384489948
+ポート: app=3001
+ファイル: 44件（サンプル・教材・テスト・CI設定、.env、START_HERE.md）
+まだファイルは書き込んでいません。
+planId: 88d3a4b81a0d27aa5cef5d674759e7cdfa4afaac2769cfc2969c8a4738a5edc0
+生成準備: 確認済み
+起動準備: 確認済み
+[PASS] bash: 確認済み
+[PASS] カタログと配布ZIPの整合を確認しました。
+[PASS] cksumを利用できます。
+[PASS] VS Code: 確認済み
+[PASS] Docker Compose: 確認済み
+[PASS] 入力・保存先・親フォルダを確認しました。書込み成功の保証ではありません。
+[PASS] Dev Containers拡張: 確認済み
+[PASS] Docker daemon: 確認済み
+[PASS] 実行基盤 Node 24.19.0
+[PASS] app 3001: 現在は利用可能（予約なし）
+この内容で作成しますか？ [y / :back / :cancel]: :back
+親フォルダ [<WORKSPACE>/validation/revision-0.2.1/runs/source-pty/explicit-n-and-y]: 
+新しいフォルダ名 [日本語 詳細設定 ; $(literal)]: 
+識別ラベル・ポートを変更しますか？ [y/N]: 
+
+構成: F2 / 版 0.1.0
+保存先: <WORKSPACE>/validation/revision-0.2.1/runs/source-pty/explicit-n-and-y/日本語 詳細設定 ; $(literal)
+識別名: otoka-f2-384489948
+ポート: app=3001
+ファイル: 44件（サンプル・教材・テスト・CI設定、.env、START_HERE.md）
+まだファイルは書き込んでいません。
+planId: 88d3a4b81a0d27aa5cef5d674759e7cdfa4afaac2769cfc2969c8a4738a5edc0
+生成準備: 確認済み
+起動準備: 確認済み
+[PASS] bash: 確認済み
+[PASS] カタログと配布ZIPの整合を確認しました。
+[PASS] cksumを利用できます。
+[PASS] VS Code: 確認済み
+[PASS] Docker Compose: 確認済み
+[PASS] 入力・保存先・親フォルダを確認しました。書込み成功の保証ではありません。
+[PASS] Dev Containers拡張: 確認済み
+[PASS] Docker daemon: 確認済み
+[PASS] 実行基盤 Node 24.19.0
+[PASS] app 3001: 現在は利用可能（予約なし）
+この内容で作成しますか？ [y / :back / :cancel]: :back
+親フォルダ [<WORKSPACE>/validation/revision-0.2.1/runs/source-pty/explicit-n-and-y]: 
+新しいフォルダ名 [日本語 詳細設定 ; $(literal)]: 
+識別ラベル・ポートを変更しますか？ [y/N]: y
+識別ラベル（省略可） [custom]: 
+ホストポート [3409]: 
+
+構成: F2 / 版 0.1.0
+保存先: <WORKSPACE>/validation/revision-0.2.1/runs/source-pty/explicit-n-and-y/日本語 詳細設定 ; $(literal)
+識別名: otoka-f2-custom-384489948
+ポート: app=3409
+ファイル: 44件（サンプル・教材・テスト・CI設定、.env、START_HERE.md）
+まだファイルは書き込んでいません。
+planId: c160eb855c982653ddabe186f60546e79599787199809387d61d5acbfad3a429
+生成準備: 確認済み
+起動準備: 確認済み
+[PASS] bash: 確認済み
+[PASS] カタログと配布ZIPの整合を確認しました。
+[PASS] cksumを利用できます。
+[PASS] VS Code: 確認済み
+[PASS] Docker Compose: 確認済み
+[PASS] 入力・保存先・親フォルダを確認しました。書込み成功の保証ではありません。
+[PASS] Dev Containers拡張: 確認済み
+[PASS] Docker daemon: 確認済み
+[PASS] 実行基盤 Node 24.19.0
+[PASS] app 3409: 現在は利用可能（予約なし）
+この内容で作成しますか？ [y / :back / :cancel]: :cancel
+生成前に中止しました。ファイルは作成していません。

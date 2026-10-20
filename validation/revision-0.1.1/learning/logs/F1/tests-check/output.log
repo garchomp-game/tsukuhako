@@ -1,0 +1,12 @@
+
+> otoka-f1@0.1.1 check
+> npm run lint && npm run typecheck
+
+
+> otoka-f1@0.1.1 lint
+> eslint .
+
+
+> otoka-f1@0.1.1 typecheck
+> tsc --noEmit
+

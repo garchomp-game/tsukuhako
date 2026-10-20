@@ -1,0 +1,14 @@
+{
+  "id": "t030-resource-cleanup",
+  "startedAt": "2026-10-20T13:25:30.959788+00:00",
+  "command": [
+    "python3",
+    "tools/stop-validation-030.py"
+  ],
+  "cwd": ".",
+  "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+  "exitCode": 0,
+  "elapsedSeconds": 3.727,
+  "result": "PASS",
+  "log": "output.log"
+}

@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+:root { color: #172c36; background: #f5f3ed; font-family: system-ui, -apple-system, "Noto Sans JP", sans-serif; }
+body { margin: 0; }
+button, input, textarea { font: inherit; }
+a:focus-visible, button:focus-visible, textarea:focus-visible { outline: 3px solid #377b70; outline-offset: 4px; }

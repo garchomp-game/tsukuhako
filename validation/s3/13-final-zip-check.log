@@ -1,0 +1,46 @@
+
+> otoka-s3-readonly-catalog@0.1.0 check
+> next typegen && tsc --noEmit && eslint .
+
+Generating route types...
+✓ Types generated successfully
+
+> otoka-s3-readonly-catalog@0.1.0 test
+> node --test tests/catalog.test.mjs
+
+✔ missing, invalid and privileged settings are rejected without network calls (1.001213ms)
+✔ read-only fetch selects exact fields with public key; returns valid and empty lists (21.6208ms)
+✔ upstream error, unavailable network and malformed schema have safe messages (0.740623ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 103.667369
+
+> otoka-s3-readonly-catalog@0.1.0 build
+> next build
+
+▲ Next.js 16.4.2 (Turbopack)
+- Environments: .env
+✓ Running next.config.ts took 23ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 1462ms
+  Running TypeScript ...
+  Finished TypeScript in 1340ms ...
+  Collecting page data using 4 workers ...
+  Generating static pages using 4 workers (0/2) ...
+✓ Generating static pages using 4 workers (2/2) in 269ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ƒ /
+└ ○ /_not-found
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

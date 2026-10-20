@@ -1,0 +1,14 @@
+{
+  "name": "17-normal-restart",
+  "startedAt": "2026-10-20T04:59:32.625417+00:00",
+  "elapsedSeconds": 26.133,
+  "command": [
+    "bash",
+    "-c",
+    "bash scripts/db.sh start && <WORKSPACE>/tools/node_modules/.bin/devcontainer up --workspace-folder ."
+  ],
+  "cwd": "validation/revision-0.1.1/s2/runs/最終配布 新規起動/S2",
+  "exitCode": 0,
+  "result": "PASS",
+  "log": "17-normal-restart.log"
+}

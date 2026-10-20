@@ -1,0 +1,18 @@
+{
+  "id": "f1-configure",
+  "startedAt": "2026-10-20T02:21:12.811656+00:00",
+  "command": [
+    "bash",
+    "scripts/configure.sh",
+    "--name",
+    "otoka-f1-frontend-20261020",
+    "--port",
+    "23100"
+  ],
+  "cwd": "validation/work/frontend-api/F1",
+  "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+  "exitCode": 0,
+  "elapsedSeconds": 0.008,
+  "result": "PASS",
+  "log": "output.log"
+}

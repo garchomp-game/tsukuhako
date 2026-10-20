@@ -1,0 +1,14 @@
+{
+  "id": "g020-gui-acceptance-final",
+  "startedAt": "2026-10-20T08:58:40.308174+00:00",
+  "command": [
+    "node",
+    "tools/verify-desktop-020.mjs"
+  ],
+  "cwd": ".",
+  "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+  "exitCode": 1,
+  "elapsedSeconds": 3.07,
+  "result": "FAIL",
+  "log": "output.log"
+}

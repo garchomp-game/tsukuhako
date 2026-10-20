@@ -1,0 +1,14 @@
+
+> meikyo-generator-desktop@0.2.0 build
+> tsc --noEmit && vite build
+
+vite v8.3.4 building client environment for production...
+transforming...
+✓ 15 modules transformed.
+rendering chunks...
+computing gzip size...
+build/index.html                   0.38 kB │ gzip:  0.31 kB
+build/assets/index-BafzrX5M.css    8.03 kB │ gzip:  2.45 kB
+build/assets/index-BvSMPq3F.js   233.59 kB │ gzip: 73.40 kB
+
+✓ built in 129ms

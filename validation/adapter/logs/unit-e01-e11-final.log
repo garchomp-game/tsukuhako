@@ -1,0 +1,26 @@
+
+> otoka-existing-project-adapter@0.1.0 check
+> node --check cli.mjs && node --check src/adapter.mjs && node --check src/templates.mjs && node --test tests/*.test.mjs
+
+✔ E01: compatible single Next/npm has evidence and a bounded proposal (6.371657ms)
+✔ E02: Vite, React-only, general Node are distinct and cannot auto-apply (3.059059ms)
+✔ E03: conflicting lockfiles, runtime and manager cannot be forced (13.409369ms)
+✔ E04: monorepo and existing Docker/Dev Container are preserved with next steps (4.78944ms)
+✔ E05: inspection and preview do not execute config JS or package lifecycle scripts (2.915082ms)
+✔ E06: inspect/recommend/preview do not write; plans must be outside project (2.512679ms)
+✔ E07: explicit apply adds only generated settings; all original hashes stay equal (4.607832ms)
+✔ E08: changed inputs, new output, newly appeared Docker config and moved roots reject stale plans (8.626218ms)
+✔ E09: applying the same unchanged proposal is an unchanged success (6.317502ms)
+✔ E10: undo preserves user edits/new files and removes only unchanged generated files (9.334775ms)
+✔ E11: mid-write failure rolls back only created files and clears staging (3.49917ms)
+✔ E11: path tampering and input/output symlinks never change outside files (2.937466ms)
+✔ E11: undo does not follow a generated file replaced with a symlink (3.919834ms)
+✔ Conservative versions, invalid JSON, invalid ports and edited records are rejected (4.919609ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 136.32084

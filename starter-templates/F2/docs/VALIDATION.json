@@ -1,0 +1,166 @@
+{
+  "template": "F2",
+  "version": "0.1.0",
+  "date": "2026-10-20T02:36:58.174563+00:00",
+  "results": [
+    {
+      "id": "A01",
+      "applicable": true,
+      "status": "PASS",
+      "observation": "単独ZIPを日本語+空白pathへ新規展開、DevCLI up/check、入力・clear・編集反映。最終ZIPは別途smoke証跡で照合。",
+      "evidence": [
+        "f2-zip-up",
+        "f2-zip-check",
+        "f2-package/results.json"
+      ]
+    },
+    {
+      "id": "A02",
+      "applicable": true,
+      "status": "PASS",
+      "observation": "設定欠落、Docker未接続、port/name衝突、既存.env保持、symlink拒否等。",
+      "evidence": [
+        "f2-diagnostics/results.json"
+      ]
+    },
+    {
+      "id": "A03",
+      "applicable": true,
+      "status": "PASS",
+      "observation": "Node24.22.0/npm11.17.0、image digest/lockfile固定。新しいvolumeへnpm ci成功。",
+      "evidence": [
+        "f2-devcontainer-prebuild",
+        "f2-zip-up"
+      ]
+    },
+    {
+      "id": "A04",
+      "applicable": true,
+      "status": "PASS",
+      "observation": "実Dev Container CLI作成・exec。VS Code UI操作は別のNOT_RUN項目。",
+      "evidence": [
+        "f2-devcontainer-prebuild",
+        "f2-check-final"
+      ]
+    },
+    {
+      "id": "A05",
+      "applicable": true,
+      "status": "PASS",
+      "observation": "2ページ、遷移、入力、clear、再読込、script文字列を実ブラウザで確認。",
+      "evidence": [
+        "f2-http",
+        "f2-browser-localhost"
+      ]
+    },
+    {
+      "id": "A06",
+      "applicable": true,
+      "status": "PASS",
+      "observation": "ページ見出し変更→同documentに自動反映。手動reloadなし。",
+      "evidence": [
+        "f2-lifecycle/results.json"
+      ]
+    },
+    {
+      "id": "A07",
+      "applicable": true,
+      "status": "NOT_RUN",
+      "observation": "プロセス停止再開、Compose stop/CLI upはPASS。VS Code実再接続を未実施。",
+      "evidence": [
+        "f2-lifecycle/results.json"
+      ]
+    },
+    {
+      "id": "A08",
+      "applicable": true,
+      "status": "PASS",
+      "observation": "コンテナIDが変わるdown/upで、編集済みsourceのhashと画面を保持。DB非搭載。",
+      "evidence": [
+        "f2-lifecycle/results.json"
+      ]
+    },
+    {
+      "id": "A09",
+      "applicable": false,
+      "status": "NOT_RUN",
+      "observation": "対象外：DBを含まない。永続性を約束しない。",
+      "evidence": []
+    },
+    {
+      "id": "A10",
+      "applicable": true,
+      "status": "PASS",
+      "observation": "F2別copy3001/3301でsource/volume/port分離。I1との代表的同時疎通はvalidation/i1/results.jsonに記録。",
+      "evidence": [
+        "f2-package/results.json"
+      ]
+    },
+    {
+      "id": "A11",
+      "applicable": true,
+      "status": "PASS",
+      "observation": "HTTP1 test＋browser1 scenarioに遷移/入力/クリア/再読込/script文字列の複数検証。",
+      "evidence": [
+        "f2-http",
+        "f2-browser-localhost"
+      ]
+    },
+    {
+      "id": "A12",
+      "applicable": true,
+      "status": "NOT_RUN",
+      "observation": "workflow同梱、同等check/test/browser/buildはローカルPASS。GitHub Actions自体は未実行。",
+      "evidence": [
+        "f2-check-final",
+        "f2-http",
+        "f2-build",
+        "f2-browser-localhost"
+      ]
+    },
+    {
+      "id": "A13",
+      "applicable": true,
+      "status": "PASS",
+      "observation": "公開port127.0.0.1、API/DB/実キーなし。ZIPに実.envや依存/cacheを含まない。",
+      "evidence": [
+        "resources.json",
+        "f2-package/results.json"
+      ]
+    },
+    {
+      "id": "A14",
+      "applicable": true,
+      "status": "NOT_RUN",
+      "observation": "READMEのCLI相当手順で起動・編集・復旧PASS。VS Code操作、未導入PC、初学者試用は未実施。",
+      "evidence": [
+        "f2-zip-up",
+        "f2-lifecycle/results.json",
+        "f2-diagnostics/results.json"
+      ]
+    },
+    {
+      "id": "A15",
+      "applicable": true,
+      "status": "PASS",
+      "observation": "Linux Mint22.3 x86_64/Docker29.9.1/Compose5.6/CLI0.89、Chrome155/Playwright Chromium156を記録。",
+      "evidence": []
+    },
+    {
+      "id": "A16",
+      "applicable": true,
+      "status": "NOT_RUN",
+      "observation": "単独ソース・教材・検証記録は完成。統合REPORT/catalog/final ZIPは統合試験で更新する。",
+      "evidence": []
+    }
+  ],
+  "unverified": [
+    "VS Code UI",
+    "Windows+WSL",
+    "macOS",
+    "ARM",
+    "fresh-PC setup",
+    "live GitHub Actions",
+    "beginner usability"
+  ]
+}

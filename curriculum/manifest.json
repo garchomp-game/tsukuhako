@@ -1,0 +1,472 @@
+{
+  "schemaVersion": 1,
+  "appVersion": "0.4.1",
+  "version": "0.4.1",
+  "lessons": [
+    {
+      "id": "F1",
+      "title": "F1 · React + Vite + TypeScript",
+      "version": "0.4.1",
+      "templateVersion": "0.1.3",
+      "chapters": [
+        {
+          "id": "first",
+          "title": "最初の一歩",
+          "file": "F1/first.md",
+          "source": "START_HERE.md",
+          "bytes": 4169,
+          "sha256": "f9286bf2521c671ada0cfb21bc26d914c0072e225d597f98a98b7d0775b40a5a"
+        },
+        {
+          "id": "readme",
+          "title": "全体の使い方",
+          "file": "F1/readme.md",
+          "source": "README.md",
+          "bytes": 4154,
+          "sha256": "d62b9995b68ff8c5e6ed438a544af3d3dba7709c9c3a43f4fe243bca6ff3477f"
+        },
+        {
+          "id": "architecture",
+          "title": "構成を理解する",
+          "file": "F1/architecture.md",
+          "source": "docs/ARCHITECTURE.md",
+          "bytes": 1623,
+          "sha256": "e76aab626983e668f718c547054b7d414fcbdbd98fbb6390ed6a312338b75310"
+        },
+        {
+          "id": "build-your-own",
+          "title": "F1を空フォルダから組み立てる",
+          "file": "F1/build-your-own.md",
+          "source": "docs/BUILD-YOUR-OWN.md",
+          "bytes": 5147,
+          "sha256": "9ec9feaa28356bfa903b2a4848bd8f759e18217c8eb2d409ea0276654246cce1"
+        },
+        {
+          "id": "exercises",
+          "title": "小さく変更する演習",
+          "file": "F1/exercises.md",
+          "source": "docs/EXERCISES.md",
+          "bytes": 1692,
+          "sha256": "d399a9b43e82ddadd2a85dbca4c517c19a59da691fba8bb5f295cf4c85eb5f3e"
+        },
+        {
+          "id": "recovery",
+          "title": "停止・再開と復旧",
+          "file": "F1/recovery.md",
+          "source": "docs/RECOVERY.md",
+          "bytes": 2432,
+          "sha256": "727da03706457d44642673702e6fb06721b9b5249a213b992f0bad49c9af731d"
+        },
+        {
+          "id": "setup",
+          "title": "最初の準備（ホストで行う）",
+          "file": "F1/setup.md",
+          "source": "docs/SETUP.md",
+          "bytes": 1825,
+          "sha256": "8a8b44c781e0678261cf0ba0de863898c814e8d862f2abe861501fd997e976d5"
+        }
+      ]
+    },
+    {
+      "id": "F2",
+      "title": "F2 · Next.js + TypeScript + Tailwind",
+      "version": "0.4.1",
+      "templateVersion": "0.1.1",
+      "chapters": [
+        {
+          "id": "first",
+          "title": "最初の一歩",
+          "file": "F2/first.md",
+          "source": "START_HERE.md",
+          "bytes": 4283,
+          "sha256": "76773a6d3db84ab34dd2035a43aaf367d6a512e3337889760ecdf00b273f8c2e"
+        },
+        {
+          "id": "readme",
+          "title": "全体の使い方",
+          "file": "F2/readme.md",
+          "source": "README.md",
+          "bytes": 2894,
+          "sha256": "ea9fbb53fd09ae7800387516e7b0d7636b4d907ed3a7696b008b0e82f78fdba7"
+        },
+        {
+          "id": "architecture",
+          "title": "構成を理解する",
+          "file": "F2/architecture.md",
+          "source": "docs/ARCHITECTURE.md",
+          "bytes": 1612,
+          "sha256": "0726ad09f6099797c9aab0c43ff4e8a34f6fd9fa22a5fe526f9da843bcc430e5"
+        },
+        {
+          "id": "build-your-own",
+          "title": "空フォルダから組み立てる演習",
+          "file": "F2/build-your-own.md",
+          "source": "docs/BUILD-YOUR-OWN.md",
+          "bytes": 1773,
+          "sha256": "a3006ff5cec657e5193eca2a8f2af96f62dcc352ab0f896f4a72930360020be0"
+        },
+        {
+          "id": "exercises",
+          "title": "画面を一つずつ変える",
+          "file": "F2/exercises.md",
+          "source": "docs/EXERCISES.md",
+          "bytes": 1563,
+          "sha256": "f37f0134754f00959741f96d2ddbd3bfdb2117c2306bbc997dc1a27df65a2279"
+        },
+        {
+          "id": "recovery",
+          "title": "停止・再開と復旧",
+          "file": "F2/recovery.md",
+          "source": "docs/RECOVERY.md",
+          "bytes": 2746,
+          "sha256": "0fdf406f645cd9f37c5e712f19abec03612891dcc0e4e3c1d1d7390399a36463"
+        },
+        {
+          "id": "setup",
+          "title": "最初の準備（ホストで行う）",
+          "file": "F2/setup.md",
+          "source": "docs/SETUP.md",
+          "bytes": 1825,
+          "sha256": "8a8b44c781e0678261cf0ba0de863898c814e8d862f2abe861501fd997e976d5"
+        }
+      ]
+    },
+    {
+      "id": "B1",
+      "title": "B1 · Next.js Route Handlers API only",
+      "version": "0.4.1",
+      "templateVersion": "0.1.2",
+      "chapters": [
+        {
+          "id": "first",
+          "title": "最初の一歩",
+          "file": "B1/first.md",
+          "source": "START_HERE.md",
+          "bytes": 4238,
+          "sha256": "3eb03f1490928eb30debbc85f8455d39d5994a24c7bacb4ca91b112d823ba438"
+        },
+        {
+          "id": "readme",
+          "title": "全体の使い方",
+          "file": "B1/readme.md",
+          "source": "README.md",
+          "bytes": 4242,
+          "sha256": "1d58246cea4ba8547e8e8d1be0ebef71cdf40b765b0dc94b25dc764a3619930b"
+        },
+        {
+          "id": "api",
+          "title": "プレビューAPIの契約",
+          "file": "B1/api.md",
+          "source": "docs/API.md",
+          "bytes": 3186,
+          "sha256": "6bac884e88bf338286dbec74bc79fdb9874cc7813090e801d840087b043d149e"
+        },
+        {
+          "id": "architecture",
+          "title": "構成を理解する",
+          "file": "B1/architecture.md",
+          "source": "docs/ARCHITECTURE.md",
+          "bytes": 1473,
+          "sha256": "678161d8edc38b6eb25b25af39fd05156b44b58bcb925aba05bcfbe302d2b066"
+        },
+        {
+          "id": "build-your-own",
+          "title": "B1を空フォルダから組み立てる",
+          "file": "B1/build-your-own.md",
+          "source": "docs/BUILD-YOUR-OWN.md",
+          "bytes": 5580,
+          "sha256": "ccbe38e8e45f6a9564930dfbc26f64b366f35225109f5df7c3bbf22845cf72a0"
+        },
+        {
+          "id": "exercises",
+          "title": "APIとテストを一緒に変更する",
+          "file": "B1/exercises.md",
+          "source": "docs/EXERCISES.md",
+          "bytes": 1490,
+          "sha256": "21a2086dc39fffb006b3bf7127b47454aa9ff6175f006473c89177e2444f0d54"
+        },
+        {
+          "id": "recovery",
+          "title": "停止・再開と復旧",
+          "file": "B1/recovery.md",
+          "source": "docs/RECOVERY.md",
+          "bytes": 2722,
+          "sha256": "9ff0f843ccf126a9e5483a393d9e722cd385b8c0ce8f73609aa15a6de2d08f4f"
+        },
+        {
+          "id": "setup",
+          "title": "最初の準備（ホストで行う）",
+          "file": "B1/setup.md",
+          "source": "docs/SETUP.md",
+          "bytes": 1825,
+          "sha256": "8a8b44c781e0678261cf0ba0de863898c814e8d862f2abe861501fd997e976d5"
+        }
+      ]
+    },
+    {
+      "id": "S1",
+      "title": "S1 · Next.js + Route Handlers",
+      "version": "0.4.1",
+      "templateVersion": "0.1.2",
+      "chapters": [
+        {
+          "id": "first",
+          "title": "最初の一歩",
+          "file": "S1/first.md",
+          "source": "START_HERE.md",
+          "bytes": 4198,
+          "sha256": "6c8bd89d865e2ed439a74265372f569991ab4dab961d5f884e95691dd8553956"
+        },
+        {
+          "id": "readme",
+          "title": "全体の使い方",
+          "file": "S1/readme.md",
+          "source": "README.md",
+          "bytes": 4428,
+          "sha256": "3cc8a79d8e2bfe715f35163edef7d5a86d6c4f38ae35d13f8359ff3ddf07bc81"
+        },
+        {
+          "id": "api",
+          "title": "プレビューAPIの契約",
+          "file": "S1/api.md",
+          "source": "docs/API.md",
+          "bytes": 3186,
+          "sha256": "6bac884e88bf338286dbec74bc79fdb9874cc7813090e801d840087b043d149e"
+        },
+        {
+          "id": "architecture",
+          "title": "構成を理解する",
+          "file": "S1/architecture.md",
+          "source": "docs/ARCHITECTURE.md",
+          "bytes": 1623,
+          "sha256": "642079ca2681c2c27483735c3ba898af8c7029638f2c391a3da7efc498040f2c"
+        },
+        {
+          "id": "build-your-own",
+          "title": "S1を空フォルダから組み立てる",
+          "file": "S1/build-your-own.md",
+          "source": "docs/BUILD-YOUR-OWN.md",
+          "bytes": 7153,
+          "sha256": "52e9a3c02e62a89547a29672a00294e4aa8d5e7afadcd35f88b32f43596af520"
+        },
+        {
+          "id": "exercises",
+          "title": "画面・API・テストをつなぐ演習",
+          "file": "S1/exercises.md",
+          "source": "docs/EXERCISES.md",
+          "bytes": 2024,
+          "sha256": "19fdbde4d031e7fe0a66109cfa0f8579f2671763cefec7690b6054ca342e8ac1"
+        },
+        {
+          "id": "recovery",
+          "title": "停止・再開と復旧",
+          "file": "S1/recovery.md",
+          "source": "docs/RECOVERY.md",
+          "bytes": 2722,
+          "sha256": "9ff0f843ccf126a9e5483a393d9e722cd385b8c0ce8f73609aa15a6de2d08f4f"
+        },
+        {
+          "id": "setup",
+          "title": "最初の準備（ホストで行う）",
+          "file": "S1/setup.md",
+          "source": "docs/SETUP.md",
+          "bytes": 1825,
+          "sha256": "8a8b44c781e0678261cf0ba0de863898c814e8d862f2abe861501fd997e976d5"
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "title": "S2 · Next.js + local Supabase",
+      "version": "0.4.1",
+      "templateVersion": "0.1.2",
+      "chapters": [
+        {
+          "id": "first",
+          "title": "最初の一歩",
+          "file": "S2/first.md",
+          "source": "START_HERE.md",
+          "bytes": 4442,
+          "sha256": "b8131fbba14dedfbdf40db59ba1af8e931752634efac3f06fae85a77a497cb51"
+        },
+        {
+          "id": "readme",
+          "title": "全体の使い方",
+          "file": "S2/readme.md",
+          "source": "README.md",
+          "bytes": 5401,
+          "sha256": "b69077c8daa4f5d72d0eebadf83850cb4e85d2193ed0c983c8c0939c6ada6daa"
+        },
+        {
+          "id": "architecture",
+          "title": "構成とデータの寿命",
+          "file": "S2/architecture.md",
+          "source": "docs/ARCHITECTURE.md",
+          "bytes": 4932,
+          "sha256": "e2f5e8d446d3ad9e8ef70971382a528ee93ecaef9121dc6842ab816504abf91f"
+        },
+        {
+          "id": "build-your-own",
+          "title": "空フォルダから組み立てる",
+          "file": "S2/build-your-own.md",
+          "source": "docs/BUILD-YOUR-OWN.md",
+          "bytes": 2466,
+          "sha256": "0989c56dfbd8d5ce07865808007f66ce606fa10f3a36021b90c1594df6334877"
+        },
+        {
+          "id": "exercises",
+          "title": "変更して確かめる",
+          "file": "S2/exercises.md",
+          "source": "docs/EXERCISES.md",
+          "bytes": 2549,
+          "sha256": "638622df2041da4369c2b7f8f5691c46cfe0aa2682061616b6a72dc60cfad070"
+        },
+        {
+          "id": "recovery",
+          "title": "停止・再開・再構築と復旧",
+          "file": "S2/recovery.md",
+          "source": "docs/RECOVERY.md",
+          "bytes": 4740,
+          "sha256": "de6f140ba2d7c8b5922c524014d59fe84be137d0cea90eeef1a1b8dc217f67fd"
+        },
+        {
+          "id": "setup",
+          "title": "最初の準備（ホストで行う）",
+          "file": "S2/setup.md",
+          "source": "docs/SETUP.md",
+          "bytes": 2392,
+          "sha256": "28d26305a4fa30f4d13f573bf2b7633a82efa074499f32404c67e34d0d77bfc3"
+        }
+      ]
+    },
+    {
+      "id": "I1",
+      "title": "I1 · PostgreSQL + development workbench",
+      "version": "0.4.1",
+      "templateVersion": "0.1.0",
+      "chapters": [
+        {
+          "id": "first",
+          "title": "最初の一歩",
+          "file": "I1/first.md",
+          "source": "START_HERE.md",
+          "bytes": 3579,
+          "sha256": "d962236e7d957df76a301ea5cdca728c4372a018ddec5cf870d9d6f65554891b"
+        },
+        {
+          "id": "readme",
+          "title": "全体の使い方",
+          "file": "I1/readme.md",
+          "source": "README.md",
+          "bytes": 4705,
+          "sha256": "1a6ac9ba15159c0cadd9a0f29ad6784a2c5e2b26a098f834537297263f7a0eb3"
+        },
+        {
+          "id": "learning",
+          "title": "構成を理解して変更する",
+          "file": "I1/learning.md",
+          "source": "docs/learning.md",
+          "bytes": 4068,
+          "sha256": "09b6b0efd4d64edf7124a8eaa26637f09097b3b994be51e78de0983b7fffd91b"
+        },
+        {
+          "id": "recovery",
+          "title": "停止・再構築・初期化",
+          "file": "I1/recovery.md",
+          "source": "docs/recovery.md",
+          "bytes": 2265,
+          "sha256": "440fadf971316392d3ac86f1204622920a115cb1289b79805ebb515565542c35"
+        },
+        {
+          "id": "setup",
+          "title": "導入と接続先",
+          "file": "I1/setup.md",
+          "source": "docs/setup.md",
+          "bytes": 2699,
+          "sha256": "2e8f9451228e7d3006177767e2e5eb1e26e2571251999bd4ea124c6d2d2d19da"
+        },
+        {
+          "id": "troubleshooting",
+          "title": "困ったとき",
+          "file": "I1/troubleshooting.md",
+          "source": "docs/troubleshooting.md",
+          "bytes": 3337,
+          "sha256": "d2be00caa80d9214384bf992afeb5dc385cb4389affd4ea2a90f48850965a15f"
+        },
+        {
+          "id": "validation",
+          "title": "実測記録",
+          "file": "I1/validation.md",
+          "source": "docs/validation.md",
+          "bytes": 4497,
+          "sha256": "44703db20406bd18b38faac21a9e397d5b371af4798c60b8a1dc74ff7316a270"
+        },
+        {
+          "id": "versions",
+          "title": "採用版と設計",
+          "file": "I1/versions.md",
+          "source": "docs/versions.md",
+          "bytes": 3478,
+          "sha256": "bf47110927a39d8df5aeb60a7b1558b3c43dc072528687f4059c25a2a6734b02"
+        }
+      ]
+    },
+    {
+      "id": "setup",
+      "title": "開発準備・困ったとき",
+      "version": "0.4.1",
+      "templateVersion": null,
+      "chapters": [
+        {
+          "id": "overview",
+          "title": "開発準備の全体像",
+          "file": "setup/overview.md",
+          "source": "overview.md",
+          "bytes": 1069,
+          "sha256": "e1e9b03318c72a2ad5288f91d210b69f0ee29ee8a27446190b120dac8c74a803"
+        },
+        {
+          "id": "windows",
+          "title": "Windows / WSL 2の準備",
+          "file": "setup/windows.md",
+          "source": "windows.md",
+          "bytes": 3552,
+          "sha256": "cc2d09cc445c71789901776a974ead8dd11e75aae8718f233fbaa37a01ea69aa"
+        },
+        {
+          "id": "macos",
+          "title": "macOSの準備",
+          "file": "setup/macos.md",
+          "source": "macos.md",
+          "bytes": 1273,
+          "sha256": "557d57c83447c1b3992cea3ed57c3aa9047fe44a34a4a50c3deb8e7646d18803"
+        },
+        {
+          "id": "linux",
+          "title": "Linuxの準備",
+          "file": "setup/linux.md",
+          "source": "linux.md",
+          "bytes": 1621,
+          "sha256": "35dc66ea1519309fb76e68341eb9201244663dd115118d46bab34ccc9f317678"
+        },
+        {
+          "id": "trouble",
+          "title": "困ったとき：準備と起動",
+          "file": "setup/trouble.md",
+          "source": "trouble.md",
+          "bytes": 1985,
+          "sha256": "19c9bfb90389436d67ce299fa9960f90424a2a2f469f4318a71eeac6ac1f8841"
+        }
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "id": "learning-cycle",
+      "file": "assets/learning-cycle.png",
+      "sha256": "3d79ca1052b52626a412d61ba4d66d23c4ee54367a10a0b77754b421e2fa03dd",
+      "bytes": 4146,
+      "mime": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "s1-dev-start",
+  "startedAt": "2026-10-20T02:33:00.781036+00:00",
+  "command": [
+    "docker",
+    "compose",
+    "exec",
+    "-d",
+    "app",
+    "sh",
+    "-c",
+    "npm run dev > /tmp/otoka-dev.log 2>&1"
+  ],
+  "cwd": "validation/work/frontend-api/S1",
+  "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+  "exitCode": 0,
+  "elapsedSeconds": 0.114,
+  "result": "PASS",
+  "log": "output.log"
+}

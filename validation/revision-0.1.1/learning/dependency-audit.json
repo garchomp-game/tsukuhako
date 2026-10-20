@@ -1,0 +1,34 @@
+{
+  "recordedAt": "2026-10-20T04:58:07.307814+00:00",
+  "templates": {
+    "B1": {
+      "version": "0.1.1",
+      "dependenciesUnchanged": true,
+      "packageDifference": "version only",
+      "lockDifference": "version and packages[\"\"] version only",
+      "baselineZip": "dist/B1-0.1.0.zip",
+      "baselineZipSha256": "cdbeb3954971d048c835d558e02a1ef924d550c6b1c86810fa3ca86366e88ec3"
+    },
+    "S1": {
+      "version": "0.1.1",
+      "dependenciesUnchanged": true,
+      "packageDifference": "version only",
+      "lockDifference": "version and packages[\"\"] version only",
+      "baselineZip": "dist/S1-0.1.0.zip",
+      "baselineZipSha256": "f6549c73145644c5d5f277f2cd6c000e8b96b93808ab0555ca497eb235a9644c"
+    },
+    "F1": {
+      "version": "0.1.1",
+      "dependenciesUnchanged": true,
+      "packageDifference": "version only",
+      "lockDifference": "version and packages[\"\"] version only",
+      "baselineZip": "dist/F1-0.1.0.zip",
+      "baselineZipSha256": "dd95c335370d9d7bd926d10e2ddda58cb4295591301b32e171e10e2a8dac2cee",
+      "eslintPeerRanges": {
+        "typescript-eslint": "^8.57.0 || ^9.0.0 || ^10.0.0",
+        "eslint-plugin-react-hooks": "^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0 || ^10.0.0",
+        "eslint-plugin-react-refresh": "^9 || ^10"
+      }
+    }
+  }
+}

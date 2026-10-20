@@ -1,0 +1,19 @@
+{
+  "template": "S1",
+  "event": "stage4-port-released",
+  "startedAt": "2026-10-20T05:00:59.635812+00:00",
+  "command": [
+    "docker",
+    "exec",
+    "e7d6711876c237d9f81c30cef1e1c51ec8644d76af9f8168c03d0a498b3e7927",
+    "node",
+    "-e",
+    "const net=require('node:net'); (async()=>{for(let i=0;i<50;i++){const closed=await new Promise(r=>{const s=net.connect(3000,'127.0.0.1');s.on('connect',()=>{s.destroy();r(false)});s.on('error',()=>r(true))});if(closed){console.log(JSON.stringify({port:3000,released:true}));return}await new Promise(r=>setTimeout(r,100))}process.exit(1)})()"
+  ],
+  "cwd": "validation/revision-0.1.1/learning/runs/S1 空フォルダ 教材 0.1.1",
+  "endedAt": "2026-10-20T05:00:59.749809+00:00",
+  "exitCode": 0,
+  "elapsedSeconds": 0.114,
+  "result": "PASS",
+  "log": "output.log"
+}

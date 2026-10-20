@@ -1,0 +1,5 @@
+
+> otoka-b1@0.1.1 doctor
+> node scripts/doctor.mjs
+
+準備完了。npm run dev で開始、npm run check で静的確認します。

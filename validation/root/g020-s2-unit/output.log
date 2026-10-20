@@ -1,0 +1,19 @@
+
+> otoka-s2-local-notes@0.1.1 test
+> node --test tests/input.test.mjs tests/managed-server.test.mjs
+
+✔ trim and Unicode code point boundaries (1.366155ms)
+✔ missing, non-string, whitespace and invalid Unicode are rejected (0.185555ms)
+✔ markup remains literal data and IDs are constrained (0.287771ms)
+{"event":"managed-server-started","pid":195,"port":38755,"reused":false}
+{"event":"managed-server-stopped","pid":195,"processGroupTerminated":true,"port":38755,"portBindable":true}
+✔ callback failure still stops owned server and releases its port (250.865918ms)
+✔ an occupied port is refused without reusing or stopping its owner (1.012364ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 303.021353

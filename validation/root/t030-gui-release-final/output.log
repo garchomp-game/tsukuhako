@@ -1,0 +1,12 @@
+PASS T01-T03-T07-brand-profile-isolation
+PASS T03-real-ipc-and-protocol
+PASS T03-plan-parity-F1
+PASS T03-plan-parity-F2
+PASS T03-plan-parity-B1
+PASS T03-plan-parity-S1
+PASS T03-plan-parity-S2
+PASS T03-plan-parity-I1
+PASS T02-T11-keyboard-duplicate-back
+PASS T03-T10-T11-ui-created-guide
+PASS T11-double-apply
+{"status":"PASS","checks":11,"errors":[]}

@@ -1,0 +1,43 @@
+[
+  {
+    "id": "zip-function-and-hmr",
+    "result": "PASS",
+    "date": "2026-10-20T02:32:20.668Z",
+    "archiveSha256": "6f715c98ac7d6beb74358269caf5ec54928e69951e3fbee80b9e98dd44676033",
+    "observation": "日本語+空白パスに新規展開。READMEのconfigure/doctor→DevCLI→npm run dev、入力/clear/編集自動反映、元コピー非影響。"
+  },
+  {
+    "project": "otoka-f2-3543580151",
+    "containerId": "6de81991a2fb",
+    "ports": {
+      "3000/tcp": [
+        {
+          "HostIp": "127.0.0.1",
+          "HostPort": "3001"
+        }
+      ]
+    },
+    "volumes": [
+      "otoka-f2-3543580151_dependencies",
+      "otoka-f2-3543580151_npm-cache"
+    ],
+    "source": "<WORKSPACE>/starter-templates/F2"
+  },
+  {
+    "project": "otoka-f2-1589200076",
+    "containerId": "d7e5f50ad8ec",
+    "ports": {
+      "3000/tcp": [
+        {
+          "HostIp": "127.0.0.1",
+          "HostPort": "3301"
+        }
+      ]
+    },
+    "volumes": [
+      "otoka-f2-1589200076_dependencies",
+      "otoka-f2-1589200076_npm-cache"
+    ],
+    "source": "<WORKSPACE>/validation/root/f2-package/runs/新規 展開/F2"
+  }
+]

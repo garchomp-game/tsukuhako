@@ -1,0 +1,15 @@
+{
+  "id": "g020-s2-db-stop",
+  "startedAt": "2026-10-20T09:04:29.127068+00:00",
+  "command": [
+    "bash",
+    "scripts/db.sh",
+    "stop"
+  ],
+  "cwd": "validation/generator-0.2.0/runs/startup/S2 学習",
+  "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+  "exitCode": 0,
+  "elapsedSeconds": 2.022,
+  "result": "PASS",
+  "log": "output.log"
+}

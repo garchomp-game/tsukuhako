@@ -1,0 +1,14 @@
+{
+  "name": "15-normal-stop",
+  "startedAt": "2026-10-20T04:59:13.643031+00:00",
+  "elapsedSeconds": 2.572,
+  "command": [
+    "bash",
+    "-c",
+    "bash scripts/app.sh stop && bash scripts/db.sh stop"
+  ],
+  "cwd": "validation/revision-0.1.1/s2/runs/最終配布 新規起動/S2",
+  "exitCode": 0,
+  "result": "PASS",
+  "log": "15-normal-stop.log"
+}

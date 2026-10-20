@@ -1,0 +1,15 @@
+{
+  "id": "f1-zip-final-stop",
+  "startedAt": "2026-10-20T02:25:55.945207+00:00",
+  "command": [
+    "docker",
+    "compose",
+    "stop"
+  ],
+  "cwd": "validation/work/frontend-api/新規 展開/F1",
+  "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+  "exitCode": 0,
+  "elapsedSeconds": 0.268,
+  "result": "PASS",
+  "log": "output.log"
+}

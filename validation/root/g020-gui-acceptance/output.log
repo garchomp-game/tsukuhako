@@ -1,0 +1,50 @@
+{
+  "status": "FAIL",
+  "checks": 3,
+  "errors": [
+    "locator.fill: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('親フォルダ', { exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <input id=\"parent\" required=\"\" autocomplete=\"off\" value=\"<HOME>\"/>\u001b[22m\n\u001b[2m    - fill(\"<WORKSPACE>/validation/generator-0.2.0/runs/gui-relocated/別の 場所\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and editable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying fill action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\u001b[2m    - element is not enabled\u001b[22m\n\u001b[2m  - retrying fill action\u001b[22m\n\u001b[2m    - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\n    at form (<WORKSPACE>/tools/verify-desktop-020.mjs:24:130)\n    at async file://<WORKSPACE>/tools/verify-desktop-020.mjs:42:2"
+  ]
+}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.fill: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for getByLabel('親フォルダ', { exact: true })[22m
+[2m    - locator resolved to <input id="parent" required="" autocomplete="off" value="<HOME>"/>[22m
+[2m    - fill("<WORKSPACE>/validation/generator-0.2.0/runs/gui-relocated/別の 場所")[22m
+[2m  - attempting fill action[22m
+[2m    2 × waiting for element to be visible, enabled and editable[22m
+[2m      - element is not enabled[22m
+[2m    - retrying fill action[22m
+[2m    - waiting 20ms[22m
+[2m    - waiting for element to be visible, enabled and editable[22m
+[2m    - element is not enabled[22m
+[2m  - retrying fill action[22m
+[2m    - waiting 100ms[22m
+[2m    - waiting for element to be visible, enabled and editable[22m
+[2m  - element was detached from the DOM, retrying[22m
+
+    at form (<WORKSPACE>/tools/verify-desktop-020.mjs:24:130)
+    at async file://<WORKSPACE>/tools/verify-desktop-020.mjs:42:2 {
+  log: [
+    "  - waiting for getByLabel('親フォルダ', { exact: true })",
+    '    - locator resolved to <input id="parent" required="" autocomplete="off" value="<HOME>"/>',
+    '    - fill("<WORKSPACE>/validation/generator-0.2.0/runs/gui-relocated/別の 場所")',
+    '  - attempting fill action',
+    '    2 × waiting for element to be visible, enabled and editable',
+    '      - element is not enabled',
+    '    - retrying fill action',
+    '    - waiting 20ms',
+    '    - waiting for element to be visible, enabled and editable',
+    '    - element is not enabled',
+    '  - retrying fill action',
+    '    - waiting 100ms',
+    '    - waiting for element to be visible, enabled and editable',
+    '  - element was detached from the DOM, retrying'
+  ],
+  name: 'TimeoutError'
+}
+
+Node.js v24.19.0

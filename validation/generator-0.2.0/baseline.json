@@ -1,0 +1,11 @@
+{
+  "recordedAt": "2026-10-20T08:27:37.561028+00:00",
+  "archive": "otoka-devcontainer-starters-0.1.1-2026-10-20.zip",
+  "sha256": "7113c3b50c95dbd7f59201c17a8af6a4bb9ad8d13262247ad1463c7c3f5aaf6a",
+  "workspace": "otoka-devcontainer-starters-0.2.0",
+  "existingSourceUnmodified": true,
+  "baselineUnrelatedContainers": [
+    "b531d3443746",
+    "8e9f201539c5"
+  ]
+}

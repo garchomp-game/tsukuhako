@@ -1,0 +1,11 @@
+{
+  "result": "PASS",
+  "finalZip": "S2-0.1.0.zip",
+  "sha256": "c18b3b217a8b17f9fc9aa87854047d927550fa23aee8d12f1de913ec55543bac",
+  "unpackPath": "validation/s2/runs/ZIP 新規展開/S2",
+  "handAuthoredFilesMatch": true,
+  "generatedChanges": [
+    "next-env.d.ts"
+  ],
+  "sourceFrozen": true
+}

@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "os": "Linux Mint22.3 x64",
+  "vscode": "1.142.0",
+  "extension": "0.470.0",
+  "template": "F2 0.1.1",
+  "container": "474b22e1546d",
+  "operations": [
+    "Actual VS Code: trust this generated folder",
+    "Command Palette: Dev Containers: Reopen in Container",
+    "Actual VS Code integrated terminal: npm run dev",
+    "VS Code editor: replace heading, save",
+    "Browser: HMR result verified",
+    "VS Code editor: restore bytes, save",
+    "Browser: restored heading verified"
+  ],
+  "fileSha256": "c519464d586ca774fbc969aeca14418aa10e837948cf22322317e3c61a5fd43e",
+  "port": 3861,
+  "reconnect": "PASS (window reload, see vscode-reconnect.json)",
+  "rebuild": "PASS (actual command, new container, same source bytes, restarted sample)",
+  "testProfileSettings": {
+    "editContext": false,
+    "autoIndent": "none",
+    "formatOnPaste": false,
+    "formatOnType": false,
+    "formatOnSave": false
+  }
+}

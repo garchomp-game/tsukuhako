@@ -1,0 +1,25 @@
+name: ${PROJECT_NAME:?Run bash scripts/configure.sh first}
+services:
+  app:
+    image: ${PROJECT_NAME}-dev:0.1.0
+    pull_policy: never
+    init: true
+    command: sleep infinity
+    working_dir: /workspace
+    environment:
+      NEXT_TELEMETRY_DISABLED: "1"
+    volumes:
+      - .:/workspace
+      - dependencies:/workspace/node_modules
+      - npm-cache:/home/node/.npm
+    networks:
+      - supabase
+    ports:
+      - "127.0.0.1:${HOST_PORT:?Run configure.sh}:3000"
+volumes:
+  dependencies:
+  npm-cache:
+networks:
+  supabase:
+    external: true
+    name: ${PROJECT_NAME}-network

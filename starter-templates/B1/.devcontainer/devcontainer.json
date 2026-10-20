@@ -1,0 +1,24 @@
+{
+  "name": "ツクハコ B1",
+  "dockerComposeFile": "../compose.yaml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "remoteUser": "node",
+  "updateRemoteUserUID": true,
+  "initializeCommand": [
+    "bash",
+    "scripts/initialize.sh"
+  ],
+  "postCreateCommand": "npm ci --no-audit --no-fund && node scripts/doctor.mjs",
+  "shutdownAction": "stopCompose",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint"
+      ],
+      "settings": {
+        "remote.autoForwardPorts": false
+      }
+    }
+  }
+}

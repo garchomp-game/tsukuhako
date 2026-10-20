@@ -1,0 +1,3 @@
+import {spawn} from 'node:child_process';import fs from 'node:fs';import path from 'node:path';
+const root=path.resolve(import.meta.dirname,'..'),base=root+'/validation/ux-0.4.1/runs/vscode';const out=fs.openSync(base+'/launch.log','w');
+const env={...process.env};delete env.ELECTRON_RUN_AS_NODE;const child=spawn('/usr/bin/code',['--user-data-dir',base+'/profile','--extensions-dir',base+'/extensions','--remote-debugging-port=9421','--remote-debugging-address=127.0.0.1','--new-window','--wait',root+'/validation/ux-0.4.1/runs/gui-final3/F2 日本語 長い保存先.dir'],{env,stdio:['ignore',out,out],shell:false});fs.writeFileSync(base+'/launcher.json',JSON.stringify({pid:child.pid,port:9421}));child.on('exit',code=>console.log('VS Code closed',code));

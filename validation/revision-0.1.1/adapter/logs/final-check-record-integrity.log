@@ -1,0 +1,38 @@
+
+> otoka-existing-project-adapter@0.1.1 check
+> node --check cli.mjs && node --check src/adapter.mjs && node --check src/templates.mjs && node --test tests/*.test.mjs
+
+✔ E01: compatible single Next/npm has evidence and a bounded proposal (7.618555ms)
+✔ E02: Vite, React-only, general Node are distinct and cannot auto-apply (3.82818ms)
+✔ E03: conflicting lockfiles, runtime and manager cannot be forced (6.549621ms)
+✔ E04: monorepo and existing Docker/Dev Container are preserved with next steps (4.733676ms)
+✔ E05: inspection and preview do not execute config JS or package lifecycle scripts (3.689505ms)
+✔ E06: inspect/recommend/preview do not write; plans must be outside project (2.988767ms)
+✔ E07: explicit apply adds only generated settings; all original hashes stay equal (5.406307ms)
+✔ E08: changed inputs, new output, newly appeared Docker config and moved roots reject stale plans (10.226377ms)
+✔ E09: applying the same unchanged proposal is an unchanged success (7.472241ms)
+✔ E10: undo preserves user edits/new files and removes only unchanged generated files (11.517245ms)
+✔ E11: mid-write failure rolls back only created files and clears staging (4.34263ms)
+✔ E11: path tampering and input/output symlinks never change outside files (3.417157ms)
+✔ E11: undo does not follow a generated file replaced with a symlink (5.677138ms)
+✔ Conservative versions, invalid JSON, invalid ports and edited records are rejected (6.090157ms)
+✔ E03: partial comparators are manual and cannot silently widen npm engine ranges (9.095489ms)
+✔ E03/E05/E08: dotenv Compose keys block application without collecting secret values (2.51732ms)
+✔ E11: generated start/stop guards reject inherited and dotenv Compose overrides before Docker (84.071076ms)
+✔ R1: local optional dependency is refused by inspect, preview and explicit apply without writes (15.173919ms)
+✔ R1: optional file/link/workspace/git/URL and local lock resolutions are out of scope (15.944742ms)
+✔ R1: optional range mismatch and missing resolution require manual review (3.320804ms)
+✔ R1: normal registry and OS-limited optional packages remain supported (8.871277ms)
+✔ R1: npm optional override takes precedence over a same-name dependency (1.937423ms)
+✔ P3: userNote added to the adapter record survives undo byte-for-byte (5.727455ms)
+✔ P3: an interrupted-apply pending record with a note is preserved (5.254922ms)
+✔ P3: record formatting edits are preserved and a clean record is removed (9.170588ms)
+✔ P3: changing a managed record field stops undo without removing any file (5.029842ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 241.615824

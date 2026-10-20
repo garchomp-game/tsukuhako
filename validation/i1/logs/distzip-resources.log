@@ -1,0 +1,5 @@
+project: otoka-i1-2114039080
+volume: otoka-i1-2114039080_pgdata
+120a82bc1ac3 otoka-i1-2114039080-app-1 Exited (130) Less than a second ago
+f465fbb003a4 otoka-i1-2114039080-db-1 Exited (0) Less than a second ago
+otoka-i1-2114039080_pgdata

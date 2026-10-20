@@ -1,0 +1,17 @@
+[
+  {
+    "id": "db-start",
+    "exitCode": 0,
+    "elapsedSeconds": 34.72
+  },
+  {
+    "id": "container-up",
+    "exitCode": 0,
+    "elapsedSeconds": 13.67
+  },
+  {
+    "id": "database-test",
+    "exitCode": 0,
+    "elapsedSeconds": 0.43
+  }
+]

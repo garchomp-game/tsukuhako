@@ -1,0 +1,11 @@
+
+> otoka-s2-local-notes@0.1.0 test:browser
+> playwright test
+
+
+Running 2 tests using 1 worker
+
+  ✓  1 tests/browser/notes.spec.ts:2:1 › 画面から保存・更新・再読込・削除を行う (996ms)
+  ✓  2 tests/browser/notes.spec.ts:24:1 › 不正入力・通信障害・テキスト表示を確認する (698ms)
+
+  2 passed (2.3s)

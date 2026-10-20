@@ -1,0 +1,13 @@
+{
+  "checked": "2026-10-20",
+  "sources": [
+    "https://hub.docker.com/_/postgres",
+    "https://www.postgresql.org/support/versioning/",
+    "https://www.postgresql.org/docs/18/app-psql.html",
+    "https://docs.docker.com/compose/how-tos/project-name/",
+    "https://code.visualstudio.com/docs/devcontainers/create-dev-container",
+    "https://code.visualstudio.com/docs/devcontainers/devcontainer-cli",
+    "https://github.com/microsoft/vscode-remote-release/issues/11896",
+    "https://github.com/actions/checkout/tree/v4.2.2"
+  ]
+}

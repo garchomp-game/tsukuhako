@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "fixture": "Owned docker diagnostic blocks and ignores SIGTERM; app must wait for process-group shutdown",
+  "elapsedMs": 1060,
+  "pids": [
+    1622848
+  ],
+  "processRemaining": false
+}

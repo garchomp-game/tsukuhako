@@ -1,0 +1,27 @@
+PASS G13-renderer-and-sandbox
+PASS G13-real-ipc-validation
+PASS G13-protocol-allowlist
+PASS G03-G07-G11-G12-back-correct-preview
+{
+  "status": "FAIL",
+  "checks": 4,
+  "errors": [
+    "electronApplication.evaluate: ReferenceError: killed is not defined\n    at eval (eval at evaluate (:370:30), <anonymous>:1:75)\n    at Array.some (<anonymous>)\n    at eval (eval at evaluate (:370:30), <anonymous>:1:30)\n    at UtilityScript.evaluate (<anonymous>:372:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at <WORKSPACE>/tools/verify-desktop-020.mjs:50:28\n    at async file://<WORKSPACE>/tools/verify-desktop-020.mjs:50:2"
+  ]
+}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+electronApplication.evaluate: ReferenceError: killed is not defined
+    at eval (eval at evaluate (:370:30), <anonymous>:1:75)
+    at Array.some (<anonymous>)
+    at eval (eval at evaluate (:370:30), <anonymous>:1:30)
+    at UtilityScript.evaluate (<anonymous>:372:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at <WORKSPACE>/tools/verify-desktop-020.mjs:50:28
+    at async file://<WORKSPACE>/tools/verify-desktop-020.mjs:50:2 {
+  log: []
+}
+
+Node.js v24.19.0

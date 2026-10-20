@@ -1,0 +1,28 @@
+{
+  "result": "PASS",
+  "observedAt": "2026-10-20T04:55:47.411080+00:00",
+  "artifact": "S2-0.1.1.zip",
+  "sha256": "1fff412887ed8657a32326176d6162f7a8f73d5f79d38700e35aaf873368f673",
+  "folder": "validation/revision-0.1.1/s2/runs/最終配布 新規起動/S2",
+  "settings": {
+    "PROJECT_NAME": "otoka-s2-2811127744",
+    "HOST_PORT": "3504",
+    "SUPABASE_API_PORT": "54621",
+    "SUPABASE_DB_PORT": "54622",
+    "SUPABASE_STUDIO_PORT": "54623",
+    "SUPABASE_SHADOW_PORT": "54620"
+  },
+  "containersBefore": [],
+  "appContainersBefore": [],
+  "volumesBefore": [],
+  "networksBefore": [],
+  "localGeneratedFilesAbsent": [
+    ".env.local",
+    ".cache",
+    ".local",
+    "supabase/config.toml"
+  ],
+  "allFivePortsBindable": true,
+  "allArchiveFilesMatchBeforeFirstStart": true,
+  "databaseInitialState": "No DB container, volume or local config existed for this fresh project ID. CLI first start will initialize a new database. No old test volume attached."
+}

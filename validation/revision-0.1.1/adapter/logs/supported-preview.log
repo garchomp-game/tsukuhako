@@ -1,0 +1,41 @@
+{
+  "status": "previewed",
+  "saved": "[work-root]/validation/revision-0.1.1/adapter/runs/plans/supported.json",
+  "planId": "3e132fd4152a2e0cecb2f428bcc74c92e41b97f28b35ba2c8fce72d6888d6961",
+  "files": [
+    {
+      "path": ".devcontainer/Dockerfile",
+      "content": "FROM node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5\nRUN npm install --global npm@11.17.0 \\\n    && mkdir -p /workspace/node_modules /home/node/.npm \\\n    && chown -R node:node /workspace /home/node/.npm\nUSER node\nWORKDIR /workspace\nCMD [\"sleep\", \"infinity\"]\n"
+    },
+    {
+      "path": ".devcontainer/devcontainer.json",
+      "content": "{\n  \"name\": \"既存 Next.js の作業環境\",\n  \"dockerComposeFile\": \"compose.yaml\",\n  \"service\": \"app\",\n  \"workspaceFolder\": \"/workspace\",\n  \"remoteUser\": \"node\",\n  \"updateRemoteUserUID\": true,\n  \"initializeCommand\": [\n    \"bash\",\n    \".devcontainer/initialize.sh\"\n  ],\n  \"postCreateCommand\": \"npm ci --no-audit --no-fund\",\n  \"shutdownAction\": \"stopCompose\",\n  \"customizations\": {\n    \"vscode\": {\n      \"settings\": {\n        \"remote.autoForwardPorts\": false\n      }\n    }\n  }\n}\n"
+    },
+    {
+      "path": ".devcontainer/compose.yaml",
+      "content": "name: otoka-existing-616c225bfe39\nservices:\n  app:\n    image: otoka-existing-616c225bfe39-dev:0.1.1\n    pull_policy: never\n    init: true\n    environment:\n      HOST_PORT: \"3096\"\n      NEXT_TELEMETRY_DISABLED: \"1\"\n    ports:\n      - \"127.0.0.1:3096:3000\"\n    volumes:\n      - type: bind\n        source: ..\n        target: /workspace\n      - node_modules:/workspace/node_modules\n      - npm_cache:/home/node/.npm\nvolumes:\n  node_modules:\n  npm_cache:\n"
+    },
+    {
+      "path": ".devcontainer/initialize.sh",
+      "content": "#!/usr/bin/env bash\nset -euo pipefail\n\ndirectory=\"$(cd -- \"$(dirname -- \"$0\")\" && pwd -P)\"\nroot=\"$(cd -- \"$directory/..\" && pwd -P)\"\nfingerprint=\"$(printf '%s' \"$root\" | sha256sum | cut -c 1-12)\"\nif [[ \"$fingerprint\" != '616c225bfe39' ]]; then\n  printf 'ERROR: 提案時とフォルダが異なります。既存の設定を保存し、新しい場所で再提案してください。\\n' >&2\n  exit 1\nfi\nif [[ -n \"${COMPOSE_FILE:-}\" || (-n \"${COMPOSE_PROJECT_NAME:-}\" && \"${COMPOSE_PROJECT_NAME}\" != 'otoka-existing-616c225bfe39') || (-n \"${PROJECT_NAME:-}\" && \"${PROJECT_NAME}\" != 'otoka-existing-616c225bfe39') || (-n \"${HOST_PORT:-}\" && \"${HOST_PORT}\" != '3096') ]]; then\n  printf 'ERROR: Compose/project/port の環境変数が提案と競合します。設定を確認し、環境変数を引き継がないターミナルで再実行してください。\\n' >&2\n  exit 1\nfi\nfor variable in ${!COMPOSE_@}; do\n  if [[ \"$variable\" != COMPOSE_PROJECT_NAME && -n \"${!variable}\" ]]; then\n    printf 'ERROR: Compose の環境変数が設定されています。値を公開せず所有者が確認してください。\\n' >&2\n    exit 1\n  fi\ndone\nfor env_file in \"$root/.env\" \"$directory/.env\"; do\n  if [[ -L \"$env_file\" || (-e \"$env_file\" && ! -f \"$env_file\") ]]; then\n    printf 'ERROR: .env は通常ファイルである必要があります。手動で確認してください。\\n' >&2\n    exit 1\n  fi\n  if [[ -f \"$env_file\" ]]; then\n    if [[ ! -r \"$env_file\" || $(wc -c < \"$env_file\") -gt 1048576 ]]; then\n      printf 'ERROR: .env を安全に確認できません。手動で確認してください。\\n' >&2\n      exit 1\n    fi\n    if LC_ALL=C awk '{ sub(/^\\357\\273\\277/, \"\"); if ($0 ~ /^[[:space:]]*(export[[:space:]]+)?[\"\\047]?COMPOSE_[[:alnum:]_]+/) found=1 } END { exit found ? 0 : 1 }' \"$env_file\"; then\n      printf 'ERROR: .env に Compose の予約キーがあります。値を公開せず所有者が確認してください。\\n' >&2\n      exit 1\n    fi\n  fi\ndone\n\ncommand -v docker >/dev/null || { printf 'ERROR: Docker を導入してください。\\n' >&2; exit 1; }\ndocker info >/dev/null 2>&1 || { printf 'ERROR: Docker を起動して接続を確認してください。\\n' >&2; exit 1; }\ndocker compose version >/dev/null\ndocker build --file \"$directory/Dockerfile\" --tag 'otoka-existing-616c225bfe39-dev:0.1.1' \"$directory\"\n"
+    },
+    {
+      "path": ".devcontainer/manage.sh",
+      "content": "#!/usr/bin/env bash\nset -euo pipefail\n\ndirectory=\"$(cd -- \"$(dirname -- \"$0\")\" && pwd -P)\"\nroot=\"$(cd -- \"$directory/..\" && pwd -P)\"\nfingerprint=\"$(printf '%s' \"$root\" | sha256sum | cut -c 1-12)\"\nif [[ \"$fingerprint\" != '616c225bfe39' ]]; then\n  printf 'ERROR: 提案時とフォルダが異なります。既存の設定を保存し、新しい場所で再提案してください。\\n' >&2\n  exit 1\nfi\nif [[ -n \"${COMPOSE_FILE:-}\" || (-n \"${COMPOSE_PROJECT_NAME:-}\" && \"${COMPOSE_PROJECT_NAME}\" != 'otoka-existing-616c225bfe39') || (-n \"${PROJECT_NAME:-}\" && \"${PROJECT_NAME}\" != 'otoka-existing-616c225bfe39') || (-n \"${HOST_PORT:-}\" && \"${HOST_PORT}\" != '3096') ]]; then\n  printf 'ERROR: Compose/project/port の環境変数が提案と競合します。設定を確認し、環境変数を引き継がないターミナルで再実行してください。\\n' >&2\n  exit 1\nfi\nfor variable in ${!COMPOSE_@}; do\n  if [[ \"$variable\" != COMPOSE_PROJECT_NAME && -n \"${!variable}\" ]]; then\n    printf 'ERROR: Compose の環境変数が設定されています。値を公開せず所有者が確認してください。\\n' >&2\n    exit 1\n  fi\ndone\nfor env_file in \"$root/.env\" \"$directory/.env\"; do\n  if [[ -L \"$env_file\" || (-e \"$env_file\" && ! -f \"$env_file\") ]]; then\n    printf 'ERROR: .env は通常ファイルである必要があります。手動で確認してください。\\n' >&2\n    exit 1\n  fi\n  if [[ -f \"$env_file\" ]]; then\n    if [[ ! -r \"$env_file\" || $(wc -c < \"$env_file\") -gt 1048576 ]]; then\n      printf 'ERROR: .env を安全に確認できません。手動で確認してください。\\n' >&2\n      exit 1\n    fi\n    if LC_ALL=C awk '{ sub(/^\\357\\273\\277/, \"\"); if ($0 ~ /^[[:space:]]*(export[[:space:]]+)?[\"\\047]?COMPOSE_[[:alnum:]_]+/) found=1 } END { exit found ? 0 : 1 }' \"$env_file\"; then\n      printf 'ERROR: .env に Compose の予約キーがあります。値を公開せず所有者が確認してください。\\n' >&2\n      exit 1\n    fi\n  fi\ndone\n\ncompose() {\n  env -u COMPOSE_PROJECT_NAME -u COMPOSE_FILE -u PROJECT_NAME -u HOST_PORT \\\n    docker compose --project-directory \"$directory\" --project-name 'otoka-existing-616c225bfe39' --file \"$directory/compose.yaml\" \"$@\"\n}\ncase \"${1:-help}\" in\n  start) bash \"$directory/initialize.sh\"; compose up -d --wait --wait-timeout 90 ;;\n  stop) compose stop ;;\n  down) compose down --remove-orphans ;;\n  status) compose ps ;;\n  shell) compose exec app bash ;;\n  dev) compose exec app npm run dev -- --hostname 0.0.0.0 --port 3000 ;;\n  *) printf '使用方法: bash .devcontainer/manage.sh {start|stop|down|status|shell|dev}\\n'; exit 1 ;;\nesac\n"
+    },
+    {
+      "path": ".devcontainer/README.md",
+      "content": "# 追加した Next.js 作業環境\n\nこの設定は Linux / WSL の Bash と Docker、VS Code Dev Containers 用です。ホストの Node は環境利用には不要です。判定・適用CLIを使う場合は Node 24 が必要です。\n\nVS Code の **Dev Containers: Reopen in Container** を選びます。初回は固定 Node 24.22.0 / npm 11.17.0 をビルドし、コンテナ内で 'npm ci --no-audit --no-fund' が実行されます。既存プロジェクトと依存パッケージの install lifecycle script が動く場合があります。元のソースや package scripts を adapter が書き換えることはありません。\n\nコンテナ内で 'npm run dev -- --hostname 0.0.0.0 --port 3000' を実行し、ホストの http://localhost:3096 を開きます。ソースを編集して保存し、反映を確認します。検証は既存プロジェクトの check/test/build 手順で行います。\n\n停止は VS Code を閉じるか、ホストのプロジェクトルートで 'bash .devcontainer/manage.sh stop'。状態は 'bash .devcontainer/manage.sh status'、コンテナ削除（volume保持）は 'bash .devcontainer/manage.sh down' です。起動・停止の入口は固定したprojectとComposeファイルを使い、競合する環境変数があれば拒否します。再開は Reopen in Container、再構築は Rebuild Container です。ソースはホストに残り、依存とnpm cacheはこのprojectのnamed volumeです。DBは追加しません。\n\n作成した資源は project 'otoka-existing-616c225bfe39'、port '127.0.0.1:3096'、volume 'otoka-existing-616c225bfe39_node_modules' / 'otoka-existing-616c225bfe39_npm_cache' です。名前とポートを手動で共有すると競合します。移動・コピー後の自動流用はせず再提案してください。\n\n適用を取り消す前にこの構成を停止します。adapter の undo は追加したファイルのうち内容が一致するものだけを削除します。利用者の編集・追記は保持し、Docker volume/imageは削除しません。ログに .env や認証情報を貼らないでください。\n"
+    }
+  ],
+  "lifecycle": [
+    "applyはファイル追加のみ。依存取得・Docker・scriptの実行なし。",
+    "後でReopenするとinitialize.shがdocker build、postCreateがnpm ciを実行する。既存/依存のinstall lifecycle scriptが動く場合がある。"
+  ],
+  "runtime": {
+    "node": "24.22.0",
+    "npm": "11.17.0",
+    "nextFamily": "16.4.x",
+    "image": "node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5"
+  }
+}

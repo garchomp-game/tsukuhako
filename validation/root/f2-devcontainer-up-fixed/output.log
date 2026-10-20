@@ -1,0 +1,81 @@
+[2026-10-20T02:19:43.368Z] @devcontainers/cli 0.89.0. Node.js v24.19.0. linux 7.0.0-31-generic x64.
+[2026-10-20T02:19:43.480Z] Running the initializeCommand from devcontainer.json...
+
+[2026-10-20T02:19:43.481Z] Start: Run: bash scripts/configure.sh
+[2026-10-20T02:19:43.485Z] .envは既存の設定を保持します。変更は.envを編集後、コンテナを再構築してください。
+[2026-10-20T02:19:43.486Z] 
+[2026-10-20T02:19:43.515Z] Start: Run: docker compose -f <WORKSPACE>/starter-templates/F2/compose.yaml --profile * config
+[2026-10-20T02:19:43.593Z] Start: Run: docker compose -f <WORKSPACE>/starter-templates/F2/compose.yaml --profile * config
+[2026-10-20T02:19:43.640Z] name: otoka-f2-3543580151
+services:
+  app:
+    command:
+      - sleep
+      - infinity
+    environment:
+      NEXT_TELEMETRY_DISABLED: "1"
+    init: true
+    networks:
+      default: null
+    volumes:
+      - type: bind
+        source: <WORKSPACE>/starter-templates/F2
+        target: /workspace
+        bind: {}
+      - type: volume
+        source: dependencies
+        target: /workspace/node_modules
+        volume: {}
+      - type: volume
+        source: npm-cache
+        target: /home/node/.npm
+        volume: {}
+    working_dir: /workspace
+    build:
+      context: <WORKSPACE>/starter-templates/F2
+      dockerfile: .devcontainer/Dockerfile
+    ports:
+      - mode: ingress
+        host_ip: 127.0.0.1
+        target: 3000
+        published: "3001"
+        protocol: tcp
+networks:
+  default:
+    name: otoka-f2-3543580151_default
+volumes:
+  dependencies:
+    name: otoka-f2-3543580151_dependencies
+  npm-cache:
+    name: otoka-f2-3543580151_npm-cache
+[2026-10-20T02:19:43.641Z] Start: Run: docker inspect --type image node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5
+[2026-10-20T02:19:43.669Z] Docker Compose override file for building image:
+services:
+  app:
+    build:
+      dockerfile: /tmp/devcontainercli-garchomp-game/container-features/0.89.0-1792462783668/Dockerfile-with-features
+      args:
+        - BUILDKIT_INLINE_CACHE=1
+        - _DEV_CONTAINERS_BASE_IMAGE=dev_container_auto_added_stage_label
+
+[2026-10-20T02:19:43.669Z] Start: Run: docker compose --project-name otoka-f2-3543580151 -f <WORKSPACE>/starter-templates/F2/compose.yaml -f /tmp/devcontainercli-garchomp-game/docker-compose/docker-compose.devcontainer.build-1792462783669.yml build
+[2026-10-20T02:19:43.738Z]  Image otoka-f2-3543580151-app Building 
+
+[2026-10-20T02:19:43.770Z] #1 [internal] load local bake definitions
+[2026-10-20T02:19:43.771Z] #1 reading from stdin 777B done
+#1 DONE 0.0s
+[2026-10-20T02:19:43.771Z] additional privileges requested: pass "--allow=fs.read=/tmp/devcontainercli-garchomp-game/container-features/0.89.0-1792462783668/Dockerfile-with-features" to grant requested privileges
+
+
+[2026-10-20T02:19:43.774Z] Exit code 1
+Error: Command failed: docker compose --project-name otoka-f2-3543580151 -f <WORKSPACE>/starter-templates/F2/compose.yaml -f /tmp/devcontainercli-garchomp-game/docker-compose/docker-compose.devcontainer.build-1792462783669.yml build
+    at Dp (<WORKSPACE>/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:434:525)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async eW (<WORKSPACE>/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:434:2475)
+    at async AW (<WORKSPACE>/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:414:3976)
+    at async kW (<WORKSPACE>/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:488:4862)
+    at async hI (<WORKSPACE>/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:488:5808)
+    at async C9 (<WORKSPACE>/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:669:206)
+    at async I9 (<WORKSPACE>/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:668:16607)
+    at async <WORKSPACE>/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:488:1917
+{"outcome":"error","message":"Command failed: docker compose --project-name otoka-f2-3543580151 -f <WORKSPACE>/starter-templates/F2/compose.yaml -f /tmp/devcontainercli-garchomp-game/docker-compose/docker-compose.devcontainer.build-1792462783669.yml build","description":"An error occurred building the Docker Compose images."}

@@ -1,0 +1,29 @@
+
+> otoka-existing-project-adapter@0.1.0 check
+> node --check cli.mjs && node --check src/adapter.mjs && node --check src/templates.mjs && node --test tests/*.test.mjs
+
+✔ E01: compatible single Next/npm has evidence and a bounded proposal (7.677736ms)
+✔ E02: Vite, React-only, general Node are distinct and cannot auto-apply (3.876948ms)
+✔ E03: conflicting lockfiles, runtime and manager cannot be forced (13.996299ms)
+✔ E04: monorepo and existing Docker/Dev Container are preserved with next steps (5.105325ms)
+✔ E05: inspection and preview do not execute config JS or package lifecycle scripts (3.52093ms)
+✔ E06: inspect/recommend/preview do not write; plans must be outside project (3.107645ms)
+✔ E07: explicit apply adds only generated settings; all original hashes stay equal (5.484179ms)
+✔ E08: changed inputs, new output, newly appeared Docker config and moved roots reject stale plans (11.085217ms)
+✔ E09: applying the same unchanged proposal is an unchanged success (7.490565ms)
+✔ E10: undo preserves user edits/new files and removes only unchanged generated files (12.25041ms)
+✔ E11: mid-write failure rolls back only created files and clears staging (4.705078ms)
+✔ E11: path tampering and input/output symlinks never change outside files (3.144762ms)
+✔ E11: undo does not follow a generated file replaced with a symlink (4.274244ms)
+✔ Conservative versions, invalid JSON, invalid ports and edited records are rejected (5.723014ms)
+✔ E03: partial comparators are manual and cannot silently widen npm engine ranges (8.556238ms)
+✔ E03/E05/E08: dotenv Compose keys block application without collecting secret values (2.375039ms)
+✔ E11: generated start/stop guards reject inherited and dotenv Compose overrides before Docker (83.251764ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 246.383835

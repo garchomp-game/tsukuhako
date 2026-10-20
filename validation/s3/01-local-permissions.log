@@ -1,0 +1,24 @@
+BEGIN
+CREATE TABLE
+ALTER TABLE
+REVOKE
+GRANT
+GRANT
+CREATE POLICY
+INSERT 0 3
+COMMENT
+COMMIT
+BEGIN
+DO
+SET
+DO
+RESET
+GRANT
+SET
+DO
+ROLLBACK
+                                                     result                                                      
+-----------------------------------------------------------------------------------------------------------------
+ PASS: actual anon SELECT, hidden row filtering, INSERT/UPDATE/DELETE grant rejection and independent RLS denial
+(1 row)
+

@@ -1,0 +1,144 @@
+{
+  "status": "error",
+  "code": "NO_LONGER_SUPPORTED",
+  "message": "前提が変わりました。再提案してください。",
+  "details": {
+    "inspection": {
+      "adapterVersion": "0.1.1",
+      "detected": "next",
+      "applicability": "manual",
+      "applySupported": false,
+      "evidence": {
+        "dependencyMarkers": {
+          "next": true,
+          "vite": false,
+          "react": true
+        },
+        "optionalDependenciesChecked": [
+          "local-helper"
+        ],
+        "nextResolved": "16.4.2",
+        "knownDevScript": true,
+        "lockfiles": [
+          "package-lock.json"
+        ],
+        "configurationFiles": [
+          "next.config.ts"
+        ],
+        "configurationEvaluated": false
+      },
+      "reasons": [
+        {
+          "code": "UNSUPPORTED_DEPENDENCY",
+          "message": "直接依存（optionalを含む）にローカル・link・workspace・git・URL等の対象外参照があります。",
+          "next": "兄弟フォルダの自動mountや依存更新は行いません。所有者が単一npmプロジェクトの対応範囲を確認してください。",
+          "evidence": [
+            "local-helper"
+          ]
+        }
+      ],
+      "runtime": {
+        "node": "24.22.0",
+        "npm": "11.17.0",
+        "nextFamily": "16.4.x",
+        "image": "node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5"
+      },
+      "snapshot": {
+        "root": {
+          "path": "[work-root]/validation/revision-0.1.1/adapter/runs/ローカルoptional fixture",
+          "device": "66306",
+          "inode": "11542573"
+        },
+        "files": {
+          ".devcontainer.json": {
+            "kind": "missing"
+          },
+          ".node-version": {
+            "kind": "missing"
+          },
+          ".nvmrc": {
+            "kind": "file",
+            "sha256": "a1c56e968c358e10872d64220b3ae759ffe7feaffc4da95fae425dbcca43fe44"
+          },
+          ".tool-versions": {
+            "kind": "missing"
+          },
+          "bun.lock": {
+            "kind": "missing"
+          },
+          "bun.lockb": {
+            "kind": "missing"
+          },
+          "lerna.json": {
+            "kind": "missing"
+          },
+          "next.config.cjs": {
+            "kind": "missing"
+          },
+          "next.config.js": {
+            "kind": "missing"
+          },
+          "next.config.mjs": {
+            "kind": "missing"
+          },
+          "next.config.ts": {
+            "kind": "file",
+            "sha256": "06be79247af6b1b2a2306219b25e7ca338c7e9c8091de007019e3df12ccdce1b"
+          },
+          "npm-shrinkwrap.json": {
+            "kind": "missing"
+          },
+          "nx.json": {
+            "kind": "missing"
+          },
+          "package-lock.json": {
+            "kind": "file",
+            "sha256": "565a54c130c5e50f199dc9a66f5db59e40f44bc8562c06eba26d6b4fb76a839d"
+          },
+          "package.json": {
+            "kind": "file",
+            "sha256": "c89aaa72c2c167d4b884e3c383bc30a859648a8b3e0abaa692d33e17a7d60942"
+          },
+          "pnpm-lock.yaml": {
+            "kind": "missing"
+          },
+          "pnpm-workspace.yaml": {
+            "kind": "missing"
+          },
+          "turbo.json": {
+            "kind": "missing"
+          },
+          "vite.config.js": {
+            "kind": "missing"
+          },
+          "vite.config.mjs": {
+            "kind": "missing"
+          },
+          "vite.config.mts": {
+            "kind": "missing"
+          },
+          "vite.config.ts": {
+            "kind": "missing"
+          },
+          "yarn.lock": {
+            "kind": "missing"
+          }
+        },
+        "dockerNames": [],
+        "directories": {
+          "apps": false,
+          "packages": false
+        },
+        "composeEnv": {
+          "kind": "missing"
+        }
+      },
+      "limitations": [
+        "指定rootのmetadataのみ読み取り。scripts/config JSを実行しない。.env は予約キー名の有無だけを判定し、値を記録しない。",
+        "lock全依存グラフの完全検証・npm ciは判定時に行わない。実起動は別確認。",
+        "OS/CPU限定のoptional依存は対象環境で省略される場合がある。省略時のアプリ動作は別途確認する。",
+        "Windows/WSL/macOS実機と実VS Code操作は未検証。"
+      ]
+    }
+  }
+}

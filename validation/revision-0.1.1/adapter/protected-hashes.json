@@ -1,0 +1,103 @@
+{
+  "result": "PASS",
+  "fixture": "Dedicated copies of F2 app/package/complete lock; fictional sibling helper",
+  "unsupported": {
+    "before": {
+      ".npmrc": "cde76ca04e048c3eba070a2c0dfcf5b723cf6014eab177157096b924f24ec4ca",
+      ".nvmrc": "a1c56e968c358e10872d64220b3ae759ffe7feaffc4da95fae425dbcca43fe44",
+      "app/": "directory",
+      "app/globals.css": "b5ae5d68c8f51fbe72881ccc13852477332485b89f3b3aa6dbdb6dc3fb79680e",
+      "app/layout.tsx": "d5d8c94aafa7c8459752cb57af44747de051c2646345a0dc983eddda36ba0349",
+      "app/page.tsx": "fb3d1f128fd61b7dbf2d8e19323344a06f36bdcba7ee7eab99be4829bfb702da",
+      "app/practice/": "directory",
+      "app/practice/page.tsx": "0856a6586b2500c1492390922b659b0408c59d6b543a37fcd1cbc995e3388d40",
+      "app/practice/practice-form.tsx": "567b00f51c2ec29d58e600d19f3cfed42342776cfa91722a908a18b08fc0b808",
+      "eslint.config.mjs": "646798abdffc99cac72468eecdef7f1cf830c25a32e156e306decdfd27cc5b28",
+      "next-env.d.ts": "1862ac4bbbc5192d4bf562161df66ea547ed3e67173100656ab606ae9797db2b",
+      "next.config.ts": "06be79247af6b1b2a2306219b25e7ca338c7e9c8091de007019e3df12ccdce1b",
+      "package-lock.json": "565a54c130c5e50f199dc9a66f5db59e40f44bc8562c06eba26d6b4fb76a839d",
+      "package.json": "c89aaa72c2c167d4b884e3c383bc30a859648a8b3e0abaa692d33e17a7d60942",
+      "postcss.config.mjs": "258faa39968594a46c2cf72ba120fb353e788ef2acc3265ddbfbc6400dd80761",
+      "tsconfig.json": "45bec7c7911cf3fa501ad75d4629374d386992e6a4a5f202f5023af8a8b4b5c3"
+    },
+    "after": {
+      ".npmrc": "cde76ca04e048c3eba070a2c0dfcf5b723cf6014eab177157096b924f24ec4ca",
+      ".nvmrc": "a1c56e968c358e10872d64220b3ae759ffe7feaffc4da95fae425dbcca43fe44",
+      "app/": "directory",
+      "app/globals.css": "b5ae5d68c8f51fbe72881ccc13852477332485b89f3b3aa6dbdb6dc3fb79680e",
+      "app/layout.tsx": "d5d8c94aafa7c8459752cb57af44747de051c2646345a0dc983eddda36ba0349",
+      "app/page.tsx": "fb3d1f128fd61b7dbf2d8e19323344a06f36bdcba7ee7eab99be4829bfb702da",
+      "app/practice/": "directory",
+      "app/practice/page.tsx": "0856a6586b2500c1492390922b659b0408c59d6b543a37fcd1cbc995e3388d40",
+      "app/practice/practice-form.tsx": "567b00f51c2ec29d58e600d19f3cfed42342776cfa91722a908a18b08fc0b808",
+      "eslint.config.mjs": "646798abdffc99cac72468eecdef7f1cf830c25a32e156e306decdfd27cc5b28",
+      "next-env.d.ts": "1862ac4bbbc5192d4bf562161df66ea547ed3e67173100656ab606ae9797db2b",
+      "next.config.ts": "06be79247af6b1b2a2306219b25e7ca338c7e9c8091de007019e3df12ccdce1b",
+      "package-lock.json": "565a54c130c5e50f199dc9a66f5db59e40f44bc8562c06eba26d6b4fb76a839d",
+      "package.json": "c89aaa72c2c167d4b884e3c383bc30a859648a8b3e0abaa692d33e17a7d60942",
+      "postcss.config.mjs": "258faa39968594a46c2cf72ba120fb353e788ef2acc3265ddbfbc6400dd80761",
+      "tsconfig.json": "45bec7c7911cf3fa501ad75d4629374d386992e6a4a5f202f5023af8a8b4b5c3"
+    },
+    "identical": true
+  },
+  "sibling": {
+    "before": {
+      "index.js": "1196231022ea9fd9058668f45092b8fb45605189ced2701f13499c8dfa8ca6cb",
+      "package.json": "72eee3250d0115a64a1a7409d115dda0e9705a10f0fcf820ea399b5051fa2354"
+    },
+    "after": {
+      "index.js": "1196231022ea9fd9058668f45092b8fb45605189ced2701f13499c8dfa8ca6cb",
+      "package.json": "72eee3250d0115a64a1a7409d115dda0e9705a10f0fcf820ea399b5051fa2354"
+    },
+    "identical": true
+  },
+  "supported": {
+    "before": {
+      ".npmrc": "cde76ca04e048c3eba070a2c0dfcf5b723cf6014eab177157096b924f24ec4ca",
+      ".nvmrc": "a1c56e968c358e10872d64220b3ae759ffe7feaffc4da95fae425dbcca43fe44",
+      "app/": "directory",
+      "app/globals.css": "b5ae5d68c8f51fbe72881ccc13852477332485b89f3b3aa6dbdb6dc3fb79680e",
+      "app/layout.tsx": "d5d8c94aafa7c8459752cb57af44747de051c2646345a0dc983eddda36ba0349",
+      "app/page.tsx": "c519464d586ca774fbc969aeca14418aa10e837948cf22322317e3c61a5fd43e",
+      "app/practice/": "directory",
+      "app/practice/page.tsx": "0856a6586b2500c1492390922b659b0408c59d6b543a37fcd1cbc995e3388d40",
+      "app/practice/practice-form.tsx": "567b00f51c2ec29d58e600d19f3cfed42342776cfa91722a908a18b08fc0b808",
+      "eslint.config.mjs": "646798abdffc99cac72468eecdef7f1cf830c25a32e156e306decdfd27cc5b28",
+      "next-env.d.ts": "1862ac4bbbc5192d4bf562161df66ea547ed3e67173100656ab606ae9797db2b",
+      "next.config.ts": "06be79247af6b1b2a2306219b25e7ca338c7e9c8091de007019e3df12ccdce1b",
+      "package-lock.json": "1d09d7438ab501a5ebd38e29062bd50dd9283510232fe34784110dd373690bd9",
+      "package.json": "db06742cae090168458d52da70aaa133e35d1db89829795fb258a7f62de8ae19",
+      "postcss.config.mjs": "258faa39968594a46c2cf72ba120fb353e788ef2acc3265ddbfbc6400dd80761",
+      "tsconfig.json": "45bec7c7911cf3fa501ad75d4629374d386992e6a4a5f202f5023af8a8b4b5c3"
+    },
+    "after": {
+      ".npmrc": "cde76ca04e048c3eba070a2c0dfcf5b723cf6014eab177157096b924f24ec4ca",
+      ".nvmrc": "a1c56e968c358e10872d64220b3ae759ffe7feaffc4da95fae425dbcca43fe44",
+      "app/": "directory",
+      "app/globals.css": "b5ae5d68c8f51fbe72881ccc13852477332485b89f3b3aa6dbdb6dc3fb79680e",
+      "app/layout.tsx": "d5d8c94aafa7c8459752cb57af44747de051c2646345a0dc983eddda36ba0349",
+      "app/page.tsx": "c519464d586ca774fbc969aeca14418aa10e837948cf22322317e3c61a5fd43e",
+      "app/practice/": "directory",
+      "app/practice/page.tsx": "0856a6586b2500c1492390922b659b0408c59d6b543a37fcd1cbc995e3388d40",
+      "app/practice/practice-form.tsx": "567b00f51c2ec29d58e600d19f3cfed42342776cfa91722a908a18b08fc0b808",
+      "eslint.config.mjs": "646798abdffc99cac72468eecdef7f1cf830c25a32e156e306decdfd27cc5b28",
+      "next-env.d.ts": "1862ac4bbbc5192d4bf562161df66ea547ed3e67173100656ab606ae9797db2b",
+      "next.config.ts": "06be79247af6b1b2a2306219b25e7ca338c7e9c8091de007019e3df12ccdce1b",
+      "package-lock.json": "1d09d7438ab501a5ebd38e29062bd50dd9283510232fe34784110dd373690bd9",
+      "package.json": "db06742cae090168458d52da70aaa133e35d1db89829795fb258a7f62de8ae19",
+      "postcss.config.mjs": "258faa39968594a46c2cf72ba120fb353e788ef2acc3265ddbfbc6400dd80761",
+      "tsconfig.json": "45bec7c7911cf3fa501ad75d4629374d386992e6a4a5f202f5023af8a8b4b5c3"
+    },
+    "identical": true
+  },
+  "userEdits": {
+    "recordBeforeUndo": "fdc76a2ff702b39d1b2b55e6fdc208df1b699a2d481f2a8d029227d88a191dea",
+    "recordAfterUndo": "fdc76a2ff702b39d1b2b55e6fdc208df1b699a2d481f2a8d029227d88a191dea",
+    "dockerfileBeforeUndo": "ba35806623d43a46a0f3ea0a499d187a2fd579078d15ab1acac86eb9a3d1f45c",
+    "dockerfileAfterUndo": "ba35806623d43a46a0f3ea0a499d187a2fd579078d15ab1acac86eb9a3d1f45c",
+    "preserved": [
+      ".devcontainer/.adapter-record.json",
+      ".devcontainer/Dockerfile"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+
+> otoka-s1@0.1.0 test:browser
+> playwright test
+
+
+Running 5 tests using 1 worker
+
+  ✓  1 [chromium] › tests/browser/preview.spec.ts:3:1 › navigate, submit to the real API, show normalized result, and clear (1.0s)
+  ✓  2 [chromium] › tests/browser/preview.spec.ts:22:1 › API input errors can be corrected and retried (564ms)
+  ✓  3 [chromium] › tests/browser/preview.spec.ts:35:1 › pending state blocks repeated submissions and editing until the response (420ms)
+  ✓  4 [chromium] › tests/browser/preview.spec.ts:62:1 › network failure and API failure show retryable public messages (535ms)
+  ✓  5 [chromium] › tests/browser/preview.spec.ts:78:1 › script-shaped input remains text and reload clears transient state (515ms)
+
+  5 passed (5.8s)

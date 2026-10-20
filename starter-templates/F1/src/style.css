@@ -1,0 +1,20 @@
+:root { color: #172c36; background: #f5f3ed; font-family: system-ui, -apple-system, "Noto Sans JP", sans-serif; line-height: 1.7; font-synthesis: none; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { width: min(100% - 2rem, 48rem); margin: 4rem auto; }
+.eyebrow { color: #326c65; font-size: .75rem; font-weight: 700; letter-spacing: .16em; }
+h1 { font-size: clamp(2.3rem, 7vw, 4rem); line-height: 1.2; letter-spacing: -.04em; margin: 1rem 0; }
+.intro { color: #5f6c72; margin-bottom: 2rem; }
+.card { background: #fff; border: 1px solid #d9dfda; border-radius: 1.25rem; padding: clamp(1.25rem, 4vw, 2rem); }
+h2 { font-size: 1.2rem; margin: 0 0 1.5rem; }
+label { display: block; margin-bottom: .5rem; font-weight: 600; }
+textarea { width: 100%; resize: vertical; border: 1px solid #9caaa9; border-radius: .6rem; padding: 1rem; color: inherit; font: inherit; }
+textarea:focus-visible, button:focus-visible { outline: 3px solid #3a8176; outline-offset: 3px; }
+.actions { display: flex; gap: 1rem; align-items: center; justify-content: space-between; margin: 1rem 0 1.5rem; }
+.actions p { color: #526467; font-size: .85rem; }
+button { background: #226b60; color: white; border: 0; border-radius: .5rem; padding: .7rem 1.5rem; font: inherit; cursor: pointer; }
+button:disabled { opacity: .45; cursor: default; }
+.preview { background: #eef4f0; border-left: 3px solid #327e6e; border-radius: .4rem; padding: 1rem 1.25rem; }
+h3 { margin: 0; color: #35655b; font-size: .85rem; }
+.preview p { white-space: pre-wrap; overflow-wrap: anywhere; margin-bottom: 0; }
+footer { font-size: .8rem; color: #5f6c72; margin-top: 1.5rem; }

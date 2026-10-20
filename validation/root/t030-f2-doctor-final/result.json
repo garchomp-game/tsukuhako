@@ -1,0 +1,14 @@
+{
+  "id": "t030-f2-doctor-final",
+  "startedAt": "2026-10-20T13:22:26.858339+00:00",
+  "command": [
+    "bash",
+    "scripts/doctor-host.sh"
+  ],
+  "cwd": "validation/brand-0.3.0/runs/startup/F2 学習",
+  "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+  "exitCode": 0,
+  "elapsedSeconds": 0.164,
+  "result": "PASS",
+  "log": "output.log"
+}

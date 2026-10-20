@@ -1,0 +1,63 @@
+{
+  "id": "S3",
+  "version": "0.1.1",
+  "archive": "S3-0.1.1.zip",
+  "sha256": "67d957665a0ab61b26390c3b4bd79e346f3a9acb31cf041997c0f61e256c7891",
+  "devContainerName": "ツクハコ S3",
+  "imageBuild": {
+    "command": [
+      "docker",
+      "build",
+      "--tag",
+      "tsukuhako-030-template-s3",
+      "--file",
+      "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks/S3/.devcontainer/Dockerfile",
+      "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks/S3"
+    ],
+    "exitCode": 0,
+    "seconds": 0.214,
+    "log": "S3-image.log"
+  },
+  "build": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--name",
+      "tsukuhako-030-check-s3",
+      "--user",
+      "1000:1000",
+      "-e",
+      "HOME=/tmp",
+      "-e",
+      "npm_config_cache=/cache",
+      "-e",
+      "NEXT_TELEMETRY_DISABLED=1",
+      "-v",
+      "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks/S3:/workspace",
+      "-v",
+      "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks/npm-cache:/cache",
+      "-w",
+      "/workspace",
+      "tsukuhako-030-template-s3",
+      "sh",
+      "-lc",
+      "node --version && npm --version && npm ci --no-audit --no-fund && npm run check && npm run build"
+    ],
+    "exitCode": 0,
+    "seconds": 11.386,
+    "log": "S3-build.log"
+  },
+  "status": "PASS",
+  "preview": {
+    "command": [
+      "node",
+      "<WORKSPACE>/tools/verify-template-preview-030.mjs",
+      "S3",
+      "http://localhost:32771"
+    ],
+    "exitCode": 0,
+    "seconds": 2.569,
+    "log": "S3-preview.log"
+  }
+}

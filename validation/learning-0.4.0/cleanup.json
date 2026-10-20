@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "scope": "Dedicated VS Code test window closed; only owned test Compose/Supabase projects stopped. No global Docker reset, prune or volume removal.",
+  "f2ComposeDownExit": 0,
+  "ownedCodeRemaining": [],
+  "preExistingContainers": [
+    {
+      "containerId": "b531d3443746",
+      "running": true,
+      "startedAt": "2026-10-19T22:13:22.36753428Z"
+    },
+    {
+      "containerId": "8e9f201539c5",
+      "running": true,
+      "startedAt": "2026-10-19T22:13:22.368148098Z"
+    }
+  ],
+  "retainedOwnedVolumeCount": 14,
+  "retainedOwnedVolumes": [
+    "otoka-b1-4101260538_dependencies",
+    "otoka-b1-4101260538_npm-cache",
+    "otoka-f1-3186375077_dependencies",
+    "otoka-f1-3186375077_npm-cache",
+    "otoka-f1-3218016678_dependencies",
+    "otoka-f1-3218016678_npm-cache",
+    "otoka-f2-3781752660_dependencies",
+    "otoka-f2-3781752660_npm-cache",
+    "otoka-i1-2068284011_pgdata",
+    "otoka-s1-3434528618_dependencies",
+    "otoka-s1-3434528618_npm-cache",
+    "otoka-s2-2921638882_dependencies",
+    "otoka-s2-2921638882_npm-cache",
+    "supabase_db_otoka-s2-2921638882"
+  ]
+}

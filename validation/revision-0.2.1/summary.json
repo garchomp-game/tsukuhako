@@ -1,0 +1,92 @@
+{
+  "recordedAt": "2026-10-20T09:35:08.029611+00:00",
+  "packageVersion": "0.2.1",
+  "status": "PASS",
+  "scope": "Review R1 and compatible selection retention; 0.2.1 packaging/version impact only.",
+  "review": "validation/revision-0.2.1/REVIEW.md",
+  "baselineReproduced": 4,
+  "coreTests": 21,
+  "sourcePtyCases": 8,
+  "packagedPtyCases": 8,
+  "relocatedCliTemplates": 6,
+  "guiIpcTests": 2,
+  "guiReleaseChecks": 8,
+  "hostNode": "v24.19.0",
+  "electron": "44.9.1",
+  "embeddedNode": "24.22.0",
+  "commands": [
+    {
+      "id": "r021-baseline-pty",
+      "status": "PASS",
+      "evidence": "validation/root/r021-baseline-pty/result.json"
+    },
+    {
+      "id": "r021-core-tests",
+      "status": "PASS",
+      "evidence": "validation/root/r021-core-tests/result.json"
+    },
+    {
+      "id": "r021-wizard-source",
+      "status": "PASS",
+      "evidence": "validation/root/r021-wizard-source/result.json"
+    },
+    {
+      "id": "r021-cli-package",
+      "status": "PASS",
+      "evidence": "validation/root/r021-cli-package/result.json"
+    },
+    {
+      "id": "r021-cli-relocated",
+      "status": "PASS",
+      "evidence": "validation/root/r021-cli-relocated/result.json"
+    },
+    {
+      "id": "r021-wizard-packaged",
+      "status": "PASS",
+      "evidence": "validation/root/r021-wizard-packaged/result.json"
+    },
+    {
+      "id": "r021-gui-build",
+      "status": "PASS",
+      "evidence": "validation/root/r021-gui-build/result.json"
+    },
+    {
+      "id": "r021-gui-ipc",
+      "status": "PASS",
+      "evidence": "validation/root/r021-gui-ipc/result.json"
+    },
+    {
+      "id": "r021-gui-package",
+      "status": "PASS",
+      "evidence": "validation/root/r021-gui-package/result.json"
+    },
+    {
+      "id": "r021-gui-release",
+      "status": "PASS",
+      "evidence": "validation/root/r021-gui-release/result.json"
+    }
+  ],
+  "artifacts": [
+    {
+      "file": "meikyo-generator-cli-0.2.1-linux.zip",
+      "sha256": "d1dc5e99ab86c4158a285c91ff13509452c6c00556f14e9fcf9ade07e2c32e97",
+      "bytes": 717940
+    },
+    {
+      "file": "meikyo-generator-linux-x64-0.2.1.tar.gz",
+      "sha256": "e782ece617b63b6121e9eba02df9e13653505ead30f9cc277515b199489b5749",
+      "bytes": 123804024
+    }
+  ],
+  "preservationEvidence": "validation/revision-0.2.1/preservation.json",
+  "historicalEvidence": "validation/generator-0.2.0/summary.json",
+  "notRunThisRevision": [
+    "F2/S2 Dev Container startup, browser workflows and all G01-G15 cases from 0.2.0",
+    "Actual VS Code Reopen, reconnect and Rebuild",
+    "Windows/WSL, macOS/ARM, fresh-PC setup and GitHub Actions",
+    "Beginner trial and native parent-folder dialog"
+  ],
+  "blockedUnchanged": [
+    "S3 dedicated live cloud connection; excluded from generation"
+  ]
+}

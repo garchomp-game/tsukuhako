@@ -1,0 +1,63 @@
+{
+  "id": "S1",
+  "version": "0.1.2",
+  "archive": "S1-0.1.2.zip",
+  "sha256": "94e55d547b8971e3263eabd99da386018e7a9cd9662872ba46515900c088f714",
+  "devContainerName": "ツクハコ S1",
+  "imageBuild": {
+    "command": [
+      "docker",
+      "build",
+      "--tag",
+      "tsukuhako-030-template-s1",
+      "--file",
+      "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks/S1/.devcontainer/Dockerfile",
+      "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks/S1"
+    ],
+    "exitCode": 0,
+    "seconds": 0.164,
+    "log": "S1-image.log"
+  },
+  "build": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--name",
+      "tsukuhako-030-check-s1",
+      "--user",
+      "1000:1000",
+      "-e",
+      "HOME=/tmp",
+      "-e",
+      "npm_config_cache=/cache",
+      "-e",
+      "NEXT_TELEMETRY_DISABLED=1",
+      "-v",
+      "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks/S1:/workspace",
+      "-v",
+      "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks/npm-cache:/cache",
+      "-w",
+      "/workspace",
+      "tsukuhako-030-template-s1",
+      "sh",
+      "-lc",
+      "node --version && npm --version && npm ci --no-audit --no-fund && npm run check && npm run build"
+    ],
+    "exitCode": 0,
+    "seconds": 12.444,
+    "log": "S1-build.log"
+  },
+  "status": "PASS",
+  "preview": {
+    "command": [
+      "node",
+      "<WORKSPACE>/tools/verify-template-preview-030.mjs",
+      "S1",
+      "http://localhost:32770"
+    ],
+    "exitCode": 0,
+    "seconds": 2.922,
+    "log": "S1-preview.log"
+  }
+}

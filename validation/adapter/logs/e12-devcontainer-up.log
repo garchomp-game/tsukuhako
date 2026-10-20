@@ -1,0 +1,104 @@
+[2026-10-20T02:41:39.603Z] @devcontainers/cli 0.89.0. Node.js v24.19.0. linux 7.0.0-31-generic x64.
+[2026-10-20T02:41:39.896Z] Running the initializeCommand from devcontainer.json...
+
+[2026-10-20T02:41:39.896Z] Start: Run: bash .devcontainer/initialize.sh
+[2026-10-20T02:41:40.218Z] #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 348B done
+[2026-10-20T02:41:40.218Z] #1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/3] FROM docker.io/library/node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5
+#4 resolve docker.io/library/node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5 done
+#4 CACHED
+
+#5 [2/3] RUN npm install --global npm@11.17.0     && mkdir -p /workspace/node_modules /home/node/.npm     && chown -R node:node /workspace /home/node/.npm
+[2026-10-20T02:41:45.197Z] #5 5.129 
+#5 5.129 changed 20 packages in 5s
+#5 5.129 
+[2026-10-20T02:41:45.320Z] #5 5.129 15 packages are looking for funding
+#5 5.129   run `npm fund` for details
+#5 DONE 5.2s
+
+#6 [3/3] WORKDIR /workspace
+#6 DONE 0.0s
+[2026-10-20T02:41:45.473Z] 
+#7 exporting to image
+#7 exporting layers
+[2026-10-20T02:41:46.531Z] #7 exporting layers 1.2s done
+[2026-10-20T02:41:46.705Z] #7 exporting manifest sha256:491e4828e2c4b4adec1446c357b654081b5d9af31df6065cfb88263acabac6b6 done
+#7 exporting config sha256:bca3816cfd780fe4c51bf68e758c31227b1387c0758bf4f89bdacb85339d6617 done
+#7 exporting attestation manifest sha256:196b9da5f35ed64c3366aa4012e428ed72bf1832b81c1533fc56f08fadcb7a65 done
+#7 exporting manifest list sha256:22e5493bd3d77e3190320688c975ccc61ac88e71eb2170152c025a56c9341e16 done
+#7 naming to docker.io/library/otoka-existing-0b7152d453f0-dev:0.1.0 done
+#7 unpacking to docker.io/library/otoka-existing-0b7152d453f0-dev:0.1.0
+[2026-10-20T02:41:46.946Z] #7 unpacking to docker.io/library/otoka-existing-0b7152d453f0-dev:0.1.0 0.4s done
+[2026-10-20T02:41:46.987Z] #7 DONE 1.6s
+[2026-10-20T02:41:46.992Z] 
+[2026-10-20T02:41:47.025Z] Start: Run: docker compose -f [work-root]/validation/adapter/runs/単一Next fixture/.devcontainer/compose.yaml --profile * config
+[2026-10-20T02:41:47.094Z] Start: Run: docker compose -f [work-root]/validation/adapter/runs/単一Next fixture/.devcontainer/compose.yaml --profile * config
+[2026-10-20T02:41:47.140Z] name: otoka-existing-0b7152d453f0
+services:
+  app:
+    environment:
+      HOST_PORT: "3091"
+      NEXT_TELEMETRY_DISABLED: "1"
+    image: otoka-existing-0b7152d453f0-dev:0.1.0
+    init: true
+    networks:
+      default: null
+    pull_policy: never
+    volumes:
+      - type: bind
+        source: [work-root]/validation/adapter/runs/単一Next
+          fixture
+        target: /workspace
+      - type: volume
+        source: node_modules
+        target: /workspace/node_modules
+        volume: {}
+      - type: volume
+        source: npm_cache
+        target: /home/node/.npm
+        volume: {}
+    ports:
+      - mode: ingress
+        host_ip: 127.0.0.1
+        target: 3000
+        published: "3091"
+        protocol: tcp
+networks:
+  default:
+    name: otoka-existing-0b7152d453f0_default
+volumes:
+  node_modules:
+    name: otoka-existing-0b7152d453f0_node_modules
+  npm_cache:
+    name: otoka-existing-0b7152d453f0_npm_cache
+[2026-10-20T02:41:47.141Z] Start: Run: docker inspect --type image otoka-existing-0b7152d453f0-dev:0.1.0
+[2026-10-20T02:41:47.172Z] Start: Run: docker compose --project-name otoka-existing-0b7152d453f0 -f [work-root]/validation/adapter/runs/単一Next fixture/.devcontainer/compose.yaml build
+[2026-10-20T02:41:47.216Z] time="2026-10-20T11:41:47+09:00" level=warning msg="No services to build"
+
+[2026-10-20T02:41:47.586Z] Start: Run: docker compose --project-name otoka-existing-0b7152d453f0 -f [work-root]/validation/adapter/runs/単一Next fixture/.devcontainer/compose.yaml -f [devcontainer-temp]/docker-compose/docker-compose.devcontainer.containerFeatures-1792464107585-997cd2b7-dbd3-4304-a95e-7b2259866120.yml up -d
+[2026-10-20T02:41:47.929Z] Running the postCreateCommand from devcontainer.json...
+
+[2026-10-20T02:41:51.968Z] npm warn deprecated eslint@9.39.5: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+[2026-10-20T02:42:04.297Z] 
+added 362 packages in 16s
+[2026-10-20T02:42:04.298Z] npm warn allow-scripts 1 package has install scripts not yet covered by allowScripts:
+npm warn allow-scripts   unrs-resolver@1.12.2 (postinstall: node postinstall.js)
+npm warn allow-scripts
+npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow.
+[2026-10-20T02:42:04.299Z] npm notice
+npm notice New major version of npm available! 11.17.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
+{"outcome":"success","containerId":"3bec6a7024b8ce567a459097e0c18548a800c67ca433b435b048fd846c02876a","composeProjectName":"otoka-existing-0b7152d453f0","remoteUser":"node","remoteWorkspaceFolder":"/workspace","ociAuthDiagnostics":{"authLookupWouldBeBlocked":false,"registryRedirectWouldPreventCredentialForwarding":false,"authServerRedirect":false}}

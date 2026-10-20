@@ -1,0 +1,16 @@
+{
+  "id": "t030-core-tests-final",
+  "startedAt": "2026-10-20T13:01:12.317817+00:00",
+  "command": [
+    "npm",
+    "test",
+    "--prefix",
+    "generator"
+  ],
+  "cwd": ".",
+  "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+  "exitCode": 0,
+  "elapsedSeconds": 1.317,
+  "result": "PASS",
+  "log": "output.log"
+}

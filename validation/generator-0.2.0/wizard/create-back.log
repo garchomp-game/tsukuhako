@@ -1,0 +1,77 @@
+明鏡 / 新しいプロジェクト
+各入力で :back（戻る）、:cancel（中止）が使えます。
+まず何を作りますか？
+1. 画面を作りたい — 入力やページ移動を、サンプル画面から学びます。
+2. APIを作りたい — HTTPで入力を受け取り、結果を返します。
+3. 画面とAPIをつなぎたい — フォームからAPIへ送信します。
+4. データをDBへ保存したい — ローカルDBで、メモの保存・編集・削除を学びます。
+5. SQL・DBを学びたい — SQLの作業環境で、テーブルとデータを扱います。
+用途 [1]: 1
+1. Next.js (F2) / 2. React + Vite (F1)
+画面の構成 [1]: 1
+親フォルダ [<WORKSPACE>]: <WORKSPACE>/validation/generator-0.2.0/runs/wizard/create-back
+新しいフォルダ名 [my-app]: 最初の 入力
+識別ラベル・ポートを変更しますか？ [y/N]: n
+
+構成: F2 / 版 0.1.0
+保存先: <WORKSPACE>/validation/generator-0.2.0/runs/wizard/create-back/最初の 入力
+識別名: otoka-f2-2519047321
+ポート: app=3001
+ファイル: 44件（サンプル・教材・テスト・CI設定、.env、START_HERE.md）
+まだファイルは書き込んでいません。
+planId: b07937002f726d113cca75a03b52784913699bc3872d3bc8f93414249a0c25bf
+生成準備: 確認済み
+起動準備: 確認済み
+[PASS] bash: 確認済み
+[PASS] カタログと配布ZIPの整合を確認しました。
+[PASS] cksumを利用できます。
+[PASS] VS Code: 確認済み
+[PASS] Docker Compose: 確認済み
+[PASS] 入力・保存先・親フォルダを確認しました。書込み成功の保証ではありません。
+[PASS] Dev Containers拡張: 確認済み
+[PASS] Docker daemon: 確認済み
+[PASS] 実行基盤 Node 24.19.0
+[PASS] app 3001: 現在は利用可能（予約なし）
+この内容で作成しますか？ [y / :back / :cancel]: :back
+親フォルダ [<WORKSPACE>/validation/generator-0.2.0/runs/wizard/create-back]: 
+新しいフォルダ名 [最初の 入力]: 完成 日本語 $(literal)
+識別ラベル・ポートを変更しますか？ [y/N]: n
+
+構成: F2 / 版 0.1.0
+保存先: <WORKSPACE>/validation/generator-0.2.0/runs/wizard/create-back/完成 日本語 $(literal)
+識別名: otoka-f2-4047157726
+ポート: app=3001
+ファイル: 44件（サンプル・教材・テスト・CI設定、.env、START_HERE.md）
+まだファイルは書き込んでいません。
+planId: 91f8fcd424042fa43f9b4675b04fef8302c4e8da25b5a3bc7b76235b4da70f99
+生成準備: 確認済み
+起動準備: 確認済み
+[PASS] bash: 確認済み
+[PASS] カタログと配布ZIPの整合を確認しました。
+[PASS] cksumを利用できます。
+[PASS] VS Code: 確認済み
+[PASS] Docker Compose: 確認済み
+[PASS] 入力・保存先・親フォルダを確認しました。書込み成功の保証ではありません。
+[PASS] Dev Containers拡張: 確認済み
+[PASS] Docker daemon: 確認済み
+[PASS] 実行基盤 Node 24.19.0
+[PASS] app 3001: 現在は利用可能（予約なし）
+この内容で作成しますか？ [y / :back / :cancel]: y
+プロジェクトのファイルを作成しました。
+保存先: <WORKSPACE>/validation/generator-0.2.0/runs/wizard/create-back/完成 日本語 $(literal)
+最初に読む: <WORKSPACE>/validation/generator-0.2.0/runs/wizard/create-back/完成 日本語 $(literal)/START_HERE.md
+[ホスト 前提とこのプロジェクトの設定を診断する
+  'bash' 'scripts/doctor-host.sh'
+[VS Code VS Codeでフォルダを開き、Dev Containers: Reopen in Containerを実行する
+[コンテナ内 開発サーバーを起動する
+  'npm' 'run' 'dev'
+[ホスト ブラウザでサンプル画面を開く
+  http://localhost:3001
+[ホスト 全体の使い方
+  README.md
+[ホスト 変更の演習
+  docs/EXERCISES.md
+[ホスト 空から組み立てる
+  docs/BUILD-YOUR-OWN.md
+[ホスト 停止・復旧
+  docs/RECOVERY.md

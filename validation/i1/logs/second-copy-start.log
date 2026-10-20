@@ -1,0 +1,59 @@
+PASS: Docker / Compose / 設定
+project: otoka-i1-validation-3071882351
+host: 127.0.0.1:55433
+container: db:5432
+ホスト Node.js/npm/psql は不要です。起動時の port already allocated は docs/troubleshooting.md へ。
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 544B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/postgres:18.6-bookworm@sha256:afc7e2d441324c0388fa80c3d24f733b4194a4eb7f47dd8ee2b08eb1a24a647c
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 81B done
+#3 DONE 0.0s
+
+#4 [1/3] FROM docker.io/library/postgres:18.6-bookworm@sha256:afc7e2d441324c0388fa80c3d24f733b4194a4eb7f47dd8ee2b08eb1a24a647c
+#4 resolve docker.io/library/postgres:18.6-bookworm@sha256:afc7e2d441324c0388fa80c3d24f733b4194a4eb7f47dd8ee2b08eb1a24a647c 0.0s done
+#4 DONE 0.0s
+
+#5 [2/3] RUN groupadd --gid 1000 vscode     && useradd --uid 1000 --gid 1000 --create-home --shell /bin/bash vscode     && mkdir -p /workspace     && chown vscode:vscode /workspace
+#5 CACHED
+
+#6 [3/3] WORKDIR /workspace
+#6 CACHED
+
+#7 exporting to image
+#7 exporting layers done
+#7 exporting manifest sha256:d168af58ce3158de8f1b03c8715f69842ccc40288147ba30b9770def89357f72 done
+#7 exporting config sha256:cb4dadb980c837a69332371e229d40d3c3c42edc5e0c338e6afad354504f60b3 done
+#7 exporting attestation manifest sha256:af7b2dd8444360ddb2118cb8d76f136db3e13eda53430bb6a5c10fdd008ad2d9 done
+#7 exporting manifest list sha256:ecec5b8505b10ee7e5461670c899497132a5f003f4857eecf7f2c4f55764900c done
+#7 naming to docker.io/library/otoka-i1-validation-3071882351-dev:0.1.0 done
+#7 unpacking to docker.io/library/otoka-i1-validation-3071882351-dev:0.1.0 done
+#7 DONE 0.0s
+ Network otoka-i1-validation-3071882351_default Creating 
+ Volume otoka-i1-validation-3071882351_pgdata Creating 
+ Volume otoka-i1-validation-3071882351_pgdata Creating 
+ Network otoka-i1-validation-3071882351_default Creating 
+ Volume otoka-i1-validation-3071882351_pgdata Created 
+ Volume otoka-i1-validation-3071882351_pgdata Created 
+ Network otoka-i1-validation-3071882351_default Created 
+ Network otoka-i1-validation-3071882351_default Created 
+ Container otoka-i1-validation-3071882351-db-1 Creating 
+ Container otoka-i1-validation-3071882351-db-1 Created 
+ Container otoka-i1-validation-3071882351-app-1 Creating 
+ Container otoka-i1-validation-3071882351-app-1 Created 
+ Container otoka-i1-validation-3071882351-db-1 Starting 
+ Container otoka-i1-validation-3071882351-db-1 Started 
+ Container otoka-i1-validation-3071882351-db-1 Waiting 
+ Container otoka-i1-validation-3071882351-db-1 Healthy 
+ Container otoka-i1-validation-3071882351-app-1 Starting 
+ Container otoka-i1-validation-3071882351-app-1 Started 
+ Container otoka-i1-validation-3071882351-app-1 Waiting 
+ Container otoka-i1-validation-3071882351-db-1 Waiting 
+ Container otoka-i1-validation-3071882351-app-1 Healthy 
+ Container otoka-i1-validation-3071882351-db-1 Healthy 

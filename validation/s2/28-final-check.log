@@ -1,0 +1,21 @@
+
+> otoka-s2-local-notes@0.1.0 check
+> next typegen && tsc --noEmit && eslint .
+
+Generating route types...
+✓ Types generated successfully
+
+> otoka-s2-local-notes@0.1.0 test
+> node --test tests/input.test.mjs
+
+✔ trim and Unicode code point boundaries (1.240216ms)
+✔ missing, non-string, whitespace and invalid Unicode are rejected (0.156574ms)
+✔ markup remains literal data and IDs are constrained (0.221792ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 80.195137

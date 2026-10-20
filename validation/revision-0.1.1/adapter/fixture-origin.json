@@ -1,0 +1,7 @@
+{
+  "applicationSource": "Current F2 app/config copied into isolated fixtures",
+  "packageAndLockSource": "Previous 0.1.0 E12 tested F2 application fixture; source private runs not distributed",
+  "knownDevScript": "next dev --hostname 0.0.0.0",
+  "reason": "Current F2 dev adds explicit --port and is outside the existing adapter allowlist; use previously supported fixture without widening R1 scope.",
+  "userProjectsModified": false
+}

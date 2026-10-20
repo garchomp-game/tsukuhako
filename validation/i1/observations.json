@@ -1,0 +1,242 @@
+[
+  {
+    "id": "shell-static",
+    "result": "PASS",
+    "assertion": "exit=0"
+  },
+  {
+    "id": "no-host-node",
+    "result": "PASS",
+    "assertion": "PASS: Docker"
+  },
+  {
+    "id": "docker-unreachable",
+    "result": "PASS",
+    "assertion": "Docker に接続できません"
+  },
+  {
+    "id": "config-preserved",
+    "result": "PASS",
+    "assertion": "設定を保持"
+  },
+  {
+    "id": "config-refuses-overwrite",
+    "result": "PASS",
+    "assertion": "上書きしません"
+  },
+  {
+    "id": "devcontainer-exec",
+    "result": "PASS",
+    "assertion": "1000"
+  },
+  {
+    "id": "empty-before-setup",
+    "result": "PASS",
+    "assertion": "t"
+  },
+  {
+    "id": "setup-empty",
+    "result": "PASS",
+    "assertion": "CREATE TABLE"
+  },
+  {
+    "id": "semantic-check",
+    "result": "PASS",
+    "assertion": "PASS: SQL CRUD"
+  },
+  {
+    "id": "seed-two-rows",
+    "result": "PASS",
+    "assertion": "2"
+  },
+  {
+    "id": "edit-and-persist",
+    "result": "PASS",
+    "assertion": "exit=0"
+  },
+  {
+    "id": "setup-repeat",
+    "result": "PASS",
+    "assertion": "skip: 001_create_sample_items.sql"
+  },
+  {
+    "id": "seed-idempotent",
+    "result": "PASS",
+    "assertion": "t"
+  },
+  {
+    "id": "source-change",
+    "result": "PASS",
+    "assertion": "変更反映を確認"
+  },
+  {
+    "id": "migration-drift-refused-fixed",
+    "result": "PASS",
+    "assertion": "適用済みmigrationを変更しました"
+  },
+  {
+    "id": "migration-add-column",
+    "result": "PASS",
+    "assertion": "ALTER TABLE"
+  },
+  {
+    "id": "migration-repeat",
+    "result": "PASS",
+    "assertion": "skip: 002_add_note.sql"
+  },
+  {
+    "id": "column-use",
+    "result": "PASS",
+    "assertion": "migrationで追加"
+  },
+  {
+    "id": "migration-failure-atomic",
+    "result": "PASS",
+    "assertion": "does not exist"
+  },
+  {
+    "id": "migration-rollback-proof",
+    "result": "PASS",
+    "assertion": "t"
+  },
+  {
+    "id": "stop",
+    "result": "PASS",
+    "assertion": "exit=0"
+  },
+  {
+    "id": "resume",
+    "result": "PASS",
+    "assertion": "exit=0"
+  },
+  {
+    "id": "persist-after-stop",
+    "result": "PASS",
+    "assertion": "保持を確認:42:migrationで追加"
+  },
+  {
+    "id": "remove-containers-keep-data",
+    "result": "PASS",
+    "assertion": "exit=0"
+  },
+  {
+    "id": "devcontainer-rebuild",
+    "result": "PASS",
+    "assertion": "exit=0"
+  },
+  {
+    "id": "persist-after-recreate",
+    "result": "PASS",
+    "assertion": "保持を確認:42:migrationで追加"
+  },
+  {
+    "id": "source-after-recreate",
+    "result": "PASS",
+    "assertion": "変更反映を確認"
+  },
+  {
+    "id": "devcontainer-reconnect",
+    "result": "PASS",
+    "assertion": "PASS: SQL CRUD"
+  },
+  {
+    "id": "config-missing",
+    "result": "PASS",
+    "assertion": "設定がありません"
+  },
+  {
+    "id": "config-invalid-port",
+    "result": "PASS",
+    "assertion": "1024"
+  },
+  {
+    "id": "copied-env-refused",
+    "result": "PASS",
+    "assertion": "別フォルダの .env"
+  },
+  {
+    "id": "configure-copy",
+    "result": "PASS",
+    "assertion": "exit=0"
+  },
+  {
+    "id": "second-copy-start",
+    "result": "PASS",
+    "assertion": "exit=0"
+  },
+  {
+    "id": "second-copy-setup",
+    "result": "PASS",
+    "assertion": "exit=0"
+  },
+  {
+    "id": "copies-isolated",
+    "result": "PASS",
+    "assertion": "t"
+  },
+  {
+    "id": "second-copy-marker",
+    "result": "PASS",
+    "assertion": "exit=0"
+  },
+  {
+    "id": "scoped-reset",
+    "result": "PASS",
+    "assertion": "otoka-i1-validation-598241935_pgdata"
+  },
+  {
+    "id": "other-copy-survives-reset",
+    "result": "PASS",
+    "assertion": "別コピーの保持:99"
+  },
+  {
+    "id": "reset-start-empty",
+    "result": "PASS",
+    "assertion": "exit=0"
+  },
+  {
+    "id": "reset-is-empty",
+    "result": "PASS",
+    "assertion": "t"
+  },
+  {
+    "id": "reset-reconstruct",
+    "result": "PASS",
+    "assertion": "exit=0"
+  },
+  {
+    "id": "reset-seed-and-migration",
+    "result": "PASS",
+    "assertion": "t"
+  },
+  {
+    "id": "final-semantic-check",
+    "result": "PASS",
+    "assertion": "PASS: SQL CRUD"
+  },
+  {
+    "id": "resources-first",
+    "result": "PASS",
+    "assertion": "exit=0"
+  },
+  {
+    "id": "resources-second",
+    "result": "PASS",
+    "assertion": "exit=0"
+  },
+  {
+    "id": "published-ports",
+    "result": "PASS",
+    "assertion": "127.0.0.1:55432->5432/tcp"
+  },
+  {
+    "id": "memory-snapshot",
+    "result": "PASS",
+    "assertion": "exit=0"
+  },
+  {
+    "id": "image-size",
+    "result": "PASS",
+    "assertion": "exit=0"
+  }
+]

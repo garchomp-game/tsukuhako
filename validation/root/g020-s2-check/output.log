@@ -1,0 +1,6 @@
+
+> otoka-s2-local-notes@0.1.1 check
+> next typegen && tsc --noEmit && eslint .
+
+Generating route types...
+✓ Types generated successfully

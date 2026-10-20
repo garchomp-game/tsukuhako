@@ -1,0 +1,33 @@
+# 0.4.0 アプリ内教材と実行アダプター
+
+## 状態と読込
+
+AppはGeneratorを画面切替でアンマウントせず、入力・plan・結果を維持する。Readerは表示中の章だけをDOMへ変換し、離脱時に購読と画像Observerを破棄する。mainのContentLibraryは最大3章のLRU。起動はmanifestのみ、Markdown parserは初回の章でdynamic import。画像もIntersectionObserverで必要時にIDを送る。
+
+reading.jsonはローカルのアプリ設定であり、生成リクエスト・plan・秘密値を保存しない。非同期の保存を直列化し、一意な一時ファイルからrenameする。再開は本文DOM構築後。なくなった章は目次へ戻す。
+
+## IPC境界
+
+送信元BrowserWindow・mainFrame・正確なapp URLの3点を確認する。全入力はmethod別allowlist・型・長さを検査。HTML・webview・外部renderer遷移を許可しない。Markdownはhtml:falseでtoken化し、React要素へ変換する。HTMLを文字列として挿入しない。
+
+読込APIは教材/章/画像IDだけを受け、パスはmanifestから解決する。正規化、symlink拒否、サイズ、SHA256を確認する。外部リンクは既知の章本文にある資格情報なしのHTTPSのみ。任意パスやコマンドのAPIはない。
+
+生成BUSYを読書APIへ適用しない。生成中は新規plan・apply・実行先変更を拒否し、共有ステータスとclose/reload防止を維持する。起動時や画面切替で生成を自動再実行しない。
+
+## OSアダプター
+
+local.mjsは固定ツール候補の検出、時間/出力上限付きprobe、状態分類、ログ伏せ字、VS Code起動を担当する。Dockerの有効context/environmentを確認し、既知のリモートへ通常のローカル診断を送らない。DockerやOSの設定は変更しない。
+
+WSLAdapterはWindows固定wsl.exeへ引数配列で通常distro・ユーザー・固定実行ファイルを渡す。rendererは列挙済みdistroのIDを選択するだけ。WSLの既定ユーザー、UID、HOME、CPUを確認し、plan/applyごとに再確認する。Windows側fsではLinuxのplanを作らない。VS Code接続にも生成時の実行先を要求する。
+
+WSL専用領域に配布Node Linux x64とcore/templateを配置する。展開前のtar、配置後のNode・manifest・helper入口、helper起動時の全ファイルを照合する。Nodeの手動導入は不要。旧版は別領域。不完全な同じ版は自動削除せず、利用者による退避後に再配置する。
+
+ヘルパーは構造化JSONのstdin/stdout、UUIDジョブ、worker threadを使用する。planIdはコアplanIdとOS/distro/ユーザー/HOME/CPU/helper版へ結び付く。実行先変更で旧planを使えない。終了は自分のhelperへのshutdownと共有キャンセルフラグだけ。applyは各配置段階でキャンセルを確認し、既存の自分の生成分だけのrollbackを使う。診断中はAbortSignalで自分の子プロセスを停止してから終了する。WSL全体のshutdown/terminateは使わない。5秒以内に終了確認できない場合、確認済みと扱わずそのセッションの再利用を拒否する。
+
+Linuxでヘルパー本体を実行した試験と、Windowsからwsl.exe経由の実機試験は別である。後者とOS再起動・仮想化設定・Windows Code接続はNOT_RUN。
+
+## 変更しない契約
+
+新規フォルダのみ、ZIP/hash照合、親の実体検査、再確認後のapply、秘密値を.envだけへ出力、変更済み生成ファイルをrollbackで消さない契約を保持する。POSIX cksumをJSに実装し、既存CLI結果とのバイト単位の一致を試験した。Dockerのproject/container/volume識別名は同じ計算になる。
+
+CLIは同期互換APIを保持する。教材・GUIの都合でtemplate ZIPや既存プロジェクトを改名しない。

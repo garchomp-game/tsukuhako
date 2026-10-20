@@ -1,0 +1,13 @@
+{
+  "name": "39-final-zip-browser-fixed",
+  "startedAt": "2026-10-20T02:58:04.239283+00:00",
+  "elapsedSeconds": 2.823,
+  "command": [
+    "node",
+    "validation/s2/final-smoke.mjs"
+  ],
+  "cwd": ".",
+  "exitCode": 0,
+  "result": "PASS",
+  "log": "39-final-zip-browser-fixed.log"
+}

@@ -1,0 +1,2 @@
+診断NG: ポート 54321 は使用中です。.envのSUPABASE_API_PORTを変更してください。
+復旧手順: docs/RECOVERY.md

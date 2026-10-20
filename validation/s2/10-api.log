@@ -1,0 +1,14 @@
+
+> otoka-s2-local-notes@0.1.0 test:api
+> node --test tests/api.test.mjs
+
+✔ real local API persists trimmed Unicode CRUD and returns missing ID errors (1350.977381ms)
+✔ invalid content and unsupported methods have predictable statuses (143.930177ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1578.608925

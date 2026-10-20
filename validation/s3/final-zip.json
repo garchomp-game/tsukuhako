@@ -1,0 +1,9 @@
+{
+  "result": "PASS",
+  "finalZip": "S3-0.1.0.zip",
+  "sha256": "0ac8439d5d23d7fa6bbac18aafc78c0894a3844bab75a5ec41e7089a540557de",
+  "unpackPath": "validation/s3/runs/最終 ZIP 新規展開/S3",
+  "handAuthoredFilesMatch": true,
+  "generatedChanges": [],
+  "sourceFrozen": true
+}

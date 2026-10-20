@@ -1,0 +1,15 @@
+{
+  "status": "partial-preserved",
+  "removed": [
+    ".devcontainer/devcontainer.json",
+    ".devcontainer/compose.yaml",
+    ".devcontainer/initialize.sh",
+    ".devcontainer/manage.sh",
+    ".devcontainer/README.md"
+  ],
+  "preserved": [
+    ".devcontainer/.adapter-record.json",
+    ".devcontainer/Dockerfile"
+  ],
+  "message": "利用者の編集・追加を保持しました。残った設定は手動で確認してください。"
+}

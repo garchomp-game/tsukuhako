@@ -1,0 +1,75 @@
+{
+  "testedAt": "2026-10-20T02:42:08.206521+00:00",
+  "results": [
+    {
+      "command": [
+        "env",
+        "PROJECT_NAME=otoka-unrelated",
+        "bash",
+        "scripts/compose.sh",
+        "down",
+        "--volumes"
+      ],
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "status": "PASS",
+      "durationSeconds": 0.049,
+      "observation": "診断NG: シェルのPROJECT_NAMEと.envが競合しています。別プロジェクトの環境変数を解除して再実行してください。\n復旧手順: docs/RECOVERY.md"
+    },
+    {
+      "command": [
+        "env",
+        "HOST_PORT=65099",
+        "bash",
+        "scripts/compose.sh",
+        "down",
+        "--volumes"
+      ],
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "status": "PASS",
+      "durationSeconds": 0.048,
+      "observation": "診断NG: シェルのHOST_PORTと.envが競合しています。\n復旧手順: docs/RECOVERY.md"
+    },
+    {
+      "command": [
+        "env",
+        "COMPOSE_PROJECT_NAME=otoka-unrelated",
+        "bash",
+        "scripts/compose.sh",
+        "down",
+        "--volumes"
+      ],
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "status": "PASS",
+      "durationSeconds": 0.047,
+      "observation": "診断NG: COMPOSE_PROJECT_NAMEが別プロジェクトを指定しています。\n復旧手順: docs/RECOVERY.md"
+    },
+    {
+      "command": [
+        "env",
+        "COMPOSE_FILE=/tmp/other-compose.yaml",
+        "bash",
+        "scripts/compose.sh",
+        "down",
+        "--volumes"
+      ],
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "status": "PASS",
+      "durationSeconds": 0.048,
+      "observation": "診断NG: COMPOSE_FILEが設定されています。このフォルダ用のComposeを使うため解除してください。\n復旧手順: docs/RECOVERY.md"
+    },
+    {
+      "command": [
+        "bash",
+        "scripts/compose.sh",
+        "ps"
+      ],
+      "exitCode": 0,
+      "status": "PASS",
+      "observation": "診断OK: otoka-f2-3543580151 / http://localhost:3001\n/dev/nvme0n1p2  468G  118G  327G  27% /\n容量不足なら不要な自分の試行資源を確認してください。全体pruneは行いません。\nNAME                        IMAGE                                                                         COMMAND                  SERVICE   CREATED          STATUS          PORTS\notoka-f2-3543580151-app-1   vsc-f2-3ba5a49174bb8f147914ff564e48795edfbb0e3a54ac728a00c4455e2f07b370-uid   \"/bin/sh -c 'echo Co…\"   app       15 minutes ago   Up 15 minutes   127.0.0.1:3001->3000/tcp"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+ Container otoka-i1-validation-598241935-app-1 Stopping 
+ Container otoka-i1-validation-598241935-app-1 Stopped 
+ Container otoka-i1-validation-598241935-app-1 Removing 
+ Container otoka-i1-validation-598241935-app-1 Removed 
+ Container otoka-i1-validation-598241935-db-1 Stopping 
+ Container otoka-i1-validation-598241935-db-1 Stopped 
+ Container otoka-i1-validation-598241935-db-1 Removing 
+ Container otoka-i1-validation-598241935-db-1 Removed 
+ Network otoka-i1-validation-598241935_default Removing 
+ Network otoka-i1-validation-598241935_default Removed 
+otoka-i1-validation-598241935_pgdata
+削除済み: otoka-i1-validation-598241935_pgdata
+再作成: bash scripts/project.sh start → bash scripts/project.sh db setup

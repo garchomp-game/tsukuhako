@@ -1,0 +1,24 @@
+{
+  "template": "F1",
+  "event": "stage4-start",
+  "startedAt": "2026-10-20T05:02:31.844962+00:00",
+  "command": [
+    "docker",
+    "exec",
+    "--detach",
+    "--user",
+    "node",
+    "--workdir",
+    "/workspace",
+    "6431848cca9229430efbacc1dfc1351d0e3890d49712c23ebc9fff9d6ec6f4e0",
+    "bash",
+    "-c",
+    "set -m; npm run dev > /tmp/meikyo-lesson-dev.log 2>&1 & lesson_pid=$!; printf \"%s\\n\" \"$lesson_pid\" > /tmp/meikyo-lesson-dev.pid; wait \"$lesson_pid\""
+  ],
+  "cwd": "validation/revision-0.1.1/learning/runs/F1 空フォルダ 教材 0.1.1",
+  "endedAt": "2026-10-20T05:02:31.908934+00:00",
+  "exitCode": 0,
+  "elapsedSeconds": 0.064,
+  "result": "PASS",
+  "log": "output.log"
+}

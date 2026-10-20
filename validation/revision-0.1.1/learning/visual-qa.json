@@ -1,0 +1,18 @@
+{
+  "recordedAt": "2026-10-20T05:04:37.444410+00:00",
+  "observer": "Codex agent image inspection; not user GUI trial",
+  "screenshots": [
+    "screenshots/F1-assembled.png",
+    "screenshots/S1-assembled.png"
+  ],
+  "result": "PASS",
+  "observations": [
+    "Japanese glyphs are legible",
+    "Input controls and output cards visible without overlap",
+    "S1 screenshot shows successful retry result"
+  ],
+  "notRun": [
+    "manual user usability trial",
+    "VS Code GUI"
+  ]
+}

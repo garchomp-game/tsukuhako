@@ -1,0 +1,35 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 730B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 93B done
+#3 DONE 0.0s
+
+#4 [1/4] FROM docker.io/library/node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5
+#4 resolve docker.io/library/node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5 done
+#4 DONE 0.0s
+
+#5 [3/4] RUN npm install --global npm@11.17.0     && mkdir -p /workspace/node_modules /home/node/.npm     && chown -R node:node /workspace /home/node/.npm
+#5 CACHED
+
+#6 [2/4] RUN apt-get update && apt-get install -y --no-install-recommends     git curl ca-certificates libnss3 libatk1.0-0 libatk-bridge2.0-0     libx11-6 libxcomposite1 libxdamage1 libxext6 libxfixes3 libxrandr2     libgbm1 libdrm2 libxcb1 libxkbcommon0 libasound2 libglib2.0-0     libcups2 libdbus-1-3 libpango-1.0-0 libcairo2 fonts-liberation     && rm -rf /var/lib/apt/lists/*
+#6 CACHED
+
+#7 [4/4] WORKDIR /workspace
+#7 CACHED
+
+#8 exporting to image
+#8 exporting layers done
+#8 exporting manifest sha256:261571f685bc49f14c55afc81349c084deae53107f9f175a02e4ae6e864783b9 done
+#8 exporting config sha256:7bb11ce0c801fbefa12797750fa188a5e8ee882e64f39c8e0b408e5ad273d41c done
+#8 exporting attestation manifest sha256:31afbf7abbab2a9c577f59a43b7eefae671bc197c9195e34e048ddaef5157ff7 done
+#8 exporting manifest list sha256:a475a4b65d1d378b4572ddb70d96f4a32f45db50bf3fde4414473afc4f7e19e8 done
+#8 naming to docker.io/library/tsukuhako-030-template-b1:latest done
+#8 unpacking to docker.io/library/tsukuhako-030-template-b1:latest done
+#8 DONE 0.0s

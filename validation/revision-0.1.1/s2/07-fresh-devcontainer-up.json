@@ -1,0 +1,15 @@
+{
+  "name": "07-fresh-devcontainer-up",
+  "startedAt": "2026-10-20T04:56:52.948157+00:00",
+  "elapsedSeconds": 17.81,
+  "command": [
+    "<WORKSPACE>/tools/node_modules/.bin/devcontainer",
+    "up",
+    "--workspace-folder",
+    "."
+  ],
+  "cwd": "validation/revision-0.1.1/s2/runs/最終配布 新規起動/S2",
+  "exitCode": 0,
+  "result": "PASS",
+  "log": "07-fresh-devcontainer-up.log"
+}

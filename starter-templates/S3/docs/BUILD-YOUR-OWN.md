@@ -1,0 +1,7 @@
+# 空のフォルダから組み立てる
+
+元フォルダを残した別の演習フォルダを使います。Dev Container/Dockerfile、Compose、configure/initialize/doctorの順に読み写し、ソースの保存場所と道具を分けて説明します。package.json・lockfile・型/ESLint/PostCSS設定を加えてnpm ciを確認します。
+
+次にServer Componentのpage.tsxと入力設定を検証するlib/catalog.tsを加えます。最初は設定なしの案内だけを表示し、次にテスト用fetchの正常/失敗分岐を動かします。SQLは独立した一時DBに適用してanon権限で確認します。最後に利用者が用意した専用クラウドへ設定する手順をREADMEで照合します。
+
+型・単体・SQL・buildが通っても、実クラウドへ接続していなければ疎通は未確認です。workflowは同じcheck/test/test-sql/buildを呼びますが、CIファイルを置くだけでGitHub上の実行が成功したとは言えません。

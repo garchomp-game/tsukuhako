@@ -1,0 +1,10 @@
+このプロジェクトのポートは起動中です。
+診断OK: otoka-f2-first-246531851 / http://localhost:3761
+/dev/nvme0n1p2  468G  131G  314G  30% /
+容量不足なら不要な自分の試行資源を確認してください。全体pruneは行いません。
+
+> otoka-f2@0.1.1 check
+> eslint . && next typegen && tsc --noEmit
+
+Generating route types...
+✓ Types generated successfully

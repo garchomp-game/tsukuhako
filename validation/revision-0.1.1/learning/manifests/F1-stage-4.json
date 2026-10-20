@@ -1,0 +1,26 @@
+{
+  "number": 4,
+  "startedAt": "2026-10-20T05:02:29.474484+00:00",
+  "files": [
+    {
+      "path": "src/style.css",
+      "source": "starter-templates/F1/src/style.css",
+      "sha256": "d2956d63ad0c38eca53d7d43decce630e2f777b1ee950284051e7cc5aabf4d33"
+    },
+    {
+      "path": "src/App.tsx",
+      "source": "starter-templates/F1/src/App.tsx",
+      "sha256": "705287fcd8651a53682a08b52e7a0db368850d5e33fec110d30c79bb8470b370"
+    },
+    {
+      "path": "src/main.tsx",
+      "source": "starter-templates/F1/src/main.tsx",
+      "sha256": "d81c203421f2a3c44e2a08e17f7366496d93c926a580a1f64a8de5a169862399"
+    },
+    {
+      "path": "index.html",
+      "source": "starter-templates/F1/index.html",
+      "sha256": "a6b90cae8c8d305d9376f4d7cbcb4d8311add1572fed85cbb4aeed6c84eb7f1b"
+    }
+  ]
+}

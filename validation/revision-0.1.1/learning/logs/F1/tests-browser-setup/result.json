@@ -1,0 +1,20 @@
+{
+  "template": "F1",
+  "event": "tests-browser-setup",
+  "startedAt": "2026-10-20T05:02:36.555506+00:00",
+  "command": [
+    "<WORKSPACE>/tools/node_modules/.bin/devcontainer",
+    "exec",
+    "--workspace-folder",
+    "<WORKSPACE>/validation/revision-0.1.1/learning/runs/F1 空フォルダ 教材 0.1.1",
+    "npm",
+    "run",
+    "test:setup"
+  ],
+  "cwd": "validation/revision-0.1.1/learning/runs/F1 空フォルダ 教材 0.1.1",
+  "endedAt": "2026-10-20T05:03:13.811962+00:00",
+  "exitCode": 0,
+  "elapsedSeconds": 37.256,
+  "result": "PASS",
+  "log": "output.log"
+}

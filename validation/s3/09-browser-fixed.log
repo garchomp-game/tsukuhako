@@ -1,0 +1,11 @@
+PASS: missing configuration guidance, GET reload, mobile layout
+PASS: local unavailable endpoint produces safe failure UI; public fixture key absent from HTML
+file://<WORKSPACE>/validation/s3/browser.mjs:17
+  throw new Error(`Expected connection message: ${text}`);
+        ^
+
+Error: Expected connection message: 接続設定がまだありません
+    at verifyText (file://<WORKSPACE>/validation/s3/browser.mjs:17:9)
+    at async file://<WORKSPACE>/validation/s3/browser.mjs:36:5
+
+Node.js v24.19.0

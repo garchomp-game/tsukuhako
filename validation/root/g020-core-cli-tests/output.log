@@ -1,0 +1,60 @@
+
+> meikyo-starter-generator@0.2.0 test
+> node --test tests/*.test.mjs
+
+✔ G01/G03/G09: six stable read-only plans; archive bytes and per-template guide match (268.245733ms)
+✔ G04: I1 secret is created only in mode0600 .env; absent from public outputs (17.57874ms)
+✔ G02: goals map to known IDs; core rejects S3 even if its eligibility is tampered (2.403564ms)
+✔ G05: modified catalog, ZIP, destination, parent identity and public plan are rejected (41.954758ms)
+✔ G06: reserved guide, duplicate ZIP names, symlink entry and oversized metadata are rejected before writes (8.672134ms)
+✔ G06: parent replacement by symlink is refused; no unrelated files are touched (5.481861ms)
+✔ G06: structured partial result preserves a changed generated file (17.990194ms)
+✔ G07: Docker/VSCode unavailable never prevents generation; unentered destination stays unknown (50.167741ms)
+✔ G07: diagnostic subprocess times out and its process exits (125.362694ms)
+✔ G08: old synchronous create and explicit JSON create produce identical files (127.808549ms)
+✔ G10: non-TTY wizard terminates; JSON emits one value; stale expectation is exit1 (252.723902ms)
+✖ G10: write permission failure is exit2 without a partial directory (87.257884ms)
+✔ G11: Japanese, spaces and shell metacharacters stay literal data (93.827325ms)
+✔ 必須6構成を日本語・空白パスへ生成し、カタログの版とフォルダ識別を保持する (219.514734ms)
+ℹ F1: version 0.1.1, ZIP SHA256 eec4b54362783a6c91379f785f983827db7cf7def57acaceaabfc65d1b5bef20, Japanese/space path PASS
+ℹ F2: version 0.1.0, ZIP SHA256 7175148d110a8d888549e3e7d9dc037960e2a692daf283d9dab8df06f0bdbba7, Japanese/space path PASS
+ℹ B1: version 0.1.1, ZIP SHA256 c3e106499f4e3e3154c38a20c68a115f86f6fd1e706e6df28e669c30f450790c, Japanese/space path PASS
+ℹ S1: version 0.1.1, ZIP SHA256 9e41c0096df9e0a9735c8f85668eb770666d5ffd3e4d17204fbf65f6d82dccf2, Japanese/space path PASS
+ℹ S2: version 0.1.1, ZIP SHA256 1fff412887ed8657a32326176d6162f7a8f73d5f79d38700e35aaf873368f673, Japanese/space path PASS
+ℹ I1: version 0.1.0, ZIP SHA256 2861fea034ced0baf1dd484f78c19be8bbfbb2ccc8ac8c880e0ec3f5e989e398, Japanese/space path PASS
+✔ 既存の空フォルダ・ファイル・symlink親は拒否し保持する (1.959828ms)
+✔ 名前・ポート・構成・DBポートの不正値で出力を作らない (1.405821ms)
+✔ カタログSHA256不一致を展開前に拒否する (0.960421ms)
+✔ ZIPの上位パスと実.envを拒否する (4.024118ms)
+✔ コミット途中の失敗は作成物とstageを戻す (21.079555ms)
+✔ 確定直前に出力先が作成された競合を拒否し、他の内容を残す (23.003917ms)
+✔ 失敗時でも作成中に利用者が変更したファイルを削除しない (19.90591ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 20
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1165.714266
+
+✖ failing tests:
+
+test at tests/core.test.mjs:123:1
+✖ G10: write permission failure is exit2 without a partial directory (87.257884ms)
+  Error: ENOENT: no such file or directory, chmod '/tmp/meikyo-g020-RJLNHF'
+      at Object.chmodSync (node:fs:2111:11)
+      at TestContext.<anonymous> (file://<WORKSPACE>/generator/tests/core.test.mjs:125:59)
+      at TestHook.runInAsyncScope (node:async_hooks:227:14)
+      at TestHook.run (node:internal/test_runner/test:1382:25)
+      at TestHook.run (node:internal/test_runner/test:1726:18)
+      at TestHook.run (node:internal/util:581:20)
+      at Test.runHook (node:internal/test_runner/test:1269:20)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async after (node:internal/test_runner/test:1322:9)
+      at async Test.run (node:internal/test_runner/test:1408:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'chmod',
+    path: '/tmp/meikyo-g020-RJLNHF'
+  }

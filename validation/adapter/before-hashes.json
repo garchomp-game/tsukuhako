@@ -1,0 +1,22 @@
+{
+  "postcss.config.mjs": "258faa39968594a46c2cf72ba120fb353e788ef2acc3265ddbfbc6400dd80761",
+  ".nvmrc": "a1c56e968c358e10872d64220b3ae759ffe7feaffc4da95fae425dbcca43fe44",
+  "next.config.ts": "06be79247af6b1b2a2306219b25e7ca338c7e9c8091de007019e3df12ccdce1b",
+  "tsconfig.json": "45bec7c7911cf3fa501ad75d4629374d386992e6a4a5f202f5023af8a8b4b5c3",
+  "eslint.config.mjs": "646798abdffc99cac72468eecdef7f1cf830c25a32e156e306decdfd27cc5b28",
+  "package-lock.json": "1d09d7438ab501a5ebd38e29062bd50dd9283510232fe34784110dd373690bd9",
+  "package.json": "db06742cae090168458d52da70aaa133e35d1db89829795fb258a7f62de8ae19",
+  "next-env.d.ts": "1862ac4bbbc5192d4bf562161df66ea547ed3e67173100656ab606ae9797db2b",
+  ".npmrc": "cde76ca04e048c3eba070a2c0dfcf5b723cf6014eab177157096b924f24ec4ca",
+  "tests/http.test.mjs": "cc5c9a7fdbb42d79aacac17163cc8511d353a2e6b970e08794470c9f40928bea",
+  "app/page.tsx": "c519464d586ca774fbc969aeca14418aa10e837948cf22322317e3c61a5fd43e",
+  "app/layout.tsx": "d5d8c94aafa7c8459752cb57af44747de051c2646345a0dc983eddda36ba0349",
+  "app/globals.css": "b5ae5d68c8f51fbe72881ccc13852477332485b89f3b3aa6dbdb6dc3fb79680e",
+  "scripts/doctor-host.sh": "6c29206b5cb9a606d1383d79ce4b11fdde202fdfd3f20173e57d139c03dfa240",
+  "scripts/configure.sh": "a78e6fc2aa9d40fb8175d948199b565837a60cdd3f72ed5d72b00f4f64fda1d2",
+  "scripts/doctor.mjs": "36d014a2dc47bd9fb1c9f9c74821469bae051f38e787bd822b0d9252bae4e103",
+  "scripts/initialize.sh": "c883fd8b8d0dfac29ba54b9835b9ff11c07215b9a3886869e4a369fdafe92836",
+  "tests/browser/practice.spec.ts": "377d439162d3bdfdddcdb2c06fc77a9cf1387d262547cc88e0ba34cb25a28cb4",
+  "app/practice/practice-form.tsx": "567b00f51c2ec29d58e600d19f3cfed42342776cfa91722a908a18b08fc0b808",
+  "app/practice/page.tsx": "0856a6586b2500c1492390922b659b0408c59d6b543a37fcd1cbc995e3388d40"
+}

@@ -1,0 +1,20 @@
+const { contextBridge, ipcRenderer } = require('electron');
+contextBridge.exposeInMainWorld('tsukuhako', Object.freeze({
+  getLearningIndex: () => ipcRenderer.invoke('tsukuhako:getLearningIndex'),
+  readChapter: request => ipcRenderer.invoke('tsukuhako:readChapter',request),
+  readAsset: request => ipcRenderer.invoke('tsukuhako:readAsset',request),
+  readSettings: () => ipcRenderer.invoke('tsukuhako:readSettings'),
+  saveSettings: request => ipcRenderer.invoke('tsukuhako:saveSettings',request),
+  openLessonLink: request => ipcRenderer.invoke('tsukuhako:openLessonLink',request),
+  getPreparation: () => ipcRenderer.invoke('tsukuhako:getPreparation'),
+  checkPreparation: request => ipcRenderer.invoke('tsukuhako:checkPreparation',request),
+  prepareWSL: request => ipcRenderer.invoke('tsukuhako:prepareWSL',request),
+  cancelPreparation: () => ipcRenderer.invoke('tsukuhako:cancelPreparation'),
+  exportDiagnostic: request => ipcRenderer.invoke('tsukuhako:exportDiagnostic',request),
+  getTemplates: () => ipcRenderer.invoke('tsukuhako:getTemplates'),
+  chooseParentDirectory: () => ipcRenderer.invoke('tsukuhako:chooseParentDirectory'),
+  plan: request => ipcRenderer.invoke('tsukuhako:plan', request),
+  diagnose: request => ipcRenderer.invoke('tsukuhako:diagnose', request),
+  apply: request => ipcRenderer.invoke('tsukuhako:apply', request),
+  openInVSCode: () => ipcRenderer.invoke('tsukuhako:openInVSCode'),
+}));

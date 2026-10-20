@@ -1,0 +1,12 @@
+{
+  "status": "undone",
+  "removed": [
+    ".devcontainer/Dockerfile",
+    ".devcontainer/devcontainer.json",
+    ".devcontainer/compose.yaml",
+    ".devcontainer/initialize.sh",
+    ".devcontainer/README.md"
+  ],
+  "preserved": [],
+  "message": "未変更の生成ファイルを取り消しました。Docker資源は削除していません。"
+}

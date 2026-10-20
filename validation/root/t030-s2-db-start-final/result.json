@@ -1,0 +1,15 @@
+{
+  "id": "t030-s2-db-start-final",
+  "startedAt": "2026-10-20T13:22:51.204935+00:00",
+  "command": [
+    "bash",
+    "scripts/db.sh",
+    "start"
+  ],
+  "cwd": "validation/brand-0.3.0/runs/startup/S2 学習",
+  "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+  "exitCode": 0,
+  "elapsedSeconds": 35.831,
+  "result": "PASS",
+  "log": "output.log"
+}

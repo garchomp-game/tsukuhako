@@ -1,0 +1,352 @@
+{
+  "artifactSha256": "7c95597a3113e5ab5ca1e1bbd8061856f4c5e05083cc1d0cbeada9db9ad89b48",
+  "phases": [
+    {
+      "phase": "startup",
+      "pssMiB": {
+        "n": 4,
+        "min": 398.35,
+        "median": 453.38,
+        "max": 486.66
+      },
+      "rssMiB": {
+        "n": 4,
+        "min": 947.73,
+        "median": 1041.6,
+        "max": 1122.57
+      },
+      "cpuPercentOneLogicalCore": {
+        "n": 3,
+        "min": 42.55,
+        "median": 116.5,
+        "max": 138.46
+      },
+      "spanSeconds": 0.33
+    },
+    {
+      "phase": "idle",
+      "pssMiB": {
+        "n": 110,
+        "min": 446.26,
+        "median": 446.35,
+        "max": 475.23
+      },
+      "rssMiB": {
+        "n": 110,
+        "min": 1003.93,
+        "median": 1003.95,
+        "max": 1040.75
+      },
+      "cpuPercentOneLogicalCore": {
+        "n": 109,
+        "min": 0.0,
+        "median": 0.0,
+        "max": 111.11
+      },
+      "spanSeconds": 10.98
+    },
+    {
+      "phase": "reading",
+      "pssMiB": {
+        "n": 15,
+        "min": 478.8,
+        "median": 482.28,
+        "max": 497.38
+      },
+      "rssMiB": {
+        "n": 15,
+        "min": 1045.19,
+        "median": 1048.65,
+        "max": 1065.92
+      },
+      "cpuPercentOneLogicalCore": {
+        "n": 14,
+        "min": 0.0,
+        "median": 14.91,
+        "max": 108.91
+      },
+      "spanSeconds": 1.41
+    },
+    {
+      "phase": "chapter-switches",
+      "pssMiB": {
+        "n": 66,
+        "min": 507.7,
+        "median": 554.76,
+        "max": 561.7
+      },
+      "rssMiB": {
+        "n": 66,
+        "min": 1076.59,
+        "median": 1123.44,
+        "max": 1130.93
+      },
+      "cpuPercentOneLogicalCore": {
+        "n": 65,
+        "min": 2.14,
+        "median": 80.0,
+        "max": 123.71
+      },
+      "spanSeconds": 21.59
+    },
+    {
+      "phase": "switch-rest-60",
+      "pssMiB": {
+        "n": 50,
+        "min": 534.76,
+        "median": 535.04,
+        "max": 535.41
+      },
+      "rssMiB": {
+        "n": 50,
+        "min": 1103.29,
+        "median": 1103.57,
+        "max": 1104.14
+      },
+      "cpuPercentOneLogicalCore": {
+        "n": 49,
+        "min": 0.0,
+        "median": 0.0,
+        "max": 10.2
+      },
+      "spanSeconds": 4.93
+    },
+    {
+      "phase": "switch-rest-120",
+      "pssMiB": {
+        "n": 50,
+        "min": 559.03,
+        "median": 559.03,
+        "max": 559.78
+      },
+      "rssMiB": {
+        "n": 50,
+        "min": 1128.05,
+        "median": 1128.05,
+        "max": 1128.46
+      },
+      "cpuPercentOneLogicalCore": {
+        "n": 49,
+        "min": 0.0,
+        "median": 0.0,
+        "max": 40.0
+      },
+      "spanSeconds": 4.93
+    },
+    {
+      "phase": "switch-rest-180",
+      "pssMiB": {
+        "n": 50,
+        "min": 558.35,
+        "median": 558.35,
+        "max": 561.89
+      },
+      "rssMiB": {
+        "n": 50,
+        "min": 1128.22,
+        "median": 1128.22,
+        "max": 1131.12
+      },
+      "cpuPercentOneLogicalCore": {
+        "n": 49,
+        "min": 0.0,
+        "median": 0.0,
+        "max": 29.41
+      },
+      "spanSeconds": 4.93
+    },
+    {
+      "phase": "switch-rest-240",
+      "pssMiB": {
+        "n": 50,
+        "min": 560.54,
+        "median": 560.55,
+        "max": 561.02
+      },
+      "rssMiB": {
+        "n": 50,
+        "min": 1130.49,
+        "median": 1130.49,
+        "max": 1131.07
+      },
+      "cpuPercentOneLogicalCore": {
+        "n": 49,
+        "min": 0.0,
+        "median": 0.0,
+        "max": 30.61
+      },
+      "spanSeconds": 4.94
+    },
+    {
+      "phase": "reading-idle",
+      "pssMiB": {
+        "n": 308,
+        "min": 485.6,
+        "median": 495.98,
+        "max": 560.52
+      },
+      "rssMiB": {
+        "n": 308,
+        "min": 1061.14,
+        "median": 1065.99,
+        "max": 1180.44
+      },
+      "cpuPercentOneLogicalCore": {
+        "n": 307,
+        "min": 0.0,
+        "median": 0.0,
+        "max": 91.84
+      },
+      "spanSeconds": 30.88
+    },
+    {
+      "phase": "generation",
+      "pssMiB": {
+        "n": 4,
+        "min": 503.76,
+        "median": 506.79,
+        "max": 508.86
+      },
+      "rssMiB": {
+        "n": 4,
+        "min": 1076.31,
+        "median": 1079.46,
+        "max": 1081.67
+      },
+      "cpuPercentOneLogicalCore": {
+        "n": 3,
+        "min": 70.71,
+        "median": 101.01,
+        "max": 117.65
+      },
+      "spanSeconds": 0.3
+    },
+    {
+      "phase": "security",
+      "pssMiB": {
+        "n": 9,
+        "min": 509.32,
+        "median": 511.59,
+        "max": 512.93
+      },
+      "rssMiB": {
+        "n": 9,
+        "min": 1082.57,
+        "median": 1084.84,
+        "max": 1086.18
+      },
+      "cpuPercentOneLogicalCore": {
+        "n": 8,
+        "min": 0.0,
+        "median": 9.9,
+        "max": 99.01
+      },
+      "spanSeconds": 0.8
+    }
+  ],
+  "coexist": [
+    {
+      "version": "0.3.0",
+      "samples": 30,
+      "processRemaining": [],
+      "codeAlive": true,
+      "sampleAlive": true,
+      "app": {
+        "pssMiB": {
+          "n": 30,
+          "min": 415.09,
+          "median": 431.74,
+          "max": 431.98
+        },
+        "rssMiB": {
+          "n": 30,
+          "min": 965.67,
+          "median": 984.22,
+          "max": 984.51
+        },
+        "cpuPercentOneLogicalCore": {
+          "n": 29,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 13.23
+        }
+      },
+      "code": {
+        "pssMiB": {
+          "n": 30,
+          "min": 1180.03,
+          "median": 1180.8,
+          "max": 1182.27
+        },
+        "rssMiB": {
+          "n": 30,
+          "min": 2756.88,
+          "median": 2757.68,
+          "max": 2759.18
+        },
+        "cpuPercentOneLogicalCore": {
+          "n": 29,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 10.4
+        }
+      }
+    },
+    {
+      "version": "0.4.0",
+      "samples": 30,
+      "processRemaining": [],
+      "codeAlive": true,
+      "sampleAlive": true,
+      "app": {
+        "pssMiB": {
+          "n": 30,
+          "min": 457.19,
+          "median": 461.62,
+          "max": 461.89
+        },
+        "rssMiB": {
+          "n": 30,
+          "min": 1064.57,
+          "median": 1067.48,
+          "max": 1067.94
+        },
+        "cpuPercentOneLogicalCore": {
+          "n": 29,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 3.8
+        }
+      },
+      "code": {
+        "pssMiB": {
+          "n": 30,
+          "min": 1181.35,
+          "median": 1182.32,
+          "max": 1183.52
+        },
+        "rssMiB": {
+          "n": 30,
+          "min": 2758.32,
+          "median": 2759.28,
+          "max": 2760.62
+        },
+        "cpuPercentOneLogicalCore": {
+          "n": 29,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 8.51
+        }
+      }
+    }
+  ],
+  "chapterSwitchLatencyMs": {
+    "n": 240,
+    "min": 10.17,
+    "median": 22.87,
+    "max": 64.19
+  },
+  "cpuMethod": "CPU ticks delta for PIDs present in both samples / CLK_TCK / wall seconds *100. 100%=one logical core. New/exited PIDs can be undercounted; test tooling excluded.",
+  "finiteObservationOnly": true,
+  "standaloneBaselineCaveat": "baseline-030.json is initial app.getAppMetrics (not all zygotes). Compare whole-tree coexist records separately."
+}

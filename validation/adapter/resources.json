@@ -1,0 +1,16 @@
+[
+  {
+    "project": "otoka-existing-0b7152d453f0",
+    "trial": "validation/adapter/runs/単一Next fixture",
+    "container": "otoka-existing-0b7152d453f0-app-1",
+    "network": "otoka-existing-0b7152d453f0_default",
+    "volumes": [
+      "otoka-existing-0b7152d453f0_node_modules",
+      "otoka-existing-0b7152d453f0_npm_cache"
+    ],
+    "image": "otoka-existing-0b7152d453f0-dev:0.1.0",
+    "hostPort": 3091,
+    "bindAddress": "127.0.0.1",
+    "status": "stopped; own isolated volumes/image retained; no prune"
+  }
+]

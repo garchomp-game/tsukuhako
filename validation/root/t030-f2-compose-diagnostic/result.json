@@ -1,0 +1,22 @@
+{
+  "id": "t030-f2-compose-diagnostic",
+  "startedAt": "2026-10-20T13:07:21.335899+00:00",
+  "command": [
+    "docker",
+    "compose",
+    "--project-name",
+    "otoka-f2-first-246531851",
+    "-f",
+    "validation/brand-0.3.0/runs/startup/F2 学習/compose.yaml",
+    "-f",
+    "/tmp/devcontainercli-garchomp-game/docker-compose/docker-compose.devcontainer.containerFeatures-1792501531401-9fbc5254-26a8-4629-8b67-a4ffb8113324.yml",
+    "up",
+    "-d"
+  ],
+  "cwd": ".",
+  "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+  "exitCode": 1,
+  "elapsedSeconds": 0.064,
+  "result": "FAIL",
+  "log": "output.log"
+}

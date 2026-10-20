@@ -1,0 +1,9 @@
+{
+  "result": "PASS",
+  "expectedExit": "nonzero",
+  "observedExit": 1,
+  "existingNextServerStillResponds": true,
+  "serverReused": false,
+  "port": 3000,
+  "scope": "real final-ZIP Next already running; integration refused before spawning/stopping a server"
+}

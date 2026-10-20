@@ -1,0 +1,9 @@
+診断OK: otoka-s1-2593372403 / http://localhost:3403
+/dev/nvme0n1p2  468G  125G  320G  29% /
+容量不足なら不要な自分の試行資源を確認してください。全体pruneは行いません。
+ Container otoka-s1-2593372403-app-1 Stopping 
+ Container otoka-s1-2593372403-app-1 Stopped 
+ Container otoka-s1-2593372403-app-1 Removing 
+ Container otoka-s1-2593372403-app-1 Removed 
+ Network otoka-s1-2593372403_default Removing 
+ Network otoka-s1-2593372403_default Removed 

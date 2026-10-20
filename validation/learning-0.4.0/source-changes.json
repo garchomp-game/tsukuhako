@@ -1,0 +1,688 @@
+[
+  {
+    "path": "DECISIONS.md",
+    "change": "modified",
+    "beforeSha256": "0978db785fefb41e99e40d46857caf5323414f147db03c002585ad7b62d89d07",
+    "afterSha256": "3fbb8c6d29c5229933107f41392bdbf3d209c8d39f68d6453602bac11105fc54",
+    "bytes": 21199
+  },
+  {
+    "path": "README.md",
+    "change": "modified",
+    "beforeSha256": "f7d12274386eccdbb60ba39b582a5b64d5e221d8f821b85022ce5fe27ce0bc51",
+    "afterSha256": "c4024b8fa31b4f96623044668c56294644fd6df18c0a15e65adb5dd7103790d1",
+    "bytes": 1918
+  },
+  {
+    "path": "REPORT.md",
+    "change": "modified",
+    "beforeSha256": "a1dfd435e172a316452f430604f22f1e0c9080d98142e19a96e84a470c22782a",
+    "afterSha256": "dbd460994d8d20e07659ac5e69431c692563cab749c3bb2ddf9055a081299935",
+    "bytes": 8784
+  },
+  {
+    "path": "catalog.json",
+    "change": "modified",
+    "beforeSha256": "da80cfabc2e995fc8aa68041b36985e4e989c6f5c723c589c7052f92bd7d220e",
+    "afterSha256": "aabea42dbc747f95a12ac5809a5452e1ecdd5e7ad90d68e9df7a8c531cc596ce",
+    "bytes": 20114
+  },
+  {
+    "path": "curriculum/B1/api.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "6bac884e88bf338286dbec74bc79fdb9874cc7813090e801d840087b043d149e",
+    "bytes": 3186
+  },
+  {
+    "path": "curriculum/B1/architecture.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "678161d8edc38b6eb25b25af39fd05156b44b58bcb925aba05bcfbe302d2b066",
+    "bytes": 1473
+  },
+  {
+    "path": "curriculum/B1/build-your-own.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "ccbe38e8e45f6a9564930dfbc26f64b366f35225109f5df7c3bbf22845cf72a0",
+    "bytes": 5580
+  },
+  {
+    "path": "curriculum/B1/exercises.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "21a2086dc39fffb006b3bf7127b47454aa9ff6175f006473c89177e2444f0d54",
+    "bytes": 1490
+  },
+  {
+    "path": "curriculum/B1/first.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "9119c75a27469da017de8b12c48c4d873045a9c9bb2640c86f1f848d3ecea673",
+    "bytes": 3537
+  },
+  {
+    "path": "curriculum/B1/readme.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "1d58246cea4ba8547e8e8d1be0ebef71cdf40b765b0dc94b25dc764a3619930b",
+    "bytes": 4242
+  },
+  {
+    "path": "curriculum/B1/recovery.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "9ff0f843ccf126a9e5483a393d9e722cd385b8c0ce8f73609aa15a6de2d08f4f",
+    "bytes": 2722
+  },
+  {
+    "path": "curriculum/B1/setup.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "8a8b44c781e0678261cf0ba0de863898c814e8d862f2abe861501fd997e976d5",
+    "bytes": 1825
+  },
+  {
+    "path": "curriculum/F1/architecture.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "e76aab626983e668f718c547054b7d414fcbdbd98fbb6390ed6a312338b75310",
+    "bytes": 1623
+  },
+  {
+    "path": "curriculum/F1/build-your-own.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "9ec9feaa28356bfa903b2a4848bd8f759e18217c8eb2d409ea0276654246cce1",
+    "bytes": 5147
+  },
+  {
+    "path": "curriculum/F1/exercises.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "d399a9b43e82ddadd2a85dbca4c517c19a59da691fba8bb5f295cf4c85eb5f3e",
+    "bytes": 1692
+  },
+  {
+    "path": "curriculum/F1/first.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "53d23c58397f8f8ef3cca20fa7b0b0cfd6d0067c5fd87e0d27c62f863e288468",
+    "bytes": 3453
+  },
+  {
+    "path": "curriculum/F1/readme.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "d62b9995b68ff8c5e6ed438a544af3d3dba7709c9c3a43f4fe243bca6ff3477f",
+    "bytes": 4154
+  },
+  {
+    "path": "curriculum/F1/recovery.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "727da03706457d44642673702e6fb06721b9b5249a213b992f0bad49c9af731d",
+    "bytes": 2432
+  },
+  {
+    "path": "curriculum/F1/setup.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "8a8b44c781e0678261cf0ba0de863898c814e8d862f2abe861501fd997e976d5",
+    "bytes": 1825
+  },
+  {
+    "path": "curriculum/F2/architecture.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "0726ad09f6099797c9aab0c43ff4e8a34f6fd9fa22a5fe526f9da843bcc430e5",
+    "bytes": 1612
+  },
+  {
+    "path": "curriculum/F2/build-your-own.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "a3006ff5cec657e5193eca2a8f2af96f62dcc352ab0f896f4a72930360020be0",
+    "bytes": 1773
+  },
+  {
+    "path": "curriculum/F2/exercises.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "f37f0134754f00959741f96d2ddbd3bfdb2117c2306bbc997dc1a27df65a2279",
+    "bytes": 1563
+  },
+  {
+    "path": "curriculum/F2/first.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "5142049244853e9c673d44598ab24b44ca0103800c4df3b007664066cc67924b",
+    "bytes": 3582
+  },
+  {
+    "path": "curriculum/F2/readme.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "ea9fbb53fd09ae7800387516e7b0d7636b4d907ed3a7696b008b0e82f78fdba7",
+    "bytes": 2894
+  },
+  {
+    "path": "curriculum/F2/recovery.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "0fdf406f645cd9f37c5e712f19abec03612891dcc0e4e3c1d1d7390399a36463",
+    "bytes": 2746
+  },
+  {
+    "path": "curriculum/F2/setup.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "8a8b44c781e0678261cf0ba0de863898c814e8d862f2abe861501fd997e976d5",
+    "bytes": 1825
+  },
+  {
+    "path": "curriculum/I1/first.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "5413519ab4b94b2a8eed79a355f2521d58ace93259e20bb641eee1198dd3399f",
+    "bytes": 3178
+  },
+  {
+    "path": "curriculum/I1/learning.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "09b6b0efd4d64edf7124a8eaa26637f09097b3b994be51e78de0983b7fffd91b",
+    "bytes": 4068
+  },
+  {
+    "path": "curriculum/I1/readme.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "1a6ac9ba15159c0cadd9a0f29ad6784a2c5e2b26a098f834537297263f7a0eb3",
+    "bytes": 4705
+  },
+  {
+    "path": "curriculum/I1/recovery.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "440fadf971316392d3ac86f1204622920a115cb1289b79805ebb515565542c35",
+    "bytes": 2265
+  },
+  {
+    "path": "curriculum/I1/setup.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "2e8f9451228e7d3006177767e2e5eb1e26e2571251999bd4ea124c6d2d2d19da",
+    "bytes": 2699
+  },
+  {
+    "path": "curriculum/I1/troubleshooting.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "d2be00caa80d9214384bf992afeb5dc385cb4389affd4ea2a90f48850965a15f",
+    "bytes": 3337
+  },
+  {
+    "path": "curriculum/I1/validation.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "44703db20406bd18b38faac21a9e397d5b371af4798c60b8a1dc74ff7316a270",
+    "bytes": 4497
+  },
+  {
+    "path": "curriculum/I1/versions.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "bf47110927a39d8df5aeb60a7b1558b3c43dc072528687f4059c25a2a6734b02",
+    "bytes": 3478
+  },
+  {
+    "path": "curriculum/S1/api.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "6bac884e88bf338286dbec74bc79fdb9874cc7813090e801d840087b043d149e",
+    "bytes": 3186
+  },
+  {
+    "path": "curriculum/S1/architecture.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "642079ca2681c2c27483735c3ba898af8c7029638f2c391a3da7efc498040f2c",
+    "bytes": 1623
+  },
+  {
+    "path": "curriculum/S1/build-your-own.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "52e9a3c02e62a89547a29672a00294e4aa8d5e7afadcd35f88b32f43596af520",
+    "bytes": 7153
+  },
+  {
+    "path": "curriculum/S1/exercises.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "19fdbde4d031e7fe0a66109cfa0f8579f2671763cefec7690b6054ca342e8ac1",
+    "bytes": 2024
+  },
+  {
+    "path": "curriculum/S1/first.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "f17f1f6a07b703a38467c2a1cef2292b34df3f0be9259502b8744143ab30048f",
+    "bytes": 3497
+  },
+  {
+    "path": "curriculum/S1/readme.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "3cc8a79d8e2bfe715f35163edef7d5a86d6c4f38ae35d13f8359ff3ddf07bc81",
+    "bytes": 4428
+  },
+  {
+    "path": "curriculum/S1/recovery.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "9ff0f843ccf126a9e5483a393d9e722cd385b8c0ce8f73609aa15a6de2d08f4f",
+    "bytes": 2722
+  },
+  {
+    "path": "curriculum/S1/setup.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "8a8b44c781e0678261cf0ba0de863898c814e8d862f2abe861501fd997e976d5",
+    "bytes": 1825
+  },
+  {
+    "path": "curriculum/S2/architecture.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "e2f5e8d446d3ad9e8ef70971382a528ee93ecaef9121dc6842ab816504abf91f",
+    "bytes": 4932
+  },
+  {
+    "path": "curriculum/S2/build-your-own.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "0989c56dfbd8d5ce07865808007f66ce606fa10f3a36021b90c1594df6334877",
+    "bytes": 2466
+  },
+  {
+    "path": "curriculum/S2/exercises.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "638622df2041da4369c2b7f8f5691c46cfe0aa2682061616b6a72dc60cfad070",
+    "bytes": 2549
+  },
+  {
+    "path": "curriculum/S2/first.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "5fccda0b5591e3a52fb2a8b777fcefa5acbc2f8393b59814090c21d191876a0a",
+    "bytes": 3741
+  },
+  {
+    "path": "curriculum/S2/readme.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "b69077c8daa4f5d72d0eebadf83850cb4e85d2193ed0c983c8c0939c6ada6daa",
+    "bytes": 5401
+  },
+  {
+    "path": "curriculum/S2/recovery.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "de6f140ba2d7c8b5922c524014d59fe84be137d0cea90eeef1a1b8dc217f67fd",
+    "bytes": 4740
+  },
+  {
+    "path": "curriculum/S2/setup.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "28d26305a4fa30f4d13f573bf2b7633a82efa074499f32404c67e34d0d77bfc3",
+    "bytes": 2392
+  },
+  {
+    "path": "curriculum/assets/learning-cycle.png",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "3d79ca1052b52626a412d61ba4d66d23c4ee54367a10a0b77754b421e2fa03dd",
+    "bytes": 4146
+  },
+  {
+    "path": "curriculum/manifest.json",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "d9f27e960611948ff090cc02799d809461e71d26ef73044051af89ec4ef93a6a",
+    "bytes": 15762
+  },
+  {
+    "path": "curriculum/setup/linux.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "c46a0bc4ec9f38a6e8868c777cd20625376e7fa9a6131926663a87b621221e34",
+    "bytes": 1514
+  },
+  {
+    "path": "curriculum/setup/macos.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "624b2fd77be368620a9d8373bca5edb37fb23329d897acbcf431882dbf48b20e",
+    "bytes": 1166
+  },
+  {
+    "path": "curriculum/setup/overview.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "e1e9b03318c72a2ad5288f91d210b69f0ee29ee8a27446190b120dac8c74a803",
+    "bytes": 1069
+  },
+  {
+    "path": "curriculum/setup/trouble.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "ffd8a8907bf916ea8277b5538be5641290b5be4b518970602589987137e47fed",
+    "bytes": 1613
+  },
+  {
+    "path": "curriculum/setup/windows.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "cbc17c8de4e6331bf06298f4b3e3a1618169f7335ea2801bf4f745ad5b31fb98",
+    "bytes": 2880
+  },
+  {
+    "path": "docs/ARCHITECTURE-040.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "84f4a697369dd39cc5105179a75d39aeb7afc2eb5ad091203e0a53ed308f354d",
+    "bytes": 3963
+  },
+  {
+    "path": "docs/BRAIN-LAUNCH-DRAFT.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "3816469a16475dfbf2dd11b681e3f86464c1b54b463a796960ac78f7256af031",
+    "bytes": 3208
+  },
+  {
+    "path": "docs/OFFER-DRAFT.md",
+    "change": "modified",
+    "beforeSha256": "cea68af762086de46d8df1c0aa585d200ee874cf00c2fac355e4146934914e4d",
+    "afterSha256": "9888a0f5493019d50be26dbabe5035113c3a7f0786ea7b4ffd8e32ddedec6730",
+    "bytes": 2287
+  },
+  {
+    "path": "docs/SOURCES-040.md",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "c99045d81d614cc451cd73cbdcc3e7d9dcba78999de78e8ed6889f7006383d75",
+    "bytes": 2457
+  },
+  {
+    "path": "generator/README.md",
+    "change": "modified",
+    "beforeSha256": "5a3bbb127115f8235c463aef46e42e7638b42b489fb26db80d101652f8654f12",
+    "afterSha256": "3c4667ca2093c9cc077cb7f32d4bfed608c36089c56f55e159dd412d05a39de3",
+    "bytes": 5288
+  },
+  {
+    "path": "generator/package-lock.json",
+    "change": "modified",
+    "beforeSha256": "4cc4967465511377261d523b855da30095a13b8ee8bc65e93282b5ded672121f",
+    "afterSha256": "afe7538903dcb150f3240dbe52ffa1db1591ae5de1d0e316eb1529be469115d0",
+    "bytes": 588
+  },
+  {
+    "path": "generator/package.json",
+    "change": "modified",
+    "beforeSha256": "755400c8f1da2785ca0e2e9071e96d2a862fdf8bed779d654a3ea5c6f5156834",
+    "afterSha256": "a27421af90b315e2577d45a8af57075322b7838d9449c2183b2a261ea1010326",
+    "bytes": 246
+  },
+  {
+    "path": "generator/src/core/apply.mjs",
+    "change": "modified",
+    "beforeSha256": "662ec5780eae5a3bcf908564d890ff2d64e9d3ce8061d42701fc7037cb95910c",
+    "afterSha256": "37e3bc29539e0b9444d51a241fa8f823fb4cf0e33b420dedabce006fc6104bb2",
+    "bytes": 5743
+  },
+  {
+    "path": "generator/src/core/common.mjs",
+    "change": "modified",
+    "beforeSha256": "cbe8e752857d1ea8edd27074027cbfd8e54f136021a40c559f60db168c791a63",
+    "afterSha256": "177d1627146175f966d4f1d86fd19253d82f8de206ad4d4731d06a5152dc25b3",
+    "bytes": 1933
+  },
+  {
+    "path": "generator/src/core/configuration.mjs",
+    "change": "modified",
+    "beforeSha256": "055c156986f4051162422eff86752abbc6b21875cfeeb407839fca66703f7e8e",
+    "afterSha256": "64e157858407a0fe3eda8a974df72c157b8c1aba5c75a710dad742fbce421710",
+    "bytes": 4624
+  },
+  {
+    "path": "generator/src/core/diagnostics.mjs",
+    "change": "modified",
+    "beforeSha256": "59e15043b1ed4049a4e50839498258d6a82d73234e6cfa44e4c4bee65feb8b2b",
+    "afterSha256": "a8d263c02d1326be1f41fcf768aea43384f3610db3aa1e18bcc7ec7faafd628e",
+    "bytes": 5660
+  },
+  {
+    "path": "generator/src/core/posix-cksum.mjs",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "c3615ee4bb14e5ad5601c27691e3efa64e1ff4d731b471c6d1fa1fb058bff825",
+    "bytes": 577
+  },
+  {
+    "path": "generator-desktop/README.md",
+    "change": "modified",
+    "beforeSha256": "59e342743236f78662f1bfa004ded08fc284242ab58d600a1b6360f3ecd50290",
+    "afterSha256": "6af1c4835a33a512f675fd3e1709da523d8d84c015b2322edc5c987e3a53e727",
+    "bytes": 3230
+  },
+  {
+    "path": "generator-desktop/adapters/local.mjs",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "238c03e1ad91e6c2a5df29444f501432f8d36f650d8f776c0bdacee3400fc302",
+    "bytes": 9079
+  },
+  {
+    "path": "generator-desktop/adapters/process.mjs",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "6b0d5b979864218e1c2c71ddba3720846570baf109f8888e0703c19f102577a3",
+    "bytes": 1424
+  },
+  {
+    "path": "generator-desktop/adapters/wsl.mjs",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "d7c12d12a6cbeed86969dfe953baee6356dc0fcbbee0547a0e82db04a4d80970",
+    "bytes": 10536
+  },
+  {
+    "path": "generator-desktop/helper/helper.mjs",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "f739cd03f1d0c6c91c35d6c41b01146de7f5051c222f43482c032f5a9a7b1d00",
+    "bytes": 2068
+  },
+  {
+    "path": "generator-desktop/helper/job.mjs",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "3b5908592b4f1341ff042d50010df120dd6ac95919738137e44b558b7b64456f",
+    "bytes": 3865
+  },
+  {
+    "path": "generator-desktop/index.html",
+    "change": "modified",
+    "beforeSha256": "e447ee0545df2639efadca45e9377e99ffe0e757228f0bcd329d33af6a9ea92a",
+    "afterSha256": "eca0cc4c6e3fe45488832410900a12749c63169b297fb407851e1fed1bdf8f9c",
+    "bytes": 294
+  },
+  {
+    "path": "generator-desktop/lib/content.mjs",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "4c472d24496878957b0a0e8aee28901c9ac242e8be71865e472c16e176b49450",
+    "bytes": 3305
+  },
+  {
+    "path": "generator-desktop/main.mjs",
+    "change": "modified",
+    "beforeSha256": "612de0836dcdc54c7f8ac009f40e31d1d1711491f241bd22517b1a416389f658",
+    "afterSha256": "2c5d496aa390050da818bef671a031a41c3693f92cf81bac554893cc3d8deed9",
+    "bytes": 12898
+  },
+  {
+    "path": "generator-desktop/package-lock.json",
+    "change": "modified",
+    "beforeSha256": "001f5290433b5d79dabaef8d214f208628039d921ac54155fbe5725d71a42ab7",
+    "afterSha256": "6c5359f7b9f2699c724a59f663ab2d892466b285583fc010d0cb97626330e90a",
+    "bytes": 37945
+  },
+  {
+    "path": "generator-desktop/package.json",
+    "change": "modified",
+    "beforeSha256": "29698a2df38f747c39e09d87cfbbdd3de7ab904ea2816219f9af6f590ccbaf86",
+    "afterSha256": "5395c9167ac4dfc433279cc28fa10b59bf35ba1b6a06eb7b89a5f4fef4960ecd",
+    "bytes": 588
+  },
+  {
+    "path": "generator-desktop/preload.cjs",
+    "change": "modified",
+    "beforeSha256": "02662e9e7e14a254db048cf1c412acd2bb14d0865bc27dbbb718fa4f774e3ffa",
+    "afterSha256": "cf9411b2556116aa6c89b0a48fb573004596e33e46ceef73c80825ce097f51ce",
+    "bytes": 1425
+  },
+  {
+    "path": "generator-desktop/security.mjs",
+    "change": "modified",
+    "beforeSha256": "ca4cfb324391c14fd638eede11f64342aaa7bf634a8012c71ee26f1c32df0eca",
+    "afterSha256": "d5f8b440ddfc520ef09d27fc8fd3ac7d340859633a96854ff4725d283971fc41",
+    "bytes": 4838
+  },
+  {
+    "path": "generator-desktop/src/Generator.tsx",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "2e37fad51f8742687bbf1bf9e7f157c1a89c64b853fea73e5380637fc2bacddd",
+    "bytes": 15870
+  },
+  {
+    "path": "generator-desktop/src/Markdown.tsx",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "7ad031d034169b6e5132ddf8452098780b72bcf32d66fd83cfd7c8950884e4a7",
+    "bytes": 3685
+  },
+  {
+    "path": "generator-desktop/src/Preparation.tsx",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "962f1ead7cc423473d2cc92998767a2c7fa54941643eae60cddd83ff515ead74",
+    "bytes": 5563
+  },
+  {
+    "path": "generator-desktop/src/Reader.tsx",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "7be4475cb01449b9d545f499a7532ed1db6af1ad77f0f7154a0a7d1697af0411",
+    "bytes": 5236
+  },
+  {
+    "path": "generator-desktop/src/links.ts",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "e0bf2082b80a33e7783bddc6abe6b7786db7bf4015acc3dcb1f6c92839d35cbd",
+    "bytes": 1159
+  },
+  {
+    "path": "generator-desktop/src/main.tsx",
+    "change": "modified",
+    "beforeSha256": "48b46d04ba16cf893d0a93427166d17639246812b14a9bbd5777bdd85d24f954",
+    "afterSha256": "2560dd6916b8bc30c421dec8445f781c894d7f1ba74cb1e7d7cf60428cbb49bd",
+    "bytes": 3733
+  },
+  {
+    "path": "generator-desktop/src/style.css",
+    "change": "modified",
+    "beforeSha256": "3051bd4474c6c655da6dbf3ee4df79f01867f941871181a360fc09ff4938a0ac",
+    "afterSha256": "ceef710dff2ff88b6e2bc0d80fff9e55cced46a12e0de7c0ed19b33fc4bfd359",
+    "bytes": 12941
+  },
+  {
+    "path": "generator-desktop/src/types.ts",
+    "change": "modified",
+    "beforeSha256": "1319e1b61cf847b30ad89a992ea2ea75a2c52ad0404730f412ccafd1d1a79b0a",
+    "afterSha256": "43df1064e5d0f6e07cff55ca9d8b2af1a162cc9a89d8eb0a968a820fedfb1ebe",
+    "bytes": 3508
+  },
+  {
+    "path": "generator-desktop/tests/learning.test.mjs",
+    "change": "added",
+    "beforeSha256": null,
+    "afterSha256": "4ad4d6140ab181078353f3620a4dd56d0b62e077f8c7bde5c9018f14bb6cdd14",
+    "bytes": 9014
+  },
+  {
+    "path": "generator-desktop/tests/security.test.mjs",
+    "change": "modified",
+    "beforeSha256": "d14f72397faba35519299d1f093b7040cbf1f04dfd43c0d0304ead0a2cac732e",
+    "afterSha256": "1a91bcbad80d1efc9773bc7ace046ea989f64817610c44b2af4f7acae665c5ab",
+    "bytes": 2241
+  },
+  {
+    "path": "generator-desktop/worker.mjs",
+    "change": "modified",
+    "beforeSha256": "b831e380dfed2ba1266057943ac0ff34e66ac594a53495355e7bab497c829dde",
+    "afterSha256": "96bcc21e6204559412c157a72aff25f1aaaf98fb27dfdfb5bf2db539621ed661",
+    "bytes": 3031
+  },
+  {
+    "path": "starter-templates/F1/CHANGELOG.md",
+    "change": "modified",
+    "beforeSha256": "675051d03ecfa9575af47464b89bae03053abf76cecbc243ec472a175df726f6",
+    "afterSha256": "cbc3464374a9d82706b236fe8a43a394f4e0a9e0775acca00eceed32d0fef1c1",
+    "bytes": 1028
+  },
+  {
+    "path": "starter-templates/F1/VERSION.json",
+    "change": "modified",
+    "beforeSha256": "49c71d790155d1ed746ac6883a5dd4c982633a2e7e8f2843d3485fda6f222449",
+    "afterSha256": "61a13513971917c18331afea04e0a0df13367164f934f2caade154dee0fa0e02",
+    "bytes": 225
+  },
+  {
+    "path": "starter-templates/F1/docs/BUILD-YOUR-OWN.md",
+    "change": "modified",
+    "beforeSha256": "4174f73959f76b57769ea084a110b6868212e93ba16fb52c29ac2d94dc7586f7",
+    "afterSha256": "9ec9feaa28356bfa903b2a4848bd8f759e18217c8eb2d409ea0276654246cce1",
+    "bytes": 5147
+  },
+  {
+    "path": "starter-templates/F1/package-lock.json",
+    "change": "modified",
+    "beforeSha256": "d170c774e35f3b2f92be2d71e40a0fd425cd0ba6f3a65323e90d185af4123034",
+    "afterSha256": "d011e1685c04328636c7b490a895864de7c4c97fa016323d83669682d2b5e7af",
+    "bytes": 103169
+  },
+  {
+    "path": "starter-templates/F1/package.json",
+    "change": "modified",
+    "beforeSha256": "87d24d0956d110acc01f5790b76a246edb875c5013af56cb2266725843635e82",
+    "afterSha256": "574aff425cd73cebe6c6e29de10b228f997c393ac5feebf1b7b2cd2fb87b62e8",
+    "bytes": 1144
+  },
+  {
+    "path": "starter-templates/F1/tests/http.test.mjs",
+    "change": "modified",
+    "beforeSha256": "afd50f1bb2939715a2d4099ae48597a81afb919c25bb14e93ad09e743f8081b5",
+    "afterSha256": "4629d5b5d89130f85a445aa21f82cd41e6fc9007ae19c09602ba64dfabae33ce",
+    "bytes": 1072
+  }
+]

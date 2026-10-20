@@ -1,0 +1,31 @@
+{
+  "recordedAt": "2026-10-20T09:37:58.364116+00:00",
+  "version": "0.2.1",
+  "archive": "otoka-devcontainer-starters-0.2.1-2026-10-20.zip",
+  "archiveSha256": "23f417d4550bb49c0151094dcaaea902d84fb30156dc3dcac22267561c703b2c",
+  "archiveFiles": 1345,
+  "status": "FAIL",
+  "issues": [
+    "Unexpected GUI tar member type",
+    "GUI manifest inventory"
+  ],
+  "checks": [
+    "Seven template catalog entries, template sources and adapter preserved",
+    "Full ZIP and manifest read back; template SHA, settings/secret/cache exclusions and Markdown links checked",
+    "Tested CLI/GUI artifact hashes unchanged; bundled shared core, built assets, catalog and seven ZIPs match final source",
+    "PASS: original 0.2.0 full ZIP, CLI, GUI and distributed non-validation bytes preserved",
+    "Final SHA256SUMS entries match all release artifacts"
+  ],
+  "testedArtifacts": [
+    {
+      "file": "meikyo-generator-cli-0.2.1-linux.zip",
+      "sha256": "d1dc5e99ab86c4158a285c91ff13509452c6c00556f14e9fcf9ade07e2c32e97",
+      "bytes": 717940
+    },
+    {
+      "file": "meikyo-generator-linux-x64-0.2.1.tar.gz",
+      "sha256": "e782ece617b63b6121e9eba02df9e13653505ead30f9cc277515b199489b5749",
+      "bytes": 123804024
+    }
+  ]
+}

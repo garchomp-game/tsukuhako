@@ -1,0 +1,14 @@
+
+> otoka-s1@0.1.1 check
+> npm run lint && npm run typecheck
+
+
+> otoka-s1@0.1.1 lint
+> eslint .
+
+
+> otoka-s1@0.1.1 typecheck
+> next typegen && tsc --noEmit
+
+Generating route types...
+✓ Types generated successfully

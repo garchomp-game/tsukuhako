@@ -1,0 +1,14 @@
+BEGIN
+ pg_advisory_xact_lock 
+-----------------------
+ 
+(1 row)
+
+psql:/tmp/tmp.IY3RHmmj3M:3: NOTICE:  relation "schema_migrations" already exists, skipping
+CREATE TABLE
+skip: 001_create_sample_items.sql
+skip: 002_add_note.sql
+CREATE TABLE
+psql:migrations/003_failure_probe.sql:2: ERROR:  relation "missing_table" does not exist
+LINE 1: SELECT missing_column FROM missing_table;
+                                   ^

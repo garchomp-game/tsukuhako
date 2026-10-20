@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "linuxSha256": "1d05a8d2e004bd7c8a3c9acd48a7e5982ee96a44b87f4a548ed0e8dd6bb098cf",
+  "linuxManifestFilesChecked": 187,
+  "testedGuiArtifactMatches": true,
+  "templateZipsUnchanged": 7,
+  "curriculumChaptersChecked": 50,
+  "changedSourceFiles": 56,
+  "actualWindowsMac": "NOT_RUN"
+}

@@ -1,0 +1,17 @@
+{
+  "template": "B1",
+  "event": "stage2-devcontainer-up",
+  "startedAt": "2026-10-20T04:57:36.017097+00:00",
+  "command": [
+    "<WORKSPACE>/tools/node_modules/.bin/devcontainer",
+    "up",
+    "--workspace-folder",
+    "<WORKSPACE>/validation/revision-0.1.1/learning/runs/B1 空フォルダ 教材 0.1.1"
+  ],
+  "cwd": "validation/revision-0.1.1/learning/runs/B1 空フォルダ 教材 0.1.1",
+  "endedAt": "2026-10-20T04:57:37.182704+00:00",
+  "exitCode": 1,
+  "elapsedSeconds": 1.166,
+  "result": "FAIL",
+  "log": "output.log"
+}

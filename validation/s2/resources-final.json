@@ -1,0 +1,132 @@
+{
+  "observedAt": "2026-10-20T02:59:47.787282+00:00",
+  "result": "PASS",
+  "state": "all task-owned application and Supabase containers stopped; volumes/images retained",
+  "projects": [
+    {
+      "project": "otoka-s2-2226800358",
+      "containers": [
+        {
+          "id": "826ee9719b7befd84ce17e97ff6a6fc882bad98be6050ceb6d6746a619cee1cc",
+          "name": "/otoka-s2-2226800358-app-1",
+          "status": "exited",
+          "image": "vsc-s2-55de112a978dfdb9a6b20094de8f4a406531a110b313ece9df4a91f4363adc7d-uid",
+          "ports": {
+            "3000/tcp": [
+              {
+                "HostIp": "127.0.0.1",
+                "HostPort": "3004"
+              }
+            ]
+          },
+          "mounts": [
+            {
+              "type": "bind",
+              "name": null,
+              "destination": "/workspace"
+            },
+            {
+              "type": "volume",
+              "name": "otoka-s2-2226800358_dependencies",
+              "destination": "/workspace/node_modules"
+            },
+            {
+              "type": "volume",
+              "name": "otoka-s2-2226800358_npm-cache",
+              "destination": "/home/node/.npm"
+            }
+          ]
+        }
+      ],
+      "volumes": [
+        "otoka-s2-2226800358_dependencies",
+        "otoka-s2-2226800358_npm-cache",
+        "supabase_db_otoka-s2-2226800358"
+      ],
+      "networks": [
+        {
+          "id": "76e04d896def9823b60f4418fd2d79b339612919776627a85dd34681eb809c64",
+          "name": "otoka-s2-2226800358-network",
+          "labels": {
+            "otoka.s2.owner": "<WORKSPACE>/starter-templates/S2",
+            "otoka.template": "S2"
+          },
+          "options": {
+            "com.docker.network.bridge.host_binding_ipv4": "127.0.0.1"
+          },
+          "connectedContainers": []
+        }
+      ],
+      "appImage": {
+        "tag": "otoka-s2-2226800358-dev:0.1.0",
+        "id": "sha256:17451dd6015974e40a0f5dad3b27265c330ad57b4e00b78834ae0b73c495d4f5",
+        "bytes": 590100839
+      }
+    },
+    {
+      "project": "otoka-s2-410292944",
+      "containers": [
+        {
+          "id": "b83fd4c512f3edf4dcf72a385d9595b23cfbf7a9df0b667a5a0224a22641dcaf",
+          "name": "/otoka-s2-410292944-app-1",
+          "status": "exited",
+          "image": "vsc-s2-4a36fcbcccb24e35f3bf653a9fb3ef15f89c403dc0119aa19573f0ec1db07801-uid",
+          "ports": {
+            "3000/tcp": [
+              {
+                "HostIp": "127.0.0.1",
+                "HostPort": "3014"
+              }
+            ]
+          },
+          "mounts": [
+            {
+              "type": "bind",
+              "name": null,
+              "destination": "/workspace"
+            },
+            {
+              "type": "volume",
+              "name": "otoka-s2-410292944_dependencies",
+              "destination": "/workspace/node_modules"
+            },
+            {
+              "type": "volume",
+              "name": "otoka-s2-410292944_npm-cache",
+              "destination": "/home/node/.npm"
+            }
+          ]
+        }
+      ],
+      "volumes": [
+        "otoka-s2-410292944_dependencies",
+        "otoka-s2-410292944_npm-cache",
+        "supabase_db_otoka-s2-410292944"
+      ],
+      "networks": [
+        {
+          "id": "232e23b941cad8439465146f6a83ef0fd7997bf42e97bdfd862b21ac8b78fb8e",
+          "name": "otoka-s2-410292944-network",
+          "labels": {
+            "otoka.s2.owner": "<WORKSPACE>/validation/s2/runs/ZIP 新規展開/S2",
+            "otoka.template": "S2"
+          },
+          "options": {
+            "com.docker.network.bridge.host_binding_ipv4": "127.0.0.1"
+          },
+          "connectedContainers": []
+        }
+      ],
+      "appImage": {
+        "tag": "otoka-s2-410292944-dev:0.1.0",
+        "id": "sha256:07f2af7be9a5d39740cc7535ec479fe6695102622e8ba8686b133630cacfbb91",
+        "bytes": 590100839
+      }
+    }
+  ],
+  "noGlobalPrune": true,
+  "unrelatedBaselineStillRunning": [
+    "b531d3443746",
+    "8e9f201539c5"
+  ]
+}

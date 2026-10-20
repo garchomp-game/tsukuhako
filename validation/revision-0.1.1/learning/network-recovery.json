@@ -1,0 +1,15 @@
+{
+  "reason": "Docker default address pools exhausted during first B1 stage2 up",
+  "removedStoppedProject": "otoka-b1-frontend-20261020",
+  "removedContainer": "38f75cdf00e4",
+  "removedNetwork": "otoka-b1-frontend-20261020_default",
+  "namedVolumesRetained": true,
+  "oldSourcesAndZipAndLogsUnchanged": true,
+  "unrelatedResourcesTouched": false,
+  "diagnostics": [
+    "logs/B1/stage2-devcontainer-up",
+    "logs/B1/diagnose-compose-up",
+    "logs/B1/diagnose-compose-up-correct-path"
+  ],
+  "diagnosticNote": "The first direct diagnostic contained a transcribed temporary path typo; the corrected command exposed the Docker address-pool error."
+}

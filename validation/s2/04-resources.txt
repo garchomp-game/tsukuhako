@@ -1,0 +1,9 @@
+supabase_studio_otoka-s2-2226800358 public.ecr.aws/supabase/studio:2026.10.12-sha-3699278 Up 2 minutes (healthy) 127.0.0.1:54323->3000/tcp
+supabase_pg_meta_otoka-s2-2226800358 public.ecr.aws/supabase/postgres-meta:v0.100.0 Up 2 minutes (healthy) 8080/tcp
+supabase_rest_otoka-s2-2226800358 public.ecr.aws/supabase/postgrest:v16.4 Up 2 minutes 3000/tcp
+supabase_auth_otoka-s2-2226800358 public.ecr.aws/supabase/gotrue:v2.197.0 Up 2 minutes (healthy) 9999/tcp
+supabase_kong_otoka-s2-2226800358 public.ecr.aws/supabase/kong:2.8.1 Up 2 minutes (healthy) 8001/tcp, 8088/tcp, 8443-8444/tcp, 127.0.0.1:54321->8000/tcp
+supabase_db_otoka-s2-2226800358 public.ecr.aws/supabase/postgres:17.11.0.004 Up 2 minutes (healthy) 127.0.0.1:54322->5432/tcp
+{"com.docker.network.bridge.host_binding_ipv4":"127.0.0.1"}
+supabase_db_otoka-s2-2226800358
+2026-10-20T11:19:26+09:00

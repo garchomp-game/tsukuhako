@@ -1,0 +1,42 @@
+{
+  "recordedAt": "2026-10-20T05:05:35.561606+00:00",
+  "command": [
+    "python3",
+    "tools/package.py",
+    "F1",
+    "B1",
+    "S1"
+  ],
+  "exitCode": 0,
+  "result": "PASS",
+  "observations": "ZIP file bytes match both emitted manifest and the frozen source file map. No new container launch from these ZIPs; the lesson assembly tests used identical selected source files.",
+  "packages": {
+    "F1": {
+      "file": "dist/F1-0.1.1.zip",
+      "sha256": "eec4b54362783a6c91379f785f983827db7cf7def57acaceaabfc65d1b5bef20",
+      "bytes": 59168,
+      "files": 41,
+      "sourceFreezeMatch": true,
+      "archiveEntriesMatch": true,
+      "actualEnvAndCacheExcluded": true
+    },
+    "B1": {
+      "file": "dist/B1-0.1.1.zip",
+      "sha256": "c3e106499f4e3e3154c38a20c68a115f86f6fd1e706e6df28e669c30f450790c",
+      "bytes": 82654,
+      "files": 40,
+      "sourceFreezeMatch": true,
+      "archiveEntriesMatch": true,
+      "actualEnvAndCacheExcluded": true
+    },
+    "S1": {
+      "file": "dist/S1-0.1.1.zip",
+      "sha256": "9e41c0096df9e0a9735c8f85668eb770666d5ffd3e4d17204fbf65f6d82dccf2",
+      "bytes": 96196,
+      "files": 48,
+      "sourceFreezeMatch": true,
+      "archiveEntriesMatch": true,
+      "actualEnvAndCacheExcluded": true
+    }
+  }
+}

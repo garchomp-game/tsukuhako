@@ -1,0 +1,4 @@
+import {downloadArtifact} from '../generator-desktop/node_modules/@electron/get/dist/index.js';import fs from 'node:fs';import path from 'node:path';
+const out=path.resolve('validation/learning-0.4.0');const checksums=JSON.parse(fs.readFileSync('generator-desktop/node_modules/electron/checksums.json'));
+const results=await Promise.allSettled([['win32','x64'],['darwin','x64'],['darwin','arm64']].map(async([platform,arch])=>{const file=await downloadArtifact({version:'44.9.1',artifactName:'electron',platform,arch,checksums,downloadOptions:{}});return{platform,arch,file}}));
+fs.writeFileSync(out+'/platform-runtime-downloads.json',JSON.stringify(results.map(x=>x.status==='fulfilled'?{status:'DOWNLOADED',...x.value}:{status:'BLOCKED',reason:String(x.reason)}),null,2));console.log(results.map(x=>x.status==='fulfilled'?x.value:String(x.reason)));

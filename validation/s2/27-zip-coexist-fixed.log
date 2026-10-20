@@ -1,0 +1,2 @@
+PASS: standalone ZIP (Japanese/space path), separate project/ports, seed2, browser update/reload/delete and no cross-project data.
+PASS: first app 3004 and second app 3014 concurrently; Supabase APIs 54321/54421, DB54322/54422, Studio54323/54423.

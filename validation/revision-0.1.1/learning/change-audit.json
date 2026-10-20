@@ -1,0 +1,44 @@
+{
+  "F1": {
+    "changed": [
+      "CHANGELOG.md",
+      "VALIDATION.md",
+      "VERSION.json",
+      "package-lock.json",
+      "package.json",
+      "docs/BUILD-YOUR-OWN.md"
+    ],
+    "added": [
+      "docs/VALIDATION-0.1.1.json"
+    ],
+    "removed": []
+  },
+  "B1": {
+    "changed": [
+      "CHANGELOG.md",
+      "VALIDATION.md",
+      "VERSION.json",
+      "package-lock.json",
+      "package.json",
+      "docs/BUILD-YOUR-OWN.md"
+    ],
+    "added": [
+      "docs/VALIDATION-0.1.1.json"
+    ],
+    "removed": []
+  },
+  "S1": {
+    "changed": [
+      "CHANGELOG.md",
+      "VALIDATION.md",
+      "VERSION.json",
+      "package-lock.json",
+      "package.json",
+      "docs/BUILD-YOUR-OWN.md"
+    ],
+    "added": [
+      "docs/VALIDATION-0.1.1.json"
+    ],
+    "removed": []
+  }
+}

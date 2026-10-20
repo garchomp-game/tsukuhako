@@ -1,0 +1,26 @@
+{
+  "number": 6,
+  "startedAt": "2026-10-20T05:01:06.703062+00:00",
+  "files": [
+    {
+      "path": "tests/server.mjs",
+      "source": "starter-templates/S1/tests/server.mjs",
+      "sha256": "050521869cce92a080456e01d4c58dc2cb478d3609e32a3bac08dee7739b142a"
+    },
+    {
+      "path": "tests/api.test.mjs",
+      "source": "starter-templates/S1/tests/api.test.mjs",
+      "sha256": "ab01e7738ae1f733934259412f5d611a40c72c7f7be3ca6530ae8941d2a6308b"
+    },
+    {
+      "path": "playwright.config.ts",
+      "source": "starter-templates/S1/playwright.config.ts",
+      "sha256": "dc0c29218dbd078f05f24ad3ffb60cb4b3e1e80b57bdaf60da04744f5da44025"
+    },
+    {
+      "path": "tests/browser/preview.spec.ts",
+      "source": "starter-templates/S1/tests/browser/preview.spec.ts",
+      "sha256": "158b2c6c624b9500a45006fe2ce28beee2027e9b9f76c04ca32b002ac17e6e43"
+    }
+  ]
+}

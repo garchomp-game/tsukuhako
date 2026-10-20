@@ -1,0 +1,5 @@
+作成完了: <WORKSPACE>/validation/root/final-packages/corrected/runs/最終 展開/F1
+識別名: otoka-f1-final-1429979559
+ホストポート: 34900
+次: 作成先のREADME.mdを開き、ホストで bash scripts/doctor-host.sh を実行してください。
+VS Codeで作成先を開き、Dev Containers: Reopen in Container。その後、READMEのコンテナ内コマンドへ進みます。

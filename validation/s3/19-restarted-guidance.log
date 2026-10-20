@@ -1,0 +1,2 @@
+PASS: missing configuration guidance, GET reload, mobile layout
+{"result":"PASS","baseURL":"http://localhost:3015","scope":"local missing/failure UI; live cloud BLOCKED","elapsedSeconds":1.83}

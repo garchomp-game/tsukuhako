@@ -1,0 +1,7 @@
+.env
+.env.*
+!.env.example
+.otoka/
+*.log
+*.sql.bak
+.DS_Store

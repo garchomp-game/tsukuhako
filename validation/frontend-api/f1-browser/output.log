@@ -1,0 +1,11 @@
+
+> otoka-f1@0.1.0 test:browser
+> playwright test
+
+
+Running 2 tests using 1 worker
+
+  ✓  1 [chromium] › tests/browser/input.spec.ts:3:1 › input reflects immediately, clears, and is not persisted after reload (489ms)
+  ✓  2 [chromium] › tests/browser/input.spec.ts:19:1 › script markup displays as text without introducing elements (277ms)
+
+  2 passed (1.6s)

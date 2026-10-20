@@ -1,0 +1,14 @@
+{
+  "id": "g020-gui-probe-fixed",
+  "startedAt": "2026-10-20T08:53:44.450721+00:00",
+  "command": [
+    "node",
+    "tools/probe-desktop-020.mjs"
+  ],
+  "cwd": ".",
+  "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+  "exitCode": 0,
+  "elapsedSeconds": 1.367,
+  "result": "PASS",
+  "log": "output.log"
+}

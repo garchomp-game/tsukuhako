@@ -1,0 +1,119 @@
+{
+  "brokenInternalChapterLinks": [],
+  "projectOrHistoricalReferences": [
+    {
+      "lesson": "F1",
+      "chapter": "first",
+      "href": "src/App.tsx",
+      "kind": "project source file or external historical document; no privileged read"
+    },
+    {
+      "lesson": "F1",
+      "chapter": "readme",
+      "href": "VERSION.json",
+      "kind": "project source file or external historical document; no privileged read"
+    },
+    {
+      "lesson": "F1",
+      "chapter": "readme",
+      "href": "VALIDATION.md",
+      "kind": "project source file or external historical document; no privileged read"
+    },
+    {
+      "lesson": "F1",
+      "chapter": "readme",
+      "href": "VALIDATION.md",
+      "kind": "project source file or external historical document; no privileged read"
+    },
+    {
+      "lesson": "F2",
+      "chapter": "first",
+      "href": "app/page.tsx",
+      "kind": "project source file or external historical document; no privileged read"
+    },
+    {
+      "lesson": "B1",
+      "chapter": "first",
+      "href": "app/api/health/route.ts",
+      "kind": "project source file or external historical document; no privileged read"
+    },
+    {
+      "lesson": "B1",
+      "chapter": "readme",
+      "href": "VERSION.json",
+      "kind": "project source file or external historical document; no privileged read"
+    },
+    {
+      "lesson": "B1",
+      "chapter": "readme",
+      "href": "VALIDATION.md",
+      "kind": "project source file or external historical document; no privileged read"
+    },
+    {
+      "lesson": "B1",
+      "chapter": "readme",
+      "href": "VALIDATION.md",
+      "kind": "project source file or external historical document; no privileged read"
+    },
+    {
+      "lesson": "S1",
+      "chapter": "first",
+      "href": "app/practice/page.tsx",
+      "kind": "project source file or external historical document; no privileged read"
+    },
+    {
+      "lesson": "S1",
+      "chapter": "readme",
+      "href": "VERSION.json",
+      "kind": "project source file or external historical document; no privileged read"
+    },
+    {
+      "lesson": "S1",
+      "chapter": "readme",
+      "href": "VALIDATION.md",
+      "kind": "project source file or external historical document; no privileged read"
+    },
+    {
+      "lesson": "S1",
+      "chapter": "readme",
+      "href": "VALIDATION.md",
+      "kind": "project source file or external historical document; no privileged read"
+    },
+    {
+      "lesson": "S2",
+      "chapter": "first",
+      "href": "app/page.tsx",
+      "kind": "project source file or external historical document; no privileged read"
+    },
+    {
+      "lesson": "S2",
+      "chapter": "readme",
+      "href": "http://localhost:3004",
+      "kind": "localhost example / displayed as text"
+    },
+    {
+      "lesson": "S2",
+      "chapter": "readme",
+      "href": "http://localhost:54323",
+      "kind": "localhost example / displayed as text"
+    },
+    {
+      "lesson": "S2",
+      "chapter": "readme",
+      "href": "VERSION.json",
+      "kind": "project source file or external historical document; no privileged read"
+    },
+    {
+      "lesson": "S2",
+      "chapter": "readme",
+      "href": "VALIDATION.md",
+      "kind": "project source file or external historical document; no privileged read"
+    },
+    {
+      "lesson": "I1",
+      "chapter": "first",
+      "href": "sql/practice.sql",
+      "kind": "project source file or external historical document; no privileged read"
+    }
+  ]
+}

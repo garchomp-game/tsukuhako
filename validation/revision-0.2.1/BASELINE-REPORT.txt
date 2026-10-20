@@ -1,0 +1,41 @@
+# 明鏡ジェネレーター 0.2.0 — 実装・検証報告
+
+2026-10-20。添付の[要件・設計](validation/generator-0.2.0/REQUIREMENTS.md)に沿って、共通コア、対話CLI、Linux GUI、単独配布物を実装しました。G01〜G15は、記録したLinux環境と対象操作の範囲でPASSです。[受入一覧と証拠](validation/generator-0.2.0/summary.json)
+
+目的選択→保存先→書込みなしの確認→新規作成→起動・教材案内までつながります。既存createとの互換を残し、plan／JSON／対話CLI、生成・起動を分けた診断、構成別START_HEREを追加しました。GUIとCLIは同じplan/applyを使います。
+
+## 今回確認したこと
+
+|範囲|結果と証拠|
+|---|---|
+|共通コア・CLI|既存8件を含む21件PASS。全6構成、混在版、元ZIPのbytes、planの無書込みと変更検知、I1秘密値、既存先・不正ZIP・競合・編集保護、診断、JSONと終了コード。[実行記録](validation/root/g020-core-cli-final/result.json)|
+|対話CLI|実TTYで戻る・入力保持・生成前中止・割込み130を確認。生成前に書込みなし、明示CLIと44ファイル一致。[3ケース](validation/generator-0.2.0/wizard/result.json)|
+|Linux GUI|配布物の実ウィンドウで操作。入力修正、戻る、二重apply拒否、worker停止後の再試行、reload後の旧plan拒否、README・案内・コピーを確認。6構成でCLIの生成内容と一致。I1秘密値を画面へ出さない。[操作記録](validation/generator-0.2.0/gui/result.json)|
+|planの共用|全6構成でGUIと単独CLIのplan全体・planIdが一致。Docker・Code・ホストNode不在でも生成し、Code起動失敗後も生成成功と手動案内を維持。[比較記録](validation/generator-0.2.0/gui/plan-parity.json)|
+|GUIの境界|rendererのNode APIなし、6 APIのみ、sandbox/contextIsolation有効。mainの送信元・入力検査、同梱資材以外の配信拒否。IPC単体2件と実IPC試験PASS。[単体試験](validation/root/g020-desktop-ipc-unit/result.json)|
+|単独配布|CLIとLinux GUIを別フォルダへ展開し、作者のソースを参照せず生成。GUIはPATHにホストNodeもDockerもない条件。core・fflate・catalog・固定ZIPを同梱。[CLI記録](validation/generator-0.2.0/cli-bundle.json)／[GUI記録](validation/generator-0.2.0/gui/result.json)|
+|F2実起動|最終CLI ZIPから生成し、Dev Container/npm ci、check、HTTP試験、ページ移動・入力・クリア・編集の自動反映を確認。[画面操作](validation/generator-0.2.0/startup/F2-browser.json)|
+|S2実起動|最終CLI ZIPから新規ID・新規DBへ生成。DB start→Dev Container/npm ci、check、単体5件、DB確認、HTTP2件、画面のUnicode保存・更新・再読込・削除を確認。[初期状態](validation/generator-0.2.0/startup/S2-initial.json)／[画面操作](validation/generator-0.2.0/startup/S2-browser.json)|
+
+GUI画面：[用途](validation/generator-0.2.0/gui/01-purpose.png)・[保存先](validation/generator-0.2.0/gui/02-destination.png)・[確認](validation/generator-0.2.0/gui/03-preview.png)・[完了](validation/generator-0.2.0/gui/05-created.png)。生成だけで「開発環境が起動しました」とは表示しません。生成後のDocker起動・依存取得は利用者の次の操作です。
+
+## 配布物と維持した範囲
+
+- 全体：`otoka-devcontainer-starters-0.2.0-2026-10-20.zip`。ソース、教材、凍結済み7個のテンプレートZIP、CLI配布ZIP、検証記録を収録。
+- 単独CLI：`meikyo-generator-cli-0.2.0-linux.zip`。約0.72 MB。Node22以上とcksumが必要。使い方は[CLI README](generator/README.md)。
+- Linux GUI：`meikyo-generator-linux-x64-0.2.0.tar.gz`。約124 MB、別添。展開して`meikyo-generator`を起動。ホストNode不要。[GUI README](generator-desktop/README.md)
+- SHA256とファイルmanifestはdist内。全体ZIP自身のhashはZIPの外側に保存する。
+
+F1/B1/S1/S2は0.1.1、F2/I1/S3は0.1.0の同一bytesです。テンプレートソースとadapterも変更していません。基点0.1.1の元作業フォルダと全体ZIPを保持して、別フォルダで作業しました。S3は参考資料のまま、coreでも生成を拒否します。
+
+## 実測環境と未実施事項
+
+Linux Mint22.3/x86_64/X11、Docker29.9.1、Compose5.6.0、Dev Container CLI0.89.0。CLI用ホストNode24.19.0、Electron44.9.1内Node24.22.0。GUIはReact19.3.1／TypeScript5.9.3／Vite8.3.4、ビルド・peer確認済み。コンテナは既存のNode24.22.0/npm11.17.0固定を維持。image層の既存cacheを利用したため、未導入PCの初回セットアップ試験ではありません。
+
+**NOT_RUN**：VS Code実画面でのReopen・再接続・Rebuild、Windows/WSL、macOS/ARM、未導入PC、実GitHub Actions、初学者試用、ネイティブ親フォルダダイアログの自動操作。保存先の手入力と生成フローは実GUIで確認済みです。Codeボタンの成功時引数は専用launcher、Code不在時は実GUIで確認し、実VS Code操作とは区別しています。**BLOCKED（従来から継続）**：S3専用実クラウド接続。
+
+今回のG15はF2/S2の生成後起動と主要操作です。S2の通常停止後の再開・同一メモ保持までを今回再実行したとは扱わず、0.1.1の既存記録と分けています。署名・installer・auto-update・販売・外部公開は実施していません。
+
+試験途中の失敗と修正も記録しています。同梱画面の読込み、画面遷移時の既定submitを修正し、修正後の最終GUI配布物で再試験しました。試験側のcleanup順、PID引数、F2ボタン名、S2停止helper名の誤りも修正。詳細は[実装判断](DECISIONS.md)と[受入記録](validation/generator-0.2.0/summary.json)にあります。
+
+検証用コンテナは停止済み。試験ポートを解放し、volumeとimageを保持しています。既存の無関係な2コンテナは稼働を維持しました。[終了時の確認](validation/generator-0.2.0/startup/final-state.json)／[資源台帳](validation/resources-final.json)。ホストOS設定・パッケージ、全体prune、クラウド作成、GitHub push、外部連絡は行っていません。

@@ -1,0 +1,5 @@
+診断NG: シェルのPROJECT_NAMEと.envが競合しています。解除して再実行してください。
+復旧手順: docs/RECOVERY.md
+PASS: exported different PROJECT_NAME rejected before stop
+NAME                        IMAGE                                                                         COMMAND                  SERVICE   CREATED          STATUS          PORTS
+otoka-s2-2226800358-app-1   vsc-s2-55de112a978dfdb9a6b20094de8f4a406531a110b313ece9df4a91f4363adc7d-uid   "/bin/sh -c 'echo Co…"   app       11 minutes ago   Up 11 minutes   127.0.0.1:3004->3000/tcp

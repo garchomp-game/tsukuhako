@@ -1,0 +1,13 @@
+[
+  {
+    "file": "tsukuhako-ux-review-0.4.1-2026-10-21.zip",
+    "bytes": 3465906,
+    "sha256": "c93041e27c28312bfd5ebddf52bd6995152f30aa6f78c00313edebce813a88d9",
+    "purpose": "Review source and evidence; product runtime excluded"
+  },
+  {
+    "file": "tsukuhako-linux-x64-0.4.1.tar.gz",
+    "sha256": "1d05a8d2e004bd7c8a3c9acd48a7e5982ee96a44b87f4a548ed0e8dd6bb098cf",
+    "bytes": 123926929
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "category": "implementation: browser-test locator",
+  "initialResult": "FAIL: 3 passed, 2 strict-locator failures",
+  "cause": "Next.js route announcer adds a second role=alert. The application displayed the correct public error, but the test locator matched both application and framework alerts.",
+  "fix": "Scope alert assertions to the labeled preview region; keep Next.js accessibility announcer intact.",
+  "separateCleanup": "PostCSS export assigned to a named variable to remove ESLint warning without changing plugin configuration.",
+  "retry": "s1-browser-fixed"
+}

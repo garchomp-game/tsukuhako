@@ -1,0 +1,24 @@
+{
+  "folder": "existing-project-adapter",
+  "files": {
+    "README.md": "97cd9d06d634886c18a80b251ecd94bbd9c0af957fcf7d9fcf3aa4be709557f4",
+    "VALIDATION.md": "047ff92eefeace4d990be9ec76b712f2fd035bc4145fae69ef6fdff0e2d99249",
+    "cli.mjs": "7c31d5c6d965748cdd97807261db334f59e84d2b0f09c0d2ae38ced860ea4028",
+    "fixtures/README.md": "9a2ba87e578463a5dac22149abeccbc4fad28d9142d76317c8bb5d8fadc92f7b",
+    "package-lock.json": "fab4dc1116700962958d78ea86b1d506c0a49e060a01dc6dd12f454ebc559955",
+    "package.json": "c03fe7a2dbef52544c1b2829266cfae62ec59c7685f61df500740195293419f1",
+    "src/adapter.mjs": "76262f785b873dedb28bb780ddf4e5a89b03bdfbf3814410125e0508fd393a13",
+    "src/templates.mjs": "1a91acd4b5120a9fc00520c1b88c3481a1b7df9ba23a41b8ace37cc72c887432",
+    "tests/adapter.test.mjs": "0c4d8d30f0386323a9973d7faf59d7246680f86104fe604be384301ae17ad357"
+  },
+  "runtimeFiles": {
+    "cli.mjs": "7c31d5c6d965748cdd97807261db334f59e84d2b0f09c0d2ae38ced860ea4028",
+    "package-lock.json": "fab4dc1116700962958d78ea86b1d506c0a49e060a01dc6dd12f454ebc559955",
+    "package.json": "c03fe7a2dbef52544c1b2829266cfae62ec59c7685f61df500740195293419f1",
+    "src/adapter.mjs": "76262f785b873dedb28bb780ddf4e5a89b03bdfbf3814410125e0508fd393a13",
+    "src/templates.mjs": "1a91acd4b5120a9fc00520c1b88c3481a1b7df9ba23a41b8ace37cc72c887432",
+    "tests/adapter.test.mjs": "0c4d8d30f0386323a9973d7faf59d7246680f86104fe604be384301ae17ad357"
+  },
+  "generatedPlanId": "555c5c41cafa62270082a6d76d386116843df6763cb23563203579d9789bedff",
+  "note": "Raw plans/runs are local validation only and must not be distributed."
+}

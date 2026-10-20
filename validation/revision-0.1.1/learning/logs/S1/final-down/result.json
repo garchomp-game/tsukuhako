@@ -1,0 +1,16 @@
+{
+  "template": "S1",
+  "event": "final-down",
+  "startedAt": "2026-10-20T05:01:57.930628+00:00",
+  "command": [
+    "bash",
+    "scripts/compose.sh",
+    "down"
+  ],
+  "cwd": "validation/revision-0.1.1/learning/runs/S1 空フォルダ 教材 0.1.1",
+  "endedAt": "2026-10-20T05:01:58.295429+00:00",
+  "exitCode": 0,
+  "elapsedSeconds": 0.365,
+  "result": "PASS",
+  "log": "output.log"
+}

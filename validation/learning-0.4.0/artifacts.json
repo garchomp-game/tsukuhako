@@ -1,0 +1,86 @@
+[
+  {
+    "file": "F1-0.1.3.zip",
+    "kind": "template",
+    "version": "0.1.3",
+    "bytes": 59528,
+    "sha256": "12fe4bc2bf113e006a7bb7f68ed595920e9a8aa435e55bcf51a990d1464b0d8a"
+  },
+  {
+    "file": "F2-0.1.1.zip",
+    "kind": "template",
+    "version": "0.1.1",
+    "bytes": 77796,
+    "sha256": "7a093c2bf9292bfbdcb1fc06178bdd0c14ac5e14b3ef6b51bf5676b7ce1ba0fe"
+  },
+  {
+    "file": "B1-0.1.2.zip",
+    "kind": "template",
+    "version": "0.1.2",
+    "bytes": 82840,
+    "sha256": "98e0add9dbca84ce3f9a153840158d874e860dac50fb68cb40e9b6e12cbb56c6"
+  },
+  {
+    "file": "S1-0.1.2.zip",
+    "kind": "template",
+    "version": "0.1.2",
+    "bytes": 96401,
+    "sha256": "94e55d547b8971e3263eabd99da386018e7a9cd9662872ba46515900c088f714"
+  },
+  {
+    "file": "S2-0.1.2.zip",
+    "kind": "template",
+    "version": "0.1.2",
+    "bytes": 100320,
+    "sha256": "04266262b25b930a586558856457ec8a36f0c6f7127533cb05fa68d56de29e8e"
+  },
+  {
+    "file": "I1-0.1.0.zip",
+    "kind": "template",
+    "version": "0.1.0",
+    "bytes": 26663,
+    "sha256": "2861fea034ced0baf1dd484f78c19be8bbfbb2ccc8ac8c880e0ec3f5e989e398"
+  },
+  {
+    "file": "S3-0.1.1.zip",
+    "kind": "template",
+    "version": "0.1.1",
+    "bytes": 80311,
+    "sha256": "67d957665a0ab61b26390c3b4bd79e346f3a9acb31cf041997c0f61e256c7891"
+  },
+  {
+    "file": "tsukuhako-generator-cli-0.4.0-linux.zip",
+    "kind": "CLI",
+    "bytes": 721762,
+    "sha256": "557e0ad6d4c8d571eca717652c37491d84a87240c0829a9664802b5a0f67741c",
+    "runtimeTest": "PASS (Linux Mint x64)"
+  },
+  {
+    "file": "tsukuhako-linux-x64-0.4.0.tar.gz",
+    "kind": "GUI",
+    "bytes": 123921417,
+    "sha256": "7c95597a3113e5ab5ca1e1bbd8061856f4c5e05083cc1d0cbeada9db9ad89b48",
+    "runtimeTest": "PASS (Linux Mint x64)"
+  },
+  {
+    "file": "tsukuhako-win32-x64-0.4.0-UNVERIFIED.zip",
+    "kind": "GUI",
+    "bytes": 204320489,
+    "sha256": "b0af4bc7086a03be0947dc09765dd3fe8c0ca5c4f259f1f9d6b04ac6aa508817",
+    "runtimeTest": "NOT_RUN"
+  },
+  {
+    "file": "tsukuhako-darwin-x64-0.4.0-UNVERIFIED.zip",
+    "kind": "GUI",
+    "bytes": 135098122,
+    "sha256": "6202f62aea9b6b9ff71b5a358a1abe5bfa771962227a5bc9642c75d72fee600a",
+    "runtimeTest": "NOT_RUN"
+  },
+  {
+    "file": "tsukuhako-darwin-arm64-0.4.0-UNVERIFIED.zip",
+    "kind": "GUI",
+    "bytes": 131193403,
+    "sha256": "288cd40c7d24488c40d0e3f5e74f2bc403a41a6e1b2ae770d82cebc221d2e689",
+    "runtimeTest": "NOT_RUN"
+  }
+]

@@ -1,0 +1,1 @@
+{"template":"F1","baseURL":"http://localhost:3400","mode":"browser","startedAt":"2026-10-20T05:02:32.225Z","endedAt":"2026-10-20T05:02:32.851Z","result":"PASS","observations":["browser 155.0.8059.84","input immediately reflected","clear resets input","reload resets state"]}

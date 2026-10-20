@@ -1,0 +1,6 @@
+
+> otoka-f2@0.1.0 check
+> eslint . && next typegen && tsc --noEmit
+
+Generating route types...
+✓ Types generated successfully

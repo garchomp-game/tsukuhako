@@ -1,0 +1,1 @@
+ERROR: 別フォルダの .env です。独立したコピーには bash scripts/configure.sh --new-copy --port 55433 を実行してください。移動元のDBは自動移行しません。

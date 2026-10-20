@@ -1,0 +1,363 @@
+{
+  "recordedAt": "2026-10-20T13:20:27.907625+00:00",
+  "status": "PASS",
+  "scope": "Six changed ZIPs: pinned Node check/build; F1/B1/S1/S3 local previews. No S3 cloud connection.",
+  "records": [
+    {
+      "id": "F1",
+      "version": "0.1.2",
+      "archive": "F1-0.1.2.zip",
+      "sha256": "664b581be8a82943118ff1191471542beebb6af1e8a91fa46686d0d5303c38b5",
+      "devContainerName": "ツクハコ F1",
+      "imageBuild": {
+        "command": [
+          "docker",
+          "build",
+          "--tag",
+          "tsukuhako-030-template-f1",
+          "--file",
+          "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks/F1/.devcontainer/Dockerfile",
+          "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks/F1"
+        ],
+        "exitCode": 0,
+        "seconds": 2.425,
+        "log": "F1-image.log"
+      },
+      "build": {
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--name",
+          "tsukuhako-030-check-f1",
+          "--user",
+          "1000:1000",
+          "-e",
+          "HOME=/tmp",
+          "-e",
+          "npm_config_cache=/cache",
+          "-e",
+          "NEXT_TELEMETRY_DISABLED=1",
+          "-v",
+          "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks/F1:/workspace",
+          "-v",
+          "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks/npm-cache:/cache",
+          "-w",
+          "/workspace",
+          "tsukuhako-030-template-f1",
+          "sh",
+          "-lc",
+          "node --version && npm --version && npm ci --no-audit --no-fund && npm run check && npm run build"
+        ],
+        "exitCode": 0,
+        "seconds": 6.729,
+        "log": "F1-build.log"
+      },
+      "status": "PASS",
+      "preview": {
+        "command": [
+          "node",
+          "<WORKSPACE>/tools/verify-template-preview-030.mjs",
+          "F1",
+          "http://localhost:32768"
+        ],
+        "exitCode": 0,
+        "seconds": 0.916,
+        "log": "F1-preview.log"
+      }
+    },
+    {
+      "id": "B1",
+      "version": "0.1.2",
+      "archive": "B1-0.1.2.zip",
+      "sha256": "98e0add9dbca84ce3f9a153840158d874e860dac50fb68cb40e9b6e12cbb56c6",
+      "devContainerName": "ツクハコ B1",
+      "imageBuild": {
+        "command": [
+          "docker",
+          "build",
+          "--tag",
+          "tsukuhako-030-template-b1",
+          "--file",
+          "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks/B1/.devcontainer/Dockerfile",
+          "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks/B1"
+        ],
+        "exitCode": 0,
+        "seconds": 0.164,
+        "log": "B1-image.log"
+      },
+      "build": {
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--name",
+          "tsukuhako-030-check-b1",
+          "--user",
+          "1000:1000",
+          "-e",
+          "HOME=/tmp",
+          "-e",
+          "npm_config_cache=/cache",
+          "-e",
+          "NEXT_TELEMETRY_DISABLED=1",
+          "-v",
+          "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks/B1:/workspace",
+          "-v",
+          "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks/npm-cache:/cache",
+          "-w",
+          "/workspace",
+          "tsukuhako-030-template-b1",
+          "sh",
+          "-lc",
+          "node --version && npm --version && npm ci --no-audit --no-fund && npm run check && npm run build"
+        ],
+        "exitCode": 0,
+        "seconds": 10.836,
+        "log": "B1-build.log"
+      },
+      "status": "PASS",
+      "preview": {
+        "command": [
+          "node",
+          "<WORKSPACE>/tools/verify-template-preview-030.mjs",
+          "B1",
+          "http://localhost:32769"
+        ],
+        "exitCode": 0,
+        "seconds": 1.016,
+        "log": "B1-preview.log"
+      }
+    },
+    {
+      "id": "S1",
+      "version": "0.1.2",
+      "archive": "S1-0.1.2.zip",
+      "sha256": "94e55d547b8971e3263eabd99da386018e7a9cd9662872ba46515900c088f714",
+      "devContainerName": "ツクハコ S1",
+      "imageBuild": {
+        "command": [
+          "docker",
+          "build",
+          "--tag",
+          "tsukuhako-030-template-s1",
+          "--file",
+          "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks/S1/.devcontainer/Dockerfile",
+          "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks/S1"
+        ],
+        "exitCode": 0,
+        "seconds": 0.164,
+        "log": "S1-image.log"
+      },
+      "build": {
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--name",
+          "tsukuhako-030-check-s1",
+          "--user",
+          "1000:1000",
+          "-e",
+          "HOME=/tmp",
+          "-e",
+          "npm_config_cache=/cache",
+          "-e",
+          "NEXT_TELEMETRY_DISABLED=1",
+          "-v",
+          "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks/S1:/workspace",
+          "-v",
+          "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks/npm-cache:/cache",
+          "-w",
+          "/workspace",
+          "tsukuhako-030-template-s1",
+          "sh",
+          "-lc",
+          "node --version && npm --version && npm ci --no-audit --no-fund && npm run check && npm run build"
+        ],
+        "exitCode": 0,
+        "seconds": 12.444,
+        "log": "S1-build.log"
+      },
+      "status": "PASS",
+      "preview": {
+        "command": [
+          "node",
+          "<WORKSPACE>/tools/verify-template-preview-030.mjs",
+          "S1",
+          "http://localhost:32770"
+        ],
+        "exitCode": 0,
+        "seconds": 2.922,
+        "log": "S1-preview.log"
+      }
+    },
+    {
+      "id": "S2",
+      "version": "0.1.2",
+      "archive": "S2-0.1.2.zip",
+      "sha256": "04266262b25b930a586558856457ec8a36f0c6f7127533cb05fa68d56de29e8e",
+      "devContainerName": "ツクハコ S2",
+      "imageBuild": {
+        "command": [
+          "docker",
+          "build",
+          "--tag",
+          "tsukuhako-030-template-s2",
+          "--file",
+          "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks/S2/.devcontainer/Dockerfile",
+          "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks/S2"
+        ],
+        "exitCode": 0,
+        "seconds": 0.164,
+        "log": "S2-image.log"
+      },
+      "build": {
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--name",
+          "tsukuhako-030-check-s2",
+          "--user",
+          "1000:1000",
+          "-e",
+          "HOME=/tmp",
+          "-e",
+          "npm_config_cache=/cache",
+          "-e",
+          "NEXT_TELEMETRY_DISABLED=1",
+          "-v",
+          "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks/S2:/workspace",
+          "-v",
+          "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks/npm-cache:/cache",
+          "-w",
+          "/workspace",
+          "tsukuhako-030-template-s2",
+          "sh",
+          "-lc",
+          "node --version && npm --version && npm ci --no-audit --no-fund && npm run check && npm run build"
+        ],
+        "exitCode": 0,
+        "seconds": 12.289,
+        "log": "S2-build.log"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "S3",
+      "version": "0.1.1",
+      "archive": "S3-0.1.1.zip",
+      "sha256": "67d957665a0ab61b26390c3b4bd79e346f3a9acb31cf041997c0f61e256c7891",
+      "devContainerName": "ツクハコ S3",
+      "imageBuild": {
+        "command": [
+          "docker",
+          "build",
+          "--tag",
+          "tsukuhako-030-template-s3",
+          "--file",
+          "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks/S3/.devcontainer/Dockerfile",
+          "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks/S3"
+        ],
+        "exitCode": 0,
+        "seconds": 0.214,
+        "log": "S3-image.log"
+      },
+      "build": {
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--name",
+          "tsukuhako-030-check-s3",
+          "--user",
+          "1000:1000",
+          "-e",
+          "HOME=/tmp",
+          "-e",
+          "npm_config_cache=/cache",
+          "-e",
+          "NEXT_TELEMETRY_DISABLED=1",
+          "-v",
+          "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks/S3:/workspace",
+          "-v",
+          "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks/npm-cache:/cache",
+          "-w",
+          "/workspace",
+          "tsukuhako-030-template-s3",
+          "sh",
+          "-lc",
+          "node --version && npm --version && npm ci --no-audit --no-fund && npm run check && npm run build"
+        ],
+        "exitCode": 0,
+        "seconds": 11.386,
+        "log": "S3-build.log"
+      },
+      "status": "PASS",
+      "preview": {
+        "command": [
+          "node",
+          "<WORKSPACE>/tools/verify-template-preview-030.mjs",
+          "S3",
+          "http://localhost:32771"
+        ],
+        "exitCode": 0,
+        "seconds": 2.569,
+        "log": "S3-preview.log"
+      }
+    },
+    {
+      "id": "F2",
+      "version": "0.1.1",
+      "archive": "F2-0.1.1.zip",
+      "sha256": "7a093c2bf9292bfbdcb1fc06178bdd0c14ac5e14b3ef6b51bf5676b7ce1ba0fe",
+      "devContainerName": "ツクハコ F2",
+      "imageBuild": {
+        "command": [
+          "docker",
+          "build",
+          "--tag",
+          "tsukuhako-030-template-f2",
+          "--file",
+          "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks-f2-final/F2/.devcontainer/Dockerfile",
+          "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks-f2-final/F2"
+        ],
+        "exitCode": 0,
+        "seconds": 0.164,
+        "log": "F2-image.log"
+      },
+      "build": {
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--name",
+          "tsukuhako-030-check-f2",
+          "--user",
+          "1000:1000",
+          "-e",
+          "HOME=/tmp",
+          "-e",
+          "npm_config_cache=/cache",
+          "-e",
+          "NEXT_TELEMETRY_DISABLED=1",
+          "-v",
+          "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks-f2-final/F2:/workspace",
+          "-v",
+          "<WORKSPACE>/validation/brand-0.3.0/runs/template-checks-f2-final/npm-cache:/cache",
+          "-w",
+          "/workspace",
+          "tsukuhako-030-template-f2",
+          "sh",
+          "-lc",
+          "node --version && npm --version && npm ci --no-audit --no-fund && npm run check && npm run build"
+        ],
+        "exitCode": 0,
+        "seconds": 21.77,
+        "log": "F2-build.log"
+      },
+      "status": "PASS"
+    }
+  ]
+}

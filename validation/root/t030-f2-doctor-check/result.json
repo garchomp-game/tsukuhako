@@ -1,0 +1,15 @@
+{
+  "id": "t030-f2-doctor-check",
+  "startedAt": "2026-10-20T13:17:01.430958+00:00",
+  "command": [
+    "bash",
+    "-c",
+    "bash scripts/doctor-host.sh && docker compose exec -T --user node app npm run check"
+  ],
+  "cwd": "validation/brand-0.3.0/runs/startup/F2 学習",
+  "environment": "Linux Mint 22.3 / x86_64 / Docker 29.9.1 / Compose 5.6.0",
+  "exitCode": 0,
+  "elapsedSeconds": 3.32,
+  "result": "PASS",
+  "log": "output.log"
+}

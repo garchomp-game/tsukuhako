@@ -1,0 +1,54 @@
+{
+  "status": "PASS",
+  "results": [
+    {
+      "id": "F1",
+      "status": "PASS",
+      "planId": "e70935bccaad0b91d433d0fa4434f8d1a44e1e8f909620f5962fdb96be06f352",
+      "entirePlanEqual": true,
+      "noWrites": true
+    },
+    {
+      "id": "F2",
+      "status": "PASS",
+      "planId": "74471cc6f89129419ba12fcc499aeb9f7231e17a93f4cc33748d6f411b020be5",
+      "entirePlanEqual": true,
+      "noWrites": true
+    },
+    {
+      "id": "B1",
+      "status": "PASS",
+      "planId": "d2c11b1ee6e6d2e0a0bc257b45f2421656df87b49d5cf40bf7e570526b54e6a0",
+      "entirePlanEqual": true,
+      "noWrites": true
+    },
+    {
+      "id": "S1",
+      "status": "PASS",
+      "planId": "8aec5bf86c9b8619f5ddafffe227cbd4efc72269d144fb38ebf3d06777d9131a",
+      "entirePlanEqual": true,
+      "noWrites": true
+    },
+    {
+      "id": "S2",
+      "status": "PASS",
+      "planId": "d2b914f0d2899ce1e78534309ee7b96e9f8f80d7ff9d113795c59be77edb45d1",
+      "entirePlanEqual": true,
+      "noWrites": true
+    },
+    {
+      "id": "I1",
+      "status": "PASS",
+      "planId": "4aa51bcfe0bc8fe9c992c67cae5f53f2e73a7750636be4db0cbd6f10f95b8cb6",
+      "entirePlanEqual": true,
+      "noWrites": true
+    },
+    {
+      "id": "G07-G11-G12-editor-unavailable",
+      "status": "PASS",
+      "creationRemainsSuccess": true,
+      "hostNodeAndDockerAndCodeAbsent": true,
+      "secretNotDisplayed": true
+    }
+  ]
+}

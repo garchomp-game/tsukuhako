@@ -1,0 +1,51 @@
+ローカルSupabaseを起動: otoka-s2-2811127744（初回の画像取得には数分かかります）
+準備完了。API http://127.0.0.1:54621 / Studio http://127.0.0.1:54623
+次: VS Codeで Reopen in Container → npm run dev
+[2026-10-20T04:59:57.797Z] @devcontainers/cli 0.89.0. Node.js v24.19.0. linux 7.0.0-31-generic x64.
+[2026-10-20T04:59:57.910Z] Running the initializeCommand from devcontainer.json...
+
+[2026-10-20T04:59:57.910Z] Start: Run: bash scripts/initialize.sh
+[2026-10-20T04:59:57.917Z] .envは既存の設定を保持します。変更は.envを編集後、コンテナを再構築してください。
+[2026-10-20T04:59:58.153Z] 診断OK: otoka-s2-2811127744 / http://localhost:3504
+[2026-10-20T04:59:58.154Z] /dev/nvme0n1p2  468G  124G  321G  28% /
+[2026-10-20T04:59:58.154Z] 容量不足なら不要な自分の試行資源を確認してください。全体pruneは行いません。
+[2026-10-20T04:59:58.240Z] #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+[2026-10-20T04:59:58.331Z] #1 transferring dockerfile: 730B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 134B done
+#3 DONE 0.0s
+
+#4 [1/4] FROM docker.io/library/node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5
+[2026-10-20T04:59:58.331Z] #4 resolve docker.io/library/node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5 0.0s done
+#4 DONE 0.0s
+
+#5 [2/4] RUN apt-get update && apt-get install -y --no-install-recommends     git curl ca-certificates libnss3 libatk1.0-0 libatk-bridge2.0-0     libx11-6 libxcomposite1 libxdamage1 libxext6 libxfixes3 libxrandr2     libgbm1 libdrm2 libxcb1 libxkbcommon0 libasound2 libglib2.0-0     libcups2 libdbus-1-3 libpango-1.0-0 libcairo2 fonts-liberation     && rm -rf /var/lib/apt/lists/*
+#5 CACHED
+
+#6 [3/4] RUN npm install --global npm@11.17.0     && mkdir -p /workspace/node_modules /home/node/.npm     && chown -R node:node /workspace /home/node/.npm
+#6 CACHED
+
+#7 [4/4] WORKDIR /workspace
+#7 CACHED
+
+#8 exporting to image
+#8 exporting layers done
+#8 exporting manifest sha256:261571f685bc49f14c55afc81349c084deae53107f9f175a02e4ae6e864783b9 done
+#8 exporting config sha256:7bb11ce0c801fbefa12797750fa188a5e8ee882e64f39c8e0b408e5ad273d41c done
+#8 exporting attestation manifest sha256:85e300b4a83987bccdc431bf1db695ceff7453a828ebcec5a0a4971bf6ddd66c done
+#8 exporting manifest list sha256:6d1da69280fa36112bae6c5ac44dd3791fe6eb5b0af6cc8259409fddf80805b6 done
+#8 naming to docker.io/library/otoka-s2-2811127744-dev:0.1.0 done
+#8 unpacking to docker.io/library/otoka-s2-2811127744-dev:0.1.0 done
+#8 DONE 0.0s
+[2026-10-20T04:59:58.336Z] 
+[2026-10-20T04:59:58.371Z] Start: Run: docker compose -f <WORKSPACE>/validation/revision-0.1.1/s2/runs/最終配布 新規起動/S2/compose.yaml --profile * config
+[2026-10-20T04:59:58.460Z] Expected to find a docker-compose file prefixed with docker-compose.devcontainer.build, but did not.
+[2026-10-20T04:59:58.460Z] Start: Run: docker compose --project-name otoka-s2-2811127744 -f <WORKSPACE>/validation/revision-0.1.1/s2/runs/最終配布 新規起動/S2/compose.yaml -f /tmp/devcontainercli-garchomp-game/docker-compose/docker-compose.devcontainer.containerFeatures-1792472215585-306f81f7-2c17-46e6-99e0-b0634204660d.yml up -d --no-recreate
+{"outcome":"success","containerId":"42cc5b8278cfe65e06bdac546106fb97871f7006ef3eb8fe4a224cec5edad52e","composeProjectName":"otoka-s2-2811127744","remoteUser":"node","remoteWorkspaceFolder":"/workspace","ociAuthDiagnostics":{"authLookupWouldBeBlocked":false,"registryRedirectWouldPreventCredentialForwarding":false,"authServerRedirect":false}}

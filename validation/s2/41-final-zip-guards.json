@@ -1,0 +1,75 @@
+{
+  "result": "PASS",
+  "checks": [
+    {
+      "template": "S2",
+      "case": "doctor-host.sh rejects exported PROJECT_NAME",
+      "result": "PASS"
+    },
+    {
+      "template": "S2",
+      "case": "app.sh rejects exported PROJECT_NAME",
+      "result": "PASS"
+    },
+    {
+      "template": "S2",
+      "case": "doctor-host.sh rejects exported HOST_PORT",
+      "result": "PASS"
+    },
+    {
+      "template": "S2",
+      "case": "app.sh rejects exported HOST_PORT",
+      "result": "PASS"
+    },
+    {
+      "template": "S2",
+      "case": "doctor-host.sh rejects exported COMPOSE_PROJECT_NAME",
+      "result": "PASS"
+    },
+    {
+      "template": "S2",
+      "case": "app.sh rejects exported COMPOSE_PROJECT_NAME",
+      "result": "PASS"
+    },
+    {
+      "template": "S2",
+      "case": "doctor-host.sh rejects exported COMPOSE_FILE",
+      "result": "PASS"
+    },
+    {
+      "template": "S2",
+      "case": "app.sh rejects exported COMPOSE_FILE",
+      "result": "PASS"
+    },
+    {
+      "template": "S2",
+      "case": "doctor-host.sh rejects exported COMPOSE_ENV_FILES",
+      "result": "PASS"
+    },
+    {
+      "template": "S2",
+      "case": "app.sh rejects exported COMPOSE_ENV_FILES",
+      "result": "PASS"
+    },
+    {
+      "template": "S2",
+      "case": ".env rejects unknown_compose_key",
+      "result": "PASS"
+    },
+    {
+      "template": "S2",
+      "case": ".env rejects duplicate",
+      "result": "PASS"
+    },
+    {
+      "template": "S2",
+      "case": ".env rejects missing",
+      "result": "PASS"
+    },
+    {
+      "template": "S2",
+      "case": "own app status allowed",
+      "result": "PASS"
+    }
+  ]
+}

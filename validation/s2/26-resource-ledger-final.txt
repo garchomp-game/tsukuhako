@@ -1,0 +1,23 @@
+otoka-s2-410292944-app-1 vsc-s2-4a36fcbcccb24e35f3bf653a9fb3ef15f89c403dc0119aa19573f0ec1db07801-uid Up About a minute 127.0.0.1:3014->3000/tcp
+supabase_studio_otoka-s2-410292944 public.ecr.aws/supabase/studio:2026.10.12-sha-3699278 Up 2 minutes (healthy) 127.0.0.1:54423->3000/tcp
+supabase_pg_meta_otoka-s2-410292944 public.ecr.aws/supabase/postgres-meta:v0.100.0 Up 2 minutes (healthy) 8080/tcp
+supabase_rest_otoka-s2-410292944 public.ecr.aws/supabase/postgrest:v16.4 Up 2 minutes 3000/tcp
+supabase_auth_otoka-s2-410292944 public.ecr.aws/supabase/gotrue:v2.197.0 Up 2 minutes (healthy) 9999/tcp
+supabase_kong_otoka-s2-410292944 public.ecr.aws/supabase/kong:2.8.1 Up 2 minutes (healthy) 8001/tcp, 8088/tcp, 8443-8444/tcp, 127.0.0.1:54421->8000/tcp
+supabase_db_otoka-s2-410292944 public.ecr.aws/supabase/postgres:17.11.0.004 Up 2 minutes (healthy) 127.0.0.1:54422->5432/tcp
+supabase_db_otoka-s2-2226800358 public.ecr.aws/supabase/postgres:17.11.0.004 Up 5 minutes (healthy) 127.0.0.1:54322->5432/tcp
+otoka-s2-2226800358-app-1 vsc-s2-55de112a978dfdb9a6b20094de8f4a406531a110b313ece9df4a91f4363adc7d-uid Up 6 minutes 127.0.0.1:3004->3000/tcp
+supabase_studio_otoka-s2-2226800358 public.ecr.aws/supabase/studio:2026.10.12-sha-3699278 Up 8 minutes (healthy) 127.0.0.1:54323->3000/tcp
+supabase_pg_meta_otoka-s2-2226800358 public.ecr.aws/supabase/postgres-meta:v0.100.0 Up 8 minutes (healthy) 8080/tcp
+supabase_rest_otoka-s2-2226800358 public.ecr.aws/supabase/postgrest:v16.4 Up 8 minutes 3000/tcp
+supabase_auth_otoka-s2-2226800358 public.ecr.aws/supabase/gotrue:v2.197.0 Up 5 minutes (healthy) 9999/tcp
+supabase_kong_otoka-s2-2226800358 public.ecr.aws/supabase/kong:2.8.1 Up 8 minutes (healthy) 8001/tcp, 8088/tcp, 8443-8444/tcp, 127.0.0.1:54321->8000/tcp
+otoka-s2-410292944_dependencies
+otoka-s2-410292944_npm-cache
+otoka-s2-2226800358_dependencies
+otoka-s2-2226800358_npm-cache
+supabase_db_otoka-s2-410292944
+supabase_db_otoka-s2-2226800358
+otoka-s2-410292944-network
+otoka-s2-2226800358-network
+2026-10-20T11:36:24+09:00

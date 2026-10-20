@@ -1,0 +1,20 @@
+▲ Next.js 16.4.2 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://0.0.0.0:3000
+- Environments: .env.local, .env
+✓ Ready in 255ms
+✓ Running next.config.ts took 24ms
+
+ GET / 200 in 222ms (next.js: 98ms, application-code: 124ms)
+ GET /api/notes 200 in 63ms (next.js: 28ms, application-code: 35ms)
+ GET /api/notes 200 in 25ms (next.js: 1.0ms, application-code: 24ms)
+ GET /api/notes 200 in 6ms (next.js: 0.7ms, application-code: 5ms)
+ GET / 200 in 25ms (next.js: 1.2ms, application-code: 24ms)
+ GET /api/notes 200 in 10ms (next.js: 0.8ms, application-code: 9ms)
+ GET /api/notes 200 in 9ms (next.js: 0.9ms, application-code: 8ms)
+ DELETE /api/notes/094189d2-d701-4b0e-9f23-0f20fc765864 204 in 462ms (next.js: 448ms, application-code: 14ms)
+ GET /api/notes 200 in 9ms (next.js: 1.5ms, application-code: 7ms)
+ GET / 200 in 26ms (next.js: 1.1ms, application-code: 25ms)
+ GET /api/notes 200 in 11ms (next.js: 0.9ms, application-code: 10ms)
+ GET /api/notes 200 in 8ms (next.js: 0.8ms, application-code: 7ms)
+ GET /api/notes 200 in 7ms (next.js: 0.6ms, application-code: 7ms)

@@ -1,0 +1,9 @@
+診断OK: otoka-b1-3104954418 / http://localhost:3402
+/dev/nvme0n1p2  468G  124G  321G  28% /
+容量不足なら不要な自分の試行資源を確認してください。全体pruneは行いません。
+ Container otoka-b1-3104954418-app-1 Stopping 
+ Container otoka-b1-3104954418-app-1 Stopped 
+ Container otoka-b1-3104954418-app-1 Removing 
+ Container otoka-b1-3104954418-app-1 Removed 
+ Network otoka-b1-3104954418_default Removing 
+ Network otoka-b1-3104954418_default Removed 

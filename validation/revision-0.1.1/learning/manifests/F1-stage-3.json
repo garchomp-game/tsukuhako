@@ -1,0 +1,21 @@
+{
+  "number": 3,
+  "startedAt": "2026-10-20T05:02:29.058633+00:00",
+  "files": [
+    {
+      "path": "tsconfig.json",
+      "source": "starter-templates/F1/tsconfig.json",
+      "sha256": "17cbadd288b777c6487dc950fbbe933324869fce039a8d1a34976ed1fd22b8dc"
+    },
+    {
+      "path": "eslint.config.mjs",
+      "source": "starter-templates/F1/eslint.config.mjs",
+      "sha256": "1c919f30d4ba5e06aee5104406b9c4335ccd143ed6ff8a3d4cba0492c910cd69"
+    },
+    {
+      "path": "vite.config.ts",
+      "source": "starter-templates/F1/vite.config.ts",
+      "sha256": "099316384050c3d7218e68808140ea3c9e69d0dab29e32b34c8540a24fc11e57"
+    }
+  ]
+}

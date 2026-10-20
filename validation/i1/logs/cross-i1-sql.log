@@ -1,0 +1,6 @@
+PASS: otoka_learning / PostgreSQL 18.6 (Debian 18.6-1.pgdg12+2)
+workbench user: vscode (uid=1000)
+BEGIN
+DO
+ROLLBACK
+PASS: SQL CRUD / 日本語・絵文字 / 制約 / rollback

@@ -1,0 +1,130 @@
+[
+  {
+    "id": "missing-config",
+    "command": [
+      "bash",
+      "scripts/doctor-host.sh"
+    ],
+    "exitCode": 1,
+    "expectedExit": 1,
+    "elapsedSeconds": 0.045,
+    "result": "PASS",
+    "observation": "診断NG: 設定がありません。bash scripts/configure.sh を実行してください。\n復旧手順: docs/RECOVERY.md\n"
+  },
+  {
+    "id": "invalid-port",
+    "command": [
+      "bash",
+      "scripts/configure.sh",
+      "--port",
+      "80"
+    ],
+    "exitCode": 2,
+    "expectedExit": 2,
+    "elapsedSeconds": 0.004,
+    "result": "PASS",
+    "observation": "ポートは1024〜65535です。\n"
+  },
+  {
+    "id": "invalid-name",
+    "command": [
+      "bash",
+      "scripts/configure.sh",
+      "--name",
+      "../escape"
+    ],
+    "exitCode": 2,
+    "expectedExit": 2,
+    "elapsedSeconds": 0.003,
+    "result": "PASS",
+    "observation": "識別名は英小文字で始まる3〜49文字の英小文字・数字・ハイフンです。\n"
+  },
+  {
+    "id": "create",
+    "command": [
+      "bash",
+      "scripts/configure.sh",
+      "--port",
+      "3301"
+    ],
+    "exitCode": 0,
+    "expectedExit": 0,
+    "elapsedSeconds": 0.004,
+    "result": "PASS",
+    "observation": "設定を.envに作成しました。次は bash scripts/doctor-host.sh\n"
+  },
+  {
+    "id": "preserve-env",
+    "command": [
+      "bash",
+      "scripts/configure.sh",
+      "--port",
+      "3399"
+    ],
+    "exitCode": 0,
+    "expectedExit": 0,
+    "elapsedSeconds": 0.003,
+    "result": "PASS",
+    "observation": ".envは既存の設定を保持します。変更は.envを編集後、コンテナを再構築してください。\n"
+  },
+  {
+    "id": "valid-host",
+    "command": [
+      "bash",
+      "scripts/doctor-host.sh"
+    ],
+    "exitCode": 0,
+    "expectedExit": 0,
+    "elapsedSeconds": 0.117,
+    "result": "PASS",
+    "observation": "診断OK: otoka-f2-2000439993 / http://localhost:3301\n/dev/nvme0n1p2  468G  115G  330G  26% /\n容量不足なら不要な自分の試行資源を確認してください。全体pruneは行いません。\n"
+  },
+  {
+    "id": "docker-disconnected",
+    "command": [
+      "bash",
+      "scripts/doctor-host.sh"
+    ],
+    "exitCode": 1,
+    "expectedExit": 1,
+    "elapsedSeconds": 0.014,
+    "result": "PASS",
+    "observation": "診断NG: Dockerへ接続できません。Dockerの起動と接続権限を確認してください。\n復旧手順: docs/RECOVERY.md\n"
+  },
+  {
+    "id": "port-collision",
+    "command": [
+      "bash",
+      "scripts/doctor-host.sh"
+    ],
+    "exitCode": 1,
+    "expectedExit": 1,
+    "elapsedSeconds": 0.124,
+    "result": "PASS",
+    "observation": "診断NG: ポート 36301 は使用中です。.envのHOST_PORTを変更してください。\n復旧手順: docs/RECOVERY.md\n"
+  },
+  {
+    "id": "project-collision",
+    "command": [
+      "bash",
+      "scripts/doctor-host.sh"
+    ],
+    "exitCode": 1,
+    "expectedExit": 1,
+    "elapsedSeconds": 0.121,
+    "result": "PASS",
+    "observation": "診断NG: PROJECT_NAMEは別フォルダで使用されています。.envで未使用の識別名を選んでください。\n復旧手順: docs/RECOVERY.md\n"
+  },
+  {
+    "id": "symlink-env",
+    "command": [
+      "bash",
+      "scripts/configure.sh"
+    ],
+    "exitCode": 1,
+    "expectedExit": 1,
+    "elapsedSeconds": 0.004,
+    "result": "PASS",
+    "observation": ".envは通常ファイルにしてください。\n"
+  }
+]

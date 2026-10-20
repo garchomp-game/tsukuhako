@@ -1,0 +1,28 @@
+**/node_modules/
+**/.next/
+**/.cache/
+**/.local/
+**/.temp/
+**/.branches/
+**/.env
+**/.env.*
+!**/.env.example
+**/*.tsbuildinfo
+**/test-results/
+**/playwright-report/
+**/__pycache__/
+validation/**/runs/
+validation/**/probe/
+validation/**/新規 展開/
+dist/
+# The catalog requires the small, versioned starter packages after cloning.
+!/dist/
+/dist/*
+!/dist/[BFIS][123]-*.zip
+!/dist/[BFIS][123]-*.manifest.json
+
+# Rebuild desktop output and the bundled Node runtime locally.
+/generator-desktop/build/
+/generator-desktop/wsl-helper/helper.tar
+
+validation/work/

@@ -1,0 +1,105 @@
+[2026-10-20T02:17:54.848Z] @devcontainers/cli 0.89.0. Node.js v24.19.0. linux 7.0.0-31-generic x64.
+[2026-10-20T02:17:55.211Z] Running the initializeCommand from devcontainer.json...
+
+[2026-10-20T02:17:55.211Z] Start: Run: bash scripts/configure.sh
+[2026-10-20T02:17:55.216Z] .envは既存の設定を保持します。変更は.envを編集後、コンテナを再構築してください。
+[2026-10-20T02:17:55.217Z] 
+[2026-10-20T02:17:55.248Z] Start: Run: docker compose -f <WORKSPACE>/starter-templates/F2/compose.yaml --profile * config
+[2026-10-20T02:17:55.312Z] Start: Run: docker compose -f <WORKSPACE>/starter-templates/F2/compose.yaml --profile * config
+[2026-10-20T02:17:55.358Z] name: otoka-f2-3543580151
+services:
+  app:
+    command:
+      - sleep
+      - infinity
+    environment:
+      NEXT_TELEMETRY_DISABLED: "1"
+    init: true
+    networks:
+      default: null
+    volumes:
+      - type: bind
+        source: <WORKSPACE>/starter-templates/F2
+        target: /workspace
+        bind: {}
+      - type: volume
+        source: dependencies
+        target: /workspace/node_modules
+        volume: {}
+      - type: volume
+        source: npm-cache
+        target: /home/node/.npm
+        volume: {}
+    working_dir: /workspace
+    build:
+      context: <WORKSPACE>/starter-templates/F2
+      dockerfile: .devcontainer/Dockerfile
+    ports:
+      - mode: ingress
+        host_ip: 127.0.0.1
+        target: 3000
+        published: "3001"
+        protocol: tcp
+networks:
+  default:
+    name: otoka-f2-3543580151_default
+volumes:
+  dependencies:
+    name: otoka-f2-3543580151_dependencies
+  npm-cache:
+    name: otoka-f2-3543580151_npm-cache
+[2026-10-20T02:17:55.360Z] Start: Run: docker inspect --type image node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5
+[2026-10-20T02:17:55.374Z] Path 'library/node:24.22.0-bookworm-slim' for input 'docker.io/library/node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5' failed validation.  Expected path to match regex '/^[a-z0-9]+([._-][a-z0-9]+)*(\/[a-z0-9]+([._-][a-z0-9]+)*)*$/'.
+[2026-10-20T02:17:55.374Z] Error fetching image details: Could not parse image name 'node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5'
+[2026-10-20T02:17:55.374Z] Start: Run: docker pull node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5
+[2026-10-20T02:17:57.165Z] docker.io/library/node@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5: Pulling from library/node
+[2026-10-20T02:17:58.014Z] 4cec569cef03: Pulling fs layer
+fb7da8a11632: Pulling fs layer
+b9a701dba9fb: Pulling fs layer
+182ecac4702d: Pulling fs layer
+[2026-10-20T02:17:58.014Z] 7fd1ebe418b5: Pulling fs layer
+[2026-10-20T02:17:58.099Z] 7fd1ebe418b5: Already exists
+[2026-10-20T02:17:58.399Z] 4cec569cef03: Download complete
+[2026-10-20T02:17:58.399Z] fb7da8a11632: Download complete
+[2026-10-20T02:17:58.701Z] fb7da8a11632: Pull complete
+[2026-10-20T02:17:59.400Z] 182ecac4702d: Download complete
+[2026-10-20T02:18:00.800Z] 2aa69c36f237: Download complete
+[2026-10-20T02:18:01.599Z] 1537fcc6f7d2: Download complete
+[2026-10-20T02:18:02.900Z] b9a701dba9fb: Download complete
+[2026-10-20T02:18:03.860Z] 4cec569cef03: Pull complete
+[2026-10-20T02:18:03.861Z] 182ecac4702d: Pull complete
+[2026-10-20T02:18:03.862Z] b9a701dba9fb: Pull complete
+Digest: sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5
+[2026-10-20T02:18:03.863Z] Status: Downloaded newer image for node@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5
+[2026-10-20T02:18:03.863Z] docker.io/library/node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5
+[2026-10-20T02:18:03.865Z] Start: Run: docker inspect --type image node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5
+[2026-10-20T02:18:03.895Z] Docker Compose override file for building image:
+services:
+  app:
+    build:
+      dockerfile: /tmp/devcontainercli-garchomp-game/container-features/0.89.0-1792462683894/Dockerfile-with-features
+      args:
+        - BUILDKIT_INLINE_CACHE=1
+        - _DEV_CONTAINERS_BASE_IMAGE=dev_container_auto_added_stage_label
+
+[2026-10-20T02:18:03.895Z] Start: Run: docker compose --project-name otoka-f2-3543580151 -f <WORKSPACE>/starter-templates/F2/compose.yaml -f /tmp/devcontainercli-garchomp-game/docker-compose/docker-compose.devcontainer.build-1792462683895.yml build
+[2026-10-20T02:18:03.964Z]  Image otoka-f2-3543580151-app Building 
+
+[2026-10-20T02:18:04.006Z] #1 [internal] load local bake definitions
+[2026-10-20T02:18:04.011Z] #1 reading from stdin 777B done
+#1 DONE 0.0s
+[2026-10-20T02:18:04.011Z] additional privileges requested: pass "--allow=fs.read=/tmp/devcontainercli-garchomp-game/container-features/0.89.0-1792462683894/Dockerfile-with-features" to grant requested privileges
+
+
+[2026-10-20T02:18:04.015Z] Exit code 1
+Error: Command failed: docker compose --project-name otoka-f2-3543580151 -f <WORKSPACE>/starter-templates/F2/compose.yaml -f /tmp/devcontainercli-garchomp-game/docker-compose/docker-compose.devcontainer.build-1792462683895.yml build
+    at Dp (<WORKSPACE>/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:434:525)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async eW (<WORKSPACE>/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:434:2475)
+    at async AW (<WORKSPACE>/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:414:3976)
+    at async kW (<WORKSPACE>/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:488:4862)
+    at async hI (<WORKSPACE>/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:488:5808)
+    at async C9 (<WORKSPACE>/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:669:206)
+    at async I9 (<WORKSPACE>/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:668:16607)
+    at async <WORKSPACE>/tools/node_modules/@devcontainers/cli/dist/spec-node/devContainersSpecCLI.js:488:1917
+{"outcome":"error","message":"Command failed: docker compose --project-name otoka-f2-3543580151 -f <WORKSPACE>/starter-templates/F2/compose.yaml -f /tmp/devcontainercli-garchomp-game/docker-compose/docker-compose.devcontainer.build-1792462683895.yml build","description":"An error occurred building the Docker Compose images."}
