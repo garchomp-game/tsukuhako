@@ -9,4 +9,29 @@ test('UX: help follows the current lesson and falls back to setup',()=>{for(cons
 test('UX: generated first steps use actual ports, target version and safely quoted directory for every template',()=>{for(const id of ['F1','F2','B1','S1','S2','I1']){const destination="/home/test/日本語 app's $(literal)",ports=id==='I1'?{database:54001}:{app:3897};if(id==='S2')Object.assign(ports,{shadow:54010,api:54011,database:54012,studio:54013});const guide=startHere({request:{templateId:id},destination,ports,templateVersion:'test-version',projectName:'unit',nextSteps:nextSteps(id,ports)});assert.ok(guide.includes(quoteArg(destination)));assert.ok(guide.includes('test-version'));for(const port of Object.values(ports))assert.ok(guide.includes(String(port)));assert.ok(!guide.includes('(lesson:'));assert.match(guide,/PowerShell/);assert.ok(!guide.includes('http://localhost:3001'));}});
 
 import {validatePayload} from '../security.mjs';
+import {diagnoseLocal} from '../adapters/local.mjs';
+import {ContentLibrary} from '../lib/content.mjs';
 test('UX: clearing a WSL selection still allows reading position to be saved',()=>{const reading={view:'learn',lessonId:'F2',chapterId:'first',scroll:550,distroId:'abc0123456789def'};assert.equal(validatePayload('saveSettings',withDistro(reading,'')).scroll,550);assert.equal(withDistro(reading,'').distroId,undefined);assert.equal(validatePayload('saveSettings',withDistro(reading,'abc0123456789def')).distroId,'abc0123456789def')});
+
+test('R041-3: missing S2 tools retain observations and reach the additional setup via Windows',async()=>{
+ const calls=[];
+ const result=await diagnoseLocal({platform:'linux',templateId:'S2',includeCode:false,env:{},runner:async(name,args)=>{
+  calls.push([name,...args]);
+  if(['curl','timeout'].includes(name))return{ok:false,error:'ENOENT',output:''};
+  return{ok:true,output:args.includes('inspect')?'unix:///var/run/docker.sock':args.includes('info')?JSON.stringify({OSType:'linux',OperatingSystem:'Docker Desktop'}):'1.0'};
+ }});
+ const routed=windowsGuidance(result.checks),library=new ContentLibrary(root+'/curriculum');
+ for(const name of ['curl','timeout']){
+  const original=result.checks.find(c=>c.id==='s2-'+name),check=routed.find(c=>c.id===original.id);
+  assert.equal(check.state,'missing');assert.equal(check.message,original.message);assert.ok(check.message.includes(name));
+  const windows=await library.chapter('setup',check.guide);
+  const links=parser.parse(windows.text,{}).flatMap(t=>t.children||[]).filter(t=>t.type==='link_open').map(t=>t.attrGet('href'));
+  assert.ok(links.includes('lesson:S2/setup'));
+  const target=resolveChapter(m,'setup',check.guide,'lesson:S2/setup');
+  assert.equal(target.lessonId,'S2');assert.equal(target.chapterId,'setup');
+  assert.ok((await library.chapter(target.lessonId,target.chapterId)).text.includes(name));
+  assert.match(windows.text,/選択したWSL/);assert.match(windows.text,/同じ選択/);assert.match(windows.text,/もう一度確認/);
+ }
+ assert.match(routed.find(c=>c.id==='docker-server').nextAction,/Docker Desktop.*Integration/);
+ assert.ok(calls.every(([, ...args])=>!args.some(a=>['install','update','upgrade','--set-default'].includes(a))));
+});

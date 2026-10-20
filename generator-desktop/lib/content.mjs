@@ -11,7 +11,7 @@ export async function confinedRead(root,relative,limit=262144){
 }
 export class ContentLibrary{
  constructor(root){this.root=root;this.cache=new Map()}
- async index(){if(!this.manifest){this.manifest=JSON.parse(await confinedRead(this.root,'manifest.json',262144));if(this.manifest.appVersion!=='0.4.1'||this.manifest.version!=='0.4.1')throw error()}return this.manifest}
+ async index(){if(!this.manifest){this.manifest=JSON.parse(await confinedRead(this.root,'manifest.json',262144));if(this.manifest.appVersion!=='0.4.2'||this.manifest.version!=='0.4.2')throw error()}return this.manifest}
  async chapter(lessonId,chapterId){const m=await this.index();const meta=m.lessons.find(l=>l.id===lessonId)?.chapters.find(c=>c.id===chapterId);if(!meta)throw error();const key=lessonId+'/'+chapterId;if(this.cache.has(key)){const v=this.cache.get(key);this.cache.delete(key);this.cache.set(key,v);return v}const bytes=await confinedRead(this.root,meta.file);if(bytes.length!==meta.bytes||digest(bytes)!==meta.sha256)throw error();const value={text:bytes.toString('utf8')};this.cache.set(key,value);while(this.cache.size>3)this.cache.delete(this.cache.keys().next().value);return value}
  async asset(id){const meta=(await this.index()).assets.find(a=>a.id===id);if(!meta||meta.mime!=='image/png')throw error();const bytes=await confinedRead(this.root,meta.file,1048576);if(bytes.length!==meta.bytes||digest(bytes)!==meta.sha256)throw error();return 'data:image/png;base64,'+bytes.toString('base64')}
  async external(lessonId,chapterId,href){const {text}=await this.chapter(lessonId,chapterId);let u;try{u=new URL(href)}catch{throw error()};if(u.protocol!=='https:'||u.username||u.password||!text.includes(']('+href+')')||/[\x00-\x20\x7f]/.test(href))throw error();return u.href}

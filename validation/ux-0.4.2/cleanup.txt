@@ -1,0 +1,9 @@
+診断OK: otoka-f2-2552178844 / http://localhost:43055
+/dev/nvme0n1p2  468G  146G  299G  33% /
+容量不足なら不要な自分の試行資源を確認してください。全体pruneは行いません。
+ Container otoka-f2-2552178844-app-1 Stopping
+ Container otoka-f2-2552178844-app-1 Stopped
+ Container otoka-f2-2552178844-app-1 Removing
+ Container otoka-f2-2552178844-app-1 Removed
+ Network otoka-f2-2552178844_default Removing
+ Network otoka-f2-2552178844_default Removed

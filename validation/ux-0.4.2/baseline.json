@@ -1,0 +1,19 @@
+{
+  "baselineCommit": "599d1300993392fd439ed67d64cf2a0082b283e3",
+  "artifacts": {
+    "dist/tsukuhako-linux-x64-0.4.1.tar.gz": "1d05a8d2e004bd7c8a3c9acd48a7e5982ee96a44b87f4a548ed0e8dd6bb098cf",
+    "dist/tsukuhako-ux-review-0.4.1-2026-10-21.zip": "c93041e27c28312bfd5ebddf52bd6995152f30aa6f78c00313edebce813a88d9"
+  },
+  "containers": [
+    {
+      "id": "b531d3443746f56c651fa3625f83bd3677ccc969ea7c1e4bdf4e2acd392e6916",
+      "name": "/ikiiki-project-hr132-133_devcontainer-db-1",
+      "startedAt": "2026-10-20T22:56:25.276121169Z"
+    },
+    {
+      "id": "8e9f201539c57dba63be0bacf05405400355f35f0223c12d47ae7b8d8c6d78c0",
+      "name": "/ikiiki-backend-postgres",
+      "startedAt": "2026-10-20T22:56:25.275517745Z"
+    }
+  ]
+}

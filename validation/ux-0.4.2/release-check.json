@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "linuxSha256": "7946b0d7d757e7879e5bf2a44282b70e40cd649de432c52b33840a885fa819e0",
+  "linuxBytes": 123927962,
+  "manifestFilesChecked": 187,
+  "packagedSourcesCompared": 105,
+  "testedArtifactMatches": true,
+  "templateZipsAndSourcesUnchanged": 7,
+  "curriculumChapters": 50,
+  "curriculumAssets": 1,
+  "previous041ArchivesPreserved": true,
+  "generatedGuideAndRestoredSourceMatch": true
+}

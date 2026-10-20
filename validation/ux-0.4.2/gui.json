@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "artifact": "7946b0d7d757e7879e5bf2a44282b70e40cd649de432c52b33840a885fa819e0",
+  "run": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/ux-0.4.2/runs/gui-final",
+  "records": [
+    {
+      "id": "R041-2-learn-S2-help-three-clicks-return-position",
+      "status": "PASS",
+      "generatorTemplate": "F2",
+      "learningTemplate": "S2",
+      "readingScroll": 510,
+      "helpScroll": 310
+    },
+    {
+      "id": "R041-2-create-F2-help-repeat-return",
+      "status": "PASS"
+    },
+    {
+      "id": "R041-1-F2-final-package-generation-and-distinct-guide-steps",
+      "status": "PASS",
+      "destination": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/ux-0.4.2/runs/gui-final/F2 日本語 復元の練習.dir",
+      "port": 43055
+    },
+    {
+      "id": "R041-3-Windows-S2-missing-tools-guide-return-recheck",
+      "status": "PASS",
+      "scope": "Windows IPC observations on Linux; not Windows/WSL integration",
+      "calls": [
+        {
+          "templateId": "S2",
+          "distroId": "5555666677778888"
+        },
+        {
+          "templateId": "S2",
+          "distroId": "5555666677778888"
+        },
+        {
+          "templateId": "S2",
+          "distroId": "5555666677778888"
+        }
+      ],
+      "installs": 0
+    }
+  ],
+  "errors": [],
+  "windowsMacReal": "NOT_RUN",
+  "beginnerTrial": "NOT_RUN"
+}

@@ -10,7 +10,7 @@
 
 ## 1. 準備と、このプロジェクトの設定を確認する
 
-場所：開発ホスト（WindowsはWSL内）。生成したフォルダで行います。
+場所：開発ホストのターミナル（Windowsは選択したWSL内。PowerShellでは実行しません）。このプロジェクトのフォルダで行います。
 
 確認できる結果：診断OK と、このプロジェクトのURLが表示されます。
 
@@ -24,7 +24,7 @@
 
 ## 2. VS Codeでフォルダを開き、Dev Containers: Reopen in Containerを実行する
 
-場所：VS Code。生成したフォルダで行います。
+場所：VS Codeの編集画面。このプロジェクトのフォルダで行います。
 
 確認できる結果：VS Code左下にDev Containerへの接続が表示され、/workspaceのファイルが開きます。
 
@@ -32,7 +32,7 @@
 
 ## 3. 開発サーバーを起動する
 
-場所：Dev Container内。/workspaceで行います。
+場所：VS CodeのDev Container内ターミナル。/workspaceで行います。
 
 確認できる結果：Ready が表示されます。ブラウザでは下記のホスト側URLを使います。
 
@@ -44,7 +44,7 @@ Dev Containerへの接続後、VS Codeの「ターミナル」→「新しいタ
 
 ## 4. 変更前のJSONを確認する
 
-場所：開発ホスト（WindowsはWSL内）。生成したフォルダで行います。
+場所：開発ホストのターミナル（Windowsは選択したWSL内。PowerShellでは実行しません）。このプロジェクトのフォルダで行います。
 
 ```sh
 'curl' '-i' 'http://localhost:3002/api/health'
@@ -52,7 +52,7 @@ Dev Containerへの接続後、VS Codeの「ターミナル」→「新しいタ
 
 ## 5. 一か所変える
 
-場所：VS Code。生成したフォルダで行います。
+場所：VS Codeの編集画面。このプロジェクトのフォルダで行います。
 
 Response.jsonの { status: "ok" } を { status: "ok", lesson: "preview" } に変えて保存します。この一時変更中は、元の応答を要求する既存の契約テストが失敗します。初回は応答を元へ戻すところまで行います。
 
@@ -60,7 +60,7 @@ Response.jsonの { status: "ok" } を { status: "ok", lesson: "preview" } に変
 
 ## 6. 変化を自分で確認する
 
-場所：開発ホスト（WindowsはWSL内）。生成したフォルダで行います。
+場所：開発ホストのターミナル（Windowsは選択したWSL内。PowerShellでは実行しません）。このプロジェクトのフォルダで行います。
 
 JSONに lesson: "preview" が増えます。 開発サーバーを動かしたまま確かめます。 反映されない場合は復旧手順へ進みます。
 
@@ -70,39 +70,47 @@ JSONに lesson: "preview" が増えます。 開発サーバーを動かした�
 
 [docs/RECOVERY.md](docs/RECOVERY.md)
 
-## 7. 元へ戻して、もう一度確認する
+## 7. 元の内容に戻して保存する
 
-場所：開発ホスト（WindowsはWSL内）。生成したフォルダで行います。
+場所：VS Codeの編集画面。このプロジェクトのフォルダで行います。
 
-追加した lesson: "preview" を削除し、{ status: "ok" } へ戻して保存します。再取得して元のJSONを確認します。
+追加した lesson: "preview" を削除し、{ status: "ok" } へ戻して保存します。
+
+[app/api/health/route.ts](app/api/health/route.ts)
+
+## 8. 復元した結果を確認する
+
+場所：開発ホストのターミナル（Windowsは選択したWSL内。PowerShellでは実行しません）。このプロジェクトのフォルダで行います。
+
+上のcurlコマンドで再取得し、JSONが { status: "ok" } に戻り、lessonがないことを確認します。
 
 ```sh
 'curl' '-i' 'http://localhost:3002/api/health'
 ```
 
-## 8. 次の教材へ進む（最初の変更は第1項）
+## 9. 次の教材へ進む（最初の変更は第1項）
 
-場所：VS Code。生成したフォルダで行います。
+場所：VS Codeの編集画面。このプロジェクトのフォルダで行います。
 
 できたところを確認してから、次の練習を選びましょう。
 
 [docs/EXERCISES.md](docs/EXERCISES.md)
 
-## 9. 全体の使い方
+## 10. 全体の使い方
 
-場所：開発ホスト（WindowsはWSL内）。生成したフォルダで行います。
+場所：開発ホストのターミナル（Windowsは選択したWSL内。PowerShellでは実行しません）。このプロジェクトのフォルダで行います。
 
 [README.md](README.md)
 
-## 10. 空から組み立てる
+## 11. 空から組み立てる
 
-場所：開発ホスト（WindowsはWSL内）。生成したフォルダで行います。
+場所：開発ホストのターミナル（Windowsは選択したWSL内。PowerShellでは実行しません）。このプロジェクトのフォルダで行います。
 
 [docs/BUILD-YOUR-OWN.md](docs/BUILD-YOUR-OWN.md)
 
-## 11. 停止・復旧
+## 12. 停止・復旧
 
-場所：開発ホスト（WindowsはWSL内）。生成したフォルダで行います。
+場所：開発ホストのターミナル（Windowsは選択したWSL内。PowerShellでは実行しません）。このプロジェクトのフォルダで行います。
 
 [docs/RECOVERY.md](docs/RECOVERY.md)
 

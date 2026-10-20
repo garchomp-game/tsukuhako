@@ -542,7 +542,7 @@
     "Windows native GUI"
   ],
   "generatedDate": "2026-10-21",
-  "packageVersion": "0.4.1",
+  "packageVersion": "0.4.2",
   "statusNote": "Validation applies only to stated local CLI/function scope. VS Code GUI and other listed acceptance work remain NOT_RUN; no universal compatibility guarantee.",
   "finalPackageEvidence": "validation/package-audit.json",
   "previousPackageVersion": "0.2.1",

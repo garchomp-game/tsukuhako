@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "artifact": "7946b0d7d757e7879e5bf2a44282b70e40cd649de432c52b33840a885fa819e0",
+  "guideSha256": "d3e80c23bf49d0507849693a076515fdfd4a8d2910324a72ab7651ca3b32c1a2",
+  "os": "Linux Mint 22.3 x64",
+  "vscode": "1.142.0",
+  "extension": "0.470.0",
+  "template": "F2 0.1.1",
+  "container": "9aef9986e700",
+  "port": 43055,
+  "fileSha256": "c519464d586ca774fbc969aeca14418aa10e837948cf22322317e3c61a5fd43e",
+  "operations": [
+    "Actual final 0.4.2 app: F2 generation into a Japanese folder with an unused port",
+    "Host: doctor-host.sh",
+    "Actual VS Code UI: trust this generated folder and connect to Dev Container",
+    "Actual VS Code integrated terminal: pwd is /workspace; npm run dev; Ready shown",
+    "VS Code editor: change the heading and save",
+    "Browser: changed heading through HMR",
+    "VS Code editor: restore original bytes and save",
+    "Browser: original heading restored"
+  ],
+  "reconnect": "NOT_RUN",
+  "rebuildAfterEdits": "NOT_RUN",
+  "method": "Developer-led actual Linux VS Code UI + browser; not a beginner trial"
+}

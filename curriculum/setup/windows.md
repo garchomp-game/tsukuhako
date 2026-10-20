@@ -36,6 +36,14 @@ docker version
 
 失敗したら、Windows側のDocker Desktopの起動と選択WSLのIntegrationを確認します。WSLに別のEngineを追加する手順へは進みません。WSL内EngineとDesktopが混在する場合は、データを削除せず接続先を整理してください。ツクハコは切替・削除しません。
 
+## S2で不足コマンドが表示された場合
+
+準備チェックの「S2のホスト用 curl の確認」「S2のホスト用 timeout の確認」などで、状態が「未導入」の項目から不足したコマンド名を確認します。bash、curl、tar、sha256sum、awk、sed、timeoutは選択したWSL内で確認しています。PowerShellやDev Container内の導入状況とは別です。
+
+[S2の追加準備](lesson:S2/setup)で、必要なツールと用途・対象OSを確認してください。用意する場所はツクハコの「開発するWSL」で選んだディストリビューションです。そのWSLの通常ユーザーのターミナルで、不足したコマンドをディストリビューションの案内に沿って準備します。ツクハコがOSへ自動インストールすることはありません。
+
+S2の章を読んだら左の「作る画面へ戻る」を押し、構成がS2、開発するWSLが同じ選択であることを確認して「もう一度確認」を押します。このWindows準備章からは「準備チェックへ戻る」で戻れます。教材を読んだだけでは診断結果は変わりません。「確認できない」の場合は未導入と決めつけず、診断理由も確認してください。Dockerの項目は上のDocker Desktop・WSL Integrationの手順で確認します。
+
 ## Windows版VS Code
 
 [VS Code WSLガイド](https://code.visualstudio.com/docs/remote/wsl)に沿ってWindows側へVS Code、WSL拡張、Dev Containers拡張を導入します。生成結果の「VS Codeで開く」は選択distroのフォルダへ接続します。失敗したらVS CodeのWSL接続で同じdistroとLinuxパスを選びます。初回はVS Code Serverの取得に時間がかかります。
