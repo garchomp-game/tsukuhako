@@ -1,0 +1,16 @@
+{
+  "result": "PASS",
+  "beforeHash": "04a4bde056bd5616b352015fa069130ae87f5b5aec48650210da78ebc5dd6df9",
+  "afterRestoreHash": "04a4bde056bd5616b352015fa069130ae87f5b5aec48650210da78ebc5dd6df9",
+  "exercise": {
+    "file": "sql/practice.sql",
+    "before": "SQLの練習",
+    "after": "在庫を調べる",
+    "lesson": "docs/learning.md",
+    "section": "演習1",
+    "result": "再実行するとlesson列が「在庫を調べる」に変わります。",
+    "change": "SELECTの「SQLの練習」を「在庫を調べる」に変えて保存します。保存だけでは結果は変わりません。",
+    "restore": "文字列を「SQLの練習」に戻して保存します。"
+  },
+  "executionType": "REAL_HOST"
+}

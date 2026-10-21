@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "beforeHash": "d44486c7128bf74aa1d9204907441d3bb3e3d6a0754a4abbd1883794d1372b1a",
+  "afterRestoreHash": "d44486c7128bf74aa1d9204907441d3bb3e3d6a0754a4abbd1883794d1372b1a",
+  "exercise": {
+    "file": "app/practice/page.tsx",
+    "before": "ことばを送ってみる",
+    "after": "今日の便り",
+    "lesson": "docs/EXERCISES.md",
+    "section": "第1項",
+    "route": "/practice",
+    "result": "/practiceの見出しが「今日の便り」に変わります。",
+    "change": "見出し「ことばを送ってみる」を「今日の便り」に変えて保存します。",
+    "restore": "見出しを「ことばを送ってみる」に戻して保存します。"
+  },
+  "executionType": "REAL_HOST"
+}

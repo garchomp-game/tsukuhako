@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "ids": [
+    "E01",
+    "E02",
+    "E03",
+    "E04",
+    "E05",
+    "E08"
+  ],
+  "fixture": false,
+  "existingSentinelSha256": "26b709d1e8fd0b9bc95141928256890566d510db8fdda9d99b7b73c9259d8b5c",
+  "notes": [
+    "E04 covers back/recheck before generation; diagnosis cancellation not repeated.",
+    "E05 tests real CLI connection failure through process-local endpoint; does not uninstall/stop the host daemon."
+  ]
+}

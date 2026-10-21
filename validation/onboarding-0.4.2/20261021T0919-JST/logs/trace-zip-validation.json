@@ -1,0 +1,191 @@
+{
+  "result": "PASS",
+  "count": 37,
+  "traces": [
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/S2-prepare-1792543735703-0-trace.zip",
+      "entries": 29,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/recovery-detail-1792544643837-trace.zip",
+      "entries": 35,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/F1-prepare-1792543415721-0-trace.zip",
+      "entries": 31,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/F2-browser-trace-02.zip",
+      "entries": 29,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/S1-exercise-1792543721404-1-trace.zip",
+      "entries": 31,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/recovery-docker-unavailable-trace.zip",
+      "entries": 12,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/B1-exercise-1792543600584-0-trace.zip",
+      "entries": 211,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/F2-code-connect-trace-02.zip",
+      "entries": 374,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/S2-connect-1792543810750-0-trace.zip",
+      "entries": 384,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/I1-exercise-1792544070712-0-trace.zip",
+      "entries": 104,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/F1-exercise-1792543491250-0-trace.zip",
+      "entries": 202,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/S1-connect-1792543655461-0-trace.zip",
+      "entries": 372,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/F2-code-trust-trace.zip",
+      "entries": 82,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/B1-exercise-1792543600584-1-trace.zip",
+      "entries": 12,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/F2-editor-trace.zip",
+      "entries": 5,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/I1-prepare-1792543862993-0-trace.zip",
+      "entries": 29,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/recovery-input-display-trace.zip",
+      "entries": 56,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/S2-exercise-1792543844037-1-trace.zip",
+      "entries": 43,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/B1-connect-1792543543548-0-trace.zip",
+      "entries": 337,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/F1-exercise-1792543491250-1-trace.zip",
+      "entries": 27,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/F2-editor-trace-02.zip",
+      "entries": 227,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/F2-browser-trace.zip",
+      "entries": 8,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/F2-code-onboarding-trace.zip",
+      "entries": 14,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/S2-exercise-1792543844037-0-trace.zip",
+      "entries": 203,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/F2-help-trace.zip",
+      "entries": 25,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/F2-app-trace.zip",
+      "entries": 32,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/I1-exercise-1792543969850-0-trace.zip",
+      "entries": 97,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/B1-prepare-1792543504757-0-trace.zip",
+      "entries": 29,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/F2-relaunch-trace.zip",
+      "entries": 4,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/F2-app-continue-trace.zip",
+      "entries": 8,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/S1-prepare-1792543616659-0-trace.zip",
+      "entries": 30,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/S1-exercise-1792543721404-0-trace.zip",
+      "entries": 211,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/I1-connect-1792543901699-0-trace.zip",
+      "entries": 415,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/F1-connect-1792543459138-0-trace.zip",
+      "entries": 256,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/F2-code-connect-trace.zip",
+      "entries": 430,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/trial/browser-trace.zip",
+      "entries": 5,
+      "result": "PASS"
+    },
+    {
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/trial/app-trace.zip",
+      "entries": 5,
+      "result": "PASS"
+    }
+  ]
+}

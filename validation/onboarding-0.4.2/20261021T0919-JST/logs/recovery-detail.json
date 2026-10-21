@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "attempt": "recovery-detail-1792544643837",
+  "warning": "起動前に確認する項目があります。\napp 40005: 使用中または確認不可 詳細設定で別の未使用ポートを選んでください。\n保存先・ポートを見直す",
+  "layout": {
+    "innerWidth": 430,
+    "innerHeight": 400,
+    "outerScroll": 386,
+    "pageWidth": 422,
+    "reader": {
+      "width": 415,
+      "height": 280,
+      "scrollTop": 1044
+    },
+    "code": {
+      "width": 377,
+      "scrollWidth": 377
+    }
+  },
+  "note": "Real Electron zoom set through observation API. Outer document, reader and code block scroll independently. No product CSS or IPC modified."
+}

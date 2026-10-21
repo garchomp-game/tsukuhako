@@ -1,0 +1,47 @@
+{
+  "checkedAt": "2026-10-21T10:11:38+09:00",
+  "commands": {
+    "qemu-system-x86_64": {
+      "available": false,
+      "path": ""
+    },
+    "virsh": {
+      "available": false,
+      "path": ""
+    },
+    "virt-install": {
+      "available": false,
+      "path": ""
+    },
+    "virt-manager": {
+      "available": false,
+      "path": ""
+    },
+    "VBoxManage": {
+      "available": false,
+      "path": ""
+    }
+  },
+  "kvmReadableWritable": true,
+  "sudoNonInteractive": {
+    "code": 1,
+    "stderr": "sudo: a password is required"
+  },
+  "knownImageDirectories": [
+    {
+      "path": "/var/lib/libvirt/images",
+      "exists": false
+    },
+    {
+      "path": "/home/garchomp-game/VirtualBox VMs",
+      "exists": false
+    },
+    {
+      "path": "/home/garchomp-game/.local/share/libvirt/images",
+      "exists": false
+    }
+  ],
+  "initialImageSearch": "Initial inventory also found no usable VM images. No separate clean machine was provided.",
+  "result": "BLOCKED",
+  "reason": "No hypervisor executable / prepared VM; noninteractive sudo requires password. Host Docker/Code retained."
+}

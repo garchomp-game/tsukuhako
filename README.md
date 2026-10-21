@@ -4,6 +4,8 @@
 
 0.4.1レビューの3件を修正しました。変更点とエビデンスは [REPORT.md](REPORT.md)、確認範囲は [TEST-RESULTS.md](TEST-RESULTS.md) を参照してください。
 
+2026-10-21のLinux初回操作を追加取得しました。[短い取得レポート](validation/onboarding-0.4.2/20261021T0919-JST/REPORT.md) / [操作別INDEX](validation/onboarding-0.4.2/20261021T0919-JST/INDEX.md)。同じ0.4.2配布物でF2の連続録画、6構成の実起動・変更・復元、再接続・Rebuildを確認し、VM導入と未実施項目を分けています。
+
 ソース管理先は [garchomp-game/tsukuhako](https://github.com/garchomp-game/tsukuhako)（private）。完了した変更をpushし、簡潔なレポートとエビデンスを渡します。ソース一式のレビューZIPは別途依頼があった場合だけ作成します。
 
 - Linux実行版はローカルの `dist/tsukuhako-linux-x64-0.4.2.tar.gz`。展開して `tsukuhako` を通常ユーザーで起動します。利用者側のNodeは不要です。

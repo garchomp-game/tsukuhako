@@ -1,0 +1,6 @@
+{
+  "containerId": "b4fd89a5377f",
+  "extension": "ms-vscode-remote.remote-containers@0.469.0",
+  "sourceHash": "c519464d586ca774fbc969aeca14418aa10e837948cf22322317e3c61a5fd43e",
+  "cache": "Existing Docker/build cache; new dependency volume; fresh Marketplace extension. npm ci completion awaited after initial next-not-found."
+}

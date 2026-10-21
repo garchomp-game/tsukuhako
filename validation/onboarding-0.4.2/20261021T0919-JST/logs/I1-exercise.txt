@@ -1,0 +1,21 @@
+{"id":"I1-editor-change","time":"2026-10-21T09:52:52+09:00","status":"PASS","executionType":"REAL_HOST","interaction":"AUTOMATED","action":"VS Codeで教材指定の一か所を変更して保存","expected":"sql/practice.sql を変更","actual":"sql/practice.sql を変更","place":"Linux Mint host / dedicated Xephyr X11 desktop","screenshot":"attempts/I1-exercise-1792543969850/screenshots/I1-editor-change.png","video":{"path":"/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/I1-main.mp4","offsetSeconds":109.08},"template":"I1","attempt":"I1-exercise-1792543969850"}
+{"id":"I1-exercise-failure","time":"2026-10-21T09:52:53+09:00","status":"FAIL","executionType":"REAL_HOST","interaction":"AUTOMATED","action":"失敗時の到達点を保存","expected":"Error: locator.focus: Error: strict mode violation: locator('.terminal-wrapper.active .xterm-helper-textarea') resolved to 2 elements:\n    1) <textarea tabindex=\"0\" autocorrect=\"off\" autocomplete=\"off\" spellcheck=\"false\" autocapitalize=\"off\" aria-multiline=\"false\" class=\"xterm-helper-textarea\" aria-label=\"Terminal 2, bash↵Run the command: Toggle Screen Reader Accessibility Mode for an optimized screen reader experience↵Use Shift+Alt+F1 for terminal accessibility help\"></textarea> aka getByRole('textbox', { name: 'Terminal 2, bash Run the' })\n    2) <textarea tabindex=\"0\" autocorrect=\"off\" autocomplete=\"off\" spellcheck=\"false\" autocapitalize=\"off\" aria-multiline=\"false\" aria-label=\"Terminal input\" class=\"xterm-helper-textarea\"></textarea> aka getByRole('textbox', { name: 'Terminal input' })\n\nCall log:\n\u001b[2m  - waiting for locator('.terminal-wrapper.active .xterm-helper-textarea')\u001b[22m\n","actual":"Error: locator.focus: Error: strict mode violation: locator('.terminal-wrapper.active .xterm-helper-textarea') resolved to 2 elements:\n    1) <textarea tabindex=\"0\" autocorrect=\"off\" autocomplete=\"off\" spellcheck=\"false\" autocapitalize=\"off\" aria-multiline=\"false\" class=\"xterm-helper-textarea\" aria-label=\"Terminal 2, bash↵Run the command: Toggle Screen Reader Accessibility Mode for an optimized screen reader experience↵Use Shift+Alt+F1 for terminal accessibility help\"></textarea> aka getByRole('textbox', { name: 'Terminal 2, bash Run the' })\n    2) <textarea tabindex=\"0\" autocorrect=\"off\" autocomplete=\"off\" spellcheck=\"false\" autocapitalize=\"off\" aria-multiline=\"false\" aria-label=\"Terminal input\" class=\"xterm-helper-textarea\"></textarea> aka getByRole('textbox', { name: 'Terminal input' })\n\nCall log:\n\u001b[2m  - waiting for locator('.terminal-wrapper.active .xterm-helper-textarea')\u001b[22m\n","place":"Linux Mint host / dedicated Xephyr X11 desktop","screenshot":"attempts/I1-exercise-1792543969850/screenshots/I1-exercise-failure.png","video":{"path":"/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/I1-main.mp4","offsetSeconds":109.91},"template":"I1","attempt":"I1-exercise-1792543969850"}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.focus: Error: strict mode violation: locator('.terminal-wrapper.active .xterm-helper-textarea') resolved to 2 elements:
+    1) <textarea tabindex="0" autocorrect="off" autocomplete="off" spellcheck="false" autocapitalize="off" aria-multiline="false" class="xterm-helper-textarea" aria-label="Terminal 2, bash↵Run the command: Toggle Screen Reader Accessibility Mode for an optimized screen reader experience↵Use Shift+Alt+F1 for terminal accessibility help"></textarea> aka getByRole('textbox', { name: 'Terminal 2, bash Run the' })
+    2) <textarea tabindex="0" autocorrect="off" autocomplete="off" spellcheck="false" autocapitalize="off" aria-multiline="false" aria-label="Terminal input" class="xterm-helper-textarea"></textarea> aka getByRole('textbox', { name: 'Terminal input' })
+
+Call log:
+  - waiting for locator('.terminal-wrapper.active .xterm-helper-textarea')
+
+    at terminal (/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/tools/onboarding-evidence.mjs:38:345)
+    at async file:///home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/tools/onboarding-template.mjs:38:17 {
+  log: [
+    "  - waiting for locator('.terminal-wrapper.active .xterm-helper-textarea')"
+  ]
+}
+
+Node.js v24.19.0

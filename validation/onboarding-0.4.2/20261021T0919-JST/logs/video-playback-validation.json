@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "video": {
+    "duration": 1104.5,
+    "currentTime": 795.888967,
+    "readyState": 4,
+    "width": 1600,
+    "height": 900,
+    "error": null
+  },
+  "screenshot": "screenshots/QA-video-F2-1792544722467.png",
+  "file": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/F2-main.mp4",
+  "seek": 794.38
+}

@@ -1,0 +1,9 @@
+{
+  "bin": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/受取物/tsukuhako-linux-x64-0.4.2/tsukuhako",
+  "destination": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/projects/F2 日本語 はじめの練習",
+  "port": 35409,
+  "folder": "F2 日本語 はじめの練習",
+  "productCommit": "247174a2827a7f88b862571bee9046e718584d58",
+  "sourceHash": "c519464d586ca774fbc969aeca14418aa10e837948cf22322317e3c61a5fd43e",
+  "templateVersion": "0.1.1"
+}

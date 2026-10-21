@@ -1,0 +1,24 @@
+Script started on 2026-10-21 09:51:08+09:00 [COMMAND="bash --noprofile --norc" TERM="xterm-256color" TTY="/dev/pts/10" COLUMNS="80" LINES="24"]
+bash-5.2$
+
+bash-5.2$ pwd; bash scripts/doctor.sh; echo CHECK_EXIT=$?
+
+/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/projects/I1 日本語 起動の記録
+PASS: Docker / Compose / 設定
+project: otoka-i1-4132650228
+host: 127.0.0.1:41023
+container: db:5432
+ホスト Node.js/npm/psql は不要です。起動時の port already allocated は docs/troubleshooting.md へ。
+CHECK_EXIT=0
+bash-5.2$ bash scripts/project.sh stop; echo STOP_EXIT=$?
+
+[+] stop 0/1
+ ⠋ Container otoka-i1-4132650228-app-1 Stopping                                                                                                                                                 0.1s
+[+] stop 1/2
+ ✔ Container otoka-i1-4132650228-app-1 Stopped                                                                                                                                                  0.1s
+ ⠋ Container otoka-i1-4132650228-db-1  Stopping                                                                                                                                                 0.1s
+[+] stop 2/2
+
+ ✔ Container otoka-i1-4132650228-db-1  Stopped                                                                                                                                                  0.1s
+STOP_EXIT=0
+bash-5.2$

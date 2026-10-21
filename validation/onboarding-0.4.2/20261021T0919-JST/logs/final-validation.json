@@ -1,0 +1,35 @@
+{
+  "syntax": {
+    "nodeScripts": 16,
+    "bashScripts": 1,
+    "result": "PASS"
+  },
+  "productSourceUnchangedSince": "247174a2827a7f88b862571bee9046e718584d58",
+  "scope": "No product tests rerun. Packaged build and six real project workflows validated separately.",
+  "result": "PASS",
+  "markdownLinks": {
+    "documents": 10,
+    "localLinks": 905,
+    "broken": 0
+  },
+  "archive": {
+    "bytes": 123927962,
+    "sha256": "7946b0d7d757e7879e5bf2a44282b70e40cd649de432c52b33840a885fa819e0",
+    "unchanged": true
+  },
+  "sceneOffsets": {
+    "checked": 167,
+    "valid": true
+  },
+  "media": {
+    "videos": 12,
+    "traces": 37,
+    "splitParts": 4,
+    "allLocalFilesExist": true
+  },
+  "secretPatternScan": {
+    "files": 172,
+    "matches": 0
+  },
+  "captureScriptCommit": "9fd99e45efd43025274bd57e81efc72c22257077"
+}

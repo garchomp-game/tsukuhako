@@ -1,0 +1,21 @@
+Script started on 2026-10-21 09:43:41+09:00 [COMMAND="bash --noprofile --norc" TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="80" LINES="24"]
+bash-5.2$
+
+bash-5.2$ pwd; bash scripts/doctor-host.sh; echo CHECK_EXIT=$?
+
+/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/projects/F1 日本語 起動の記録
+診断OK: otoka-f1-2892242950 / http://localhost:34429
+/dev/nvme0n1p2  468G  147G  298G  34% /
+容量不足なら不要な自分の試行資源を確認してください。全体pruneは行いません。
+CHECK_EXIT=0
+bash-5.2$ bash scripts/compose.sh stop; echo STOP_EXIT=$?
+
+診断OK: otoka-f1-2892242950 / http://localhost:34429
+/dev/nvme0n1p2  468G  148G  297G  34% /
+容量不足なら不要な自分の試行資源を確認してください。全体pruneは行いません。
+[+] stop 0/1
+ ⠋ Container otoka-f1-2892242950-app-1 Stopping                                                                                                                                                 0.1s
+[+] stop 1/1
+ ✔ Container otoka-f1-2892242950-app-1 Stopped                                                                                                                                                  0.2s
+STOP_EXIT=0
+bash-5.2$

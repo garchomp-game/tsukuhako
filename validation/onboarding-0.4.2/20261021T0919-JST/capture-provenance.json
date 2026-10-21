@@ -1,0 +1,19 @@
+{
+  "productCommit": "247174a2827a7f88b862571bee9046e718584d58",
+  "captureBaseCommit": "af69a545fe661e92020bfe96453cf02f1a5e3a58",
+  "rawMedia": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media",
+  "mainProfile": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/xdg-config/tsukuhako",
+  "editorIsolation": "PATH code wrapper adds only dedicated user-data-dir/extensions-dir/CDP port; every invoked argument logged. Real /usr/bin/code, no success mocking.",
+  "normalEntry": "Nemo extracts archive and launches actual ELF without arguments. Instrumented continuation reopens same profile with remote-debugging-port=9430; explicitly recorded.",
+  "finalCaptureCommit": "9fd99e45efd43025274bd57e81efc72c22257077",
+  "evidenceCommit": "The commit that first contains INDEX.md and this evidence directory; see immutable link in final delivery.",
+  "scriptsEvolvedDuringCapture": true,
+  "scriptNotes": "af69a54 was the initial helpers snapshot. Final tools include capture-time fixes and reviewed rerun improvements (explicit postCreate wait, native terminal focus, heading scroll and nonzero reading wait). Attempt capture-source.json files preserve available per-phase hashes; final tools commit is not claimed to have produced every earlier failed take.",
+  "productChangedDuringCapture": false,
+  "privateRaw": [
+    "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-private/M14c.png",
+    "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/F2-main.mp4",
+    "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/F2-code-trust-trace.zip"
+  ],
+  "finalCaptureUrl": "https://github.com/garchomp-game/tsukuhako/commit/9fd99e45efd43025274bd57e81efc72c22257077"
+}

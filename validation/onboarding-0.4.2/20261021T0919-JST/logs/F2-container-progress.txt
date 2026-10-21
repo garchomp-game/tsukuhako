@@ -1,0 +1,96 @@
+File
+Edit
+Selection
+View
+Go
+Run
+Terminal
+[TSUKUHAKO evidence] - workspace [Dev Container: ツクハコ F2] - Visual Studio Code
+Open in Agents
+Sign In
+Explorer
+workspace [Dev Container: ツクハコ F2]
+.devcontainer
+.github
+.vscode
+app
+docs
+node_modules
+scripts
+tests
+.dockerignore
+.env
+.env.example
+.gitattributes
+.gitignore
+.npmrc
+.nvmrc
+CHANGELOG.md
+compose.yaml
+eslint.config.mjs
+LICENSE-NOTES.md
+next-env.d.ts
+next.config.ts
+package-lock.json
+package.json
+playwright.config.ts
+postcss.config.mjs
+README.md
+START_HERE.md
+tsconfig.json
+VALIDATION.md
+VERSION.json
+Outline
+Timeline
+Open Chat
+Ctrl
++
+Alt
++
+I
+Show All Commands
+Ctrl
++
+Shift
++
+P
+Start Debugging
+F5
+Problems
+Output
+Debug Console
+Terminal
+Ports
+[14471 ms]
+[14471 ms]
+[14472 ms] Start: Run in container: # Cleaning up git config
+[14478 ms]
+[14478 ms]
+[14479 ms] Start: Run: git config --global --get gpg.ssh.allowedSignersFile
+[14483 ms] Start: Run in container: command -v git >/dev/null 2>&1 && git c
+onfig --global --replace-all credential.helper '!f() { /home/node/.vscode-s
+erver/bin/6d62b1d5dace93a33b3a6d3eca1317bd5e15bcb1/node /tmp/vscode-remote-
+containers-3bbfe9ba-75a5-43c6-b91b-d049e5d5d69b.js git-credential-helper $*
+; }; f' || true
+[14484 ms]
+[14484 ms]
+
+ Configuring...
+ bash
+ Dev Containers
+Chat
+Build with Agent
+
+AI responses may be inaccurate
+
+Generate Agent Instructions to onboard AI onto your codebase.
+
+Agent
+Models
+Local
+Default permissions
+ Dev Container: ツクハコ F2
+ 0
+ 0
+ 1
+Info: Connecting to Dev Container (show log): Starting server

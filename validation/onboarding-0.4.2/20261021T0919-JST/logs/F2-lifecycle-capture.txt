@@ -1,0 +1,20 @@
+{"id":"M23-stop","time":"2026-10-21T09:39:29+09:00","status":"PASS","executionType":"REAL_HOST","interaction":"AUTOMATED","action":"VS Codeを閉じ、ホストでcompose.sh stop","expected":"このF2だけ停止。ソースとvolumeを保持","actual":"このF2だけ停止。ソースとvolumeを保持","place":"Linux Mint host / dedicated Xephyr X11 desktop","screenshot":"screenshots/M23-stop.png","video":{"path":"/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/F2-main.mp4","offsetSeconds":972.08}}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.click: Timeout 15000ms exceeded.
+Call log:
+  - waiting for locator('.quick-input-widget a').filter({ hasText: /^Dev Containers: Reopen in Container$/ }).first()
+    - locator resolved to <a class="label-name">…</a>
+
+    at palette (/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/tools/onboarding-evidence.mjs:37:345)
+    at async file:///home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/tools/onboarding-f2-lifecycle.mjs:7:233 {
+  log: [
+    "  - waiting for locator('.quick-input-widget a').filter({ hasText: /^Dev Containers: Reopen in Container$/ }).first()",
+    '    - locator resolved to <a class="label-name">…</a>'
+  ],
+  name: 'TimeoutError'
+}
+
+Node.js v24.19.0

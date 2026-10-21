@@ -1,0 +1,33 @@
+{"id":"M15-command-02","time":"2026-10-21T09:31:54+09:00","status":"PASS","executionType":"REAL_HOST","interaction":"AUTOMATED","action":"コマンドパレットでReopen in Containerを選択","expected":"RebuildではなくReopen in Containerの行を選ぶ","actual":"RebuildではなくReopen in Containerの行を選ぶ","place":"Linux Mint host / dedicated Xephyr X11 desktop","screenshot":"screenshots/M15-command-02.png","video":{"path":"/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/F2-main.mp4","offsetSeconds":517.31}}
+{"id":"M15-progress-02","time":"2026-10-21T09:31:56+09:00","status":"PASS","executionType":"REAL_HOST","interaction":"AUTOMATED","action":"初回の接続・ビルドを待つ","expected":"既存Dockerキャッシュを保持し、新しいコンテナと依存領域を準備","actual":"既存Dockerキャッシュを保持し、新しいコンテナと依存領域を準備","place":"Linux Mint host / dedicated Xephyr X11 desktop","screenshot":"screenshots/M15-progress-02.png","video":{"path":"/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/F2-main.mp4","offsetSeconds":519.68}}
+{"id":"M16","time":"2026-10-21T09:32:09+09:00","status":"PASS","executionType":"REAL_HOST","interaction":"AUTOMATED","action":"接続表示とコンテナ内pwdを確認","expected":"Dev Container: ツクハコ F2 / /workspace","actual":"Dev Container: ツクハコ F2 / /workspace","place":"Linux Mint host / dedicated Xephyr X11 desktop","screenshot":"screenshots/M16.png","video":{"path":"/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/F2-main.mp4","offsetSeconds":533.01},"elapsedMs":15990}
+{"id":"F2-code-capture-error-02","time":"2026-10-21T09:35:09+09:00","status":"FAIL","executionType":"REAL_HOST","interaction":"AUTOMATED","action":"接続撮影の失敗状態を保存","expected":"Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 0\n\nCall Log:\n- Timeout 180000ms exceeded while waiting on the predicate","actual":"Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 0\n\nCall Log:\n- Timeout 180000ms exceeded while waiting on the predicate","place":"Linux Mint host / dedicated Xephyr X11 desktop","screenshot":"screenshots/F2-code-capture-error-02.png","video":{"path":"/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/F2-main.mp4","offsetSeconds":712.95}}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+ExpectError: expect(received).toBe(expected) // Object.is equality
+
+Expected: 200
+Received: 0
+
+Call Log:
+- Timeout 180000ms exceeded while waiting on the predicate
+    at captureRawStack (/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/tools/node_modules/playwright-core/lib/coreBundle.js:9282:17)
+    at callMatcherAsStep (/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/tools/node_modules/playwright/lib/matchers/expect.js:13316:57)
+    at Object.toBe (/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/tools/node_modules/playwright/lib/matchers/expect.js:13308:23)
+    at /home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/tools/onboarding-f2-code.mjs:6:147 {
+  matcherResult: {
+    pass: false,
+    message: 'expect(received).toBe(expected) // Object.is equality\n' +
+      '\n' +
+      'Expected: 200\n' +
+      'Received: 0\n' +
+      '\n' +
+      'Call Log:\n' +
+      '- Timeout 180000ms exceeded while waiting on the predicate',
+    name: 'toBe'
+  }
+}
+
+Node.js v24.19.0

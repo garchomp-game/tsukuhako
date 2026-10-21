@@ -1,0 +1,98 @@
+File
+Edit
+Selection
+View
+Go
+Run
+Terminal
+[TSUKUHAKO evidence] - workspace [Dev Container: ツクハコ S2] - Visual Studio Code
+Open in Agents
+Sign In
+Explorer
+workspace [Dev Container: ツクハコ S2]
+.cache
+.devcontainer
+.github
+.local
+.vscode
+app
+docs
+lib
+node_modules
+scripts
+supabase
+tests
+.dockerignore
+.env
+.env.example
+.env.local
+.gitattributes
+.gitignore
+.npmrc
+.nvmrc
+CHANGELOG.md
+compose.yaml
+eslint.config.mjs
+LICENSE-NOTES.md
+next-env.d.ts
+next.config.ts
+package-lock.json
+package.json
+playwright.config.ts
+postcss.config.mjs
+README.md
+START_HERE.md
+tsconfig.json
+Outline
+Timeline
+Open Chat
+Ctrl
++
+Alt
++
+I
+Show All Commands
+Ctrl
++
+Shift
++
+P
+Toggle Terminal
+Ctrl
++
+`
+Problems
+Output
+Debug Console
+Terminal
+Ports
+Configuring...
+added 363 packages in 10s
+npm warn allow-scripts 1 package has install scripts not yet covered by allowScripts:
+npm warn allow-scripts   unrs-resolver@1.12.2 (postinstall: node postinstall.js)
+npm warn allow-scripts
+npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `n
+pm approve-scripts <pkg>` to allow.
+npm notice
+npm notice New major version of npm available! 11.17.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
+準備完了。npm run dev で開始、npm run check で静的確認します。
+Done. Press any key to close the terminal.
+Chat
+Build with Agent
+
+AI responses may be inaccurate
+
+Generate Agent Instructions to onboard AI onto your codebase.
+
+Agent
+Models
+Local
+Default permissions
+ Dev Container: ツクハコ S2
+ 0
+ 0
+ 1
+Info: Connecting to Dev Container (show log): Starting server

@@ -1,0 +1,8 @@
+{
+  "result": "PASS",
+  "file": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/projects/F2 日本語 はじめの練習/app/page.tsx",
+  "url": "http://localhost:35409/",
+  "beforeHash": "c519464d586ca774fbc969aeca14418aa10e837948cf22322317e3c61a5fd43e",
+  "afterRestoreHash": "c519464d586ca774fbc969aeca14418aa10e837948cf22322317e3c61a5fd43e",
+  "method": "VS Code native editor Find/Replace + Save; browser HMR observed"
+}

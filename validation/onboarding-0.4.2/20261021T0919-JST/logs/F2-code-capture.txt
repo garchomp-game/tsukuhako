@@ -1,0 +1,64 @@
+{"id":"M15-command","time":"2026-10-21T09:30:42+09:00","status":"PASS","executionType":"REAL_HOST","interaction":"AUTOMATED","action":"コマンドパレットでReopen in Containerを選択","expected":"RebuildではなくReopen in Containerの行を選ぶ","actual":"RebuildではなくReopen in Containerの行を選ぶ","place":"Linux Mint host / dedicated Xephyr X11 desktop","screenshot":"screenshots/M15-command.png","video":{"path":"/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/F2-main.mp4","offsetSeconds":445.64}}
+{"id":"F2-code-capture-error","time":"2026-10-21T09:30:58+09:00","status":"FAIL","executionType":"REAL_HOST","interaction":"AUTOMATED","action":"接続撮影の失敗状態を保存","expected":"TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.quick-input-widget a').filter({ hasText: /^Dev Containers: Reopen in Container$/ })\u001b[22m\n\u001b[2m    - locator resolved to <a class=\"label-name\">…</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <p>Open any folder or repository inside a Docker con…</p> from <div class=\"context-view monaco-component top left\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <p>Open any folder or repository inside a Docker con…</p> from <div class=\"context-view monaco-component top left\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    28 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <p>Open any folder or repository inside a Docker con…</p> from <div class=\"context-view monaco-component top left\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n","actual":"TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.quick-input-widget a').filter({ hasText: /^Dev Containers: Reopen in Container$/ })\u001b[22m\n\u001b[2m    - locator resolved to <a class=\"label-name\">…</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <p>Open any folder or repository inside a Docker con…</p> from <div class=\"context-view monaco-component top left\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <p>Open any folder or repository inside a Docker con…</p> from <div class=\"context-view monaco-component top left\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    28 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is visible, enabled and stable\u001b[22m\n\u001b[2m       - scrolling into view if needed\u001b[22m\n\u001b[2m       - done scrolling\u001b[22m\n\u001b[2m       - <p>Open any folder or repository inside a Docker con…</p> from <div class=\"context-view monaco-component top left\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n","place":"Linux Mint host / dedicated Xephyr X11 desktop","screenshot":"screenshots/F2-code-capture-error.png","video":{"path":"/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/F2-main.mp4","offsetSeconds":461.46}}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.click: Timeout 15000ms exceeded.
+Call log:
+  - waiting for locator('.quick-input-widget a').filter({ hasText: /^Dev Containers: Reopen in Container$/ })
+    - locator resolved to <a class="label-name">…</a>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <p>Open any folder or repository inside a Docker con…</p> from <div class="context-view monaco-component top left">…</div> subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <p>Open any folder or repository inside a Docker con…</p> from <div class="context-view monaco-component top left">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    28 × waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - <p>Open any folder or repository inside a Docker con…</p> from <div class="context-view monaco-component top left">…</div> subtree intercepts pointer events
+     - retrying click action
+       - waiting 500ms
+
+    at /home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/tools/onboarding-f2-code.mjs:4:388 {
+  log: [
+    "  - waiting for locator('.quick-input-widget a').filter({ hasText: /^Dev Containers: Reopen in Container$/ })",
+    '    - locator resolved to <a class="label-name">…</a>',
+    '  - attempting click action',
+    '    2 × waiting for element to be visible, enabled and stable',
+    '      - element is visible, enabled and stable',
+    '      - scrolling into view if needed',
+    '      - done scrolling',
+    '      - <p>Open any folder or repository inside a Docker con…</p> from <div class="context-view monaco-component top left">…</div> subtree intercepts pointer events',
+    '    - retrying click action',
+    '    - waiting 20ms',
+    '    2 × waiting for element to be visible, enabled and stable',
+    '      - element is visible, enabled and stable',
+    '      - scrolling into view if needed',
+    '      - done scrolling',
+    '      - <p>Open any folder or repository inside a Docker con…</p> from <div class="context-view monaco-component top left">…</div> subtree intercepts pointer events',
+    '    - retrying click action',
+    '      - waiting 100ms',
+    '    28 × waiting for element to be visible, enabled and stable',
+    '       - element is visible, enabled and stable',
+    '       - scrolling into view if needed',
+    '       - done scrolling',
+    '       - <p>Open any folder or repository inside a Docker con…</p> from <div class="context-view monaco-component top left">…</div> subtree intercepts pointer events',
+    '     - retrying click action',
+    '       - waiting 500ms'
+  ],
+  name: 'TimeoutError'
+}
+
+Node.js v24.19.0

@@ -1,0 +1,65 @@
+{
+  "observedAt": "2026-10-21T09:21:10+09:00",
+  "os": "NAME=\"Linux Mint\"\nVERSION=\"22.3 (Zena)\"\nID=linuxmint\nID_LIKE=\"ubuntu debian\"\nPRETTY_NAME=\"Linux Mint 22.3\"\nVERSION_ID=\"22.3\"\nHOME_URL=\"https://www.linuxmint.com/\"\nSUPPORT_URL=\"https://forums.linuxmint.com/\"\nBUG_REPORT_URL=\"http://linuxmint-troubleshooting-guide.readthedocs.io/en/latest/\"\nPRIVACY_POLICY_URL=\"https://www.linuxmint.com/\"\nVERSION_CODENAME=zena\nUBUNTU_CODENAME=noble",
+  "kernel": "Linux 7.0.0-31-generic x86_64 GNU/Linux",
+  "hostDesktop": "Cinnamon X11",
+  "hostResolution": "1920x1080",
+  "hostScale": "automatic scaling-factor 0 / text 1.0",
+  "captureDesktop": "Xephyr :91, Metacity, 1600x900, 1x; actual host applications, not a VM",
+  "memory": "total        used        free      shared  buff/cache   available\nMem:           23787        4464        6056          77       13746       19322\nSwap:           2047           0        2047",
+  "disk": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/nvme0n1p2  468G  146G  299G  33% /\n/dev/nvme0n1p2  468G  146G  299G  33% /",
+  "docker": "29.9.1 / 29.9.1",
+  "compose": "Docker Compose version v5.6.0",
+  "code": "1.142.0\n6d62b1d5dace93a33b3a6d3eca1317bd5e15bcb1\nx64",
+  "node": "v24.19.0",
+  "playwright": "1.64.1",
+  "ffmpeg": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+  "packages": "ffmpeg\t7:6.1.1-3ubuntu5\nfile-roller\t43.0+mint1+wilma\nmetacity\t1:3.52.0-1build1\nnemo\t6.6.3+zena\nxdotool\t1:3.20160805.1-5build1\nxserver-xephyr\t2:21.1.12-1ubuntu1.8",
+  "baselineContainers": [
+    {
+      "id": "b531d3443746",
+      "name": "ikiiki-project-hr132-133_devcontainer-db-1",
+      "status": "Up About an hour (healthy)",
+      "startedAt": "2026-10-20T22:56:25.276121169Z"
+    },
+    {
+      "id": "8e9f201539c5",
+      "name": "ikiiki-backend-postgres",
+      "status": "Up About an hour (healthy)",
+      "startedAt": "2026-10-20T22:56:25.275517745Z"
+    }
+  ],
+  "imagesBefore": "vsc-f2.dir-977b5d2efbb5c2edfdaed185bfbf44eb27bd3424046339e99fec8265f7f46cd2-uid:latest 01895f5a4559 590MB\nvsc-f2.dir-c927c4198dc66671bc21822c37bc6cc01a5e6764550692f4b5111a4e0c92f33c-uid:latest eeef49606e35 590MB\nvsc-f1ipc.dirliteral-0fa2586dd71908ee228c8cc05713f7e7645cb556a686b46c16530aebf61816cf-uid:latest 83154753ff4e 590MB\nvsc-f1ipc.dirliteral-8abcd587422c164a1bb3c84c3738e9e47101f3b45f971a2ab8bc0fcee8a9aa73-uid:latest 7c47c243cf56 590MB\nvsc-i1ipc.dirliteral-5902446be9921b45c31f7d7cb0af6674fa5996e7959a76f4575f79461b13e858-uid:latest d95c371d9697 635MB\nvsc-s1ipc.dirliteral-16feaf20af806163491332f714efbc8d1e331931faa888273aebe50545a4a061-uid:latest b0b64d59e731 590MB\nvsc-b1ipc.dirliteral-50e14e8fce417f38cceb0f4ddfcbb1936a2dfecb4c6b2a4844d363a7bcee2818-uid:latest 6318e460d950 590MB\nvsc-f2.dirtouchinjected-e823ec325fd3091bce26a9e37e143926ee525b1fca2a37e65a80a14843d0a1a3-uid:latest 1aeff6ff79e4 590MB\nvsc-s2ipc.dirliteral-c374464c7447c8e09ecb05e5201dc9d43d831a5ff3246c97b1591c52bc43f23e-uid:latest 01d98c6cc0cb 590MB\nvsc-s2-6157a71d140ab7ef9615876b34c71634e07e74c281b5e67736ebd7517c58c86f-uid:latest 081278a5655d 590MB\nvsc-f2-1fc326d731d90728085b877e46f7d5c7cf063802c8f847b96a7ef03da6d7ec1f-uid:latest 835c3ca73426 590MB\nvsc-s2-91fc3d86ca6b43c123c30009eb9bcc37577b2aaeb53467fdf4bc57d56893bcbb-uid:latest b085adc26dc6 590MB\nvsc-f2-47a332be799461b9a54c52f05e36ec4a88d9c3ea428b5ca01e9cb06c1a5771e2-uid:latest 512abbf740e9 590MB\nvsc-f10.1.1-e698b93fa200a413b0e603a319db455c08d999b66857df5e8172724cb52bf1d6-uid:latest be7537315587 590MB\nvsc-s10.1.1-a250681ac484a8875cb46fceecff2b33448987f3bbd2ddc516e0d2776270d220-uid:latest 60dd099c192c 590MB\nvsc-b10.1.12-8ff5f2943da79200fe52961a8b5c06c91c7109bbe77d3670597d51c1c6bbe36b-uid:latest 413af117ff28 590MB\nvsc-b10.1.1-df23ab0fc972b5789138a86d4886749d89e8065856764f1d493df2f7045e3ee0-uid:latest 0b3c6365dad2 590MB\nvsc-s2-83bccd7ff0fe5586c7613e8ee2552b8579481da711d12edfdd28291e171af7c6-uid:latest 088c8cae9f99 590MB\nvsc-s3-45e94745e2f5d10f7ff74594783ae3d7726cafc2b7d03214d907895e932c69bf-uid:latest d2c81470c6fe 590MB\nvsc-i1-85a5778243ca01e8c3d8f795c73c014c7af80bdcb81bb02c1de7b5ac817bb678-uid:latest 6ad7a08e8e14 635MB\nvsc-s1-4f64088a58b0b79cf72ffcec3b7515596a28cd7baf7e2762d8c4782b14856409-uid:latest a7bfdc032a22 590MB\nvsc-b1-2553ab0316738fd01b2428d981a0f37aafd4bf73cff7538855760eb805b484ec-uid:latest bff1af3b9ee6 590MB\nvsc-f2-e86c5a7e6cdb6cc07ca47be31bb5a95f5a0eb8e4260ac6082717c005f1b7c862-uid:latest 244008d3d533 590MB\nvsc-f1-36ac93c0c45c694bfcc11c4eae28b4be9a34944eac0978a34269683b96182056-uid:latest 06ff2b9902f4 590MB\nvsc-f1-2d2365b375110f5409492d9a6f334f0271db7742d5e6d2a773410fe0be8e4fa4-uid:latest baa90d3be002 590MB\nvsc-s3-e7bd900fb9a6e97618e6ac701a7329cc26aaea63bcc396a4df68d063ce9e9e69-uid:latest f8a9587d8283 590MB\nvsc-nextfixture-0b7152d453f0cc665360e0f2952b85777b34df4255e1faf0c17c3846d371ebb6-uid:latest f212103e992f 397MB\notoka-existing-0b7152d453f0-dev:0.1.0 75100ba4ab26 397MB\nvsc-s2-4a36fcbcccb24e35f3bf653a9fb3ef15f89c403dc0119aa19573f0ec1db07801-uid:latest 6474ff540c08 590MB\nvsc-s1-bd1d76a2f3003891c47b231417b693c44c411b48f7d4b1ff4405c68af73d32f6-uid:latest c90c1beddbde 590MB\nvsc-s1-55788e593f6543e5b5f89e7f587ac7002382eb088757d2bef90523ee04d68a70-uid:latest 2b060862b1de 590MB\nvsc-f2-fc6e4a7d1f99fdde182f226199c9d84cf713d63ed02cabaf3bc8abbbe5c61e6a-uid:latest 2db72cd4866d 590MB\nvsc-s2-55de112a978dfdb9a6b20094de8f4a406531a110b313ece9df4a91f4363adc7d-uid:latest 749c3795bda4 590MB\nvsc-b1-cc939532f56a514d3cb7fb2dd0360ef68f716ffa994ea0b475bfc938fe78e57e-uid:latest 756da55875bc 590MB\nvsc-b1-3957c8f0e590a9e89b7d5210a8a812ed25f55d0fa4bd543128294c4c044b9381-uid:latest f62c365ea720 590MB\nvsc-f2-3ba5a49174bb8f147914ff564e48795edfbb0e3a54ac728a00c4455e2f07b370-uid:latest b04f874afed8 590MB\nvsc-i1-2b8b5fb1063f2b2ca5b1f33234c7e8c7263a61ad2e4a7f7fcfddb1e3cbd96ed5-uid:latest e71ed9ea71b1 635MB\nvsc-f1-3a28283c228db74f32ef56da061eccf297ece2456c9e7342edbe2090ba701ca6-uid:latest 4597cf79c22d 590MB\nvsc-i1-652c3db973a1f88b6a9d0b9f85a8bfac81101b281f1167811f164eab88c60565-uid:latest 82418339ea80 635MB\nvsc-f1-d4e7be706e81fd15748bbfb86293d7551074c8895821fe50bf8c2b52f0c68e9f-uid:latest 899a92f00b0e 590MB\nvsc-postgresql-9a080e3432db126092f5aa153bd0c1af83209949bac466213ace7ef0c2a9b624-uid:latest 567eff5c26d9 635MB\notoka-s2-2811127744-dev:0.1.0 6d1da69280fa 590MB\ntsukuhako-030-template-f1:latest a135d540a32a 590MB\notoka-b1-4101260538-dev:0.1.0 f1cb77eef44b 590MB\ntsukuhako-030-template-s3:latest 9359a89fdd45 590MB\notoka-f1-zip-20261020-dev:0.1.0 e50d7f358b33 590MB\notoka-s3-2237852257-dev:0.1.0 9296670337b8 590MB\notoka-s2-brand-3194731225-dev:0.1.0 398ebdd3c944 590MB\notoka-f2-first-246531851-dev:0.1.0 46c49f061293 590MB\notoka-f2-3543580151-dev:0.1.0 489ca55fab82 590MB\notoka-s1-frontend-20261020-dev:0.1.0 710f0b18d69f 590MB\notoka-s2-410292944-dev:0.1.0 07f2af7be9a5 590MB\notoka-s2-2921638882-dev:0.1.0 14fca1f6c914 590MB\notoka-f2-2396081340-dev:0.1.0 81b18b72a3e1 590MB\notoka-f1-frontend-20261020-dev:0.1.0 85d1e73c4158 590MB\notoka-s2-2226800358-dev:0.1.0 17451dd60159 590MB\ntsukuhako-030-template-b1:latest a475a4b65d1d 590MB\notoka-s3-243362404-dev:0.1.0 38b8c95defa2 590MB\notoka-f1-final-1429979559-dev:0.1.0 e366090a3f42 590MB\ntsukuhako-030-template-f2:latest 7c585efffe48 590MB\notoka-f2-3781752660-dev:0.1.0 586fecde9aea 590MB\notoka-s1-final-45562550-dev:0.1.0 f96bee5116da 590MB\notoka-s1-2593372403-dev:0.1.0 ebbe8db1ad7e 590MB\notoka-s2-g020-618952831-dev:0.1.0 d5311131d290 590MB\notoka-f2-final-1465005102-dev:0.1.0 4aab2323d69d 590MB\notoka-f2-2552178844-dev:0.1.0 54fb59be9f64 590MB\notoka-f1-3218016678-dev:0.1.0 bd597c337632 590MB\notoka-f2-1589200076-dev:0.1.0 e53ffaa57302 590MB\notoka-s2-brand-final-3194731225-dev:0.1.0 16117b2e8e80 590MB\ntsukuhako-030-template-s1:latest a84d05d93923 590MB\notoka-s1-zip-20261020-dev:0.1.0 9a240c805064 590MB\notoka-b1-frontend-20261020-dev:0.1.0 0ed7e53d8e21 590MB\notoka-f1-final-1213098503-dev:0.1.0 5fb27e5d2490 590MB\notoka-b1-zip-20261020-dev:0.1.0 bf6950d82f44 590MB\notoka-b1-2857543899-dev:0.1.0 e78ba9ae2e99 590MB\notoka-f1-3186375077-dev:0.1.0 5fc559d772b6 590MB\ntsukuhako-030-template-s2:latest 20d3037e07cb 590MB\notoka-b1-final-701402530-dev:0.1.0 c1c6916f84dc 590MB\notoka-f2-g020-2487092653-dev:0.1.0 863a34e3e42c 590MB\notoka-s1-3434528618-dev:0.1.0 674b79e39ce6 590MB\notoka-b1-3104954418-dev:0.1.0 e56b82b6a350 590MB\notoka-f1-248664013-dev:0.1.0 2f90b042456e 590MB\notoka-i1-2068284011-dev:0.1.0 6e58a9a21bb8 635MB\notoka-i1-1615752074-dev:0.1.0 2010ba1cb8d6 635MB\notoka-i1-validation-598241935-dev:0.1.0 cf552c0c79ec 635MB\notoka-i1-2114039080-dev:0.1.0 56a8a0ee5bed 635MB\notoka-i1-3298638797-dev:0.1.0 2aff8c0ac64f 635MB\notoka-i1-validation-3071882351-dev:0.1.0 ecec5b8505b1 635MB\npublic.ecr.aws/supabase/postgres:17.11.0.004 b15d862126dd 1.7GB\nnode:<none> a5f4366e8346 333MB\npublic.ecr.aws/supabase/studio:2026.10.12-sha-3699278 948770ec467f 1.74GB\npublic.ecr.aws/supabase/postgres-meta:v0.100.0 145325b7e39f 569MB\nvsc-ash-approval-lab-a25c38deb81bc5058c2734082ddba8f89cf986e08c9085fd433237d17c391fbc-uid:latest 5f459b78657b 3.31GB\nash-approval-lab-app:latest 49e0189a9f57 3.31GB\npostgres:<none> afc7e2d44132 642MB\nelixir:1.20.4-otp-28 e0ea48e598d9 2.63GB\npublic.ecr.aws/supabase/gotrue:v2.197.0 1736a63078f5 94.4MB\nvsc-ikiiki-project-hr158-rework-c7ab99fe5b2d30849dd7d80016e6d0cd29e436e9c9d8a0f5bd513d1e585b4be6-uid:latest 35979c921d73 2.38GB\nvsc-ikiiki-project-hr158-standalone-01eb64ee2a49b2c9b425e616a29afbf29c4216c5519b2379534df29dbbe91915-uid:latest c9d2ef071d10 2.38GB\nikiiki-project-hr158-standalone_devcontainer-app:latest 4790ab2c6a25 2.38GB\nikiiki-project-hr158-rework_devcontainer-app:latest 0db7c751efda 2.38GB\nvsc-ikiiki-project-hr132-133-74528679f032517a00924c67b3c53054fabc06e33b26f97984f242b45876bf63-uid:latest 7d7682803686 2.08GB\nvsc-ikiiki-project-dccf26c4c62b8e3f8534faa2db42da086a27be23beb7c0e5952006730eb3a83c-uid:latest e6822f80615c 2.08GB\nikiiki-project_devcontainer-app:latest 87a0757f1285 2.08GB\nikiiki-project-hr132-133_devcontainer-app:latest b329acb42fd0 2.08GB\npostgres:16 e17e86066e5e 642MB\npublic.ecr.aws/supabase/postgrest:v16.4 d155c6718ed9 27.1MB\nnode:26.5.1-slim deae974a69e1 351MB\nnode:26.5.1-bookworm-slim 9e6f9357d371 347MB\npublic.ecr.aws/supabase/kong:2.8.1 1b53405d8680 203MB",
+  "cache": "Existing Docker images and build cache retained; new generated project dependency volumes; dedicated empty Code extensions and user profile for main run. Trial profile separate.",
+  "vm": {
+    "result": "BLOCKED",
+    "kvmAccess": true,
+    "resourceAvailable": true,
+    "hypervisorsInstalled": [],
+    "existingVmImages": [],
+    "reason": "No qemu/libvirt/VirtualBox executables or existing VM images found. sudo -n requires interactive password; no new OS package installation attempted.",
+    "evidence": "logs/vm-readiness.json"
+  },
+  "addedTools": [
+    {
+      "name": "Dev Containers extension",
+      "version": "0.469.0",
+      "scope": "dedicated Code extension directory",
+      "reason": "Case B actual first install via Marketplace UI"
+    },
+    {
+      "name": "Supabase CLI",
+      "version": "2.121.0",
+      "scope": "S2 generated project .cache only",
+      "reason": "Bundled db.sh start fetched checksum-pinned CLI"
+    }
+  ],
+  "extension": {
+    "host": "ms-vscode-remote.remote-containers@0.470.0",
+    "captureProfile": "ms-vscode-remote.remote-containers@0.469.0",
+    "installation": "Fresh Marketplace install, no extension copy",
+    "profile": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/code-profile",
+    "extensions": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/code-extensions"
+  },
+  "additionalQaBrowser": "Trace Viewer CLI auto-opened Firefox on the dedicated display; QA screenshots/video playback used the dedicated Chrome CDP session. That task-owned Firefox process was closed during cleanup."
+}

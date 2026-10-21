@@ -1,0 +1,87 @@
+File
+Edit
+Selection
+View
+Go
+Run
+Terminal
+[TSUKUHAKO evidence] practice.sql - workspace [Dev Container: I1 PostgreSQL workbench] - Visual Studio Code
+Open in Agents
+Sign In
+Explorer
+workspace [Dev Container: I1 PostgreSQL workbench]
+.devcontainer
+.github
+docs
+migrations
+scripts
+sql
+practice.sql
+seed.sql
+tests
+.dockerignore
+.env
+.env.example
+.gitattributes
+.gitignore
+compose.yaml
+README.md
+START_HERE.md
+template.json
+VERSION
+Outline
+Timeline
+practice.sql
+sql
+practice.sql
+1
+2
+3
+4
+5
+-- Change the label, save, and run: bash scripts/db.sh query sql/practice.sql
+SELECT '在庫を調べる' AS lesson, code, name, quantity
+FROM public.sample_items
+ORDER BY code;
+No results
+Problems
+Output
+Debug Console
+Terminal
+Ports
+bash
+ SQLの練習 | notebook | 架空のノート |        3
+ SQLの練習 | pencil   | 架空の鉛筆   |        8
+(2 rows)
+vscode@b1ea979d084c:/workspace$ lear; bash scripts/db.sh query sql/practice.sql
+bash: lear: command not found
+    lesson    |   code   |     name     | quantity
+--------------+----------+--------------+----------
+ 在庫を調べる | notebook | 架空のノート |        3
+ 在庫を調べる | pencil   | 架空の鉛筆   |        8
+(2 rows)
+vscode@b1ea979d084c:/workspace$
+vscode@b1ea979d084c:/workspace$ pwd; bash scripts/db.sh setup && bash scripts/db.sh check
+&& bash scripts/db.sh query sql/practice.sql
+Chat
+Build with Agent
+
+AI responses may be inaccurate
+
+Generate Agent Instructions to onboard AI onto your codebase.
+
+practice.sql
+Agent
+Models
+Local
+Default permissions
+ Dev Container: I1 PostgreSQL workbench
+ 0
+ 0
+ 0
+MS SQL
+LF
+UTF-8
+Spaces: 4
+Ln 2, Col 15
+No results found for 'SQLの練習'

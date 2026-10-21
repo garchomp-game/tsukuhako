@@ -1,0 +1,19 @@
+Script started on 2026-10-21 09:28:01+09:00 [COMMAND="bash --noprofile --norc" TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="80" LINES="24"]
+bash-5.2$ p
+
+bash-5.2$ pwd; bash scripts/doctor-host.sh
+
+/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/projects/F2 日本語 はじめの練習
+診断OK: otoka-f2-3379172573 / http://localhost:35409
+/dev/nvme0n1p2  468G  146G  299G  33% /
+容量不足なら不要な自分の試行資源を確認してください。全体pruneは行いません。
+bash-5.2$ bash scripts/compose.sh stop
+
+診断OK: otoka-f2-3379172573 / http://localhost:35409
+/dev/nvme0n1p2  468G  147G  298G  34% /
+容量不足なら不要な自分の試行資源を確認してください。全体pruneは行いません。
+[+] stop 0/1
+ ⠋ Container otoka-f2-3379172573-app-1 Stopping                                                                                                                                                 0.1s
+[+] stop 1/1
+ ✔ Container otoka-f2-3379172573-app-1 Stopped                                                                                                                                                  0.1s
+bash-5.2$

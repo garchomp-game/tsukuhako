@@ -1,0 +1,551 @@
+{
+  "time": "2026-10-21T10:10:07+09:00",
+  "result": "PASS",
+  "baselineContainers": [
+    {
+      "id": "b531d3443746",
+      "name": "ikiiki-project-hr132-133_devcontainer-db-1",
+      "running": true,
+      "beforeStartedAt": "2026-10-20T22:56:25.276121169Z",
+      "afterStartedAt": "2026-10-20T22:56:25.276121169Z",
+      "unchanged": true
+    },
+    {
+      "id": "8e9f201539c5",
+      "name": "ikiiki-backend-postgres",
+      "running": true,
+      "beforeStartedAt": "2026-10-20T22:56:25.275517745Z",
+      "afterStartedAt": "2026-10-20T22:56:25.275517745Z",
+      "unchanged": true
+    }
+  ],
+  "runningContainers": "b531d3443746 ikiiki-project-hr132-133_devcontainer-db-1\n8e9f201539c5 ikiiki-backend-postgres",
+  "projects": [
+    {
+      "id": "F1",
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/projects/F1 日本語 起動の記録",
+      "file": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/projects/F1 日本語 起動の記録/src/App.tsx",
+      "sha256": "799b12ed28aa63bce9168c49a70cbc6535a7fbbe604d43a43117fa554a9c7360",
+      "originalSha256": "799b12ed28aa63bce9168c49a70cbc6535a7fbbe604d43a43117fa554a9c7360",
+      "restored": true,
+      "containers": "21d173f60ff3 Exited (143) 25 minutes ago",
+      "projectName": "otoka-f1-2892242950",
+      "port": 34429
+    },
+    {
+      "id": "F2",
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/projects/F2 日本語 はじめの練習",
+      "file": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/projects/F2 日本語 はじめの練習/app/page.tsx",
+      "sha256": "c519464d586ca774fbc969aeca14418aa10e837948cf22322317e3c61a5fd43e",
+      "originalSha256": "c519464d586ca774fbc969aeca14418aa10e837948cf22322317e3c61a5fd43e",
+      "restored": true,
+      "containers": "",
+      "projectName": "otoka-f2-3379172573",
+      "port": 35409
+    },
+    {
+      "id": "B1",
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/projects/B1 日本語 起動の記録",
+      "file": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/projects/B1 日本語 起動の記録/app/api/health/route.ts",
+      "sha256": "9350fa8f310cbc106c9467aaa9e53ecf15436509c4e3bb0efc5412c30e4d3826",
+      "originalSha256": "9350fa8f310cbc106c9467aaa9e53ecf15436509c4e3bb0efc5412c30e4d3826",
+      "restored": true,
+      "containers": "3972fbeae111 Exited (143) 23 minutes ago",
+      "projectName": "otoka-b1-2356820865",
+      "port": 45539
+    },
+    {
+      "id": "S1",
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/projects/S1 日本語 起動の記録",
+      "file": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/projects/S1 日本語 起動の記録/app/practice/page.tsx",
+      "sha256": "d44486c7128bf74aa1d9204907441d3bb3e3d6a0754a4abbd1883794d1372b1a",
+      "originalSha256": "d44486c7128bf74aa1d9204907441d3bb3e3d6a0754a4abbd1883794d1372b1a",
+      "restored": true,
+      "containers": "01ffe99a6776 Exited (143) 21 minutes ago",
+      "projectName": "otoka-s1-1161139217",
+      "port": 44275
+    },
+    {
+      "id": "S2",
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/projects/S2 日本語 起動の記録",
+      "file": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/projects/S2 日本語 起動の記録/app/page.tsx",
+      "sha256": "260c36439fbf0ee0124dc271aeb282f69dd4edda89f8dd5339b8a7ed89adf6ed",
+      "originalSha256": "260c36439fbf0ee0124dc271aeb282f69dd4edda89f8dd5339b8a7ed89adf6ed",
+      "restored": true,
+      "containers": "66a2fa1b6596 Exited (143) About a minute ago",
+      "projectName": "otoka-s2-3690422216",
+      "port": 38277
+    },
+    {
+      "id": "I1",
+      "path": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/projects/I1 日本語 起動の記録",
+      "file": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/projects/I1 日本語 起動の記録/sql/practice.sql",
+      "sha256": "04a4bde056bd5616b352015fa069130ae87f5b5aec48650210da78ebc5dd6df9",
+      "originalSha256": "04a4bde056bd5616b352015fa069130ae87f5b5aec48650210da78ebc5dd6df9",
+      "restored": true,
+      "containers": "b1ea979d084c Exited (130) 15 minutes ago",
+      "projectName": "otoka-i1-4132650228",
+      "port": 41023
+    }
+  ],
+  "retainedVolumes": [
+    "otoka-b1-2356820865_dependencies",
+    "otoka-b1-2356820865_npm-cache",
+    "otoka-f1-2892242950_dependencies",
+    "otoka-f1-2892242950_npm-cache",
+    "otoka-f2-3379172573_dependencies",
+    "otoka-f2-3379172573_npm-cache",
+    "otoka-i1-4132650228_pgdata",
+    "otoka-s1-1161139217_dependencies",
+    "otoka-s1-1161139217_npm-cache",
+    "otoka-s2-3690422216_dependencies",
+    "otoka-s2-3690422216_npm-cache",
+    "supabase_db_otoka-s2-3690422216"
+  ],
+  "stoppedProcesses": [
+    {
+      "pid": 144841,
+      "exe": "nemo",
+      "args": [
+        "--no-desktop",
+        "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/trial"
+      ],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 145086,
+      "exe": "/usr/share/code/chrome_crashpad_handler",
+      "args": [
+        "--monitor-self-annotation=ptype=crashpad-handler",
+        "--no-rate-limit",
+        "--database=/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/trial/code/Crashpad",
+        "--url=appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=ebb4adc5-87b2-480a-9697-442bf56a606d&iid=ebb4adc5-87b2-480a-9697-442bf56a606d&sid=ebb4adc5-87b2-480a-9697-442bf56a606d",
+        "--annotation=_companyName=Microsoft",
+        "--annotation=_productName=VSCode",
+        "--annotation=_version=1.142.0"
+      ],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 146247,
+      "exe": "dconf",
+      "args": [
+        "watch",
+        "/system/proxy/"
+      ],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 147984,
+      "exe": "node",
+      "args": [
+        "tools/node_modules/playwright/cli.js",
+        "show-trace",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "9433",
+        "validation/onboarding-0.4.2/20261021T0919-JST/runs/trial/app-trace.zip"
+      ],
+      "basis": "exact run path",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 158174,
+      "exe": "/usr/libexec/gnome-terminal-server",
+      "args": [],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 158183,
+      "exe": "script",
+      "args": [
+        "-q",
+        "-f",
+        "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/logs/M13-host-final.typescript",
+        "-c",
+        "bash --noprofile --norc"
+      ],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 158184,
+      "exe": "bash",
+      "args": [
+        "--noprofile",
+        "--norc"
+      ],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 172161,
+      "exe": "cat",
+      "args": [],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 172162,
+      "exe": "cat",
+      "args": [],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 172164,
+      "exe": "/opt/google/chrome/chrome_crashpad_handler",
+      "args": [
+        "--monitor-self",
+        "--monitor-self-annotation=ptype=crashpad-handler",
+        "--database=/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/xdg-config/google-chrome/Crash Reports",
+        "--url=https://clients2.google.com/cr/report",
+        "--annotation=channel=",
+        "--annotation=lsb-release=Linux Mint 22.3",
+        "--annotation=plat=Linux"
+      ],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 172166,
+      "exe": "/opt/google/chrome/chrome_crashpad_handler",
+      "args": [
+        "--no-periodic-tasks",
+        "--monitor-self-annotation=ptype=crashpad-handler",
+        "--database=/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/xdg-config/google-chrome/Crash Reports",
+        "--url=https://clients2.google.com/cr/report",
+        "--annotation=channel=",
+        "--annotation=lsb-release=Linux Mint 22.3",
+        "--annotation=plat=Linux"
+      ],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 180101,
+      "exe": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/受取物/tsukuhako-linux-x64-0.4.2/tsukuhako --remote-debugging-port=9434",
+      "args": [],
+      "basis": "exact run path",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 180106,
+      "exe": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/受取物/tsukuhako-linux-x64-0.4.2/tsukuhako --type=zygote --no-zygote-sandbox",
+      "args": [],
+      "basis": "exact run path",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 180107,
+      "exe": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/受取物/tsukuhako-linux-x64-0.4.2/tsukuhako --type=zygote",
+      "args": [],
+      "basis": "exact run path",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 180109,
+      "exe": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/受取物/tsukuhako-linux-x64-0.4.2/tsukuhako --type=zygote",
+      "args": [],
+      "basis": "exact run path",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 180137,
+      "exe": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/受取物/tsukuhako-linux-x64-0.4.2/tsukuhako --type=gpu-process --ozone-platform=x11 --enable-crash-reporter=5b7d14d6-15f0-41eb-b169-f951c5d42baf,no_channel --user-data-dir=/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/xdg-config/tsukuhako --gpu-preferences=YAAAAAAAAAAgAQAEAAAAAAAAAAAAAGAASAAAAAAAAAABAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAwAAAAAAAAAAEAAAAAAAAACAAAAAAAAAAMAAAAAQAAAAAAAAAAAAAACAAAAAAAAAAIAAAAAAAAAA== --shared-files --field-trial-handle=3,i,8643635317057179486,15947493037860189054,262144 --enable-features=PdfUseShowSaveFilePicker --disable-features=DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=7,i,2542552498971380182,9042001325249267117,4 --trace-process-track-uuid=3190708988185955192",
+      "args": [],
+      "basis": "exact run path",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 180139,
+      "exe": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/受取物/tsukuhako-linux-x64-0.4.2/tsukuhako --type=utility --utility-sub-type=network.mojom.NetworkService --lang=ja --service-sandbox-type=none --enable-crash-reporter=5b7d14d6-15f0-41eb-b169-f951c5d42baf,no_channel --user-data-dir=/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/xdg-config/tsukuhako --standard-schemes=app --enable-sandbox --secure-schemes=app --fetch-schemes=app --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,8643635317057179486,15947493037860189054,262144 --enable-features=PdfUseShowSaveFilePicker --disable-features=DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=7,i,2542552498971380182,9042001325249267117,4 --trace-process-track-uuid=3190708989122997041",
+      "args": [],
+      "basis": "exact run path",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 180145,
+      "exe": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/受取物/tsukuhako-linux-x64-0.4.2/tsukuhako --type=renderer --enable-crash-reporter=5b7d14d6-15f0-41eb-b169-f951c5d42baf,no_channel --user-data-dir=/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/xdg-config/tsukuhako --standard-schemes=app --enable-sandbox --secure-schemes=app --fetch-schemes=app --app-path=/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/受取物/tsukuhako-linux-x64-0.4.2/resources/app --enable-sandbox --remote-debugging-port=9434 --ozone-platform=x11 --lang=ja --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=4 --launch-time-ticks=6129868189 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,8643635317057179486,15947493037860189054,262144 --enable-features=PdfUseShowSaveFilePicker --disable-features=DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=7,i,2542552498971380182,9042001325249267117,4 --trace-process-track-uuid=3190708990060038890",
+      "args": [],
+      "basis": "exact run path",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 180163,
+      "exe": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/受取物/tsukuhako-linux-x64-0.4.2/tsukuhako --type=utility --utility-sub-type=node.mojom.NodeService --lang=ja --service-sandbox-type=none --enable-crash-reporter=5b7d14d6-15f0-41eb-b169-f951c5d42baf,no_channel --user-data-dir=/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/xdg-config/tsukuhako --standard-schemes=app --enable-sandbox --secure-schemes=app --fetch-schemes=app --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,8643635317057179486,15947493037860189054,262144 --enable-features=PdfUseShowSaveFilePicker --disable-features=DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=7,i,2542552498971380182,9042001325249267117,4 --trace-process-track-uuid=3190708990997080739",
+      "args": [],
+      "basis": "exact run path",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 194117,
+      "exe": "script",
+      "args": [
+        "-q",
+        "-f",
+        "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/logs/F1-host.typescript",
+        "-c",
+        "bash --noprofile --norc"
+      ],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 194119,
+      "exe": "bash",
+      "args": [
+        "--noprofile",
+        "--norc"
+      ],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 201008,
+      "exe": "script",
+      "args": [
+        "-q",
+        "-f",
+        "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/logs/B1-host.typescript",
+        "-c",
+        "bash --noprofile --norc"
+      ],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 201010,
+      "exe": "bash",
+      "args": [
+        "--noprofile",
+        "--norc"
+      ],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 208633,
+      "exe": "script",
+      "args": [
+        "-q",
+        "-f",
+        "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/logs/S1-host.typescript",
+        "-c",
+        "bash --noprofile --norc"
+      ],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 208635,
+      "exe": "bash",
+      "args": [
+        "--noprofile",
+        "--norc"
+      ],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 216452,
+      "exe": "script",
+      "args": [
+        "-q",
+        "-f",
+        "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/logs/S2-host.typescript",
+        "-c",
+        "bash --noprofile --norc"
+      ],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 216454,
+      "exe": "bash",
+      "args": [
+        "--noprofile",
+        "--norc"
+      ],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 229734,
+      "exe": "script",
+      "args": [
+        "-q",
+        "-f",
+        "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/logs/I1-host.typescript",
+        "-c",
+        "bash --noprofile --norc"
+      ],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 229736,
+      "exe": "bash",
+      "args": [
+        "--noprofile",
+        "--norc"
+      ],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 261433,
+      "exe": "/home/garchomp-game/.nvm/versions/node/v24.19.0/bin/node",
+      "args": [
+        "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/tools/node_modules/playwright/cli.js",
+        "show-trace",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "9437",
+        "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/recovery-input-display-trace.zip"
+      ],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 261479,
+      "exe": "/usr/lib/firefox/firefox",
+      "args": [
+        "http://127.0.0.1:9437"
+      ],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 261485,
+      "exe": "/usr/lib/firefox/crashhelper",
+      "args": [
+        "261479",
+        "9",
+        "/tmp/",
+        "11",
+        "20261007201254"
+      ],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 261632,
+      "exe": "/usr/lib/firefox/firefox-bin -contentproc -isForBrowser -prefsHandle 0:28631 -prefMapHandle 1:294662 -jsInitHandle 2:162336 -parentBuildID 20261007201254 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {abd77295-b8ae-4022-bfb0-c1eea4e440af} -parentPid 261479 -crashHelperPid 261485 -crashHelper 6 -crashReporter 7 -greomni /usr/lib/firefox/omni.ja -appomni /usr/lib/firefox/browser/omni.ja -appDir /usr/lib/firefox/browser 3 tab",
+      "args": [],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 261640,
+      "exe": "/usr/lib/firefox/firefox-bin -contentproc -parentBuildID 20261007201254 -prefsHandle 0:28676 -prefMapHandle 1:294662 -sandboxReporter 2 -chrootClient 3 -ipcHandle 4 -initialChannelId {bdedc1bc-eab4-485d-8156-9b905e216c6e} -parentPid 261479 -crashHelperPid 261485 -crashHelper 5 -crashReporter 6 -appDir /usr/lib/firefox/browser 4 rdd",
+      "args": [],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 261720,
+      "exe": "/usr/lib/firefox/firefox-bin -contentproc -isForBrowser -prefsHandle 0:28135 -prefMapHandle 1:294662 -jsInitHandle 2:162336 -parentBuildID 20261007201254 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {54d3c914-a7a4-4415-acb0-a33a2042910a} -parentPid 261479 -crashHelperPid 261485 -crashHelper 6 -crashReporter 7 -greomni /usr/lib/firefox/omni.ja -appomni /usr/lib/firefox/browser/omni.ja -appDir /usr/lib/firefox/browser 5 tab",
+      "args": [],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 261745,
+      "exe": "/home/garchomp-game/.nvm/versions/node/v24.19.0/bin/node",
+      "args": [
+        "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/tools/node_modules/playwright/cli.js",
+        "show-trace",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "9438",
+        "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/F2-editor-trace-02.zip"
+      ],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 261761,
+      "exe": "/usr/lib/firefox/firefox-bin -contentproc -isForBrowser -prefsHandle 0:28948 -prefMapHandle 1:294662 -jsInitHandle 2:162336 -parentBuildID 20261007201254 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {39ee0175-971b-4817-8ddd-3f537321e627} -parentPid 261479 -crashHelperPid 261485 -crashHelper 6 -crashReporter 7 -greomni /usr/lib/firefox/omni.ja -appomni /usr/lib/firefox/browser/omni.ja -appDir /usr/lib/firefox/browser 6 tab",
+      "args": [],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 261781,
+      "exe": "/usr/lib/firefox/firefox-bin -contentproc -isForBrowser -prefsHandle 0:30722 -prefMapHandle 1:294662 -jsInitHandle 2:162336 -parentBuildID 20261007201254 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {23c8ca22-fbf6-41f3-bb01-4b2b736dbb92} -parentPid 261479 -crashHelperPid 261485 -crashHelper 6 -crashReporter 7 -greomni /usr/lib/firefox/omni.ja -appomni /usr/lib/firefox/browser/omni.ja -appDir /usr/lib/firefox/browser 7 tab",
+      "args": [],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 261872,
+      "exe": "/usr/lib/firefox/firefox-bin -contentproc -isForBrowser -prefsHandle 0:48219 -prefMapHandle 1:294662 -jsInitHandle 2:162336 -parentBuildID 20261007201254 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {ce305235-7500-49cd-9078-7cade80af3b7} -parentPid 261479 -crashHelperPid 261485 -crashHelper 6 -crashReporter 7 -greomni /usr/lib/firefox/omni.ja -appomni /usr/lib/firefox/browser/omni.ja -appDir /usr/lib/firefox/browser 8 tab",
+      "args": [],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 261933,
+      "exe": "/usr/lib/firefox/firefox-bin -contentproc -isForBrowser -prefsHandle 0:48604 -prefMapHandle 1:294662 -jsInitHandle 2:162336 -parentBuildID 20261007201254 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {57d97ede-1ad2-4663-a755-c5b8f8ee8b6e} -parentPid 261479 -crashHelperPid 261485 -crashHelper 6 -crashReporter 7 -greomni /usr/lib/firefox/omni.ja -appomni /usr/lib/firefox/browser/omni.ja -appDir /usr/lib/firefox/browser 9 tab",
+      "args": [],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 261985,
+      "exe": "/usr/lib/firefox/firefox-bin -contentproc -parentBuildID 20261007201254 -sandboxingKind 0 -prefsHandle 0:50869 -prefMapHandle 1:294662 -sandboxReporter 2 -chrootClient 3 -ipcHandle 4 -initialChannelId {d746f39e-2169-4ed7-bf04-5b57bc01d5a7} -parentPid 261479 -crashHelperPid 261485 -crashHelper 5 -crashReporter 6 -appDir /usr/lib/firefox/browser 10 utility",
+      "args": [],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 262048,
+      "exe": "/home/garchomp-game/.nvm/versions/node/v24.19.0/bin/node",
+      "args": [
+        "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/tools/node_modules/playwright/cli.js",
+        "show-trace",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "9439",
+        "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/F2-browser-trace-02.zip"
+      ],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 262112,
+      "exe": "/usr/lib/firefox/firefox-bin -contentproc -isForBrowser -prefsHandle 0:50763 -prefMapHandle 1:294662 -jsInitHandle 2:162336 -parentBuildID 20261007201254 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {cd8a577c-5dba-477e-be3b-1ea4b85b1e29} -parentPid 261479 -crashHelperPid 261485 -crashHelper 6 -crashReporter 7 -greomni /usr/lib/firefox/omni.ja -appomni /usr/lib/firefox/browser/omni.ja -appDir /usr/lib/firefox/browser 11 tab",
+      "args": [],
+      "basis": "dedicated DISPLAY + XDG_CONFIG_HOME",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 143274,
+      "exe": "metacity",
+      "signal": "SIGTERM",
+      "basis": "recorded PID and verified argv"
+    },
+    {
+      "pid": 143243,
+      "exe": "Xephyr",
+      "signal": "SIGTERM",
+      "basis": "recorded PID and verified argv"
+    }
+  ],
+  "policy": "Only dedicated processes and project-owned containers stopped. No global reset/prune, no source/volume removal. Profiles, generated files, archive and raw media retained locally under runs/.",
+  "memoryAfter": "total        used        free      shared  buff/cache   available\nMem:           23787        6547        6685          97       11057       17239\nSwap:           2047           0        2047",
+  "diskAfter": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/nvme0n1p2  468G  150G  295G  34% /",
+  "runtimeSize": "1.5G\t/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs",
+  "recordingStopped": true,
+  "xephyrStopped": true,
+  "capturePorts": []
+}

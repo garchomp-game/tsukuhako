@@ -1,0 +1,80 @@
+File
+Edit
+Selection
+View
+Go
+Run
+Terminal
+[TSUKUHAKO evidence] - workspace [Dev Container: I1 PostgreSQL workbench] - Visual Studio Code
+Open in Agents
+Sign In
+Explorer
+workspace [Dev Container: I1 PostgreSQL workbench]
+.devcontainer
+.github
+docs
+migrations
+scripts
+sql
+tests
+.dockerignore
+.env
+.env.example
+.gitattributes
+.gitignore
+compose.yaml
+README.md
+START_HERE.md
+template.json
+VERSION
+Outline
+Timeline
+Open Chat
+Ctrl
++
+Alt
++
+I
+Show All Commands
+Ctrl
++
+Shift
++
+P
+Toggle Terminal
+Ctrl
++
+`
+Problems
+Output
+Terminal
+Ports
+Configuring...
+ => => exporting manifest sha256:d168af58ce3158de8f1b03c8715f69842ccc4028  0.0s
+ => => exporting config sha256:cb4dadb980c837a69332371e229d40d3c3c42edc5e  0.0s
+ => => exporting attestation manifest sha256:65b99e1b2821da4d2b16f9995720  0.0s
+ => => exporting manifest list sha256:cdd623daff0a7d9f3587ebad3a4b7fadc5d  0.0s
+ => => naming to docker.io/library/otoka-i1-4132650228-dev:0.1.0           0.0s
+ => => unpacking to docker.io/library/otoka-i1-4132650228-dev:0.1.0        0.0s
+Running the postCreateCommand from devcontainer.json...
+[10582 ms] Start: Run in container: /bin/sh -c bash scripts/db.sh doctor
+PASS: otoka_learning / PostgreSQL 18.6 (Debian 18.6-1.pgdg12+2)
+workbench user: vscode (uid=1000)
+Done. Press any key to close the terminal.
+Chat
+Build with Agent
+
+AI responses may be inaccurate
+
+Generate Agent Instructions to onboard AI onto your codebase.
+
+Agent
+Models
+Local
+Default permissions
+ Dev Container: I1 PostgreSQL workbench
+ 0
+ 0
+ 0
+ Activating Extensions...
+Info: Connecting to Dev Container (show log): Starting server

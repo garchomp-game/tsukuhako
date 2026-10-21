@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "beforeHash": "9350fa8f310cbc106c9467aaa9e53ecf15436509c4e3bb0efc5412c30e4d3826",
+  "afterRestoreHash": "9350fa8f310cbc106c9467aaa9e53ecf15436509c4e3bb0efc5412c30e4d3826",
+  "exercise": {
+    "file": "app/api/health/route.ts",
+    "before": "{ status: \"ok\" }",
+    "after": "{ status: \"ok\", lesson: \"preview\" }",
+    "lesson": "docs/EXERCISES.md",
+    "section": "第1項",
+    "route": "/api/health",
+    "result": "JSONに lesson: \"preview\" が増えます。",
+    "change": "Response.jsonの { status: \"ok\" } を { status: \"ok\", lesson: \"preview\" } に変えて保存します。この一時変更中は、元の応答を要求する既存の契約テストが失敗します。初回は応答を元へ戻すところまで行います。",
+    "restore": "追加した lesson: \"preview\" を削除し、{ status: \"ok\" } へ戻して保存します。"
+  },
+  "executionType": "REAL_HOST"
+}

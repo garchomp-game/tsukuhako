@@ -1,0 +1,65 @@
+{"id":"F2-exercise-error","time":"2026-10-21T09:35:27+09:00","status":"FAIL","executionType":"REAL_HOST","interaction":"AUTOMATED","action":"編集・復元の失敗状態を記録","expected":"Error: expect(locator).toContainText(expected) failed\n\nLocator: locator('h1')\nTimeout: 5000ms\n- Expected substring  - 1\n+ Received string     + 3\n\n- 小さく変えて\n+\n+             このサイトにアクセスできません\n+           \n\nCall log:\n  - Expect \"toContainText\" locator('h1') with timeout 5000ms\n  - waiting for locator('h1')\n    14 × locator resolved to <h1>…</h1>\n       - unexpected value \"\n            このサイトにアクセスできません\n          \"\n","actual":"Error: expect(locator).toContainText(expected) failed\n\nLocator: locator('h1')\nTimeout: 5000ms\n- Expected substring  - 1\n+ Received string     + 3\n\n- 小さく変えて\n+\n+             このサイトにアクセスできません\n+           \n\nCall log:\n  - Expect \"toContainText\" locator('h1') with timeout 5000ms\n  - waiting for locator('h1')\n    14 × locator resolved to <h1>…</h1>\n       - unexpected value \"\n            このサイトにアクセスできません\n          \"\n","place":"Linux Mint host / dedicated Xephyr X11 desktop","screenshot":"screenshots/F2-exercise-error.png","video":{"path":"/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/F2-main.mp4","offsetSeconds":730.79}}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+ExpectError: expect(locator).toContainText(expected) failed
+
+Locator: locator('h1')
+Timeout: 5000ms
+- Expected substring  - 1
++ Received string     + 3
+
+- 小さく変えて
++
++             このサイトにアクセスできません
++
+
+Call log:
+  - Expect "toContainText" locator('h1') with timeout 5000ms
+  - waiting for locator('h1')
+    14 × locator resolved to <h1>…</h1>
+       - unexpected value "
+            このサイトにアクセスできません
+          "
+
+    at captureRawStack (/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/tools/node_modules/playwright-core/lib/coreBundle.js:9282:17)
+    at callMatcherAsStep (/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/tools/node_modules/playwright/lib/matchers/expect.js:13316:57)
+    at Object.toContainText (/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/tools/node_modules/playwright/lib/matchers/expect.js:13308:23)
+    at /home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/tools/onboarding-f2-exercise.mjs:5:61 {
+  matcherResult: {
+    name: 'toContainText',
+    expected: '小さく変えて',
+    message: 'expect(locator).toContainText(expected) failed\n' +
+      '\n' +
+      "Locator: locator('h1')\n" +
+      'Timeout: 5000ms\n' +
+      '- Expected substring  - 1\n' +
+      '+ Received string     + 3\n' +
+      '\n' +
+      '- 小さく変えて\n' +
+      '+\n' +
+      '+             このサイトにアクセスできません\n' +
+      '+           \n' +
+      '\n' +
+      'Call log:\n' +
+      `  - Expect "toContainText" locator('h1') with timeout 5000ms\n` +
+      "  - waiting for locator('h1')\n" +
+      '    14 × locator resolved to <h1>…</h1>\n' +
+      '       - unexpected value "\n' +
+      '            このサイトにアクセスできません\n' +
+      '          "\n',
+    pass: false,
+    actual: '\n            このサイトにアクセスできません\n          ',
+    log: [
+      `  - Expect "toContainText" locator('h1') with timeout 5000ms`,
+      "  - waiting for locator('h1')",
+      '    14 × locator resolved to <h1>…</h1>',
+      '       - unexpected value "\n            このサイトにアクセスできません\n          "'
+    ],
+    timeout: 5000,
+    ariaSnapshot: '- heading "このサイトにアクセスできません" [level=1]'
+  }
+}
+
+Node.js v24.19.0

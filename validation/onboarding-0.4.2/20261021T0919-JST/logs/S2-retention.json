@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "projectName": "otoka-s2-3690422216",
+  "bodies": "架空の学習メモ: 画面からメモを追加してみる\n架空の学習メモ: 停止とリセットの違いを確認する\n撮影確認用の架空メモ（編集済み）",
+  "afterTestBodies": "架空の学習メモ: 画面からメモを追加してみる\n架空の学習メモ: 停止とリセットの違いを確認する\n撮影確認用の架空メモ（編集済み）",
+  "dataVolumes": [
+    "supabase_db_otoka-s2-3690422216"
+  ],
+  "method": "Real host terminal; resume database only, inspect saved fixture notes, bundled transaction-rollback CRUD test, normal stop"
+}

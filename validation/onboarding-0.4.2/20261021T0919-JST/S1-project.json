@@ -1,0 +1,19 @@
+{
+  "id": "S1",
+  "destination": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/projects/S1 日本語 起動の記録",
+  "folder": "S1 日本語 起動の記録",
+  "port": 44275,
+  "templateVersion": "0.1.2",
+  "exercise": {
+    "file": "app/practice/page.tsx",
+    "before": "ことばを送ってみる",
+    "after": "今日の便り",
+    "lesson": "docs/EXERCISES.md",
+    "section": "第1項",
+    "route": "/practice",
+    "result": "/practiceの見出しが「今日の便り」に変わります。",
+    "change": "見出し「ことばを送ってみる」を「今日の便り」に変えて保存します。",
+    "restore": "見出しを「ことばを送ってみる」に戻して保存します。"
+  },
+  "sourceHash": "d44486c7128bf74aa1d9204907441d3bb3e3d6a0754a4abbd1883794d1372b1a"
+}

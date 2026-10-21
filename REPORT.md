@@ -1,5 +1,7 @@
 # ツクハコ 0.4.2 修正レポート
 
+続報（同日後刻）：[Linux初回操作の取得レポート](validation/onboarding-0.4.2/20261021T0919-JST/REPORT.md) / [INDEX](validation/onboarding-0.4.2/20261021T0919-JST/INDEX.md)。以下は製品修正時点の記録です。当時未実施だった残り5構成の起動、F2再接続・Rebuildは続報で実施済みです。
+
 2026-10-21 / 比較元：0.4.1・Git `599d130`。レビューのR041-1〜3を修正しました。ソースは [privateリポジトリ](https://github.com/garchomp-game/tsukuhako) で確認できます。
 
 | 指摘 | 修正・結果 |

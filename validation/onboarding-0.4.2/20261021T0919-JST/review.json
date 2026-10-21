@@ -1,0 +1,765 @@
+{
+  "version": 1,
+  "overrides": {
+    "T02-files": {
+      "status": "FAIL",
+      "classification": "CAPTURE_SCRIPT",
+      "actual": "Nemoの起動完了前に撮影し、対象画面を取得できなかった。T12で再取得。"
+    },
+    "T03-code": {
+      "status": "FAIL",
+      "classification": "CAPTURE_SCRIPT",
+      "actual": "Codeの初回起動完了前に撮影。T13で再取得。"
+    },
+    "M02a": {
+      "status": "FAIL",
+      "classification": "CAPTURE_SCRIPT",
+      "actual": "検索欄のメニューを開いてしまった。M02bでファイルのメニューを開き直した。"
+    },
+    "M02": {
+      "status": "FAIL",
+      "classification": "CAPTURE_SCRIPT",
+      "actual": "展開後のパス入力で日本語が欠落し、実行ファイルの選択まで到達していない。M02d-retryで到達。"
+    },
+    "E07-F2-recovered": {
+      "status": "FAIL",
+      "classification": "CAPTURE_SCRIPT",
+      "actual": "非表示の端末入力先への操作でコマンドが実行されず、Ready未確認のまま暫定PASSを書いた。M17が実際の成功記録。"
+    },
+    "M15-dependencies": {
+      "actual": "初回構成ログを表示した。npm ciの進行・完了をこの場面だけでは判定しない。完了メッセージはM15-postcreate。"
+    },
+    "M22": {
+      "actual": "保存値0の読書位置と標準F2教材を復元。非ゼロ位置の保持はM22-scroll-before/restoredで別途確認。"
+    },
+    "I1-first": {
+      "actual": "SQLの練習とサンプル2件（notebook quantity 3、pencil quantity 8）を表示。原記録の「3件」は撮影説明の誤記。"
+    },
+    "E03-conflict": {
+      "status": "FAIL",
+      "classification": "CAPTURE_FRAMING",
+      "actual": "競合警告をDOMで確認したが、画像では警告が画面外。E03-warning-detailで警告を補足撮影。"
+    },
+    "E08-200": {
+      "status": "FAIL",
+      "classification": "CAPTURE_FRAMING",
+      "actual": "200%の上部と戻る入口を撮影したが、本文が画面外。E08-200-body/command/returnで補足。"
+    },
+    "S2-changed": {
+      "status": "FAIL",
+      "classification": "CAPTURE_FRAMING",
+      "actual": "DOMでは変更後見出しを確認したが、ブラウザがメモ一覧までスクロールされていた。S2-heading-changedで補足。"
+    },
+    "S2-restored": {
+      "status": "FAIL",
+      "classification": "CAPTURE_FRAMING",
+      "actual": "元のDOM見出しとファイルハッシュは一致したが、画像では見出しが画面外。S2-heading-restoredで補足。"
+    },
+    "E08-200-command": {
+      "actual": "本文内スクロールで文章とdoctorコマンド全文を表示。対象コード幅377px・内容幅377pxで横スクロール不要。原記録の横スクロールの記述は未実測。"
+    },
+    "I1-changed": {
+      "reviewNote": "撮影入力でclearの先頭cが欠け、lear: command not foundも表示された。後続のSQLは実行され、2行の変更結果を確認。製品SQLの失敗ではない。"
+    },
+    "I1-restored": {
+      "reviewNote": "同じ撮影入力のlearエラー後、SQL再実行で元のlessonを確認。ソースSHAも一致。"
+    },
+    "M14c": {
+      "screenshot": null,
+      "privateRawScreenshot": "runs/raw-private/M14c.png",
+      "reviewNote": "信頼画面に既存の別フォルダのパスが表示されたため画像はローカル原本のみ。今回のフォルダを信頼した事実は保持し、提出用画像はM14a/M14b/E06以降を参照。"
+    },
+    "M17-input-retry": {
+      "status": "PASS",
+      "classification": "CAPTURE_RECOVERY",
+      "actual": "画面内の実端末への入力でNext.js Readyを確認。正式なHTTP確認・場面はM17。"
+    }
+  },
+  "failureKinds": {
+    "E07-F2-early-dev": "OPERATION_TIMING",
+    "M02c-input-failure": "CAPTURE_SCRIPT",
+    "M-app-capture-error": "CAPTURE_SCRIPT",
+    "M13a-terminal-retry-failure": "CAPTURE_SCRIPT",
+    "F2-code-capture-error": "CAPTURE_SCRIPT",
+    "F2-code-capture-error-02": "CAPTURE_SCRIPT",
+    "F2-exercise-error": "CAPTURE_SCRIPT",
+    "M23-reconnect-capture-failure": "CAPTURE_SCRIPT",
+    "I1-exercise-failure": "CAPTURE_SCRIPT"
+  },
+  "coverage": [
+    {
+      "id": "M01",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "受取アーカイブの版・サイズ・SHAを固定",
+      "actual": "ローカルビルドのコピー。123,927,962 bytes、SHA一致。",
+      "sceneIds": [
+        "M01"
+      ],
+      "log": "artifact.json"
+    },
+    {
+      "id": "M02",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "利用者向けの操作で展開し実行ファイルを確認",
+      "actual": "NemoのExtract Here、展開先のファイルを選択。入力失敗と再試行を原本に保持。",
+      "sceneIds": [
+        "M02b",
+        "M02d-retry"
+      ],
+      "log": "logs/normal-launch.json"
+    },
+    {
+      "id": "M03",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "通常ユーザー・通常入口で初回起動",
+      "actual": "Nemoから引数なしで起動。UID 1000、窓表示まで2,329ms。以後は観測ポート付き。",
+      "sceneIds": [
+        "M03",
+        "M03b-observation"
+      ],
+      "log": "logs/normal-launch.json"
+    },
+    {
+      "id": "M04",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "初期説明と実診断を確認",
+      "actual": "Docker利用可能、専用の空の拡張領域は不足と表示。",
+      "sceneIds": [
+        "M04",
+        "E06a"
+      ],
+      "log": "environment.json"
+    },
+    {
+      "id": "M05",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "Linux準備教材と戻り先を確認",
+      "actual": "準備教材をアプリ内で開く。実インストールCとは別。",
+      "sceneIds": [
+        "M05"
+      ],
+      "log": "logs/main-app-capture.txt"
+    },
+    {
+      "id": "M06",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "戻って同じ構成を再診断",
+      "actual": "F2を保持して再診断。拡張導入後には利用可能へ更新。",
+      "sceneIds": [
+        "M06",
+        "E06"
+      ],
+      "log": "logs/main-app-capture.txt"
+    },
+    {
+      "id": "M07",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "用途からF2を選択",
+      "actual": "画面を作る / Next.js / F2を確認。",
+      "sceneIds": [
+        "M07"
+      ],
+      "log": "F2-project.json"
+    },
+    {
+      "id": "M08",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "日本語・空白の新規先と空きポートを入力",
+      "actual": "F2 日本語 はじめの練習、ホスト35409を設定。",
+      "sceneIds": [
+        "M08"
+      ],
+      "log": "F2-project.json"
+    },
+    {
+      "id": "M09",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "作成前に戻って修正し再確認",
+      "actual": "仮のフォルダ名を修正、生成前の出力なしを確認。",
+      "sceneIds": [
+        "M09a",
+        "M09"
+      ],
+      "log": "logs/main-app-capture.txt"
+    },
+    {
+      "id": "M10",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "生成中から完了まで記録",
+      "actual": "短時間の状態変化をMutationObserver時刻と連続動画に記録。",
+      "sceneIds": [
+        "M10"
+      ],
+      "log": "logs/M10-generation.json"
+    },
+    {
+      "id": "M11",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "ファイル生成とコンテナ未起動を区別",
+      "actual": "完了画面と次の操作、教材の「まだ起動していません」を確認。",
+      "sceneIds": [
+        "M11",
+        "M12"
+      ],
+      "log": "logs/main-app-capture.txt"
+    },
+    {
+      "id": "M12",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "今回の設定を教材とSTART_HEREで確認",
+      "actual": "パス・F2版0.1.1・ポート35409が一致。",
+      "sceneIds": [
+        "M12"
+      ],
+      "log": "logs/F2-START_HERE.md"
+    },
+    {
+      "id": "M13",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "生成先でホストdoctorを実行",
+      "actual": "pwdで生成先を確認し、doctorの診断OKを表示。",
+      "sceneIds": [
+        "M13"
+      ],
+      "log": "logs/M13-host-final.typescript"
+    },
+    {
+      "id": "M14",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "アプリから同じプロジェクトをCodeで開く",
+      "actual": "実Code入口、初回説明、信頼、Marketplace拡張導入を通過。信頼画面だけローカル原本。",
+      "sceneIds": [
+        "M14a",
+        "M14b",
+        "M14c",
+        "E06b",
+        "E06c"
+      ],
+      "log": "logs/code-invocations.log"
+    },
+    {
+      "id": "M15",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "Reopenと初回構成処理の完了を確認",
+      "actual": "Reopen→接続表示は約16秒。Docker/VS Code Serverに既存キャッシュあり。npm準備完了は別に確認。",
+      "sceneIds": [
+        "M15-command-02",
+        "M15-progress-02",
+        "M15-postcreate"
+      ],
+      "log": "logs/F2-postcreate-complete.txt"
+    },
+    {
+      "id": "M16",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "接続表示とコンテナ内pwdを確認",
+      "actual": "Dev Container: ツクハコ F2、/workspaceを表示。",
+      "sceneIds": [
+        "M16"
+      ],
+      "log": "logs/F2-connection.json"
+    },
+    {
+      "id": "M17",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "実Code端末でサーバーを起動",
+      "actual": "依存準備後にnpm run dev、ReadyとHTTP 200を確認。途中の失敗・入力修正あり。",
+      "sceneIds": [
+        "E07-F2-early-dev",
+        "E07-F2-recovered-02",
+        "M17"
+      ],
+      "log": "logs/F2-terminal-ready.txt"
+    },
+    {
+      "id": "M18",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "教材のホストURLで初期画面を表示",
+      "actual": "http://localhost:35409/ でF2画面を確認。",
+      "sceneIds": [
+        "M18"
+      ],
+      "log": "logs/F2-exercise.json"
+    },
+    {
+      "id": "M19",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "実エディタで編集保存し画面変化を確認",
+      "actual": "見出しを「わたしの練習室」へ変更、ブラウザへ反映。",
+      "sceneIds": [
+        "M19-editor",
+        "M19"
+      ],
+      "log": "logs/F2-exercise.json"
+    },
+    {
+      "id": "M20",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "元へ復元保存し画面とハッシュを確認",
+      "actual": "元の見出しとソースSHA-256が一致。",
+      "sceneIds": [
+        "M20-editor",
+        "M20"
+      ],
+      "log": "logs/F2-exercise.json"
+    },
+    {
+      "id": "M21",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "生成F2・学習S2でヘルプを複数回往復",
+      "actual": "各3回押下、戻り先と教材選択・読書位置を保持。",
+      "sceneIds": [
+        "M21-F2",
+        "M21-S2"
+      ],
+      "log": "logs/F2-reading-capture.txt"
+    },
+    {
+      "id": "M22",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "アプリ再起動後の読書位置と標準教材を確認",
+      "actual": "非ゼロ420pxを保持。生成情報は永続化しない仕様。START_HEREをCodeで開いて再開。",
+      "sceneIds": [
+        "M22",
+        "M22-scroll-before",
+        "M22-scroll-restored",
+        "M22-resume"
+      ],
+      "log": "logs/M22-reading-nonzero.json"
+    },
+    {
+      "id": "M23",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "自分のF2だけ停止して再開",
+      "actual": "通常停止後に同じコンテナへ再接続、元画面・元ソースを保持。",
+      "sceneIds": [
+        "M23-stop",
+        "M23"
+      ],
+      "log": "logs/F2-lifecycle.json"
+    },
+    {
+      "id": "T-F1",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "Vite・入力・ラベル編集復元",
+      "actual": "起動、入力と表示の一致、今日のことばへの変更と復元。",
+      "sceneIds": [
+        "F1-generated",
+        "F1-doctor",
+        "F1-postcreate",
+        "F1-server",
+        "F1-first",
+        "F1-input",
+        "F1-changed",
+        "F1-restored",
+        "F1-stop"
+      ],
+      "log": "logs/F1-exercise.json"
+    },
+    {
+      "id": "T-F2",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "Next.jsの主経路・編集復元",
+      "actual": "M01〜M23、通常再接続とRebuild、ソースSHA一致。",
+      "sceneIds": [
+        "M17",
+        "M18",
+        "M19",
+        "M20",
+        "M23",
+        "E09"
+      ],
+      "log": "logs/F2-exercise.json"
+    },
+    {
+      "id": "T-B1",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "API JSONの成功・編集・復元",
+      "actual": "status:ok→lesson:preview追加→元のJSON。ブラウザとcurlで確認。",
+      "sceneIds": [
+        "B1-generated",
+        "B1-doctor",
+        "B1-postcreate",
+        "B1-server",
+        "B1-first",
+        "B1-curl-changed",
+        "B1-curl-restored",
+        "B1-stop"
+      ],
+      "log": "logs/B1-exercise.json"
+    },
+    {
+      "id": "T-S1",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "UIからAPIへ送信し教材の変更復元",
+      "actual": "こんにちはを送信し空白除去・5コードポイント。見出し変更と復元。",
+      "sceneIds": [
+        "S1-generated",
+        "S1-doctor",
+        "S1-postcreate",
+        "S1-server",
+        "S1-api",
+        "S1-changed",
+        "S1-restored",
+        "S1-stop"
+      ],
+      "log": "logs/S1-exercise.json"
+    },
+    {
+      "id": "T-S2",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "ローカルDB起動・保存・見出し変更復元・非破壊停止",
+      "actual": "CLI取得、保存/編集/再読込、見出し変更復元。停止後データ保持とCRUD rollback試験。UI削除は未実施。",
+      "sceneIds": [
+        "S2-generated",
+        "S2-doctor",
+        "S2-postcreate",
+        "S2-db-start",
+        "S2-db-ready",
+        "S2-database",
+        "S2-database-edit",
+        "S2-heading-changed",
+        "S2-heading-restored",
+        "S2-retention",
+        "S2-db-test",
+        "S2-heading-stop"
+      ],
+      "log": "logs/S2-exercise.json"
+    },
+    {
+      "id": "T-I1",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "migration・SQL・変更復元・再実行",
+      "actual": "migration 001適用、2行のサンプル、lessonの変更と復元を再実行。",
+      "sceneIds": [
+        "I1-generated",
+        "I1-doctor",
+        "I1-postcreate",
+        "I1-first",
+        "I1-changed",
+        "I1-restored",
+        "I1-stop"
+      ],
+      "log": "logs/I1-exercise.json"
+    },
+    {
+      "id": "E01",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "存在しない親でエラーと入力保持",
+      "actual": "自動作成せずエラー。正しい親へ修正して後続の生成に到達。",
+      "sceneIds": [
+        "E01",
+        "E03"
+      ],
+      "log": "logs/recovery-summary.json"
+    },
+    {
+      "id": "E02",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "既存先を変更しない",
+      "actual": "上書き拒否、keep.txtのSHAを保持。",
+      "sceneIds": [
+        "E02"
+      ],
+      "log": "logs/recovery-summary.json"
+    },
+    {
+      "id": "E03",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "試験所有ポートの競合→変更→生成",
+      "actual": "元の待受を止めず空き番号へ変更して成功。警告画像を別試行で補足。",
+      "sceneIds": [
+        "E03-warning-detail",
+        "E03-conflict",
+        "E03"
+      ],
+      "log": "logs/recovery-summary.json"
+    },
+    {
+      "id": "E04",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "生成前に戻って入力・出力を確認",
+      "actual": "戻る→入力保持→まだ出力なし→再確認・生成。診断取消は未実施。",
+      "sceneIds": [
+        "E04",
+        "E03"
+      ],
+      "log": "logs/recovery-summary.json"
+    },
+    {
+      "id": "E05",
+      "status": "NOT_RUN",
+      "executionType": "NOT_EXECUTED",
+      "interaction": "NONE",
+      "expected": "Docker未導入・サービス停止・権限不足を隔離環境で再現",
+      "actual": "該当3状態は未実施。代替でこのアプリだけ無効なDOCKER_HOSTを指定し、実CLI接続失敗→案内→復旧を記録したが本項の合格には数えない。",
+      "sceneIds": [
+        "E05-unavailable",
+        "E05-guide",
+        "E05"
+      ],
+      "log": "logs/vm-readiness.json",
+      "plannedExecutionType": "REAL_VM"
+    },
+    {
+      "id": "E06",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "専用Code領域の拡張不足→実導入→再確認",
+      "actual": "空の拡張領域からMarketplaceの0.469.0を取得し、アプリ診断が利用可能に変化。VS Code本体の新規導入はC。",
+      "sceneIds": [
+        "E06a",
+        "E06b",
+        "E06c",
+        "E06"
+      ],
+      "log": "logs/F2-connection.json"
+    },
+    {
+      "id": "E07",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "発生した接続・依存関連の失敗と復旧を記録",
+      "actual": "依存導入完了前のnext:not foundを保存。完了待ちと端末入力の修正でReady/HTTP 200。意図的な通信断は未実施。",
+      "sceneIds": [
+        "E07-F2-early-dev",
+        "M15-postcreate",
+        "M17"
+      ],
+      "log": "logs/E07-F2-early-dev.txt"
+    },
+    {
+      "id": "E08",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "通常・狭幅・200%・キーボードの主要操作",
+      "actual": "860px幅・200%で本文/コマンド/戻るを確認。Tab/Enterで準備教材と準備画面を往復。多重スクロールあり。",
+      "sceneIds": [
+        "E08-normal",
+        "E08-narrow",
+        "E08-200-body",
+        "E08-200-command",
+        "E08-200-return",
+        "E08-keyboard-guide",
+        "E08"
+      ],
+      "log": "logs/recovery-detail.json"
+    },
+    {
+      "id": "E09",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "expected": "再接続とRebuildを区別しデータを保持",
+      "actual": "通常再接続は同じコンテナ、Rebuildはb4fd89a5377f→7b933089119e。元ファイルと依存volumeを保持。",
+      "sceneIds": [
+        "M23",
+        "E09-rebuild-start",
+        "E09-postcreate",
+        "E09"
+      ],
+      "log": "logs/F2-lifecycle.json"
+    },
+    {
+      "id": "C01",
+      "status": "BLOCKED",
+      "executionType": "NOT_EXECUTED",
+      "interaction": "NONE",
+      "expected": "未導入状態の実診断",
+      "actual": "利用可能なハイパーバイザー・既存VMなし。KVMと資源は利用可能だがsudo -nは認証必須。ホスト削除による再現は行わず。",
+      "sceneIds": [],
+      "log": "logs/vm-readiness.json",
+      "plannedExecutionType": "REAL_VM"
+    },
+    {
+      "id": "C02",
+      "status": "BLOCKED",
+      "executionType": "NOT_EXECUTED",
+      "interaction": "NONE",
+      "expected": "未導入状態からガイド",
+      "actual": "利用可能なハイパーバイザー・既存VMなし。KVMと資源は利用可能だがsudo -nは認証必須。ホスト削除による再現は行わず。",
+      "sceneIds": [],
+      "log": "logs/vm-readiness.json",
+      "plannedExecutionType": "REAL_VM"
+    },
+    {
+      "id": "C03",
+      "status": "BLOCKED",
+      "executionType": "NOT_EXECUTED",
+      "interaction": "NONE",
+      "expected": "Docker/Compose実導入",
+      "actual": "利用可能なハイパーバイザー・既存VMなし。KVMと資源は利用可能だがsudo -nは認証必須。ホスト削除による再現は行わず。",
+      "sceneIds": [],
+      "log": "logs/vm-readiness.json",
+      "plannedExecutionType": "REAL_VM"
+    },
+    {
+      "id": "C04",
+      "status": "BLOCKED",
+      "executionType": "NOT_EXECUTED",
+      "interaction": "NONE",
+      "expected": "権限・再ログイン境界",
+      "actual": "利用可能なハイパーバイザー・既存VMなし。KVMと資源は利用可能だがsudo -nは認証必須。ホスト削除による再現は行わず。",
+      "sceneIds": [],
+      "log": "logs/vm-readiness.json",
+      "plannedExecutionType": "REAL_VM"
+    },
+    {
+      "id": "C05",
+      "status": "BLOCKED",
+      "executionType": "NOT_EXECUTED",
+      "interaction": "NONE",
+      "expected": "VS Code本体・拡張実導入",
+      "actual": "利用可能なハイパーバイザー・既存VMなし。KVMと資源は利用可能だがsudo -nは認証必須。ホスト削除による再現は行わず。",
+      "sceneIds": [],
+      "log": "logs/vm-readiness.json",
+      "plannedExecutionType": "REAL_VM"
+    },
+    {
+      "id": "C06",
+      "status": "BLOCKED",
+      "executionType": "NOT_EXECUTED",
+      "interaction": "NONE",
+      "expected": "不足→完了の診断",
+      "actual": "利用可能なハイパーバイザー・既存VMなし。KVMと資源は利用可能だがsudo -nは認証必須。ホスト削除による再現は行わず。",
+      "sceneIds": [],
+      "log": "logs/vm-readiness.json",
+      "plannedExecutionType": "REAL_VM"
+    },
+    {
+      "id": "C07",
+      "status": "BLOCKED",
+      "executionType": "NOT_EXECUTED",
+      "interaction": "NONE",
+      "expected": "キャッシュなしの最初の取得",
+      "actual": "利用可能なハイパーバイザー・既存VMなし。KVMと資源は利用可能だがsudo -nは認証必須。ホスト削除による再現は行わず。",
+      "sceneIds": [],
+      "log": "logs/vm-readiness.json",
+      "plannedExecutionType": "REAL_VM"
+    },
+    {
+      "id": "O-Windows",
+      "status": "NOT_RUN",
+      "executionType": "NOT_EXECUTED",
+      "interaction": "NONE",
+      "expected": "Windows実機",
+      "actual": "今回のLinux実ホスト・エージェント自動操作の対象外。",
+      "sceneIds": [],
+      "log": null
+    },
+    {
+      "id": "O-macOS",
+      "status": "NOT_RUN",
+      "executionType": "NOT_EXECUTED",
+      "interaction": "NONE",
+      "expected": "macOS実機",
+      "actual": "今回のLinux実ホスト・エージェント自動操作の対象外。",
+      "sceneIds": [],
+      "log": null
+    },
+    {
+      "id": "O-Brain",
+      "status": "NOT_RUN",
+      "executionType": "NOT_EXECUTED",
+      "interaction": "NONE",
+      "expected": "Brain購入手続き",
+      "actual": "今回のLinux実ホスト・エージェント自動操作の対象外。",
+      "sceneIds": [],
+      "log": null
+    },
+    {
+      "id": "O-Beginner",
+      "status": "NOT_RUN",
+      "executionType": "NOT_EXECUTED",
+      "interaction": "NONE",
+      "expected": "初心者本人の無介助完走",
+      "actual": "今回のLinux実ホスト・エージェント自動操作の対象外。",
+      "sceneIds": [],
+      "log": null
+    }
+  ],
+  "supplemental": [
+    {
+      "id": "E05-endpoint",
+      "status": "PASS",
+      "executionType": "REAL_HOST",
+      "interaction": "AUTOMATED",
+      "condition": "Process-local DOCKER_HOST points to a nonexistent owned socket; actual Docker CLI returns connection failure. No daemon stop/uninstall/permission removal; no IPC mock.",
+      "sceneIds": [
+        "E05-unavailable",
+        "E05-guide",
+        "E05"
+      ],
+      "log": "logs/recovery-summary.json"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "result": "PASS",
+  "parts": [
+    {
+      "file": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/shared/F2-main-part-00.mp4",
+      "sha256": "1a30667371c62fdcccecddbb7b92c9cacfa117353734707c84cd11591a172c5e",
+      "code": 0,
+      "stderr": ""
+    },
+    {
+      "file": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/shared/F2-main-part-01.mp4",
+      "sha256": "1d0aaa8ac0463831225a6b8a09444a4df3d85e4067cae771a94fa82bfcafc6c1",
+      "code": 0,
+      "stderr": ""
+    },
+    {
+      "file": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/shared/F2-main-part-02.mp4",
+      "sha256": "b4a331f2df1f252ca09de0bd310a422b36e9289fada0e9ab41cc37b35c1680c3",
+      "code": 0,
+      "stderr": ""
+    },
+    {
+      "file": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/shared/F2-main-part-03.mp4",
+      "sha256": "ed3b5ab2cf2217f2158c9b0a63ec505a21f5c729b9d21f01012b41a9979df0f4",
+      "code": 0,
+      "stderr": ""
+    }
+  ]
+}

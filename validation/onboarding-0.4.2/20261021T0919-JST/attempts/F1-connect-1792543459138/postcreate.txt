@@ -1,0 +1,93 @@
+File
+Edit
+Selection
+View
+Go
+Run
+Terminal
+[TSUKUHAKO evidence] - workspace [Dev Container: ツクハコ F1] - Visual Studio Code
+Open in Agents
+Sign In
+Explorer
+workspace [Dev Container: ツクハコ F1]
+.devcontainer
+.github
+.vscode
+docs
+node_modules
+scripts
+src
+tests
+.dockerignore
+.env
+.env.example
+.gitattributes
+.gitignore
+.npmrc
+.nvmrc
+CHANGELOG.md
+compose.yaml
+eslint.config.mjs
+index.html
+LICENSE-NOTES.md
+package-lock.json
+package.json
+playwright.config.ts
+README.md
+START_HERE.md
+tsconfig.json
+VALIDATION.md
+VERSION.json
+vite.config.ts
+Outline
+Timeline
+Open Chat
+Ctrl
++
+Alt
++
+I
+Show All Commands
+Ctrl
++
+Shift
++
+P
+Open Settings
+Ctrl
++
+,
+Problems
+Output
+Debug Console
+Terminal
+Ports
+Configuring...
+[2907 ms] Start: Run in container: /bin/sh -c npm ci --no-audit --no-fund && node scripts
+/doctor.mjs
+npm warn deprecated eslint@9.39.5: This version is no longer supported. Please see https:
+//eslint.org/version-support for other options.
+added 174 packages in 4s
+npm notice
+npm notice New major version of npm available! 11.17.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
+準備完了。npm run dev で開始、npm run check で静的確認します。
+Done. Press any key to close the terminal.
+Chat
+Build with Agent
+
+AI responses may be inaccurate
+
+Generate Agent Instructions to onboard AI onto your codebase.
+
+Agent
+Models
+Local
+Default permissions
+ Dev Container: ツクハコ F1
+ 0
+ 0
+ 1
+Info: Connecting to Dev Container (show log): Starting server

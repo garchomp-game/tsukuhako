@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "beforeHash": "260c36439fbf0ee0124dc271aeb282f69dd4edda89f8dd5339b8a7ed89adf6ed",
+  "afterRestoreHash": "260c36439fbf0ee0124dc271aeb282f69dd4edda89f8dd5339b8a7ed89adf6ed",
+  "exercise": {
+    "file": "app/page.tsx",
+    "before": "ローカル学習メモ",
+    "after": "わたしの学習メモ",
+    "lesson": "docs/EXERCISES.md",
+    "section": "第1項",
+    "route": "/",
+    "result": "トップページの見出しが「わたしの学習メモ」に変わります。",
+    "change": "見出し「ローカル学習メモ」を「わたしの学習メモ」に変えて保存します。",
+    "restore": "見出しを「ローカル学習メモ」に戻して保存します。メモやDBを削除する必要はありません。"
+  },
+  "executionType": "REAL_HOST"
+}

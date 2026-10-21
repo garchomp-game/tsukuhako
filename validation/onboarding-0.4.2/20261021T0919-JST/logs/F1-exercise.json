@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "beforeHash": "799b12ed28aa63bce9168c49a70cbc6535a7fbbe604d43a43117fa554a9c7360",
+  "afterRestoreHash": "799b12ed28aa63bce9168c49a70cbc6535a7fbbe604d43a43117fa554a9c7360",
+  "exercise": {
+    "file": "src/App.tsx",
+    "before": "表示することば",
+    "after": "今日のことば",
+    "lesson": "docs/EXERCISES.md",
+    "section": "第1項",
+    "route": "/",
+    "result": "入力ラベルが「今日のことば」に変わります。",
+    "change": "入力ラベル「表示することば」を「今日のことば」に変えて保存します。",
+    "restore": "入力ラベルを「表示することば」に戻して保存します。"
+  },
+  "executionType": "REAL_HOST"
+}

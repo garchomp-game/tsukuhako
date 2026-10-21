@@ -1,0 +1,40 @@
+{
+  "productCommit": "247174a2827a7f88b862571bee9046e718584d58",
+  "productVersion": "0.4.2",
+  "curriculumVersion": "0.4.2",
+  "templates": [
+    {
+      "id": "F1",
+      "version": "0.1.3"
+    },
+    {
+      "id": "F2",
+      "version": "0.1.1"
+    },
+    {
+      "id": "B1",
+      "version": "0.1.2"
+    },
+    {
+      "id": "S1",
+      "version": "0.1.2"
+    },
+    {
+      "id": "S2",
+      "version": "0.1.2"
+    },
+    {
+      "id": "I1",
+      "version": "0.1.0"
+    },
+    {
+      "id": "S3",
+      "version": "0.1.1"
+    }
+  ],
+  "file": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/dist/tsukuhako-linux-x64-0.4.2.tar.gz",
+  "bytes": 123927962,
+  "sha256": "7946b0d7d757e7879e5bf2a44282b70e40cd649de432c52b33840a885fa819e0",
+  "buildCommand": "npm run build --prefix generator-desktop; uv run --offline --no-project python tools/package-desktop-042.py",
+  "origin": "Local build from pinned source; supplied by local copy. Not a web download."
+}

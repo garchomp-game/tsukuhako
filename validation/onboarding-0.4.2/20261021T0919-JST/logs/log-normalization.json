@@ -1,0 +1,221 @@
+{
+  "method": "Removed terminal ANSI control sequences, normalized CR/LF to LF, trimmed line-end whitespace. Original bytes remain local and were not overwritten.",
+  "files": [
+    {
+      "file": "logs/I1-main-ffmpeg.txt",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/logs/I1-main-ffmpeg.txt",
+      "originalSha256": "42cef8e87f33cf71c5e383356257bb5f2e44ad7aba9fc524c67623dbcb2b6ea4",
+      "normalizedSha256": "25e9130787075a45f513a7793e1231e8742db9e9ecd35746058da8a5c3b744db"
+    },
+    {
+      "file": "logs/F2-lifecycle-capture.txt",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/logs/F2-lifecycle-capture.txt",
+      "originalSha256": "d416e8b5d382501b4b709240db8245983d58963f12be9ed5956c73e55ff29483",
+      "normalizedSha256": "68aecba795c6b0516bdcd9675251efb52cd15134661b19dde42af97a0b23059c"
+    },
+    {
+      "file": "logs/E07-F2-early-dev.txt",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/logs/E07-F2-early-dev.txt",
+      "originalSha256": "fa0de12903be3f7c68589e20cbb94c6899b6878914e53481ab88125f8268a7de",
+      "normalizedSha256": "96f9c859dba902bb533f72e874672a78d1c92c591a6fc07f5064d7a5218663bd"
+    },
+    {
+      "file": "logs/F1-main-ffmpeg.txt",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/logs/F1-main-ffmpeg.txt",
+      "originalSha256": "3c94c9bedf1a96376b264ee7a539c95e2c6b45da906988ebc4f11914b4f8a363",
+      "normalizedSha256": "017ff58e41fe25a853cad7863134976214db875f039d6651b593b565e551e754"
+    },
+    {
+      "file": "logs/F2-exercise-capture.txt",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/logs/F2-exercise-capture.txt",
+      "originalSha256": "115f7f313b9f9da788a1822101c86917e4c4efbb3bfd689eca97a98d55dedb87",
+      "normalizedSha256": "0caa78a1d3cd9a7cc451a96ac8b6e43f40aaa7e3d96d4d935fa36eb39552d5b7"
+    },
+    {
+      "file": "logs/M13-host.typescript",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/logs/M13-host.typescript",
+      "originalSha256": "e2ff79d24f118c5994b0a6b92b7127534d9007ba95d398f91e73f776aebc8076",
+      "normalizedSha256": "a1bcf4bef568ce51bdb3ce7c7107d199b512d51b46bb96fb1a377fb6ce282f32"
+    },
+    {
+      "file": "logs/S2-heading-1792544848047-ffmpeg.txt",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/logs/S2-heading-1792544848047-ffmpeg.txt",
+      "originalSha256": "402cee578650aa20a073e8b57417cc97ba9cfcc21f04eeb072617e571a3b28df",
+      "normalizedSha256": "a33464af44e22f27092e02475756c3881b8feed909fb0bf312516b2707489042"
+    },
+    {
+      "file": "logs/S1-host.typescript",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/logs/S1-host.typescript",
+      "originalSha256": "da927b1676ab2d93f0e7197e5ae5acbc575337a2849cc89b5c11f2d7e09d85ff",
+      "normalizedSha256": "4b5c505354308bab33960421640e95e28477ff305d8a22275270f318e5e28ae9"
+    },
+    {
+      "file": "logs/S1-main-ffmpeg.txt",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/logs/S1-main-ffmpeg.txt",
+      "originalSha256": "ce6b2f0f1fbc5d336a6bb2002e63b38ddcfb7820a6c63527e9a38fe036cd0091",
+      "normalizedSha256": "831f37b627c1b667d3e68011705eb2aec3c3d734c481812894a312bc57343182"
+    },
+    {
+      "file": "logs/M13-host-retry.typescript",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/logs/M13-host-retry.typescript",
+      "originalSha256": "6904b274b328f1d50167ef8d970e7f4898f3c39aa38a4bb2982766eaca18abf3",
+      "normalizedSha256": "4562cf20e87d0f02f9b704676e6cc9627f2464943f1e9a6db2d2bb248832cc44"
+    },
+    {
+      "file": "logs/I1-exercise.txt",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/logs/I1-exercise.txt",
+      "originalSha256": "9e07ffc9e44469c0ec5012d114ba81dac4143ed878af7c5728303f32dabf1130",
+      "normalizedSha256": "3d632961a3a820cb953e74c043e7dcb9238b2d7048d73bc37202330095161d1e"
+    },
+    {
+      "file": "logs/M13-host-final.typescript",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/logs/M13-host-final.typescript",
+      "originalSha256": "85f8bbd96182ecadd3d1378f97466c93f481998c7ec7d15746e53008a5d29bee",
+      "normalizedSha256": "4fc6fbf87910fea71edfad8811f099b62f09354376a1f4db023f78f52ac08cef"
+    },
+    {
+      "file": "logs/trial-30s-ffmpeg.txt",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/logs/trial-30s-ffmpeg.txt",
+      "originalSha256": "960c11512ca4249430c7bccc2636e0ab9e0521afad5632e61c7ec9689f28b390",
+      "normalizedSha256": "3ea8fd58be25df93b1b6d1002b7f8ab71abb2c8e9279f0b0da33ff846b071835"
+    },
+    {
+      "file": "logs/F2-postcreate-complete.txt",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/logs/F2-postcreate-complete.txt",
+      "originalSha256": "9452845bc9d5f7d166728054f3b94588fbf4b17fe2f544ca497fbc4ce10b7530",
+      "normalizedSha256": "2e0d5dd82b6ea8169d12ac07488b914e28bdb2bbaad7b1b75bd1ba8a50cf9f6d"
+    },
+    {
+      "file": "logs/S2-host.typescript",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/logs/S2-host.typescript",
+      "originalSha256": "7d4663fec54f43fa53bd927404db7c8c1e6da97255d5cfc86fcf1e59a8428f4b",
+      "normalizedSha256": "d91a8ac00ae94c5a140e0e02d2673aceca831c50bdec266191f759de5c12eaa4"
+    },
+    {
+      "file": "logs/S2-retention-ffmpeg.txt",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/logs/S2-retention-ffmpeg.txt",
+      "originalSha256": "8b7709ebbe5f483226ee9bf05ae503fddff445d9d3740978f45282a3c0173fea",
+      "normalizedSha256": "9dd7c220c083a7026002807b60ce2fe738282212d551bbaa30afad0f6545194e"
+    },
+    {
+      "file": "logs/S2-main-ffmpeg.txt",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/logs/S2-main-ffmpeg.txt",
+      "originalSha256": "f250fd9794c6a4b54f72ce9472a0e903e93732cccce2a33c63c66a6822538e68",
+      "normalizedSha256": "bc8d29da3a6f4487be221e8f4a38ba12b3ad9c494cfae51d8b41275de5db0ddf"
+    },
+    {
+      "file": "logs/I1-host.typescript",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/logs/I1-host.typescript",
+      "originalSha256": "83b133e813299b695df224a87e98c5f6d84a6b95b8d3195a3d555fe6b6c2d9d3",
+      "normalizedSha256": "30d7db68aa5809857c3853257f5054cf84466f4d56a1ae0f9b43a20556434553"
+    },
+    {
+      "file": "logs/F1-host.typescript",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/logs/F1-host.typescript",
+      "originalSha256": "4bcdfa5237bccf66833ff46f2ec62447b1650c7b1e72faf0bfaf1421b2d4b376",
+      "normalizedSha256": "987b9397eee7f80fb7316b8b889f1358ef8a9c70ac66f45622b3d1aef648db68"
+    },
+    {
+      "file": "logs/recovery-ffmpeg.txt",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/logs/recovery-ffmpeg.txt",
+      "originalSha256": "8a88251a02d2019ce915487f655537b225a4506d7db337b303eb5a114549e7e0",
+      "normalizedSha256": "cb937c9e0a9b739564969bc958b5fb9f1e8528f51863d754776823424683c59d"
+    },
+    {
+      "file": "logs/F2-container-progress.txt",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/logs/F2-container-progress.txt",
+      "originalSha256": "818fcf9f8760084da91a0299c9cb0c0c7eed253e23c2c07a510c8fa98a7df5a4",
+      "normalizedSha256": "d442a5f8b0a4848d062a89cae6e29e678cad4a96f32e40d1c814fc17170956ec"
+    },
+    {
+      "file": "logs/F2-main-ffmpeg.txt",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/logs/F2-main-ffmpeg.txt",
+      "originalSha256": "fa119fe0261f317e019760451080d42678c55e1b26cfd07bb1841d68a26f1d79",
+      "normalizedSha256": "d73e04af33d8a4627b7600c571a2f02a707bd511befe0e0204c1e10dc9053c14"
+    },
+    {
+      "file": "logs/F2-code-capture.txt",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/logs/F2-code-capture.txt",
+      "originalSha256": "6b0d92a209c14341454d66f81760a1030f5ff533d41f58c459b4f539e571ca3f",
+      "normalizedSha256": "484a8a1fd1d3289fd1a5275f5ef5f4701e1863d22eba259416e8b642cb87bfa1"
+    },
+    {
+      "file": "logs/F2-terminal-ready.txt",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/logs/F2-terminal-ready.txt",
+      "originalSha256": "44f8a4a86f175e2493a178a68cfedfdd6ff4c6a59fc73757ec9114a085290a84",
+      "normalizedSha256": "df1d35a6adf84b1c005d08a3f5eed3b000a3445cc645369ee3f7ee6c41b4797f"
+    },
+    {
+      "file": "logs/B1-host.typescript",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/logs/B1-host.typescript",
+      "originalSha256": "e173b463bda6e25810e4d16a11d4d9216d3f01f14ecdcd7c973543bfd125abeb",
+      "normalizedSha256": "d687075917606390dd2b1ad13b050106fa4d063c6e7302a2cb254b74e9821016"
+    },
+    {
+      "file": "logs/trial-retry-30s-ffmpeg.txt",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/logs/trial-retry-30s-ffmpeg.txt",
+      "originalSha256": "072a41e6308fb1a7c99b2c3e9731e34322e2ce0e39fa6639e881340375ba77da",
+      "normalizedSha256": "22e894f823cdc6bac2b435ff4a0a7ddd6fba0877e3f653054e8cc1b5d1331e3a"
+    },
+    {
+      "file": "logs/B1-main-ffmpeg.txt",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/logs/B1-main-ffmpeg.txt",
+      "originalSha256": "f965e4a3d74d5f1340a834ebf20ea74786c7e1826b58d55f6a0276738c7b17cf",
+      "normalizedSha256": "711c0ed16d6a458b123f13d3a74b4cca6d7d22829444ab55d49e2f00a3e978ee"
+    },
+    {
+      "file": "logs/recovery-detail-1792544643837-ffmpeg.txt",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/logs/recovery-detail-1792544643837-ffmpeg.txt",
+      "originalSha256": "6942753f2804124f904a00f57235c8f544346c6a5f4a727b50c460c6d957d4bf",
+      "normalizedSha256": "1821709536b4d847fd8fb9b2cf42c973c630290a07bb33e6200943a96faf4475"
+    },
+    {
+      "file": "attempts/S1-connect-1792543655461/postcreate.txt",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/attempts/S1-connect-1792543655461/postcreate.txt",
+      "originalSha256": "e1bb0d7766a53f3dfbbf05cb02adf7dc04f6829b0f461d090cefdae7a99f12e7",
+      "normalizedSha256": "6019731b529fdbce878245fcb9f5bf08ef08c612acb25799935e3f8bed81aa50"
+    },
+    {
+      "file": "attempts/I1-connect-1792543901699/sql-before.txt",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/attempts/I1-connect-1792543901699/sql-before.txt",
+      "originalSha256": "42537e24e2605aa67fe5f1515b45acfbd065a859b0f3c95f7c406471e1e30bdf",
+      "normalizedSha256": "ffba8f936f6a1002a20dc46c493fe68f6955d1da727226e8f44c833a8e70d4d5"
+    },
+    {
+      "file": "attempts/I1-connect-1792543901699/postcreate.txt",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/attempts/I1-connect-1792543901699/postcreate.txt",
+      "originalSha256": "38a903cafc43609b53d71f199f98875c821db0c979fbc64ab55cabe1d3f66075",
+      "normalizedSha256": "0f6d7f1676c2e1468c8d133692fca0690ca39b876f032b6ef5677cd79933e8ee"
+    },
+    {
+      "file": "attempts/F1-connect-1792543459138/postcreate.txt",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/attempts/F1-connect-1792543459138/postcreate.txt",
+      "originalSha256": "9f78aa29cb9ec5024fec96190321aed1276f4710aeda7ea79fe2ef0c0ba45b1a",
+      "normalizedSha256": "398c9cbd28b4aea9eb45491e1968fb26e09d655fdc1564517300c4124c6cfdbb"
+    },
+    {
+      "file": "attempts/B1-connect-1792543543548/postcreate.txt",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/attempts/B1-connect-1792543543548/postcreate.txt",
+      "originalSha256": "b0bd822d4ffe441c9b64315fdaab7c47fc374b4a9e208c534e24963801318acb",
+      "normalizedSha256": "41e932713971b3bf94b19954319cf4c1c909b09d1d65b3d65abe4daa0cb58b7a"
+    },
+    {
+      "file": "attempts/I1-exercise-1792544070712/sql-restored.txt",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/attempts/I1-exercise-1792544070712/sql-restored.txt",
+      "originalSha256": "b21a96c112eda8e0b31f531c1912c8a2462f5a815b13b8cb2c5fe15302dcd53d",
+      "normalizedSha256": "1508f01250a32afa68eb30b9f703e68393db3e6394fa2f591ea5b27e416f3847"
+    },
+    {
+      "file": "attempts/I1-exercise-1792544070712/sql-changed.txt",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/attempts/I1-exercise-1792544070712/sql-changed.txt",
+      "originalSha256": "eb73c99e3d83d5d0f70310ab8d7d65a62742f9a1b74e6a762c604e02383e5286",
+      "normalizedSha256": "b936d5a3713454cf78187af32985d08dba5d9e8fffcc7f19f2bfa0432931244f"
+    },
+    {
+      "file": "attempts/S2-connect-1792543810750/postcreate.txt",
+      "originalPath": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/raw-logs/attempts/S2-connect-1792543810750/postcreate.txt",
+      "originalSha256": "03b9dad0b850c6be5c2abebf13cfe39803343f41c586039e65e9aa572b47313a",
+      "normalizedSha256": "04713c6326b4fd81b81d5b1f01fbfb1f6748e8165b97889e1d515e3f82c98954"
+    }
+  ]
+}

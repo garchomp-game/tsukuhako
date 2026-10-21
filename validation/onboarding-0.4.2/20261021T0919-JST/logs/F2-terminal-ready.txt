@@ -1,0 +1,97 @@
+File
+Edit
+Selection
+View
+Go
+Run
+Terminal
+[TSUKUHAKO evidence] - workspace [Dev Container: ツクハコ F2] - Visual Studio Code
+Open in Agents
+Sign In
+Explorer
+workspace [Dev Container: ツクハコ F2]
+.devcontainer
+.github
+.next
+.vscode
+app
+docs
+node_modules
+scripts
+tests
+.dockerignore
+.env
+.env.example
+.gitattributes
+.gitignore
+.npmrc
+.nvmrc
+CHANGELOG.md
+compose.yaml
+eslint.config.mjs
+LICENSE-NOTES.md
+next-env.d.ts
+next.config.ts
+package-lock.json
+package.json
+playwright.config.ts
+postcss.config.mjs
+README.md
+START_HERE.md
+tsconfig.json
+VALIDATION.md
+VERSION.json
+Outline
+Timeline
+Open Chat
+Ctrl
++
+Alt
++
+I
+Show All Commands
+Ctrl
++
+Shift
++
+P
+Start Debugging
+F5
+Problems
+Output
+Debug Console
+Terminal
+Ports
+> otoka-f2@0.1.1 dev
+> next dev --hostname 0.0.0.0 --port 3000
+▲ Next.js 16.4.2 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://0.0.0.0:3000
+- Environments: .env
+✓ Ready in 246ms
+✓ Running next.config.ts took 25ms
+ GET / 200 in 222ms (next.js: 91ms, application-code: 130ms)
+ GET / 200 in 30ms (next.js: 1.2ms, application-code: 28ms)
+ GET / 200 in 25ms (next.js: 1.2ms, application-code: 24ms)
+
+node@b4fd89a5377f:/workspace$ npm run dev
+ Configuring...
+ npm
+ Dev Containers
+Chat
+Build with Agent
+
+AI responses may be inaccurate
+
+Generate Agent Instructions to onboard AI onto your codebase.
+
+Agent
+Models
+Local
+Default permissions
+ Dev Container: ツクハコ F2
+ 0
+ 0
+ 1
+Info: Connecting to Dev Container (show log): Starting server
+/workspace/.vscode

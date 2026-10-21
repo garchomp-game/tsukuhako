@@ -1,0 +1,11 @@
+{
+  "initial": {
+    "result": "FAIL",
+    "reason": "Nemo and Code screenshots taken before cold startup completed; original video/images preserved."
+  },
+  "retry": {
+    "result": "PASS",
+    "video": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/media/trial-retry-30s.mp4",
+    "method": "Representative images opened and read; video played in actual browser (T16), duration 30.75s, readyState 4, 1600x900."
+  }
+}

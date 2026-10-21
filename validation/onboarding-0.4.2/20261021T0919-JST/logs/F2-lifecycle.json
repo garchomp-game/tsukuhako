@@ -1,0 +1,34 @@
+{
+  "result": "PASS",
+  "beforeContainer": "b4fd89a5377f",
+  "rebuiltContainer": "7b933089119e",
+  "oldMounts": [
+    {
+      "name": "vscode",
+      "destination": "/vscode"
+    },
+    {
+      "name": "otoka-f2-3379172573_dependencies",
+      "destination": "/workspace/node_modules"
+    },
+    {
+      "name": "otoka-f2-3379172573_npm-cache",
+      "destination": "/home/node/.npm"
+    }
+  ],
+  "rebuiltMounts": [
+    {
+      "name": "vscode",
+      "destination": "/vscode"
+    },
+    {
+      "name": "otoka-f2-3379172573_dependencies",
+      "destination": "/workspace/node_modules"
+    },
+    {
+      "name": "otoka-f2-3379172573_npm-cache",
+      "destination": "/home/node/.npm"
+    }
+  ],
+  "sourceHash": "c519464d586ca774fbc969aeca14418aa10e837948cf22322317e3c61a5fd43e"
+}

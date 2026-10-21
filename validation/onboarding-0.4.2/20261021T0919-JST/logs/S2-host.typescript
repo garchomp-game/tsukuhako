@@ -1,0 +1,95 @@
+Script started on 2026-10-21 09:49:01+09:00 [COMMAND="bash --noprofile --norc" TERM="xterm-256color" TTY="/dev/pts/8" COLUMNS="80" LINES="24"]
+bash-5.2$
+
+bash-5.2$ pwd; bash scripts/doctor-host.sh; echo CHECK_EXIT=$?
+
+/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/projects/S2 日本語 起動の記録
+次: ホストで bash scripts/db.sh start を実行してください。
+診断OK: otoka-s2-3690422216 / http://localhost:38277
+/dev/nvme0n1p2  468G  149G  296G  34% /
+容量不足なら不要な自分の試行資源を確認してください。全体pruneは行いません。
+CHECK_EXIT=0
+bash-5.2$ bash scripts/db.sh start; echo DB_EXIT=$?
+
+Supabase CLI 2.121.0 をプロジェクト内へ取得します。
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  6 60.2M    6 4060k    0     0  2629k      0  0:00:23  0:00:01  0:00:22 4105k
+ 25 60.2M   25 15.4M    0     0  6230k      0  0:00:09  0:00:02  0:00:07 7970k
+ 53 60.2M   53 32.0M    0     0  9263k      0  0:00:06  0:00:03  0:00:03 10.7M
+ 90 60.2M   90 54.7M    0     0  12.0M      0  0:00:05  0:00:04  0:00:01 13.7M
+100 60.2M  100 60.2M    0     0  12.6M      0  0:00:04  0:00:04 --:--:-- 14.2M
+ローカルSupabaseを起動: otoka-s2-3690422216（初回の画像取得には数分かかります）
+準備完了。API http://127.0.0.1:55441 / Studio http://127.0.0.1:55443
+次: VS Codeで Reopen in Container → npm run dev
+DB_EXIT=0
+bash-5.2$ bash scripts/app.sh stop; echo STOP_EXIT=$?
+
+[+] stop 0/1
+ ⠋ Container otoka-s2-3690422216-app-1 Stopping                                                                                                                                                 0.1s
+
+ ⠙ Container otoka-s2-3690422216-app-1 Stopping                                                                                                                                                 0.2s
+[+] stop 1/1
+ ✔ Container otoka-s2-3690422216-app-1 Stopped                                                                                                                                                  0.2s
+STOP_EXIT=0
+bash-5.2$ bash scripts/db.sh stop; echo DB_STOP_EXIT=$?
+
+Stopping containers...
+Stopped supabase local development setup.
+Local data are backed up to docker volume. Use docker to show them: docker volume ls --filter label=com.supabase.cli.project=otoka-s2-3690422216
+停止しました。DB volumeと編集したソースは保持されます。
+DB_STOP_EXIT=0
+bash-5.2$ bash scripts/db.sh start; echo RETENTION_START_EXIT=$?
+
+ローカルSupabaseを起動: otoka-s2-3690422216（初回の画像取得には数分かかります）
+準備完了。API http://127.0.0.1:55441 / Studio http://127.0.0.1:55443
+次: VS Codeで Reopen in Container → npm run dev
+RETENTION_START_EXIT=0
+bash-5.2$ docker exec supabase_db_otoka-s2-3690422216 psql -X -U postgres -d postgres -Atc 'SELECT body FROM public.notes ORDER BY created_at;'
+
+架空の学習メモ: 画面からメモを追加してみる
+架空の学習メモ: 停止とリセットの違いを確認する
+撮影確認用の架空メモ（編集済み）
+bash-5.2$ bash scripts/db.sh test; echo RETENTION_TEST_EXIT=$?
+
+BEGIN
+DO
+SET
+DO
+ROLLBACK
+                                    result
+-------------------------------------------------------------------------------
+ PASS: anon CRUD, RLS, grants, timestamps, missing id, Unicode and constraints
+(1 row)
+
+RETENTION_TEST_EXIT=0
+bash-5.2$ bash scripts/db.sh stop; echo RETENTION_STOP_EXIT=$?
+
+Stopping containers...
+Stopped supabase local development setup.
+Local data are backed up to docker volume. Use docker to show them: docker volume ls --filter label=com.supabase.cli.project=otoka-s2-3690422216
+停止しました。DB volumeと編集したソースは保持されます。
+RETENTION_STOP_EXIT=0
+bash-5.2$ bash scripts/db.sh start; echo HEADING_DB_READY=$?
+
+ローカルSupabaseを起動: otoka-s2-3690422216（初回の画像取得には数分かかります）
+準備完了。API http://127.0.0.1:55441 / Studio http://127.0.0.1:55443
+次: VS Codeで Reopen in Container → npm run dev
+HEADING_DB_READY=0
+bash-5.2$ bash scripts/app.sh stop && bash scripts/db.sh stop; echo HEADING_STOPPED=$?
+
+[+] stop 0/1
+ ⠋ Container otoka-s2-3690422216-app-1 Stopping                                                                                                                                                 0.1s
+[+] stop 1/1
+ ✔ Container otoka-s2-3690422216-app-1 Stopped                                                                                                                                                  0.2s
+Stopping containers...
+Stopped supabase local development setup.
+Local data are backed up to docker volume. Use docker to show them: docker volume ls --filter label=com.supabase.cli.project=otoka-s2-3690422216
+停止しました。DB volumeと編集したソースは保持されます。
+HEADING_STOPPED=0
+bash-5.2$

@@ -1,0 +1,19 @@
+{
+  "id": "S2",
+  "destination": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/onboarding-0.4.2/20261021T0919-JST/runs/projects/S2 日本語 起動の記録",
+  "folder": "S2 日本語 起動の記録",
+  "port": 38277,
+  "templateVersion": "0.1.2",
+  "exercise": {
+    "file": "app/page.tsx",
+    "before": "ローカル学習メモ",
+    "after": "わたしの学習メモ",
+    "lesson": "docs/EXERCISES.md",
+    "section": "第1項",
+    "route": "/",
+    "result": "トップページの見出しが「わたしの学習メモ」に変わります。",
+    "change": "見出し「ローカル学習メモ」を「わたしの学習メモ」に変えて保存します。",
+    "restore": "見出しを「ローカル学習メモ」に戻して保存します。メモやDBを削除する必要はありません。"
+  },
+  "sourceHash": "260c36439fbf0ee0124dc271aeb282f69dd4edda89f8dd5339b8a7ed89adf6ed"
+}

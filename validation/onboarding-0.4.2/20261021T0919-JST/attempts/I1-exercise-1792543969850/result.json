@@ -1,0 +1,7 @@
+{
+  "status": "FAIL",
+  "id": "I1",
+  "phase": "exercise",
+  "attempt": "I1-exercise-1792543969850",
+  "error": "Error: locator.focus: Error: strict mode violation: locator('.terminal-wrapper.active .xterm-helper-textarea') resolved to 2 elements:\n    1) <textarea tabindex=\"0\" autocorrect=\"off\" autocomplete=\"off\" spellcheck=\"false\" autocapitalize=\"off\" aria-multiline=\"false\" class=\"xterm-helper-textarea\" aria-label=\"Terminal 2, bash↵Run the command: Toggle Screen Reader Accessibility Mode for an optimized screen reader experience↵Use Shift+Alt+F1 for terminal accessibility help\"></textarea> aka getByRole('textbox', { name: 'Terminal 2, bash Run the' })\n    2) <textarea tabindex=\"0\" autocorrect=\"off\" autocomplete=\"off\" spellcheck=\"false\" autocapitalize=\"off\" aria-multiline=\"false\" aria-label=\"Terminal input\" class=\"xterm-helper-textarea\"></textarea> aka getByRole('textbox', { name: 'Terminal input' })\n\nCall log:\n\u001b[2m  - waiting for locator('.terminal-wrapper.active .xterm-helper-textarea')\u001b[22m\n"
+}
