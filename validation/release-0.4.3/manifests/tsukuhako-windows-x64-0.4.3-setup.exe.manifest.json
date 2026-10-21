@@ -1,0 +1,24 @@
+{
+  "productVersion": "0.4.3",
+  "sourceCommit": "5bcd435a44ded8de2f19f3e2de5b7861e16ef90f",
+  "file": "tsukuhako-windows-x64-0.4.3-setup.exe",
+  "bytes": 144935238,
+  "sha256": "31c106f46f9c348b07fffc6dfb9a1aa59b022c2e81092c77fec351bce1b51c18",
+  "platform": "windows",
+  "architecture": "x64",
+  "signing": "UNSIGNED_VALIDATION_BUILD",
+  "buildEnvironment": {
+    "platform": "win32",
+    "architecture": "x64",
+    "category": "CI",
+    "runUrl": "https://github.com/garchomp-game/tsukuhako/actions/runs/39537520939"
+  },
+  "osRuntimeVerification": "NOT_RUN",
+  "verificationReport": "validation/release-0.4.3/REPORT.md",
+  "runtimeVerification": {
+    "status": "NOT_RUN",
+    "executionType": null,
+    "os": null,
+    "reason": "No Windows real host or suitable VM available; Windows Server 2022 CI built and inspected resources only"
+  }
+}

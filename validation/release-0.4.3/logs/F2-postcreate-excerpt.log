@@ -1,0 +1,135 @@
+[2026-10-21T03:25:47.060Z] Start: Run in container: /bin/sh -c npm ci --no-audit --no-fund && node scripts/doctor.mjs
+[2026-10-21T03:25:47.105Z] [03:25:47] Completed initializing default profile extensions in extensions installation folder. file:///home/node/.vscode-server/extensions
+[2026-10-21T03:25:47.156Z] [03:25:47] [127.0.0.1][ccff68a9][ExtensionHostConnection] New connection established.
+[2026-10-21T03:25:47.157Z] [03:25:47] [127.0.0.1][ccff68a9][ExtensionHostConnection] Starting extension host process...
+[2026-10-21T03:25:47.167Z] [03:25:47] [127.0.0.1][ccff68a9][ExtensionHostConnection] <400> Launched Extension Host Process.
+[2026-10-21T03:25:47.438Z] [03:25:47] [127.0.0.1][ccff68a9][ExtensionHostConnection] <400> [reconnection-grace-time] Extension host: read VSCODE_RECONNECTION_GRACE_TIME=10800000ms (10800s)
+
+[2026-10-21T03:25:47.515Z] \
+[2026-10-21T03:25:47.571Z] [IPC Library: Agent Host] Agent host server listening on /tmp/vscode-ipc-1f692707-60dc-40ea-a842-0edf0db9f771.sock
+[2026-10-21T03:25:47.572Z] [03:25:47] ServerAgentHostManager: agent host started
+[2026-10-21T03:25:47.573Z] [03:25:47] [AgentHostChannel] Opening upstream to /tmp/vscode-ipc-1f692707-60dc-40ea-a842-0edf0db9f771.sock
+[2026-10-21T03:25:47.735Z] |
+[2026-10-21T03:25:47.751Z] [03:25:47] Installing extension 'dbaeumer.vscode-eslint'...
+[2026-10-21T03:25:47.753Z] [03:25:47] Getting Manifest... dbaeumer.vscode-eslint
+[2026-10-21T03:25:47.825Z] [03:25:47] Installing extension: dbaeumer.vscode-eslint {
+  isMachineScoped: false,
+  installPreReleaseVersion: false,
+  isApplicationScoped: true,
+  isBuiltin: false,
+  installGivenVersion: false,
+  profileLocation: Pa {
+    scheme: 'file',
+    authority: '',
+    path: '/home/node/.vscode-server/extensions/extensions.json',
+    query: '',
+    fragment: '',
+    _formatted: 'file:///home/node/.vscode-server/extensions/extensions.json',
+    _fsPath: '/home/node/.vscode-server/extensions/extensions.json'
+  },
+  productVersion: { version: '1.142.0', date: '2026-10-15T03:02:17Z' }
+}
+[2026-10-21T03:25:47.886Z] /
+[2026-10-21T03:25:48.028Z] -
+[2026-10-21T03:25:48.192Z] \
+[2026-10-21T03:25:48.327Z] |
+[2026-10-21T03:25:48.455Z] 
+[2026-10-21T03:25:48.455Z] /
+[2026-10-21T03:25:48.584Z] -
+[2026-10-21T03:25:48.714Z] \
+[2026-10-21T03:25:48.844Z] |
+[2026-10-21T03:25:48.974Z] /
+[2026-10-21T03:25:49.104Z] -
+[2026-10-21T03:25:49.234Z] \
+[2026-10-21T03:25:49.365Z] |
+[2026-10-21T03:25:49.495Z] /
+[2026-10-21T03:25:49.625Z] -
+[2026-10-21T03:25:49.755Z] \
+[2026-10-21T03:25:49.886Z] |
+[2026-10-21T03:25:50.015Z] /
+[2026-10-21T03:25:50.145Z] -
+[2026-10-21T03:25:50.275Z] \
+[2026-10-21T03:25:50.387Z] [03:25:50] Extension signature verification result for dbaeumer.vscode-eslint: Success. Internal Code: 0. Executed: true. Duration: 2370ms.
+[2026-10-21T03:25:50.405Z] |
+[2026-10-21T03:25:50.412Z] [03:25:50] Extracted extension to file:///home/node/.vscode-server/extensions/dbaeumer.vscode-eslint-3.0.34: dbaeumer.vscode-eslint
+[2026-10-21T03:25:50.428Z] [03:25:50] Renamed to /home/node/.vscode-server/extensions/dbaeumer.vscode-eslint-3.0.34
+[2026-10-21T03:25:50.434Z] [03:25:50] Extension installed successfully: dbaeumer.vscode-eslint file:///home/node/.vscode-server/extensions/extensions.json
+[2026-10-21T03:25:50.435Z] [03:25:50] Extension 'dbaeumer.vscode-eslint' v3.0.34 was successfully installed.
+[2026-10-21T03:25:50.536Z] /
+[2026-10-21T03:25:50.665Z] -
+[2026-10-21T03:25:50.795Z] \
+[2026-10-21T03:25:50.925Z] |
+[2026-10-21T03:25:51.055Z] /
+[2026-10-21T03:25:51.185Z] -
+[2026-10-21T03:25:51.314Z] \
+[2026-10-21T03:25:51.445Z] |
+[2026-10-21T03:25:51.464Z] npm warn deprecated eslint@9.39.5: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+|
+[2026-10-21T03:25:51.593Z] /
+[2026-10-21T03:25:51.723Z] -
+[2026-10-21T03:25:51.854Z] \
+[2026-10-21T03:25:51.983Z] |
+[2026-10-21T03:25:52.114Z] /
+[2026-10-21T03:25:52.244Z] -
+[2026-10-21T03:25:52.374Z] \
+[2026-10-21T03:25:52.504Z] |
+[2026-10-21T03:25:52.634Z] /
+[2026-10-21T03:25:52.764Z] -
+[2026-10-21T03:25:52.894Z] \
+[2026-10-21T03:25:53.024Z] |
+[2026-10-21T03:25:53.154Z] /
+[2026-10-21T03:25:53.284Z] -
+[2026-10-21T03:25:53.414Z] \
+[2026-10-21T03:25:53.544Z] |
+[2026-10-21T03:25:53.674Z] /
+[2026-10-21T03:25:53.805Z] -
+[2026-10-21T03:25:53.935Z] \
+[2026-10-21T03:25:54.065Z] |
+[2026-10-21T03:25:54.196Z] /
+[2026-10-21T03:25:54.325Z] -
+[2026-10-21T03:25:54.455Z] \
+[2026-10-21T03:25:54.585Z] |
+[2026-10-21T03:25:54.714Z] /
+[2026-10-21T03:25:54.845Z] -
+[2026-10-21T03:25:54.976Z] \
+[2026-10-21T03:25:55.106Z] |
+[2026-10-21T03:25:55.236Z] /
+[2026-10-21T03:25:55.366Z] -
+[2026-10-21T03:25:55.496Z] \
+[2026-10-21T03:25:55.626Z] |
+[2026-10-21T03:25:55.756Z] /
+[2026-10-21T03:25:55.887Z] -
+[2026-10-21T03:25:56.016Z] \
+[2026-10-21T03:25:56.147Z] |
+[2026-10-21T03:25:56.276Z] /
+[2026-10-21T03:25:56.406Z] -
+[2026-10-21T03:25:56.536Z] \
+[2026-10-21T03:25:56.666Z] |
+[2026-10-21T03:25:56.795Z] /
+[2026-10-21T03:25:56.927Z] -
+[2026-10-21T03:25:57.055Z] \
+[2026-10-21T03:25:57.186Z] |
+[2026-10-21T03:25:57.316Z] /
+[2026-10-21T03:25:57.445Z] -
+[2026-10-21T03:25:57.576Z] \
+[2026-10-21T03:25:57.705Z] |
+[2026-10-21T03:25:57.836Z] /
+[2026-10-21T03:25:57.966Z] -
+[2026-10-21T03:25:58.095Z] \
+[2026-10-21T03:25:58.233Z] 
+added 362 packages in 11s
+[2026-10-21T03:25:58.233Z] |
+[2026-10-21T03:25:58.235Z] npm warn allow-scripts 1 package has install scripts not yet covered by allowScripts:
+npm warn allow-scripts   unrs-resolver@1.12.2 (postinstall: node postinstall.js)
+npm warn allow-scripts
+npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow.
+|
+[2026-10-21T03:25:58.236Z] npm notice
+npm notice New major version of npm available! 11.17.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
+|
+[2026-10-21T03:25:58.236Z] 
+[2026-10-21T03:25:58.287Z] 準備完了。npm run dev で開始、npm run check で静的確認します。
+[2026-10-21T03:25:58.291Z] Stop (11231 ms): Run in container: /bin/sh -c npm ci --no-audit --no-fund && node scripts/doctor.mjs

@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "elapsedMs": 101,
+  "fixtureCommandWasRunning": true,
+  "ownedCommandPids": [
+    426115
+  ],
+  "processRemaining": false,
+  "scope": "Actual Linux helper shutdown while diagnostic fixture command blocks. Windows/WSL transport NOT_RUN."
+}

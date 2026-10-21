@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "records": [
+    {
+      "id": "F1",
+      "status": "PASS",
+      "version": "0.1.3"
+    },
+    {
+      "id": "F2",
+      "status": "PASS",
+      "version": "0.1.1"
+    },
+    {
+      "id": "B1",
+      "status": "PASS",
+      "version": "0.1.2"
+    },
+    {
+      "id": "S1",
+      "status": "PASS",
+      "version": "0.1.2"
+    },
+    {
+      "id": "S2",
+      "status": "PASS",
+      "version": "0.1.2"
+    },
+    {
+      "id": "I1",
+      "status": "PASS",
+      "version": "0.1.0"
+    }
+  ],
+  "cancellation": "CANCELLED",
+  "targetBinding": "TARGET_CHANGED",
+  "processRemaining": false,
+  "scope": "Actual bundled Linux Node + worker-thread helper on Mint x64. WSL_DISTRO_NAME fixture only; not Windows/WSL integration test.",
+  "stderr": ""
+}

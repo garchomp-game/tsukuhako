@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "category": "REAL_HOST",
+  "artifact": "45ea32ae9c341b6bfa908aa2eda7072e966f58597cce4b80ef905baa1c0c73d1",
+  "container": "3e754069229e",
+  "volumes": [
+    {
+      "name": "otoka-f2-347513227_dependencies",
+      "destination": "/workspace/node_modules"
+    },
+    {
+      "name": "otoka-f2-347513227_npm-cache",
+      "destination": "/home/node/.npm"
+    }
+  ],
+  "freshVolumes": true,
+  "postCreateLog": "F2-postcreate.log",
+  "sourceHash": "c519464d586ca774fbc969aeca14418aa10e837948cf22322317e3c61a5fd43e",
+  "port": 34279,
+  "hostImageCache": "existing",
+  "extension": "0.469.0",
+  "postCreateFinishedBeforeNpmRunDev": true
+}

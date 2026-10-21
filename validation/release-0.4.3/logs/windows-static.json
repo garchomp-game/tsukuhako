@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "category": "STATIC_INSPECTION_ON_LINUX",
+  "executables": [
+    {
+      "file": "tsukuhako-windows-x64-0.4.3-setup.exe",
+      "sha256": "31c106f46f9c348b07fffc6dfb9a1aa59b022c2e81092c77fec351bce1b51c18",
+      "embeddedExecutionLevel": "<requestedExecutionLevel level=\"asInvoker\" uiAccess=\"false\"/>"
+    },
+    {
+      "file": "tsukuhako.exe",
+      "sha256": "b5f5da511c89a952a32e04727f49765fe45700ee4ea198a58e3d786fd6ef183d",
+      "embeddedExecutionLevel": "<requestedExecutionLevel level=\"asInvoker\" uiAccess=\"false\"/>"
+    }
+  ],
+  "nsis": {
+    "oneClick": true,
+    "perMachine": false,
+    "allowElevation": false,
+    "createDesktopShortcut": false,
+    "createStartMenuShortcut": true,
+    "shortcutName": "ツクハコ",
+    "deleteAppDataOnUninstall": false,
+    "runAfterFinish": false
+  },
+  "actualInstallAndUninstall": "NOT_RUN"
+}

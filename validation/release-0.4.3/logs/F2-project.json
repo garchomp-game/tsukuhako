@@ -1,0 +1,10 @@
+{
+  "bin": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/release-0.4.3/runs/linux-capture/runs/受取物 日本語/tsukuhako-linux-x64-0.4.3/tsukuhako",
+  "destination": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/release-0.4.3/runs/linux-capture/runs/projects/F2 日本語 空白 043",
+  "port": 34279,
+  "folder": "F2 日本語 空白 043",
+  "artifact": "45ea32ae9c341b6bfa908aa2eda7072e966f58597cce4b80ef905baa1c0c73d1",
+  "productCommit": "5bcd435a44ded8de2f19f3e2de5b7861e16ef90f",
+  "sourceHash": "c519464d586ca774fbc969aeca14418aa10e837948cf22322317e3c61a5fd43e",
+  "guideSha256": "ad2ed9a48a2adf069f03a60a4ec2c5dbb919ff63b8c7f3a85074561a061291f9"
+}

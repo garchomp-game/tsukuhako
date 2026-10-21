@@ -1,0 +1,15 @@
+{
+  "category": "REAL_HOST",
+  "status": "PASS",
+  "artifact": "45ea32ae9c341b6bfa908aa2eda7072e966f58597cce4b80ef905baa1c0c73d1",
+  "productCommit": "5bcd435a44ded8de2f19f3e2de5b7861e16ef90f",
+  "executable": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/release-0.4.3/runs/linux-capture/runs/受取物 日本語/tsukuhako-linux-x64-0.4.3/tsukuhako",
+  "cwd": "/tmp",
+  "PATH": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/release-0.4.3/runs/linux-capture/runs/bin:/usr/bin:/bin",
+  "hostNodeAvailable": false,
+  "uid": "1000",
+  "pid": 442285,
+  "args": "/home/garchomp-game/workspace/meikyo/tsukuhako-starters-0.4.1/validation/release-0.4.3/runs/linux-capture/runs/受取物 日本語/tsukuhako-linux-x64-0.4.3/tsukuhako",
+  "window": "0x00600003  0 442285 garchompgame-G3-3500 ツクハコ | 作る・学ぶ・困ったとき",
+  "debugPort": false
+}

@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "ownContainerStopped": true,
+  "ownedVolumesRetained": [
+    "otoka-f2-347513227_dependencies",
+    "otoka-f2-347513227_npm-cache"
+  ],
+  "generatedProjectRetained": true,
+  "sourceRestored": true,
+  "guideRetained": true,
+  "unrelatedContainersUnchanged": [
+    {
+      "id": "b531d3443746",
+      "running": true,
+      "startedAt": "2026-10-20T22:56:25.276121169Z"
+    },
+    {
+      "id": "8e9f201539c5",
+      "running": true,
+      "startedAt": "2026-10-20T22:56:25.275517745Z"
+    }
+  ],
+  "stopOutput": "診断OK: otoka-f2-347513227 / http://localhost:34279\n/dev/nvme0n1p2  468G  154G  291G  35% /\n容量不足なら不要な自分の試行資源を確認してください。全体pruneは行いません。"
+}

@@ -1,3 +1,5 @@
+> 最新の0.4.3 Windows/Linux配布準備は [短いレポート](validation/release-0.4.3/REPORT.md) を参照してください。以下は0.4.2の記録です。
+
 # ツクハコ 0.4.2 修正レポート
 
 続報（同日後刻）：[Linux初回操作の取得レポート](validation/onboarding-0.4.2/20261021T0919-JST/REPORT.md) / [INDEX](validation/onboarding-0.4.2/20261021T0919-JST/INDEX.md)。以下は製品修正時点の記録です。当時未実施だった残り5構成の起動、F2再接続・Rebuildは続報で実施済みです。
