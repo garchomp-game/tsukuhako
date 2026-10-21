@@ -3,3 +3,28 @@
 /* UX: preserve reading and actions at 200% zoom and with long project paths. */
 .app-intro{margin:24px 32px 0}.file-reference{color:#172B4D}.file-reference small{color:#526079;font-size:.875em}.prep-actions,.prep-summary,.top{flex-wrap:wrap}.prep-details li>div{min-width:0;overflow-wrap:anywhere}select:focus-visible{outline:3px solid #2457D6;outline-offset:4px}.app-nav{flex-wrap:wrap}.steps{flex-wrap:wrap}.chapter-navigation{gap:12px;flex-wrap:wrap}.app-shell{overflow-wrap:anywhere}.curriculum-toc>.secondary{margin-bottom:14px}.preparation h2:focus{outline:3px solid #2457D6;outline-offset:5px}
 @media(max-width:600px){.top{padding:16px}.app-nav{padding:10px 16px;gap:6px}.app-nav button{padding:9px 12px;flex:1}.global-status{padding:8px 16px}.app-intro{margin:16px}.preparation{margin:16px;padding:16px}.reader-layout{display:block;height:auto;min-height:0}.curriculum-toc{max-height:260px;border-bottom:1px solid #CAD5E2}.reader-scroll{height:70vh;min-height:260px;padding:18px}.steps{justify-content:flex-start}main{padding:18px}.preview>div{grid-template-columns:1fr}.next-steps li{flex-direction:column}.brand strong{font-size:24px}.markdown h1{font-size:24px}.markdown h2{font-size:21px}.prep-details li{flex-direction:column;gap:8px}}
+
+/* The same body element owns reading position at every width. The compact TOC
+   covers its grid cell without changing body geometry or scrollTop. */
+.app-shell-reading{height:100dvh;display:flex;flex-direction:column}
+.app-shell-reading>.top,.app-shell-reading>.app-nav,.app-shell-reading>.global-status{flex-shrink:0}
+.app-shell-reading>.error{flex-shrink:0;margin:0}
+.reader-layout{flex:1;min-height:0;height:auto;grid-template-rows:auto minmax(0,1fr);grid-template-columns:290px minmax(0,1fr)}
+.reader-toolbar{grid-column:1/-1;display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 24px;background:#F7F9FC;border-bottom:1px solid #CAD5E2}
+.reader-toolbar button{font-size:14px;padding:8px 12px}
+.reader-current{font-size:14px;color:#526079;min-width:0}
+.curriculum-toc{grid-row:2;grid-column:1;min-height:0;overscroll-behavior:contain}
+.reader-scroll{grid-row:2;grid-column:2;min-height:0;height:auto;overscroll-behavior:contain}
+.reader-scroll:focus-visible{outline:3px solid #2457D6;outline-offset:-3px}
+@media(max-width:950px){
+ .app-shell-reading>.top{padding:10px 18px;min-height:0;gap:8px}
+ .app-shell-reading .brand{gap:10px}.app-shell-reading .brand strong{font-size:24px}
+ .app-shell-reading .brand div>span{display:none}.app-shell-reading .mark{height:34px;width:34px}
+ .app-shell-reading .app-nav{padding:8px 16px;gap:8px}.app-shell-reading .app-nav button{padding:8px 12px}
+ .reader-layout{display:grid;grid-template-columns:minmax(0,1fr);min-height:0}
+ .reader-toolbar{padding:8px 16px;gap:8px}
+ .curriculum-toc{grid-column:1;max-height:none;visibility:hidden;pointer-events:none;z-index:1;border-right:0}
+ .toc-open .curriculum-toc{visibility:visible;pointer-events:auto}
+ .reader-scroll{grid-column:1;padding:18px;min-height:0}
+ .toc-open .reader-scroll{visibility:hidden;pointer-events:none}
+}

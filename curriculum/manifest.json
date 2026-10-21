@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "appVersion": "0.4.3",
-  "version": "0.4.3",
+  "appVersion": "0.4.4",
+  "version": "0.4.4",
   "lessons": [
     {
       "id": "F1",
       "title": "F1 · React + Vite + TypeScript",
-      "version": "0.4.3",
+      "version": "0.4.4",
       "templateVersion": "0.1.3",
       "chapters": [
         {
@@ -70,7 +70,7 @@
     {
       "id": "F2",
       "title": "F2 · Next.js + TypeScript + Tailwind",
-      "version": "0.4.3",
+      "version": "0.4.4",
       "templateVersion": "0.1.1",
       "chapters": [
         {
@@ -134,7 +134,7 @@
     {
       "id": "B1",
       "title": "B1 · Next.js Route Handlers API only",
-      "version": "0.4.3",
+      "version": "0.4.4",
       "templateVersion": "0.1.2",
       "chapters": [
         {
@@ -206,7 +206,7 @@
     {
       "id": "S1",
       "title": "S1 · Next.js + Route Handlers",
-      "version": "0.4.3",
+      "version": "0.4.4",
       "templateVersion": "0.1.2",
       "chapters": [
         {
@@ -278,7 +278,7 @@
     {
       "id": "S2",
       "title": "S2 · Next.js + local Supabase",
-      "version": "0.4.3",
+      "version": "0.4.4",
       "templateVersion": "0.1.2",
       "chapters": [
         {
@@ -342,7 +342,7 @@
     {
       "id": "I1",
       "title": "I1 · PostgreSQL + development workbench",
-      "version": "0.4.3",
+      "version": "0.4.4",
       "templateVersion": "0.1.0",
       "chapters": [
         {
@@ -414,7 +414,7 @@
     {
       "id": "setup",
       "title": "開発準備・困ったとき",
-      "version": "0.4.3",
+      "version": "0.4.4",
       "templateVersion": null,
       "chapters": [
         {
@@ -431,7 +431,7 @@
           "file": "setup/windows.md",
           "source": "windows.md",
           "bytes": 5828,
-          "sha256": "a2fb8cf4b79c3f0c0667d5994221cd0328ab81844ac9b8470e17a4eff33eff1e"
+          "sha256": "560a3922f237f2374b2d9575a5c18bb321f043761623d384831b46e8ebae9f0a"
         },
         {
           "id": "macos",
@@ -439,7 +439,7 @@
           "file": "setup/macos.md",
           "source": "macos.md",
           "bytes": 1328,
-          "sha256": "2e3326f8241d5d1619d893ccb3efd7896db2ebc53354e5b652c2963f65f932f7"
+          "sha256": "ab2798e0463d4896b65270d99e1f80af3d403c609ec893b9d581951c2ab826e1"
         },
         {
           "id": "linux",
@@ -447,7 +447,7 @@
           "file": "setup/linux.md",
           "source": "linux.md",
           "bytes": 1663,
-          "sha256": "64103c4455fba170bbcc1e63f1d7db433f5644b6ddea1deba48131d61c0c679a"
+          "sha256": "0dd396d0b18af5a226c9b362304a1e57e5d1b60f67d340eaeaa3826cae759828"
         },
         {
           "id": "trouble",

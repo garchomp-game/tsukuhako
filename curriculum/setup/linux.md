@@ -14,6 +14,6 @@ rootlessやDocker Desktopを使っている場合は自動置換しません。�
 
 [Dev Containers公式ガイド](https://code.visualstudio.com/docs/devcontainers/containers)に沿ってVS Codeと拡張を用意します。生成後にReopen in Containerを選び、初回ダウンロード完了を待ちます。
 
-アプリ左の「準備チェックへ戻る」→「もう一度確認」で結果を更新します。
+アプリ上の「準備チェックへ戻る」→「もう一度確認」で結果を更新します。
 
 [再確認と復旧](lesson:setup/trouble)

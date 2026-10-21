@@ -31,9 +31,11 @@ jobs:
           python-version: '3.12'
       - run: npm ci --prefix generator
       - run: npm ci --prefix generator-desktop
+      - run: npm ci --prefix tools
+        if: matrix.platform == 'windows'
       - run: node generator-desktop/node_modules/electron/install.js
       - run: npm run build --prefix generator-desktop
-      - run: python tools/build-helper-043.py
+      - run: python tools/build-helper-044.py
       - run: node tools/stage-desktop.mjs
       - run: python tools/verify-helper-archive.py dist/desktop-app
       - name: Core and desktop regression tests (Linux)
@@ -44,7 +46,7 @@ jobs:
           npm run test:package --prefix generator-desktop
       - name: Linux tar.gz
         if: matrix.platform == 'linux'
-        run: python tools/package-desktop-043.py
+        run: python tools/package-desktop-044.py
       - name: Windows x64 NSIS
         if: matrix.platform == 'windows'
         run: npm run package:windows --prefix generator-desktop
@@ -62,26 +64,52 @@ jobs:
           $sig = Get-AuthenticodeSignature $installer.FullName
           @{ file=$installer.Name; status=$sig.Status.ToString(); subject=$sig.SignerCertificate.Subject; category='CI'; osRuntimeVerification='NOT_RUN' } | ConvertTo-Json | Set-Content -Encoding utf8 dist/windows-x64/signature.json
           if ($sig.Status -ne 'NotSigned') { throw 'Unexpected signature state; inspect before distribution' }
-      - name: Windows download (private Actions artifact; no release publishing)
+      - name: Installed Windows application smoke
+        id: windowsSmoke
+        continue-on-error: true
+        if: matrix.platform == 'windows'
+        timeout-minutes: 7
+        shell: pwsh
+        run: |
+          $installer = Get-Item dist/windows-x64/*-setup.exe
+          ./tools/windows-installer-smoke.ps1 -Installer $installer.FullName
+      - name: Windows smoke evidence (also on failure)
+        if: always() && matrix.platform == 'windows'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: tsukuhako-windows-smoke-evidence
+          path: dist/windows-smoke/
+          retention-days: 14
+          if-no-files-found: warn
+      - name: Assemble Windows recipient folder
+        if: matrix.platform == 'windows'
+        shell: pwsh
+        run: |
+          $installer = Get-Item dist/windows-x64/*-setup.exe
+          node tools/delivery-pack.mjs $installer.FullName windows dist/delivery/windows
+          if ($LASTEXITCODE -ne 0) { throw 'Delivery pack failed' }
+      - name: Assemble Linux recipient folder
+        if: matrix.platform == 'linux'
+        run: node tools/delivery-pack.mjs dist/tsukuhako-linux-x64-0.4.4.tar.gz linux dist/delivery/linux
+      - name: Windows recipient download (private; no release publishing)
         if: matrix.platform == 'windows'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: tsukuhako-windows-x64-validation
-          path: |
-            dist/windows-x64/*-setup.exe
-            dist/windows-x64/*-setup.exe.manifest.json
-            dist/windows-x64/signature.json
+          name: tsukuhako-windows-x64-delivery
+          path: dist/delivery/windows/
           retention-days: 14
           compression-level: 0
           if-no-files-found: error
-      - name: Linux download (private Actions artifact; no release publishing)
+      - name: Linux recipient download (private; no release publishing)
         if: matrix.platform == 'linux'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: tsukuhako-linux-x64-validation
-          path: |
-            dist/tsukuhako-linux-x64-*.tar.gz
-            dist/tsukuhako-linux-x64-*.tar.gz.manifest.json
+          name: tsukuhako-linux-x64-delivery
+          path: dist/delivery/linux/
           retention-days: 14
           compression-level: 0
           if-no-files-found: error
+      - name: Report a failed smoke after preserving artifacts
+        if: matrix.platform == 'windows' && steps.windowsSmoke.outcome == 'failure'
+        shell: pwsh
+        run: throw 'Installed Windows smoke did not pass; artifacts and partial evidence were retained'

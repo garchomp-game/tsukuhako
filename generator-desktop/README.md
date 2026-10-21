@@ -1,11 +1,11 @@
-# ツクハコ Desktop 0.4.3
+# ツクハコ Desktop 0.4.4
 
 学習用の開発環境を作り、同梱教材で起動・変更・復元まで進むアプリです。明鏡の公式アプリではありません。教材閲覧とファイル生成にアカウント登録・ホストNode.js・ネット接続は不要です。初回の開発環境構築にはネット接続が必要です。
 
 ## 今回の配布対象
 
-- Windows 11 x64: `tsukuhako-windows-x64-0.4.3-setup.exe`。NSISのユーザー単位インストール。未署名の検証用です。Windows上の実機起動、初回警告、F2/S2の完走、アンインストール後のデータ保持は未確認です。CIでのビルドを実機合格と扱いません。
-- Linux x64: `tsukuhako-linux-x64-0.4.3.tar.gz`。展開したフォルダの `tsukuhako` を一般ユーザーで起動します。確認対象はLinux Mint 22.3。未導入PCや他ディストリビューションの動作を保証するものではありません。
+- Windows 11 x64: `tsukuhako-windows-x64-0.4.4-setup.exe`。NSISのユーザー単位インストール。未署名の検証用です。Windows 11の通常ユーザー実機、初回警告、F2/S2の完走、実WSL/DBの削除後保持は未確認です。Windows Server CIで導入・教材表示・削除・隔離読書データ保持を補助検証します。結果は版別レポートを参照し、Win11実機合格と区別します。
+- Linux x64: `tsukuhako-linux-x64-0.4.4.tar.gz`。展開したフォルダの `tsukuhako` を一般ユーザーで起動します。確認対象はLinux Mint 22.3。未導入PCや他ディストリビューションの動作を保証するものではありません。
 - macOS・ARM・deb・AppImage・自動更新は今回の対象外です。既存のmacOS教材は参考として残しています。
 
 OSの保護機能やElectron sandboxを無効化せず、停止や警告が出た場合は内容を記録してください。Windowsでは通常のWindowsユーザーでインストールし、スタートメニューの「ツクハコ」から起動します。
@@ -14,9 +14,13 @@ OSの保護機能やElectron sandboxを無効化せず、停止や警告が出�
 
 Windowsのアプリから選んだWSL 2の通常ユーザーを使います。Docker DesktopのWSL Integrationも同じdistroを選びます。rootやdocker-desktopを開発先にしません。生成先は選択WSLのHOME配下です。アプリのインストールフォルダは保存先・作業キャッシュに使いません。
 
-「WSL用ファイルを準備」で、同梱のLinux x64 Node・共有コア・テンプレートを `~/.tsukuhako-helper/0.4.3-linux-x64` に配置します。アーカイブ・manifest・実行ファイルのSHA-256を照合します。不完全な同じ版を自動削除せず、利用者が確認して退避した後で再配置します。OSパッケージ・既定distro・シェル設定は変更しません。
+「WSL用ファイルを準備」で、同梱のLinux x64 Node・共有コア・テンプレートを `~/.tsukuhako-helper/0.4.4-linux-x64` に配置します。アーカイブ・manifest・実行ファイルのSHA-256を照合します。不完全な同じ版を自動削除せず、利用者が確認して退避した後で再配置します。OSパッケージ・既定distro・シェル設定は変更しません。
 
-Windowsの「インストールされているアプリ」でツクハコをアンインストールしても、生成プロジェクト、WSL、Dockerデータ・ボリュームは削除しない構成です。WSLの `.tsukuhako-helper` とWindowsの `%APPDATA%/tsukuhako`（読書位置など）は残します。環境や旧版ヘルパーの自動掃除はしません。この保持動作のWindows実機確認は残っています。
+Windowsの「インストールされているアプリ」でツクハコをアンインストールしても、生成プロジェクト、WSL、Dockerデータ・ボリュームは削除しない構成です。WSLの `.tsukuhako-helper` とWindowsの `%APPDATA%/tsukuhako`（読書位置など）は残します。環境や旧版ヘルパーの自動掃除はしません。既定の保存先と実WSL/DBを含む保持動作のWindows 11実機確認は残っています。
+
+## 教材の読み方
+
+狭い画面では「目次を開く」から教材・章を選び、「本文に戻る」またはEscで戻ります。広い画面では目次を横に表示します。本文のスクロール位置は目次の開閉・ヘルプ往復・アプリ再開で保持します。Ctrlと+（または=）で最大200%まで拡大、Ctrlと-で縮小、Ctrlと0で100%へ戻せます。本文領域へTabで移動し、PageDownやCtrl+Endでも読めます。
 
 ## 初回の進め方
 
@@ -34,8 +38,8 @@ Node 24.19.0、Python 3.12以降。Electron 44.9.1、electron-builder 26.15.3は
 npm ci --prefix generator
 npm ci --prefix generator-desktop
 node generator-desktop/node_modules/electron/install.js
-node tools/build-curriculum-043.mjs
-python tools/build-helper-043.py
+node tools/build-curriculum-044.mjs
+python tools/build-helper-044.py
 npm run build --prefix generator-desktop
 npm test --prefix generator
 npm test --prefix generator-desktop
@@ -49,10 +53,12 @@ npm run test:package --prefix generator-desktop
 # Windows上
 npm run package:windows --prefix generator-desktop
 # Linux上
-python tools/package-desktop-043.py
+python tools/package-desktop-044.py
 ```
 
-手動の `Desktop validation artifacts` workflowでも両方を作成できます。標準runnerのみ・各25分上限・成果物14日保持・OS別ダウンロードです。公開Releaseを作りません。
+手動の `Desktop validation artifacts` workflowでも両方を作成できます。標準runnerのみ・各25分上限・成果物14日保持・OS別ダウンロードです。Windowsの補助検証は7分上限で、失敗時もログと作成済み配布物を残します。公開Releaseを作りません。
+
+OS別の受取フォルダは製品1個・START_HERE.txt・manifest.json・SHA256SUMSの4ファイルです。`node tools/delivery-pack.mjs ARTIFACT linux|windows DESTINATION` で新しいフォルダへ作ります。受取人用の一般配布先・窓口は未決定です。private Actionsにはread権限と期限があるため、そのリンクだけで第三者が取得できるとは案内しません。
 
 ASARは使用せず、`resources/app/main.mjs` を基準にUI・worker・共有コア・教材・テンプレート・ライセンス・WSLヘルパーを実ファイルで配置します。fflateは共有コアのnode_modules、React/Markdown関連コードはViteのUIへ同梱します。Nodeのライセンスはhelper.tar、Electronのライセンスは配布ルートに含まれます。`build-info.json` と `bundle-files.json` でソースcommit・版・同梱ファイルのハッシュを確認できます。
 

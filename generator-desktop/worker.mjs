@@ -7,7 +7,7 @@ const core = name => import(pathToFileURL(path.join(root, 'generator/src/core', 
 const [{ getTemplates }, { destinationFromParts }, { planGeneration }, { applyGeneration }, { diagnoseHost, probePort }, { publicError, readRegular }, { startHere }] = await Promise.all(
   ['catalog','configuration','plan','apply','diagnostics','common','next-steps'].map(core));
 let current, publicId;
-const execution={os:process.platform,arch:process.arch,user:os.userInfo().username,helperVersion:'0.4.3'};
+const execution={os:process.platform,arch:process.arch,user:os.userInfo().username,helperVersion:'0.4.4'};
 const stale = () => Object.assign(new Error('確認した内容が現在の状態と一致しません。'), { code: 'PLAN_STALE', nextAction: '保存先の入力へ戻り、内容を確認し直してください。', details: {} });
 process.parentPort.on('message', async ({ data }) => {
   const { id, method, payload } = data;

@@ -99,7 +99,7 @@ for (const method of METHODS) ipcMain.handle(`tsukuhako:${method}`, async (event
     else if(method==='checkPreparation'||method==='prepareWSL') value=await checkPreparation(payload,method==='prepareWSL');
     else if(method==='cancelPreparation') {preparationController?.abort();value={cancelled:true};}
     else if(method==='exportDiagnostic') {const result=await dialog.showSaveDialog(window,{title:'診断ログを書き出す',defaultPath:'tsukuhako-diagnostic.txt',filters:[{name:'テキスト',extensions:['txt']}]});if(result.canceled)value={saved:false};else{await fs.promises.writeFile(result.filePath,redact(payload.text),{mode:0o600});value={saved:true};}}
-    else if (method === 'getTemplates') value = { ...await rpc(method), defaultParent: app.getPath('home'), version: '0.4.3' };
+    else if (method === 'getTemplates') value = { ...await rpc(method), defaultParent: app.getPath('home'), version: '0.4.4' };
     else if (method === 'chooseParentDirectory') {
       if(wsl)throw desktopError('WSL_PATH','WSLの保存先を手入力してください。','Windows側のフォルダ選択は使いません。');
       const result = await dialog.showOpenDialog(window, { title: '親フォルダを選ぶ', buttonLabel: '親フォルダを選ぶ', properties: ['openDirectory'] });
@@ -145,6 +145,15 @@ app.whenReady().then(async () => {
   window.webContents.setWindowOpenHandler(() => ({ action: 'deny' }));
   window.webContents.on('will-navigate', event => event.preventDefault());
   window.webContents.on('will-attach-webview', event => event.preventDefault());
+  // Menu-less windows still offer the usual keyboard display controls.
+  window.webContents.on('before-input-event', (event, input) => {
+    if (input.type !== 'keyDown' || !(input.control || input.meta) || input.alt) return;
+    if (!['+', '=', '-', '0'].includes(input.key)) return;
+    event.preventDefault();
+    const current = window.webContents.getZoomFactor();
+    const next = input.key === '0' ? 1 : Math.max(.75, Math.min(2, Math.round((current + (input.key === '-' ? -.25 : .25)) * 100) / 100));
+    window.webContents.setZoomFactor(next);
+  });
   window.webContents.on('before-input-event', (event, input) => { if (generating && ((input.control || input.meta) && input.key.toLowerCase() === 'r' || input.key === 'F5')) event.preventDefault(); });
   window.webContents.on('did-start-navigation', (_event, _url, _inPlace, isMainFrame) => { if (isMainFrame && !generating) { lastCreated = undefined; generateRpc('reset').catch(() => {}); } });
   window.on('close', event => { if (generating) event.preventDefault(); });
