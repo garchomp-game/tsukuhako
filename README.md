@@ -1,33 +1,16 @@
-# ツクハコ 0.4.2
+# ツクハコ 0.4.3
 
-学習用の開発環境を作り、同梱教材で起動・最初の変更・復元まで進むReact/Electronアプリです。共有Nodeコアとローカル教材を使います。
+学習用の開発環境を作り、同梱教材で起動・最初の変更・復元まで進むReact/Electronアプリです。明鏡の公式アプリではありません。
 
-0.4.1レビューの3件を修正しました。変更点とエビデンスは [REPORT.md](REPORT.md)、確認範囲は [TEST-RESULTS.md](TEST-RESULTS.md) を参照してください。
+初回配布対象を **Windows 11 x64（NSIS exe）とLinux x64（tar.gz）** に絞りました。macOS・ARMは後続です。Windowsは未署名の検証用で、Windows/WSL実機の開発経路は未確認です。Linuxの確認環境はMint 22.3で、他のLinuxや未導入PCの合格に広げません。
 
-2026-10-21のLinux初回操作を追加取得しました。[短い取得レポート](validation/onboarding-0.4.2/20261021T0919-JST/REPORT.md) / [操作別INDEX](validation/onboarding-0.4.2/20261021T0919-JST/INDEX.md)。同じ0.4.2配布物でF2の連続録画、6構成の実起動・変更・復元、再接続・Rebuildを確認し、VM導入と未実施項目を分けています。
+0.4.3では、F1/F2/B1/S1/S2の生成結果・START_HERE.md・教材を統一し、構成ターミナル本文の「準備完了」と初期構成の正常終了を確認してから `npm run dev` を実行する案内にしました。I1はDB用の別手順です。生成済みプロジェクトは自動更新しません。
 
-ソース管理先は [garchomp-game/tsukuhako](https://github.com/garchomp-game/tsukuhako)（private）。完了した変更をpushし、簡潔なレポートとエビデンスを渡します。ソース一式のレビューZIPは別途依頼があった場合だけ作成します。
+- 配布手順、署名、Windowsのインストール・削除の扱い: [Desktop README](generator-desktop/README.md)
+- OS別の検証結果と配布物: [0.4.3レポート](validation/release-0.4.3/REPORT.md)（ビルド・再検証後に記録）
+- 旧0.4.2の6構成実機記録: [Linux初回操作](validation/onboarding-0.4.2/20261021T0919-JST/REPORT.md)。0.4.3やWindowsの合格へ読み替えません。
+- F1/F2/B1/S1/S2/I1が生成対象、S3は参考資料。テンプレートZIP自体は変更していません。
 
-- Linux実行版はローカルの `dist/tsukuhako-linux-x64-0.4.2.tar.gz`。展開して `tsukuhako` を通常ユーザーで起動します。利用者側のNodeは不要です。
-- Linux Mint 22.3 x64で確認。Windows/WSL 2・macOSの実機確認と0.4.2の実行配布物作成は未実施です。
-- F1/F2/B1/S1/S2/I1が生成対象、S3は参考資料です。カタログが参照する7つのテンプレートZIPはGitに含め、内容は0.4.1から変更していません。
-- 依存パッケージ、製品ランタイム、検証用実行フォルダ、実際の `.env` はGit管理対象外です。
+制作側はDesktop READMEのコマンド、または手動の [Desktop validation artifacts](.github/workflows/desktop-validation.yml) で作成します。OS別のprivate Actions artifactとして取得でき、公開Releaseへ自動公開しません。製品commitと各成果物のSHA-256はmanifestへ記録します。
 
-制作側の操作（今回の確認環境はNode 24.19.0）：
-
-```sh
-npm ci --prefix generator
-npm ci --prefix generator-desktop
-npm ci --prefix tools
-node tools/build-curriculum-042.mjs
-npm test --prefix generator
-npm test --prefix generator-desktop
-npm run build --prefix generator-desktop
-uv run --no-project python tools/package-desktop-042.py
-```
-
-Windows向けhelperの再構築は `uv run --no-project python tools/build-helper-042.py` です。helperを作っただけではWindows実機確認済みにはなりません。
-
-生成済みプロジェクトは自動更新しません。今回の修正は新規生成するSTART_HERE.mdと同梱教材へ反映されます。出品・公開・課金・会員サイト作成は行っていません。
-
-過去のUX点検は [0.4.1のレビュー](UX-REVIEW.md) に残しています。次に本人が試すことは [NEXT-ACTIONS.md](NEXT-ACTIONS.md) を参照してください。
+ソース管理は [garchomp-game/tsukuhako](https://github.com/garchomp-game/tsukuhako)（private）。依存フォルダ・製品ランタイム・大容量配布物・実際の.envはGitに追加しません。今回も公開販売・課金・会員サイト作成は含めません。狭い画面・200%表示の多重スクロールは改善候補として残しています。

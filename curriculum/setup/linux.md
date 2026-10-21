@@ -1,6 +1,6 @@
 # Linuxの準備
 
-初期目標はUbuntu系 x86_64です。Linux Mintの結果をUbuntu実機合格に置き換えません。
+今回の配布はLinux x64 tar.gzです。確認環境はLinux Mint 22.3です。Linux Mintの結果をUbuntu実機合格に置き換えません。
 
 ## Docker Engine + Compose
 

@@ -28,7 +28,7 @@
 
 確認できる結果：VS Code左下にDev Containerへの接続が表示され、/workspaceのファイルが開きます。
 
-生成完了画面の「VS Codeで開く」を押します。VS CodeでCtrl+Shift+P（macOSはCmd+Shift+P）を押し、Dev Containers: Reopen in Containerを検索して選びます。自身が生成したフォルダを確認して信頼します。初回のイメージ・依存取得を待ちます。
+生成完了画面の「VS Codeで開く」を押します。VS CodeでCtrl+Shift+P（macOSはCmd+Shift+P）を押し、Dev Containers: Reopen in Containerを検索して選びます。自身が生成したフォルダを確認して信頼します。初回のイメージ・依存取得を待ちます。VS Codeの初回サインインは、このローカル学習には不要です。信頼するのは今生成したフォルダだけにします。コマンドがない場合は左側の拡張画面で Microsoft の Dev Containers（ms-vscode-remote.remote-containers）を導入します。
 
 ## 3. migrationとサンプルデータを準備する
 

@@ -28,27 +28,37 @@
 
 確認できる結果：VS Code左下にDev Containerへの接続が表示され、/workspaceのファイルが開きます。
 
-生成完了画面の「VS Codeで開く」を押します。VS CodeでCtrl+Shift+P（macOSはCmd+Shift+P）を押し、Dev Containers: Reopen in Containerを検索して選びます。自身が生成したフォルダを確認して信頼します。初回のイメージ・依存取得を待ちます。
+生成完了画面の「VS Codeで開く」を押します。VS CodeでCtrl+Shift+P（macOSはCmd+Shift+P）を押し、Dev Containers: Reopen in Containerを検索して選びます。自身が生成したフォルダを確認して信頼します。初回のイメージ・依存取得を待ちます。VS Codeの初回サインインは、このローカル学習には不要です。信頼するのは今生成したフォルダだけにします。コマンドがない場合は左側の拡張画面で Microsoft の Dev Containers（ms-vscode-remote.remote-containers）を導入します。
 
-## 3. 開発サーバーを起動する
+## 3. 初期構成の正常終了を待つ
+
+場所：VS Codeの編集画面。このプロジェクトのフォルダで行います。
+
+確認できる結果：構成ターミナル本文に「準備完了」が表示され、初期構成処理が正常終了しています。
+
+VS Codeの構成ターミナル（Configuring... など）を開き、本文の「準備完了」と、初期構成処理がエラーなく正常終了したことの両方を確認します。接続バッジ・node_modulesの存在・タブ名だけでは完了と判断しません。処理中は別の npm ci を実行せず、そのまま待ちます。失敗した場合は構成ターミナルのログと復旧手順を確認してください。
+
+[docs/RECOVERY.md](docs/RECOVERY.md)
+
+## 4. 開発サーバーを起動する
 
 場所：VS CodeのDev Container内ターミナル。/workspaceで行います。
 
 確認できる結果：VITE と Local のURLが表示されます。ブラウザでは下記のホスト側URLを使います。
 
-Dev Containerへの接続後、VS Codeの「ターミナル」→「新しいターミナル」で実行します。pwd が /workspace であることを確認します。このターミナルを起動したまま、次の確認・編集へ進みます。
+前の手順で初期構成の正常終了を確認してから、VS Codeの「ターミナル」→「新しいターミナル」で実行します。pwd が /workspace であることを確認します。このターミナルを起動したまま、次の確認・編集へ進みます。早く実行して next: not found などが出た場合は、構成ターミナルの「準備完了」と正常終了を確認した後で npm run dev をもう一度実行します。初期構成が失敗していたら、そのログと docs/RECOVERY.md を確認してください。
 
 ```sh
 'npm' 'run' 'dev'
 ```
 
-## 4. 変更前の画面を確認する
+## 5. 変更前の画面を確認する
 
 場所：OSのブラウザのアドレス欄。下記URLを開きます。
 
 ブラウザのアドレス欄：`http://localhost:3000/`（ポートは生成結果に合わせます）
 
-## 5. 一か所変える
+## 6. 一か所変える
 
 場所：VS Codeの編集画面。このプロジェクトのフォルダで行います。
 
@@ -56,7 +66,7 @@ Dev Containerへの接続後、VS Codeの「ターミナル」→「新しいタ
 
 [src/App.tsx](src/App.tsx)
 
-## 6. 変化を自分で確認する
+## 7. 変化を自分で確認する
 
 場所：OSのブラウザのアドレス欄。下記URLを開きます。
 
@@ -66,7 +76,7 @@ Dev Containerへの接続後、VS Codeの「ターミナル」→「新しいタ
 
 [docs/RECOVERY.md](docs/RECOVERY.md)
 
-## 7. 元の内容に戻して保存する
+## 8. 元の内容に戻して保存する
 
 場所：VS Codeの編集画面。このプロジェクトのフォルダで行います。
 
@@ -74,7 +84,7 @@ Dev Containerへの接続後、VS Codeの「ターミナル」→「新しいタ
 
 [src/App.tsx](src/App.tsx)
 
-## 8. 復元した結果を確認する
+## 9. 復元した結果を確認する
 
 場所：OSのブラウザのアドレス欄。下記URLを開きます。
 
@@ -82,7 +92,7 @@ Dev Containerへの接続後、VS Codeの「ターミナル」→「新しいタ
 
 ブラウザのアドレス欄：`http://localhost:3000/`（ポートは生成結果に合わせます）
 
-## 9. 次の教材へ進む（最初の変更は第1項）
+## 10. 次の教材へ進む（最初の変更は第1項）
 
 場所：VS Codeの編集画面。このプロジェクトのフォルダで行います。
 
@@ -90,19 +100,19 @@ Dev Containerへの接続後、VS Codeの「ターミナル」→「新しいタ
 
 [docs/EXERCISES.md](docs/EXERCISES.md)
 
-## 10. 全体の使い方
+## 11. 全体の使い方
 
 場所：開発ホストのターミナル（Windowsは選択したWSL内。PowerShellでは実行しません）。このプロジェクトのフォルダで行います。
 
 [README.md](README.md)
 
-## 11. 空から組み立てる
+## 12. 空から組み立てる
 
 場所：開発ホストのターミナル（Windowsは選択したWSL内。PowerShellでは実行しません）。このプロジェクトのフォルダで行います。
 
 [docs/BUILD-YOUR-OWN.md](docs/BUILD-YOUR-OWN.md)
 
-## 12. 停止・復旧
+## 13. 停止・復旧
 
 場所：開発ホストのターミナル（Windowsは選択したWSL内。PowerShellでは実行しません）。このプロジェクトのフォルダで行います。
 

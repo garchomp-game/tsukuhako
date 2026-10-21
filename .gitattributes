@@ -1,0 +1,6 @@
+* text=auto eol=lf
+*.zip -text
+*.png -text
+*.ico -text
+*.tar -text
+*.mp4 -text

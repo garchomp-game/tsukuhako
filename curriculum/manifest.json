@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "appVersion": "0.4.2",
-  "version": "0.4.2",
+  "appVersion": "0.4.3",
+  "version": "0.4.3",
   "lessons": [
     {
       "id": "F1",
       "title": "F1 · React + Vite + TypeScript",
-      "version": "0.4.2",
+      "version": "0.4.3",
       "templateVersion": "0.1.3",
       "chapters": [
         {
@@ -14,8 +14,8 @@
           "title": "最初の一歩",
           "file": "F1/first.md",
           "source": "START_HERE.md",
-          "bytes": 4864,
-          "sha256": "e4d9f75c0d14d10d9921a3abae0e757f6155c8fe24af32f6958bac5eeca6176f"
+          "bytes": 6253,
+          "sha256": "78972dfe20c5d9407eaf0bc65faaa61f1aa283c1d19f8d7fdbcdec1bb36f6ff4"
         },
         {
           "id": "readme",
@@ -70,7 +70,7 @@
     {
       "id": "F2",
       "title": "F2 · Next.js + TypeScript + Tailwind",
-      "version": "0.4.2",
+      "version": "0.4.3",
       "templateVersion": "0.1.1",
       "chapters": [
         {
@@ -78,8 +78,8 @@
           "title": "最初の一歩",
           "file": "F2/first.md",
           "source": "START_HERE.md",
-          "bytes": 5001,
-          "sha256": "0abc2e6852cd320606b9f7a6ec832edb8d78e8e578e9c8991d3ca43012e21eb1"
+          "bytes": 6390,
+          "sha256": "adf5f5482865f5daa6fedbb4e4b5db6a4f4ad45c079fe63c2a5db3788ee8e410"
         },
         {
           "id": "readme",
@@ -134,7 +134,7 @@
     {
       "id": "B1",
       "title": "B1 · Next.js Route Handlers API only",
-      "version": "0.4.2",
+      "version": "0.4.3",
       "templateVersion": "0.1.2",
       "chapters": [
         {
@@ -142,8 +142,8 @@
           "title": "最初の一歩",
           "file": "B1/first.md",
           "source": "START_HERE.md",
-          "bytes": 5183,
-          "sha256": "27e52d40d34f82d89eb04a69bfdbc9f028620ff383a858312d383e0bb4bee4f4"
+          "bytes": 6572,
+          "sha256": "b8053126e4faf7813146c69c816fe7d0e5b7776759966aae94bae874be3e29b8"
         },
         {
           "id": "readme",
@@ -206,7 +206,7 @@
     {
       "id": "S1",
       "title": "S1 · Next.js + Route Handlers",
-      "version": "0.4.2",
+      "version": "0.4.3",
       "templateVersion": "0.1.2",
       "chapters": [
         {
@@ -214,8 +214,8 @@
           "title": "最初の一歩",
           "file": "S1/first.md",
           "source": "START_HERE.md",
-          "bytes": 4913,
-          "sha256": "b5260b3b78fff86560f4bd7445d21b4fe30d0d78ec09240e384a18e28113204d"
+          "bytes": 6302,
+          "sha256": "db93c24da3a74821b0dd587dd8b6589f39253745d2f3beacf8c08caa69e392ce"
         },
         {
           "id": "readme",
@@ -278,7 +278,7 @@
     {
       "id": "S2",
       "title": "S2 · Next.js + local Supabase",
-      "version": "0.4.2",
+      "version": "0.4.3",
       "templateVersion": "0.1.2",
       "chapters": [
         {
@@ -286,8 +286,8 @@
           "title": "最初の一歩",
           "file": "S2/first.md",
           "source": "START_HERE.md",
-          "bytes": 5218,
-          "sha256": "39c43c58844fca6865bf04491512056131e106b75003f601659b85310333f9f3"
+          "bytes": 6607,
+          "sha256": "293cb943a1a45d2772170fce7c1b5ceea9bde73fbbd004699b913729abfb2671"
         },
         {
           "id": "readme",
@@ -342,7 +342,7 @@
     {
       "id": "I1",
       "title": "I1 · PostgreSQL + development workbench",
-      "version": "0.4.2",
+      "version": "0.4.3",
       "templateVersion": "0.1.0",
       "chapters": [
         {
@@ -350,8 +350,8 @@
           "title": "最初の一歩",
           "file": "I1/first.md",
           "source": "START_HERE.md",
-          "bytes": 4281,
-          "sha256": "dfb58e440a17f65dc7d2bd4db461e691331150484624a5f00141ba3e79b7b419"
+          "bytes": 4573,
+          "sha256": "f365ba8a41db54fc23e18052fd322f66d9093bbe499c6960d2fa5ce8f184235c"
         },
         {
           "id": "readme",
@@ -414,7 +414,7 @@
     {
       "id": "setup",
       "title": "開発準備・困ったとき",
-      "version": "0.4.2",
+      "version": "0.4.3",
       "templateVersion": null,
       "chapters": [
         {
@@ -422,32 +422,32 @@
           "title": "開発準備の全体像",
           "file": "setup/overview.md",
           "source": "overview.md",
-          "bytes": 1069,
-          "sha256": "e1e9b03318c72a2ad5288f91d210b69f0ee29ee8a27446190b120dac8c74a803"
+          "bytes": 1594,
+          "sha256": "df3f2fb386c7eecf94038b5d30380c68fc5f041ea918391417205beb3d74cf3c"
         },
         {
           "id": "windows",
           "title": "Windows / WSL 2の準備",
           "file": "setup/windows.md",
           "source": "windows.md",
-          "bytes": 4947,
-          "sha256": "1e6953013396280392f14b2703f29c16760b89ea1a365d91b3dfde230fcfdd32"
+          "bytes": 5828,
+          "sha256": "a2fb8cf4b79c3f0c0667d5994221cd0328ab81844ac9b8470e17a4eff33eff1e"
         },
         {
           "id": "macos",
           "title": "macOSの準備",
           "file": "setup/macos.md",
           "source": "macos.md",
-          "bytes": 1273,
-          "sha256": "557d57c83447c1b3992cea3ed57c3aa9047fe44a34a4a50c3deb8e7646d18803"
+          "bytes": 1328,
+          "sha256": "2e3326f8241d5d1619d893ccb3efd7896db2ebc53354e5b652c2963f65f932f7"
         },
         {
           "id": "linux",
           "title": "Linuxの準備",
           "file": "setup/linux.md",
           "source": "linux.md",
-          "bytes": 1621,
-          "sha256": "35dc66ea1519309fb76e68341eb9201244663dd115118d46bab34ccc9f317678"
+          "bytes": 1663,
+          "sha256": "64103c4455fba170bbcc1e63f1d7db433f5644b6ddea1deba48131d61c0c679a"
         },
         {
           "id": "trouble",

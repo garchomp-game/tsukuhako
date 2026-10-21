@@ -18,14 +18,15 @@ export function nextSteps(id, ports) {
   cmd('準備と、このプロジェクトの設定を確認する', 'host', 'bash', [id === 'I1' ? 'scripts/doctor.sh' : 'scripts/doctor-host.sh']);
   Object.assign(steps[0], {document:id === 'I1' ? 'README.md' : 'docs/SETUP.md', expected:id === 'I1' ? 'PASS: Docker / Compose / 設定 が表示されます。' : '診断OK と、このプロジェクトのURLが表示されます。', detail:'不足があれば、次の準備手順を確認してください。生成済みの.envを最初から作り直す必要はありません。'});
   if (id === 'S2') cmd('ローカルDBを起動する（初回はネット接続が必要）', 'host', 'bash', ['scripts/db.sh', 'start']);
-  steps.push({ title:'VS Codeでフォルダを開き、Dev Containers: Reopen in Containerを実行する', location:'editor', cwd:'destination', detail:'生成完了画面の「VS Codeで開く」を押します。VS CodeでCtrl+Shift+P（macOSはCmd+Shift+P）を押し、Dev Containers: Reopen in Containerを検索して選びます。自身が生成したフォルダを確認して信頼します。初回のイメージ・依存取得を待ちます。', expected:'VS Code左下にDev Containerへの接続が表示され、/workspaceのファイルが開きます。' });
+  steps.push({ title:'VS Codeでフォルダを開き、Dev Containers: Reopen in Containerを実行する', location:'editor', cwd:'destination', detail:'生成完了画面の「VS Codeで開く」を押します。VS CodeでCtrl+Shift+P（macOSはCmd+Shift+P）を押し、Dev Containers: Reopen in Containerを検索して選びます。自身が生成したフォルダを確認して信頼します。初回のイメージ・依存取得を待ちます。VS Codeの初回サインインは、このローカル学習には不要です。信頼するのは今生成したフォルダだけにします。コマンドがない場合は左側の拡張画面で Microsoft の Dev Containers（ms-vscode-remote.remote-containers）を導入します。', expected:'VS Code左下にDev Containerへの接続が表示され、/workspaceのファイルが開きます。' });
   if (id === 'I1') {
     cmd('migrationとサンプルデータを準備する', 'container', 'bash', ['scripts/db.sh', 'setup']);
     cmd('SQLの主要操作を確認する', 'container', 'bash', ['scripts/db.sh', 'check']);
     cmd('変更前の結果を確認する', 'container', 'bash', ['scripts/db.sh', 'query', 'sql/practice.sql']);
   } else {
+    steps.push({title:'初期構成の正常終了を待つ', location:'editor', cwd:'destination', detail:'VS Codeの構成ターミナル（Configuring... など）を開き、本文の「準備完了」と、初期構成処理がエラーなく正常終了したことの両方を確認します。接続バッジ・node_modulesの存在・タブ名だけでは完了と判断しません。処理中は別の npm ci を実行せず、そのまま待ちます。失敗した場合は構成ターミナルのログと復旧手順を確認してください。', expected:'構成ターミナル本文に「準備完了」が表示され、初期構成処理が正常終了しています。', document:'docs/RECOVERY.md'});
     cmd('開発サーバーを起動する', 'container', 'npm', ['run', 'dev']);
-    steps.at(-1).detail = 'Dev Containerへの接続後、VS Codeの「ターミナル」→「新しいターミナル」で実行します。pwd が /workspace であることを確認します。このターミナルを起動したまま、次の確認・編集へ進みます。';
+    steps.at(-1).detail = '前の手順で初期構成の正常終了を確認してから、VS Codeの「ターミナル」→「新しいターミナル」で実行します。pwd が /workspace であることを確認します。このターミナルを起動したまま、次の確認・編集へ進みます。早く実行して next: not found などが出た場合は、構成ターミナルの「準備完了」と正常終了を確認した後で npm run dev をもう一度実行します。初期構成が失敗していたら、そのログと docs/RECOVERY.md を確認してください。';
     steps.at(-1).expected = id === 'F1' ? 'VITE と Local のURLが表示されます。ブラウザでは下記のホスト側URLを使います。' : 'Ready が表示されます。ブラウザでは下記のホスト側URLを使います。';
     if (id === 'B1') cmd('変更前のJSONを確認する', 'host', 'curl', ['-i', `http://localhost:${ports.app}/api/health`]);
     else steps.push({ title:'変更前の画面を確認する', location:'host', cwd:'destination', url:`http://localhost:${ports.app}${firstExercise(id).route}` });

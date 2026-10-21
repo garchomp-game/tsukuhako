@@ -1,0 +1,12 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {createHash} from 'node:crypto';
+const root=path.resolve(import.meta.dirname,'..');
+const [artifact,platform]=process.argv.slice(2);
+if(!artifact||!['linux','windows'].includes(platform))throw Error('Usage: node tools/artifact-manifest.mjs ARTIFACT linux|windows');
+const info=JSON.parse(fs.readFileSync(path.join(root,'dist/desktop-app/build-info.json')));
+if(info.dirty)throw Error('Uncommitted source cannot be a release artifact');
+const data=fs.readFileSync(artifact);
+const result={productVersion:info.productVersion,sourceCommit:info.sourceCommit,file:path.basename(artifact),bytes:data.length,sha256:createHash('sha256').update(data).digest('hex'),platform,architecture:'x64',signing:platform==='windows'?'UNSIGNED_VALIDATION_BUILD':'UNSIGNED_TAR_ARCHIVE',buildEnvironment:{platform:process.platform,architecture:process.arch,category:process.env.GITHUB_ACTIONS?'CI':'REAL_HOST',runUrl:process.env.GITHUB_RUN_ID?`https://github.com/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`:null},osRuntimeVerification:'NOT_RUN_AT_BUILD',verificationReport:'validation/release-0.4.3/REPORT.md'};
+fs.writeFileSync(artifact+'.manifest.json',JSON.stringify(result,null,2)+'\n');
+console.log(JSON.stringify(result,null,2));

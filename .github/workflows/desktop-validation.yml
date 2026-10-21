@@ -1,0 +1,86 @@
+name: Desktop validation artifacts
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: desktop-validation-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  package:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-24.04
+            platform: linux
+          - os: windows-2022
+            platform: windows
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 25
+    env:
+      CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24.19.0'
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - run: npm ci --prefix generator
+      - run: npm ci --prefix generator-desktop
+      - run: npm run build --prefix generator-desktop
+      - run: python tools/build-helper-043.py
+      - run: node tools/stage-desktop.mjs
+      - run: python tools/verify-helper-archive.py dist/desktop-app
+      - name: Core and desktop regression tests (Linux)
+        if: matrix.platform == 'linux'
+        run: |
+          npm test --prefix generator
+          npm test --prefix generator-desktop
+          npm run test:package --prefix generator-desktop
+      - name: Linux tar.gz
+        if: matrix.platform == 'linux'
+        run: python tools/package-desktop-043.py
+      - name: Windows x64 NSIS
+        if: matrix.platform == 'windows'
+        run: npm run package:windows --prefix generator-desktop
+      - name: Inspect packaged Windows resources and unsigned installer
+        if: matrix.platform == 'windows'
+        shell: pwsh
+        run: |
+          node tools/verify-desktop-bundle.mjs dist/windows-x64/win-unpacked/resources/app
+          if ($LASTEXITCODE -ne 0) { throw 'Packaged resource check failed' }
+          python tools/verify-helper-archive.py dist/windows-x64/win-unpacked/resources/app
+          if ($LASTEXITCODE -ne 0) { throw 'Packaged helper check failed' }
+          $installer = Get-Item dist/windows-x64/*-setup.exe
+          node tools/artifact-manifest.mjs $installer.FullName windows
+          if ($LASTEXITCODE -ne 0) { throw 'Manifest generation failed' }
+          $sig = Get-AuthenticodeSignature $installer.FullName
+          @{ file=$installer.Name; status=$sig.Status.ToString(); subject=$sig.SignerCertificate.Subject; category='CI'; osRuntimeVerification='NOT_RUN' } | ConvertTo-Json | Set-Content -Encoding utf8 dist/windows-x64/signature.json
+          if ($sig.Status -ne 'NotSigned') { throw 'Unexpected signature state; inspect before distribution' }
+      - name: Windows download (private Actions artifact; no release publishing)
+        if: matrix.platform == 'windows'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: tsukuhako-windows-x64-validation
+          path: |
+            dist/windows-x64/*-setup.exe
+            dist/windows-x64/*-setup.exe.manifest.json
+            dist/windows-x64/signature.json
+          retention-days: 14
+          compression-level: 0
+          if-no-files-found: error
+      - name: Linux download (private Actions artifact; no release publishing)
+        if: matrix.platform == 'linux'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: tsukuhako-linux-x64-validation
+          path: |
+            dist/tsukuhako-linux-x64-*.tar.gz
+            dist/tsukuhako-linux-x64-*.tar.gz.manifest.json
+          retention-days: 14
+          compression-level: 0
+          if-no-files-found: error

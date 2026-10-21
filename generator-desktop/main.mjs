@@ -99,7 +99,7 @@ for (const method of METHODS) ipcMain.handle(`tsukuhako:${method}`, async (event
     else if(method==='checkPreparation'||method==='prepareWSL') value=await checkPreparation(payload,method==='prepareWSL');
     else if(method==='cancelPreparation') {preparationController?.abort();value={cancelled:true};}
     else if(method==='exportDiagnostic') {const result=await dialog.showSaveDialog(window,{title:'診断ログを書き出す',defaultPath:'tsukuhako-diagnostic.txt',filters:[{name:'テキスト',extensions:['txt']}]});if(result.canceled)value={saved:false};else{await fs.promises.writeFile(result.filePath,redact(payload.text),{mode:0o600});value={saved:true};}}
-    else if (method === 'getTemplates') value = { ...await rpc(method), defaultParent: app.getPath('home'), version: '0.4.2' };
+    else if (method === 'getTemplates') value = { ...await rpc(method), defaultParent: app.getPath('home'), version: '0.4.3' };
     else if (method === 'chooseParentDirectory') {
       if(wsl)throw desktopError('WSL_PATH','WSLの保存先を手入力してください。','Windows側のフォルダ選択は使いません。');
       const result = await dialog.showOpenDialog(window, { title: '親フォルダを選ぶ', buttonLabel: '親フォルダを選ぶ', properties: ['openDirectory'] });

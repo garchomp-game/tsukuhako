@@ -44,6 +44,12 @@ docker version
 
 S2の章を読んだら左の「作る画面へ戻る」を押し、構成がS2、開発するWSLが同じ選択であることを確認して「もう一度確認」を押します。このWindows準備章からは「準備チェックへ戻る」で戻れます。教材を読んだだけでは診断結果は変わりません。「確認できない」の場合は未導入と決めつけず、診断理由も確認してください。Dockerの項目は上のDocker Desktop・WSL Integrationの手順で確認します。
 
+## インストールと削除
+
+Windows 11 x64用NSISインストーラーを普段のWindowsユーザーで実行します。今回は未署名の検証用です。初回警告は実機確認待ちです。OSの保護機能を無効化せず、組織の方針で停止された場合はその内容を記録してください。スタートメニューの「ツクハコ」から通常権限で起動します。保存先は選択したWSLのHOMEを使い、アプリのインストール先を指定しません。
+
+Windowsの「インストールされているアプリ」からツクハコを削除しても、生成したプロジェクト、WSL、Dockerのデータとボリュームは削除しません。WSL内の ~/.tsukuhako-helper とWindowsの %APPDATA%/tsukuhako（読書位置など）も残します。旧版ヘルパーや設定は自動で掃除しません。
+
 ## Windows版VS Code
 
 [VS Code WSLガイド](https://code.visualstudio.com/docs/remote/wsl)に沿ってWindows側へVS Code、WSL拡張、Dev Containers拡張を導入します。生成結果の「VS Codeで開く」は選択distroのフォルダへ接続します。失敗したらVS CodeのWSL接続で同じdistroとLinuxパスを選びます。初回はVS Code Serverの取得に時間がかかります。

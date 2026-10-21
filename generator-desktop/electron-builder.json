@@ -1,0 +1,27 @@
+{
+  "appId": "jp.tsukuhako.desktop",
+  "productName": "ツクハコ",
+  "electronVersion": "44.9.1",
+  "directories": { "app": "../dist/desktop-app", "output": "../dist/windows-x64" },
+  "asar": false,
+  "npmRebuild": false,
+  "files": ["**/*"],
+  "publish": null,
+  "win": {
+    "target": [{ "target": "nsis", "arch": ["x64"] }],
+    "icon": "installer/icon.ico",
+    "executableName": "tsukuhako",
+    "requestedExecutionLevel": "asInvoker",
+    "artifactName": "tsukuhako-windows-x64-${version}-setup.exe"
+  },
+  "nsis": {
+    "oneClick": true,
+    "perMachine": false,
+    "allowElevation": false,
+    "createDesktopShortcut": false,
+    "createStartMenuShortcut": true,
+    "shortcutName": "ツクハコ",
+    "deleteAppDataOnUninstall": false,
+    "runAfterFinish": false
+  }
+}
