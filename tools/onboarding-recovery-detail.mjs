@@ -1,0 +1,44 @@
+// Supplements the original recovery capture; never overwrites it.
+import {_electron as electron} from '@playwright/test';
+import net from 'node:net';
+import {fs,out,runtime,env,btn,scene,pause,expect,json,recordStart,recordStop} from './onboarding-evidence.mjs';
+const attempt='recovery-detail-'+Date.now();
+const folder=runtime+'/'+attempt;fs.mkdirSync(folder,{recursive:true});
+const e=env();delete e.ELECTRON_RUN_AS_NODE;
+await recordStart(attempt);
+let app,listener;
+try {
+ app=await electron.launch({executablePath:runtime+'/受取物/tsukuhako-linux-x64-0.4.2/tsukuhako',args:['--user-data-dir='+folder+'/profile'],env:e,chromiumSandbox:true});
+ const p=await app.firstWindow();p.setDefaultTimeout(15000);
+ await app.context().tracing.start({screenshots:true,snapshots:true,sources:true});
+ await btn(p,'保存先を決める').click();
+ await p.getByLabel('親フォルダ',{exact:true}).fill(folder);
+ await p.getByLabel('新しいフォルダ名',{exact:true}).fill('警告 表示確認');
+ if(!await p.getByLabel('ホストポート',{exact:true}).isVisible())await p.locator('.advanced summary').click();
+ listener=net.createServer();await new Promise(r=>listener.listen(0,'127.0.0.1',r));
+ await p.getByLabel('ホストポート',{exact:true}).fill(String(listener.address().port));
+ await btn(p,'作成内容を確認').click();
+ await btn(p,'保存先・ポートを見直す').scrollIntoViewIfNeeded();
+ const warning=await p.locator('.notice').innerText();
+ expect(warning).toContain('使用');
+ await scene('E03-warning-detail','競合警告まで画面をスクロール','使用中のポート番号と見直しボタンを画面内で確認',{attempt,warning,port:listener.address().port});
+ await btn(p,'保存先・ポートを見直す').click();
+ await new Promise(r=>listener.close(r));listener=null;
+ await btn(p,'学ぶ').click();
+ await p.getByLabel('教材を選ぶ').selectOption('F2');
+ await p.getByRole('navigation',{name:'章の一覧'}).getByRole('button',{name:'最初の一歩',exact:true}).click();
+ await expect(p.locator('.markdown h1')).toHaveText('F2：最初の一歩');
+ await app.evaluate(({BrowserWindow})=>{const w=BrowserWindow.getAllWindows()[0];w.setSize(860,800);w.webContents.setZoomFactor(2)});
+ await pause(500);
+ await p.locator('.markdown h1').scrollIntoViewIfNeeded();
+ await scene('E08-200-body','860px幅・200%で本文へスクロール','本文見出しと文章を読める。上部ナビから本文へ外側のスクロールが必要',{attempt,zoom:2,windowPixels:[860,800]});
+ const block=p.locator('.code-block').first();await block.scrollIntoViewIfNeeded();
+ const layout=await p.evaluate(()=>({innerWidth,innerHeight,outerScroll:scrollY,pageWidth:document.documentElement.scrollWidth,reader:{width:document.querySelector('.reader-scroll').clientWidth,height:document.querySelector('.reader-scroll').clientHeight,scrollTop:document.querySelector('.reader-scroll').scrollTop},code:{width:document.querySelector('.code-block pre').clientWidth,scrollWidth:document.querySelector('.code-block pre').scrollWidth}}));
+ await scene('E08-200-command','拡大表示で最初のコマンドへ進む','本文内スクロールで文章とコマンド全文を参照できる',{attempt,layout});
+ await btn(p,'作る画面へ戻る').scrollIntoViewIfNeeded();
+ await btn(p,'作る画面へ戻る').click();
+ await expect(btn(p,'このOSの準備手順')).toBeVisible();
+ await scene('E08-200-return','200%のまま戻るボタンへ移動して操作','生成画面へ戻れる',{attempt});
+ json(out+'/logs/recovery-detail.json',{status:'PASS',attempt,warning,layout,note:'Real Electron zoom set through observation API. Outer document, reader and code block scroll independently. No product CSS or IPC modified.'});
+ await app.context().tracing.stop({path:runtime+'/media/'+attempt+'-trace.zip'});
+}finally{if(listener)await new Promise(r=>listener.close(r));if(app)await app.close();await recordStop()}
