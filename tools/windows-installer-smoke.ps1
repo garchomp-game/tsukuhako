@@ -54,12 +54,21 @@ try {
   # Normal silent uninstaller, without --delete-app-data or KEEP_APP_DATA overrides.
   $result.uninstall=@{status='RUNNING'}
   $proof=Run-Bounded $uninstaller '/S /currentuser' 120
-  $until=(Get-Date).AddSeconds(30)
-  while ((Test-Path $exe) -and (Get-Date) -lt $until) { Start-Sleep -Milliseconds 200 }
-  if (Test-Path $exe) { throw 'Application still installed' }
-  $remaining=@(Get-ItemProperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*' -ErrorAction SilentlyContinue | Where-Object { $_.UninstallString -and $_.UninstallString.Contains($installDir) })
-  if ($remaining.Count -or (Test-Path (Join-Path $installDir 'resources/app/main.mjs'))) { throw 'Application resources/registration remain' }
-  $result.uninstall=@{status='PASS'; process=$proof; applicationRemoved=$true; registrationRemoved=$true}
+  # NSIS relaunches its uninstaller from TEMP. The launcher can exit before
+  # recursive removal and registry cleanup finish; wait for the complete state.
+  $until=(Get-Date).AddSeconds(60)
+  do {
+    $remaining=@(Get-ItemProperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*' -ErrorAction SilentlyContinue | Where-Object { $_.UninstallString -and $_.UninstallString.Contains($installDir) })
+    $appRemains=Test-Path -LiteralPath $installDir
+    if (-not $appRemains -and $remaining.Count -eq 0) { break }
+    Start-Sleep -Milliseconds 300
+  } while ((Get-Date) -lt $until)
+  if ($appRemains -or $remaining.Count) {
+    $result.uninstall.remainingRegistrationCount=$remaining.Count
+    $result.uninstall.remainingFiles=@(Get-ChildItem -LiteralPath $installDir -File -Recurse -ErrorAction SilentlyContinue | Select-Object -First 15 | ForEach-Object { $_.FullName.Replace($installDir,'<INSTALL>') })
+    throw 'Application directory/registration remain after 60 seconds'
+  }
+  $result.uninstall=@{status='PASS'; process=$proof; applicationRemoved=$true; registrationRemoved=$true; directoryRemoved=$true; settledTimeoutSeconds=60}
   if($before) {
     $after=if(Test-Path $reading){(Get-FileHash $reading).Hash.ToLower()}else{$null}
     $result.retention=@{status=if($before -eq $after){'PASS'}else{'FAIL'}; scope='actual app-created reading.json in isolated --user-data-dir; not WSL or DB data, not default APPDATA'; beforeSha256=$before; afterSha256=$after}
