@@ -33,6 +33,7 @@ Node 24.19.0、Python 3.12以降。Electron 44.9.1、electron-builder 26.15.3は
 ```sh
 npm ci --prefix generator
 npm ci --prefix generator-desktop
+node generator-desktop/node_modules/electron/install.js
 node tools/build-curriculum-043.mjs
 python tools/build-helper-043.py
 npm run build --prefix generator-desktop

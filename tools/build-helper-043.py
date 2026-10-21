@@ -23,7 +23,7 @@ for f in ['local.mjs','process.mjs']:shutil.copy2(R/'generator-desktop/adapters'
 shutil.copy2(R/'generator-desktop/security.mjs',stage/'security.mjs')
 b=stage/'bundle';b.mkdir();shutil.copy2(R/'catalog.json',b/'catalog.json');shutil.copytree(R/'generator/src',b/'generator/src');shutil.copy2(R/'generator/package.json',b/'generator/package.json');shutil.copytree(R/'generator/node_modules/fflate',b/'generator/node_modules/fflate');(b/'dist').mkdir()
 for t in json.loads((R/'catalog.json').read_text())['templates']:shutil.copy2(R/t['packagePath'],b/t['packagePath'])
-files=[{'path':p.relative_to(stage).as_posix(),'sha256':sha(p.read_bytes()),'bytes':p.stat().st_size} for p in sorted(stage.rglob('*')) if p.is_file()]
+files=[{'path':p.relative_to(stage).as_posix(),'sha256':sha(p.read_bytes()),'bytes':p.stat().st_size} for p in sorted(stage.rglob('*'), key=lambda p:p.relative_to(stage).as_posix()) if p.is_file()]
 manifest={'version':'0.4.3','arch':'x64','runtime':'Node '+version,'runtimeSource':url+archive.name,'runtimeArchiveSha256':expected,'files':files}
 (stage/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n', encoding='utf-8', newline='\n')
 out=R/'generator-desktop/wsl-helper';out.mkdir(exist_ok=True)
@@ -32,6 +32,6 @@ def fixed(info):
  info.mode=0o755 if info.isdir() or info.name=='node' else 0o644
  return info
 with tarfile.open(out/'helper.tar','w',format=tarfile.PAX_FORMAT) as t:
- for p in sorted(stage.rglob('*')):t.add(p,arcname=p.relative_to(stage).as_posix(),recursive=False,filter=fixed)
+ for p in sorted(stage.rglob('*'), key=lambda p:p.relative_to(stage).as_posix()):t.add(p,arcname=p.relative_to(stage).as_posix(),recursive=False,filter=fixed)
 meta={'version':'0.4.3','arch':'x64','bytes':(out/'helper.tar').stat().st_size,'sha256':sha((out/'helper.tar').read_bytes()),'nodeSha256':sha((stage/'node').read_bytes()),'manifestSha256':sha((stage/'manifest.json').read_bytes()),'helperSha256':sha((stage/'helper.mjs').read_bytes()),'runtimeArchiveSha256':expected,'runtimeSource':url+archive.name}
 (out/'bundle.json').write_text(json.dumps(meta,indent=2)+'\n', encoding='utf-8', newline='\n');print(json.dumps(meta))

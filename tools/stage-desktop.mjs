@@ -11,8 +11,9 @@ const read = p => JSON.parse(fs.readFileSync(p, 'utf8'));
 export async function stageDesktop(destination = path.join(root, 'dist/desktop-app')) {
   const pkg = read(path.join(gui, 'package.json'));
   const sourceCommit = execFileSync('git', ['rev-parse', 'HEAD'], {cwd: root, encoding: 'utf8'}).trim();
-  const dirty = !!execFileSync('git', ['status', '--porcelain', '--untracked-files=normal'], {cwd: root, encoding: 'utf8'}).trim();
-  if (dirty && !process.argv.includes('--allow-dirty')) throw Error('Commit product sources before staging; --allow-dirty is for tests only.');
+  const changes = execFileSync('git', ['status', '--porcelain', '--untracked-files=normal'], {cwd: root, encoding: 'utf8'}).trim();
+  const dirty = !!changes;
+  if (dirty && !process.argv.includes('--allow-dirty')) throw Error('Commit product sources before staging; --allow-dirty is for tests only.\n'+changes);
   fs.rmSync(destination, {recursive: true, force: true});
   fs.mkdirSync(destination, {recursive: true});
   const copy = (from, to) => fs.cpSync(from, to, {recursive: true, dereference: false});

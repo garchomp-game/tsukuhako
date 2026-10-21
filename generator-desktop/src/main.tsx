@@ -1,3 +1,4 @@
+import {version as productVersion} from '../package.json';
 import {useEffect,useRef,useState} from 'react';import {createRoot} from 'react-dom/client';
 import {Generator} from './Generator';import {Reader} from './Reader';import {Preparation} from './Preparation';import type {Curriculum,Reading,Created,Preparation as Prep} from './types';import './style.css';import {helpChapter,withDistro} from './flow';
 const initial:Reading={view:'create',lessonId:'F2',chapterId:'',scroll:0};
@@ -8,7 +9,7 @@ function App(){const [index,setIndex]=useState<Curriculum>(),[reading,setReading
  function showHelp(){if(!index||reading.view==='help')return;const from=reading.view==='learn'?'learn':'create';setReturnTo(from);setHelp({...initial,view:'help',...helpChapter(index!,from==='learn'?reading.lessonId:template)});setReading(p=>({...p,view:'help'}))}
  function learn(id:string,chapter='first'){setReading(p=>({...p,view:'learn',lessonId:id,chapterId:chapter,scroll:0}))}
  const updateReading=(r:Reading)=>setReading(p=>({...r,view:p.view,distroId:p.distroId}));
- return <div className="app-shell"><header className="top"><div className="brand"><img className="mark" src="./brand-mark.svg" alt=""/><div><strong>ツクハコ</strong><span>開発環境と学びの道具箱</span></div></div><span className="version">LOCAL EDITION <b>0.4.2</b></span></header>
+ return <div className="app-shell"><header className="top"><div className="brand"><img className="mark" src="./brand-mark.svg" alt=""/><div><strong>ツクハコ</strong><span>開発環境と学びの道具箱</span></div></div><span className="version">LOCAL EDITION <b>{productVersion}</b></span></header>
  <nav className="app-nav" aria-label="ツクハコの画面">{(['create','learn','help'] as const).map((v,i)=><button type="button" aria-current={reading.view===v?'page':undefined} key={v} onClick={()=>v==='help'&&index?showHelp():setReading(p=>({...p,view:v}))}>{['作る','学ぶ','困ったとき'][i]}</button>)}<span>教材 v{index?.version||'…'} · ローカルで読む</span></nav>
  <div className="global-status" role="status">{busy|| (prepBusy?'開発準備を確認しています。「作る」に戻ると結果を確認できます。':'準備 → 生成 → VS Codeで起動 → 一か所変更 → 元へ戻す')}</div>{problem&&<p role="alert" className="error">{problem}</p>}
  {ready&&<><div hidden={reading.view!=='create'}><p className="app-intro">ツクハコは、学習用の開発環境を作るアプリです。まず準備を確認し、その下で作りたいものを選びます。</p><Preparation result={prep} onBusy={setPrepBusy} templateId={template} onResult={setPrep} onGuide={c=>learn('setup',c)} disabled={!!busy} distro={reading.distroId} onDistro={id=>setReading(p=>withDistro(p,id))}/><Generator externalBusy={prepBusy} onCreated={setProject} onHelp={showHelp} onBusy={setBusy} onTemplate={setTemplate} onLearn={id=>learn(id)} parentOverride={prep?.target?.home} platform={prep?.platform} preparation={prep} onPreparation={setPrep} distroId={reading.distroId}/></div>

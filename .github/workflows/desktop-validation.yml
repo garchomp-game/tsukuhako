@@ -31,6 +31,7 @@ jobs:
           python-version: '3.12'
       - run: npm ci --prefix generator
       - run: npm ci --prefix generator-desktop
+      - run: node generator-desktop/node_modules/electron/install.js
       - run: npm run build --prefix generator-desktop
       - run: python tools/build-helper-043.py
       - run: node tools/stage-desktop.mjs
