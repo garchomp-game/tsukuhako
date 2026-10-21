@@ -29,7 +29,7 @@ function Run-Bounded([string]$File,[string]$Arguments,[int]$Seconds) {
 try {
   if ($result.sha256 -ne $manifest.sha256) { throw 'Installer hash differs from manifest' }
   # Refuse to replace any existing Tsukuhako install, even on a test machine.
-  $old=@(Get-ItemProperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*' -ErrorAction SilentlyContinue | Where-Object DisplayName -eq 'ツクハコ')
+  $old=@(Get-ItemProperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*' -ErrorAction SilentlyContinue | Where-Object DisplayName -like 'ツクハコ*')
   if ($old.Count) { throw 'Existing per-user installation; do not touch it' }
   $result.install=@{status='RUNNING'; method='same exe /S /currentuser /D=isolated Unicode directory'}
   $proof=Run-Bounded $Installer "/S /currentuser /D=$installDir" 120
@@ -37,13 +37,15 @@ try {
   if (-not (Test-Path $exe)) { throw 'Installed executable missing' }
   $installed=Get-Content (Join-Path $installDir 'resources/app/build-info.json') -Raw | ConvertFrom-Json
   if ($installed.sourceCommit -ne $manifest.sourceCommit -or $installed.productVersion -ne $manifest.productVersion) { throw 'Installed product does not match artifact' }
-  $keys=@(Get-ItemProperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*' -ErrorAction SilentlyContinue | Where-Object { $_.DisplayName -eq 'ツクハコ' -and $_.UninstallString.Contains($installDir) })
+  $ownedUninstallers=@(Get-ChildItem -LiteralPath $installDir -Filter 'Uninstall *.exe' -File)
+  if($ownedUninstallers.Count -eq 1) { $uninstaller=$ownedUninstallers[0].FullName }
+  $keys=@(Get-ItemProperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*' -ErrorAction SilentlyContinue | Where-Object { $_.UninstallString -and $_.UninstallString.Contains($installDir) })
   if ($keys.Count -ne 1) { throw 'Expected one matching current-user uninstall registration' }
   $entry=$keys[0]
   if ($entry.UninstallString -notmatch '^"([^"]+)"') { throw 'Unexpected uninstall registration' }
   $uninstaller=$Matches[1]
   if (-not $uninstaller.StartsWith($installDir+'\') -or -not (Test-Path $uninstaller)) { throw 'Uninstaller outside owned install directory' }
-  $result.install=@{status='PASS'; process=$proof; path='<RUNNER_TEMP>/isolated/導入 日本語 空白'; sourceCommit=$installed.sourceCommit; registry='HKCU'; displayVersion=$entry.DisplayVersion; executableSha256=(Get-FileHash $exe).Hash.ToLower()}
+  $result.install=@{status='PASS'; process=$proof; path='<RUNNER_TEMP>/isolated/導入 日本語 空白'; sourceCommit=$installed.sourceCommit; registry='HKCU'; displayName=$entry.DisplayName; displayVersion=$entry.DisplayVersion; executableSha256=(Get-FileHash $exe).Hash.ToLower()}
   & node tools/windows-installed-smoke.mjs $exe $profile $out
   $rendererExit=$LASTEXITCODE
   if (Test-Path (Join-Path $out 'renderer.json')) { $result.launch=Get-Content (Join-Path $out 'renderer.json') -Raw | ConvertFrom-Json }
@@ -55,7 +57,7 @@ try {
   $until=(Get-Date).AddSeconds(30)
   while ((Test-Path $exe) -and (Get-Date) -lt $until) { Start-Sleep -Milliseconds 200 }
   if (Test-Path $exe) { throw 'Application still installed' }
-  $remaining=@(Get-ItemProperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*' -ErrorAction SilentlyContinue | Where-Object { $_.DisplayName -eq 'ツクハコ' -and $_.UninstallString.Contains($installDir) })
+  $remaining=@(Get-ItemProperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*' -ErrorAction SilentlyContinue | Where-Object { $_.UninstallString -and $_.UninstallString.Contains($installDir) })
   if ($remaining.Count -or (Test-Path (Join-Path $installDir 'resources/app/main.mjs'))) { throw 'Application resources/registration remain' }
   $result.uninstall=@{status='PASS'; process=$proof; applicationRemoved=$true; registrationRemoved=$true}
   if($before) {

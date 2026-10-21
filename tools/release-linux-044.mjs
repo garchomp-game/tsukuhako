@@ -28,7 +28,7 @@ if(phase==='generate'){
  await btn(p,'学ぶ').click();await p.getByRole('navigation',{name:'章の一覧'}).getByRole('button',{name:'最初の一歩',exact:true}).click();await expect(p.locator('.markdown')).toContainText('初期構成処理が正常終了');await p.getByRole('heading',{name:/初期構成の正常終了を待つ/}).scrollIntoViewIfNeeded();await scene('L02-lesson','同梱のF2教材を読む','0.4.4の教材に初期構成の正常終了を待つ手順が表示される');
  await btn(p,'作る画面へ戻る').click();await btn(p,'保存先を決める').click();
  const server=net.createServer();await new Promise(r=>server.listen(0,'127.0.0.1',r));const port=server.address().port;await new Promise(r=>server.close(r));
- const parent=runtime+'/projects';fs.mkdirSync(parent,{recursive:true});const folder='F2 日本語 空白 044';const destination=parent+'/'+folder;
+ const parent=process.env.TSUKUHAKO_PROJECT_PARENT||runtime+'/projects';fs.mkdirSync(parent,{recursive:true});const folder='F2 日本語 空白 044';const destination=parent+'/'+folder;
  await p.getByLabel('親フォルダ',{exact:true}).fill(parent);await p.getByLabel('新しいフォルダ名',{exact:true}).fill(folder);await p.locator('.advanced summary').click();await p.getByLabel('ホストポート',{exact:true}).fill(String(port));await btn(p,'作成内容を確認').click();await btn(p,'プロジェクトを作成').click();await btn(p,'この構成の「最初の一歩」を読む').waitFor();
  await p.getByText('初期構成の正常終了を待つ',{exact:true}).scrollIntoViewIfNeeded();await scene('L03-completion','新規F2を生成し完了画面を読む','完了画面にも「準備完了」と正常終了を待つ手順がある');
  const guide=fs.readFileSync(destination+'/START_HERE.md','utf8');fs.writeFileSync(out+'/logs/F2-START_HERE.md',guide);
