@@ -1,0 +1,476 @@
+{
+  "recordedAt": "2026-10-22T02:37:54.726Z",
+  "category": "STATIC",
+  "result": "PASS",
+  "sourceProductCommit": "2b141f7c583d796e1ba75ad312c6ab199056c7de",
+  "factsCommit": "3b0b9547f6895684bf4735d70af644ee164c7ddb",
+  "newAppOrBrowserTrials": 0,
+  "productionApproved": false,
+  "externalRequests": 0,
+  "mailDocuments": [
+    {
+      "id": "confirm",
+      "type": "transactional",
+      "revision": 1,
+      "status": "draft",
+      "audience": "confirmation_requested",
+      "links": [],
+      "sourceRefs": [
+        "handoff/02-REQUIREMENTS.md#初期配信ルール",
+        "handoff/03-BASIC-DESIGN.md#API契約案",
+        "handoff/08-MAIL-DRAFTS.md#登録確認メール"
+      ]
+    },
+    {
+      "id": "welcome-01",
+      "type": "step",
+      "revision": 1,
+      "status": "draft",
+      "audience": "subscribed",
+      "links": [
+        "startGuide"
+      ],
+      "sourceRefs": [
+        "PRODUCT-FACTS@3b0b9547f6895684bf4735d70af644ee164c7ddb#PF-05",
+        "PRODUCT-FACTS@3b0b9547f6895684bf4735d70af644ee164c7ddb#PF-11",
+        "docs/launch/guides/start.md"
+      ]
+    },
+    {
+      "id": "welcome-02",
+      "type": "step",
+      "revision": 1,
+      "status": "draft",
+      "audience": "subscribed",
+      "links": [
+        "setupGuide"
+      ],
+      "sourceRefs": [
+        "curriculum/F2/first.md@2b141f7c583d796e1ba75ad312c6ab199056c7de",
+        "curriculum/F2/recovery.md@2b141f7c583d796e1ba75ad312c6ab199056c7de",
+        "docs/launch/guides/setup-check.md"
+      ]
+    },
+    {
+      "id": "welcome-03",
+      "type": "step",
+      "revision": 1,
+      "status": "draft",
+      "audience": "subscribed",
+      "links": [
+        "exerciseGuide"
+      ],
+      "sourceRefs": [
+        "curriculum/F2/first.md@2b141f7c583d796e1ba75ad312c6ab199056c7de",
+        "starter-templates/F2/app/page.tsx@2b141f7c583d796e1ba75ad312c6ab199056c7de",
+        "PRODUCT-FACTS@3b0b9547f6895684bf4735d70af644ee164c7ddb#PF-06",
+        "docs/launch/guides/first-change.md"
+      ]
+    },
+    {
+      "id": "broadcast-001",
+      "type": "broadcast",
+      "revision": 1,
+      "status": "draft",
+      "audience": "subscribed_after_intro",
+      "links": [
+        "updateNotes"
+      ],
+      "sourceRefs": [
+        "handoff/06-TASK-C-CONTENT.md#原作者の確認済み発言",
+        "generator/src/core/apply.mjs@2b141f7c583d796e1ba75ad312c6ab199056c7de",
+        "generator/src/core/next-steps.mjs@2b141f7c583d796e1ba75ad312c6ab199056c7de",
+        "docs/launch/guides/one-less-step.md"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "name": "Required content exists",
+      "result": "PASS"
+    },
+    {
+      "name": "Exactly 8 public link keys, unresolved by design",
+      "result": "PASS"
+    },
+    {
+      "name": "Private receipt keys kept in separate empty config",
+      "result": "PASS"
+    },
+    {
+      "name": "Manifest does not approve publication",
+      "result": "PASS"
+    },
+    {
+      "name": "confirm: complete draft frontmatter",
+      "result": "PASS"
+    },
+    {
+      "name": "confirm: declared links match body",
+      "result": "PASS"
+    },
+    {
+      "name": "confirm: one primary action and no duplicated footer",
+      "result": "PASS"
+    },
+    {
+      "name": "confirm: no purchase assumption or editorial text",
+      "result": "PASS"
+    },
+    {
+      "name": "Confirmation is administrative and uses actual expiry variable",
+      "result": "PASS"
+    },
+    {
+      "name": "welcome-01: complete draft frontmatter",
+      "result": "PASS"
+    },
+    {
+      "name": "welcome-01: declared links match body",
+      "result": "PASS"
+    },
+    {
+      "name": "welcome-01: one primary action and no duplicated footer",
+      "result": "PASS"
+    },
+    {
+      "name": "welcome-01: no purchase assumption or editorial text",
+      "result": "PASS"
+    },
+    {
+      "name": "welcome-01: learning footer includes unsubscribe",
+      "result": "PASS"
+    },
+    {
+      "name": "welcome-02: complete draft frontmatter",
+      "result": "PASS"
+    },
+    {
+      "name": "welcome-02: declared links match body",
+      "result": "PASS"
+    },
+    {
+      "name": "welcome-02: one primary action and no duplicated footer",
+      "result": "PASS"
+    },
+    {
+      "name": "welcome-02: no purchase assumption or editorial text",
+      "result": "PASS"
+    },
+    {
+      "name": "welcome-02: learning footer includes unsubscribe",
+      "result": "PASS"
+    },
+    {
+      "name": "welcome-03: complete draft frontmatter",
+      "result": "PASS"
+    },
+    {
+      "name": "welcome-03: declared links match body",
+      "result": "PASS"
+    },
+    {
+      "name": "welcome-03: one primary action and no duplicated footer",
+      "result": "PASS"
+    },
+    {
+      "name": "welcome-03: no purchase assumption or editorial text",
+      "result": "PASS"
+    },
+    {
+      "name": "welcome-03: learning footer includes unsubscribe",
+      "result": "PASS"
+    },
+    {
+      "name": "broadcast-001: complete draft frontmatter",
+      "result": "PASS"
+    },
+    {
+      "name": "broadcast-001: declared links match body",
+      "result": "PASS"
+    },
+    {
+      "name": "broadcast-001: one primary action and no duplicated footer",
+      "result": "PASS"
+    },
+    {
+      "name": "broadcast-001: no purchase assumption or editorial text",
+      "result": "PASS"
+    },
+    {
+      "name": "broadcast-001: learning footer includes unsubscribe",
+      "result": "PASS"
+    },
+    {
+      "name": "brain-free.md: only allowed placeholders",
+      "result": "PASS"
+    },
+    {
+      "name": "brain-free.md: no private URLs, tokens or internal publication notes",
+      "result": "PASS"
+    },
+    {
+      "name": "brain-free.md: no paid download placeholders",
+      "result": "PASS"
+    },
+    {
+      "name": "guides/start.md: only allowed placeholders",
+      "result": "PASS"
+    },
+    {
+      "name": "guides/start.md: no private URLs, tokens or internal publication notes",
+      "result": "PASS"
+    },
+    {
+      "name": "guides/start.md: no paid download placeholders",
+      "result": "PASS"
+    },
+    {
+      "name": "guides/setup-check.md: only allowed placeholders",
+      "result": "PASS"
+    },
+    {
+      "name": "guides/setup-check.md: no private URLs, tokens or internal publication notes",
+      "result": "PASS"
+    },
+    {
+      "name": "guides/setup-check.md: no paid download placeholders",
+      "result": "PASS"
+    },
+    {
+      "name": "guides/first-change.md: only allowed placeholders",
+      "result": "PASS"
+    },
+    {
+      "name": "guides/first-change.md: no private URLs, tokens or internal publication notes",
+      "result": "PASS"
+    },
+    {
+      "name": "guides/first-change.md: no paid download placeholders",
+      "result": "PASS"
+    },
+    {
+      "name": "guides/one-less-step.md: only allowed placeholders",
+      "result": "PASS"
+    },
+    {
+      "name": "guides/one-less-step.md: no private URLs, tokens or internal publication notes",
+      "result": "PASS"
+    },
+    {
+      "name": "guides/one-less-step.md: no paid download placeholders",
+      "result": "PASS"
+    },
+    {
+      "name": "mail/confirm.md: only allowed placeholders",
+      "result": "PASS"
+    },
+    {
+      "name": "mail/confirm.md: no private URLs, tokens or internal publication notes",
+      "result": "PASS"
+    },
+    {
+      "name": "mail/confirm.md: no paid download placeholders",
+      "result": "PASS"
+    },
+    {
+      "name": "mail/transactional-footer.md: only allowed placeholders",
+      "result": "PASS"
+    },
+    {
+      "name": "mail/transactional-footer.md: no private URLs, tokens or internal publication notes",
+      "result": "PASS"
+    },
+    {
+      "name": "mail/transactional-footer.md: no paid download placeholders",
+      "result": "PASS"
+    },
+    {
+      "name": "mail/welcome-01.md: only allowed placeholders",
+      "result": "PASS"
+    },
+    {
+      "name": "mail/welcome-01.md: no private URLs, tokens or internal publication notes",
+      "result": "PASS"
+    },
+    {
+      "name": "mail/welcome-01.md: no paid download placeholders",
+      "result": "PASS"
+    },
+    {
+      "name": "mail/footer.md: only allowed placeholders",
+      "result": "PASS"
+    },
+    {
+      "name": "mail/footer.md: no private URLs, tokens or internal publication notes",
+      "result": "PASS"
+    },
+    {
+      "name": "mail/footer.md: no paid download placeholders",
+      "result": "PASS"
+    },
+    {
+      "name": "mail/welcome-02.md: only allowed placeholders",
+      "result": "PASS"
+    },
+    {
+      "name": "mail/welcome-02.md: no private URLs, tokens or internal publication notes",
+      "result": "PASS"
+    },
+    {
+      "name": "mail/welcome-02.md: no paid download placeholders",
+      "result": "PASS"
+    },
+    {
+      "name": "mail/welcome-03.md: only allowed placeholders",
+      "result": "PASS"
+    },
+    {
+      "name": "mail/welcome-03.md: no private URLs, tokens or internal publication notes",
+      "result": "PASS"
+    },
+    {
+      "name": "mail/welcome-03.md: no paid download placeholders",
+      "result": "PASS"
+    },
+    {
+      "name": "mail/broadcast-001.md: only allowed placeholders",
+      "result": "PASS"
+    },
+    {
+      "name": "mail/broadcast-001.md: no private URLs, tokens or internal publication notes",
+      "result": "PASS"
+    },
+    {
+      "name": "mail/broadcast-001.md: no paid download placeholders",
+      "result": "PASS"
+    },
+    {
+      "name": "screen-copy.json: only allowed placeholders",
+      "result": "PASS"
+    },
+    {
+      "name": "screen-copy.json: no private URLs, tokens or internal publication notes",
+      "result": "PASS"
+    },
+    {
+      "name": "screen-copy.json: no paid download placeholders",
+      "result": "PASS"
+    },
+    {
+      "name": "brain-paid.md: only allowed placeholders",
+      "result": "PASS"
+    },
+    {
+      "name": "brain-paid.md: no private URLs, tokens or internal publication notes",
+      "result": "PASS"
+    },
+    {
+      "name": "Screen consent starts unchecked with a version",
+      "result": "PASS"
+    },
+    {
+      "name": "Expired, used and currently unsubscribed have separate copy",
+      "result": "PASS"
+    },
+    {
+      "name": "Confirmation preview does not call purchase verification",
+      "result": "PASS"
+    },
+    {
+      "name": "F2 guide matches shipped heading and exercise",
+      "result": "PASS"
+    },
+    {
+      "name": "Setup guide requires completed configuration before npm run dev",
+      "result": "PASS"
+    },
+    {
+      "name": "One-less-step discloses snapshot rather than auto update",
+      "result": "PASS"
+    },
+    {
+      "name": "Free copy names exactly six generated template rows and S3 reference",
+      "result": "PASS"
+    },
+    {
+      "name": "Free copy states Linux and Windows limitations before purchase",
+      "result": "PASS"
+    },
+    {
+      "name": "Relative documentation links resolve",
+      "result": "PASS",
+      "detail": []
+    }
+  ],
+  "files": [
+    {
+      "file": "CONTENT-MANIFEST.json",
+      "sha256": "58db8c8c09f5ae75e398b88985add36fd51f5bca963b67af3240026f881e44bf"
+    },
+    {
+      "file": "LINKS.example.json",
+      "sha256": "3439b54f8f1ab6468dfc2a483d70d6b1563a764f3cdf3c45d4c0f5d86b2be740"
+    },
+    {
+      "file": "PRIVATE-LINKS.example.json",
+      "sha256": "e538aeab5621de51f4a332eedc59fce9ea5b77d2ce4350bae9e19703b9d60ebd"
+    },
+    {
+      "file": "brain-free.md",
+      "sha256": "71853ad2118163f019daa72bac3235310c8e7d060e1fe7397c63734b7ab3030c"
+    },
+    {
+      "file": "brain-paid.md",
+      "sha256": "ce7a8a5caed7330e8c7ea9778d2fe096524a299037648890989a12b7c1c8362a"
+    },
+    {
+      "file": "guides/first-change.md",
+      "sha256": "f2834ddd25eb00712458dee7ae9b607a1e6b993f673b562eed6ed73f9dcd55f9"
+    },
+    {
+      "file": "guides/one-less-step.md",
+      "sha256": "0c18380162cc681f6bc5d411e7aab779862e8a9076cb7a9a658166a436271999"
+    },
+    {
+      "file": "guides/setup-check.md",
+      "sha256": "f6fd49fe9084f60b9096d4bf84956a1ab20ebcd71087f701c63e75189964610d"
+    },
+    {
+      "file": "guides/start.md",
+      "sha256": "6cf5e62b7cee1d0cd8893af64fcb7159ebd944632b9bb0bbe7fd8ec07d1a53d9"
+    },
+    {
+      "file": "mail/broadcast-001.md",
+      "sha256": "68fcbebc9d74878e8d3794d0724dafaffad9fc8fa291d5cb13e9f0d05888f8db"
+    },
+    {
+      "file": "mail/confirm.md",
+      "sha256": "a3b678f6c66c282adf773c8c72f0e6f7755e75253f43f632f1f0a154a6f4bc94"
+    },
+    {
+      "file": "mail/footer.md",
+      "sha256": "e50ede57c972e148e82310a13caf311d47440d9eceb0004e44b009110b52cfc5"
+    },
+    {
+      "file": "mail/transactional-footer.md",
+      "sha256": "906a08cc554d4dc18a4e48fab4664eadc8b47ad5c53498d38d94dd55f52562ed"
+    },
+    {
+      "file": "mail/welcome-01.md",
+      "sha256": "8e9c1fc1ac97a8b1bf4ebeda5fc2b4f013735c60dd87860a04e11d94164359a6"
+    },
+    {
+      "file": "mail/welcome-02.md",
+      "sha256": "461a8787c7cb8c9bf17485886f0c828f8ca5483c62b875a6a9037705511b75ce"
+    },
+    {
+      "file": "mail/welcome-03.md",
+      "sha256": "0ea28422a20a8c0b312d087698ea043a02a37f12594453c22ccad76e9c077886"
+    },
+    {
+      "file": "screen-copy.json",
+      "sha256": "d6a42d6f43a5755af967545a10446c671cf29fed698b46dcca3241e2bccad948"
+    }
+  ]
+}

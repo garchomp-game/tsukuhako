@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "status": "draft",
+  "productVersion": "0.4.4",
+  "sourceProductCommit": "2b141f7c583d796e1ba75ad312c6ab199056c7de",
+  "factsCommit": "3b0b9547f6895684bf4735d70af644ee164c7ddb",
+  "publicDocuments": [
+    {
+      "path": "brain-free.md",
+      "purpose": "Brain無料部の本文素材",
+      "publicationBlockedBy": "PUBLISH-CHECKLIST.md"
+    },
+    {
+      "path": "guides/start.md",
+      "route": "/start",
+      "linkKey": "startGuide"
+    },
+    {
+      "path": "guides/setup-check.md",
+      "route": "/guides/setup-check",
+      "linkKey": "setupGuide"
+    },
+    {
+      "path": "guides/first-change.md",
+      "route": "/guides/first-change",
+      "linkKey": "exerciseGuide"
+    },
+    {
+      "path": "guides/one-less-step.md",
+      "route": "/guides/one-less-step",
+      "linkKey": "updateNotes"
+    }
+  ],
+  "privateDocuments": [
+    {
+      "path": "brain-paid.md",
+      "destination": "Brain購入済み本文のみ"
+    }
+  ],
+  "mailDocuments": [
+    {
+      "id": "confirm",
+      "path": "mail/confirm.md",
+      "footer": "mail/transactional-footer.md",
+      "trigger": "confirmation_requested"
+    },
+    {
+      "id": "welcome-01",
+      "path": "mail/welcome-01.md",
+      "footer": "mail/footer.md",
+      "trigger": "confirmed",
+      "step": 1
+    },
+    {
+      "id": "welcome-02",
+      "path": "mail/welcome-02.md",
+      "footer": "mail/footer.md",
+      "trigger": "confirmed_calendar_date_plus_2_19h_JST",
+      "step": 2
+    },
+    {
+      "id": "welcome-03",
+      "path": "mail/welcome-03.md",
+      "footer": "mail/footer.md",
+      "trigger": "confirmed_calendar_date_plus_5_19h_JST",
+      "step": 3
+    },
+    {
+      "id": "broadcast-001",
+      "path": "mail/broadcast-001.md",
+      "footer": "mail/footer.md",
+      "trigger": "approved_issue_and_7x24h_and_intro_complete"
+    }
+  ],
+  "publicLinksConfig": "LINKS.example.json",
+  "privateLinksConfig": "PRIVATE-LINKS.example.json",
+  "screenCopy": "screen-copy.json",
+  "runtimeVariables": [
+    "confirmUrl",
+    "unsubscribeUrl",
+    "confirmationExpiresAtJST",
+    "senderName",
+    "senderContact"
+  ],
+  "internalOnly": [
+    "FACT-CHECK.md",
+    "PUBLISH-CHECKLIST.md",
+    "REPORT.md",
+    "registration-copy.md",
+    "CONTENT-MANIFEST.json",
+    "LINKS.example.json",
+    "PRIVATE-LINKS.example.json",
+    "evidence/content-audit.json"
+  ],
+  "productionApproved": false
+}
