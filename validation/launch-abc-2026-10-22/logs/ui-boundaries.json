@@ -1,0 +1,20 @@
+{
+  "category": "LOCAL_BROWSER_FIXTURE",
+  "result": "PASS",
+  "browser": "155.0.8059.84",
+  "checks": [
+    {
+      "name": "Unconfigured Brain destination is visibly pending and not clickable; the configured local guide works",
+      "result": "PASS"
+    },
+    {
+      "name": "A confirmation status transport error leaves loading, explains the problem, and can be retried",
+      "result": "PASS"
+    },
+    {
+      "name": "Both recovery paths complete without unhandled browser errors",
+      "result": "PASS"
+    }
+  ],
+  "subscriptionMutationPerformed": false
+}

@@ -1,0 +1,60 @@
+{
+  "category": "LOCAL_BROWSER_FIXTURE",
+  "result": "PASS",
+  "browser": "155.0.8059.84",
+  "checks": [
+    {
+      "name": "Operator reviews the five C drafts in the local UI; only shared templates are activated",
+      "result": "PASS"
+    },
+    {
+      "name": "Home, start, three article destinations and registration fit 360px",
+      "result": "PASS"
+    },
+    {
+      "name": "Consent starts unchecked; keyboard Tab/Space/Enter submits the registration",
+      "result": "PASS"
+    },
+    {
+      "name": "Real HTML preview confirmation link navigates the top page; GET leaves subscription pending",
+      "result": "PASS"
+    },
+    {
+      "name": "Confirmation creates exactly three 0/2/5-day schedules; a repeated POST creates none",
+      "result": "PASS"
+    },
+    {
+      "name": "Welcome destination uses the public C guide, with purchase and receipt separated",
+      "result": "PASS"
+    },
+    {
+      "name": "Learning mail footer leads to unsubscribe; GET is safe, POST suppresses two pending steps, old confirmation does not restart",
+      "result": "PASS"
+    },
+    {
+      "name": "Expired link recovers through a new request and new confirmation, using only an artificial address",
+      "result": "PASS"
+    },
+    {
+      "name": "Browser flow raises no page errors and makes no external page requests",
+      "result": "PASS"
+    },
+    {
+      "name": "Actual Chrome 200% zoom reflows the registration form with no horizontal overflow",
+      "result": "PASS",
+      "before": {
+        "width": 1270,
+        "ratio": 1
+      },
+      "after": {
+        "width": 635,
+        "ratio": 2,
+        "scroll": 627,
+        "client": 627
+      }
+    }
+  ],
+  "externalPageRequests": 0,
+  "realEmailsSent": 0,
+  "sourceHash": "7e0ec65318e051e490c7c7fefe0afefe3e33f4db4030c0653e85f69b0b698cc7"
+}

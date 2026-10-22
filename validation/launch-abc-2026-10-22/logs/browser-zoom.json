@@ -1,0 +1,16 @@
+{
+  "category": "LOCAL_BROWSER_FIXTURE",
+  "result": "PASS",
+  "browser": "155.0.8059.84",
+  "before": {
+    "width": 1270,
+    "ratio": 1
+  },
+  "after": {
+    "width": 635,
+    "ratio": 2,
+    "scroll": 627,
+    "client": 627
+  },
+  "capture": "Owned Chrome X window at actual 200% browser zoom; scrolled to form. CDP native-zoom clipping avoided."
+}

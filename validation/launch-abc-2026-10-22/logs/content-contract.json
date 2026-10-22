@@ -1,0 +1,113 @@
+{
+  "category": "STATIC",
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "C required deliverables exist",
+      "result": "PASS"
+    },
+    {
+      "name": "Exactly the five agreed mail IDs are imported",
+      "result": "PASS"
+    },
+    {
+      "name": "confirm: B imports C text and metadata without a divergent copy",
+      "result": "PASS"
+    },
+    {
+      "name": "confirm: draft/source/primary-link contract",
+      "result": "PASS"
+    },
+    {
+      "name": "welcome-01: B imports C text and metadata without a divergent copy",
+      "result": "PASS"
+    },
+    {
+      "name": "welcome-01: draft/source/primary-link contract",
+      "result": "PASS"
+    },
+    {
+      "name": "welcome-02: B imports C text and metadata without a divergent copy",
+      "result": "PASS"
+    },
+    {
+      "name": "welcome-02: draft/source/primary-link contract",
+      "result": "PASS"
+    },
+    {
+      "name": "welcome-03: B imports C text and metadata without a divergent copy",
+      "result": "PASS"
+    },
+    {
+      "name": "welcome-03: draft/source/primary-link contract",
+      "result": "PASS"
+    },
+    {
+      "name": "broadcast-001: B imports C text and metadata without a divergent copy",
+      "result": "PASS"
+    },
+    {
+      "name": "broadcast-001: draft/source/primary-link contract",
+      "result": "PASS"
+    },
+    {
+      "name": "footer.md: shared signature imports match",
+      "result": "PASS"
+    },
+    {
+      "name": "transactional-footer.md: shared signature imports match",
+      "result": "PASS"
+    },
+    {
+      "name": "Only learning/broadcast footer carries unsubscribe; confirmation is transactional",
+      "result": "PASS"
+    },
+    {
+      "name": "start: public guide imports and link boundaries match",
+      "result": "PASS"
+    },
+    {
+      "name": "setup-check: public guide imports and link boundaries match",
+      "result": "PASS"
+    },
+    {
+      "name": "first-change: public guide imports and link boundaries match",
+      "result": "PASS"
+    },
+    {
+      "name": "one-less-step: public guide imports and link boundaries match",
+      "result": "PASS"
+    },
+    {
+      "name": "Screen copy is imported from C without a divergent copy",
+      "result": "PASS"
+    },
+    {
+      "name": "Generated content fingerprint covers the imported text/configuration",
+      "result": "PASS"
+    },
+    {
+      "name": "Public link keys contain no paid download settings",
+      "result": "PASS"
+    },
+    {
+      "name": "All production URLs and sender details remain unconfirmed, not invented",
+      "result": "PASS"
+    },
+    {
+      "name": "Buyer-only body is absent from B generated import",
+      "result": "PASS"
+    },
+    {
+      "name": "F2 guide names a real source file and original heading",
+      "result": "PASS"
+    },
+    {
+      "name": "Sales copy retains the A review limitations",
+      "result": "PASS"
+    }
+  ],
+  "importedSourceHash": "7e0ec65318e051e490c7c7fefe0afefe3e33f4db4030c0653e85f69b0b698cc7",
+  "productionApproval": false,
+  "productionLinksConfigured": false
+}

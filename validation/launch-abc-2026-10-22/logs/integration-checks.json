@@ -1,0 +1,89 @@
+{
+  "date": "2026-10-22",
+  "category": "INTEGRATION_PREPARATION",
+  "result": "PASS",
+  "implementationAndComponentDocsCommit": "8ff534b2af44567b6ce6789f21170ed47ad4e636",
+  "productSourceCommit": "2b141f7c583d796e1ba75ad312c6ab199056c7de",
+  "unchangedMain": "55d3b051935df80d24f988719b52a4937f2f559b",
+  "componentSources": {
+    "A": "3b0b9547f6895684bf4735d70af644ee164c7ddb",
+    "B": "3406b50bbefe8e7cd8eca66a7f5bebb86edcf202",
+    "C": "e513825ea7e9cf12467281954d83af293af23846",
+    "B_docs": "191cf99b95e676328c206db45a6cb3d0d907bdd2"
+  },
+  "integratedComponentTreesMatchSources": true,
+  "evidence": {
+    "carriedForwardA": "../release-0.4.4-followup/REPORT.md",
+    "C_static": {
+      "checks": 79,
+      "source": "docs/launch/evidence/content-audit.json"
+    },
+    "B_final": {
+      "passed": 24,
+      "failed": 0,
+      "source": "web/evidence/mail-tests.log",
+      "runBy": "B in its dedicated worktree"
+    },
+    "integrationImport": {
+      "passed": 26,
+      "source": "logs/content-contract.json"
+    },
+    "browserFlow": {
+      "passed": 10,
+      "testedCommit": "b575425049b3de7f6c03292d485b8a6e323f6edc",
+      "source": "logs/browser-flow.json"
+    },
+    "finalUIBoundaries": {
+      "passed": 3,
+      "testedCommit": "b7be31b",
+      "source": "logs/ui-boundaries.json"
+    },
+    "independentReview": {
+      "resolved": 7,
+      "unresolved": 0,
+      "finalThreeTestedSource": "3406b50bbefe8e7cd8eca66a7f5bebb86edcf202",
+      "source": "REVIEW.md"
+    }
+  },
+  "finalIntegrationBuild": {
+    "command": "npm run build",
+    "cwd": "web",
+    "exitCode": 0,
+    "defaultContentRoot": true,
+    "typecheck": "PASS",
+    "publicBundleIsolation": "PASS"
+  },
+  "documentAudit": {
+    "markdownFiles": 26,
+    "relativeLinkTargets": 132,
+    "broken": 0,
+    "json": "PASS",
+    "gitDiffCheck": "PASS"
+  },
+  "localPreview": {
+    "url": "http://127.0.0.1:5183/preview",
+    "health": 200,
+    "mode": "preview",
+    "clock": "2026-10-23T10:00:01.000Z",
+    "fakeSubscribers": 2,
+    "retainedAfterLatestLauncherRestart": true
+  },
+  "boundaries": {
+    "realEmailsSent": 0,
+    "productionDeployment": false,
+    "billing": false,
+    "mainMerged": false,
+    "productRebuilt": false,
+    "newDesktopCIRun": false,
+    "sourceZipCreated": false
+  },
+  "notRun": [
+    "Windows 11 real host and WSL/F2/S2",
+    "Public buyer download and permissions",
+    "Production Brain placement",
+    "Provider account capability and cost",
+    "DNS and sender authentication",
+    "Real email delivery and unsubscribe",
+    "Provider webhook signature and production operations"
+  ]
+}

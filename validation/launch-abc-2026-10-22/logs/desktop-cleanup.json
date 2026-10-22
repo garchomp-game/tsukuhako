@@ -1,0 +1,17 @@
+{
+  "category": "LOCAL_HOST_CLEANUP",
+  "result": "PASS",
+  "display": ":91",
+  "stopped": [
+    {
+      "name": "metacity",
+      "signal": "SIGTERM"
+    },
+    {
+      "name": "Xephyr",
+      "signal": "SIGTERM"
+    }
+  ],
+  "displaySocketRemoved": true,
+  "onlyTaskOwnedProcesses": true
+}
