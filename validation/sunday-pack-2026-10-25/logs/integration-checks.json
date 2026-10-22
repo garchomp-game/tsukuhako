@@ -1,10 +1,10 @@
 {
   "category": "STATIC",
   "result": "PASS",
-  "checkedAt": "2026-10-22T23:02:21.515Z",
+  "checkedAt": "2026-10-22T23:06:31.355Z",
   "markdownFiles": 15,
-  "relativeLinks": 103,
-  "jsonFiles": 11,
+  "relativeLinks": 106,
   "guideZipUnchanged": true,
+  "finalRunnerMatchesPassingEvidence": true,
   "productAndPreviousABCCodeUnchanged": true
 }
