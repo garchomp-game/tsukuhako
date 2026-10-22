@@ -49,7 +49,7 @@ export class MailService {
   await this.consumeLimit(email,source);
   const now = await this.now();
   let subscriber = await this.q('SELECT * FROM subscribers WHERE email=?',email).first<Subscriber>();
-  if (resend && !subscriber) return {accepted:true};
+  if (resend && (!subscriber || subscriber.subscription_status === 'unsubscribed')) return {accepted:true};
   if (subscriber?.subscription_status === 'subscribed' || (subscriber?.suppression_reason && subscriber.suppression_reason !== 'unsubscribed')) return {accepted:true};
   const confirm = await this.current('confirm');
   if (await this.stopped()) throw new ApiError(503,'現在、受付をお休みしています。');
@@ -68,12 +68,15 @@ export class MailService {
   const mail = renderMail(confirm,{confirmUrl:`${this.origin}/mail/confirm?token=${token}`,confirmationExpiresAtJST:jstDisplay(expiresAt)},this.origin);
   const cutoff = new Date(Date.parse(now)-content.settings.rules.confirmationCooldownSeconds*1000).toISOString();
   const issued = await this.db.batch([
-   this.q('INSERT INTO confirmation_tokens(hash,subscriber_id,enrollment_id,expires_at,created_at) SELECT ?,?,?,?,? WHERE NOT EXISTS(SELECT 1 FROM confirmation_tokens WHERE subscriber_id=? AND created_at>?)',tokenHash,subscriber.id,enrollment,expiresAt,now,subscriber.id,cutoff),
+   this.q("INSERT INTO confirmation_tokens(hash,subscriber_id,enrollment_id,expires_at,created_at) SELECT ?,?,?,?,? WHERE NOT EXISTS(SELECT 1 FROM confirmation_tokens WHERE subscriber_id=? AND created_at>?) AND (SELECT value FROM settings WHERE key='stopped')='false' AND EXISTS(SELECT 1 FROM subscribers WHERE id=? AND subscription_status!='subscribed' AND (suppression_reason IS NULL OR suppression_reason='unsubscribed')) AND EXISTS(SELECT 1 FROM editions WHERE id='confirm' AND current=1 AND status='active' AND revision=?)",tokenHash,subscriber.id,enrollment,expiresAt,now,subscriber.id,cutoff,subscriber.id,confirm.revision),
    this.q('UPDATE confirmation_tokens SET invalidated_at=? WHERE subscriber_id=? AND hash!=? AND used_at IS NULL AND invalidated_at IS NULL AND EXISTS(SELECT 1 FROM confirmation_tokens WHERE hash=?)',now,subscriber.id,tokenHash,tokenHash),
-   this.q('UPDATE subscribers SET consent_version=?,consent_at=? WHERE id=? AND EXISTS(SELECT 1 FROM confirmation_tokens WHERE hash=?)',consentVersion,now,subscriber.id,tokenHash),
+   this.q('UPDATE subscribers SET consent_version=?,consent_at=? WHERE id=? AND EXISTS(SELECT 1 FROM confirmation_tokens WHERE hash=?)',resend?subscriber.consent_version:consentVersion,resend?subscriber.consent_at:now,subscriber.id,tokenHash),
    this.q('INSERT INTO mock_outbox(delivery_id,subscriber_id,subject,body_text,body_html,created_at,provider_id,kind) SELECT ?,?,?,?,?,?,?,? WHERE EXISTS(SELECT 1 FROM confirmation_tokens WHERE hash=?)',deliveryId,subscriber.id,mail.subject,mail.text,mail.html,now,`mock:${deliveryId}`,'transactional',tokenHash)
   ]);
-  if (!issued[0].meta.changes) throw new ApiError(429,'続けて送信されています。60秒おいてから、もう一度お試しください。',{retryAfter:60});
+  if (!issued[0].meta.changes) {
+   if (await this.stopped()) throw new ApiError(503,'現在、受付をお休みしています。');
+   throw new ApiError(429,'続けて送信されています。60秒おいてから、もう一度お試しください。',{retryAfter:60});
+  }
   return {accepted:true};
  }
  async tokenStatus(token:string) {
@@ -97,18 +100,20 @@ export class MailService {
   const statements = [
    this.q(`UPDATE subscribers SET subscription_status='subscribed',email_verified_at=?,confirmed_at=?,enrollment_id=?,unsubscribed_at=NULL,suppression_reason=NULL
     WHERE id=? AND (suppression_reason IS NULL OR suppression_reason='unsubscribed')
-    AND EXISTS(SELECT 1 FROM confirmation_tokens WHERE hash=? AND used_at IS NULL AND invalidated_at IS NULL AND expires_at>?)`,now,now,row.enrollment_id,row.subscriber_id,tokenHash,now),
+    AND EXISTS(SELECT 1 FROM confirmation_tokens WHERE hash=? AND used_at IS NULL AND invalidated_at IS NULL AND expires_at>?) AND (SELECT value FROM settings WHERE key='stopped')='false'`,now,now,row.enrollment_id,row.subscriber_id,tokenHash,now),
    this.q(`UPDATE confirmation_tokens SET used_at=? WHERE hash=? AND used_at IS NULL AND invalidated_at IS NULL
-    AND EXISTS(SELECT 1 FROM subscribers WHERE id=? AND enrollment_id=? AND subscription_status='subscribed')`,now,tokenHash,row.subscriber_id,row.enrollment_id)
+    AND EXISTS(SELECT 1 FROM subscribers WHERE id=? AND enrollment_id=? AND subscription_status='subscribed') AND (SELECT value FROM settings WHERE key='stopped')='false'`,now,tokenHash,row.subscriber_id,row.enrollment_id)
   ];
   for (const step of [1,2,3]) {
    const edition = (await this.current(`welcome-0${step}`))!;
    const when = stepTime(now,step);
    statements.push(this.q(`INSERT OR IGNORE INTO deliveries(id,subscriber_id,edition_id,revision,enrollment_id,step,planned_at_utc,originally_planned_at)
-    SELECT ?,?,?,?,?,?,?,? WHERE EXISTS(SELECT 1 FROM subscribers WHERE id=? AND enrollment_id=? AND subscription_status='subscribed')`,crypto.randomUUID(),row.subscriber_id,edition.id,edition.revision,row.enrollment_id,step,when,when,row.subscriber_id,row.enrollment_id));
+    SELECT ?,?,?,?,?,?,?,? WHERE EXISTS(SELECT 1 FROM subscribers WHERE id=? AND enrollment_id=? AND subscription_status='subscribed') AND (SELECT value FROM settings WHERE key='stopped')='false'`,crypto.randomUUID(),row.subscriber_id,edition.id,edition.revision,row.enrollment_id,step,when,when,row.subscriber_id,row.enrollment_id));
   }
   await this.db.batch(statements);
-  return {state:(await this.tokenStatus(token)).state === 'used' ? 'confirmed' : 'unsubscribed'};
+  const finalState = (await this.tokenStatus(token)).state;
+  if (finalState === 'valid' && await this.stopped()) throw new ApiError(503,'現在、受付をお休みしています。');
+  return {state:finalState === 'used' ? 'confirmed' : finalState};
  }
  async unsubscribe(token:string) {
   if (!/^[a-f0-9]{64}$/.test(token)) throw new ApiError(400,'解除リンクを確認してください。');
@@ -121,7 +126,7 @@ export class MailService {
   const now = await this.now();
   await this.db.batch([
    this.q(`UPDATE subscribers SET subscription_status='unsubscribed',unsubscribed_at=?,suppression_reason=CASE WHEN suppression_reason IN ('complaint','hard_bounce') THEN suppression_reason ELSE ? END WHERE id=?`,now,reason,subscriberId),
-   this.q("UPDATE deliveries SET status='suppressed',last_error=? WHERE subscriber_id=? AND status IN ('planned','submitting') AND NOT EXISTS(SELECT 1 FROM mock_outbox WHERE delivery_id=deliveries.id)",reason,subscriberId),
+   this.q("UPDATE deliveries SET status='suppressed',last_error=? WHERE subscriber_id=? AND status IN ('planned','submitting','failed') AND NOT EXISTS(SELECT 1 FROM mock_outbox WHERE delivery_id=deliveries.id)",reason,subscriberId),
    this.q('UPDATE confirmation_tokens SET invalidated_at=? WHERE subscriber_id=? AND used_at IS NULL',now,subscriberId)
   ]);
  }
@@ -139,11 +144,14 @@ export class MailService {
  }
  async rebind(id:string) {
   const edition = await this.current(id);
-  if (!edition || edition.status !== 'active') throw new ApiError(409,'新しい版の確認と有効化を先に行ってください。');
+  if (!edition || !(edition.status === 'active' || (edition.type === 'broadcast' && edition.status === 'scheduled'))) throw new ApiError(409,'新しい版の確認と有効化、または定期号の予約を先に行ってください。');
   if (await this.stopped()) throw new ApiError(409,'全体停止中です。');
   // Only revision-related cancellations; unsubscribe/global-stop cancellations never revive.
-  await this.q(`UPDATE deliveries SET revision=?,status='planned',last_error=NULL WHERE edition_id=? AND status='cancelled' AND last_error='revision_changed'
-   AND EXISTS(SELECT 1 FROM subscribers s WHERE s.id=deliveries.subscriber_id AND s.subscription_status='subscribed' AND s.suppression_reason IS NULL AND s.enrollment_id=deliveries.enrollment_id)`,edition.revision,id).run();
+  await this.q(`UPDATE deliveries SET revision=?,status='planned',last_error=NULL,
+   planned_at_utc=CASE WHEN ?='broadcast' THEN ? ELSE planned_at_utc END,
+   originally_planned_at=CASE WHEN ?='broadcast' THEN ? ELSE originally_planned_at END
+   WHERE edition_id=? AND status='cancelled' AND last_error='revision_changed'
+   AND EXISTS(SELECT 1 FROM subscribers s WHERE s.id=deliveries.subscriber_id AND s.subscription_status='subscribed' AND s.suppression_reason IS NULL AND s.enrollment_id=deliveries.enrollment_id) AND (SELECT value FROM settings WHERE key='stopped')='false'`,edition.revision,edition.type,edition.scheduled_at,edition.type,edition.scheduled_at,id).run();
   return {ok:true};
  }
  async schedule(id:string,at:string) {
@@ -151,7 +159,7 @@ export class MailService {
   if (!edition || edition.type !== 'broadcast' || edition.status !== 'reviewed') throw new ApiError(409,'定期便は号ごとの確認が必要です。');
   if (!Number.isFinite(Date.parse(at)) || Date.parse(at)<Date.parse(now)) throw new ApiError(400,'仮想時計より後の日時を指定してください。');
   if (await this.stopped()) throw new ApiError(409,'全体停止中です。');
-  await this.q("UPDATE editions SET status='scheduled',scheduled_at=? WHERE id=? AND revision=?",new Date(at).toISOString(),id,edition.revision).run();
+  await this.q("UPDATE editions SET status='scheduled',scheduled_at=? WHERE id=? AND revision=? AND current=1 AND status='reviewed' AND (SELECT value FROM settings WHERE key='stopped')='false'",new Date(at).toISOString(),id,edition.revision).run();
   await this.planBroadcasts();
   return {ok:true};
  }
@@ -164,7 +172,7 @@ export class MailService {
    const audience = (await this.q(`SELECT * FROM subscribers s WHERE subscription_status='subscribed' AND suppression_reason IS NULL AND confirmed_at<=?
     AND (SELECT COUNT(*) FROM deliveries d WHERE d.subscriber_id=s.id AND d.enrollment_id=s.enrollment_id AND step IS NOT NULL)=3
     AND NOT EXISTS(SELECT 1 FROM deliveries d WHERE d.subscriber_id=s.id AND d.enrollment_id=s.enrollment_id AND step IS NOT NULL AND status NOT IN ('accepted','delivered','skipped'))`,cutoff).all<Subscriber>()).results;
-   for (const subscriber of audience) await this.q(`INSERT OR IGNORE INTO deliveries(id,subscriber_id,edition_id,revision,enrollment_id,step,planned_at_utc,originally_planned_at) VALUES(?,?,?,?,?,NULL,?,?)`,crypto.randomUUID(),subscriber.id,edition.id,edition.revision,subscriber.enrollment_id!,at,at).run();
+   for (const subscriber of audience) await this.q(`INSERT OR IGNORE INTO deliveries(id,subscriber_id,edition_id,revision,enrollment_id,step,planned_at_utc,originally_planned_at) SELECT ?,?,?,?,?,NULL,?,? WHERE (SELECT value FROM settings WHERE key='stopped')='false' AND EXISTS(SELECT 1 FROM editions WHERE id=? AND revision=? AND status='scheduled' AND current=1) AND EXISTS(SELECT 1 FROM subscribers WHERE id=? AND subscription_status='subscribed' AND suppression_reason IS NULL AND enrollment_id=?)`,crypto.randomUUID(),subscriber.id,edition.id,edition.revision,subscriber.enrollment_id!,at,at,edition.id,edition.revision,subscriber.id,subscriber.enrollment_id!).run();
   }
  }
  async dispatch(outcome='accepted') {
@@ -172,6 +180,7 @@ export class MailService {
   if (await this.stopped()) return {processed:0,stopped:true};
   const now = await this.now();
   await this.planBroadcasts();
+  await this.q("UPDATE editions SET status='sending' WHERE type='broadcast' AND status='scheduled' AND scheduled_at<=?",now).run();
   const candidates = (await this.q("SELECT * FROM deliveries WHERE status='planned' AND planned_at_utc<=? ORDER BY planned_at_utc,step",now).all<Delivery>()).results;
   let processed = 0;
   for (const delivery of candidates) {
@@ -193,35 +202,35 @@ export class MailService {
    // The claim and subscription/stop recheck are atomic; concurrent runners cannot submit twice.
    const claims = await this.db.batch([
     this.q(`INSERT OR IGNORE INTO daily_claims(subscriber_id,jst_day,delivery_id)
-     SELECT ?,?,? WHERE EXISTS(SELECT 1 FROM deliveries WHERE id=? AND status='planned')
+     SELECT ?,?,? WHERE EXISTS(SELECT 1 FROM deliveries WHERE id=? AND status='planned' AND revision=? AND attempts=?)
      AND EXISTS(SELECT 1 FROM subscribers WHERE id=? AND subscription_status='subscribed' AND suppression_reason IS NULL)
-     AND (SELECT value FROM settings WHERE key='stopped')='false'`,subscriber.id,jstDay(now),delivery.id,delivery.id,subscriber.id),
-    this.q(`UPDATE deliveries SET status='submitting',attempts=attempts+1,last_error=NULL WHERE id=? AND status='planned'
+     AND (SELECT value FROM settings WHERE key='stopped')='false'`,subscriber.id,jstDay(now),delivery.id,delivery.id,delivery.revision,delivery.attempts,subscriber.id),
+    this.q(`UPDATE deliveries SET status='submitting',attempts=attempts+1,last_error=NULL WHERE id=? AND status='planned' AND revision=? AND attempts=?
      AND EXISTS(SELECT 1 FROM daily_claims WHERE delivery_id=? AND jst_day=?)
      AND EXISTS(SELECT 1 FROM subscribers WHERE id=? AND subscription_status='subscribed' AND suppression_reason IS NULL)
-     AND (SELECT value FROM settings WHERE key='stopped')='false' RETURNING id`,delivery.id,delivery.id,jstDay(now),subscriber.id)
+     AND (SELECT value FROM settings WHERE key='stopped')='false' RETURNING id`,delivery.id,delivery.revision,delivery.attempts,delivery.id,jstDay(now),subscriber.id)
    ]);
    if (!claims[1].results.length) {
-    await this.q("UPDATE deliveries SET planned_at_utc=?,last_error='daily_limit' WHERE id=? AND status='planned'",nextJstEvening(now),delivery.id).run();continue;
+    await this.q("UPDATE deliveries SET planned_at_utc=?,last_error='daily_limit' WHERE id=? AND status='planned' AND revision=? AND attempts=?",nextJstEvening(now),delivery.id,delivery.revision,delivery.attempts).run();continue;
    }
    processed++;
    if (outcome === 'failed') {
     await this.db.batch([
-     this.q("UPDATE deliveries SET status='failed',last_error='mock_rejected_before_acceptance' WHERE id=?",delivery.id),
-     this.q('DELETE FROM daily_claims WHERE delivery_id=?',delivery.id)
+     this.q("UPDATE deliveries SET status='failed',last_error='mock_rejected_before_acceptance' WHERE id=? AND status='submitting' AND revision=? AND attempts=?",delivery.id,delivery.revision,delivery.attempts+1),
+     this.q('DELETE FROM daily_claims WHERE delivery_id=? AND EXISTS(SELECT 1 FROM deliveries WHERE id=? AND revision=? AND attempts=?) AND NOT EXISTS(SELECT 1 FROM mock_outbox WHERE delivery_id=?)',delivery.id,delivery.id,delivery.revision,delivery.attempts+1,delivery.id)
     ]);continue;
    }
    const unsubscribeToken = randomToken();
    const unsubscribeUrl = `${this.origin}/mail/unsubscribe?token=${unsubscribeToken}`;
    const mail = renderMail(edition,{unsubscribeUrl},this.origin);
    const providerId = `mock:${delivery.id}`;
-   const guard = "EXISTS(SELECT 1 FROM deliveries d JOIN subscribers s ON s.id=d.subscriber_id JOIN editions e ON e.id=d.edition_id AND e.revision=d.revision WHERE d.id=? AND d.status='submitting' AND s.subscription_status='subscribed' AND s.suppression_reason IS NULL AND s.enrollment_id=d.enrollment_id AND e.current=1 AND e.status IN ('active','scheduled','sending')) AND (SELECT value FROM settings WHERE key='stopped')='false'";
+   const guard = "EXISTS(SELECT 1 FROM deliveries d JOIN subscribers s ON s.id=d.subscriber_id JOIN editions e ON e.id=d.edition_id AND e.revision=d.revision WHERE d.id=? AND d.status='submitting' AND d.revision=? AND d.attempts=? AND s.subscription_status='subscribed' AND s.suppression_reason IS NULL AND s.enrollment_id=d.enrollment_id AND e.current=1 AND e.status IN ('active','scheduled','sending')) AND (SELECT value FROM settings WHERE key='stopped')='false'";
    await this.db.batch([
-    this.q('INSERT INTO unsubscribe_tokens SELECT ?,? WHERE '+guard,await hash(unsubscribeToken),subscriber.id,delivery.id),
-    this.q('INSERT OR IGNORE INTO mock_outbox(delivery_id,subscriber_id,subject,body_text,body_html,created_at,provider_id,kind,headers) SELECT ?,?,?,?,?,?,?,?,? WHERE '+guard,delivery.id,subscriber.id,mail.subject,mail.text,mail.html,now,providerId,edition.type,JSON.stringify({'List-Unsubscribe':`<${this.origin}/api/unsubscribe?token=${unsubscribeToken}>`,'List-Unsubscribe-Post':'List-Unsubscribe=One-Click'}),delivery.id),
-    this.q(`UPDATE deliveries SET status=?,provider_id=?,accepted_at=?,last_error=? WHERE id=? AND status='submitting' AND EXISTS(SELECT 1 FROM mock_outbox WHERE delivery_id=deliveries.id)`,outcome==='timeout'?'unknown':'accepted',outcome==='timeout'?null:providerId,outcome==='timeout'?null:now,outcome==='timeout'?'mock_timeout_after_acceptance':null,delivery.id),
-    this.q("UPDATE deliveries SET status='cancelled',last_error='acceptance_blocked' WHERE id=? AND status='submitting' AND NOT EXISTS(SELECT 1 FROM mock_outbox WHERE delivery_id=deliveries.id)",delivery.id),
-    this.q("DELETE FROM daily_claims WHERE delivery_id=? AND NOT EXISTS(SELECT 1 FROM mock_outbox WHERE delivery_id=?)",delivery.id,delivery.id)
+    this.q('INSERT INTO unsubscribe_tokens SELECT ?,? WHERE '+guard,await hash(unsubscribeToken),subscriber.id,delivery.id,delivery.revision,delivery.attempts+1),
+    this.q('INSERT OR IGNORE INTO mock_outbox(delivery_id,subscriber_id,subject,body_text,body_html,created_at,provider_id,kind,headers) SELECT ?,?,?,?,?,?,?,?,? WHERE '+guard,delivery.id,subscriber.id,mail.subject,mail.text,mail.html,now,providerId,edition.type,JSON.stringify({'List-Unsubscribe':`<${this.origin}/api/unsubscribe?token=${unsubscribeToken}>`,'List-Unsubscribe-Post':'List-Unsubscribe=One-Click'}),delivery.id,delivery.revision,delivery.attempts+1),
+    this.q(`UPDATE deliveries SET status=?,provider_id=?,accepted_at=?,last_error=? WHERE id=? AND status='submitting' AND revision=? AND attempts=? AND EXISTS(SELECT 1 FROM mock_outbox WHERE delivery_id=deliveries.id)`,outcome==='timeout'?'unknown':'accepted',outcome==='timeout'?null:providerId,outcome==='timeout'?null:now,outcome==='timeout'?'mock_timeout_after_acceptance':null,delivery.id,delivery.revision,delivery.attempts+1),
+    this.q("UPDATE deliveries SET status='cancelled',last_error='acceptance_blocked' WHERE id=? AND status='submitting' AND revision=? AND attempts=? AND NOT EXISTS(SELECT 1 FROM mock_outbox WHERE delivery_id=deliveries.id)",delivery.id,delivery.revision,delivery.attempts+1),
+    this.q("DELETE FROM daily_claims WHERE delivery_id=? AND EXISTS(SELECT 1 FROM deliveries WHERE id=? AND revision=? AND attempts=?) AND NOT EXISTS(SELECT 1 FROM mock_outbox WHERE delivery_id=?)",delivery.id,delivery.id,delivery.revision,delivery.attempts+1,delivery.id)
    ]);
   }
   // Scheduled editions finish after their due audience is processed; no backlog flood for late joiners.
@@ -243,7 +252,7 @@ export class MailService {
   if (Date.parse(now)-Date.parse(delivery.originally_planned_at)>content.settings.rules.maxLatenessHours*3600000) throw new ApiError(409,'許容遅延を超えています。');
   if (await this.stopped()) throw new ApiError(409,'全体停止中です。');
   await this.q(`UPDATE deliveries SET status='planned',last_error=NULL WHERE id=? AND status='failed'
-   AND EXISTS(SELECT 1 FROM subscribers s WHERE s.id=deliveries.subscriber_id AND s.subscription_status='subscribed' AND s.suppression_reason IS NULL AND s.enrollment_id=deliveries.enrollment_id)`,id).run();
+   AND EXISTS(SELECT 1 FROM subscribers s WHERE s.id=deliveries.subscriber_id AND s.subscription_status='subscribed' AND s.suppression_reason IS NULL AND s.enrollment_id=deliveries.enrollment_id) AND (SELECT value FROM settings WHERE key='stopped')='false'`,id).run();
   return {ok:true};
  }
  async event(input:Record<string,unknown>) {
@@ -257,7 +266,7 @@ export class MailService {
    const reason=type==='unsubscribe'?'unsubscribed':String(type);
    statements.push(
     this.q("UPDATE subscribers SET subscription_status='unsubscribed',unsubscribed_at=?,suppression_reason=CASE WHEN suppression_reason IN ('complaint','hard_bounce') THEN suppression_reason ELSE ? END WHERE id=? AND "+pending,now,reason,subscriberId,eventId,String(type)),
-    this.q("UPDATE deliveries SET status='suppressed',last_error=? WHERE subscriber_id=? AND status IN ('planned','submitting') AND NOT EXISTS(SELECT 1 FROM mock_outbox WHERE delivery_id=deliveries.id) AND "+pending,reason,subscriberId,eventId,String(type)),
+    this.q("UPDATE deliveries SET status='suppressed',last_error=? WHERE subscriber_id=? AND status IN ('planned','submitting','failed') AND NOT EXISTS(SELECT 1 FROM mock_outbox WHERE delivery_id=deliveries.id) AND "+pending,reason,subscriberId,eventId,String(type)),
     this.q('UPDATE confirmation_tokens SET invalidated_at=? WHERE subscriber_id=? AND used_at IS NULL AND '+pending,now,subscriberId,eventId,String(type))
    );
   }
@@ -272,7 +281,7 @@ export class MailService {
  async stop(value:boolean) {
   const statements = [this.q("UPDATE settings SET value=? WHERE key='stopped'",String(value))];
   if (value) statements.push(
-   this.q("UPDATE deliveries SET status='cancelled',last_error='global_stop' WHERE status IN ('planned','submitting') AND NOT EXISTS(SELECT 1 FROM mock_outbox WHERE delivery_id=deliveries.id)"),
+   this.q("UPDATE deliveries SET status='cancelled',last_error='global_stop' WHERE (status IN ('planned','submitting','failed') OR (status='cancelled' AND last_error='revision_changed')) AND NOT EXISTS(SELECT 1 FROM mock_outbox WHERE delivery_id=deliveries.id)"),
    this.q("UPDATE editions SET status='retired' WHERE type='broadcast' AND status IN ('scheduled','sending')")
   );
   await this.db.batch(statements); return {stopped:value};
@@ -286,6 +295,6 @@ export class MailService {
    this.q('SELECT * FROM mock_outbox ORDER BY created_at DESC').all(),
    this.q('SELECT * FROM provider_events ORDER BY received_at').all()
   ]);
-  return {mode:'preview',now:await this.now(),stopped:await this.stopped(),subscribers:subscribers.results,editions:editions.results,deliveries:deliveries.results,outbox:outbox.results,events:events.results,releaseBlockers:releaseBlockers(editions.results),sourceHash:content.sourceHash};
+  return {mode:'preview',now:await this.now(),stopped:await this.stopped(),subscribers:subscribers.results,editions:editions.results,deliveries:deliveries.results,outbox:outbox.results,events:events.results,releaseBlockers:releaseBlockers(editions.results),sourceHash:content.sourceHash,contentReview:{footer:content.footer,transactionalFooter:content.transactionalFooter,settings:content.settings}};
  }
 }

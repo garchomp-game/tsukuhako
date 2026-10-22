@@ -9,7 +9,7 @@ type Copy=typeof import('../.generated/content.json')['screenCopy'];
 type PublicData={mode:string;consentVersion:string;screenCopy:Copy;guides:Record<string,string>;links:Record<string,string|null>;senderName:string|null;senderContact:string|null};
 const path=location.pathname;
 function Link({url,children}:{url:string|null;children:React.ReactNode}) {return url?<a href={url}>{children}</a>:<span className="waiting">{children}（設定待ち）</span>;}
-function MarkdownBody({text}:{text:string}){return <div className="prose"><Markdown urlTransform={url=>/^(https?:\/\/|\/[^/])/.test(url)?url:''}>{text}</Markdown></div>;}
+function MarkdownBody({text}:{text:string}){return <div className="prose"><Markdown urlTransform={url=>/^(https?:\/\/|\/[^/])/.test(url)?url:''} components={{a:({href,children})=>href?<a href={href}>{children}</a>:<span className="waiting">{children}（設定待ち）</span>}}>{text}</Markdown></div>;}
 function App(){
  const [data,setData]=useState<PublicData|null>(null),[error,setError]=useState('');
  useEffect(()=>{void api<PublicData>('/api/public').then(setData).catch(e=>setError(e.message));},[]);

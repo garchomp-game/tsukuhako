@@ -1,0 +1,19 @@
+公開書き出しを停止しました。
+- links.brainProduct: 設定待ち
+- links.startGuide: 設定待ち
+- links.setupGuide: 設定待ち
+- links.exerciseGuide: 設定待ち
+- links.updateNotes: 設定待ち
+- links.subscribe: 設定待ち
+- links.support: 設定待ち
+- links.privacy: 設定待ち
+- senderName: 設定待ち
+- senderContact: 設定待ち
+- confirm: 本番用の承認なし (draft)
+- welcome-01: 本番用の承認なし (draft)
+- welcome-02: 本番用の承認なし (draft)
+- welcome-03: 本番用の承認なし (draft)
+- broadcast-001: 本番用の承認なし (draft)
+- 実メールアダプターは未実装。公開・送信を有効にする設定はありません。
+
+Observed exit code: 1 (expected 1)
