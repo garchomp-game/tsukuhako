@@ -1,10 +1,14 @@
 import {_electron as electron,expect} from '@playwright/test';
 import {fs,root,out,runtime,env,scene,json,pause,btn,command,spawn,sha} from './onboarding-evidence.mjs';
+import {closeOwnedProcess} from './owned-process-exit.mjs';
 const dev=process.env.TSU_READER_DEV==='1';
+const normalOnly=process.argv.includes('--normal-only');
+if(normalOnly&&dev)throw Error('--normal-only requires the packaged executable');
+if(normalOnly&&!process.env.TSUKUHAKO_EXECUTABLE)throw Error('--normal-only requires TSUKUHAKO_EXECUTABLE');
 const bin=process.env.TSUKUHAKO_EXECUTABLE||root+'/generator-desktop/node_modules/electron/dist/electron';
 const profileRoot=runtime+(dev?'/reader-dev-config-'+Date.now():'/reader-final-config');
 const e={...env(),XDG_CONFIG_HOME:profileRoot};delete e.ELECTRON_RUN_AS_NODE;
-const records=[],errors=[];let app,p;
+const records=[],errors=[];let app,p,normalChild,failure;
 const record=(id,details={})=>{records.push({id,status:'PASS',...details});console.log('PASS '+id)};
 const area=()=>p.getByRole('region',{name:'教材本文'});
 const scroll=()=>area().evaluate(el=>el.scrollTop);
@@ -14,6 +18,7 @@ async function measure(name){const dims=await p.evaluate(()=>({viewport:{width:i
 async function zoomKeys(keys){const win=command('wmctrl',['-lp'],{env:e}).split('\n').find(l=>l.trim().split(/\s+/)[2]===String(app.process().pid));command('xdotool',['windowactivate','--sync',win.split(' ')[0]],{env:e});command('xdotool',['key',...keys],{env:e});await pause(350)}
 async function bounds(width,height){await app.evaluate(({BrowserWindow},{width,height})=>BrowserWindow.getAllWindows()[0].setBounds({x:20,y:0,width,height}),{width,height});await pause(250)}
 try{
+ if(!normalOnly){
  await launch();await btn(p,'保存先を決める').click();await p.getByLabel('親フォルダ',{exact:true}).fill('/tmp/reader trial');await p.getByLabel('新しいフォルダ名',{exact:true}).fill('F2 入力保持');
  await btn(p,'学ぶ').click();await p.getByLabel('教材を選ぶ').selectOption('S2');await toc().getByRole('button',{name:'最初の一歩',exact:true}).click();await expect(p.locator('.markdown h1')).toHaveText('S2：最初の一歩');
  await bounds(1150,880);await measure('wide');
@@ -36,11 +41,22 @@ try{
  await btn(p,'作る').click();await expect(p.getByLabel('親フォルダ',{exact:true})).toHaveValue('/tmp/reader trial');await expect(p.getByLabel('新しいフォルダ名',{exact:true})).toHaveValue('F2 入力保持');await btn(p,'困ったとき').click();await expect(p.locator('.chapter-meta')).toContainText('F2');await btn(p,'作る画面へ戻る').click();await btn(p,'学ぶ').click();await expect(p.locator('.markdown h1')).toHaveText('S2：最初の一歩');await pause(550);saved=await scroll();
  const prefs=await app.evaluate(({BrowserWindow})=>BrowserWindow.getAllWindows()[0].webContents.getLastWebPreferences());expect(prefs.sandbox).toBe(true);expect(prefs.contextIsolation).toBe(true);expect(prefs.nodeIntegration).toBe(false);
  await app.close();app=null;await launch();await expect(p.locator('.markdown h1')).toHaveText('S2：最初の一歩');await expect.poll(async()=>Math.abs(await scroll()-saved)).toBeLessThanOrEqual(1);record('quit-restart-reading',{lesson:'S2',chapter:'first',scroll:saved,sandbox:true});await scene('UX-'+(dev?'dev-':'after-')+'restart','アプリを終了して再開','保存した章と本文位置が復元される');await app.close();app=null;expect(errors).toEqual([]);
- if(!dev){
-  const fd=fs.openSync(runtime+'/reader-normal.log','w');const child=spawn(bin,[],{env:e,cwd:'/tmp',stdio:['ignore',fd,fd]});const end=Date.now()+20000;let win;
-  while(Date.now()<end){win=command('wmctrl',['-lp'],{env:e}).split('\n').find(l=>l.trim().split(/\s+/)[2]===String(child.pid));if(win)break;await pause(250)}
-  expect(!!win).toBe(true);await pause(1500);const id=win.split(' ')[0];command('xdotool',['windowactivate','--sync',id],{env:e});command('xdotool',['key','ctrl+0','ctrl+plus','ctrl+plus','ctrl+plus','ctrl+plus'],{env:e});await scene('UX-normal-no-debug','最終配布物を引数なしで通常起動','読書状態を復元し、ネイティブCtrl+plusで200%へ拡大');
-  record('normal-launch-no-debug',{args:[],cwd:'/tmp',executableSha256:sha(bin),reading:JSON.parse(fs.readFileSync(profileRoot+'/tsukuhako/reading.json'))});command('wmctrl',['-ic',id],{env:e});await new Promise((resolve,reject)=>{const t=setTimeout(()=>{child.kill();reject(Error('Normal launch quit timeout'))},15000);child.once('exit',()=>{clearTimeout(t);resolve()})});
  }
- json(out+'/logs/reader-'+(dev?'development':'final')+'.json',{status:'PASS',category:'REAL_HOST',scope:dev?'development executable':'final packaged executable',records,errors,zoomMethod:'Native keyboard Ctrl+0 then Ctrl+= four times; verified Electron zoom factor 2 and CSS viewport'});
-}catch(error){json(out+'/logs/reader-'+(dev?'development':'final')+'-failure.json',{status:'FAIL',error:String(error),records,errors});console.error(error);process.exitCode=1;await p?.screenshot({path:runtime+'/reader-failure.png'}).catch(()=>{});}finally{await app?.close().catch(()=>{})}
+ if(!dev){
+  const fd=fs.openSync(runtime+'/reader-normal.log','w');const child=spawn(bin,[],{env:e,cwd:'/tmp',stdio:['ignore',fd,fd]});normalChild=child;fs.closeSync(fd);const end=Date.now()+20000;let win;
+  while(Date.now()<end){win=command('wmctrl',['-lp'],{env:e}).split('\n').find(l=>l.trim().split(/\s+/)[2]===String(child.pid));if(win)break;await pause(250)}
+  expect(!!win).toBe(true);await pause(1500);const id=win.split(' ')[0];command('xdotool',['windowactivate','--sync',id],{env:e});
+  if(!normalOnly)command('xdotool',['key','ctrl+0','ctrl+plus','ctrl+plus','ctrl+plus','ctrl+plus'],{env:e});
+  await scene(normalOnly?'A-normal-launch':'UX-normal-no-debug','最終配布物を引数なしで通常起動',normalOnly?'新しい専用profileでウィンドウ表示を確認。終了結果は別ログで判定':'読書状態を復元し、ネイティブCtrl+plusで200%へ拡大');
+  const readingFile=profileRoot+'/tsukuhako/reading.json';
+  const exit=await closeOwnedProcess(child,()=>command('wmctrl',['-ic',id],{env:e}));
+  const details={args:[],cwd:'/tmp',executableSha256:sha(bin),reading:fs.existsSync(readingFile)?JSON.parse(fs.readFileSync(readingFile)):null,exit};
+  if(exit.status!=='PASS'){records.push({id:'normal-launch-no-debug',status:'FAIL',...details});throw Error('Normal launch did not exit gracefully: '+exit.reason)}
+  normalChild=null;record('normal-launch-no-debug',details);
+ }
+ json(out+'/logs/reader-'+(normalOnly?'normal-exit':dev?'development':'final')+'.json',{status:'PASS',category:'REAL_HOST',scope:normalOnly?'packaged normal launch and exit only':dev?'development executable':'final packaged executable',records,errors,zoomMethod:normalOnly?'NOT_RUN: no UI change in this followup':'Native keyboard Ctrl+0 then Ctrl+= four times; verified Electron zoom factor 2 and CSS viewport'});
+}catch(error){failure={status:'FAIL',error:String(error),records,errors};console.error(error);process.exitCode=1;await p?.screenshot({path:runtime+'/reader-failure.png'}).catch(()=>{});}finally{
+ await app?.close().catch(()=>{});
+ if(normalChild&&normalChild.exitCode===null&&normalChild.signalCode===null){const cleanup=await closeOwnedProcess(normalChild,()=>normalChild.kill('SIGTERM'),{timeoutMs:2000});if(failure)failure.cleanup=cleanup;}
+ if(failure)json(out+'/logs/reader-'+(normalOnly?'normal-exit':dev?'development':'final')+'-failure.json',failure);
+}
