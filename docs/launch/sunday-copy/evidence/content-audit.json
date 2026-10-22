@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "checkedOnJST": "2026-10-23",
+  "evidenceType": "STATIC",
+  "baseCommit": "cd8f8f8fd09b08a27ef7b1e9ee9e157a2a61d663",
+  "scope": "POST-IDEAS.mdとsunday-copy内の6原稿/編集文書。既存の成功試験は再実行していない。",
+  "status": "PASS",
+  "automatedChecks": [
+    {
+      "id": "idea-records",
+      "status": "PASS",
+      "detail": "P001〜P006が各1件"
+    },
+    {
+      "id": "idea-fields",
+      "status": "PASS",
+      "detail": "全6件に必須7項目と投稿日時"
+    },
+    {
+      "id": "idea-states",
+      "status": "PASS",
+      "detail": "P001 draft、P002〜P006 idea"
+    },
+    {
+      "id": "no-invented-reactions",
+      "status": "PASS",
+      "detail": "投稿・反応を未記録/未収集のまま保持"
+    },
+    {
+      "id": "reader-no-variables",
+      "status": "PASS",
+      "detail": "読者本文に未解決変数なし"
+    },
+    {
+      "id": "reader-no-urls",
+      "status": "PASS",
+      "detail": "読者本文はリンクのない同伴用。ローカルpreviewなし"
+    },
+    {
+      "id": "reader-no-creator-paths",
+      "status": "PASS",
+      "detail": "作成者の絶対パスなし"
+    },
+    {
+      "id": "reader-no-editing-labels",
+      "status": "PASS",
+      "detail": "内部の状態や制作メモを読者本文へ混入していない"
+    },
+    {
+      "id": "reader-no-price",
+      "status": "PASS",
+      "detail": "未決の金額を本文で設定していない"
+    },
+    {
+      "id": "guide-file-contract",
+      "status": "PASS",
+      "detail": "受取案内2本が指定の5ガイド名を参照"
+    },
+    {
+      "id": "separate-purpose",
+      "status": "PASS",
+      "detail": "試用と購入後の文面を分離"
+    },
+    {
+      "id": "introduction-scope",
+      "status": "PASS",
+      "detail": "紹介の場面とF2初画面の到達点が明示"
+    },
+    {
+      "id": "product-version",
+      "status": "PASS",
+      "detail": "アプリ版0.4.4を維持"
+    },
+    {
+      "id": "no-signup-gate",
+      "status": "PASS",
+      "detail": "未公開のメール登録を入口条件にしない"
+    },
+    {
+      "id": "internal-draft-state",
+      "status": "PASS",
+      "detail": "3本文の状態を編集用READMEで維持"
+    },
+    {
+      "id": "relative-links",
+      "status": "PASS",
+      "detail": "20件の相対Markdown参照先を確認（本auditの生成先を含む）"
+    }
+  ],
+  "manualReview": [
+    {
+      "id": "evidence-categories",
+      "status": "PASS",
+      "evidence": "POST-IDEAS全件を引継ぎPart Aと読了照合。本人の経験/動機、想定、実機、見聞の印象を区別。"
+    },
+    {
+      "id": "linux-scope",
+      "status": "PASS",
+      "evidence": "PF-06に合わせMint 22.3 x64の既存開発環境の記録だけを引用。未準備PCへ一般化しない。"
+    },
+    {
+      "id": "windows-scope",
+      "status": "PASS",
+      "evidence": "PF-08/09に合わせ未署名とWin11通常ユーザー実WSL/F2未確認を維持。CIの成功を実機成功へ置き換えない。"
+    },
+    {
+      "id": "first-screen-and-recovery",
+      "status": "PASS",
+      "evidence": "F2初画面を初回到達点にし、正常終了確認、停止時の戻り先、任意の変更/復元を分離。"
+    },
+    {
+      "id": "sale-and-trial-gates",
+      "status": "PASS",
+      "evidence": "無償試用と販売は未採用の候補。利用条件・受取・窓口・有料時の購入前説明をDECISIONSへ分離。"
+    },
+    {
+      "id": "no-policy-pivot",
+      "status": "PASS",
+      "evidence": "全6構成の廃止、Windows/Linux専用化、100円の価格決定を行わない。"
+    },
+    {
+      "id": "guide-reference-meaning",
+      "status": "PASS",
+      "evidence": "同封ガイドのSTART_HERE.mdと生成先プロジェクトのSTART_HERE.mdを本文で区別。"
+    }
+  ],
+  "notRun": [
+    "統合後のsunday-pack実ファイル/manifest/チェックサムとの一致はガイド担当の統合確認へ引継ぎ",
+    "新ガイドによるF2一周の実機操作はこの担当では未実施",
+    "一般受取人のURL/権限での取得・起動",
+    "Windows 11通常ユーザー・実WSL/F2",
+    "対象読者による無補足試用",
+    "公開・予約・配信・販売・契約・main統合"
+  ],
+  "files": [
+    {
+      "path": "docs/launch/POST-IDEAS.md",
+      "bytes": 11029,
+      "sha256": "5596cae999c973ab45e491dafe9b42777249f8e278532c78f3b23bd2d327b98c"
+    },
+    {
+      "path": "docs/launch/sunday-copy/INTRODUCTION.md",
+      "bytes": 873,
+      "sha256": "b4a65e1594aee6a6ecea55e943b881389b6d3a80a5d76f5f3e59fc4d8a55d3aa"
+    },
+    {
+      "path": "docs/launch/sunday-copy/FREE-TRIAL.md",
+      "bytes": 2529,
+      "sha256": "d0de31060038bd30fbb69bd394607e843bd8f34edf4a958576390e405f0bfcc1"
+    },
+    {
+      "path": "docs/launch/sunday-copy/AFTER-PURCHASE.md",
+      "bytes": 2269,
+      "sha256": "432921bca7c57c1d48644e41b58dccee99a667b471b9ad90964f7a8065a58577"
+    },
+    {
+      "path": "docs/launch/sunday-copy/README.md",
+      "bytes": 3296,
+      "sha256": "8a4f64acac31d7d2981de18e91b05b81ff54e4c11213ec1ced12ed366c9398a4"
+    },
+    {
+      "path": "docs/launch/sunday-copy/DECISIONS.md",
+      "bytes": 6919,
+      "sha256": "7e8af549ccb721cc5296305aeb11c987e1e67a3739ec2364c10595fef4564cb7"
+    }
+  ]
+}
