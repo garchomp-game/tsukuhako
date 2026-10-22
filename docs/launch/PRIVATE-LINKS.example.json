@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "visibility": "brain_paid_only",
+  "privateLinks": {
+    "linuxDownload": {
+      "url": null,
+      "purpose": "提供範囲が確定したLinux用4点セットの受取先。",
+      "deliveryRevision": "2026-10-22-A"
+    },
+    "windowsDownload": {
+      "url": null,
+      "purpose": "Windowsの提供範囲判断と受取試験後に設定する受取先。",
+      "deliveryRevision": "2026-10-22-A"
+    }
+  },
+  "receiptExpiresAt": null,
+  "reacquisitionInstructions": null,
+  "publicExportAllowed": false
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "publicLinks": {
+    "brainProduct": {
+      "url": null,
+      "purpose": "Brainの商品記事。購入済みの方は同じBrainアカウントで購入済み本文を開く。",
+      "localPreviewPath": null
+    },
+    "startGuide": {
+      "url": null,
+      "purpose": "公開の使い始めガイド。購入権限や配布URLを含めない。",
+      "localPreviewPath": "/start"
+    },
+    "setupGuide": {
+      "url": null,
+      "purpose": "F2を例に準備完了と戻る場所を確認する公開ガイド。",
+      "localPreviewPath": "/guides/setup-check"
+    },
+    "exerciseGuide": {
+      "url": null,
+      "purpose": "F2の見出し変更と復元を試す公開ガイド。",
+      "localPreviewPath": "/guides/first-change"
+    },
+    "updateNotes": {
+      "url": null,
+      "purpose": "定期便001の公開記事。生成済み設定を再入力しない工夫。",
+      "localPreviewPath": "/guides/one-less-step"
+    },
+    "subscribe": {
+      "url": null,
+      "purpose": "任意のメール登録画面。商品の受取条件ではない。",
+      "localPreviewPath": "/mail"
+    },
+    "support": {
+      "url": null,
+      "purpose": "確定したサポート窓口と対応範囲。",
+      "localPreviewPath": null
+    },
+    "privacy": {
+      "url": null,
+      "purpose": "メールアドレスと同意・配信記録等の取扱い方針。",
+      "localPreviewPath": null
+    }
+  }
+}
