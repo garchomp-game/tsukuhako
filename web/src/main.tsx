@@ -46,9 +46,10 @@ function Check({data}:{data:PublicData}){
 function Confirm({data}:{data:PublicData}){
  const token=new URLSearchParams(location.search).get('token')||'';
  const [state,setState]=useState('loading'),[error,setError]=useState(''),[busy,setBusy]=useState(false);
- useEffect(()=>{void api<{state:string}>('/api/confirm/status?token='+encodeURIComponent(token)).then(r=>setState(r.state)).catch(e=>setError(e.message));},[token]);
- async function confirm(){setBusy(true);try{const r=await api<{state:string}>('/api/confirm',{token});setState(r.state==='confirmed'?'complete':r.state);}catch(e){setError((e as Error).message);const r=await api<{state:string}>('/api/confirm/status?token='+encodeURIComponent(token));setState(r.state);}finally{setBusy(false);}}
+ useEffect(()=>{void api<{state:string}>('/api/confirm/status?token='+encodeURIComponent(token)).then(r=>setState(r.state)).catch(e=>{setError(e.message);setState('network_error');});},[token]);
+ async function confirm(){setBusy(true);try{const r=await api<{state:string}>('/api/confirm',{token});setState(r.state==='confirmed'?'complete':r.state);}catch(e){setError((e as Error).message);try{const r=await api<{state:string}>('/api/confirm/status?token='+encodeURIComponent(token));setState(r.state);}catch{setState('network_error');}}finally{setBusy(false);}}
  if(state==='loading')return <p role="status">確認しています。</p>;
+ if(state==='network_error')return <div className="narrow"><h1>確認できませんでした</h1><p role="alert">{error}</p><button onClick={()=>location.reload()}>もう一度確認する</button><p><a href="/mail">登録画面へ戻る</a></p></div>;
  const copy=state==='valid'?data.screenCopy.confirm:state==='complete'?data.screenCopy.complete:state==='expired'?data.screenCopy.expired:state==='used'?data.screenCopy.used:state==='unsubscribed'?data.screenCopy.unsubscribed:data.screenCopy.invalid;
  return <div className="narrow"><h1>{copy.title}</h1><p>{state==='suppressed'?data.screenCopy.errors.suppressed:copy.description}</p>{error&&<p role="alert" className="error">{error}</p>}{state==='valid'?<button onClick={()=>void confirm()} disabled={busy}>{data.screenCopy.confirm.button}</button>:state==='complete'?<a className="button" href="/start">{data.screenCopy.complete.button}</a>:['expired','invalid','invalidated','unsubscribed'].includes(state)?<a className="button" href="/mail">{state==='expired'?data.screenCopy.expired.button:'登録画面へ戻る'}</a>:<a href="/start">使い始めるガイドへ</a>}{state==='complete'&&__LOCAL_PREVIEW__&&<p><a href="/preview">初回の配信予定を確認する</a></p>}</div>;
 }
