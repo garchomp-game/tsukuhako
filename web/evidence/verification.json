@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-22",
+  "classification": "LOCAL_FIXTURE_AND_BUILD",
+  "productChanged": false,
+  "sourceContentCommit": "e513825ea7e9cf12467281954d83af293af23846",
+  "sourceContentHash": "7e0ec65318e051e490c7c7fefe0afefe3e33f4db4030c0653e85f69b0b698cc7",
+  "tests": {
+    "total": 24,
+    "passed": 24,
+    "failed": 0,
+    "pureDateCalculation": 1,
+    "localWorkersD1Fixture": 23
+  },
+  "typecheck": "PASS",
+  "staticBuild": "PASS",
+  "publicBundleIsolation": "PASS",
+  "releaseGate": {
+    "expectedExit": 1,
+    "actualExit": 1,
+    "result": "REFUSED_AS_EXPECTED"
+  },
+  "externalMailCalls": 0,
+  "productionDeployment": false,
+  "customerAddressesCollected": false,
+  "mainMerged": false,
+  "node": "v24.19.0",
+  "dependencies": {
+    "wrangler": "^4.151.3",
+    "miniflare": "^5.20261019.1-beta",
+    "vite": "^8.3.5",
+    "react": "^19.3.1"
+  },
+  "notRun": [
+    "Resend account capability and pricing",
+    "DNS authentication",
+    "real email delivery",
+    "provider signature verification",
+    "public recipient download",
+    "Windows 11 real host"
+  ]
+}

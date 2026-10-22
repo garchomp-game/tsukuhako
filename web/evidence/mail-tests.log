@@ -1,0 +1,42 @@
+
+> tsukuhako-mail-preview@0.1.0 test
+> npm run content && tsx --test tests/*.test.ts
+
+
+> tsukuhako-mail-preview@0.1.0 content
+> node scripts/import-content.mjs
+
+Imported 5 draft mails and 4 public guides directly from docs/launch (hash 7e0ec65318e0).
+✔ GET prefetch is read-only; duplicate registration/confirm and concurrent dispatch remain unique (845.130353ms)
+✔ simultaneous subscribe requests issue only one confirmation and preserve the usable token (584.170494ms)
+✔ JST calendar-day schedules cross the UTC boundary independently of elapsed hours (0.24155ms)
+✔ initial days 0/2/5, seven elapsed days and introduction completion govern broadcast audience (801.396269ms)
+✔ daily cap holds accepted and unknown mail; unknown is reconciled without re-send (693.353619ms)
+✔ unsubscribe cancels queued steps; GET and machine POST stay separate (766.534512ms)
+✔ expired confirmation recovers by resend; newer token invalidates old token (637.08954ms)
+local-preview-operation-failed Error
+✔ complaint/bounce/unsubscribe events are idempotent, order-safe, and failure rolls back for retry (740.60231ms)
+✔ final mock acceptance rechecks unsubscribe after scheduler claim (747.819688ms)
+✔ global stop retires an empty scheduled broadcast and never revives old reservations (706.485513ms)
+✔ edits invalidate approval, pending deliveries require explicit rebind, reverting still creates a new revision (745.486348ms)
+✔ linked guide changes invalidate its mail approval even when the URL stays the same (552.708716ms)
+✔ overdue mail is skipped rather than burst-sent; unapproved templates cannot dispatch (604.19686ms)
+✔ real addresses, cross-origin access, nonlocal hosts and production mode are blocked (642.905318ms)
+✔ queued broadcast is suppressed by unsubscribe before its scheduled time (744.681167ms)
+✔ broadcast excludes unverified and incomplete introductions after seven days (645.755986ms)
+✔ global stop cancels existing steps and restart keeps stored state without restoring them (776.776676ms)
+✔ explicit pre-acceptance failure can retry once with the same delivery identity (659.76565ms)
+✔ address limits and resend preserve original consent evidence (713.481811ms)
+✔ hard bounce keeps suppression after later delivery and re-registration (675.436137ms)
+✔ stop at confirmation issuance and enrollment transaction prevents new mail and reservations (909.458993ms)
+✔ global-stop cancellation cannot be overwritten by a stale pre-acceptance failure (802.244329ms)
+✔ stale dispatcher cannot submit old content or cancel another claimed revision (913.344134ms)
+✔ a revised scheduled broadcast stays cancelled until explicitly rebound to its reviewed revision (994.175535ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 17531.517962

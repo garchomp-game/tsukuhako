@@ -59,7 +59,7 @@ test('daily cap holds accepted and unknown mail; unknown is reconciled without r
  }finally{await f.close();}
 });
 
-test('unsubscribe cancels both queued steps and a broadcast; GET and machine POST stay separate',async()=>{
+test('unsubscribe cancels queued steps; GET and machine POST stay separate',async()=>{
  const f=await fixture();try{await f.activate();const old=await f.enroll();await f.call('/api/preview/dispatch',{});let s=await f.state();const token=s.outbox.find(m=>m.kind==='step')!.body_text.match(/unsubscribe\?token=([a-f0-9]{64})/)![1];await f.mf.dispatchFetch('http://localhost/api/unsubscribe?token='+token);assert.equal((await f.state()).subscribers[0].subscription_status,'subscribed');
  const response=await f.mf.dispatchFetch('http://localhost/api/unsubscribe?token='+token,{method:'POST',headers:{'content-type':'application/x-www-form-urlencoded'},body:'List-Unsubscribe=One-Click'});assert.equal(response.status,200);await f.call('/api/unsubscribe',{token});s=await f.state();assert.equal(s.subscribers[0].subscription_status,'unsubscribed');assert.equal(s.deliveries.filter(d=>d.status==='suppressed').length,2);assert.equal((await f.call('/api/confirm/status?token='+old)).state,'unsubscribed');await f.call('/api/confirm',{token:old},409);
  await f.clock('2026-10-22T10:01:00.000Z');const renewed=await f.subscribe();assert.equal((await f.state()).subscribers[0].subscription_status,'unsubscribed');await f.call('/api/confirm',{token:renewed});assert.equal((await f.state()).subscribers[0].subscription_status,'subscribed');
@@ -106,4 +106,63 @@ test('overdue mail is skipped rather than burst-sent; unapproved templates canno
 test('real addresses, cross-origin access, nonlocal hosts and production mode are blocked',async()=>{
  const f=await fixture();try{await f.activate();await f.call('/api/subscriptions',{email:'real@gmail.com',newsletterConsent:true,consentVersion:'2026-10-22-v1'},400);await f.call('/api/subscriptions',{email:'reader@example.test',newsletterConsent:false,consentVersion:'2026-10-22-v1'},400);await f.call('/api/preview/state',undefined,403,{'origin':'https://outside.example'});const remote=await f.mf.dispatchFetch('https://outside.example/api/preview/state');assert.equal(remote.status,403);assert.equal((await f.state()).subscribers.length,0);const changed=await f.mf.setOptions({...convertV4MiniflareOptions({modules:true,script,compatibilityDate:'2026-10-22',bindings:{MAIL_MODE:'live'},d1Databases:{DB:'test'}}),telemetry:{enabled:false},logRequests:false});void changed;const live=await f.mf.dispatchFetch('http://localhost/api/health');assert.equal(live.status,403);
  }finally{await f.close();}
+});
+
+test('queued broadcast is suppressed by unsubscribe before its scheduled time',async()=>{
+ const f=await fixture();try{await f.activate();await f.enroll();await f.call('/api/preview/dispatch',{});await f.clock('2026-10-24T10:00:00.000Z');await f.call('/api/preview/dispatch',{});await f.clock('2026-10-27T10:00:00.000Z');await f.call('/api/preview/dispatch',{});await f.call('/api/preview/schedule',{id:'broadcast-001',at:'2026-10-29T10:00:00.000Z'});let s=await f.state();assert.equal(s.deliveries.find(d=>d.edition_id==='broadcast-001')!.status,'planned');const token=s.outbox.find(m=>m.kind==='step')!.body_text.match(/unsubscribe\?token=([a-f0-9]{64})/)![1];await f.call('/api/unsubscribe',{token});await f.clock('2026-10-29T10:00:00.000Z');await f.call('/api/preview/dispatch',{});s=await f.state();assert.equal(s.deliveries.find(d=>d.edition_id==='broadcast-001')!.status,'suppressed');assert.equal(s.outbox.filter(m=>m.kind==='broadcast').length,0);
+ }finally{await f.close();}
+});
+
+test('broadcast excludes unverified and incomplete introductions after seven days',async()=>{
+ const f=await fixture();try{await f.activate();await f.enroll();await f.subscribe('pending@example.test');await f.clock('2026-10-29T10:00:00.000Z');await f.call('/api/preview/schedule',{id:'broadcast-001',at:'2026-10-29T10:00:00.000Z'});assert.equal((await f.state()).deliveries.filter(d=>d.edition_id==='broadcast-001').length,0);
+ }finally{await f.close();}
+});
+
+test('global stop cancels existing steps and restart keeps stored state without restoring them',async()=>{
+ const f=await fixture();try{await f.activate();await f.enroll();await f.call('/api/preview/stop',{stopped:true});await f.call('/api/preview/stop',{stopped:false});await f.mf.setOptions({...convertV4MiniflareOptions({modules:true,script,compatibilityDate:'2026-10-22',bindings:{MAIL_MODE:'preview'},d1Databases:{DB:'test'}}),telemetry:{enabled:false},logRequests:false});await f.call('/api/preview/dispatch',{});const s=await f.state();assert.equal(s.subscribers.length,1);assert.equal(s.deliveries.filter(d=>d.status==='cancelled').length,3);assert.equal(s.outbox.filter(m=>m.kind==='step').length,0);
+ }finally{await f.close();}
+});
+
+test('explicit pre-acceptance failure can retry once with the same delivery identity',async()=>{
+ const f=await fixture();try{await f.activate();await f.enroll();await f.call('/api/preview/dispatch',{outcome:'failed'});let s=await f.state();const d=s.deliveries.find(d=>d.edition_id==='welcome-01')!;assert.equal(d.status,'failed');assert.equal(s.outbox.filter(m=>m.kind==='step').length,0);await f.call('/api/preview/retry',{id:d.id});await f.call('/api/preview/dispatch',{});s=await f.state();assert.equal(s.deliveries.find(x=>x.id===d.id)!.status,'accepted');assert.equal(s.deliveries.find(x=>x.id===d.id)!.attempts,2);assert.equal(s.outbox.filter(m=>m.kind==='step').length,1);
+ }finally{await f.close();}
+});
+
+test('address limits and resend preserve original consent evidence',async()=>{
+ const f=await fixture();try{await f.activate();await f.subscribe();const consent=(await f.db.prepare('SELECT consent_at FROM subscribers').first<{consent_at:string}>())!.consent_at;for(let n=1;n<=4;n++){await f.clock(`2026-10-22T10:0${n}:00.000Z`);await f.call('/api/resend-confirmation',{email:'reader@example.test'},202);}await f.clock('2026-10-22T10:05:00.000Z');await f.call('/api/resend-confirmation',{email:'reader@example.test'},429);assert.equal((await f.state()).outbox.length,5);assert.equal((await f.db.prepare('SELECT consent_at FROM subscribers').first<{consent_at:string}>())!.consent_at,consent);
+ }finally{await f.close();}
+});
+
+test('hard bounce keeps suppression after later delivery and re-registration',async()=>{
+ const f=await fixture();try{await f.activate();const token=await f.enroll();await f.call('/api/preview/dispatch',{});const s=await f.state(),subscriberId=s.subscribers[0].id,deliveryId=s.deliveries[0].id;await f.call('/api/mail-events',{eventId:'bounce-1',type:'hard_bounce',subscriberId});await f.call('/api/mail-events',{eventId:'bounce-2',type:'delivered',subscriberId,deliveryId});await f.clock('2026-10-22T10:01:00.000Z');await f.call('/api/subscriptions',{email:'reader@example.test',newsletterConsent:true,consentVersion:'2026-10-22-v1'},202);assert.equal((await f.state()).subscribers[0].suppression_reason,'hard_bounce');assert.equal((await f.call('/api/confirm/status?token='+token)).state,'suppressed');
+ }finally{await f.close();}
+});
+
+test('stop at confirmation issuance and enrollment transaction prevents new mail and reservations',async()=>{
+ const f=await fixture();try{await f.activate();let batches=0;const original=f.db.batch.bind(f.db);
+ const proxy=new Proxy(f.db,{get(target,key){if(key==='batch')return async(statements:Parameters<typeof original>[0])=>{batches++;if(batches===2)await f.service.stop(true);return original(statements);};const value=Reflect.get(target,key);return typeof value==='function'?value.bind(target):value;}});
+ await assert.rejects(()=>new MailService(proxy,'http://localhost').subscribe({email:'stop@example.test',newsletterConsent:true,consentVersion:'2026-10-22-v1'},'fixture'),/受付をお休み/);assert.equal((await f.state()).outbox.length,0);await f.service.stop(false);const token=await f.subscribe();let stopped=false;
+ const confirmProxy=new Proxy(f.db,{get(target,key){if(key==='batch')return async(statements:Parameters<typeof original>[0])=>{if(!stopped){stopped=true;await f.service.stop(true);}return original(statements);};const value=Reflect.get(target,key);return typeof value==='function'?value.bind(target):value;}});
+ await assert.rejects(()=>new MailService(confirmProxy,'http://localhost').confirm(token),/受付をお休み/);assert.equal((await f.state()).deliveries.length,0);assert.equal((await f.call('/api/confirm/status?token='+token)).state,'valid');await f.service.stop(false);await f.service.dispatch();assert.equal((await f.state()).deliveries.length,0);
+ }finally{await f.close();}
+});
+
+test('global-stop cancellation cannot be overwritten by a stale pre-acceptance failure',async()=>{
+ const f=await fixture();try{await f.activate();await f.enroll();let stopped=false;const original=f.db.batch.bind(f.db);
+ const proxy=new Proxy(f.db,{get(target,key){if(key==='batch')return async(statements:Parameters<typeof original>[0])=>{const result=await original(statements);if(!stopped&&(await f.state()).deliveries.some(d=>d.status==='submitting')){stopped=true;await f.service.stop(true);}return result;};const value=Reflect.get(target,key);return typeof value==='function'?value.bind(target):value;}});
+ await new MailService(proxy,'http://localhost').dispatch('failed');await f.service.stop(false);const s=await f.state();const d=s.deliveries.find(d=>d.edition_id==='welcome-01')!;assert.equal(d.status,'cancelled');assert.equal(d.last_error,'global_stop');await assert.rejects(()=>f.service.retryFailed(d.id));await f.service.dispatch();assert.equal((await f.state()).outbox.filter(m=>m.kind==='step').length,0);
+ }finally{await f.close();}
+});
+
+test('stale dispatcher cannot submit old content or cancel another claimed revision',async()=>{
+ const f=await fixture();const source=content.editions.find(e=>e.id==='welcome-01')!,oldSubject=source.subject;let releaseNew=()=>{},newRunning:Promise<unknown>|undefined;try{await f.activate();await f.enroll();const original=f.db.batch.bind(f.db);let injected=false,newHeld=false;let signalNew=()=>{};const newClaimed=new Promise<void>(resolve=>{signalNew=resolve;});const holdNew=new Promise<void>(resolve=>{releaseNew=resolve;});
+ const nextProxy=new Proxy(f.db,{get(target,key){if(key==='batch')return async(statements:Parameters<typeof original>[0])=>{const result=await original(statements);const row=await f.db.prepare("SELECT status,revision FROM deliveries WHERE edition_id='welcome-01'").first<{status:string;revision:number}>();if(!newHeld&&row?.status==='submitting'&&row.revision===2){newHeld=true;signalNew();await holdNew;}return result;};const value=Reflect.get(target,key);return typeof value==='function'?value.bind(target):value;}});
+ const oldProxy=new Proxy(f.db,{get(target,key){if(key==='batch')return async(statements:Parameters<typeof original>[0])=>{const result=await original(statements);const row=await f.db.prepare("SELECT status FROM deliveries WHERE edition_id='welcome-01'").first<{status:string}>();if(!injected&&row?.status==='submitting'){injected=true;source.subject='改稿後の承認済み件名';await f.service.syncContent();await f.service.review('welcome-01','review',2);await f.service.review('welcome-01','activate',2);await f.service.rebind('welcome-01');newRunning=new MailService(nextProxy,'http://localhost').dispatch();await newClaimed;}return result;};const value=Reflect.get(target,key);return typeof value==='function'?value.bind(target):value;}});
+ await new MailService(oldProxy,'http://localhost').dispatch();const held=await f.db.prepare("SELECT status,revision FROM deliveries WHERE edition_id='welcome-01'").first<{status:string;revision:number}>();assert.equal(held!.status,'submitting');assert.equal(held!.revision,2);releaseNew();await newRunning;const mail=await f.db.prepare("SELECT subject FROM mock_outbox WHERE kind='step'").first<{subject:string}>();assert.equal(mail!.subject,'改稿後の承認済み件名');assert.equal((await f.db.prepare("SELECT COUNT(*) AS n FROM mock_outbox WHERE kind='step'").first<{n:number}>())!.n,1);
+ }finally{releaseNew();if(newRunning)await newRunning;source.subject=oldSubject;await f.close();}
+});
+
+test('a revised scheduled broadcast stays cancelled until explicitly rebound to its reviewed revision',async()=>{
+ const f=await fixture();const source=content.editions.find(e=>e.id==='broadcast-001')!,old=source.subject;try{await f.activate();await f.enroll();await f.call('/api/preview/dispatch',{});await f.clock('2026-10-24T10:00:00.000Z');await f.call('/api/preview/dispatch',{});await f.clock('2026-10-27T10:00:00.000Z');await f.call('/api/preview/dispatch',{});await f.service.schedule('broadcast-001','2026-10-29T10:00:00.000Z');source.subject=old+'（改稿fixture）';await f.service.syncContent();await f.service.review('broadcast-001','review',2);await f.service.schedule('broadcast-001','2026-10-29T10:00:00.000Z');assert.equal((await f.db.prepare("SELECT status FROM deliveries WHERE edition_id='broadcast-001'").first<{status:string}>())!.status,'cancelled');await f.service.rebind('broadcast-001');await f.service.setClock('2026-10-29T10:00:00.000Z');await f.service.dispatch();const mail=await f.db.prepare("SELECT subject FROM mock_outbox WHERE kind='broadcast'").first<{subject:string}>();assert.equal(mail!.subject,source.subject);
+ }finally{source.subject=old;await f.close();}
 });

@@ -1,0 +1,28 @@
+Imported 5 draft mails and 4 public guides directly from docs/launch (hash 7e0ec65318e0).
+
+ ⛅️ wrangler 4.151.3
+────────────────────
+Resource location: local 
+
+Use --remote if you want to access the remote instance.
+
+✅ No migrations to apply!
+
+  VITE v8.3.5  ready in 130 ms
+
+  ➜  Local:   http://127.0.0.1:5173/
+11:56:26 AM [vite] http proxy error: /api/health
+Error: connect ECONNREFUSED 127.0.0.1:8787
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1864:16)
+11:56:26 AM [vite] http proxy error: /api/health
+Error: connect ECONNREFUSED 127.0.0.1:8787
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1864:16)
+11:56:26 AM [vite] http proxy error: /api/health
+Error: connect ECONNREFUSED 127.0.0.1:8787
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1864:16)
+11:56:27 AM [vite] http proxy error: /api/health
+Error: connect ECONNREFUSED 127.0.0.1:8787
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1864:16)
+
+START CHECK: Vite proxy + local Worker health succeeded.
+STOP CHECK: owned dev process exited code=0 signal=null; listenerRemaining=false

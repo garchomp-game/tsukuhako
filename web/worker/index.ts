@@ -5,10 +5,16 @@ function local(url:string) { try { return ['localhost','127.0.0.1','[::1]'].incl
 function response(value:unknown,status=200) {
  return new Response(JSON.stringify(value),{status,headers:{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','Referrer-Policy':'no-referrer','X-Content-Type-Options':'nosniff','Content-Security-Policy':"default-src 'none'; frame-ancestors 'none'"}});
 }
+async function boundedText(request:Request,limit:number) {
+ if(Number(request.headers.get('content-length')||0)>limit) throw new ApiError(413,'入力が長すぎます。');
+ if(!request.body)return '';
+ const reader=request.body.getReader();const chunks:Uint8Array[]=[];let length=0;
+ while(true){const {done,value}=await reader.read();if(done)break;length+=value.byteLength;if(length>limit){await reader.cancel();throw new ApiError(413,'入力が長すぎます。');}chunks.push(value);}
+ const all=new Uint8Array(length);let offset=0;for(const chunk of chunks){all.set(chunk,offset);offset+=chunk.byteLength;}return new TextDecoder().decode(all);
+}
 async function body(request:Request):Promise<Record<string,unknown>> {
  if (!request.headers.get('content-type')?.includes('application/json')) throw new ApiError(415,'入力内容を確認してください。');
- const text = await request.text();
- if (text.length>8192) throw new ApiError(413,'入力が長すぎます。');
+ const text = await boundedText(request,8192);
  try { const value:unknown=JSON.parse(text); if (!value || typeof value !== 'object' || Array.isArray(value)) throw new Error(); return value as Record<string,unknown>; } catch { throw new ApiError(400,'入力内容を確認してください。'); }
 }
 export default {
@@ -36,8 +42,8 @@ export default {
    }
    if (request.method !== 'POST') return response({error:'この操作は利用できません。'},405);
    if (url.pathname === '/api/unsubscribe' && request.headers.get('content-type')?.includes('application/x-www-form-urlencoded')) {
-    const text = await request.text();
-    if (text.length>200 || new URLSearchParams(text).get('List-Unsubscribe') !== 'One-Click') throw new ApiError(400,'解除操作を確認してください。');
+    const text = await boundedText(request,200);
+    if ( new URLSearchParams(text).get('List-Unsubscribe') !== 'One-Click') throw new ApiError(400,'解除操作を確認してください。');
     return response(await service.unsubscribe(url.searchParams.get('token') || ''));
    }
    const input = await body(request);
