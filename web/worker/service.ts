@@ -11,23 +11,22 @@ export class MailService {
  async stopped() { return (await this.q("SELECT value FROM settings WHERE key='stopped'").first<{value:string}>())!.value === 'true'; }
  async current(id:string) { return this.q('SELECT * FROM editions WHERE id=? AND current=1',id).first<Edition>(); }
  async syncContent() {
-  const now = await this.now();
   for (const source of content.editions as EditionSource[]) {
    const footer = source.type === 'transactional' ? content.transactionalFooter : content.footer;
-   const contentHash = await hash(JSON.stringify({source,footer,settings:content.settings}));
+   const guideKeys:Record<string,string>={startGuide:'start',setupGuide:'setup-check',exerciseGuide:'first-change',updateNotes:'one-less-step'};
+   const linkedGuides=Object.fromEntries(source.links.filter(k=>guideKeys[k]).map(k=>[k,(content.guides as Record<string,string>)[guideKeys[k]]]));
+   const basis = JSON.stringify({source,footer,settings:content.settings,linkedGuides});
    const old = await this.current(source.id);
-   if (old?.content_hash === contentHash) continue;
-   // Atomic batch: retire old approval, stop affected pending delivery, and create a new draft.
+   if (old && old.content_hash === await hash(basis + ':revision:' + old.revision)) continue;
+   const revision = (old?.revision || 0) + 1;
+   const contentHash = await hash(basis + ':revision:' + revision);
+   // A reverted text still gets a fresh revision; concurrent imports of the same revision are harmless.
    await this.db.batch([
-    this.q("UPDATE deliveries SET status='cancelled',last_error='revision_changed' WHERE edition_id=? AND status='planned'",source.id),
-    this.q("UPDATE editions SET current=0,status=CASE WHEN status IN ('active','reviewed','scheduled','sending') THEN 'retired' ELSE status END WHERE id=?",source.id),
-    this.q(`INSERT INTO editions(id,revision,source_revision,type,subject,body_markdown,link_keys,source_refs,audience_rule,content_hash,current)
-      SELECT ?,COALESCE(MAX(revision),0)+1,?,?,?,?,?,?,?,?,1 FROM editions WHERE id=?
-      ON CONFLICT(id,content_hash) DO UPDATE SET current=1,status='draft',reviewed_at=NULL,reviewed_by=NULL`,
-      source.id,source.revision,source.type,source.subject,source.bodyMarkdown,JSON.stringify(source.links),JSON.stringify(source.sourceRefs),source.audience,contentHash,source.id)
+    this.q("UPDATE deliveries SET status='cancelled',last_error='revision_changed' WHERE edition_id=? AND status IN ('planned','submitting') AND NOT EXISTS(SELECT 1 FROM mock_outbox WHERE delivery_id=deliveries.id) AND EXISTS(SELECT 1 FROM editions WHERE id=? AND current=1 AND content_hash!=?)",source.id,source.id,contentHash),
+    this.q("UPDATE editions SET current=0,status=CASE WHEN status IN ('active','reviewed','scheduled','sending') THEN 'retired' ELSE status END WHERE id=? AND current=1 AND content_hash!=?",source.id,contentHash),
+    this.q('INSERT OR IGNORE INTO editions(id,revision,source_revision,type,subject,body_markdown,link_keys,source_refs,audience_rule,content_hash,current) VALUES(?,?,?,?,?,?,?,?,?,?,1)',source.id,revision,source.revision,source.type,source.subject,source.bodyMarkdown,JSON.stringify(source.links),JSON.stringify(source.sourceRefs),source.audience,contentHash)
    ]);
   }
-  void now;
  }
  async consumeLimit(email:string, source:string) {
   const now = await this.now();
@@ -67,12 +66,14 @@ export class MailService {
   const expiresAt = new Date(Date.parse(now)+content.settings.rules.confirmationTtlHours*3600000).toISOString();
   const deliveryId = `confirmation:${tokenHash}`;
   const mail = renderMail(confirm,{confirmUrl:`${this.origin}/mail/confirm?token=${token}`,confirmationExpiresAtJST:jstDisplay(expiresAt)},this.origin);
-  await this.db.batch([
-   this.q('UPDATE confirmation_tokens SET invalidated_at=? WHERE subscriber_id=? AND used_at IS NULL AND invalidated_at IS NULL',now,subscriber.id),
-   this.q('INSERT INTO confirmation_tokens(hash,subscriber_id,enrollment_id,expires_at,created_at) VALUES(?,?,?,?,?)',tokenHash,subscriber.id,enrollment,expiresAt,now),
-   this.q('UPDATE subscribers SET consent_version=?,consent_at=? WHERE id=?',consentVersion,now,subscriber.id),
-   this.q('INSERT INTO mock_outbox(delivery_id,subscriber_id,subject,body_text,body_html,created_at,provider_id,kind) VALUES(?,?,?,?,?,?,?,?)',deliveryId,subscriber.id,mail.subject,mail.text,mail.html,now,`mock:${deliveryId}`,'transactional')
+  const cutoff = new Date(Date.parse(now)-content.settings.rules.confirmationCooldownSeconds*1000).toISOString();
+  const issued = await this.db.batch([
+   this.q('INSERT INTO confirmation_tokens(hash,subscriber_id,enrollment_id,expires_at,created_at) SELECT ?,?,?,?,? WHERE NOT EXISTS(SELECT 1 FROM confirmation_tokens WHERE subscriber_id=? AND created_at>?)',tokenHash,subscriber.id,enrollment,expiresAt,now,subscriber.id,cutoff),
+   this.q('UPDATE confirmation_tokens SET invalidated_at=? WHERE subscriber_id=? AND hash!=? AND used_at IS NULL AND invalidated_at IS NULL AND EXISTS(SELECT 1 FROM confirmation_tokens WHERE hash=?)',now,subscriber.id,tokenHash,tokenHash),
+   this.q('UPDATE subscribers SET consent_version=?,consent_at=? WHERE id=? AND EXISTS(SELECT 1 FROM confirmation_tokens WHERE hash=?)',consentVersion,now,subscriber.id,tokenHash),
+   this.q('INSERT INTO mock_outbox(delivery_id,subscriber_id,subject,body_text,body_html,created_at,provider_id,kind) SELECT ?,?,?,?,?,?,?,? WHERE EXISTS(SELECT 1 FROM confirmation_tokens WHERE hash=?)',deliveryId,subscriber.id,mail.subject,mail.text,mail.html,now,`mock:${deliveryId}`,'transactional',tokenHash)
   ]);
+  if (!issued[0].meta.changes) throw new ApiError(429,'続けて送信されています。60秒おいてから、もう一度お試しください。',{retryAfter:60});
   return {accepted:true};
  }
  async tokenStatus(token:string) {
@@ -120,7 +121,7 @@ export class MailService {
   const now = await this.now();
   await this.db.batch([
    this.q(`UPDATE subscribers SET subscription_status='unsubscribed',unsubscribed_at=?,suppression_reason=CASE WHEN suppression_reason IN ('complaint','hard_bounce') THEN suppression_reason ELSE ? END WHERE id=?`,now,reason,subscriberId),
-   this.q("UPDATE deliveries SET status='suppressed',last_error=? WHERE subscriber_id=? AND status='planned'",reason,subscriberId),
+   this.q("UPDATE deliveries SET status='suppressed',last_error=? WHERE subscriber_id=? AND status IN ('planned','submitting') AND NOT EXISTS(SELECT 1 FROM mock_outbox WHERE delivery_id=deliveries.id)",reason,subscriberId),
    this.q('UPDATE confirmation_tokens SET invalidated_at=? WHERE subscriber_id=? AND used_at IS NULL',now,subscriberId)
   ]);
  }
@@ -214,10 +215,13 @@ export class MailService {
    const unsubscribeUrl = `${this.origin}/mail/unsubscribe?token=${unsubscribeToken}`;
    const mail = renderMail(edition,{unsubscribeUrl},this.origin);
    const providerId = `mock:${delivery.id}`;
+   const guard = "EXISTS(SELECT 1 FROM deliveries d JOIN subscribers s ON s.id=d.subscriber_id JOIN editions e ON e.id=d.edition_id AND e.revision=d.revision WHERE d.id=? AND d.status='submitting' AND s.subscription_status='subscribed' AND s.suppression_reason IS NULL AND s.enrollment_id=d.enrollment_id AND e.current=1 AND e.status IN ('active','scheduled','sending')) AND (SELECT value FROM settings WHERE key='stopped')='false'";
    await this.db.batch([
-    this.q('INSERT INTO unsubscribe_tokens VALUES(?,?)',await hash(unsubscribeToken),subscriber.id),
-    this.q('INSERT OR IGNORE INTO mock_outbox(delivery_id,subscriber_id,subject,body_text,body_html,created_at,provider_id,kind,headers) VALUES(?,?,?,?,?,?,?,?,?)',delivery.id,subscriber.id,mail.subject,mail.text,mail.html,now,providerId,edition.type,JSON.stringify({'List-Unsubscribe':`<${this.origin}/api/unsubscribe?token=${unsubscribeToken}>`,'List-Unsubscribe-Post':'List-Unsubscribe=One-Click'})),
-    this.q(`UPDATE deliveries SET status=?,provider_id=?,accepted_at=?,last_error=? WHERE id=?`,outcome==='timeout'?'unknown':'accepted',outcome==='timeout'?null:providerId,outcome==='timeout'?null:now,outcome==='timeout'?'mock_timeout_after_acceptance':null,delivery.id)
+    this.q('INSERT INTO unsubscribe_tokens SELECT ?,? WHERE '+guard,await hash(unsubscribeToken),subscriber.id,delivery.id),
+    this.q('INSERT OR IGNORE INTO mock_outbox(delivery_id,subscriber_id,subject,body_text,body_html,created_at,provider_id,kind,headers) SELECT ?,?,?,?,?,?,?,?,? WHERE '+guard,delivery.id,subscriber.id,mail.subject,mail.text,mail.html,now,providerId,edition.type,JSON.stringify({'List-Unsubscribe':`<${this.origin}/api/unsubscribe?token=${unsubscribeToken}>`,'List-Unsubscribe-Post':'List-Unsubscribe=One-Click'}),delivery.id),
+    this.q(`UPDATE deliveries SET status=?,provider_id=?,accepted_at=?,last_error=? WHERE id=? AND status='submitting' AND EXISTS(SELECT 1 FROM mock_outbox WHERE delivery_id=deliveries.id)`,outcome==='timeout'?'unknown':'accepted',outcome==='timeout'?null:providerId,outcome==='timeout'?null:now,outcome==='timeout'?'mock_timeout_after_acceptance':null,delivery.id),
+    this.q("UPDATE deliveries SET status='cancelled',last_error='acceptance_blocked' WHERE id=? AND status='submitting' AND NOT EXISTS(SELECT 1 FROM mock_outbox WHERE delivery_id=deliveries.id)",delivery.id),
+    this.q("DELETE FROM daily_claims WHERE delivery_id=? AND NOT EXISTS(SELECT 1 FROM mock_outbox WHERE delivery_id=?)",delivery.id,delivery.id)
    ]);
   }
   // Scheduled editions finish after their due audience is processed; no backlog flood for late joiners.
@@ -246,12 +250,20 @@ export class MailService {
   const {eventId,type,subscriberId,deliveryId} = input;
   if (typeof eventId !== 'string' || eventId.length>120 || !['delivered','complaint','hard_bounce','unsubscribe'].includes(String(type)) || typeof subscriberId !== 'string') throw new ApiError(400,'Mockイベントを確認してください。');
   const now = await this.now();
-  const inserted = await this.q('INSERT OR IGNORE INTO provider_events(event_id,type,received_at) VALUES(?,?,?)',eventId,String(type),now).run();
-  if (!inserted.meta.changes) return {accepted:true,duplicate:true};
-  if (type === 'delivered' && typeof deliveryId === 'string') await this.q("UPDATE deliveries SET status='delivered' WHERE id=? AND subscriber_id=? AND status IN ('accepted','unknown')",deliveryId,subscriberId).run();
-  if (type !== 'delivered') await this.suppress(subscriberId,type==='unsubscribe'?'unsubscribed':String(type));
-  await this.q('UPDATE provider_events SET processed_at=? WHERE event_id=?',now,eventId).run();
-  return {accepted:true,duplicate:false};
+  const pending = 'EXISTS(SELECT 1 FROM provider_events WHERE event_id=? AND processed_at IS NULL AND type=?)';
+  const statements=[this.q('INSERT OR IGNORE INTO provider_events(event_id,type,received_at) VALUES(?,?,?)',eventId,String(type),now)];
+  if(type==='delivered' && typeof deliveryId==='string') statements.push(this.q("UPDATE deliveries SET status='delivered' WHERE id=? AND subscriber_id=? AND status IN ('accepted','unknown') AND "+pending,deliveryId,subscriberId,eventId,String(type)));
+  if(type!=='delivered') {
+   const reason=type==='unsubscribe'?'unsubscribed':String(type);
+   statements.push(
+    this.q("UPDATE subscribers SET subscription_status='unsubscribed',unsubscribed_at=?,suppression_reason=CASE WHEN suppression_reason IN ('complaint','hard_bounce') THEN suppression_reason ELSE ? END WHERE id=? AND "+pending,now,reason,subscriberId,eventId,String(type)),
+    this.q("UPDATE deliveries SET status='suppressed',last_error=? WHERE subscriber_id=? AND status IN ('planned','submitting') AND NOT EXISTS(SELECT 1 FROM mock_outbox WHERE delivery_id=deliveries.id) AND "+pending,reason,subscriberId,eventId,String(type)),
+    this.q('UPDATE confirmation_tokens SET invalidated_at=? WHERE subscriber_id=? AND used_at IS NULL AND '+pending,now,subscriberId,eventId,String(type))
+   );
+  }
+  statements.push(this.q('UPDATE provider_events SET processed_at=? WHERE event_id=? AND processed_at IS NULL AND type=?',now,eventId,String(type)));
+  const result=await this.db.batch(statements);
+  return {accepted:true,duplicate:result[result.length-1].meta.changes===0};
  }
  async setClock(value:string) {
   if (!Number.isFinite(Date.parse(value)) || Date.parse(value)<Date.parse(await this.now())) throw new ApiError(400,'仮想時計は現在より後へ進めてください。');
@@ -259,7 +271,10 @@ export class MailService {
  }
  async stop(value:boolean) {
   const statements = [this.q("UPDATE settings SET value=? WHERE key='stopped'",String(value))];
-  if (value) statements.push(this.q("UPDATE deliveries SET status='cancelled',last_error='global_stop' WHERE status='planned'"));
+  if (value) statements.push(
+   this.q("UPDATE deliveries SET status='cancelled',last_error='global_stop' WHERE status IN ('planned','submitting') AND NOT EXISTS(SELECT 1 FROM mock_outbox WHERE delivery_id=deliveries.id)"),
+   this.q("UPDATE editions SET status='retired' WHERE type='broadcast' AND status IN ('scheduled','sending')")
+  );
   await this.db.batch(statements); return {stopped:value};
  }
  async cancel(id:string) { await this.q("UPDATE deliveries SET status='cancelled',last_error='operator_cancelled' WHERE id=? AND status='planned'",id).run();return {ok:true}; }
