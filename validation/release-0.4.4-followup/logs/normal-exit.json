@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "category": "REAL_HOST",
+  "scope": "packaged normal launch and exit only",
+  "records": [
+    {
+      "id": "normal-launch-no-debug",
+      "status": "PASS",
+      "args": [],
+      "cwd": "/tmp",
+      "executableSha256": "3ba9114b7fbaafaf548f72c5d1bc86b7dc81098a85361784359c2c1199625bfc",
+      "reading": {
+        "view": "create",
+        "lessonId": "F2",
+        "chapterId": "",
+        "scroll": 0
+      },
+      "exit": {
+        "pid": 298552,
+        "status": "PASS",
+        "requestIssued": true,
+        "timedOut": false,
+        "exitCode": 0,
+        "signal": null,
+        "cleanup": [],
+        "cleanupComplete": true,
+        "reason": "NORMAL_EXIT"
+      }
+    }
+  ],
+  "errors": [],
+  "zoomMethod": "NOT_RUN: no UI change in this followup",
+  "product": {
+    "productVersion": "0.4.4",
+    "sourceCommit": "2b141f7c583d796e1ba75ad312c6ab199056c7de",
+    "dirty": false,
+    "helperVersion": "0.4.4"
+  },
+  "artifactSha256": "deace519c6ac6cb7a91de304491edd6a0676995eb386fa0be93fb541f43430b4",
+  "freshIsolatedProfile": true,
+  "host": {
+    "os": "Linux Mint 22.3",
+    "kernel": "7.0.0-31-generic",
+    "architecture": "x86_64",
+    "node": "v24.19.0"
+  }
+}

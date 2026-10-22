@@ -1,0 +1,11 @@
+{
+  "category": "REAL_HOST",
+  "status": "PASS",
+  "normalAppExitedWithCode": 0,
+  "normalAppForcedCleanup": false,
+  "dedicatedDisplayStopped": true,
+  "dockerMutationCommands": 0,
+  "existingProjectsChanged": false,
+  "existingReadingProfileChanged": false,
+  "osPackagesChanged": false
+}

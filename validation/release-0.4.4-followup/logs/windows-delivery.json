@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "category": "STATIC",
+  "platform": "windows",
+  "productVersion": "0.4.4",
+  "sourceCommit": "2b141f7c583d796e1ba75ad312c6ab199056c7de",
+  "artifact": {
+    "file": "tsukuhako-windows-x64-0.4.4-setup.exe",
+    "sha256": "a5e2cd8fbfc80815e1cd87b5eefc5af1bc873e35ecfcc81762462617266bd103",
+    "bytes": 144935062
+  },
+  "recipientFiles": 4,
+  "sha256Files": 3,
+  "path": "temporary Japanese + space path, arbitrary cwd",
+  "runtimeInspection": "Windows installer payload inspected separately; no Linux execution of exe"
+}

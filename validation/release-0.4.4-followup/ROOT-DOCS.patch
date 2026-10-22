@@ -1,0 +1,10 @@
+--- a/README.md
++++ b/README.md
+@@ -19,0 +20,2 @@
++
++- 0.4.4追補レビュー（A担当）: [終了判定の補強・採用配布セット・商品事実](validation/release-0.4.4-followup/REPORT.md)
+--- a/REPORT.md
++++ b/REPORT.md
+@@ -0,0 +1,2 @@
++> 0.4.4追補（A担当）の結果は [レビューと限定修正](validation/release-0.4.4-followup/REPORT.md)。製品バイナリは同一で、一般公開条件は別途確認が必要です。
++

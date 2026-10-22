@@ -1,0 +1,73 @@
+{
+  "revision": "2026-10-22-A",
+  "status": "READY_LOCALLY_NOT_PUBLISHED",
+  "category": "STATIC",
+  "destinationBucket": null,
+  "recipientUrls": null,
+  "files": [
+    {
+      "platform": "linux",
+      "file": "SHA256SUMS",
+      "bytes": 260,
+      "sha256": "d1bc9ee3ca287650528e27f2822b20f7b09d1910a6f82e9f672fe85a0a7c5c89",
+      "localPath": "dist/delivery-0.4.4-A/linux/SHA256SUMS",
+      "proposedObjectKey": "tsukuhako/0.4.4/2026-10-22-A/linux/SHA256SUMS"
+    },
+    {
+      "platform": "linux",
+      "file": "START_HERE.txt",
+      "bytes": 4567,
+      "sha256": "310e1513c8af5f8a8a717a4fece28693b02f84afe562815c3dcb3095e57f6e79",
+      "localPath": "dist/delivery-0.4.4-A/linux/START_HERE.txt",
+      "proposedObjectKey": "tsukuhako/0.4.4/2026-10-22-A/linux/START_HERE.txt"
+    },
+    {
+      "platform": "linux",
+      "file": "manifest.json",
+      "bytes": 1898,
+      "sha256": "f4680d11e6b2e73456136a9523b29fdc3283763e7845e428827644e6ea64eb9d",
+      "localPath": "dist/delivery-0.4.4-A/linux/manifest.json",
+      "proposedObjectKey": "tsukuhako/0.4.4/2026-10-22-A/linux/manifest.json"
+    },
+    {
+      "platform": "linux",
+      "file": "tsukuhako-linux-x64-0.4.4.tar.gz",
+      "bytes": 168272243,
+      "sha256": "deace519c6ac6cb7a91de304491edd6a0676995eb386fa0be93fb541f43430b4",
+      "localPath": "dist/delivery-0.4.4-A/linux/tsukuhako-linux-x64-0.4.4.tar.gz",
+      "proposedObjectKey": "tsukuhako/0.4.4/2026-10-22-A/linux/tsukuhako-linux-x64-0.4.4.tar.gz"
+    },
+    {
+      "platform": "windows",
+      "file": "SHA256SUMS",
+      "bytes": 265,
+      "sha256": "abc73de5d57159d94a90b88937205ce4367f0d6ae22db9299f4adb35f64e36f0",
+      "localPath": "dist/delivery-0.4.4-A/windows/SHA256SUMS",
+      "proposedObjectKey": "tsukuhako/0.4.4/2026-10-22-A/windows/SHA256SUMS"
+    },
+    {
+      "platform": "windows",
+      "file": "START_HERE.txt",
+      "bytes": 4692,
+      "sha256": "426b83b7613c5f4faa1beed82230ba9768fe95e9b43a688a276b439d465e89f4",
+      "localPath": "dist/delivery-0.4.4-A/windows/START_HERE.txt",
+      "proposedObjectKey": "tsukuhako/0.4.4/2026-10-22-A/windows/START_HERE.txt"
+    },
+    {
+      "platform": "windows",
+      "file": "manifest.json",
+      "bytes": 1721,
+      "sha256": "96e37837a94c6c9d75a73a11316554d96f982b628ac8ae39a7b2a9d2ff811400",
+      "localPath": "dist/delivery-0.4.4-A/windows/manifest.json",
+      "proposedObjectKey": "tsukuhako/0.4.4/2026-10-22-A/windows/manifest.json"
+    },
+    {
+      "platform": "windows",
+      "file": "tsukuhako-windows-x64-0.4.4-setup.exe",
+      "bytes": 144935062,
+      "sha256": "a5e2cd8fbfc80815e1cd87b5eefc5af1bc873e35ecfcc81762462617266bd103",
+      "localPath": "dist/delivery-0.4.4-A/windows/tsukuhako-windows-x64-0.4.4-setup.exe",
+      "proposedObjectKey": "tsukuhako/0.4.4/2026-10-22-A/windows/tsukuhako-windows-x64-0.4.4-setup.exe"
+    }
+  ]
+}

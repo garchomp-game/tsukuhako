@@ -1,0 +1,18 @@
+{
+  "handoffFile": "1-tsukuhako-codex-handoff-2026-10-22.zip",
+  "sha256": "8a2473284fdc8ba75bf03e3b8105b54ffcfafb0166a455b70458da5393ab0e09",
+  "evidenceCommit": "55d3b051935df80d24f988719b52a4937f2f559b",
+  "productCommit": "2b141f7c583d796e1ba75ad312c6ab199056c7de",
+  "mainAtStart": "55d3b051935df80d24f988719b52a4937f2f559b",
+  "mainDiffAtStart": "NONE",
+  "category": "STATIC",
+  "checkedAt": "2026-10-22T11:22:03+09:00",
+  "branch": "codex/task-a-release-review-20261022",
+  "fixCommit": "b64ac929041f30c25c0977c30189dc2d63fd9438",
+  "mainAtEnd": "55d3b051935df80d24f988719b52a4937f2f559b",
+  "originalCheckoutStatus": "clean",
+  "productSourceChanged": false,
+  "newCITriggered": false,
+  "publicationPerformed": false,
+  "externalMailSent": false
+}

@@ -1,0 +1,14 @@
+✔ a fast requested exit is observed before the close callback and must be code 0 (27.688938ms)
+✔ nonzero exit is a failure, even though the process exits promptly (23.217279ms)
+✔ termination by signal cannot be reported as graceful exit (25.823692ms)
+✔ exit before the close request is detected without waiting for an event that already occurred (25.605265ms)
+✔ timeout stays failed after forced cleanup and leaves an unrelated child running (296.709807ms)
+✔ a failed close request is reported and its owned child is cleaned up (23.23014ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 468.11966

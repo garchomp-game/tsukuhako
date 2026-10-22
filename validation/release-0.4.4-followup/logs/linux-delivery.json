@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "category": "STATIC",
+  "platform": "linux",
+  "productVersion": "0.4.4",
+  "sourceCommit": "2b141f7c583d796e1ba75ad312c6ab199056c7de",
+  "artifact": {
+    "file": "tsukuhako-linux-x64-0.4.4.tar.gz",
+    "sha256": "deace519c6ac6cb7a91de304491edd6a0676995eb386fa0be93fb541f43430b4",
+    "bytes": 168272243
+  },
+  "recipientFiles": 4,
+  "sha256Files": 3,
+  "path": "temporary Japanese + space path, arbitrary cwd",
+  "runtimeInspection": {
+    "status": "PASS",
+    "category": "STATIC",
+    "productVersion": "0.4.4",
+    "sourceCommit": "2b141f7c583d796e1ba75ad312c6ab199056c7de",
+    "dirty": false,
+    "helperVersion": "0.4.4",
+    "files": 120,
+    "chapters": 50,
+    "templates": 7,
+    "helperSha256": "d0a97a7df75d9fc15c7e14022c7ea3a7f3b008deaa2e58c268b522afc9444bc2"
+  }
+}

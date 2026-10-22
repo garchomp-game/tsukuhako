@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "category": "STATIC",
+  "sourceCommit": "2b141f7c583d796e1ba75ad312c6ab199056c7de",
+  "evidenceCommit": "55d3b051935df80d24f988719b52a4937f2f559b",
+  "retrieval": "Fresh hash of local binaries and previously downloaded CI ZIP; current GitHub API digest compared. No new download or buyer account test.",
+  "packages": [
+    {
+      "platform": "linux",
+      "file": "tsukuhako-linux-x64-0.4.4.tar.gz",
+      "bytes": 168272243,
+      "sha256": "deace519c6ac6cb7a91de304491edd6a0676995eb386fa0be93fb541f43430b4",
+      "sourceCommit": "2b141f7c583d796e1ba75ad312c6ab199056c7de",
+      "checksums": "PASS",
+      "trackedRecipientMetadataMatchesLocalFinal": true,
+      "ciArtifactId": 12390855564,
+      "ciExpiresAt": "2026-11-04T23:47:07Z",
+      "ciArchiveDigestRecomputed": "sha256:e99753145310b07ca0b54c0ea7d1d0fbd38caec76d2a39bf38e7c120a2ef98ef",
+      "ciToFinalDifferentFiles": [
+        "START_HERE.txt",
+        "manifest.json",
+        "SHA256SUMS"
+      ],
+      "ciToFinalManifestChanges": {
+        "runtimeVerification": {
+          "status": "PASS",
+          "category": "REAL_HOST",
+          "summary": "Linux Mint 22.3 x64の既存開発環境で、引数なし通常起動、教材の100%・狭幅・200%表示、読書位置の復元、F2生成→Dev Container初期構成の正常終了→表示→編集→復元→再開を確認。未導入PC・他のLinuxは未確認。",
+          "report": "validation/release-0.4.4/REPORT.md",
+          "evidence": [
+            "logs/normal-launch.json",
+            "logs/reader-final.json",
+            "logs/F2-startup.json",
+            "logs/F2-exercise.json"
+          ],
+          "binaryUnchangedFromCI": true
+        }
+      }
+    },
+    {
+      "platform": "windows",
+      "file": "tsukuhako-windows-x64-0.4.4-setup.exe",
+      "bytes": 144935062,
+      "sha256": "a5e2cd8fbfc80815e1cd87b5eefc5af1bc873e35ecfcc81762462617266bd103",
+      "sourceCommit": "2b141f7c583d796e1ba75ad312c6ab199056c7de",
+      "checksums": "PASS",
+      "trackedRecipientMetadataMatchesLocalFinal": true,
+      "ciArtifactId": 12390616136,
+      "ciExpiresAt": "2026-11-04T23:49:43Z",
+      "ciArchiveDigestRecomputed": "sha256:74406c65c753c842739c42872abd7abc94f10669615ee2c8cb9aa647075ab6d4",
+      "ciToFinalDifferentFiles": [],
+      "ciToFinalManifestChanges": {}
+    }
+  ],
+  "recipientDownload": "NOT_RUN"
+}
