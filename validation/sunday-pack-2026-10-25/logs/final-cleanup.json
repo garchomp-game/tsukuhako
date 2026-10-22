@@ -1,0 +1,29 @@
+{
+  "category": "REAL_HOST",
+  "result": "PASS",
+  "checkedAt": "2026-10-22T23:04:43.026Z",
+  "developmentServerStopped": true,
+  "ownedCodeDebugPortClosed": true,
+  "ownedDesktopStopped": true,
+  "ownedContainer": "0bb35a029b7c",
+  "containerStatus": "exited",
+  "unsavedEditorsBeforeClose": 0,
+  "sourceHash": "c519464d586ca774fbc969aeca14418aa10e837948cf22322317e3c61a5fd43e",
+  "projectAndVolumesRetained": true,
+  "volumes": [
+    "vscode",
+    "otoka-f2-2276246098_dependencies",
+    "otoka-f2-2276246098_npm-cache"
+  ],
+  "otherRunningContainers": [
+    {
+      "name": "ikiiki-project-hr132-133_devcontainer-db-1",
+      "status": "Up 39 minutes (healthy)"
+    },
+    {
+      "name": "ikiiki-backend-postgres",
+      "status": "Up 39 minutes (healthy)"
+    }
+  ],
+  "noGlobalDockerReset": true
+}

@@ -13,6 +13,7 @@
 - 受取先の判断とアップロード下書き: [配布経路](validation/release-0.4.4/DELIVERY.md)
 - 採用する4点セットと追加レビュー: [担当Aレポート](validation/release-0.4.4-followup/REPORT.md) / [受取チェックリスト](validation/release-0.4.4-followup/DELIVERY-CHECKLIST.md)
 - Brain本文・任意メールのローカル準備: [A・B・C統合レポート](validation/launch-abc-2026-10-22/REPORT.md) / [原稿](docs/launch/REPORT.md) / [試作の起動方法](web/README.md)
+- 10月25日向けF2一経路の配布候補: [日曜レポート](validation/sunday-pack-2026-10-25/REPORT.md) / [入口ガイド](docs/launch/sunday-pack/START_HERE.md) / [投稿ネタ帳](docs/launch/POST-IDEAS.md)。一般向けの公開は保留です。
 - 旧0.4.2の6構成実機記録: [Linux初回操作](validation/onboarding-0.4.2/20261021T0919-JST/REPORT.md)。新版やWindowsの合格へ読み替えません。
 - F1/F2/B1/S1/S2/I1が生成対象、S3は参考資料。テンプレートZIP自体は変更していません。
 

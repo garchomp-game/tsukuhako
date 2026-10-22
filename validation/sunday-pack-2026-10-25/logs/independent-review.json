@@ -1,0 +1,14 @@
+{
+  "category": "STATIC",
+  "result": "PASS",
+  "checkedAt": "2026-10-22T23:02:21.515Z",
+  "reviewMode": "Independent read-only subagent review",
+  "reviewedCheckpoint": "e179f6d49df3c27e2f2375ddbf75ea8573a362e6",
+  "scope": [
+    "FIRST-RUN cd command, Restricted Mode, Done clarification",
+    "7 ZIP members match source",
+    "manifest and inner/outer checksums",
+    "introduction, trial, after-purchase boundaries and NOT_RUN scope"
+  ],
+  "actionableFindings": 0
+}

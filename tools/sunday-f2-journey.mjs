@@ -1,9 +1,7 @@
 // Real-host, isolated UI observation. Requires the existing onboarding desktop harness.
-// PAUSED WIP: initial generation/start/exercise and one resume passed. A fresh
-// resume retry exposed a Code workbench reload race; see the Sunday REPORT.
-// Do not treat this runner as a finished unattended regression test. Before
-// reusing resume, wait for remote initialization to finish, reconnect CDP, and
-// verify command-palette focus so a reload cannot direct input into an editor.
+// This is a phased local evidence runner for the observed Code version.
+// After resume opens Code, inspect the ready window before running resume-finish.
+// It deliberately does not send commands across an unobserved workbench reload.
 import net from 'node:net';
 import {fs,out,runtime,start,waitConnect,connect,scene,pause,env,command,json,btn,expect,terminal,edit,sha,chromium,x} from './onboarding-evidence.mjs';
 // Select the exact visible command; keyboard focus may move while extensions activate.
@@ -12,10 +10,22 @@ async function palette(page,name) {
  const win=command('wmctrl',['-lp'],{env:env()}).split('\n').find(l=>l.includes('[TSUKUHAKO evidence]'));
  if(!win)throw Error('Owned Code window missing');
  x(['windowactivate','--sync',win.split(' ')[0]]);
- await page.keyboard.press('Escape');await page.keyboard.press('Control+Shift+p');
- const widget=page.locator('.quick-input-widget');await widget.locator('input').fill('>'+name);
+ x(['key','Escape']);x(['key','ctrl+shift+p']);
+ const widget=page.locator('.quick-input-widget:visible');await expect(widget).toBeVisible();
+ const input=widget.locator('input');await input.focus();await expect(input).toBeFocused();await input.fill('>'+name);
+ await expect(input).toHaveValue('>'+name);await expect(input).toBeFocused();
  await expect.poll(()=>widget.locator('.monaco-list-row.focused .label-name').allTextContents()).toEqual([name]);
  x(['key','Return']);await expect(widget).toBeHidden();
+}
+async function remoteReady(c) {
+ await expect.poll(()=>c.page.locator('.statusbar').innerText(),{timeout:180000,intervals:[1500]}).toContain('Dev Container: ツクハコ F2');
+ // The remote label can appear before the workbench reload and server startup finish.
+ await expect.poll(()=>c.page.locator('.notifications-toasts').allTextContents(),{timeout:180000,intervals:[1500]}).not.toContainEqual(expect.stringContaining('Connecting to Dev Container'));
+ await pause(1200);await c.browser.close();
+ const ready=await waitConnect(9431);
+ await expect(ready.page.locator('.statusbar')).toContainText('Dev Container: ツクハコ F2');
+ await expect(ready.page.locator('.tab.dirty')).toHaveCount(0);
+ return ready;
 }
 const phase=process.argv[2];
 const metadata=runtime+'/sunday-project.json';
@@ -113,17 +123,23 @@ if(phase==='generate') {
  await expect.poll(async()=>{try{return(await fetch('http://127.0.0.1:9431/json/version',{signal:AbortSignal.timeout(500)})).status}catch{return 0}},{timeout:30000}).toBe(0);
  json(checkpoint,{container:id,beforeVolumes,serverStoppedWithCtrlC:true,ownedContainerStopped:true});
  start('code',['--new-window',project.destination],'sunday-resume-code.log');c=await waitConnect(9431);
+ await c.browser.close();
+ console.log('Stopped and reopened the same folder. Inspect the ready Code window, then run resume-finish.');
+ process.exit(0);
  }
  const stopped=JSON.parse(fs.readFileSync(checkpoint));expect(stopped.container).toBe(id);
  const beforeVolumes=stopped.beforeVolumes;
  try {
+  await expect(c.page.locator('.statusbar')).toBeVisible({timeout:90000});
   if(!(await c.page.locator('.statusbar').innerText()).includes('Dev Container: ツクハコ F2'))await palette(c.page,'Dev Containers: Reopen in Container');
-  await expect.poll(()=>c.page.locator('.statusbar').innerText(),{timeout:180000,intervals:[1500]}).toContain('Dev Container: ツクハコ F2');
+  c=await remoteReady(c);
+  await expect(c.page.getByRole('button',{name:'Forwarded Ports: 3000',exact:true})).toBeVisible({timeout:90000});
   await palette(c.page,'Terminal: Create New Terminal');await pause(700);await terminal(c.page,'pwd');
   await expect(c.page.locator('body')).toContainText('/workspace');await terminal(c.page,'npm run dev');
   await expect.poll(async()=>{try{return(await fetch(`http://localhost:${project.port}/`)).status}catch{return 0}},{timeout:90000}).toBe(200);
   const browser=await chromium.launch({channel:'chrome',headless:true});try{const p=await browser.newPage();await p.goto(`http://localhost:${project.port}/`);await expect(p.locator('h1')).toContainText('小さく変えて');}finally{await browser.close();}
   expect(volumes()).toEqual(beforeVolumes);expect(sha(project.destination+'/app/page.tsx')).toBe(project.sourceHash);
-  json(out+'/logs/stop-resume.json',{category:'REAL_HOST',interaction:'AUTOMATED',result:'PASS',serverStoppedWithCtrlC:true,ownedContainerStopped:true,container:id,sameContainer:command('docker',['ps','-q','--filter','label=devcontainer.local_folder='+project.destination])===id,volumesPreserved:true,sourceHash:sha(project.destination+'/app/page.tsx'),reopenedSameFolderWithoutRegeneration:true,httpStatus:200,originalHeadingVisible:true});
+  await expect(c.page.locator('.tab.dirty')).toHaveCount(0);
+  json(out+'/logs/stop-resume.json',{category:'REAL_HOST',interaction:'AUTOMATED',result:'PASS',checkedAt:new Date().toISOString(),runnerSha256:sha(import.meta.filename),waitedForRemoteStartup:true,commandPaletteFocusChecked:true,unsavedEditors:0,serverStoppedWithCtrlC:stopped.serverStoppedWithCtrlC,ownedContainerStopped:stopped.ownedContainerStopped,container:id,sameContainer:command('docker',['ps','-q','--filter','label=devcontainer.local_folder='+project.destination])===id,volumesPreserved:true,sourceHash:sha(project.destination+'/app/page.tsx'),reopenedSameFolderWithoutRegeneration:true,httpStatus:200,originalHeadingVisible:true});
  }finally{await c.browser.close();}
 } else throw Error('Choose generate, connect, start, exercise, resume or resume-finish');

@@ -1,0 +1,19 @@
+{
+  "category": "REAL_HOST",
+  "observedAt": "2026-10-22T23:00:42.786Z",
+  "os": [
+    "PRETTY_NAME=\"Linux Mint 22.3\"",
+    "VERSION_ID=\"22.3\""
+  ],
+  "node": "v24.19.0",
+  "docker": "client=29.9.1 server=29.9.1",
+  "compose": "5.6.0",
+  "code": [
+    "1.142.0",
+    "6d62b1d5dace93a33b3a6d3eca1317bd5e15bcb1",
+    "x64"
+  ],
+  "extensionSource": "Existing ms-vscode-remote.remote-containers-0.470.0 copied to isolated profile",
+  "notCleanMachine": true,
+  "interaction": "AUTOMATED"
+}
