@@ -16,6 +16,8 @@
 
 製品ソースcommitは [`2b141f7c583d796e1ba75ad312c6ab199056c7de`](https://github.com/garchomp-game/tsukuhako/commit/2b141f7c583d796e1ba75ad312c6ab199056c7de)。[最終手動CI #39695492170](https://github.com/garchomp-game/tsukuhako/actions/runs/39695492170) は両OSともSUCCESSです。以下はそのrunから取得した同一バイナリです。後続の証跡・文書commitで再ビルドしたものではありません。
 
+証跡と本文はcommit `542ebd3e6a5c7fbdc9ada229e7b8c71eece66de3` としてprivateリポジトリへpush済みです。[この結果一式を読む固定commit URL](https://github.com/garchomp-game/tsukuhako/blob/542ebd3e6a5c7fbdc9ada229e7b8c71eece66de3/validation/release-0.4.4/REPORT.md)。このリンクの追記だけは後続の文書commitです。
+
 | OS | 製品ファイル | bytes | manifest |
 |---|---|---:|---|
 | Linux x64 | `tsukuhako-linux-x64-0.4.4.tar.gz` | 168,272,243 | [最終manifest](delivery/linux/manifest.json) |
