@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.wrangler/
+.generated/
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+coverage/

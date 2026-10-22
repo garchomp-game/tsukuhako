@@ -1,0 +1,9 @@
+{
+  "senderName": null,
+  "senderContact": null,
+  "publicLinks": {
+    "brainProduct":null,"startGuide":null,"setupGuide":null,"exerciseGuide":null,
+    "updateNotes":null,"subscribe":null,"support":null,"privacy":null
+  },
+  "rules": { "confirmationTtlHours":24,"confirmationCooldownSeconds":60,"confirmationDailyLimit":5,"sourceHourlyLimit":20,"maxLatenessHours":48 }
+}
