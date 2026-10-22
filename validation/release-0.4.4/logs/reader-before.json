@@ -1,0 +1,106 @@
+{
+  "category": "REAL_HOST",
+  "version": "0.4.3",
+  "artifactSha256": "45ea32ae9c341b6bfa908aa2eda7072e966f58597cce4b80ef905baa1c0c73d1",
+  "measurements": [
+    {
+      "name": "wide",
+      "zoom": 1,
+      "method": "Electron webContents.setZoomFactor",
+      "bounds": {
+        "x": 20,
+        "y": 42,
+        "width": 1150,
+        "height": 853
+      },
+      "viewport": {
+        "width": 1150,
+        "height": 853
+      },
+      "windowScroll": {
+        "client": 853,
+        "content": 866
+      },
+      "areas": [
+        {
+          "class": "curriculum-toc",
+          "height": 638,
+          "content": 676,
+          "overflow": "auto"
+        },
+        {
+          "class": "reader-scroll",
+          "height": 638,
+          "content": 4976,
+          "overflow": "auto"
+        }
+      ]
+    },
+    {
+      "name": "narrow",
+      "zoom": 1,
+      "method": "Electron webContents.setZoomFactor",
+      "bounds": {
+        "x": 20,
+        "y": 42,
+        "width": 860,
+        "height": 780
+      },
+      "viewport": {
+        "width": 860,
+        "height": 780
+      },
+      "windowScroll": {
+        "client": 780,
+        "content": 783
+      },
+      "areas": [
+        {
+          "class": "curriculum-toc",
+          "height": 564,
+          "content": 711,
+          "overflow": "auto"
+        },
+        {
+          "class": "reader-scroll",
+          "height": 565,
+          "content": 5268,
+          "overflow": "auto"
+        }
+      ]
+    },
+    {
+      "name": "200percent",
+      "zoom": 2,
+      "method": "Electron webContents.setZoomFactor",
+      "bounds": {
+        "x": 20,
+        "y": 42,
+        "width": 1150,
+        "height": 853
+      },
+      "viewport": {
+        "width": 575,
+        "height": 426
+      },
+      "windowScroll": {
+        "client": 426,
+        "content": 774
+      },
+      "areas": [
+        {
+          "class": "curriculum-toc",
+          "height": 259,
+          "content": 639,
+          "overflow": "auto"
+        },
+        {
+          "class": "reader-scroll",
+          "height": 299,
+          "content": 5504,
+          "overflow": "auto"
+        }
+      ]
+    }
+  ]
+}

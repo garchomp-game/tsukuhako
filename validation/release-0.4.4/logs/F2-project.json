@@ -1,0 +1,11 @@
+{
+  "bin": "<EXTRACTED_LINUX>/tsukuhako",
+  "destination": "/var/tmp/tsukuhako-044-d8YosG/F2 日本語 空白 044",
+  "port": 41915,
+  "folder": "F2 日本語 空白 044",
+  "artifact": "deace519c6ac6cb7a91de304491edd6a0676995eb386fa0be93fb541f43430b4",
+  "productCommit": "2b141f7c583d796e1ba75ad312c6ab199056c7de",
+  "sourceHash": "c519464d586ca774fbc969aeca14418aa10e837948cf22322317e3c61a5fd43e",
+  "guideSha256": "95e7b5ce5d66f3bb21e198c4e3b46824a13862eed66fd216ff8f6b1102e492e6",
+  "category": "REAL_HOST"
+}

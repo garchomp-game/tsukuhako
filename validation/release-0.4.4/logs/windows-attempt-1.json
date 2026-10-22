@@ -1,0 +1,36 @@
+{
+  "category": "CI",
+  "status": "FAIL",
+  "productVersion": "0.4.4",
+  "sourceCommit": "0d45c6c03996980133cd2ca59ef2fc2fcfb9384d",
+  "file": "tsukuhako-windows-x64-0.4.4-setup.exe",
+  "sha256": "875b59795f39f428ab533a01d690457aea46f1fa887d96c2cbbc744281e68b38",
+  "signing": "NotSigned",
+  "environment": {
+    "sessionId": 2,
+    "user": "runnervmgnbhw\\runneradmin",
+    "build": "10.0.20348.0",
+    "os": "Microsoft Windows Server 2022 Datacenter",
+    "administratorToken": true
+  },
+  "install": {
+    "method": "same exe /S /currentuser /D=isolated Unicode directory",
+    "status": "FAIL"
+  },
+  "launch": {
+    "status": "NOT_RUN"
+  },
+  "uninstall": {
+    "status": "NOT_RUN"
+  },
+  "retention": {
+    "status": "NOT_RUN"
+  },
+  "notRun": [
+    "Windows 11 standard user / SmartScreen warnings",
+    "default install path and Start menu click",
+    "WSL / Docker / VS Code / F2 or S2 runtime",
+    "real WSL, projects and DB retention"
+  ],
+  "error": "Expected one matching current-user uninstall registration"
+}

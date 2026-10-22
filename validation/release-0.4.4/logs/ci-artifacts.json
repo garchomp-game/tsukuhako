@@ -1,0 +1,65 @@
+{
+  "total_count": 3,
+  "artifacts": [
+    {
+      "id": 12390855564,
+      "node_id": "MDg6QXJ0aWZhY3QxMjM5MDg1NTU2NA==",
+      "name": "tsukuhako-linux-x64-delivery",
+      "size_in_bytes": 168278564,
+      "url": "https://api.github.com/repos/garchomp-game/tsukuhako/actions/artifacts/12390855564",
+      "archive_download_url": "https://api.github.com/repos/garchomp-game/tsukuhako/actions/artifacts/12390855564/zip",
+      "expired": false,
+      "digest": "sha256:e99753145310b07ca0b54c0ea7d1d0fbd38caec76d2a39bf38e7c120a2ef98ef",
+      "created_at": "2026-10-21T23:47:09Z",
+      "updated_at": "2026-10-21T23:47:09Z",
+      "expires_at": "2026-11-04T23:47:07Z",
+      "workflow_run": {
+        "id": 39695492170,
+        "repository_id": 1427675134,
+        "head_repository_id": 1427675134,
+        "head_branch": "main",
+        "head_sha": "2b141f7c583d796e1ba75ad312c6ab199056c7de"
+      }
+    },
+    {
+      "id": 12390785888,
+      "node_id": "MDg6QXJ0aWZhY3QxMjM5MDc4NTg4OA==",
+      "name": "tsukuhako-windows-smoke-evidence",
+      "size_in_bytes": 93476,
+      "url": "https://api.github.com/repos/garchomp-game/tsukuhako/actions/artifacts/12390785888",
+      "archive_download_url": "https://api.github.com/repos/garchomp-game/tsukuhako/actions/artifacts/12390785888/zip",
+      "expired": false,
+      "digest": "sha256:d92e76a72df6746708b2c6dabc1ed59963bbe642fafe26100c60f82cfae5977b",
+      "created_at": "2026-10-21T23:49:41Z",
+      "updated_at": "2026-10-21T23:49:41Z",
+      "expires_at": "2026-11-04T23:49:41Z",
+      "workflow_run": {
+        "id": 39695492170,
+        "repository_id": 1427675134,
+        "head_repository_id": 1427675134,
+        "head_branch": "main",
+        "head_sha": "2b141f7c583d796e1ba75ad312c6ab199056c7de"
+      }
+    },
+    {
+      "id": 12390616136,
+      "node_id": "MDg6QXJ0aWZhY3QxMjM5MDYxNjEzNg==",
+      "name": "tsukuhako-windows-x64-delivery",
+      "size_in_bytes": 144942028,
+      "url": "https://api.github.com/repos/garchomp-game/tsukuhako/actions/artifacts/12390616136",
+      "archive_download_url": "https://api.github.com/repos/garchomp-game/tsukuhako/actions/artifacts/12390616136/zip",
+      "expired": false,
+      "digest": "sha256:74406c65c753c842739c42872abd7abc94f10669615ee2c8cb9aa647075ab6d4",
+      "created_at": "2026-10-21T23:49:45Z",
+      "updated_at": "2026-10-21T23:49:45Z",
+      "expires_at": "2026-11-04T23:49:43Z",
+      "workflow_run": {
+        "id": 39695492170,
+        "repository_id": 1427675134,
+        "head_repository_id": 1427675134,
+        "head_branch": "main",
+        "head_sha": "2b141f7c583d796e1ba75ad312c6ab199056c7de"
+      }
+    }
+  ]
+}

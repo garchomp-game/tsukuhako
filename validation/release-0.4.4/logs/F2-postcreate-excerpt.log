@@ -1,0 +1,19 @@
+REAL_HOST excerpt: initial install -> doctor -> successful postCreate stop. Spinner lines and unrelated connection/config logs omitted.
+[2026-10-21T23:56:23.725Z] Start: Run in container: /bin/sh -c npm ci --no-audit --no-fund && node scripts/doctor.mjs
+added 362 packages in 15s
+[2026-10-21T23:56:39.199Z] -
+[2026-10-21T23:56:39.201Z] npm warn allow-scripts 1 package has install scripts not yet covered by allowScripts:
+npm warn allow-scripts   unrs-resolver@1.12.2 (postinstall: node postinstall.js)
+npm warn allow-scripts
+npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow.
+-
+[2026-10-21T23:56:39.202Z]
+[2026-10-21T23:56:39.202Z] npm notice
+npm notice New major version of npm available! 11.17.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice
+-
+[2026-10-21T23:56:39.202Z]
+[2026-10-21T23:56:39.247Z] 準備完了。npm run dev で開始、npm run check で静的確認します。
+[2026-10-21T23:56:39.252Z] Stop (15527 ms): Run in container: /bin/sh -c npm ci --no-audit --no-fund && node scripts/doctor.mjs

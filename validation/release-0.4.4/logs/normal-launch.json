@@ -1,0 +1,15 @@
+{
+  "category": "REAL_HOST",
+  "status": "PASS",
+  "artifact": "deace519c6ac6cb7a91de304491edd6a0676995eb386fa0be93fb541f43430b4",
+  "productCommit": "2b141f7c583d796e1ba75ad312c6ab199056c7de",
+  "executable": "<WORKSPACE>/validation/release-0.4.4/runs/linux-capture/runs/受取物 日本語/tsukuhako-linux-x64-0.4.4/tsukuhako",
+  "cwd": "/tmp",
+  "PATH": "<WORKSPACE>/validation/release-0.4.4/runs/linux-capture/runs/bin:/usr/bin:/bin",
+  "hostNodeAvailable": false,
+  "uid": "1000",
+  "pid": 121657,
+  "args": "<WORKSPACE>/validation/release-0.4.4/runs/linux-capture/runs/受取物 日本語/tsukuhako-linux-x64-0.4.4/tsukuhako",
+  "window": "0x00600003  0 121657 <HOST> ツクハコ | 作る・学ぶ・困ったとき",
+  "debugPort": false
+}

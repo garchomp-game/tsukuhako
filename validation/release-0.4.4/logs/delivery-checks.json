@@ -1,0 +1,11 @@
+{
+  "category": "STATIC",
+  "status": "PASS",
+  "eachOSFiles": 4,
+  "checksumsPerOS": 3,
+  "linuxMetadata": "Final pack supplements Mint verification; product SHA identical to final CI download",
+  "windowsPack": "All four files byte-identical to final CI delivery download",
+  "githubZipDigestsVerified": true,
+  "recipientPath": "Separate Japanese / space path; Linux tar extracted and 120 bundled app files + 46 helper files verified",
+  "privateRetrieval": "Repository owner account; repository is private; general recipient route NOT_CONFIGURED"
+}

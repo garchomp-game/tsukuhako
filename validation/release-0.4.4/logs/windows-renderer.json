@@ -1,0 +1,23 @@
+{
+  "category": "CI",
+  "status": "PASS",
+  "launch": "installed executable; isolated --user-data-dir and CDP observation; no sandbox overrides",
+  "rendererErrors": [],
+  "pid": 7932,
+  "window": {
+    "handle": 327762,
+    "title": "ツクハコ | 作る・学ぶ・困ったとき",
+    "pid": 7932,
+    "responding": true,
+    "sessionId": 2
+  },
+  "savedReading": {
+    "view": "learn",
+    "lessonId": "F2",
+    "chapterId": "first",
+    "scroll": 388
+  },
+  "chapterLoaded": true,
+  "url": "app://tsukuhako/index.html",
+  "gracefulExit": true
+}

@@ -1,4 +1,4 @@
-> 最新の0.4.3 Windows/Linux配布準備は [短いレポート](validation/release-0.4.3/REPORT.md) を参照してください。以下は0.4.2の記録です。
+> 最新の0.4.4は [結果と確認範囲](validation/release-0.4.4/REPORT.md) / [証跡一覧](validation/release-0.4.4/INDEX.md) を参照してください。最終CIの51テスト、最終Linux配布物のReader 11グループ・F2、Windows CIの導入/起動/削除/読書データ保持がPASS。Win11実機・一般受取人の取得経路は未確認です。以下は0.4.2の記録です。
 
 # 0.4.2 検証結果
 

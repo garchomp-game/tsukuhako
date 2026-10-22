@@ -1,0 +1,66 @@
+{
+  "category": "CI",
+  "status": "FAIL",
+  "productVersion": "0.4.4",
+  "sourceCommit": "a8c817becd8c9c00edd55bb23efa053d45c09838",
+  "file": "tsukuhako-windows-x64-0.4.4-setup.exe",
+  "sha256": "a3cd6d9218f24d9e76e57208c4724917a91a91751caca809f364309981a9de1b",
+  "signing": "NotSigned",
+  "environment": {
+    "build": "10.0.20348.0",
+    "os": "Microsoft Windows Server 2022 Datacenter",
+    "administratorToken": true,
+    "sessionId": 2,
+    "user": "runnervmgnbhw\\runneradmin"
+  },
+  "install": {
+    "executableSha256": "8e1dfd2e70235ab178b8508f8b97a3f11d7f78db8cecaea9048086e2f849e9eb",
+    "displayVersion": "0.4.4",
+    "process": {
+      "exitCode": 0,
+      "pid": 2456,
+      "timeoutSeconds": 120
+    },
+    "sourceCommit": "a8c817becd8c9c00edd55bb23efa053d45c09838",
+    "status": "PASS",
+    "displayName": "ツクハコ 0.4.4",
+    "path": "<RUNNER_TEMP>/isolated/導入 日本語 空白",
+    "registry": "HKCU"
+  },
+  "launch": {
+    "category": "CI",
+    "status": "PASS",
+    "launch": "installed executable; isolated --user-data-dir and CDP observation; no sandbox overrides",
+    "rendererErrors": [],
+    "pid": 7972,
+    "window": {
+      "handle": 131546,
+      "title": "ツクハコ | 作る・学ぶ・困ったとき",
+      "pid": 7972,
+      "responding": true,
+      "sessionId": 2
+    },
+    "savedReading": {
+      "view": "learn",
+      "lessonId": "F2",
+      "chapterId": "first",
+      "scroll": 388
+    },
+    "chapterLoaded": true,
+    "url": "app://tsukuhako/index.html",
+    "gracefulExit": true
+  },
+  "uninstall": {
+    "status": "FAIL"
+  },
+  "retention": {
+    "status": "NOT_RUN"
+  },
+  "notRun": [
+    "Windows 11 standard user / SmartScreen warnings",
+    "default install path and Start menu click",
+    "WSL / Docker / VS Code / F2 or S2 runtime",
+    "real WSL, projects and DB retention"
+  ],
+  "error": "Application resources/registration remain"
+}

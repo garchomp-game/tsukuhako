@@ -1,0 +1,77 @@
+{
+  "category": "CI",
+  "status": "PASS",
+  "productVersion": "0.4.4",
+  "sourceCommit": "6b5087333030c8515db6c3dc738fbe890deb8a8a",
+  "file": "tsukuhako-windows-x64-0.4.4-setup.exe",
+  "sha256": "fdc0be324c12f6fd6e62fd1dac6d6cac872709cabc6abda119aa7a7e35e826b2",
+  "signing": "NotSigned",
+  "environment": {
+    "os": "Microsoft Windows Server 2022 Datacenter",
+    "sessionId": 2,
+    "user": "runnervmgnbhw\\runneradmin",
+    "build": "10.0.20348.0",
+    "administratorToken": true
+  },
+  "install": {
+    "sourceCommit": "6b5087333030c8515db6c3dc738fbe890deb8a8a",
+    "process": {
+      "pid": 7072,
+      "exitCode": 0,
+      "timeoutSeconds": 120
+    },
+    "displayVersion": "0.4.4",
+    "executableSha256": "8e1dfd2e70235ab178b8508f8b97a3f11d7f78db8cecaea9048086e2f849e9eb",
+    "status": "PASS",
+    "displayName": "ツクハコ 0.4.4",
+    "path": "<RUNNER_TEMP>/isolated/導入 日本語 空白",
+    "registry": "HKCU"
+  },
+  "launch": {
+    "category": "CI",
+    "status": "PASS",
+    "launch": "installed executable; isolated --user-data-dir and CDP observation; no sandbox overrides",
+    "rendererErrors": [],
+    "pid": 3964,
+    "window": {
+      "handle": 262330,
+      "title": "ツクハコ | 作る・学ぶ・困ったとき",
+      "pid": 3964,
+      "responding": true,
+      "sessionId": 2
+    },
+    "savedReading": {
+      "view": "learn",
+      "lessonId": "F2",
+      "chapterId": "first",
+      "scroll": 388
+    },
+    "chapterLoaded": true,
+    "url": "app://tsukuhako/index.html",
+    "gracefulExit": true
+  },
+  "uninstall": {
+    "directoryRemoved": true,
+    "applicationRemoved": true,
+    "status": "PASS",
+    "registrationRemoved": true,
+    "process": {
+      "pid": 5296,
+      "exitCode": 0,
+      "timeoutSeconds": 120
+    },
+    "settledTimeoutSeconds": 60
+  },
+  "retention": {
+    "beforeSha256": "763a97cd769688dc9481ddaebd3215ab53ee147ea4ea166a30dba5d16186480f",
+    "scope": "actual app-created reading.json in isolated --user-data-dir; not WSL or DB data, not default APPDATA",
+    "status": "PASS",
+    "afterSha256": "763a97cd769688dc9481ddaebd3215ab53ee147ea4ea166a30dba5d16186480f"
+  },
+  "notRun": [
+    "Windows 11 standard user / SmartScreen warnings",
+    "default install path and Start menu click",
+    "WSL / Docker / VS Code / F2 or S2 runtime",
+    "real WSL, projects and DB retention"
+  ]
+}

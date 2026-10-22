@@ -1,0 +1,41 @@
+{
+  "category": "REAL_HOST",
+  "status": "PASS",
+  "closedPids": [
+    124777,
+    130703,
+    133561
+  ],
+  "ownedContainer": {
+    "id": "a031109e2ea8",
+    "state": "exited",
+    "removed": false
+  },
+  "projectRetained": "/var/tmp/tsukuhako-044-d8YosG/F2 日本語 空白 044",
+  "sourceRestoredSha256": "c519464d586ca774fbc969aeca14418aa10e837948cf22322317e3c61a5fd43e",
+  "guideUnchangedSha256": "95e7b5ce5d66f3bb21e198c4e3b46824a13862eed66fd216ff8f6b1102e492e6",
+  "retainedVolumes": [
+    {
+      "name": "otoka-f2-3577236671_dependencies",
+      "destination": "/workspace/node_modules"
+    },
+    {
+      "name": "otoka-f2-3577236671_npm-cache",
+      "destination": "/home/node/.npm"
+    }
+  ],
+  "unrelatedContainers": [
+    {
+      "id": "b531d3443746",
+      "startedAtUnchanged": true,
+      "running": true
+    },
+    {
+      "id": "8e9f201539c5",
+      "startedAtUnchanged": true,
+      "running": true
+    }
+  ],
+  "hostPackagesChanged": false,
+  "globalDockerReset": false
+}

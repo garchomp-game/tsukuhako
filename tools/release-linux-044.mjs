@@ -8,7 +8,7 @@ const bin=unpack+'/tsukuhako-linux-x64-0.4.4/tsukuhako';
 const e={...env(),PATH:runtime+'/bin:/usr/bin:/bin'};delete e.ELECTRON_RUN_AS_NODE;
 function launch(exe,args,log){const fd=fs.openSync(runtime+'/'+log,'a');const p=spawn(exe,args,{env:e,cwd:'/tmp',stdio:['ignore',fd,fd],detached:true});p.unref();return p.pid;}
 async function chooseCommand(page,name){
- await page.bringToFront();await page.keyboard.press('Escape');await page.keyboard.press('F1');await page.locator('.quick-input-widget input').fill('>'+name);await pause(400);
+ await page.bringToFront();const codeWindow=command('wmctrl',['-lp'],{env:e}).split('\n').find(l=>l.includes('[TSUKUHAKO evidence]'));if(!codeWindow)throw Error('Owned Code window missing');command('xdotool',['windowactivate','--sync',codeWindow.split(' ')[0]],{env:e});command('xdotool',['key','Escape','F1'],{env:e});await page.locator('.quick-input-widget input').fill('>'+name);await pause(400);
  for(let n=0;n<20;n++){const selected=page.locator('.quick-input-widget .monaco-list-row.focused .label-name');if(await selected.count()&&(await selected.innerText())===name){await page.keyboard.press('Enter');return;}await page.keyboard.press('ArrowDown');await pause(80);}throw Error('Exact command not selected: '+name);
 }
 if(phase==='normal'){
@@ -58,5 +58,5 @@ if(phase==='connect'){
 if(phase==='resume'){
  const project=JSON.parse(fs.readFileSync(out+'/F2-project.json'));const win=command('wmctrl',['-lp'],{env:e}).split('\n').find(l=>l.includes('ツクハコ | 作る'));if(!win)throw Error('App window not found for restart');const pid=win.trim().split(/\s+/)[2];command('wmctrl',['-ic',win.split(' ')[0]],{env:e});for(let n=0;n<60&&fs.existsSync('/proc/'+pid);n++)await pause(250);expect(fs.existsSync('/proc/'+pid)).toBe(false);
  launch(bin,['--remote-debugging-port=9434'],'restart-app.log');const b=await waitConnect(9434);await btn(b.page,'学ぶ').click();await expect(b.page.locator('.markdown')).toContainText('初期構成処理が正常終了');await scene('L08-restart','アプリを終了して教材を再開','0.4.4の教材を再表示。既存プロジェクトを再生成しない');await b.browser.close();
- const c=await connect(9431);await c.page.keyboard.press('Control+p');await c.page.locator('.quick-input-widget input').fill('START_HERE.md');await pause(700);await c.page.keyboard.press('Enter');await pause(1000);expect(sha(project.destination+'/START_HERE.md')).toBe(project.guideSha256);await scene('L09-project-resume','VS Codeから生成済みSTART_HERE.mdを開く','保存先の手順が保持され、生成済みプロジェクトから再開できる');await c.browser.close();
+ const c=await connect(9431);await c.page.keyboard.press('Control+p');await c.page.locator('.quick-input-widget input').fill('START_HERE.md');await pause(700);await c.page.keyboard.press('Enter');await pause(1000);expect(sha(project.destination+'/START_HERE.md')).toBe(project.guideSha256);const codeWindow=command('wmctrl',['-lp'],{env:e}).split('\n').find(l=>l.includes('[TSUKUHAKO evidence]'));if(!codeWindow)throw Error('Owned Code window missing');command('xdotool',['windowactivate','--sync',codeWindow.split(' ')[0]],{env:e});await scene('L09-project-resume','VS Codeから生成済みSTART_HERE.mdを開く','保存先の手順が保持され、生成済みプロジェクトから再開できる');await c.browser.close();
 }

@@ -1,0 +1,20 @@
+{
+  "category": "REAL_HOST",
+  "os": "Linux Mint 22.3",
+  "kernel": "7.0.0-31-generic",
+  "architecture": "x86_64",
+  "node": "v24.19.0",
+  "docker": "Docker version 29.9.1, build dfc520d",
+  "compose": "Docker Compose version v5.6.0",
+  "code": [
+    "1.142.0",
+    "6d62b1d5dace93a33b3a6d3eca1317bd5e15bcb1",
+    "x64"
+  ],
+  "capture": {
+    "surface": "Dedicated Xephyr display :91, 1600x900",
+    "interaction": "Automated real UI, no IPC fixture",
+    "extension": "ms-vscode-remote.remote-containers 0.469.0 in dedicated profile"
+  },
+  "cleanMachine": false
+}

@@ -1,4 +1,4 @@
-> 最新の0.4.3 Windows/Linux配布準備は [短いレポート](validation/release-0.4.3/REPORT.md) を参照してください。以下は0.4.2の記録です。
+> 最新の0.4.4（OS別配布パック・教材UX・Windows CI補助検証）は [短いレポート](validation/release-0.4.4/REPORT.md) と [5〜10分の試用](validation/release-0.4.4/TRY-5-10-MIN.md) を参照してください。以下は0.4.2の記録です。
 
 # ツクハコ 0.4.2 修正レポート
 

@@ -1,0 +1,133 @@
+{
+  "status": "PASS",
+  "category": "REAL_HOST",
+  "scope": "final packaged executable",
+  "records": [
+    {
+      "id": "wide",
+      "status": "PASS",
+      "viewport": {
+        "width": 1150,
+        "height": 853
+      },
+      "outerScroll": {
+        "height": 853,
+        "client": 853,
+        "width": 1150
+      },
+      "body": {
+        "client": 607,
+        "content": 4885
+      },
+      "bounds": {
+        "x": 20,
+        "y": 42,
+        "width": 1150,
+        "height": 853
+      },
+      "zoom": 1
+    },
+    {
+      "id": "other-view-return",
+      "status": "PASS",
+      "scroll": 531,
+      "generator": "F2",
+      "lesson": "S2"
+    },
+    {
+      "id": "narrow",
+      "status": "PASS",
+      "viewport": {
+        "width": 860,
+        "height": 780
+      },
+      "outerScroll": {
+        "height": 780,
+        "client": 780,
+        "width": 860
+      },
+      "body": {
+        "client": 609,
+        "content": 4829
+      },
+      "bounds": {
+        "x": 20,
+        "y": 42,
+        "width": 860,
+        "height": 780
+      },
+      "zoom": 1
+    },
+    {
+      "id": "toc-keyboard-close-preserves-position",
+      "status": "PASS"
+    },
+    {
+      "id": "compact-current-chapter-and-lesson-selection-focus",
+      "status": "PASS"
+    },
+    {
+      "id": "200percent",
+      "status": "PASS",
+      "viewport": {
+        "width": 575,
+        "height": 426
+      },
+      "outerScroll": {
+        "height": 426,
+        "client": 426,
+        "width": 575
+      },
+      "body": {
+        "client": 255,
+        "content": 5443
+      },
+      "bounds": {
+        "x": 20,
+        "y": 42,
+        "width": 1150,
+        "height": 853
+      },
+      "zoom": 2
+    },
+    {
+      "id": "heading-next-previous-toc",
+      "status": "PASS",
+      "heading": "振り返り",
+      "keyboard": "Enter / Escape / PageDown / Ctrl+End / Ctrl+plus"
+    },
+    {
+      "id": "help-repeat-return",
+      "status": "PASS",
+      "readingScroll": 447,
+      "helpScroll": 223.5
+    },
+    {
+      "id": "breakpoint-focus-and-position",
+      "status": "PASS"
+    },
+    {
+      "id": "quit-restart-reading",
+      "status": "PASS",
+      "lesson": "S2",
+      "chapter": "first",
+      "scroll": 447,
+      "sandbox": true
+    },
+    {
+      "id": "normal-launch-no-debug",
+      "status": "PASS",
+      "args": [],
+      "cwd": "/tmp",
+      "executableSha256": "3ba9114b7fbaafaf548f72c5d1bc86b7dc81098a85361784359c2c1199625bfc",
+      "reading": {
+        "view": "learn",
+        "lessonId": "S2",
+        "chapterId": "first",
+        "scroll": 447.5
+      }
+    }
+  ],
+  "errors": [],
+  "zoomMethod": "Native keyboard Ctrl+0 then Ctrl+= four times; verified Electron zoom factor 2 and CSS viewport"
+}
