@@ -1,0 +1,14 @@
+{
+  "category": "REAL_HOST",
+  "interaction": "AUTOMATED",
+  "result": "PASS",
+  "serverStoppedWithCtrlC": true,
+  "ownedContainerStopped": true,
+  "container": "0bb35a029b7c",
+  "sameContainer": true,
+  "volumesPreserved": true,
+  "sourceHash": "c519464d586ca774fbc969aeca14418aa10e837948cf22322317e3c61a5fd43e",
+  "reopenedSameFolderWithoutRegeneration": true,
+  "httpStatus": 200,
+  "originalHeadingVisible": true
+}

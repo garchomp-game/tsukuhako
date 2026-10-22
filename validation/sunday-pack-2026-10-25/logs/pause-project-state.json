@@ -1,0 +1,22 @@
+{
+  "category": "REAL_HOST",
+  "result": "PASS",
+  "reason": "User requested pause at a clean stopping point",
+  "sourceHash": "c519464d586ca774fbc969aeca14418aa10e837948cf22322317e3c61a5fd43e",
+  "sourceUnchanged": true,
+  "ownedContainer": "0bb35a029b7c",
+  "ownedContainerStatus": "exited",
+  "projectAndVolumesRetained": true,
+  "unsavedHarnessTyping": "Dedicated Code backup moved aside; accidental command text was not saved to source",
+  "otherRunningContainers": [
+    {
+      "name": "ikiiki-project-hr132-133_devcontainer-db-1",
+      "status": "Up 18 hours (healthy)"
+    },
+    {
+      "name": "ikiiki-backend-postgres",
+      "status": "Up 18 hours (healthy)"
+    }
+  ],
+  "mainAndPublishedStateUnchanged": true
+}

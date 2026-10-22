@@ -1,0 +1,49 @@
+{
+  "category": "STATIC",
+  "guideRevision": "2026-10-25-r1",
+  "productVersion": "0.4.4",
+  "artifact": {
+    "file": "tsukuhako-f2-guide-2026-10-25-r1.zip",
+    "bytes": 13087,
+    "sha256": "8c9b6a85d014bf172bdcceb2968696329b96769b5954117cc05ff3d337906f69"
+  },
+  "members": [
+    {
+      "file": "START_HERE.md",
+      "bytes": 3273,
+      "sha256": "c0deee6fb0b38dca16863f5b2190aa090bb74af35851cc84ae22f90dae283481"
+    },
+    {
+      "file": "FIRST-RUN.md",
+      "bytes": 9918,
+      "sha256": "3148104c94fd14821ff192408470d7a49b62a522c5411b4b7f1f9ce01a120ced"
+    },
+    {
+      "file": "TROUBLESHOOTING.md",
+      "bytes": 6232,
+      "sha256": "0ea838cd05776bfec1bdd551ebc580b18179db4501eb3e0b073b7484c71d5591"
+    },
+    {
+      "file": "NEXT-STEP.md",
+      "bytes": 1561,
+      "sha256": "d8522ef911e60ca6a8c40a289f5df9edecffc78a21e1a891ba0ea037c07e6d52"
+    },
+    {
+      "file": "FEEDBACK.md",
+      "bytes": 1741,
+      "sha256": "0a963dbd2cecc283474b16d21c55e4b633f9c21e48a93cda63b419e2c5b09613"
+    },
+    {
+      "file": "manifest.json",
+      "bytes": 3516,
+      "sha256": "d925c2d21e7a02adb4dce0f76f86ce0ead70102b48116ece1b99b2ab2fd867d6"
+    },
+    {
+      "file": "SHA256SUMS",
+      "bytes": 481,
+      "sha256": "cf3fa830de6155dd2ad7f91ccd183e005c2682ba89aac8803ff91fcc2f3030a5"
+    }
+  ],
+  "productBinaryCopies": 0,
+  "published": false
+}
