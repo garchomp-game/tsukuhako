@@ -1,0 +1,50 @@
+{
+  "category": "LOCAL_BROWSER",
+  "interaction": "AUTOMATED",
+  "result": "PASS",
+  "browser": "Chrome 155.0.8059.84",
+  "os": "Linux (both OS packages inspected here; not Windows execution)",
+  "checkedAt": "2026-10-23T00:24:20.901Z",
+  "records": [
+    {
+      "platform": "linux",
+      "zipSha256": "bf4adb88132b7802583b9f8a24ace1d40229d869300b87c8fa971a6c0ef89bc8",
+      "extractedPath": "dist/sunday-bundle-2026-10-25-b1/verification/新規 展開 dOirLf/tsukuhako-0.4.4-linux-x64-pack-2026-10-25-b1",
+      "offlineFileBrowser": "PASS",
+      "appInstructionsPopup": "PASS",
+      "navigation": "PASS",
+      "linksChecked": 44,
+      "markdownInlineChecks": 179,
+      "codeBlocks": 7,
+      "commandSelection": "PASS",
+      "widths": [
+        1280,
+        360,
+        320
+      ],
+      "horizontalOverflow": false,
+      "httpRequests": [],
+      "scriptErrors": []
+    },
+    {
+      "platform": "windows",
+      "zipSha256": "86b480a1c29c7f6dd61fedae84334704b7043ad9df9643cfe882f58c33fe6f56",
+      "extractedPath": "dist/sunday-bundle-2026-10-25-b1/verification/新規 展開 YNrDTw/tsukuhako-0.4.4-windows-x64-pack-2026-10-25-b1",
+      "offlineFileBrowser": "PASS",
+      "appInstructionsPopup": "PASS",
+      "navigation": "PASS",
+      "linksChecked": 44,
+      "markdownInlineChecks": 179,
+      "codeBlocks": 7,
+      "commandSelection": "PASS",
+      "widths": [
+        1280,
+        360,
+        320
+      ],
+      "horizontalOverflow": false,
+      "httpRequests": [],
+      "scriptErrors": []
+    }
+  ]
+}

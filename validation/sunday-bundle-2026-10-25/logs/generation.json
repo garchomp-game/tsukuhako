@@ -1,0 +1,13 @@
+{
+  "category": "REAL_HOST",
+  "interaction": "AUTOMATED",
+  "result": "PASS",
+  "appVersion": "0.4.4",
+  "folder": "<isolated recipient>/projects/F2 日曜 はじめの画面",
+  "nonDefaultPort": 38317,
+  "appUI": true,
+  "projectGuideMatchesDestinationAndPort": true,
+  "hostDiagnosis": "PASS",
+  "generatedEnvPresent": true,
+  "externalRecipientDownload": "NOT_RUN"
+}

@@ -1,0 +1,169 @@
+{
+  "productVersion": "0.4.4",
+  "guideRevision": "2026-10-25-r2",
+  "packageRevision": "2026-10-25-b1",
+  "platform": "linux",
+  "architecture": "x64",
+  "applicationSourceCommit": "2b141f7c583d796e1ba75ad312c6ab199056c7de",
+  "packagingSourceRevision": "15c5ed611b5c09bdd7cdd7dc47408bab0ab2ac0a",
+  "packagingSourceFiles": [
+    {
+      "file": "tools/package-delivery-bundle.mjs",
+      "bytes": 10829,
+      "sha256": "4dcedebbac3623cbef9cc8dbaa6d915400070776f2e9c5dc36f580c5812ac554"
+    },
+    {
+      "file": "tools/delivery-bundle/config.mjs",
+      "bytes": 1714,
+      "sha256": "29ef8c322c277667a3f442b501c6e1028303452ac3949df7cfe5511df99290b0"
+    },
+    {
+      "file": "tools/delivery-bundle/html.mjs",
+      "bytes": 8244,
+      "sha256": "5279b4c38ddb36476ed3cceddc53fd2ef73f115235dc25310a161d613705fa4d"
+    },
+    {
+      "file": "generator-desktop/package.json",
+      "bytes": 839,
+      "sha256": "f72d844affb036e7368cbdcc3739756e5b21c2202227f7580692f1ad0f26805d"
+    },
+    {
+      "file": "generator-desktop/package-lock.json",
+      "bytes": 157947,
+      "sha256": "d1670f7b10c224b6ed283139f37d4679ac10a9ca8185fff5cd0975a6d1d7bc03"
+    },
+    {
+      "file": "validation/release-0.4.4-followup/delivery/upload-files.json",
+      "bytes": 2864,
+      "sha256": "ca24a98a687479ae128f1c25659b48604a64837749799937ff446b650b4e0c6c"
+    },
+    {
+      "file": "docs/launch/sunday-pack/START_HERE.md",
+      "bytes": 3578,
+      "sha256": "465048e500c03836bdbc6e5f6506122787d44991a7466cd55b430317a84d9279"
+    },
+    {
+      "file": "docs/launch/sunday-pack/FIRST-RUN.md",
+      "bytes": 9918,
+      "sha256": "d223e115f5077e40d260633eebca6b46cc98e9c2d2d7f63cc55f39b43e3e60ba"
+    },
+    {
+      "file": "docs/launch/sunday-pack/TROUBLESHOOTING.md",
+      "bytes": 6313,
+      "sha256": "100cc9831c42823a41645c62e18d820b75f166d787ec7c2cb7dbb715d4a20056"
+    },
+    {
+      "file": "docs/launch/sunday-pack/NEXT-STEP.md",
+      "bytes": 1561,
+      "sha256": "d076089055d21b76d9c4204f2652f3c927b3ba7d7f9c15451e51fc1f627ed181"
+    },
+    {
+      "file": "docs/launch/sunday-pack/FEEDBACK.md",
+      "bytes": 1741,
+      "sha256": "c2f2dfcdaaf15ecfd5bd8c40b844b9fe4f05de483243078be679089d11820dea"
+    }
+  ],
+  "entryPoint": "00_START_HERE.html",
+  "includesApplication": true,
+  "applicationSetRevision": "2026-10-22-A",
+  "applicationInputs": [
+    {
+      "platform": "linux",
+      "file": "SHA256SUMS",
+      "bytes": 260,
+      "sha256": "d1bc9ee3ca287650528e27f2822b20f7b09d1910a6f82e9f672fe85a0a7c5c89"
+    },
+    {
+      "platform": "linux",
+      "file": "START_HERE.txt",
+      "bytes": 4567,
+      "sha256": "310e1513c8af5f8a8a717a4fece28693b02f84afe562815c3dcb3095e57f6e79"
+    },
+    {
+      "platform": "linux",
+      "file": "manifest.json",
+      "bytes": 1898,
+      "sha256": "f4680d11e6b2e73456136a9523b29fdc3283763e7845e428827644e6ea64eb9d"
+    },
+    {
+      "platform": "linux",
+      "file": "tsukuhako-linux-x64-0.4.4.tar.gz",
+      "bytes": 168272243,
+      "sha256": "deace519c6ac6cb7a91de304491edd6a0676995eb386fa0be93fb541f43430b4"
+    }
+  ],
+  "files": [
+    {
+      "file": "00_START_HERE.html",
+      "bytes": 5509,
+      "sha256": "18b042f5d2e2e4e566d1dda629cfbadaaaa85a49f94d7b1819e7b45635117025"
+    },
+    {
+      "file": "app/SHA256SUMS",
+      "bytes": 260,
+      "sha256": "d1bc9ee3ca287650528e27f2822b20f7b09d1910a6f82e9f672fe85a0a7c5c89"
+    },
+    {
+      "file": "app/START_HERE.txt",
+      "bytes": 4567,
+      "sha256": "310e1513c8af5f8a8a717a4fece28693b02f84afe562815c3dcb3095e57f6e79"
+    },
+    {
+      "file": "app/manifest.json",
+      "bytes": 1898,
+      "sha256": "f4680d11e6b2e73456136a9523b29fdc3283763e7845e428827644e6ea64eb9d"
+    },
+    {
+      "file": "app/tsukuhako-linux-x64-0.4.4.tar.gz",
+      "bytes": 168272243,
+      "sha256": "deace519c6ac6cb7a91de304491edd6a0676995eb386fa0be93fb541f43430b4"
+    },
+    {
+      "file": "guide/FEEDBACK.md",
+      "bytes": 1741,
+      "sha256": "c2f2dfcdaaf15ecfd5bd8c40b844b9fe4f05de483243078be679089d11820dea"
+    },
+    {
+      "file": "guide/FIRST-RUN.md",
+      "bytes": 9918,
+      "sha256": "d223e115f5077e40d260633eebca6b46cc98e9c2d2d7f63cc55f39b43e3e60ba"
+    },
+    {
+      "file": "guide/NEXT-STEP.md",
+      "bytes": 1561,
+      "sha256": "d076089055d21b76d9c4204f2652f3c927b3ba7d7f9c15451e51fc1f627ed181"
+    },
+    {
+      "file": "guide/START_HERE.md",
+      "bytes": 3578,
+      "sha256": "465048e500c03836bdbc6e5f6506122787d44991a7466cd55b430317a84d9279"
+    },
+    {
+      "file": "guide/TROUBLESHOOTING.md",
+      "bytes": 6313,
+      "sha256": "100cc9831c42823a41645c62e18d820b75f166d787ec7c2cb7dbb715d4a20056"
+    },
+    {
+      "file": "guide/index.html",
+      "bytes": 32660,
+      "sha256": "4f19afb68952cf57b200491ad66fbb2b01ff2f07a181de475dae90a88aa0e59d"
+    }
+  ],
+  "verificationScope": {
+    "inheritedLinuxApplication": "REAL_HOST / AUTOMATED: Linux Mint 22.3 x64 existing development environment, F2 initialization and first page; 2026-10-23",
+    "archiveAndLinks": "STATIC and local file-browser verification recorded outside the archive",
+    "windows11RealWslF2": "NOT_RUN",
+    "cleanPC": "NOT_RUN",
+    "publicRecipientDownload": "NOT_RUN",
+    "unaidedHumanTrial": "NOT_RUN"
+  },
+  "checksumPolicy": {
+    "manifestExcludes": [
+      "manifest.json",
+      "SHA256SUMS"
+    ],
+    "rootChecksumsIncludeManifest": true,
+    "rootChecksumsExcludeSelf": true
+  },
+  "status": "CANDIDATE_NOT_PUBLISHED"
+}

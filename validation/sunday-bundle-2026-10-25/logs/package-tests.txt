@@ -1,0 +1,13 @@
+✔ all requested A sets must exist before creating any output (1.508127ms)
+✔ reject changed A bytes, missing entries and symbolic inputs (1.362747ms)
+✔ reject traversal, duplicate members, opposite OS and extra payload (0.53995ms)
+✔ Markdown links map to HTML sections and escaped content stays inert (11.997346ms)
+✔ missing fragment or local document fails instead of producing broken HTML (6.656292ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 87.131087

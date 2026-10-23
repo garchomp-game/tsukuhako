@@ -1,0 +1,18 @@
+{
+  "category": "REAL_HOST",
+  "result": "PASS",
+  "serverStoppedWithCtrlC": true,
+  "ownedCodeClosed": true,
+  "debugPortsClosed": true,
+  "applicationShutdown": "After SIGTERM the instrumented app had no visible window but retained CDP; verified its exact executable and private process group, then terminated that owned group with SIGKILL",
+  "normalAppQuitInThisRun": "NOT_ASSERTED; previous A normal-launch evidence retained",
+  "ownedContainer": "bc4acffb2691",
+  "containerState": "exited",
+  "projectAndVolumesRetained": true,
+  "sourceUnchanged": true,
+  "dedicatedDesktopStopped": true,
+  "otherContainers": [
+    "b531d3443746 ikiiki-project-hr132-133_devcontainer-db-1 Up 2 hours (healthy)",
+    "8e9f201539c5 ikiiki-backend-postgres Up 2 hours (healthy)"
+  ]
+}

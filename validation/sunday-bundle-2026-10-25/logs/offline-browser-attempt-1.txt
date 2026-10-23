@@ -1,0 +1,20 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ 'docker version\ndocker compose version'
+- 'docker version\ndocker compose version\n'
+
+    at file:///home/garchomp-game/workspace/meikyo/tsukuhako-sunday-bundle-20261025/tools/delivery-bundle/browser-check.mjs:63:10 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 'docker version\ndocker compose version',
+  expected: 'docker version\ndocker compose version\n',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.19.0

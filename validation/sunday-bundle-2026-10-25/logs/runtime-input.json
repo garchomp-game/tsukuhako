@@ -1,0 +1,11 @@
+{
+  "category": "STATIC",
+  "result": "PASS",
+  "source": "FINAL_BUNDLE_EXTRACTION",
+  "zipSha256": "bf4adb88132b7802583b9f8a24ace1d40229d869300b87c8fa971a6c0ef89bc8",
+  "tarSha256": "deace519c6ac6cb7a91de304491edd6a0676995eb386fa0be93fb541f43430b4",
+  "extraction": "tar -xzf from final bundled app directory",
+  "binaryMode": "755",
+  "binarySha256": "3ba9114b7fbaafaf548f72c5d1bc86b7dc81098a85361784359c2c1199625bfc",
+  "runtime": "runs/受取 Linux/tsukuhako-linux-x64-0.4.4"
+}

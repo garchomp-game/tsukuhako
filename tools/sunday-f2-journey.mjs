@@ -15,7 +15,9 @@ async function palette(page,name) {
  const input=widget.locator('input');await input.focus();await expect(input).toBeFocused();await input.fill('>'+name);
  await expect(input).toHaveValue('>'+name);await expect(input).toBeFocused();
  // Fuzzy ranking can put "Rebuild and Reopen" above "Reopen" in a new profile.
- const exact=widget.getByText(name,{exact:true});await expect(exact).toBeVisible();
+ const literal=name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+ const exact=widget.locator('.label-name').filter({hasText:new RegExp('^'+literal+'$')});
+ await expect(exact).toBeVisible();
  await exact.click();await expect(widget).toBeHidden();
 }
 async function remoteReady(c) {
@@ -80,6 +82,11 @@ if(phase==='generate') {
    await p.getByText('Manage',{exact:true}).click();
    await p.getByText('Trust',{exact:true}).click();
   }
+  // The current Code version can keep Workspace Trust in a modal editor.
+  if(await p.locator('.workspace-trust-editor.trusted').isVisible().catch(()=>false)) {
+   const close=p.getByRole('button',{name:'Close Modal Editor (Escape)',exact:true});
+   if(await close.isVisible())await close.click();
+  }
   await palette(p,'Dev Containers: Reopen in Container');
   await expect.poll(async()=>p.locator('.statusbar').innerText(),{timeout:600000,intervals:[2000]}).toContain('Dev Container: ツクハコ F2');
   await expect.poll(async()=>{const row=p.locator('.monaco-list-row').filter({hasText:/^\s*Configuring\.\.\.\s*$/});if(await row.count())await row.last().click();return p.locator('body').innerText()},{timeout:300000,intervals:[1500]}).toContain('準備完了');
@@ -91,9 +98,20 @@ if(phase==='generate') {
  const project=JSON.parse(fs.readFileSync(metadata));const c=await connect(9431),p=c.page;
  try {
   // A normal postCreate task ends with this completion line, not merely the doctor message.
-  await expect(p.locator('body')).toContainText('準備完了');
-  await expect(p.locator('body')).toContainText('Done. Press any key to close the terminal.');
-  await scene('02-initialized','FIRST-RUN 5〜6：Dev Container接続と構成処理の終了','構成ターミナルに準備完了とDoneの終了表示。サーバー開始前に確認');
+  // Once acknowledged, the completed task terminal closes. Retain that observation
+  // so a UI-only retry never repeats postCreate or pretends the terminal is still open.
+  const checkpoint=runtime+'/initialization-observed.json';
+  if(fs.existsSync(checkpoint)) {
+   const saved=JSON.parse(fs.readFileSync(checkpoint));
+   expect(saved.destination).toBe(project.destination);expect(saved.sourceHash).toBe(project.sourceHash);
+   expect(saved.container).toBe(command('docker',['ps','-q','--filter','label=devcontainer.local_folder='+project.destination]));
+   expect(saved.doctorMessageObserved&&saved.taskCompletionObserved).toBe(true);
+  } else {
+   await expect(p.locator('body')).toContainText('準備完了');
+   await expect(p.locator('body')).toContainText('Done. Press any key to close the terminal.');
+   await scene('02-initialized','FIRST-RUN 5〜6：Dev Container接続と構成処理の終了','構成ターミナルに準備完了とDoneの終了表示。サーバー開始前に確認');
+   json(checkpoint,{destination:project.destination,sourceHash:project.sourceHash,container:command('docker',['ps','-q','--filter','label=devcontainer.local_folder='+project.destination]),doctorMessageObserved:true,taskCompletionObserved:true,observedAt:new Date().toISOString()});
+  }
   await palette(p,'Terminal: Create New Terminal');await pause(700);await terminal(p,'pwd');
   await expect(p.locator('body')).toContainText('/workspace');
   await terminal(p,'npm run dev');

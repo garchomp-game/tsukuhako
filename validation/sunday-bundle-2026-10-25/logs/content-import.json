@@ -1,0 +1,23 @@
+{
+  "category": "STATIC",
+  "result": "PASS",
+  "startGuideMatchesCanonical": true,
+  "importedMails": 5,
+  "importedGuides": 4,
+  "sourceHash": "89641cb750f98dfcf7bba5357c69e83ed2a084059b60d732f5fc33ae345faca5",
+  "unchangedInputs": [
+    "docs/launch/guides/setup-check.md",
+    "docs/launch/guides/first-change.md",
+    "docs/launch/guides/one-less-step.md",
+    "docs/launch/mail/confirm.md",
+    "docs/launch/mail/welcome-01.md",
+    "docs/launch/mail/welcome-02.md",
+    "docs/launch/mail/welcome-03.md",
+    "docs/launch/mail/broadcast-001.md",
+    "docs/launch/mail/footer.md",
+    "docs/launch/mail/transactional-footer.md",
+    "web/config/public-settings.json"
+  ],
+  "mailCodeAndScheduleUnchanged": true,
+  "delivery": "LOCAL_IMPORT_ONLY_NO_SENDING"
+}

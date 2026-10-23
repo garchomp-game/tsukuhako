@@ -1,0 +1,48 @@
+{
+  "category": "TEST_HARNESS_ADJUSTMENT",
+  "productChanged": false,
+  "applicationRebuilt": false,
+  "guideChangedForHarness": false,
+  "observations": [
+    {
+      "check": "offline code selection",
+      "failure": "Browser selection omits a terminal newline",
+      "resolution": "Compare selected commands with trailing newline normalized; exact pre/code content remains checked separately",
+      "recheck": "PASS"
+    },
+    {
+      "check": "Code first welcome",
+      "failure": "The second welcome page intercepted the folder-trust click",
+      "resolution": "Choose Continue without Signing In, then Get Started before folder trust",
+      "recheck": "PASS"
+    },
+    {
+      "check": "command palette ranking",
+      "failure": "Fuzzy results ranked Rebuild and Reopen above Reopen",
+      "resolution": "Select the exact visible requested command instead of assuming the first result",
+      "recheck": "PASS"
+    },
+    {
+      "check": "Workspace Trust modal",
+      "failure": "Trusted-folder modal retained focus while opening the palette",
+      "resolution": "Close the observed Workspace Trust modal using its visible Close Modal Editor control",
+      "recheck": "PASS"
+    },
+    {
+      "check": "exact command label",
+      "failure": "A matching highlighted span also existed inside longer terminal-command names",
+      "resolution": "Match the full .label-name text exactly, then select the visible row",
+      "recheck": "PASS"
+    },
+    {
+      "check": "acknowledged task terminal",
+      "failure": "A UI-only retry no longer had the already-acknowledged completion terminal open",
+      "resolution": "Resume from the saved actual body and 02-initialized screenshot, tied to the same project/source/container; do not repeat postCreate",
+      "recheck": "PASS"
+    }
+  ],
+  "externalActions": "No sign-in, sending, publishing or deployment",
+  "rawDebugLocation": "runs/debug (ignored; includes environment-specific paths)",
+  "limits": "Automated operator adjustments; not evidence of an unaided human or clean-PC trial",
+  "result": "PASS_AFTER_HARNESS_ADJUSTMENTS"
+}

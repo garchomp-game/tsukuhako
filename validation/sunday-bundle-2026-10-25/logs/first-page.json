@@ -1,0 +1,20 @@
+{
+  "category": "REAL_HOST",
+  "interaction": "AUTOMATED",
+  "result": "PASS",
+  "checkedAt": "2026-10-23T00:31:42.153Z",
+  "zipSha256": "bf4adb88132b7802583b9f8a24ace1d40229d869300b87c8fa971a6c0ef89bc8",
+  "binarySha256": "3ba9114b7fbaafaf548f72c5d1bc86b7dc81098a85361784359c2c1199625bfc",
+  "browser": "Chrome 155.0.8059.84",
+  "headless": false,
+  "firstPageHeading": "小さく変えて、動きを確かめよう。",
+  "hostPort": 38317,
+  "hostUrlUsesGeneratedGuide": true,
+  "completionProof": "screenshots/02-initialized.png",
+  "serverReady": true,
+  "httpStatus": 200,
+  "sourceUnchanged": true,
+  "sourceHash": "c519464d586ca774fbc969aeca14418aa10e837948cf22322317e3c61a5fd43e",
+  "optionalEditRestore": "INHERITED_PREVIOUS_EVIDENCE_NOT_REPEATED",
+  "unaidedHuman": "NOT_RUN"
+}

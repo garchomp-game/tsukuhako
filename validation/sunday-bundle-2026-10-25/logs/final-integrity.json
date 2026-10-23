@@ -1,0 +1,30 @@
+{
+  "category": "STATIC",
+  "result": "PASS",
+  "zipCrcAndRootChecksums": "PASS",
+  "readerContentScan": "PASS",
+  "unchangedFrom": "7af82d97e31a4c1ff33007b4d4f38fb2d17396ca",
+  "preserved": [
+    "generator",
+    "generator-desktop",
+    "starter-templates",
+    "dist",
+    "web/src",
+    "web/config",
+    "docs/launch/POST-IDEAS.md",
+    "validation/sunday-pack-2026-10-25",
+    "validation/release-0.4.4-followup"
+  ],
+  "archives": [
+    {
+      "file": "tsukuhako-0.4.4-linux-x64-pack-2026-10-25-b1.zip",
+      "bytes": 168349392,
+      "sha256": "bf4adb88132b7802583b9f8a24ace1d40229d869300b87c8fa971a6c0ef89bc8"
+    },
+    {
+      "file": "tsukuhako-0.4.4-windows-x64-pack-2026-10-25-b1.zip",
+      "bytes": 145012342,
+      "sha256": "86b480a1c29c7f6dd61fedae84334704b7043ad9df9643cfe882f58c33fe6f56"
+    }
+  ]
+}
