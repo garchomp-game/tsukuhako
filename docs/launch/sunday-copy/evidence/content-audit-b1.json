@@ -1,0 +1,225 @@
+{
+  "schemaVersion": 1,
+  "checkedOnJST": "2026-10-23",
+  "evidenceType": "STATIC",
+  "operator": "Codexによる自動文字列・ハッシュ照合と原稿読了。人による試用ではない。",
+  "baseCommit": "7af82d97e31a4c1ff33007b4d4f38fb2d17396ca",
+  "packageRevision": "2026-10-25-b1",
+  "guideRevision": "2026-10-25-r2",
+  "productVersion": "0.4.4",
+  "scope": "sunday-copyとBrain草稿の梱包/入口説明、公開startの受取2段落。実アプリ・完成ZIP・ブラウザの検証は含まない。",
+  "status": "PASS",
+  "automatedChecks": [
+    {
+      "id": "base-commit",
+      "status": "PASS",
+      "detail": "レビュー基点7af82d9からの専用worktree"
+    },
+    {
+      "id": "tool-is-main-product",
+      "status": "PASS",
+      "detail": "3本文が生成ツールを本体として説明"
+    },
+    {
+      "id": "single-os-bundle",
+      "status": "PASS",
+      "detail": "OS別の一つのZIPに本体＋ガイドを同梱"
+    },
+    {
+      "id": "one-entry-route",
+      "status": "PASS",
+      "detail": "受取案内2本・Brain2本・公開startの初出が00 HTML→app txt→guide HTML"
+    },
+    {
+      "id": "agreed-html-labels",
+      "status": "PASS",
+      "detail": "受取案内の目次呼称はガイド担当と合意したラベル"
+    },
+    {
+      "id": "generated-start-distinct",
+      "status": "PASS",
+      "detail": "生成先の個別設定案内と商品入口を区別"
+    },
+    {
+      "id": "separate-trial-purchase",
+      "status": "PASS",
+      "detail": "用途分離を維持"
+    },
+    {
+      "id": "no-reader-variables",
+      "status": "PASS",
+      "detail": "同梱案内3本文に未解決変数なし"
+    },
+    {
+      "id": "no-reader-urls-or-creator-paths",
+      "status": "PASS",
+      "detail": "架空URL・開発サーバー・private repo・作者絶対パスなし"
+    },
+    {
+      "id": "no-editorial-text-in-reader-copy",
+      "status": "PASS",
+      "detail": "状態と制作判断は本文の外に分離"
+    },
+    {
+      "id": "no-price-or-small-size-claim",
+      "status": "PASS",
+      "detail": "未決金額と旧ガイドZIP容量を商品容量へ転記しない"
+    },
+    {
+      "id": "versions-separated",
+      "status": "PASS",
+      "detail": "アプリ/Aセット/ガイド/梱包の版を別記"
+    },
+    {
+      "id": "bundle-filenames",
+      "status": "PASS",
+      "detail": "Brain受取表は指定b1 ZIP名"
+    },
+    {
+      "id": "draft-and-approval-state",
+      "status": "PASS",
+      "detail": "草稿完成・梱包完成・一般配布判断を分離"
+    },
+    {
+      "id": "historical-evidence-and-posts-unchanged",
+      "status": "PASS",
+      "detail": "投稿ネタ帳・前回2監査・固定点レポートを不変で保持"
+    },
+    {
+      "id": "private-link-contract-unchanged",
+      "status": "PASS",
+      "detail": "Brain/公開startの既存予約変数を増減せず、日曜本文へ転記しない"
+    },
+    {
+      "id": "public-start-two-paragraphs",
+      "status": "PASS",
+      "detail": "公開startは旧受取を説明する2段落だけ変更"
+    },
+    {
+      "id": "mail-and-web-unchanged",
+      "status": "PASS",
+      "detail": "メール原稿・配信条件・webコードを変更していない"
+    },
+    {
+      "id": "existing-content-validator",
+      "status": "PASS",
+      "detail": "79/79項目。検査本体を使い、旧auditへの出力だけメモリへ差し替え"
+    },
+    {
+      "id": "historical-evidence-still-unchanged",
+      "status": "PASS",
+      "detail": "検査後も旧証拠とPOST-IDEASのバイト列一致"
+    }
+  ],
+  "manualReview": [
+    {
+      "id": "new-package-policy",
+      "status": "PASS",
+      "detail": "最終修正依頼全文と照合。ツールが本体、OS別同梱ZIP、F2初回表示、既存6構成維持。"
+    },
+    {
+      "id": "environment-scope",
+      "status": "PASS",
+      "detail": "Mint既存開発環境の実績と、未署名Windows/Win11実WSL/F2・未準備PCの未確認を保持。"
+    },
+    {
+      "id": "offline-reading-and-setup",
+      "status": "PASS",
+      "detail": "HTML閲覧のオフラインと、外部導入先・初回開発環境のネット/Docker/Code要件を区別。HTML実体の検証は統合担当。"
+    },
+    {
+      "id": "initialization-and-recovery",
+      "status": "PASS",
+      "detail": "初期処理正常終了と初画面を到達点とし、復旧と任意の変更復元へHTML目次から戻る。"
+    },
+    {
+      "id": "sales-conditions",
+      "status": "PASS",
+      "detail": "梱包方法の確定と、価格/試用販売/対象者/実配布先/窓口の未決を区別。"
+    }
+  ],
+  "existingContentValidation": {
+    "path": "docs/launch/validate-content.mjs",
+    "sourceSha256": "68391e30371163d948a8b982ddf177b4faf55e990e9ed7fdfcf76ce254aa5e4c",
+    "result": "PASS",
+    "passed": 79,
+    "total": 79,
+    "outputHandling": "正本の検査ロジックは同一。import用root解決と、出力先をメモリに差し替えて実行し、旧content-audit.jsonを上書きしなかった。",
+    "failed": []
+  },
+  "bImportHandoff": {
+    "changedInput": "docs/launch/guides/start.md",
+    "unchanged": "5メール本文・footer・他3公開ガイド・設定・配信条件・webコード",
+    "commandFromRepoRoot": "npm --prefix web run content",
+    "expected": "web/.generated/content.jsonのguides.startが正本trimと一致し、sourceHashが更新される。guideはpublic allowlist入力。",
+    "note": "この担当ではwebの生成物・実行状態を変更していない。Brain2原稿とsunday-copyはBのimport allowlist外。"
+  },
+  "notRun": [
+    "完成したb1 ZIP内のファイル・manifest・SHA・HTML節との最終一致",
+    "新しい同梱ZIPからのLinux実機F2開始",
+    "Windows 11通常ユーザーでのZIP展開・導入・実WSL/F2",
+    "一般受取人の公開URL/権限による取得",
+    "未準備PC・人による無補足試用",
+    "Bの原稿再import（統合担当へ引継ぎ）"
+  ],
+  "preservedFiles": [
+    {
+      "path": "docs/launch/POST-IDEAS.md",
+      "sha256": "5596cae999c973ab45e491dafe9b42777249f8e278532c78f3b23bd2d327b98c"
+    },
+    {
+      "path": "docs/launch/sunday-copy/evidence/content-audit.json",
+      "sha256": "326542af177054b62243397eda70fcd5681a4b09fbef39d8b8585f65556229ad"
+    },
+    {
+      "path": "docs/launch/evidence/content-audit.json",
+      "sha256": "fe4f86246a13e9e9f3b69820cbb070c73270e9be3985fbd5f2432571ab0013b2"
+    },
+    {
+      "path": "validation/sunday-pack-2026-10-25/REPORT.md",
+      "sha256": "59d8f60bd9c2dcc5692faefde632273671883538be940721fe39f4f68f6a0a34"
+    }
+  ],
+  "files": [
+    {
+      "path": "docs/launch/sunday-copy/INTRODUCTION.md",
+      "bytes": 1460,
+      "sha256": "21c97d0b1c8c3193351dff0f1f343ab4366a7d55a9b6f6d36aafd1762040de44"
+    },
+    {
+      "path": "docs/launch/sunday-copy/FREE-TRIAL.md",
+      "bytes": 3261,
+      "sha256": "0dfcf5171d4f084a3caafe613f89a6f08fb642af17f78e8c8fd6e959313a126c"
+    },
+    {
+      "path": "docs/launch/sunday-copy/AFTER-PURCHASE.md",
+      "bytes": 2843,
+      "sha256": "3ef8ea1fefa3dc69c43f56a48f724fd758791226930f26daab51f2bc5432b64e"
+    },
+    {
+      "path": "docs/launch/sunday-copy/README.md",
+      "bytes": 4190,
+      "sha256": "bbac5ac8c4ac91189c84d77ba9cbb4d1ef48465e77f0e66d1c0e2fe9a73df3ac"
+    },
+    {
+      "path": "docs/launch/sunday-copy/DECISIONS.md",
+      "bytes": 9866,
+      "sha256": "59571421ca5563e0f14a8053fd76968fd4a5832a83c9f70c695da109333b00ce"
+    },
+    {
+      "path": "docs/launch/brain-free.md",
+      "bytes": 5525,
+      "sha256": "3345aafb573dc6d4fea0195698255ddd0ac798e1c7622cb62f7096146e437b24"
+    },
+    {
+      "path": "docs/launch/brain-paid.md",
+      "bytes": 5633,
+      "sha256": "0232fc95578e3c7ccaeeec4470b47bf1b43f29a5711e87812d956e05b2983a59"
+    },
+    {
+      "path": "docs/launch/guides/start.md",
+      "bytes": 2870,
+      "sha256": "f95c49a6629a201d595a85b65dc1bfabd2504364e988f94d19eb97e2992af351"
+    }
+  ]
+}
