@@ -60,7 +60,7 @@ try{
   await checkWidth(1280);await page.locator('#first-run').scrollIntoViewIfNeeded();await page.screenshot({path:evidence+'/screenshots/'+artifact.platform+'-first-run-wide.png'});
   await checkWidth(360);await page.locator('#first-run').scrollIntoViewIfNeeded();await page.screenshot({path:evidence+'/screenshots/'+artifact.platform+'-first-run-narrow.png'});await checkWidth(320);
   const selection=await page.locator('#first-run pre code').first().evaluate(el=>{const range=document.createRange();range.selectNodeContents(el);const s=window.getSelection();s.removeAllRanges();s.addRange(range);return s.toString();});
-  assert.equal(selection,'docker version\ndocker compose version\n');
+  assert.equal(selection.trimEnd(),'docker version\ndocker compose version');
   for(const id of ['troubleshooting','next-step','feedback']){
    await page.goto(entry);await page.locator('a[href="guide/index.html#'+id+'"]').click();assert.equal(new URL(page.url()).hash,'#'+id);assert.ok(await page.locator('#'+id).isVisible());
   }

@@ -14,8 +14,9 @@ async function palette(page,name) {
  const widget=page.locator('.quick-input-widget:visible');await expect(widget).toBeVisible();
  const input=widget.locator('input');await input.focus();await expect(input).toBeFocused();await input.fill('>'+name);
  await expect(input).toHaveValue('>'+name);await expect(input).toBeFocused();
- await expect.poll(()=>widget.locator('.monaco-list-row.focused .label-name').allTextContents()).toEqual([name]);
- x(['key','Return']);await expect(widget).toBeHidden();
+ // Fuzzy ranking can put "Rebuild and Reopen" above "Reopen" in a new profile.
+ const exact=widget.getByText(name,{exact:true});await expect(exact).toBeVisible();
+ await exact.click();await expect(widget).toBeHidden();
 }
 async function remoteReady(c) {
  await expect.poll(()=>c.page.locator('.statusbar').innerText(),{timeout:180000,intervals:[1500]}).toContain('Dev Container: ツクハコ F2');
@@ -66,6 +67,14 @@ if(phase==='generate') {
  const c=await waitConnect(9431),p=c.page;
  try {
   await pause(1200);
+  // A fresh Code profile can show a two-page welcome dialog before folder trust.
+  const welcome=p.getByRole('dialog',{name:'Welcome to Visual Studio Code',exact:true});
+  if(await welcome.isVisible()) {
+   const skip=welcome.getByText('Continue without Signing In',{exact:true});
+   if(await skip.isVisible())await skip.click();
+   await welcome.getByText('Get Started',{exact:true}).click();
+   await expect(welcome).toBeHidden();
+  }
   const trust=p.getByRole('button',{name:/Yes, I trust the authors/});if(await trust.count())await trust.click();
   if(await p.getByText('Manage',{exact:true}).isVisible().catch(()=>false)) {
    await p.getByText('Manage',{exact:true}).click();
