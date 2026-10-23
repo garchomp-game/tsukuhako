@@ -4,7 +4,7 @@
 
 0.4.4の配布候補は **Windows x64（NSIS exe）とLinux x64（tar.gz）** です。Windowsは未署名で、Server 2022 CIの導入・教材表示・削除・隔離読書データ保持を確認済み。Win11通常ユーザーと実WSLの開発経路は未確認で、初回販売に含める範囲は判断待ちです。Linux Mint 22.3で最終配布物の通常起動・教材UX・F2の初回準備・表示・編集・復元・再開を確認しました。macOS・ARMは対象外です。
 
-0.4.4では、狭い画面や200%表示の目次を折りたたみ、本文と操作が画面内に収まるようにしました。読書位置・キーボード操作・ヘルプ復帰も最終配布物で確認しています。配布はOS別の製品・START_HERE.txt・manifest・SHA256SUMSの4ファイルです。一般受取人向けの保管先・窓口は未設定のため、案内はドラフトです。
+0.4.4では、狭い画面や200%表示の目次を折りたたみ、本文と操作が画面内に収まるようにしました。読書位置・キーボード操作・ヘルプ復帰も最終配布物で確認しています。主配布候補はOS別の**本体＋ガイド同梱ZIP**です。A採用4点セットをそのままapp/へ収め、00_START_HERE.htmlから導入案内と静的HTMLガイドへ進めます。一般受取人向けの保管先・窓口は未設定のため、案内はドラフトです。
 
 開発を始める際は、構成ターミナル本文の「準備完了」と初期構成の正常終了を確認してから `npm run dev` へ進みます。生成先のSTART_HERE.mdに具体的な保存先・ポートがあります。I1はDB用の別手順で、生成済みプロジェクトは自動更新しません。
 
@@ -13,7 +13,7 @@
 - 受取先の判断とアップロード下書き: [配布経路](validation/release-0.4.4/DELIVERY.md)
 - 採用する4点セットと追加レビュー: [担当Aレポート](validation/release-0.4.4-followup/REPORT.md) / [受取チェックリスト](validation/release-0.4.4-followup/DELIVERY-CHECKLIST.md)
 - Brain本文・任意メールのローカル準備: [A・B・C統合レポート](validation/launch-abc-2026-10-22/REPORT.md) / [原稿](docs/launch/REPORT.md) / [試作の起動方法](web/README.md)
-- 10月25日向けF2一経路の配布候補: [日曜レポート](validation/sunday-pack-2026-10-25/REPORT.md) / [入口ガイド](docs/launch/sunday-pack/START_HERE.md) / [投稿ネタ帳](docs/launch/POST-IDEAS.md)。一般向けの公開は保留です。
+- 10月25日向け本体＋ガイド同梱候補（梱包b1、ガイドr2）: [同梱レポート](validation/sunday-bundle-2026-10-25/REPORT.md) / [制作手順](docs/launch/SUNDAY-PACK.md) / [入口原稿](docs/launch/sunday-pack/START_HERE.md)。[旧別梱包のレポート](validation/sunday-pack-2026-10-25/REPORT.md)と[投稿ネタ帳](docs/launch/POST-IDEAS.md)は保持。一般向けの公開は保留です。
 - 旧0.4.2の6構成実機記録: [Linux初回操作](validation/onboarding-0.4.2/20261021T0919-JST/REPORT.md)。新版やWindowsの合格へ読み替えません。
 - F1/F2/B1/S1/S2/I1が生成対象、S3は参考資料。テンプレートZIP自体は変更していません。
 

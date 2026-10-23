@@ -1,6 +1,6 @@
 # 今の状態から、戻る場所を選ぶ
 
-[入口](START_HERE.md) · [初回の一本道](FIRST-RUN.md) · ガイド2026-10-25-r1
+[入口](START_HERE.md) · [初回の一本道](FIRST-RUN.md) · ガイド2026-10-25-r2
 
 最初に「最後にできた操作」「いま見ている画面」「出た表示」をメモします。分からない用語の説明を作る必要はありません。ログ全体や `.env` を送る必要もありません。[短い記録票](FEEDBACK.md)を使えます。
 
@@ -17,7 +17,7 @@
 
 | 今の状態 | 次の一操作・成功の目印 | 戻る場所 |
 |---|---|---|
-| アプリが足りない／チェックサムが違う | 受け取った経路でOS用4ファイルと案内revisionを確認。違うファイルを混ぜて起動しない | アプリセットのSTART_HERE.txt |
+| アプリが足りない／チェックサムが違う | ZIP全体を展開したか、app/内のOS用4ファイルが揃うか確認。相違があれば受け取った経路で同じ版を確認し、違うファイルを混ぜない | 商品一式の00_START_HERE.html、app/START_HERE.txt |
 | Windowsの署名・保護警告で止まる | 警告文を記録して提供元へ確認。保護を無効化して先へ進めない | [FEEDBACK](FEEDBACK.md) |
 | Dockerへ接続できない | ホストで `docker version`。ClientだけでなくServerも出るかを見る。WindowsはDesktop起動と選択WSLのIntegrationを確認 | FIRST-RUN 2番 |
 | LinuxのDockerが権限エラー | [公式の導入後設定](https://docs.docker.com/engine/install/linux-postinstall/)とPC管理方針を確認。設定変更にログアウト/ログインが必要なら済ませて再診断。アプリをsudo起動したりソケットを全員に開放したりしない | FIRST-RUN 2番 |

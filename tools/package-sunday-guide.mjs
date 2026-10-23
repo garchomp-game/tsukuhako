@@ -1,4 +1,4 @@
-// Guide-only ZIP. Product binaries remain in the selected A OS-specific sets.
+// Optional Markdown supplement only. The main delivery is the OS-specific bundle.
 import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
@@ -7,8 +7,11 @@ import { execFileSync } from 'node:child_process';
 
 const root = path.resolve(import.meta.dirname, '..');
 const source = path.join(root, 'docs/launch/sunday-pack');
-const output = path.join(root, 'validation/sunday-pack-2026-10-25/delivery');
-const revision = '2026-10-25-r1';
+const output = path.join(root, 'dist/guide-supplement-2026-10-25-r2');
+const revision = '2026-10-25-r2';
+const archive = `tsukuhako-f2-guide-${revision}.zip`;
+const destination = path.join(output, archive);
+if (fs.existsSync(destination)) throw new Error('Existing supplement preserved; choose a new revision before rebuilding');
 const guides = ['START_HERE.md', 'FIRST-RUN.md', 'TROUBLESHOOTING.md', 'NEXT-STEP.md', 'FEEDBACK.md'];
 const hash = bytes => createHash('sha256').update(bytes).digest('hex');
 const describe = (dir, name) => { const bytes = fs.readFileSync(path.join(dir, name)); return { file: name, bytes: bytes.length, sha256: hash(bytes) }; };
@@ -23,7 +26,7 @@ for (const file of guides) {
 const selected = JSON.parse(fs.readFileSync(path.join(root, 'validation/release-0.4.4-followup/delivery/upload-files.json')));
 const manifest = {
   name: 'ツクハコ F2 最初の画面ガイド', guideRevision: revision, productVersion: '0.4.4',
-  status: 'VALIDATION_COLLABORATOR_CANDIDATE_NOT_PUBLISHED',
+  status: 'MARKDOWN_SUPPLEMENT_ONLY_NOT_THE_PRODUCT_BUNDLE',
   scope: 'Generate F2 with the existing application, wait for successful postCreate completion, and display the first page. Editing/restoration is optional.',
   includesProductBinary: false, includesGeneratedProject: false,
   entry: 'START_HERE.md', files: guides.map(name => describe(source, name)),
@@ -39,12 +42,9 @@ const members = [...guides, 'manifest.json'];
 fs.writeFileSync(path.join(source, 'SHA256SUMS'), members.map(name => `${describe(source, name).sha256}  ${name}`).join('\n') + '\n');
 members.push('SHA256SUMS');
 fs.mkdirSync(output, { recursive: true });
-const archive = `tsukuhako-f2-guide-${revision}.zip`;
-const destination = path.join(output, archive);
 const stage = fs.mkdtempSync(path.join(os.tmpdir(), 'tsukuhako-sunday-guide-'));
 try {
   for (const name of members) { const target = path.join(stage, name); fs.copyFileSync(path.join(source, name), target); fs.utimesSync(target, new Date('2026-10-25T00:00:00Z'), new Date('2026-10-25T00:00:00Z')); }
-  fs.rmSync(destination, { force: true });
   execFileSync('zip', ['-X', '-q', destination, ...members], { cwd: stage, env: { ...process.env, TZ: 'UTC' } });
   const artifact = describe(output, archive);
   fs.writeFileSync(path.join(output, 'SHA256SUMS'), `${artifact.sha256}  ${archive}\n`);
