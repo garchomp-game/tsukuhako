@@ -1,0 +1,13 @@
+
+> tsukuhako-desktop@0.4.5 test:package
+> node --test tests/packaging.check.mjs
+
+✔ distribution: independent cwd and Unicode/space paths; missing helper and corrupt curriculum fail closed (721.630065ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 790.373714
