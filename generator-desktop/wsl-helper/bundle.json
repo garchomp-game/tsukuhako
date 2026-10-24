@@ -1,10 +1,10 @@
 {
-  "version": "0.4.4",
+  "version": "0.4.5",
   "arch": "x64",
   "bytes": 127621120,
-  "sha256": "d0a97a7df75d9fc15c7e14022c7ea3a7f3b008deaa2e58c268b522afc9444bc2",
+  "sha256": "e9386f421036a35e9fe75b1ffd671b27ad32dfb7134d40d17a2704e43c89d371",
   "nodeSha256": "bc17c508ffeed0ec622934f9b7fa72f8e78da65350e63c3eceb56fa688aa5e12",
-  "manifestSha256": "a006f41ad1fa16734c421a1d8690f25c61b1ec2e0ed5508e485339f19f331ce9",
+  "manifestSha256": "15d4d28f7262b8c919c4e818ed4d9576b1074991eb0b8dd940b9134e706e662e",
   "helperSha256": "f739cd03f1d0c6c91c35d6c41b01146de7f5051c222f43482c032f5a9a7b1d00",
   "runtimeArchiveSha256": "14b342e71204f811bde6153be8e04b62aef63c236fef92b55f9c83154b409647",
   "runtimeSource": "https://nodejs.org/dist/v24.19.0/node-v24.19.0-linux-x64.tar.xz"

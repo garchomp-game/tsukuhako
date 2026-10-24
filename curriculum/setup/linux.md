@@ -1,6 +1,6 @@
 # Linuxの準備
 
-今回の配布はLinux x64 tar.gzです。確認環境はLinux Mint 22.3です。Linux Mintの結果をUbuntu実機合格に置き換えません。
+Linux Mint 22.3 x64向けの単体debが今回の主配布候補です。標準パッケージインストーラーで本体を導入し、メニューの「ツクハコ」から起動します。本体を導入できたことと、Docker等の開発準備が整ったことは別です。新debのMint GUI導入は本人の初回確認待ちです。UbuntuやDebianの実機合格には読み替えません。
 
 ## Docker Engine + Compose
 

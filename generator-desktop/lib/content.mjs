@@ -1,6 +1,7 @@
-import fs from 'node:fs/promises';import {constants} from 'node:fs';import {randomUUID} from 'node:crypto';import path from 'node:path';import {createHash} from 'node:crypto';
+import fs from 'node:fs/promises';import {constants,readFileSync} from 'node:fs';import {randomUUID} from 'node:crypto';import path from 'node:path';import {createHash} from 'node:crypto';
 import {desktopError} from '../security.mjs';
-const error=()=>desktopError('CONTENT_UNAVAILABLE','教材の版・場所・整合を確認できません。','正しい配布物を展開し直してください。');
+const productVersion=JSON.parse(readFileSync(new URL('../package.json',import.meta.url),'utf8')).version;
+const error=()=>desktopError('CONTENT_UNAVAILABLE','教材の版・場所・整合を確認できません。','ツクハコを閉じ、同じ版のインストーラーで再インストールしてください。携帯用の旧版では配布物を展開し直してください。');
 const digest=b=>createHash('sha256').update(b).digest('hex');
 export async function confinedRead(root,relative,limit=262144){
  if(typeof relative!=='string'||path.isAbsolute(relative)||relative.split(/[\\/]/).some(x=>!x||x==='.'||x==='..'))throw error();
@@ -11,7 +12,7 @@ export async function confinedRead(root,relative,limit=262144){
 }
 export class ContentLibrary{
  constructor(root){this.root=root;this.cache=new Map()}
- async index(){if(!this.manifest){this.manifest=JSON.parse(await confinedRead(this.root,'manifest.json',262144));if(this.manifest.appVersion!=='0.4.4'||this.manifest.version!=='0.4.4')throw error()}return this.manifest}
+ async index(){if(!this.manifest){const manifest=JSON.parse(await confinedRead(this.root,'manifest.json',262144));if(manifest.appVersion!==productVersion||manifest.version!==productVersion)throw error();this.manifest=manifest}return this.manifest}
  async chapter(lessonId,chapterId){const m=await this.index();const meta=m.lessons.find(l=>l.id===lessonId)?.chapters.find(c=>c.id===chapterId);if(!meta)throw error();const key=lessonId+'/'+chapterId;if(this.cache.has(key)){const v=this.cache.get(key);this.cache.delete(key);this.cache.set(key,v);return v}const bytes=await confinedRead(this.root,meta.file);if(bytes.length!==meta.bytes||digest(bytes)!==meta.sha256)throw error();const value={text:bytes.toString('utf8')};this.cache.set(key,value);while(this.cache.size>3)this.cache.delete(this.cache.keys().next().value);return value}
  async asset(id){const meta=(await this.index()).assets.find(a=>a.id===id);if(!meta||meta.mime!=='image/png')throw error();const bytes=await confinedRead(this.root,meta.file,1048576);if(bytes.length!==meta.bytes||digest(bytes)!==meta.sha256)throw error();return 'data:image/png;base64,'+bytes.toString('base64')}
  async external(lessonId,chapterId,href){const {text}=await this.chapter(lessonId,chapterId);let u;try{u=new URL(href)}catch{throw error()};if(u.protocol!=='https:'||u.username||u.password||!text.includes(']('+href+')')||/[\x00-\x20\x7f]/.test(href))throw error();return u.href}

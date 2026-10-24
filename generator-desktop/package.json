@@ -1,6 +1,6 @@
 {
   "name": "tsukuhako-desktop",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "private": true,
   "type": "module",
   "main": "main.mjs",
@@ -10,7 +10,9 @@
     "test": "node --test tests/*.test.mjs",
     "stage": "node ../tools/stage-desktop.mjs",
     "package:windows": "electron-builder --config electron-builder.json --win nsis --x64 --publish never",
-    "test:package": "node --test tests/packaging.check.mjs"
+    "test:package": "node --test tests/packaging.check.mjs",
+    "package:linux": "electron-builder --config electron-builder.linux.json --linux deb --x64 --publish never",
+    "curriculum": "node ../tools/build-curriculum.mjs"
   },
   "dependencies": {
     "markdown-it": "15.0.3",
@@ -26,5 +28,7 @@
     "typescript": "5.9.3",
     "vite": "8.3.4"
   },
-  "productName": "ツクハコ"
+  "productName": "ツクハコ",
+  "desktopName": "tsukuhako.desktop",
+  "homepage": "https://github.com/garchomp-game"
 }

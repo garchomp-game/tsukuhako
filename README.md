@@ -1,22 +1,20 @@
-# ツクハコ 0.4.4
+# ツクハコ 0.4.5
 
 学習用の開発環境を作り、同梱教材で起動・最初の変更・復元まで進むReact/Electronアプリです。明鏡の公式アプリではありません。
 
-0.4.4の配布候補は **Windows x64（NSIS exe）とLinux x64（tar.gz）** です。Windowsは未署名で、Server 2022 CIの導入・教材表示・削除・隔離読書データ保持を確認済み。Win11通常ユーザーと実WSLの開発経路は未確認で、初回販売に含める範囲は判断待ちです。Linux Mint 22.3で最終配布物の通常起動・教材UX・F2の初回準備・表示・編集・復元・再開を確認しました。macOS・ARMは対象外です。
+Linuxの主配布物を**単体deb**に変更しました。対象候補はLinux Mint 22.3 x64です。`tsukuhako-linux-amd64-0.4.5.deb`を標準のパッケージインストーラーで導入し、メニューの「ツクハコ」→「はじめて使う」へ進みます。通常画面にも「ガイド」があります。所有者のPCでの初回GUI導入・メニュー起動は確認待ちです。詳細な検証範囲は[0.4.5レポート](validation/linux-deb-0.4.5/REPORT.md)を参照してください。
 
-0.4.4では、狭い画面や200%表示の目次を折りたたみ、本文と操作が画面内に収まるようにしました。読書位置・キーボード操作・ヘルプ復帰も最終配布物で確認しています。主配布候補はOS別の**本体＋ガイド同梱ZIP**です。A採用4点セットをそのままapp/へ収め、00_START_HERE.htmlから導入案内と静的HTMLガイドへ進めます。一般受取人向けの保管先・窓口は未設定のため、案内はドラフトです。
+本体と55章の教材・ガイド、テンプレート、ファイル生成機能を同梱しています。本体を使うためのアカウント登録・ホストNode.js・Pythonは不要です。Docker・VS Code等の開発準備と、本体の導入完了は別です。最初の推奨構成はF2です。
 
-開発を始める際は、構成ターミナル本文の「準備完了」と初期構成の正常終了を確認してから `npm run dev` へ進みます。生成先のSTART_HERE.mdに具体的な保存先・ポートがあります。I1はDB用の別手順で、生成済みプロジェクトは自動更新しません。
+- [短い導入・更新・削除案内](docs/linux-deb/INSTALL.txt)
+- [制作・再現手順とWindowsの扱い](generator-desktop/README.md)
+- [購入者向け受取先の準備手順](docs/linux-deb/UPLOAD.md)（外部配布は未実施）
+- [Brain・ガイドの制作メモ](docs/launch/SUNDAY-PACK.md) / [原稿等](docs/launch/REPORT.md) / [任意メールのローカル試作](web/README.md)
 
-- 配布手順、署名、Windowsのインストール・削除の扱い: [Desktop README](generator-desktop/README.md)
-- OS別の検証結果と配布物: [0.4.4レポート](validation/release-0.4.4/REPORT.md) / [5〜10分の試用](validation/release-0.4.4/TRY-5-10-MIN.md)
-- 受取先の判断とアップロード下書き: [配布経路](validation/release-0.4.4/DELIVERY.md)
-- 採用する4点セットと追加レビュー: [担当Aレポート](validation/release-0.4.4-followup/REPORT.md) / [受取チェックリスト](validation/release-0.4.4-followup/DELIVERY-CHECKLIST.md)
-- Brain本文・任意メールのローカル準備: [A・B・C統合レポート](validation/launch-abc-2026-10-22/REPORT.md) / [原稿](docs/launch/REPORT.md) / [試作の起動方法](web/README.md)
-- 10月25日向け本体＋ガイド同梱候補（梱包b1、ガイドr2）: [同梱レポート](validation/sunday-bundle-2026-10-25/REPORT.md) / [制作手順](docs/launch/SUNDAY-PACK.md) / [入口原稿](docs/launch/sunday-pack/START_HERE.md)。[旧別梱包のレポート](validation/sunday-pack-2026-10-25/REPORT.md)と[投稿ネタ帳](docs/launch/POST-IDEAS.md)は保持。一般向けの公開は保留です。
-- 旧0.4.2の6構成実機記録: [Linux初回操作](validation/onboarding-0.4.2/20261021T0919-JST/REPORT.md)。新版やWindowsの合格へ読み替えません。
-- F1/F2/B1/S1/S2/I1が生成対象、S3は参考資料。テンプレートZIP自体は変更していません。
+Windowsの既存候補は0.4.4（未署名NSIS）のままです。今回Windows成果物は再生成していません。Windows 11通常ユーザーと実WSL経路は確認待ちです。macOS・ARM・他のLinuxディストリビューションは今回の対応確認対象外です。
 
-制作側はDesktop READMEのコマンド、または手動の [Desktop validation artifacts](.github/workflows/desktop-validation.yml) で作成します。OS別のprivate Actions artifactとして取得でき、公開Releaseへ自動公開しません。製品commitと各成果物のSHA-256はmanifestへ記録します。
+F1/F2/B1/S1/S2/I1が生成対象、S3は参考資料です。テンプレートZIP自体は変更していません。生成済みプロジェクトは自動更新しません。
 
-ソース管理は [garchomp-game/tsukuhako](https://github.com/garchomp-game/tsukuhako)（private）。依存フォルダ・製品ランタイム・大容量配布物・実際の.envはGitに追加しません。公開販売・課金・公開ストレージへのアップロードは行っていません。
+過去の検証記録：[0.4.4](validation/release-0.4.4/REPORT.md)、[担当A](validation/release-0.4.4-followup/REPORT.md)、[A・B・C](validation/launch-abc-2026-10-22/REPORT.md)、[旧b1同梱ZIP](validation/sunday-bundle-2026-10-25/REPORT.md)。過去版の成功を0.4.5の実機証拠へ読み替えません。
+
+ソースは[garchomp-game/tsukuhako](https://github.com/garchomp-game/tsukuhako)（private）で管理します。依存フォルダ・製品ランタイム・大容量配布物・実際の.envをGitへ追加しません。公開販売・課金・公開ストレージへのアップロードは行っていません。

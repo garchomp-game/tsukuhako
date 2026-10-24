@@ -18,7 +18,7 @@ export async function stageDesktop(destination = path.join(root, 'dist/desktop-a
   fs.mkdirSync(destination, {recursive: true});
   const copy = (from, to) => fs.cpSync(from, to, {recursive: true, dereference: false});
   for (const f of ['main.mjs','preload.cjs','worker.mjs','security.mjs','build','lib','adapters','wsl-helper','README.md']) copy(path.join(gui,f),path.join(destination,f));
-  fs.writeFileSync(path.join(destination,'package.json'), JSON.stringify({name:pkg.name,productName:pkg.productName,version:pkg.version,main:pkg.main,type:'module',description:'ツクハコ — 作る・学ぶ・困ったとき',author:'ツクハコ',private:true}, null, 2)+'\n');
+  fs.writeFileSync(path.join(destination,'package.json'), JSON.stringify({name:pkg.name,productName:pkg.productName,version:pkg.version,main:pkg.main,type:'module',description:'ツクハコ — 作る・学ぶ・困ったとき',author:'ツクハコ',private:true,desktopName:pkg.desktopName,homepage:pkg.homepage}, null, 2)+'\n');
   const bundle = path.join(destination,'bundle');
   fs.mkdirSync(bundle);
   for (const f of ['catalog.json','curriculum','generator/src','generator/package.json','generator/node_modules/fflate']) copy(path.join(root,f),path.join(bundle,f));

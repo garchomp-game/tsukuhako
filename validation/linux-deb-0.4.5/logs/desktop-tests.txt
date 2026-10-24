@@ -1,0 +1,38 @@
+
+> tsukuhako-desktop@0.4.5 test
+> node --test tests/*.test.mjs
+
+✔ Guide: existing content API loads five canonical chapters and resolves their uppercase source links (28.972814ms)
+✔ Guide: the unchanged settings and chapter IPC contracts preserve a guide chapter, position and WSL selection (21.187921ms)
+✔ L01/L05/L10: metadata only, 50 lazy chapters with hashes and bounded cache (34.340278ms)
+✔ L05: traversals, symlinks, oversized and changed content rejected (6.253893ms)
+✔ L09: reading settings serialized, no generation inputs persisted (10.012351ms)
+✔ L05/P12: content and preparation IPC has no arbitrary path or command (0.577605ms)
+✔ P02/P03: WSL Unicode/localized lists, spaces, stopped, internal exclusion (2.515681ms)
+✔ P05: WSL Linux paths, literal metacharacters, forbidden Windows paths (0.574439ms)
+✔ P03/P12: default root and WSL1 refused; only selected distro arguments (1.771746ms)
+✔ P09/P12: preparation abort sends a cancellation for only its structured helper job (5.889428ms)
+✔ P04: unknown vs absent vs stopped vs permissions; no remote server contact (3.402638ms)
+✔ P04/P07: Linux containers and required extensions differentiated (1.050182ms)
+✔ P09: timeout, abort, output limit; only own process group stopped (231.151132ms)
+✔ P06: portable cksum preserves every existing identity (15.885222ms)
+✔ L04/P08/P12: cooperative cancellation rolls back only own output (45.403562ms)
+✔ version mismatch is rejected on every access and never cached (1.589025ms)
+✔ G13 IPC: exact sender, main frame and local URL are all required (1.595181ms)
+✔ G13 IPC: fixed methods, strict bounded arguments; shell/root/files/hooks cannot be supplied (1.359284ms)
+✔ UX: WSL observations survive routing and all Docker states go to Windows setup (1.924492ms)
+✔ UX: re-list preserves valid distro, clears removed candidates, selects a sole new candidate (0.345833ms)
+✔ UX: source references are not actionable, chapter links round-trip, malformed paths do not throw (2.349027ms)
+✔ UX: all shipped chapter links resolve, source references exist or are labelled as historical (39.965748ms)
+✔ UX: help follows the current lesson and falls back to setup (0.331204ms)
+✔ UX: generated first steps use actual ports, target version and safely quoted directory for every template (1.323631ms)
+✔ UX: clearing a WSL selection still allows reading position to be saved (0.523539ms)
+✔ R041-3: missing S2 tools retain observations and reach the additional setup via Windows (9.348022ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 689.921236

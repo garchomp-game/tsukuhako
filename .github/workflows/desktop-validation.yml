@@ -1,6 +1,13 @@
 name: Desktop validation artifacts
 on:
   workflow_dispatch:
+    inputs:
+      platform:
+        description: Build only the selected OS (Windows 0.4.5 is unverified)
+        type: choice
+        options: [linux, windows]
+        default: linux
+        required: true
 permissions:
   contents: read
 concurrency:
@@ -8,15 +15,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   package:
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - os: ubuntu-24.04
-            platform: linux
-          - os: windows-2022
-            platform: windows
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ inputs.platform == 'windows' && 'windows-2022' || 'ubuntu-24.04' }}
     timeout-minutes: 25
     env:
       CSC_IDENTITY_AUTO_DISCOVERY: 'false'
@@ -32,26 +31,26 @@ jobs:
       - run: npm ci --prefix generator
       - run: npm ci --prefix generator-desktop
       - run: npm ci --prefix tools
-        if: matrix.platform == 'windows'
+        if: inputs.platform == 'windows'
       - run: node generator-desktop/node_modules/electron/install.js
       - run: npm run build --prefix generator-desktop
-      - run: python tools/build-helper-044.py
+      - run: python tools/build-helper.py
       - run: node tools/stage-desktop.mjs
       - run: python tools/verify-helper-archive.py dist/desktop-app
       - name: Core and desktop regression tests (Linux)
-        if: matrix.platform == 'linux'
+        if: inputs.platform == 'linux'
         run: |
           npm test --prefix generator
           npm test --prefix generator-desktop
           npm run test:package --prefix generator-desktop
-      - name: Linux tar.gz
-        if: matrix.platform == 'linux'
-        run: python tools/package-desktop-044.py
+      - name: Linux x64 deb
+        if: inputs.platform == 'linux'
+        run: npm run package:linux --prefix generator-desktop
       - name: Windows x64 NSIS
-        if: matrix.platform == 'windows'
+        if: inputs.platform == 'windows'
         run: npm run package:windows --prefix generator-desktop
       - name: Inspect packaged Windows resources and unsigned installer
-        if: matrix.platform == 'windows'
+        if: inputs.platform == 'windows'
         shell: pwsh
         run: |
           node tools/verify-desktop-bundle.mjs dist/windows-x64/win-unpacked/resources/app
@@ -67,14 +66,14 @@ jobs:
       - name: Installed Windows application smoke
         id: windowsSmoke
         continue-on-error: true
-        if: matrix.platform == 'windows'
+        if: inputs.platform == 'windows'
         timeout-minutes: 7
         shell: pwsh
         run: |
           $installer = Get-Item dist/windows-x64/*-setup.exe
           ./tools/windows-installer-smoke.ps1 -Installer $installer.FullName
       - name: Windows smoke evidence (also on failure)
-        if: always() && matrix.platform == 'windows'
+        if: always() && inputs.platform == 'windows'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: tsukuhako-windows-smoke-evidence
@@ -82,17 +81,17 @@ jobs:
           retention-days: 14
           if-no-files-found: warn
       - name: Assemble Windows recipient folder
-        if: matrix.platform == 'windows'
+        if: inputs.platform == 'windows'
         shell: pwsh
         run: |
           $installer = Get-Item dist/windows-x64/*-setup.exe
           node tools/delivery-pack.mjs $installer.FullName windows dist/delivery/windows
           if ($LASTEXITCODE -ne 0) { throw 'Delivery pack failed' }
       - name: Assemble Linux recipient folder
-        if: matrix.platform == 'linux'
-        run: node tools/delivery-pack.mjs dist/tsukuhako-linux-x64-0.4.4.tar.gz linux dist/delivery/linux
+        if: inputs.platform == 'linux'
+        run: node tools/linux-deb/deliver.mjs dist/linux-deb/tsukuhako-linux-amd64-0.4.5.deb dist/delivery/linux
       - name: Windows recipient download (private; no release publishing)
-        if: matrix.platform == 'windows'
+        if: inputs.platform == 'windows'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: tsukuhako-windows-x64-delivery
@@ -101,7 +100,7 @@ jobs:
           compression-level: 0
           if-no-files-found: error
       - name: Linux recipient download (private; no release publishing)
-        if: matrix.platform == 'linux'
+        if: inputs.platform == 'linux'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: tsukuhako-linux-x64-delivery
@@ -110,6 +109,6 @@ jobs:
           compression-level: 0
           if-no-files-found: error
       - name: Report a failed smoke after preserving artifacts
-        if: matrix.platform == 'windows' && steps.windowsSmoke.outcome == 'failure'
+        if: inputs.platform == 'windows' && steps.windowsSmoke.outcome == 'failure'
         shell: pwsh
         run: throw 'Installed Windows smoke did not pass; artifacts and partial evidence were retained'

@@ -1,65 +1,63 @@
-# ツクハコ Desktop 0.4.4
+# ツクハコ Desktop 0.4.5
 
-学習用の開発環境を作り、同梱教材で起動・変更・復元まで進むアプリです。明鏡の公式アプリではありません。教材閲覧とファイル生成にアカウント登録・ホストNode.js・ネット接続は不要です。初回の開発環境構築にはネット接続が必要です。
+開発環境のファイルを作り、同梱教材で起動・変更・復元まで進むアプリです。明鏡の公式アプリではありません。
 
-## 今回の配布対象
+## Linuxの導入と保存場所
 
-- Windows 11 x64: `tsukuhako-windows-x64-0.4.4-setup.exe`。NSISのユーザー単位インストール。未署名の検証用です。Windows 11の通常ユーザー実機、初回警告、F2/S2の完走、実WSL/DBの削除後保持は未確認です。Windows Server CIで導入・教材表示・削除・隔離読書データ保持を補助検証します。結果は版別レポートを参照し、Win11実機合格と区別します。
-- Linux x64: `tsukuhako-linux-x64-0.4.4.tar.gz`。展開したフォルダの `tsukuhako` を一般ユーザーで起動します。確認対象はLinux Mint 22.3。未導入PCや他ディストリビューションの動作を保証するものではありません。
-- macOS・ARM・deb・AppImage・自動更新は今回の対象外です。既存のmacOS教材は参考として残しています。
+主配布物は `tsukuhako-linux-amd64-0.4.5.deb`。最初の対象候補はLinux Mint 22.3 x64です。ファイルマネージャーからdebを開き、標準の「パッケージインストーラー」（Captain）で導入して、メニューの「ツクハコ」から起動します。所有者による通常GUI経路は確認待ちです。短い導入案内は配布フォルダのINSTALL.txt、検証結果はソース側のvalidation/linux-deb-0.4.5/REPORT.mdを参照してください。
 
-OSの保護機能やElectron sandboxを無効化せず、停止や警告が出た場合は内容を記録してください。Windowsでは通常のWindowsユーザーでインストールし、スタートメニューの「ツクハコ」から起動します。
+本体は `/opt/tsukuhako`、メニューは `tsukuhako.desktop`、パッケージ・実行ファイル名は `tsukuhako`、appIdは `jp.tsukuhako.desktop` です。導入時の管理者認証はシステムへの配置に必要です。普段は通常ユーザーで起動します。Node.js・npm・Python・ビルドツールは利用者のPCへ要求しません。OSの実行時ライブラリはdebの依存で取得するため、初回導入時には通信が必要な場合があります。
 
-## Windowsの保存場所と削除
+設定は従来の `appData/tsukuhako`（通常 `~/.config/tsukuhako`）に保存します。生成先はユーザーのフォルダです。インストール先へログ・設定・プロジェクトを書きません。本体とメニューをパッケージ管理画面で削除しても、読書設定、生成プロジェクト、Dockerデータは残します。新debでの更新・再導入でも保全します。旧tar版を自動で探して削除しません。
 
-Windowsのアプリから選んだWSL 2の通常ユーザーを使います。Docker DesktopのWSL Integrationも同じdistroを選びます。rootやdocker-desktopを開発先にしません。生成先は選択WSLのHOME配下です。アプリのインストールフォルダは保存先・作業キャッシュに使いません。
+Electron sandboxとウィンドウのsandboxを有効に保ちます。electron-builderの標準保守スクリプトが実行ファイルの登録、chrome-sandboxの権限、必要時にアプリ固有のAppArmor profileを扱います。OS全体の保護を無効にせず、Docker・VS Code・グループ権限を変更しません。実際に生成したスクリプトと隔離試験結果はレポートへ記録します。
 
-「WSL用ファイルを準備」で、同梱のLinux x64 Node・共有コア・テンプレートを `~/.tsukuhako-helper/0.4.4-linux-x64` に配置します。アーカイブ・manifest・実行ファイルのSHA-256を照合します。不完全な同じ版を自動削除せず、利用者が確認して退避した後で再配置します。OSパッケージ・既定distro・シェル設定は変更しません。
+## はじめて使う・教材
 
-Windowsの「インストールされているアプリ」でツクハコをアンインストールしても、生成プロジェクト、WSL、Dockerデータ・ボリュームは削除しない構成です。WSLの `.tsukuhako-helper` とWindowsの `%APPDATA%/tsukuhako`（読書位置など）は残します。環境や旧版ヘルパーの自動掃除はしません。既定の保存先と実WSL/DBを含む保持動作のWindows 11実機確認は残っています。
+最初の「作る」画面で「はじめて使う」を選びます。上部の「ガイド」からも読めます。START_HERE / FIRST-RUN / TROUBLESHOOTING / NEXT-STEP / FEEDBACKの5正本を既存の教材ビューアへ収め、ダウンロードしたdebを移動・削除した後もオフラインで読めます。登録・任意アンケート・コミュニティ参加は必須ではありません。
 
-## 教材の読み方
+本体の導入と開発準備は別です。最初の候補はF2。「準備チェック」でDocker・VS Code・拡張を確認します。診断は起動成功を保証するものではなく、実際のDev Container構築と画面表示は別途確認します。VS Codeのサインインはローカル学習には不要です。今生成したフォルダだけを信頼してください。
 
-狭い画面では「目次を開く」から教材・章を選び、「本文に戻る」またはEscで戻ります。広い画面では目次を横に表示します。本文のスクロール位置は目次の開閉・ヘルプ往復・アプリ再開で保持します。Ctrlと+（または=）で最大200%まで拡大、Ctrlと-で縮小、Ctrlと0で100%へ戻せます。本文領域へTabで移動し、PageDownやCtrl+Endでも読めます。
+F1/F2/B1/S1/S2はReopen in Containerのあと、構成ターミナルの「準備完了」と初期構成の正常終了を確認してから `npm run dev` を実行します。接続バッジやタブ名だけでは完了と判断しません。I1はDB専用手順です。生成先のSTART_HERE.mdには具体的な保存先とポートがあります。
 
-## 初回の進め方
+目次は狭い画面で折りたため、Escで本文に戻れます。読書位置はヘルプ往復・再起動で保持します。Ctrlと+ / -で拡大縮小、Ctrlと0で100%へ戻せます。
 
-VS Codeのサインインはローカル学習には不要です。信頼するのは今生成したフォルダだけです。拡張画面でMicrosoftのDev Containersを導入し、WindowsではWSL拡張も用意します。
+## Windows候補
 
-F1/F2/B1/S1/S2はReopen in Containerのあと、構成ターミナル本文の「準備完了」と初期構成処理の正常終了を確認してから `npm run dev` を実行します。接続バッジ・node_modules・Configuring...というタブ名だけでは完了と判断しません。処理中に別の `npm ci` を重ねません。早く実行して `next: not found` が出たら正常終了を待って再実行し、構成処理自体が失敗していればログと復旧教材を確認します。I1は専用のDB手順です。
+既存のWindows成果物は0.4.4の未署名NSISです。今回のLinux修正に伴う再生成は行いません。Windows Server CIの補助検証と、Windows 11通常ユーザー・実WSLの確認待ちを区別してください。既存候補の再現にはその版のcommitを使います。
 
-生成完了画面・START_HERE.md・教材の「最初の一歩」は同じ共有コアから案内します。アプリを終了してもプロジェクトは残り、VS CodeからそのSTART_HERE.mdを開いて再開できます。
+現在のソースで将来Windows版を作る場合、同じ0.4.5ステージとLinux x64 WSLヘルパーを使います。`~/.tsukuhako-helper/0.4.5-linux-x64` へ展開し、ハッシュを照合します。これはWindows 0.4.5の動作確認済みという意味ではありません。Windows用NSIS設定は変更していません。
 
 ## 制作側の再現手順
 
-Node 24.19.0、Python 3.12以降。Electron 44.9.1、electron-builder 26.15.3はlockfileで固定しています。
+Linuxビルド環境はNode 24.19.0（nvm）、Python 3.12（uv）、dpkg-deb、tar。Electron 44.9.1 / electron-builder 26.15.3はlockfile固定です。ビルダーが必要な補助ツールをキャッシュへ取得します。利用者側ではこの手順を実行しません。
 
 ```sh
 npm ci --prefix generator
 npm ci --prefix generator-desktop
 node generator-desktop/node_modules/electron/install.js
-node tools/build-curriculum-044.mjs
-python tools/build-helper-044.py
+node tools/build-curriculum.mjs
+uv run --no-project --python 3.12 python tools/build-helper.py
 npm run build --prefix generator-desktop
 npm test --prefix generator
 npm test --prefix generator-desktop
 ```
 
-製品ソースをcommitした後で `node tools/stage-desktop.mjs`。テスト中だけ `--allow-dirty` を使えますが、その状態の成果物は配布処理で拒否します。
+生成済み教材・helperのmetadataを含めて製品ソースをcommitし、作業ツリーをcleanにしてから実行します。テスト用の `--allow-dirty` で作ったステージは配布検査が拒否します。
 
 ```sh
 node tools/stage-desktop.mjs
 npm run test:package --prefix generator-desktop
-# Windows上
-npm run package:windows --prefix generator-desktop
-# Linux上
-python tools/package-desktop-044.py
+uv run --no-project --python 3.12 python tools/verify-helper-archive.py dist/desktop-app
+npm run package:linux --prefix generator-desktop
+node tools/linux-deb/inspect.mjs dist/linux-deb/tsukuhako-linux-amd64-0.4.5.deb
+node tools/linux-deb/deliver.mjs dist/linux-deb/tsukuhako-linux-amd64-0.4.5.deb dist/delivery-linux-deb-0.4.5
 ```
 
-手動の `Desktop validation artifacts` workflowでも両方を作成できます。標準runnerのみ・各25分上限・成果物14日保持・OS別ダウンロードです。Windowsの補助検証は7分上限で、失敗時もログと作成済み配布物を残します。公開Releaseを作りません。
+隔離環境の更新・削除試験はtools/linux-debの検証ツールを使います。詳しい引数・条件はその冒頭と検証レポートを参照してください。所有者のPCへは先回りしてインストールしません。
 
-OS別の受取フォルダは製品1個・START_HERE.txt・manifest.json・SHA256SUMSの4ファイルです。`node tools/delivery-pack.mjs ARTIFACT linux|windows DESTINATION` で新しいフォルダへ作ります。受取人用の一般配布先・窓口は未決定です。private Actionsにはread権限と期限があるため、そのリンクだけで第三者が取得できるとは案内しません。
+手動の `Desktop validation artifacts` workflowはOSを選択し、既定でLinuxだけを生成します。private artifactを14日保持し、公開Releaseは作りません。ActionsのZIPは制作側の輸送用です。購入者の主入口は取り出した単体debにします。
 
-ASARは使用せず、`resources/app/main.mjs` を基準にUI・worker・共有コア・教材・テンプレート・ライセンス・WSLヘルパーを実ファイルで配置します。fflateは共有コアのnode_modules、React/Markdown関連コードはViteのUIへ同梱します。Nodeのライセンスはhelper.tar、Electronのライセンスは配布ルートに含まれます。`build-info.json` と `bundle-files.json` でソースcommit・版・同梱ファイルのハッシュを確認できます。
+Linux設定はelectron-builder.linux.json、Windows設定はelectron-builder.jsonです。共通ステージはASARを使用せず、worker・教材・テンプレート・ライセンスをresources/appへ配置します。Nodeのライセンスはhelper.tar、ElectronとChromiumはアプリ配布ルート、React/Markdown/fflateはthird-party、テンプレートの注意事項は各ZIPへ含めます。商品本文・ブランドの利用条件をOSSライセンスと混同しません。
 
-設定は [electron-builder.json](electron-builder.json)。[NSIS形式の公式説明](https://www.electron.build/v26/docs/targets/) と [Electron署名の説明](https://www.electronjs.org/docs/latest/tutorial/code-signing) に沿い、一般配布用の署名準備は別作業です。有料サービスや証明書は購入しません。
+build-info.jsonとbundle-files.jsonに版・ソースcommit・ファイルのSHA-256を記録します。購入者向けの受取先は未設置で、docs/linux-deb/UPLOAD.mdにアップロード手順を用意しています。

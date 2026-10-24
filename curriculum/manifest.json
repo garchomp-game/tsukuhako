@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "appVersion": "0.4.4",
-  "version": "0.4.4",
+  "appVersion": "0.4.5",
+  "version": "0.4.5",
   "lessons": [
     {
       "id": "F1",
       "title": "F1 · React + Vite + TypeScript",
-      "version": "0.4.4",
+      "version": "0.4.5",
       "templateVersion": "0.1.3",
       "chapters": [
         {
@@ -70,7 +70,7 @@
     {
       "id": "F2",
       "title": "F2 · Next.js + TypeScript + Tailwind",
-      "version": "0.4.4",
+      "version": "0.4.5",
       "templateVersion": "0.1.1",
       "chapters": [
         {
@@ -134,7 +134,7 @@
     {
       "id": "B1",
       "title": "B1 · Next.js Route Handlers API only",
-      "version": "0.4.4",
+      "version": "0.4.5",
       "templateVersion": "0.1.2",
       "chapters": [
         {
@@ -206,7 +206,7 @@
     {
       "id": "S1",
       "title": "S1 · Next.js + Route Handlers",
-      "version": "0.4.4",
+      "version": "0.4.5",
       "templateVersion": "0.1.2",
       "chapters": [
         {
@@ -278,7 +278,7 @@
     {
       "id": "S2",
       "title": "S2 · Next.js + local Supabase",
-      "version": "0.4.4",
+      "version": "0.4.5",
       "templateVersion": "0.1.2",
       "chapters": [
         {
@@ -342,7 +342,7 @@
     {
       "id": "I1",
       "title": "I1 · PostgreSQL + development workbench",
-      "version": "0.4.4",
+      "version": "0.4.5",
       "templateVersion": "0.1.0",
       "chapters": [
         {
@@ -414,7 +414,7 @@
     {
       "id": "setup",
       "title": "開発準備・困ったとき",
-      "version": "0.4.4",
+      "version": "0.4.5",
       "templateVersion": null,
       "chapters": [
         {
@@ -446,8 +446,8 @@
           "title": "Linuxの準備",
           "file": "setup/linux.md",
           "source": "linux.md",
-          "bytes": 1663,
-          "sha256": "0dd396d0b18af5a226c9b362304a1e57e5d1b60f67d340eaeaa3826cae759828"
+          "bytes": 1925,
+          "sha256": "55c741233ac806530a75a13c5d40e09ab2e451919bf02e877c812f8b856fc73c"
         },
         {
           "id": "trouble",
@@ -456,6 +456,54 @@
           "source": "trouble.md",
           "bytes": 1985,
           "sha256": "19c9bfb90389436d67ce299fa9960f90424a2a2f469f4318a71eeac6ac1f8841"
+        }
+      ]
+    },
+    {
+      "id": "guide",
+      "title": "はじめて使う・ガイド",
+      "version": "0.4.5",
+      "templateVersion": null,
+      "chapters": [
+        {
+          "id": "start",
+          "title": "入口と準備",
+          "file": "guide/start.md",
+          "source": "START_HERE.md",
+          "bytes": 5612,
+          "sha256": "f5d33a948349396ffed823cfc60eb09108e1b13871e1c85eedb08b89f3d4e983"
+        },
+        {
+          "id": "first-run",
+          "title": "F2の初回手順",
+          "file": "guide/first-run.md",
+          "source": "FIRST-RUN.md",
+          "bytes": 10146,
+          "sha256": "f6f3ef9e02973207076ccf74b4157d5b561606a2b3137216d3ceb1e12596b799"
+        },
+        {
+          "id": "troubleshooting",
+          "title": "困ったとき・再開",
+          "file": "guide/troubleshooting.md",
+          "source": "TROUBLESHOOTING.md",
+          "bytes": 7873,
+          "sha256": "bdd8300e9df2b7b4da50842002fcc00f5140b50726c15bc59265341c36aa68d3"
+        },
+        {
+          "id": "next-step",
+          "title": "任意：変更と復元",
+          "file": "guide/next-step.md",
+          "source": "NEXT-STEP.md",
+          "bytes": 1586,
+          "sha256": "1680b0fca9ae1e4675ccfbd0023ac026fa3520b45c8c0ee801283e723ef2dd1c"
+        },
+        {
+          "id": "feedback",
+          "title": "記録票",
+          "file": "guide/feedback.md",
+          "source": "FEEDBACK.md",
+          "bytes": 2261,
+          "sha256": "0919669f19fe6e223f01aaa3d1d39fae808f863321f6f2d1ad0c082707106bd3"
         }
       ]
     }

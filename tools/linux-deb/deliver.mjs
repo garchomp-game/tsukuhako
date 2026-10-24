@@ -1,0 +1,21 @@
+// Local recipient folder only. Does not publish, install or contact buyers.
+import fs from 'node:fs';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+import {inspectDeb} from './inspect.mjs';
+const [input,destination]=process.argv.slice(2);
+if(!input||!destination)throw Error('Usage: node tools/linux-deb/deliver.mjs ARTIFACT.deb NEW_DIRECTORY');
+const result=await inspectDeb(input),out=path.resolve(destination);
+if(fs.existsSync(out))throw Error('Use a new destination; existing deliveries are immutable');
+const name=`tsukuhako-linux-amd64-${result.control.Version}.deb`;
+fs.mkdirSync(out,{recursive:true});
+fs.copyFileSync(path.resolve(input),path.join(out,name));
+const copied=fs.readFileSync(path.join(out,name));
+assert.equal(copied.length,result.bytes,'Copied deb size changed');
+assert.equal(createHash('sha256').update(copied).digest('hex'),result.sha256,'Copied deb hash changed; do not distribute this incomplete folder');
+fs.writeFileSync(out+'/SHA256SUMS',`${result.sha256}  ${name}\n`);
+fs.copyFileSync(new URL('../../docs/linux-deb/INSTALL.txt',import.meta.url),out+'/INSTALL.txt');
+const manifest={schemaVersion:1,product:'ツクハコ',productVersion:result.control.Version,platform:'linux-amd64',initialTarget:'Linux Mint 22.3 x64',file:name,bytes:result.bytes,sha256:result.sha256,sourceCommit:result.bundle.sourceCommit,dirty:result.bundle.dirty,guideRevision:'2026-10-24-r3',delivery:'Single deb; do not wrap the primary download in another ZIP',staticInspection:'PASS',mintGuiInstall:'NOT_RUN',mintMenuLaunch:'NOT_RUN',buyerDownload:'NOT_RUN',runtimeEvidence:'See validation/linux-deb-0.4.5/REPORT.md; static inspection does not imply runtime approval',generatedAt:new Date().toISOString()};
+fs.writeFileSync(out+'/manifest.json',JSON.stringify(manifest,null,2)+'\n');
+console.log(JSON.stringify({status:'PASS',directory:out,...manifest},null,2));
