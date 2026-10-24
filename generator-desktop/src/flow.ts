@@ -10,12 +10,20 @@ export function selectDistro(distros: NonNullable<Preparation['distros']>, curre
 }
 
 export function helpChapter(index: Curriculum, id: string, chapterId?: string) {
-  if ((id === 'guide' || chapterId === 'first') && index.lessons.find(l => l.id === 'guide')?.chapters.some(c => c.id === 'troubleshooting')) {
+  if ((id === 'guide' || (id === 'F2' && chapterId === 'first')) && index.lessons.find(l => l.id === 'guide')?.chapters.some(c => c.id === 'troubleshooting')) {
     return {lessonId:'guide', chapterId:'troubleshooting'};
   }
   const lesson = index.lessons.find(l => l.id === id);
   const chapter = lesson?.chapters.find(c => ['recovery', 'troubleshooting', 'trouble'].includes(c.id));
   return chapter ? {lessonId: id, chapterId: chapter.id} : {lessonId: 'setup', chapterId: 'trouble'};
+}
+
+export function onboardingHelp(index:Curriculum, reading:Pick<Reading,'lessonId'|'chapterId'>, project?:Created, platform?:string) {
+  const current=projectForChapter(project,reading);
+  if(current&&(current.templateId!=='F2'||platform!=='linux')) {
+    return {lessonId:current.templateId,chapterId:'first',heading:'準備が足りないとき'};
+  }
+  return {...helpChapter(index,reading.lessonId,reading.chapterId),heading:''};
 }
 
 // Runtime tools are not prerequisites for writing files. On Windows the helper
@@ -38,7 +46,13 @@ const stateLabels:Record<string,string> = {ready:'利用可能',missing:'未導�
 export function preparationItem(check:Check, storageTemplateName='メモを保存するWeb画面') {
   const state = check.state;
   const item = {title:'開発環境の確認',purpose:check.reason,state,label:check.label || stateLabels[state] || '確認できない',action:check.nextAction,chapter:check.guide,heading:''};
-  if (check.id.startsWith('docker') || check.id === 'compose' || check.id === 'wsl-integration' || check.id === 'engine-compatibility') {
+  if (check.id === 'engine-compatibility') {
+    item.title = 'Docker実行方式の適合';
+    item.purpose = '検出したDockerの実行方式が、この構成で使えるかは別の確認です。';
+    if(state === 'unknown')item.label = '適合は未確認';
+    item.heading = 'dockerを使えるようにする';
+    item.action = '既存の設定を保ったまま、作成後の手順で対象サンプルの起動を確認します。';
+  } else if (check.id.startsWith('docker') || check.id === 'compose' || check.id === 'wsl-integration') {
     item.title = check.id === 'compose' ? 'Docker Compose' : 'Docker';
     item.purpose = 'サンプルを動かす環境を用意します。';
     item.heading = 'dockerを使えるようにする';

@@ -1,9 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {canCreateFiles,helpChapter,preparationItem,projectForChapter,readerContentKey} from '../src/flow.ts';
+import {canCreateFiles,helpChapter,onboardingHelp,preparationItem,projectForChapter,readerContentKey} from '../src/flow.ts';
 import {resolveProjectChapter} from '../src/links.ts';
 import {validatePayload} from '../security.mjs';
-const index={lessons:[{id:'guide',chapters:[{id:'first-run',source:'guides/FIRST-RUN.md'},{id:'troubleshooting',source:'guides/TROUBLESHOOTING.md'}]},{id:'F2',chapters:[{id:'first',source:'START_HERE.md'},{id:'recovery'}]},{id:'I1',chapters:[{id:'first',source:'START_HERE.md'}]}]};
+const index={lessons:[{id:'guide',chapters:[{id:'first-run',source:'guides/FIRST-RUN.md'},{id:'troubleshooting',source:'guides/TROUBLESHOOTING.md'}]},{id:'F2',chapters:[{id:'first',source:'START_HERE.md'},{id:'recovery'}]},{id:'I1',chapters:[{id:'first',source:'START_HERE.md'},{id:'troubleshooting',source:'docs/troubleshooting.md'}]}]};
 const project={templateId:'F2',destination:'/home/student/日本語 空白',guide:'# サンプル画面を表示する\n\n## VS Codeでフォルダーを開く\n\n## 開発サーバーを起動する\n',ports:{app:3987}};
 test('onboarding: missing runtime tools never block Linux file creation; Windows requires its selected helper',()=>{
  for(const state of ['missing','stopped','setup','restart','unknown'])assert.equal(canCreateFiles('linux',{checks:[{state}],dockerReady:false}),true);
@@ -38,4 +38,23 @@ test('onboarding: normal help opens symptom guidance and return links target the
  const sql={...project,templateId:'I1',guide:'# データベースに接続する'};
  assert.deepEqual(resolveProjectChapter(index,'guide','troubleshooting',href,sql),{lessonId:'I1',chapterId:'first',heading:''});
  assert.equal(resolveProjectChapter(index,'guide','troubleshooting','javascript:alert(1)',project),null);
+});
+
+test('onboarding: help uses the current project for non-Web or non-Linux guides, with no persisted anchor',()=>{
+ const first={lessonId:'F2',chapterId:'first'};
+ assert.deepEqual(onboardingHelp(index,first,project,'linux'),{lessonId:'guide',chapterId:'troubleshooting',heading:''});
+ for(const platform of ['win32','darwin',undefined])assert.deepEqual(onboardingHelp(index,first,project,platform),{lessonId:'F2',chapterId:'first',heading:'準備が足りないとき'});
+ const sql={...project,templateId:'I1'};
+ assert.deepEqual(onboardingHelp(index,{lessonId:'I1',chapterId:'first'},sql,'linux'),{lessonId:'I1',chapterId:'first',heading:'準備が足りないとき'});
+ assert.deepEqual(onboardingHelp(index,{lessonId:'I1',chapterId:'first'},undefined,'linux'),{lessonId:'I1',chapterId:'troubleshooting',heading:''});
+ assert.deepEqual(onboardingHelp(index,{lessonId:'I1',chapterId:'first'},project,'linux'),{lessonId:'I1',chapterId:'troubleshooting',heading:''});
+ const {heading,...destination}=onboardingHelp(index,first,project,'win32');
+ assert.ok(heading);assert.deepEqual(validatePayload('saveSettings',{view:'help',...destination,scroll:0}),{view:'help',lessonId:'F2',chapterId:'first',scroll:0});
+});
+test('onboarding: an observed Docker runtime with unverified compatibility is not described as possibly uninstalled',()=>{
+ const check={id:'engine-compatibility',state:'unknown',label:'確認できない',message:'desktop構成のテンプレート適合は別途確認が必要です。',reason:'Engineと異なる実行方式です。',nextAction:'対象構成で実起動を確認します。',guide:'linux'};
+ const item=preparationItem(check);
+ assert.equal(item.state,'unknown');assert.equal(item.label,'適合は未確認');assert.equal(item.heading,'dockerを使えるようにする');
+ assert.doesNotMatch(item.purpose+item.action,/未導入|インストール/);assert.match(item.action,/既存の設定/);assert.match(item.action,/起動/);
+ assert.equal(check.label,'確認できない');
 });
