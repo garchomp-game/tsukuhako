@@ -1,0 +1,114 @@
+{
+  "category": "EXTRACTED_DEB_ON_REAL_HOST",
+  "interaction": "AUTOMATED",
+  "result": "PASS",
+  "productVersion": "0.4.8",
+  "sourceCommit": "70137865ff26a925a7920098240558de651d68d0",
+  "dirty": false,
+  "helperVersion": "0.4.8",
+  "checkedAt": "2026-10-24T14:09:35.691Z",
+  "deb": "/home/garchomp-game/workspace/meikyo/tsukuhako-onboarding-20261024/dist/linux-deb/tsukuhako-linux-amd64-0.4.8.deb",
+  "debSha256": "5816980458c4f3b7a084fb18acc79c6057e13b382f2545711d97b59056429ce4",
+  "runtime": "/home/garchomp-game/workspace/meikyo/tsukuhako-onboarding-20261024/validation/onboarding-0.4.8/final/runs/startup-modes-dsppDv",
+  "records": [
+    {
+      "scenario": "F2 real generation defaults to 3000 with an immediate visible editor action",
+      "result": "PASS",
+      "destination": "/home/garchomp-game/workspace/meikyo/tsukuhako-onboarding-20261024/validation/onboarding-0.4.8/final/runs/startup-modes-dsppDv/日本語 親フォルダー/標準ポート 初回の画面",
+      "port": 3000,
+      "geometry": {
+        "adjacent": true,
+        "beforeTitle": true,
+        "viewport": {
+          "width": 1150,
+          "height": 853
+        },
+        "button": {
+          "top": 578.71875,
+          "bottom": 628.71875
+        },
+        "fullyVisible": true
+      },
+      "screenshot": "screenshots/01-default-quick-editor-action.png"
+    },
+    {
+      "scenario": "Actual VS Code received 標準ポート 初回の画面",
+      "result": "PASS",
+      "destination": "/home/garchomp-game/workspace/meikyo/tsukuhako-onboarding-20261024/validation/onboarding-0.4.8/final/runs/startup-modes-dsppDv/日本語 親フォルダー/標準ポート 初回の画面",
+      "title": "[TSUKUHAKO evidence] - 標準ポート 初回の画面 - Visual Studio Code",
+      "workspace": {
+        "file": "code-profile/User/workspaceStorage/465a96499a609d978c834a4fe43286bd/workspace.json",
+        "folder": "file:///home/garchomp-game/workspace/meikyo/tsukuhako-onboarding-20261024/validation/onboarding-0.4.8/final/runs/startup-modes-dsppDv/%E6%97%A5%E6%9C%AC%E8%AA%9E%20%E8%A6%AA%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80%E3%83%BC/%E6%A8%99%E6%BA%96%E3%83%9D%E3%83%BC%E3%83%88%20%E5%88%9D%E5%9B%9E%E3%81%AE%E7%94%BB%E9%9D%A2"
+      },
+      "wrapperInvocations": [
+        "2026-10-24T23:07:45+09:00 --version",
+        "2026-10-24T23:07:45+09:00 --list-extensions",
+        "2026-10-24T23:07:45+09:00 --version",
+        "2026-10-24T23:07:45+09:00 --list-extensions",
+        "2026-10-24T23:07:47+09:00 -- /home/garchomp-game/workspace/meikyo/tsukuhako-onboarding-20261024/validation/onboarding-0.4.8/final/runs/startup-modes-dsppDv/日本語\\ 親フォルダー/標準ポート\\ 初回の画面"
+      ]
+    },
+    {
+      "scenario": "Guided/quick, offline help return and complete native clipboard copy preserve the real project",
+      "result": "PASS",
+      "guideSha256": "1069be324b0fb7b35091d9b301e248de2a251527aa92f693b5adabcb9295e5cd",
+      "exactGuideCopy": true,
+      "exactUrlCopy": true,
+      "screenshot": "screenshots/03-quick-after-help.png"
+    },
+    {
+      "scenario": "Explicit 3311 preserves the new project and explains container port 3000",
+      "result": "PASS",
+      "destination": "/home/garchomp-game/workspace/meikyo/tsukuhako-onboarding-20261024/validation/onboarding-0.4.8/final/runs/startup-modes-dsppDv/日本語 親フォルダー/変更ポート 次の画面",
+      "port": 3311,
+      "screenshot": "screenshots/04-custom-port-quick.png"
+    },
+    {
+      "scenario": "Actual process restart persists quick preference and clears generated open target",
+      "result": "PASS",
+      "screenshot": "screenshots/06-restarted-reference-guide.png"
+    }
+  ],
+  "rendererErrors": [],
+  "closures": [
+    {
+      "kind": "dedicated-code-process",
+      "pid": 1046329,
+      "status": "PASS",
+      "exited": true,
+      "cleanupSignal": null
+    },
+    {
+      "pid": 1045842,
+      "status": "PASS",
+      "requestIssued": true,
+      "timedOut": false,
+      "exitCode": 0,
+      "signal": null,
+      "cleanup": [],
+      "cleanupComplete": true,
+      "reason": "NORMAL_EXIT",
+      "kind": "tsukuhako"
+    },
+    {
+      "pid": 1049216,
+      "status": "PASS",
+      "requestIssued": true,
+      "timedOut": false,
+      "exitCode": 0,
+      "signal": null,
+      "cleanup": [],
+      "cleanupComplete": true,
+      "reason": "NORMAL_EXIT",
+      "kind": "tsukuhako"
+    }
+  ],
+  "sandbox": "ENABLED; no bypass flags",
+  "hostInstallation": "NOT_RUN",
+  "dockerAndSampleRuntime": "NOT_RUN",
+  "windows": "NOT_RUN",
+  "humanAcceptance": "利用者確認待ち",
+  "secondActualCodeTarget": "NOT_VERIFIED; fixture covers target replacement",
+  "resumedFrom": "/home/garchomp-game/workspace/meikyo/tsukuhako-onboarding-20261024/validation/onboarding-0.4.8/final/runs/startup-modes-dsppDv/before-restart-result.json",
+  "previousHarnessLimitation": "Error: Timeout 20000ms exceeded while waiting on the predicate"
+}

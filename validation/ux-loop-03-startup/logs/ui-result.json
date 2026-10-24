@@ -52,6 +52,19 @@
       }
     },
     {
+      "scenario": "390px detail override to guided preference keeps the same full guide and visible keyboard focus",
+      "result": "PASS",
+      "detailToGuidedFocus": {
+        "top": 518.859375,
+        "bottom": 531.859375,
+        "optionTop": 499.859375,
+        "optionBottom": 573.453125,
+        "readerTop": 230.171875,
+        "readerBottom": 844,
+        "visible": true
+      }
+    },
+    {
       "scenario": "default 3000 omits mismatch prose; new project changes the editor target",
       "result": "PASS"
     },

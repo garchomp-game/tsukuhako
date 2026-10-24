@@ -1,0 +1,49 @@
+{
+  "checkedAt": "2026-10-24T14:10:03.044Z",
+  "result": "PASS",
+  "processes": [
+    {
+      "pid": 1039940,
+      "exited": true
+    },
+    {
+      "pid": 1040474,
+      "exited": true
+    },
+    {
+      "pid": 1042107,
+      "exited": true
+    },
+    {
+      "pid": 1042630,
+      "exited": true
+    },
+    {
+      "pid": 1045842,
+      "exited": true
+    },
+    {
+      "pid": 1046329,
+      "exited": true
+    },
+    {
+      "pid": 1046939,
+      "exited": true
+    },
+    {
+      "pid": 1049216,
+      "exited": true
+    }
+  ],
+  "manualCleanup": {
+    "pid": 1046939,
+    "verifiedProfile": "/home/garchomp-game/workspace/meikyo/tsukuhako-onboarding-20261024/validation/onboarding-0.4.8/final/runs/startup-modes-dsppDv/code-profile",
+    "signals": [
+      "SIGTERM",
+      "SIGKILL"
+    ],
+    "reason": "Second dedicated Code instance retained inherited debugging descriptor after unverified second-open attempt"
+  },
+  "dedicatedDesktop": "Kept running for parent",
+  "ordinaryUserApps": "Not targeted"
+}

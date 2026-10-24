@@ -4,14 +4,15 @@
 
 ## 画面テスト
 
-実際の生成ロジックによるガイドを使い、ホスト操作を模擬したElectron画面テスト：**12/12 PASS、描画エラー0件**。[結果](logs/ui-result.json)
+実際の生成ロジックによるガイドを使い、ホスト操作を模擬したElectron画面テスト：**13/13 PASS、描画エラー0件**。[結果](logs/ui-result.json)
 
 - 1150×900で主ボタンがスクロール前に見え、接続先の直下・タイトルの前にある。
 - 詳しい/簡潔な表示、終了・再開の詳細、ヘルプ往復、設定再読込でプロジェクトや選択を保持。
 - エラーを表示の切替で消さず、リトライ先は直近の生成先だけ。コピーは完全な手順。
 - 標準3000/変更3311、S2のDB起動順、I1のSQL専用手順、Windowsの選択WSLを維持。
 - 390pxで横はみ出しなし。キーボード操作と表示切替の焦点を保持。目次開閉中の幅変更、ヘルプから特定見出しへの移動も確認。
+- 簡潔表示から詳細を一時表示し、そのまま詳しい表示へ切り替える経路でも、選択ラベル全体と焦点を画面内に保持。
 
-[通常幅](screenshots/quick-primary-1150.png) / [狭い幅](screenshots/quick-390.png) / [切替の焦点](screenshots/mode-switch-focus-390.png)
+[通常幅](screenshots/quick-primary-1150.png) / [狭い幅](screenshots/quick-390.png) / [切替の焦点](screenshots/mode-switch-focus-390.png) / [詳細からの切替](screenshots/detail-to-guided-focus-390.png)
 
 この記録は開発版画面のfixture検証。実VS Code・実WSL・最終debの動作を意味しない。製品版0.4.8のビルド・最終実物の確認結果は [配布候補レポート](../onboarding-0.4.8/REPORT.md) に分けて記載する。
