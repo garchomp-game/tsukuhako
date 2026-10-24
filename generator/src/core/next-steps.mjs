@@ -17,6 +17,7 @@ const link = (key, label = GUIDE_HEADINGS[key]) => `[${label}](#${GUIDE_ANCHORS[
 const recoveryFor = id => id === 'I1' ? 'docs/recovery.md' : 'docs/RECOVERY.md';
 const setupFor = id => id === 'I1' ? 'docs/setup.md' : 'docs/SETUP.md';
 const platformFor = platform => platform === 'win32' ? 'win32' : platform === 'darwin' ? 'darwin' : 'linux';
+const headingAnchor = title => title.toLowerCase().trim().replace(/[^\p{L}\p{N}\s_-]/gu, '').replace(/\s+/g, '-');
 // A path can legally contain backticks. A longer fence keeps the copied shell command intact.
 function codeBlock(value, language = 'sh') {
   const length = Math.max(3, ...[...String(value).matchAll(/`+/g)].map(match => match[0].length + 1));
@@ -55,7 +56,7 @@ export function nextSteps(id, ports, {platform = process.platform} = {}) {
   add('open', GUIDE_HEADINGS.open, 'editor', open + ' 信頼の確認が出たら、保存先が自分で生成したフォルダーであることを確認して信頼します。「Restricted Mode」（制限モード）が表示される場合も、そのフォルダーだけを確認して信頼します。ローカル学習にVS Codeのサインインは不要です。',
     {expected:'VS Codeのエクスプローラーに、このフォルダーのSTART_HERE.mdとREADME.mdが表示されます。'});
   add('connect', GUIDE_HEADINGS.connect, 'editor',
-    `${shortcut}でコマンドパレットを開き、「Dev Containers: Reopen in Container」を検索して選びます。初回はイメージの取得と環境の作成を待ちます。コマンドがない場合は${link('missingPreparation')}へ進みます。`,
+    `未接続なら通知の「Reopen in Container」を選びます。通知がなければ${shortcut}でコマンドパレットを開き、「Dev Containers: Reopen in Container」を検索して選びます。このフォルダーのコンテナーに接続済みなら、開き直さず次へ進みます。初回はイメージの取得と環境の作成を待ちます。コマンドがない場合は${link('missingPreparation')}へ進みます。`,
     {expected:'VS Code左下にDev Containerへの接続が表示され、/workspaceのファイルが開きます。接続表示だけでは初期処理の完了ではありません。'});
   const initializationMarker = id === 'I1' ? '「PASS: otoka_learning / PostgreSQL」に続くバージョン' : '「準備完了」';
   add('initialize', GUIDE_HEADINGS.initialize, 'editor',
@@ -95,6 +96,18 @@ export function nextSteps(id, ports, {platform = process.platform} = {}) {
   add('lesson', `練習の教材へ進む（最初の変更は${exercise.section}）`, 'editor', '続けたいときに、次の練習を選びます。', {document:exercise.lesson}, 'reference');
   const documents = [['readme','全体の使い方','README.md'], ...(id === 'I1' ? [] : [['build','空から組み立てる','docs/BUILD-YOUR-OWN.md']]), ['recovery','停止・復旧',recoveryFor(id)]];
   for (const [key,title,document] of documents) add(key, title, 'editor', '手動配置向けの設定手順も含む補助資料です。今回の生成済みフォルダーでは.envと.devcontainerを作り直さず、このSTART_HERE.mdを起点にします。', {document}, 'reference');
+  const summaries = {
+    prepare:'このフォルダーで設定とDockerを確認します。エラーがあれば、対処してから進みます。',
+    databaseStart:'コンテナーで開き直す前に、ローカルDBを起動し、正常終了を待ちます。',
+    open:(os === 'win32' ? '生成に使ったWSLへWindows側のVS Codeで接続し、今回の保存先を開きます。' : 'VS Codeで今回の保存先を開きます。') + '信頼の確認が出た場合は、このフォルダーだけを確認して信頼します。',
+    connect:`未接続なら通知の「Reopen in Container」を選びます。通知がなければ${shortcut}から「Dev Containers: Reopen in Container」。このフォルダーのコンテナーに接続済みなら次へ進みます。`,
+    initialize:`構成ターミナルの${initializationMarker}と、初期処理の正常終了を確認します。処理中・エラー時は次へ進みません。`,
+    databaseSetup:'新しいターミナルでサンプルデータを準備します。pwdが/workspaceであることを確認します。',
+    databaseCheck:'サンプルDBでSQLの主要操作を確認します。試験内の変更は元へ戻ります。',
+    server:'初期処理が正常終了したら、新しいターミナルで実行します。pwdが/workspaceであることを確認し、起動したまま次へ進みます。',
+    verify:firstAction,
+  };
+  for (const step of steps) if (step.phase === 'required') step.summary = summaries[step.key];
   return steps;
 }
 
@@ -117,6 +130,43 @@ function renderStep(step, options, level = 2, introduction = '') {
   return text;
 }
 
+function connectionSummary(id, ports) {
+  if (id === 'I1') return `DBの接続先：\`localhost:${ports.database}\`。SQLの操作は、下記のコンテナー内ターミナルで行います。\n\n`;
+  const presentation = presentationFor(id);
+  let text = `${id === 'B1' ? '起動後に確認するAPIのURL' : '起動後にブラウザーで開くURL'}：\`http://localhost:${ports.app}${presentation.route}\`\n\n`;
+  if (ports.app !== 3000) text += `ターミナルに「3000」と表示されても正常です。${id === 'B1' ? 'PC側からのAPI確認には' : 'ブラウザーでは'}上のURLを使います。\n\n`;
+  return text;
+}
+
+function platformNotice(os) {
+  if (os === 'win32') return 'Windows 11と実WSLでの利用は実機未確認です。この案内のホスト用コマンドは、生成時に選択したWSLの通常ユーザーで実行します。\n\n';
+  if (os === 'darwin') return 'macOSは今回の配布・実機確認の対象外です。この案内は後続対応の参考です。\n\n';
+  return '';
+}
+
+function startupOverview(steps) {
+  return '## まず行う操作\n\n' + steps.filter(step => step.phase === 'required')
+    .map((step, i) => `${i + 1}. [${step.title}](#${headingAnchor(step.title)}) — ${step.summary}`).join('\n') + '\n\n';
+}
+
+// The compact UI renders the same required steps as the saved full guide. Links
+// to recovery/stop/resume intentionally open the matching full-guide section.
+export function quickStart(plan, {platform = process.platform, includeContext = true} = {}) {
+  const id = plan.request.templateId, presentation = presentationFor(id), options = {platform};
+  const steps = nextSteps(id, plan.ports, options).filter(step => step.phase === 'required');
+  let text = `# ${presentation.name}：${presentation.firstGoal}\n\n必要な操作と確認結果だけを表示します。コンテナーとサンプルの起動は、これから行います。初回のイメージ・依存取得にはネット接続が必要です。\n\n`;
+  if (includeContext) text += '## 今回のプロジェクト\n\n保存先：\n\n' + codeBlock(plan.destination, 'text') + connectionSummary(id, plan.ports);
+  text += '.envと.devcontainerは生成済みです。作り直す必要はありません。\n\n' + platformNotice(platformFor(platform));
+  for (const step of steps) {
+    const introduction = step.key === 'prepare'
+      ? 'まずこのプロジェクトへ移動し、pwdの結果が上の保存先と一致することを確認します。\n\n' + codeBlock(`cd -- ${quoteArg(plan.destination)}\npwd`)
+      : '';
+    text += renderStep({...step, detail:step.summary}, options, 2, introduction);
+    text += `[詳しい確認方法](#${headingAnchor(step.title)})\n\n`;
+  }
+  return text + `## ${GUIDE_HEADINGS.complete}\n\n${presentation.success}\n\nこの結果を自分で確認できたら完了です。${link('stop')} / ${link('resume')} / ${link('missingPreparation','困ったとき')}\n`;
+}
+
 export function startHere(plan, {platform = process.platform} = {}) {
   const id = plan.request.templateId, presentation = presentationFor(id), options = {platform}, os = platformFor(platform);
   // Re-render the same trusted template/ports for the guide OS (the WSL helper itself runs on Linux).
@@ -125,8 +175,7 @@ export function startHere(plan, {platform = process.platform} = {}) {
   const cd = `cd -- ${quoteArg(plan.destination)}\npwd`;
   let text = `# ${presentation.name}：${presentation.firstGoal}\n\nプロジェクトのファイルができました。コンテナーはまだ起動していません。今回の到達点は「${presentation.firstGoal}」です。ソースの編集・復元は、そのあとに選べる${link('optional')}です。\n\n教材の閲覧とファイル生成はネット接続なしで行えます。初回起動のイメージ・依存取得にはネット接続が必要です。\n\n## 今回のプロジェクト\n\n保存先：\n\n` + codeBlock(plan.destination, 'text');
   text += `構成：${presentation.name}\n\n.envと.devcontainerは生成済みです。READMEの手動設定をやり直す必要はありません。\n\n`;
-  if (os === 'win32') text += 'Windows 11と実WSLでの利用は実機未確認です。この案内のホスト用コマンドは、生成時に選択したWSLの通常ユーザーで実行します。\n\n';
-  if (os === 'darwin') text += 'macOSは今回の配布・実機確認の対象外です。この案内は後続対応の参考です。\n\n';
+  text += connectionSummary(id, plan.ports) + platformNotice(os) + startupOverview(steps);
   for (const step of steps.filter(step => step.phase === 'required')) {
     if (step.key === 'prepare') {
       const introduction = 'まず次をコピーして実行し、このプロジェクトへ移動します。\n\n' + codeBlock(cd)
