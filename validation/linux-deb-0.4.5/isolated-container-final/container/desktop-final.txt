@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=ツクハコ
+Exec=/opt/tsukuhako/tsukuhako %U
+Terminal=false
+Type=Application
+Icon=tsukuhako
+StartupWMClass=tsukuhako
+Comment=開発環境を生成するツールと使い始めのガイド、教材を同梱しています。Linux Mint 22.3 x64向けの候補です。アプリ本体の導入とDocker等の開発準備は別の段階です。
+Keywords=ツクハコ;Tsukuhako;Development;Learning;
+Categories=Development;

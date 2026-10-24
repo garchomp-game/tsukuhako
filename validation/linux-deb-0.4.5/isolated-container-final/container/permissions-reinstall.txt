@@ -1,0 +1,2 @@
+root:root 755 /opt/tsukuhako/tsukuhako
+root:root 4755 /opt/tsukuhako/chrome-sandbox

@@ -1,0 +1,1 @@
+tsukuhako: /opt/tsukuhako/tsukuhako

@@ -1,0 +1,23 @@
+{
+  "category": "READ_ONLY_HOST_OBSERVATION",
+  "checkedAt": "2026-10-24T05:06:54.276Z",
+  "hostDpkgTsukuhakoPresent": false,
+  "existingContainers": [
+    {
+      "id": "b531d3443746f56c651fa3625f83bd3677ccc969ea7c1e4bdf4e2acd392e6916",
+      "running": true,
+      "health": "healthy"
+    },
+    {
+      "id": "8e9f201539c57dba63be0bacf05405400355f35f0223c12d47ae7b8d8c6d78c0",
+      "running": true,
+      "health": "healthy"
+    }
+  ],
+  "validationContainersRemaining": [],
+  "finalRunContainerRemoved": true,
+  "finalRunImageTagRemoved": true,
+  "inputUnchanged": true,
+  "hostPackageChangesPerformed": false,
+  "hostProtectionSettingsChanged": false
+}
