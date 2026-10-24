@@ -30,3 +30,16 @@
  .toc-open .reader-scroll{visibility:hidden;pointer-events:none}
 }
 @media(max-width:600px){.first-use{margin:16px;padding:16px;gap:14px}.first-use>div{min-width:0;flex-basis:100%}.first-use button{width:100%}}
+/* The first goal is separate from the four steps that only create files. */
+.creation-readiness,.after-creation{padding:14px 18px;border-radius:8px;background:#F3F6FC;margin:18px 0}
+.preparation h3{font-size:18px;margin:20px 0 10px}.creation-readiness h3,.after-creation h3{margin-top:0}
+.preparation-items{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,310px),1fr));gap:12px;margin:18px 0}
+.preparation-item{border:1px solid #D7C59D;border-radius:9px;padding:16px;background:#FFFBF3;min-width:0}
+.preparation-item>div{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.preparation-item h4{font-size:17px;margin:0}
+.preparation-item p{margin:10px 0}.checked-note{color:#1B5942;background:#EAF5F0;padding:14px;border-radius:8px}
+.supplementary{margin:22px 0;padding:16px 0;border-top:1px solid #CAD5E2;border-bottom:1px solid #CAD5E2}
+.current-project,.project-context,.project-editor-action{padding:18px;border:1px solid #B7C9F2;border-radius:10px;background:#F3F6FC;margin:16px 0;min-width:0;overflow-wrap:anywhere}
+.project-context h2{font-size:18px;margin:0 0 12px}.project-context code{white-space:normal;overflow-wrap:anywhere}.project-context details{margin-top:14px}
+.project-editor-action{background:#EDF3FF}.project-editor-action>button{margin:5px 8px 5px 0;max-width:100%}.project-editor-action>.error{margin-bottom:0}
+.project-context .path,.project-editor-action .path,.current-project .path{white-space:pre-wrap;word-break:break-word}
+@media(max-width:600px){.preparation-item,.project-context,.project-editor-action,.current-project{padding:14px}.project-editor-action>button{display:block;width:100%;margin-right:0}.first-use>.primary{white-space:normal}.folder-row input{min-width:0;width:100%}.steps{gap:8px}.steps li{font-size:13px}}
