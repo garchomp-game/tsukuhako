@@ -12,7 +12,7 @@
     "lessonId": "guide",
     "chapterId": "start",
     "navigation": "ガイド",
-    "firstUse": "はじめて使う"
+    "firstUse": "全体の流れを読む"
   },
   "files": [
     {
@@ -22,18 +22,18 @@
     },
     {
       "file": "FIRST-RUN.md",
-      "bytes": 7655,
-      "sha256": "293f0837dd65b477dd7192f775d2e97507cde894eb33450c09e36134881bee31"
+      "bytes": 7592,
+      "sha256": "65822a7225b934e5631552fd9c9a5c3f4242c66ea2ecd1fb997ad0459ae89c4d"
     },
     {
       "file": "TROUBLESHOOTING.md",
-      "bytes": 9177,
-      "sha256": "ef2caee1285158e0fdb5472c452ebbcb4eb775988cd4cf6c07d2af84e06e3c01"
+      "bytes": 9198,
+      "sha256": "366b2ab7b0e4253826e82401538d258b18826b474f1f98035ab4b8d56734b2a9"
     },
     {
       "file": "NEXT-STEP.md",
-      "bytes": 2296,
-      "sha256": "e4b1a616507502ee365d0f17524b02eff3602c3ad36a7b4dca391cff3dc00f6f"
+      "bytes": 2256,
+      "sha256": "ffe260184ebdabfa10efeb436afd4caab12e69a8bace4fc810c68720bf4601f7"
     },
     {
       "file": "FEEDBACK.md",
