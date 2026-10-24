@@ -8,14 +8,19 @@
   },
   "asar": false,
   "npmRebuild": false,
-  "files": ["package.json"],
+  "files": [
+    "package.json"
+  ],
   "publish": null,
-  "extraMetadata": {
-    "desktopName": "tsukuhako.desktop",
-    "homepage": "https://github.com/garchomp-game"
-  },
   "linux": {
-    "target": [{"target": "deb", "arch": ["x64"]}],
+    "target": [
+      {
+        "target": "deb",
+        "arch": [
+          "x64"
+        ]
+      }
+    ],
     "executableName": "tsukuhako",
     "icon": "public/brand-mark.png",
     "category": "Development",
@@ -53,6 +58,13 @@
     ]
   },
   "extraResources": [
-    {"from": "../dist/desktop-app", "to": "app", "filter": ["**/*", "!package.json"]}
+    {
+      "from": "../dist/desktop-app",
+      "to": "app",
+      "filter": [
+        "**/*",
+        "!package.json"
+      ]
+    }
   ]
 }
