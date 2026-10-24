@@ -15,7 +15,7 @@ export function recheckPlan(root, plan) {
   return fresh;
 }
 
-// Internal hooks support cooperative helper cancellation and regression tests.
+// Internal hooks support cooperative helper cancellation, guide OS selection and regression tests.
 // No CLI or renderer API accepts hooks.
 export function applyGeneration(root, suppliedPlan, hooks = {}) {
   const plan = recheckPlan(root, suppliedPlan);
@@ -23,7 +23,7 @@ export function applyGeneration(root, suppliedPlan, hooks = {}) {
   const files = archiveFiles(root, getTemplate(root, plan.request.templateId));
   const config = configuration(plan.request);
   const secret = plan.secretGeneratedAtApply ? randomBytes(24).toString('hex') : undefined;
-  const payload = [...files, ['.env', Buffer.from(environmentText(plan.request, config, secret))], ['START_HERE.md', Buffer.from(startHere(plan))]];
+  const payload = [...files, ['.env', Buffer.from(environmentText(plan.request, config, secret))], ['START_HERE.md', Buffer.from(startHere(plan, {platform:hooks.guidePlatform}))]];
   const directories = new Map(), committed = [], preserved = [];
   let stage, stageIdentity;
   const parentSafe = () => stable(checkedParent(target, false)) === stable(plan.parentIdentity);
