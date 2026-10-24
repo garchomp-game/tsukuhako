@@ -1,4 +1,4 @@
-import type {Curriculum} from './types';
+import type {Created,Curriculum} from './types';
 export function resolveChapter(m:Curriculum,lessonId:string,chapterId:string,href:string):{lessonId:string;chapterId:string;heading:string}|null{
  if(/[\x00-\x20\x7f\\]/.test(href)||href.length>2048)return null;
  const [target,rawHeading='']=href.split('#');let heading:string;try{heading=decodeURIComponent(rawHeading)}catch{return null}
@@ -20,3 +20,13 @@ export function classifyLink(m:Curriculum,lessonId:string,chapterId:string,href:
  return{kind:'unavailable',path:href};
 }
 export const headingId=(text:string)=>text.toLowerCase().trim().replace(/[^\p{L}\p{N}\s_-]/gu,'').replace(/\s+/g,'-');
+
+// Troubleshooting uses the common first-run guide when no project exists. In
+// this session, its return links must use the current project's actual values.
+export function resolveProjectChapter(m:Curriculum,lessonId:string,chapterId:string,href:string,project?:Created) {
+ const target=resolveChapter(m,lessonId,chapterId,href);
+ if(!target||!project||target.lessonId!=='guide'||target.chapterId!=='first-run')return target;
+ if(!m.lessons.find(l=>l.id===project.templateId)?.chapters.some(c=>c.id==='first'))return target;
+ const headings=new Set(project.guide.split('\n').filter(line=>/^#{1,6} /.test(line)).map(line=>headingId(line.replace(/^#{1,6} /,''))));
+ return {lessonId:project.templateId,chapterId:'first',heading:headings.has(target.heading)?target.heading:''};
+}

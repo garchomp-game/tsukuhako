@@ -1,7 +1,7 @@
 export type Problem = {code:string;message:string;nextAction:string;details:Record<string,unknown>};
 export type Reply<T> = {ok:true;value:T} | {ok:false;error:Problem};
 export type Goal = {id:string;title:string;summary:string;templates:string[]};
-export type Template = {id:string;name:string;summary:string;includedFeatures:string[];notIncluded:string[];version:string;defaultPort:number;dbBase?:number;eligible:boolean;prerequisites:string[];validationScope:string;notRun:string[]};
+export type Template = {id:string;name:string;summary:string;technology:string;firstGoal:string;guideAction:string;success:string;route:string|null;includedFeatures:string[];notIncluded:string[];version:string;defaultPort:number;dbBase?:number;eligible:boolean;prerequisites:string[];validationScope:string;notRun:string[]};
 export type Catalog = {version:string;defaultParent:string;goals:Goal[];templates:Template[]};
 export type Request = {templateId:string;parent:string;folder:string;name?:string;port?:number;dbBase?:number};
 export type Step = {title:string;location:'host'|'container'|'editor';cwd:string;detail?:string;command?:{executable:string;args:string[]};url?:string;document?:string};
@@ -12,3 +12,6 @@ declare global { interface Window {tsukuhako:{getLearningIndex():Promise<Reply<C
 export type Curriculum={version:string;appVersion:string;lessons:{id:string;title:string;version:string;templateVersion:string|null;chapters:{id:string;title:string;source:string;file:string;sha256:string;bytes:number}[]}[];assets:{id:string;file:string;mime:string;bytes:number;sha256:string}[]};
 export type Reading={view:'create'|'learn'|'help';lessonId:string;chapterId:string;scroll:number;distroId?:string};
 export type Preparation={platform:string;arch:string;defaultParent?:string;distros?:{id:string;name:string;state:string;generation:number}[];status?:{state:string;code:string};helperReady?:boolean;target?:{home:string;distro:string;distroId:string;user:string};checkedAt?:string;dockerReady?:boolean;devContainerReady?:boolean|null;capacity?:{totalMemoryBytes:number;availableBytes:number|null};checks?:{id:string;state:string;label:string;message:string;reason:string;nextAction:string;guide:string}[]};
+
+// A requested heading is navigation state, not part of the saved reading schema.
+export type ReaderAnchor={lessonId:string;chapterId:string;heading:string;request:number};
