@@ -1,0 +1,13 @@
+{
+  "category": "EXTRACTED_DEB_ON_REAL_HOST",
+  "interaction": "AUTOMATED",
+  "result": "PASS",
+  "postCreateCommand": "npm ci --no-audit --no-fund && node scripts/doctor.mjs",
+  "doctorMessageObserved": true,
+  "taskCompletionObserved": true,
+  "workspace": "/workspace",
+  "serverReady": true,
+  "httpStatus": 200,
+  "container": "7c77a0e99b3a",
+  "sourceUnchanged": true
+}

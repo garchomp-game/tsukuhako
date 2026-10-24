@@ -170,10 +170,11 @@ if(phase==='generate') {
  // App must be closed; reopen and read the saved Markdown independently of it.
  await expect.poll(()=>{try{process.kill(project.appPid,0);return true}catch{return false}}).toBe(false);
  await expect(c.page.locator('.statusbar')).toBeVisible({timeout:90000});
- await palette(c.page,'Markdown: Open Preview to the Side');
+ if(!c.page.frames().some(f=>f!==c.page.mainFrame()&&f.url().startsWith('vscode-webview:')))await palette(c.page,'Markdown: Open Preview to the Side');
  await expect.poll(()=>c.page.locator('.tab').allTextContents(),{timeout:20000}).toContainEqual(expect.stringContaining('Preview START_HERE.md'));
- await c.page.screenshot({path:out+'/screenshots/06-saved-guide-resume.png'});
- json(out+'/logs/saved-guide-preview.json',{category:'EXTRACTED_DEB_ON_REAL_HOST',result:'PASS',appClosed:true,savedGuideSha256:sha(project.destination+'/START_HERE.md'),existingFolder:true,markdownPreviewOpened:true});
+ await expect.poll(async()=>{const texts=await Promise.all(c.page.frames().filter(f=>f!==c.page.mainFrame()).map(f=>f.locator('body').innerText({timeout:500}).catch(()=>'')));return texts.some(t=>t.includes('同じフォルダーから再開する')&&t.includes(project.destination))},{timeout:20000}).toBe(true);
+ await pause(700);await c.page.screenshot({path:out+'/screenshots/06-saved-guide-resume.png'});
+ json(out+'/logs/saved-guide-preview.json',{category:'EXTRACTED_DEB_ON_REAL_HOST',result:'PASS',appClosed:true,savedGuideSha256:sha(project.destination+'/START_HERE.md'),existingFolder:true,markdownPreviewOpened:true,renderedGuideContainsDestination:true,renderedResumeHeading:true});
  const beforeVolumes=stopped.beforeVolumes;
  try {
   await expect(c.page.locator('.statusbar')).toBeVisible({timeout:90000});

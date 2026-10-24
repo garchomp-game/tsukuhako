@@ -1,0 +1,43 @@
+{
+  "category": "EXTRACTED_DEB_ON_REAL_HOST",
+  "interaction": "AUTOMATED",
+  "productVersion": "0.4.6",
+  "sourceCommit": "1d0a0441e3aa8d1003f3e104fc71bf95d3212d0c",
+  "dirty": false,
+  "helperVersion": "0.4.6",
+  "binarySha256": "3ba9114b7fbaafaf548f72c5d1bc86b7dc81098a85361784359c2c1199625bfc",
+  "menuInstallation": "NOT_RUN",
+  "offlineGuide": true,
+  "chapters": [
+    {
+      "name": "はじめに",
+      "heading": "はじめて使う"
+    },
+    {
+      "name": "サンプル画面を表示する",
+      "heading": "サンプル画面を表示する"
+    },
+    {
+      "name": "困ったとき・再開",
+      "heading": "困ったとき・再開する"
+    },
+    {
+      "name": "任意：変更と復元",
+      "heading": "任意：文字を変えて、元に戻す"
+    },
+    {
+      "name": "記録票",
+      "heading": "止まった場所・できたことを記録する"
+    }
+  ],
+  "restart": true,
+  "cwd": "/tmp",
+  "offlinePreparationAnchor": true,
+  "savedReading": {
+    "view": "learn",
+    "lessonId": "guide",
+    "chapterId": "first-run",
+    "scroll": 450
+  },
+  "result": "PASS"
+}

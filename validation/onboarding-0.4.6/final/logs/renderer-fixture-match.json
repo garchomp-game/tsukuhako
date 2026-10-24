@@ -1,0 +1,24 @@
+{
+  "category": "STATIC",
+  "result": "PASS",
+  "fixtureUsesMockIpc": true,
+  "finalProductSourceCommit": "1d0a0441e3aa8d1003f3e104fc71bf95d3212d0c",
+  "files": [
+    {
+      "file": "generator-desktop/build/index.html",
+      "sha256": "b09650e8234dedf6ff6a9855b3e5a66461900d8aacbbd6fbc297bae8c8140531"
+    },
+    {
+      "file": "generator-desktop/build/assets/Markdown-vcBMAcQp.js",
+      "sha256": "66b72b34f500834faf87e5cf3779a5fb8c94992e485c833185037f262e2fc4d2"
+    },
+    {
+      "file": "generator-desktop/build/assets/index-B73PUPwc.css",
+      "sha256": "c7b4dcab85ed65be86f6f8d43d27a0b0f3b62b04941ca31ef55087bd373add8b"
+    },
+    {
+      "file": "generator-desktop/build/assets/index-DGM6CeR2.js",
+      "sha256": "e7571dfaa525df0d77c48ca49212796ef1d1fa68725195fc7efa7c3ca0d3a346"
+    }
+  ]
+}

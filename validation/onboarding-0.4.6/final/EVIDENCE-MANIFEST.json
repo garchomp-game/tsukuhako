@@ -1,0 +1,487 @@
+{
+  "schemaVersion": 1,
+  "productVersion": "0.4.6",
+  "sourceCommit": "1d0a0441e3aa8d1003f3e104fc71bf95d3212d0c",
+  "deb": {
+    "file": "tsukuhako-linux-amd64-0.4.6.deb",
+    "sha256": "937f77998b1f190811750b959cd270d4eb513bb310797c1798b12a54731b54c8",
+    "bytes": 133497424
+  },
+  "scope": "Final deb evidence only. Root-level runtime records are pre-final; see ../PRE-FINAL.md. Fixture/static checks are labelled individually.",
+  "checkedAt": "2026-10-24T09:27:52.565Z",
+  "humanAcceptance": "利用者確認待ち",
+  "hostInstallation": "NOT_RUN",
+  "ci": "NOT_RUN",
+  "files": [
+    {
+      "file": "isolated-container/container-run.log",
+      "bytes": 70902,
+      "sha256": "1a9a8cb00e3d1b5d7601c4651f35003ed0a9b64d81ee2dcab98635117255d956"
+    },
+    {
+      "file": "isolated-container/container/alternative-final.txt",
+      "bytes": 170,
+      "sha256": "59bed3b1d367e055a2fd22d5da792a47a6193fb5c020ea767fbf25d8d622c15c"
+    },
+    {
+      "file": "isolated-container/container/alternative-lower.txt",
+      "bytes": 170,
+      "sha256": "59bed3b1d367e055a2fd22d5da792a47a6193fb5c020ea767fbf25d8d622c15c"
+    },
+    {
+      "file": "isolated-container/container/alternative-purge.txt",
+      "bytes": 58,
+      "sha256": "ae61af22751cf21add687ea102e39b421014cb23f07d17401362fdc2f2b01322"
+    },
+    {
+      "file": "isolated-container/container/alternative-reinstall.txt",
+      "bytes": 170,
+      "sha256": "59bed3b1d367e055a2fd22d5da792a47a6193fb5c020ea767fbf25d8d622c15c"
+    },
+    {
+      "file": "isolated-container/container/alternative-remove.txt",
+      "bytes": 58,
+      "sha256": "ae61af22751cf21add687ea102e39b421014cb23f07d17401362fdc2f2b01322"
+    },
+    {
+      "file": "isolated-container/container/build-info-final.json",
+      "bytes": 140,
+      "sha256": "3a4bf8e1103c9943fb42b392893c3b9d79fad848c36960f30eae2f4f67c1b72e"
+    },
+    {
+      "file": "isolated-container/container/build-info-lower.json",
+      "bytes": 140,
+      "sha256": "3a4bf8e1103c9943fb42b392893c3b9d79fad848c36960f30eae2f4f67c1b72e"
+    },
+    {
+      "file": "isolated-container/container/build-info-reinstall.json",
+      "bytes": 140,
+      "sha256": "3a4bf8e1103c9943fb42b392893c3b9d79fad848c36960f30eae2f4f67c1b72e"
+    },
+    {
+      "file": "isolated-container/container/checks.tsv",
+      "bytes": 308,
+      "sha256": "eb62b545a5f61b462315b5bf2cfaaa92011d13fa1f5e3a657e8d6b2731716f24"
+    },
+    {
+      "file": "isolated-container/container/commands.log",
+      "bytes": 70902,
+      "sha256": "1a9a8cb00e3d1b5d7601c4651f35003ed0a9b64d81ee2dcab98635117255d956"
+    },
+    {
+      "file": "isolated-container/container/control.txt",
+      "bytes": 749,
+      "sha256": "9f5a7a32b74d75aa36e458f4cf131f2467e98e08dc72ee9b17ac141274995773"
+    },
+    {
+      "file": "isolated-container/container/control/control",
+      "bytes": 749,
+      "sha256": "9f5a7a32b74d75aa36e458f4cf131f2467e98e08dc72ee9b17ac141274995773"
+    },
+    {
+      "file": "isolated-container/container/control/md5sums",
+      "bytes": 35193,
+      "sha256": "19acefb29059e5b10b0b1c7a3d04b1c7a733c449aa9915ce89c8ba10d41d16a0"
+    },
+    {
+      "file": "isolated-container/container/control/postinst",
+      "bytes": 2931,
+      "sha256": "84c68728aa9a50a6ee7395343b0285000de88da5f263c7aa904a3135e1cec383"
+    },
+    {
+      "file": "isolated-container/container/control/postrm",
+      "bytes": 1112,
+      "sha256": "08f961bcd94211ec0c5927bcb08fee40fb5686f490bf3dca19d4f2fe75f17119"
+    },
+    {
+      "file": "isolated-container/container/desktop-final.txt",
+      "bytes": 443,
+      "sha256": "00d63048f21a06d0e68dda54cc09cc8af1fbea51855ee44af3c938d88ae00365"
+    },
+    {
+      "file": "isolated-container/container/desktop-lower.txt",
+      "bytes": 443,
+      "sha256": "00d63048f21a06d0e68dda54cc09cc8af1fbea51855ee44af3c938d88ae00365"
+    },
+    {
+      "file": "isolated-container/container/desktop-reinstall.txt",
+      "bytes": 443,
+      "sha256": "00d63048f21a06d0e68dda54cc09cc8af1fbea51855ee44af3c938d88ae00365"
+    },
+    {
+      "file": "isolated-container/container/dpkg-audit-final.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "isolated-container/container/dpkg-audit-lower.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "isolated-container/container/dpkg-audit-reinstall.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "isolated-container/container/executable-owner-final.txt",
+      "bytes": 36,
+      "sha256": "1347e9f4182029b318d2f8a6a3369324bbc472f8e855cf6def43f92547c22581"
+    },
+    {
+      "file": "isolated-container/container/executable-owner-lower.txt",
+      "bytes": 36,
+      "sha256": "1347e9f4182029b318d2f8a6a3369324bbc472f8e855cf6def43f92547c22581"
+    },
+    {
+      "file": "isolated-container/container/executable-owner-reinstall.txt",
+      "bytes": 36,
+      "sha256": "1347e9f4182029b318d2f8a6a3369324bbc472f8e855cf6def43f92547c22581"
+    },
+    {
+      "file": "isolated-container/container/group-writable-payload-final.txt",
+      "bytes": 28712,
+      "sha256": "5b52dcc4d1f922e20636863dd6317c734a3e747dd3499c783b088b6ce3a44b67"
+    },
+    {
+      "file": "isolated-container/container/group-writable-payload-lower.txt",
+      "bytes": 28712,
+      "sha256": "5b52dcc4d1f922e20636863dd6317c734a3e747dd3499c783b088b6ce3a44b67"
+    },
+    {
+      "file": "isolated-container/container/group-writable-payload-reinstall.txt",
+      "bytes": 28712,
+      "sha256": "5b52dcc4d1f922e20636863dd6317c734a3e747dd3499c783b088b6ce3a44b67"
+    },
+    {
+      "file": "isolated-container/container/icons-final.txt",
+      "bytes": 52,
+      "sha256": "ff2a7f03a0a425e4ff7bc319102868fda02764990aae7148d016872036e27233"
+    },
+    {
+      "file": "isolated-container/container/icons-lower.txt",
+      "bytes": 52,
+      "sha256": "ff2a7f03a0a425e4ff7bc319102868fda02764990aae7148d016872036e27233"
+    },
+    {
+      "file": "isolated-container/container/icons-reinstall.txt",
+      "bytes": 52,
+      "sha256": "ff2a7f03a0a425e4ff7bc319102868fda02764990aae7148d016872036e27233"
+    },
+    {
+      "file": "isolated-container/container/installed-desktop.txt",
+      "bytes": 42,
+      "sha256": "4a7db0a9abf04498f0a09bff78f956dcec0f7676c03eaecc35a67ef3ee68fcbe"
+    },
+    {
+      "file": "isolated-container/container/installed-executable.txt",
+      "bytes": 25,
+      "sha256": "9d9c2d1de89f7eeb4a2eb122ce36ec5e00afb70b4f63da204eb280f9f804b438"
+    },
+    {
+      "file": "isolated-container/container/kernel.txt",
+      "bytes": 132,
+      "sha256": "3c341787dfe6fbbfd9262df425fbe4285d7f244e2bc0ebd258676414d7f88b73"
+    },
+    {
+      "file": "isolated-container/container/ldd-final.txt",
+      "bytes": 7808,
+      "sha256": "2101b9e5754ae9e2e072d6018e8306d3c2faae381f66e34f13bd0ae3f9974907"
+    },
+    {
+      "file": "isolated-container/container/ldd-lower.txt",
+      "bytes": 7808,
+      "sha256": "0073360153f7ba3741c076cef0d606d12394db89dd7da6fe4e3abe3f1deca9cf"
+    },
+    {
+      "file": "isolated-container/container/ldd-reinstall.txt",
+      "bytes": 7808,
+      "sha256": "5aa1eed39f65dcbb8c57ce4f928c49ef987d223114bdfd86ffcc0d999e4a11cd"
+    },
+    {
+      "file": "isolated-container/container/os-release.txt",
+      "bytes": 400,
+      "sha256": "87458b3b1f1ca0e5c693ade771de7007c3783bdc692fa6b39eb6414bf2af2763"
+    },
+    {
+      "file": "isolated-container/container/package-files-final.txt",
+      "bytes": 26280,
+      "sha256": "2be9d765b83005d74653a65e742bb504d308abfcf631976dbacc983821f236b9"
+    },
+    {
+      "file": "isolated-container/container/package-files-lower.txt",
+      "bytes": 26280,
+      "sha256": "8ba8d98abfe6ac8ebdcc658bf5f2ad320458c42ce196fd30ef6056d1131ca56c"
+    },
+    {
+      "file": "isolated-container/container/package-files-reinstall.txt",
+      "bytes": 26280,
+      "sha256": "2be9d765b83005d74653a65e742bb504d308abfcf631976dbacc983821f236b9"
+    },
+    {
+      "file": "isolated-container/container/package-status-purge.txt",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "file": "isolated-container/container/package-status-remove.txt",
+      "bytes": 26,
+      "sha256": "c90b6980b8fce241c85f67278f6757d1fc97d5e462e4dea28fa864b82fe9529b"
+    },
+    {
+      "file": "isolated-container/container/packages-after.tsv",
+      "bytes": 9902,
+      "sha256": "293448f9ed56b29197701dd8c578bdedb855b472e035383bba0867fd73fd9934"
+    },
+    {
+      "file": "isolated-container/container/packages-before.tsv",
+      "bytes": 3833,
+      "sha256": "fef6d246a78da73ca8c4d111931157314e4397798f7290ba605aff2c08811a9e"
+    },
+    {
+      "file": "isolated-container/container/packages-final.tsv",
+      "bytes": 9928,
+      "sha256": "9a89299c3c4786de4031de1c829482809117e1c4e42278ee32362f47bb19fa8d"
+    },
+    {
+      "file": "isolated-container/container/packages-lower.tsv",
+      "bytes": 9942,
+      "sha256": "a6f6c3ac3f3b4862985d2b55f3e66ea8be8cf7b3f299f143ba7dc41f7449565b"
+    },
+    {
+      "file": "isolated-container/container/packages-reinstall.tsv",
+      "bytes": 9928,
+      "sha256": "9a89299c3c4786de4031de1c829482809117e1c4e42278ee32362f47bb19fa8d"
+    },
+    {
+      "file": "isolated-container/container/permissions-final.txt",
+      "bytes": 84,
+      "sha256": "a3fdd2dc595034da5c4bc1a37ccf9bf1f6d8dbe74dff3a15ff7d0e783b9dd723"
+    },
+    {
+      "file": "isolated-container/container/permissions-lower.txt",
+      "bytes": 84,
+      "sha256": "a3fdd2dc595034da5c4bc1a37ccf9bf1f6d8dbe74dff3a15ff7d0e783b9dd723"
+    },
+    {
+      "file": "isolated-container/container/permissions-reinstall.txt",
+      "bytes": 84,
+      "sha256": "a3fdd2dc595034da5c4bc1a37ccf9bf1f6d8dbe74dff3a15ff7d0e783b9dd723"
+    },
+    {
+      "file": "isolated-container/container/sentinels.sha256",
+      "bytes": 465,
+      "sha256": "20a36085074ab9d172603ea462c63b6d9ad9524188d7bf67c925e260df172b2b"
+    },
+    {
+      "file": "isolated-container/container/status.tsv",
+      "bytes": 29,
+      "sha256": "57ed64491adecb9eb62f8921072335777f104e8aa4f72d1ce7f7ab445614d882"
+    },
+    {
+      "file": "isolated-container/container/upgrade-fixture.sha256",
+      "bytes": 82,
+      "sha256": "13c7e4e371d14adc62948719e2620dba63e80db4ea56c1efc904b028e739063f"
+    },
+    {
+      "file": "isolated-container/container/upgrade-fixture.tsv",
+      "bytes": 109,
+      "sha256": "7cf5ba94a94d9c0beb4d62b818377e0dc2c2fa2b752918e6e05e21b03781b3af"
+    },
+    {
+      "file": "isolated-container/container/user-writable-payload-final.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "isolated-container/container/user-writable-payload-lower.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "isolated-container/container/user-writable-payload-reinstall.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "isolated-container/container/world-writable-payload-final.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "isolated-container/container/world-writable-payload-lower.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "isolated-container/container/world-writable-payload-reinstall.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "isolated-container/image-build.log",
+      "bytes": 1677,
+      "sha256": "4645179aecfa83bfd2cf8a54b350db5b4076f53d0b24d4328ff08e4e7483f9bc"
+    },
+    {
+      "file": "isolated-container/result.json",
+      "bytes": 3450,
+      "sha256": "198f2ec57651afd27cc43931d199ab1ee15789f863bcc350200d7b877721cf08"
+    },
+    {
+      "file": "logs/cleanup.json",
+      "bytes": 532,
+      "sha256": "c1e0ae3e99ae218f91bf7d9c4ebe791482be1f7af79479d4eb3fd46d114c522e"
+    },
+    {
+      "file": "logs/current-project.json",
+      "bytes": 367,
+      "sha256": "c29563c92c45a968d8743303a3b6e53823e6d6978ce7b5dde8e1422328f4aa37"
+    },
+    {
+      "file": "logs/deb-inspection.json",
+      "bytes": 6193,
+      "sha256": "38fea0732d2d3b0402ccdc4dc4cf802de3e7408d87630f26e43f1f2412c7c7be"
+    },
+    {
+      "file": "logs/delivery.json",
+      "bytes": 880,
+      "sha256": "4bf063f3a9ee8542a2c5ddd71728dc1f6e2885fb5c2b059782a68ed5a6909ef4"
+    },
+    {
+      "file": "logs/first-page.json",
+      "bytes": 310,
+      "sha256": "43a6634f097135201699a38ddf70ef9c44cdb6396731c9a929897789a50e2011"
+    },
+    {
+      "file": "logs/generation.json",
+      "bytes": 453,
+      "sha256": "9e9dce6e78ccb3433caf1f3a4e962c56724fbbab21bd039b97c1aa5ff2eebac3"
+    },
+    {
+      "file": "logs/helper-archive.txt",
+      "bytes": 175,
+      "sha256": "e1b75853360b8346b1a22085205eb8f333cac492947e915ab95276bddbee762c"
+    },
+    {
+      "file": "logs/initialization.json",
+      "bytes": 376,
+      "sha256": "08503c8862e238a7ef02f85499586af59c83d89d6c4a685b23c226a548033996"
+    },
+    {
+      "file": "logs/package-linux.txt",
+      "bytes": 1709,
+      "sha256": "12f1a316f346daa86d7b73ac70e00e5b1098d60bebe3cd7b96755f3dd63e2cab"
+    },
+    {
+      "file": "logs/packaging-tests.txt",
+      "bytes": 320,
+      "sha256": "e578d887a8644c5fbbc4e5df1a4c08e02affd1cc81052e0c1c08ff505250b629"
+    },
+    {
+      "file": "logs/renderer-fixture-match.json",
+      "bytes": 806,
+      "sha256": "7f29c366c368e9ce4c1dd5a0e5df0113aa1d47e54165342eb736a23ef9fdaaa9"
+    },
+    {
+      "file": "logs/saved-guide-preview.json",
+      "bytes": 314,
+      "sha256": "c4880aa6cabae94df4cc6d43e180d6fdd857caef7b1c8b6e01b16c7c16f3c80d"
+    },
+    {
+      "file": "logs/second-project.json",
+      "bytes": 295,
+      "sha256": "257b0add6401c9e97ad362592ef4fe4908454cbf91688d53acceece38d742a74"
+    },
+    {
+      "file": "logs/stage.json",
+      "bytes": 333,
+      "sha256": "9d4386dfd08c6c8015bba2b694239fac93ede8408e25f9476c5d4165e9146bba"
+    },
+    {
+      "file": "logs/stop-resume.json",
+      "bytes": 660,
+      "sha256": "9b86d222de301dfe826cfd33ed0d6a51090a75a548008bc7392961e7d4110736"
+    },
+    {
+      "file": "logs/ui-guide.json",
+      "bytes": 1119,
+      "sha256": "19809c64b635aa31eb3e9b9ea662662dd3f76f6d09dab120c247d7b92a474e98"
+    },
+    {
+      "file": "screenshots/00-first-screen.png",
+      "bytes": 130280,
+      "sha256": "bd3790b3639f5bb96b6c6e72908c687c7f8b3c8fc2315f02be0cc94f6c967e1b"
+    },
+    {
+      "file": "screenshots/01-generated.png",
+      "bytes": 124388,
+      "sha256": "0b06171e3615ab9f2404eb5ad4466094c300a60fc901178357edf806f2bb9319"
+    },
+    {
+      "file": "screenshots/01-generation-complete.png",
+      "bytes": 156156,
+      "sha256": "82eaffec7bba48fdbfac1d1801dd88ae1bd503721d5121cc34e9dbdd6b21b9df"
+    },
+    {
+      "file": "screenshots/01-offline-guide.png",
+      "bytes": 164882,
+      "sha256": "5a750c2a1c151cbbdf78130e408e5bbde31e64613936e67516e9f4bcee8d788e"
+    },
+    {
+      "file": "screenshots/02-current-project-guide.png",
+      "bytes": 144927,
+      "sha256": "3c45944392b94a19d1dd127e503e69e9a790690e56f932eec0b12d06b1114d15"
+    },
+    {
+      "file": "screenshots/02-initialized.png",
+      "bytes": 164708,
+      "sha256": "873951b873c5fca4fa24591e1303c32011cadd6dfbfb413f9008212a9890fc4e"
+    },
+    {
+      "file": "screenshots/02-reading-restored.png",
+      "bytes": 210644,
+      "sha256": "5f957d0220c16066ce821d5de7a280c3ef7f4da085ab3194f08607fa3b8367b0"
+    },
+    {
+      "file": "screenshots/03-first-page.png",
+      "bytes": 63766,
+      "sha256": "80646f4542f64f86dfdb8844ee1d5dea898e7cb5e64f2f7bca9ef02b4ed23425"
+    },
+    {
+      "file": "screenshots/03-long-path-narrow.png",
+      "bytes": 79034,
+      "sha256": "79204d4ea4835512c7e7ec04ccc8dd5946c8570ee6a3dfc5f3f6cd3641b81120"
+    },
+    {
+      "file": "screenshots/05-second-project.png",
+      "bytes": 173599,
+      "sha256": "ed6e64b824622886abf3442a72570336141ce3cfa700924a703f1605f3dc01b7"
+    },
+    {
+      "file": "screenshots/06-preview-observed.png",
+      "bytes": 328086,
+      "sha256": "d21d70749dc53b24a0343f6283f98e35fa45c28cd77bc8f98cc0a9347e0cfab4"
+    },
+    {
+      "file": "screenshots/06-saved-guide-resume.png",
+      "bytes": 239809,
+      "sha256": "a9562819949875cbb2564cb16b1471fb512984806c458ea98bf8fc96a0b55f58"
+    },
+    {
+      "file": "screenshots/06-saved-guide-visible.png",
+      "bytes": 194347,
+      "sha256": "d29e9f6726bf0b54f967170f992fa025cc8552052a4d6b4693273bc92b2ce091"
+    },
+    {
+      "file": "screenshots/07-resumed-sample.png",
+      "bytes": 64298,
+      "sha256": "ed58095e5b77137059b5a09b9389d5847eb363e47ae496b1495aaaefb8205db9"
+    },
+    {
+      "file": "steps.ndjson",
+      "bytes": 1540,
+      "sha256": "b4af71fc7ae3c76a5a42f3fe6b494615367c74828180ed079b671a5a48eb3139"
+    }
+  ]
+}

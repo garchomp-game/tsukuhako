@@ -1,0 +1,19 @@
+{
+  "category": "EXTRACTED_DEB_ON_REAL_HOST",
+  "interaction": "AUTOMATED",
+  "result": "PASS",
+  "checkedAt": "2026-10-24T09:22:18.813Z",
+  "runnerSha256": "9c38565a80173b8f52175eef734d57d359abf66798a836bce2310fa4ba21b1cb",
+  "waitedForRemoteStartup": true,
+  "commandPaletteFocusChecked": true,
+  "unsavedEditors": 0,
+  "serverStoppedWithCtrlC": true,
+  "ownedContainerStopped": true,
+  "container": "7c77a0e99b3a",
+  "sameContainer": true,
+  "volumesPreserved": true,
+  "sourceHash": "c519464d586ca774fbc969aeca14418aa10e837948cf22322317e3c61a5fd43e",
+  "reopenedSameFolderWithoutRegeneration": true,
+  "httpStatus": 200,
+  "originalHeadingVisible": true
+}

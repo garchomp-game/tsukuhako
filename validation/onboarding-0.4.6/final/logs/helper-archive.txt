@@ -1,0 +1,1 @@
+{"status": "PASS", "category": "BUNDLE_INSPECTION", "helperVersion": "0.4.6", "files": 47, "helperSha256": "720def1bbbeaef9a6172115bce87b78845d1698127d5b86896f6b4c8a8bd1485"}

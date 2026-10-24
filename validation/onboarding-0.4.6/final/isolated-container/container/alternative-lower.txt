@@ -1,0 +1,8 @@
+Name: tsukuhako
+Link: /usr/bin/tsukuhako
+Status: auto
+Best: /opt/tsukuhako/tsukuhako
+Value: /opt/tsukuhako/tsukuhako
+
+Alternative: /opt/tsukuhako/tsukuhako
+Priority: 100

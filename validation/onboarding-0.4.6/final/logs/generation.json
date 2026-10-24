@@ -1,0 +1,13 @@
+{
+  "category": "EXTRACTED_DEB_ON_REAL_HOST",
+  "interaction": "AUTOMATED",
+  "result": "PASS",
+  "appVersion": "0.4.6",
+  "folder": "<isolated recipient>/projects/はじめてのWeb画面 日本語と空白のある長い保存先 そのまま再開する",
+  "nonDefaultPort": 37149,
+  "appUI": true,
+  "projectGuideMatchesDestinationAndPort": true,
+  "hostDiagnosis": "PASS",
+  "generatedEnvPresent": true,
+  "externalRecipientDownload": "NOT_RUN"
+}

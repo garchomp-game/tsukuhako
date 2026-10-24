@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "category": "BUNDLE_INSPECTION",
+  "productVersion": "0.4.6",
+  "sourceCommit": "1d0a0441e3aa8d1003f3e104fc71bf95d3212d0c",
+  "dirty": false,
+  "helperVersion": "0.4.6",
+  "files": 126,
+  "chapters": 55,
+  "templates": 7,
+  "helperSha256": "720def1bbbeaef9a6172115bce87b78845d1698127d5b86896f6b4c8a8bd1485"
+}

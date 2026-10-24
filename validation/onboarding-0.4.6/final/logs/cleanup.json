@@ -1,0 +1,14 @@
+{
+  "category": "REAL_HOST",
+  "result": "PASS",
+  "checkedAt": "2026-10-24T09:27:02.016Z",
+  "ownedServerStopped": true,
+  "ownedContainer": "7c77a0e99b3a",
+  "ownedContainerState": "exited",
+  "projectAndVolumesPreserved": true,
+  "appAlreadyClosed": true,
+  "installedVersion": "0.4.5",
+  "unrelatedContainers": "b531d3443746 ikiiki-project-hr132-133_devcontainer-db-1 Up 5 hours (healthy)\n8e9f201539c5 ikiiki-backend-postgres Up 5 hours (healthy)",
+  "dedicatedDesktopStopped": true,
+  "dedicatedDesktopProcessGroup": 532528
+}
