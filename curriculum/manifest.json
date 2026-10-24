@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "appVersion": "0.4.8",
-  "version": "0.4.8",
+  "appVersion": "1.0.0",
+  "version": "1.0.0",
   "lessons": [
     {
       "id": "F1",
       "title": "入力と表示のWeb画面",
-      "version": "0.4.8",
+      "version": "1.0.0",
       "templateVersion": "0.1.4",
       "name": "入力と表示のWeb画面",
       "summary": "入力したことばが画面に映るサンプルから、画面づくりを始めます。",
@@ -85,7 +85,7 @@
     {
       "id": "F2",
       "title": "はじめてのWeb画面",
-      "version": "0.4.8",
+      "version": "1.0.0",
       "templateVersion": "0.1.3",
       "name": "はじめてのWeb画面",
       "summary": "まずサンプル画面を表示します。そのあと、ページの移動や文字の変更を試せます。",
@@ -164,7 +164,7 @@
     {
       "id": "B1",
       "title": "データを返すAPI",
-      "version": "0.4.8",
+      "version": "1.0.0",
       "templateVersion": "0.1.3",
       "name": "データを返すAPI",
       "summary": "APIからJSONを受け取ります。そのあと、入力に応じた応答を試せます。",
@@ -251,7 +251,7 @@
     {
       "id": "S1",
       "title": "画面からつなぐAPI",
-      "version": "0.4.8",
+      "version": "1.0.0",
       "templateVersion": "0.1.4",
       "name": "画面からつなぐAPI",
       "summary": "画面で入力したことばをAPIへ送り、応答が画面へ戻る流れを試します。",
@@ -338,7 +338,7 @@
     {
       "id": "S2",
       "title": "メモを保存するWeb画面",
-      "version": "0.4.8",
+      "version": "1.0.0",
       "templateVersion": "0.1.4",
       "name": "メモを保存するWeb画面",
       "summary": "このPCのDBに架空のメモを保存し、ページを読み直しても残ることを試します。",
@@ -417,7 +417,7 @@
     {
       "id": "I1",
       "title": "SQLで調べるデータベース",
-      "version": "0.4.8",
+      "version": "1.0.0",
       "templateVersion": "0.1.0",
       "name": "SQLで調べるデータベース",
       "summary": "DBへ接続し、SQLで在庫のサンプルを検索します。Web画面は使いません。",
@@ -504,7 +504,7 @@
     {
       "id": "setup",
       "title": "開発準備",
-      "version": "0.4.8",
+      "version": "1.0.0",
       "templateVersion": null,
       "chapters": [
         {
@@ -552,7 +552,7 @@
     {
       "id": "guide",
       "title": "はじめて使う・ガイド",
-      "version": "0.4.8",
+      "version": "1.0.0",
       "templateVersion": null,
       "chapters": [
         {
@@ -561,7 +561,7 @@
           "file": "guide/start.md",
           "source": "START_HERE.md",
           "bytes": 2433,
-          "sha256": "ae839c34c4edbec8c92c4c9d69fa6b31e3144908e0c5c5b53e6c9e45ddf37bea"
+          "sha256": "5ac8b0b8c4b415928b5219ea540b40f697af28049c8ddb3089b721f5fe7156c1"
         },
         {
           "id": "first-run",
@@ -569,7 +569,7 @@
           "file": "guide/first-run.md",
           "source": "FIRST-RUN.md",
           "bytes": 8477,
-          "sha256": "cd255297fc9aa7eb12a082b4fce48640c766fa7c007ae2c226e908829982e48a"
+          "sha256": "8125df4649d00a3603b440179525f39f54981d6265dd0e16407f7e0bf7f213a9"
         },
         {
           "id": "troubleshooting",
@@ -577,7 +577,7 @@
           "file": "guide/troubleshooting.md",
           "source": "TROUBLESHOOTING.md",
           "bytes": 9198,
-          "sha256": "6397065dc85a5fa5aacc7ae7b0d06cd7e3aa5611b95c58f90149f5f9b1cee7ef"
+          "sha256": "e494920bfba05d2e5c8bdeae65190182fab1d91f5136c82d544d017897066c5b"
         },
         {
           "id": "next-step",
@@ -585,7 +585,7 @@
           "file": "guide/next-step.md",
           "source": "NEXT-STEP.md",
           "bytes": 2256,
-          "sha256": "6498649b40c36aff66755e0356371d2cdf25fa25651a1e0efb38da56554cd694"
+          "sha256": "c7859c892918c424cba88fce956d5b1004f152f423deaf7904312341fb3c9934"
         },
         {
           "id": "feedback",
@@ -593,7 +593,7 @@
           "file": "guide/feedback.md",
           "source": "FEEDBACK.md",
           "bytes": 1697,
-          "sha256": "35ac81e4d534a23e059d590d565e791b05f68804ae4f81ebf1d4904ac05296d0"
+          "sha256": "4ae33b5cfb0cdb8c3c0e93b452dc23b41f55ca3a964249fde4306d8fcab28dd2"
         }
       ]
     }

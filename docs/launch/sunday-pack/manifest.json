@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "name": "ツクハコ 内蔵初回ガイド",
-  "guideRevision": "2026-10-24-r7",
-  "productVersion": "0.4.8",
+  "guideRevision": "2026-10-24-r8",
+  "productVersion": "1.0.0",
   "status": "LOCAL_RELEASE_CANDIDATE_SOURCE",
   "scope": "After opening the application on Linux Mint, create the recommended Web project, follow its own path and URL, wait for successful initialization, and display the sample page. Changes and restoration are optional.",
   "includesProductBinary": false,
@@ -18,34 +18,34 @@
     {
       "file": "START_HERE.md",
       "bytes": 2433,
-      "sha256": "ae839c34c4edbec8c92c4c9d69fa6b31e3144908e0c5c5b53e6c9e45ddf37bea"
+      "sha256": "5ac8b0b8c4b415928b5219ea540b40f697af28049c8ddb3089b721f5fe7156c1"
     },
     {
       "file": "FIRST-RUN.md",
       "bytes": 8477,
-      "sha256": "cd255297fc9aa7eb12a082b4fce48640c766fa7c007ae2c226e908829982e48a"
+      "sha256": "8125df4649d00a3603b440179525f39f54981d6265dd0e16407f7e0bf7f213a9"
     },
     {
       "file": "TROUBLESHOOTING.md",
       "bytes": 9198,
-      "sha256": "6397065dc85a5fa5aacc7ae7b0d06cd7e3aa5611b95c58f90149f5f9b1cee7ef"
+      "sha256": "e494920bfba05d2e5c8bdeae65190182fab1d91f5136c82d544d017897066c5b"
     },
     {
       "file": "NEXT-STEP.md",
       "bytes": 2256,
-      "sha256": "6498649b40c36aff66755e0356371d2cdf25fa25651a1e0efb38da56554cd694"
+      "sha256": "c7859c892918c424cba88fce956d5b1004f152f423deaf7904312341fb3c9934"
     },
     {
       "file": "FEEDBACK.md",
       "bytes": 1697,
-      "sha256": "35ac81e4d534a23e059d590d565e791b05f68804ae4f81ebf1d4904ac05296d0"
+      "sha256": "4ae33b5cfb0cdb8c3c0e93b452dc23b41f55ca3a964249fde4306d8fcab28dd2"
     }
   ],
   "distribution": {
     "linux": {
-      "productVersion": "0.4.8",
+      "productVersion": "1.0.0",
       "format": "deb",
-      "file": "tsukuhako-linux-amd64-0.4.8.deb",
+      "file": "tsukuhako-linux-amd64-1.0.0.deb",
       "target": "Linux Mint 22.3 x64",
       "status": "LOCAL_CANDIDATE"
     },
@@ -68,7 +68,8 @@
     "linux046FirstRun": "NOT_RUN in this source-editing task; use the 0.4.6 integration report for final artifact results",
     "linux047Revision": "V01/V02 checks are recorded separately in validation/onboarding-0.4.7/REPORT.md; prior full runtime journey remains 0.4.6 evidence.",
     "uxLoop01": "Unreleased source preview; validation/ux-loop-01/REPORT.md",
-    "linux048Revision": "See validation/onboarding-0.4.8/REPORT.md for final artifact checks; UX modes covered in validation/ux-loop-03-startup."
+    "linux048Revision": "See validation/onboarding-0.4.8/REPORT.md for final artifact checks; UX modes covered in validation/ux-loop-03-startup.",
+    "linux100Version": "Version 1.0.0 names the existing 0.4.8 feature set; see validation/onboarding-1.0.0/REPORT.md for new artifact checks. External publication is not implied."
   },
   "checksums": {
     "algorithm": "SHA-256",
