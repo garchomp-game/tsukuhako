@@ -33,7 +33,7 @@ try{
  }
  await expect(mode(guided)).toBeChecked();await mode(guided).focus();await p.keyboard.press('ArrowRight');await expect(mode(quick)).toBeChecked();
  await expect.poll(()=>app.evaluate(()=>globalThis.fixture.saved.guideMode)).toBe('quick');
- await b('はじめてのWeb画面で始める').click();await create('初回の画面',3311);
+ await b('はじめてのWeb画面で始める').click();await expect(p.locator('#generator-title')).toHaveText('プロジェクトの置き場所を決めます。');await create('初回の画面',3311);
  await expect(mode(quick)).toBeChecked();const destination='/home/student/日本語の親フォルダー/初回の画面';
  await expect(p.locator('.project-context')).toContainText(destination);await expect(p.locator('.project-context')).toContainText('http://localhost:3311/');
  await expect(b('このフォルダーをVS Codeで開く')).toHaveCount(1);
@@ -69,7 +69,7 @@ try{
   record(id+' quick mode retains mandatory operations and correct service-specific instructions');
  }
 
- await app.evaluate(()=>{Object.assign(globalThis.fixture,{platform:'win32',helper:false,saved:{view:'create',lessonId:'F2',chapterId:'',scroll:0,guideMode:'quick'}})});await p.reload();await expect(mode(quick)).toBeChecked();await b('はじめてのWeb画面で始める').click();await expect(b('保存先へ進む').first()).toBeDisabled();await p.getByLabel('開発するWSL').selectOption('aaaaaaaaaaaaaaaa');await b('WSL用ファイルを準備').click();await b('保存先へ進む').first().click();await create('Windowsの手順',3311);
+ await app.evaluate(()=>{Object.assign(globalThis.fixture,{platform:'win32',helper:false,saved:{view:'create',lessonId:'F2',chapterId:'',scroll:0,guideMode:'quick'}})});await p.reload();await expect(mode(quick)).toBeChecked();await b('はじめてのWeb画面で始める').click();await expect(b('保存先へ進む').first()).toBeDisabled();await p.getByLabel('開発するWSL').selectOption('aaaaaaaaaaaaaaaa');await b('WSL用ファイルを準備').click();await b('保存先へ進む').first().click();await expect(p.locator('#generator-title')).toHaveText('プロジェクトの置き場所を決めます。');await create('Windowsの手順',3311);
  await expect(body).toContainText('選択したWSL');await expect(body).not.toContainText('macOSのターミナル');await nav('困ったとき').click();await expect(p.locator('#準備が足りないとき')).toBeFocused();await b('読んでいた手順へ戻る').click();await expect(mode(quick)).toBeChecked();await expect(p.locator('.project-context')).toContainText('Windowsの手順');
  record('Windows fixture retains selected-WSL gate, WSL work locations and quick/help return');
 
