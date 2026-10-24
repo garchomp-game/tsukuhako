@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "name": "ツクハコ 内蔵初回ガイド",
-  "guideRevision": "2026-10-24-r3",
-  "productVersion": "0.4.5",
+  "guideRevision": "2026-10-24-r4",
+  "productVersion": "0.4.6",
   "status": "EMBEDDED_GUIDE_SOURCE",
-  "scope": "Install the Linux Mint deb, open the application from the menu, then generate F2 and wait for successful initialization before displaying its first page. Changes and restoration are optional.",
+  "scope": "After opening the application on Linux Mint, create the recommended Web project, follow its own path and URL, wait for successful initialization, and display the sample page. Changes and restoration are optional.",
   "includesProductBinary": false,
   "includesGeneratedProject": false,
   "entry": "START_HERE.md",
@@ -17,35 +17,35 @@
   "files": [
     {
       "file": "START_HERE.md",
-      "bytes": 5612,
-      "sha256": "f5d33a948349396ffed823cfc60eb09108e1b13871e1c85eedb08b89f3d4e983"
+      "bytes": 2433,
+      "sha256": "60693a048d7fd06ab0232029c4c0151243bf538fe568e95ba3cff65202ad162e"
     },
     {
       "file": "FIRST-RUN.md",
-      "bytes": 10146,
-      "sha256": "f6f3ef9e02973207076ccf74b4157d5b561606a2b3137216d3ceb1e12596b799"
+      "bytes": 7655,
+      "sha256": "293f0837dd65b477dd7192f775d2e97507cde894eb33450c09e36134881bee31"
     },
     {
       "file": "TROUBLESHOOTING.md",
-      "bytes": 7873,
-      "sha256": "bdd8300e9df2b7b4da50842002fcc00f5140b50726c15bc59265341c36aa68d3"
+      "bytes": 9177,
+      "sha256": "ef2caee1285158e0fdb5472c452ebbcb4eb775988cd4cf6c07d2af84e06e3c01"
     },
     {
       "file": "NEXT-STEP.md",
-      "bytes": 1586,
-      "sha256": "1680b0fca9ae1e4675ccfbd0023ac026fa3520b45c8c0ee801283e723ef2dd1c"
+      "bytes": 2296,
+      "sha256": "e4b1a616507502ee365d0f17524b02eff3602c3ad36a7b4dca391cff3dc00f6f"
     },
     {
       "file": "FEEDBACK.md",
-      "bytes": 2261,
-      "sha256": "0919669f19fe6e223f01aaa3d1d39fae808f863321f6f2d1ad0c082707106bd3"
+      "bytes": 1697,
+      "sha256": "e10d524b5be8d622f1438eef57717489ada4c868de89def4ca265c8e1e0c0a95"
     }
   ],
   "distribution": {
     "linux": {
-      "productVersion": "0.4.5",
+      "productVersion": "0.4.6",
       "format": "deb",
-      "file": "tsukuhako-linux-amd64-0.4.5.deb",
+      "file": "tsukuhako-linux-amd64-0.4.6.deb",
       "target": "Linux Mint 22.3 x64"
     },
     "windows": {
@@ -56,14 +56,15 @@
     }
   },
   "verificationScope": {
-    "currentGuide": "STATIC content and source-link checks; not evidence of an installed deb",
+    "currentGuide": "STATIC source, stage, heading and local-link checks; final Reader and deb integration are checked separately",
     "linuxDebGuiInstall": "NOT_RUN",
     "linuxDebMenuLaunch": "NOT_RUN",
     "legacyLinuxF2": "Existing 0.4.4 Linux Mint 22.3 x64 development environment record only",
     "windows11WslF2": "NOT_RUN",
     "cleanPCSetup": "NOT_RUN",
     "publicRecipientDownload": "NOT_RUN",
-    "unaidedHumanTrial": "NOT_RUN"
+    "unaidedHumanTrial": "NOT_RUN; awaiting an actual first-time user",
+    "linux046FirstRun": "NOT_RUN in this source-editing task; use the 0.4.6 integration report for final artifact results"
   },
   "checksums": {
     "algorithm": "SHA-256",
