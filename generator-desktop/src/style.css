@@ -43,3 +43,8 @@
 .project-editor-action{background:#EDF3FF}.project-editor-action>button{margin:5px 8px 5px 0;max-width:100%}.project-editor-action>.error{margin-bottom:0}
 .project-context .path,.project-editor-action .path,.current-project .path{white-space:pre-wrap;word-break:break-word}
 @media(max-width:600px){.preparation-item,.project-context,.project-editor-action,.current-project{padding:14px}.project-editor-action>button{display:block;width:100%;margin-right:0}.first-use>.primary{white-space:normal}.folder-row input{min-width:0;width:100%}.steps{gap:8px}.steps li{font-size:13px}}
+
+.destination-context{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#EDF3FF;border-radius:8px;padding:12px 16px;margin:0 0 20px;font-size:15px}.creation-return{margin:24px 32px 0;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;background:#EDF3FF;border:1px solid #B7C9F2;border-radius:10px}.creation-return p{margin:0}.creation-return button{flex-shrink:0}@media(max-width:600px){.creation-return{margin:18px 16px 0;flex-wrap:wrap}.creation-return button{width:100%}}
+.status:empty{display:none}.destination-context+form .hint{margin:8px 0}
+
+.shell-destination main{padding-top:24px}.shell-destination .destination-context{margin-bottom:12px}

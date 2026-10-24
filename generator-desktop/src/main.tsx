@@ -5,7 +5,7 @@ import {Generator} from './Generator';
 import {Reader} from './Reader';
 import {Preparation} from './Preparation';
 import type {Catalog,Curriculum,Reading,ReaderAnchor,Created,Preparation as Prep} from './types';
-import {creationHelp,onboardingHelp,withDistro,type CreationStage} from './flow';
+import {canCreateFiles,creationHelp,onboardingHelp,withDistro,type CreationStage} from './flow';
 import './style.css';
 const initial:Reading={view:'create',lessonId:'F2',chapterId:'',scroll:0};
 function App(){
@@ -15,6 +15,10 @@ function App(){
  const [project,setProject]=useState<Created>(),[returnTo,setReturnTo]=useState<'create'|'learn'>('create'),[template,setTemplate]=useState('F2');
  const [prep,setPrep]=useState<Prep>(),[problem,setProblem]=useState(''),[anchor,setAnchor]=useState<ReaderAnchor>(),[startRequest,setStartRequest]=useState(0);
  const [creationStage,setCreationStage]=useState<CreationStage>('selection');
+ const [preparationOpen,setPreparationOpen]=useState(false),[recommendedPending,setRecommendedPending]=useState(false);
+ const started=startRequest>0;
+ const canBegin=Boolean(prep?.platform)&&canCreateFiles(prep?.platform,prep,reading.distroId);
+ const helpFromPreparation=useRef(false);
  const lastSaved=useRef(''),learningPosition=useRef<Reading|undefined>(undefined);
  const selected=catalog?.templates.find(t=>t.id===template),recommended=catalog?.templates.find(t=>t.id==='F2');
  useEffect(()=>{void Promise.all([window.tsukuhako.getLearningIndex(),window.tsukuhako.readSettings()]).then(([m,s])=>{
@@ -25,11 +29,14 @@ function App(){
   if(!ready)return;const record=reading.view==='help'?{...help,distroId:reading.distroId}:reading;const value=JSON.stringify(record);
   if(value===lastSaved.current)return;lastSaved.current=value;void window.tsukuhako.saveSettings(record).then(r=>{if(!r.ok)setProblem('読書位置を保存できませんでした。')})
  },[reading,help,ready]);
- function returnCreate(){const lessonId=reading.view==='help'?help.lessonId:reading.lessonId;setAnchor(undefined);setReading(p=>({...p,view:'create'}));requestAnimationFrame(()=>document.getElementById(lessonId==='setup'?'preparation-title':'generator-title')?.focus())}
+ function beginRecommended(){setRecommendedPending(!canBegin);setPreparationOpen(!canBegin);setStartRequest(v=>v+1);window.scrollTo(0,0)}
+ function showPreparation(){setPreparationOpen(true);requestAnimationFrame(()=>{window.scrollTo(0,0);document.getElementById('preparation-title')?.focus()})}
+ function continueCreation(){if(recommendedPending){beginRecommended();return}setPreparationOpen(false);requestAnimationFrame(()=>{window.scrollTo(0,0);document.getElementById('generator-title')?.focus()})}
+ function returnCreate(){const lessonId=reading.view==='help'?help.lessonId:reading.lessonId;const toPreparation=lessonId==='setup'||(reading.view==='help'&&helpFromPreparation.current);setAnchor(undefined);if(started)setPreparationOpen(toPreparation);setReading(p=>({...p,view:'create'}));requestAnimationFrame(()=>{window.scrollTo(0,0);document.getElementById(toPreparation?'preparation-title':'generator-title')?.focus()})}
  function showHelp(){
   if(!index||reading.view==='help')return;
-  const from=reading.view==='learn'?'learn':'create';setReturnTo(from);
-  const {heading,...destination}=from==='create'&&!project?creationHelp(template,creationStage):onboardingHelp(index,from==='learn'?reading:{lessonId:project!.templateId,chapterId:'first'},project,prep?.platform);
+  const from=reading.view==='learn'?'learn':'create';setReturnTo(from);helpFromPreparation.current=from==='create'&&started&&preparationOpen;
+  const {heading,...destination}=from==='create'&&!project?creationHelp(template,helpFromPreparation.current?'selection':creationStage):onboardingHelp(index,from==='learn'?reading:{lessonId:project!.templateId,chapterId:'first'},project,prep?.platform);
   setAnchor(heading?{...destination,heading,request:Date.now()}:undefined);
   setHelp({...initial,view:'help',...destination});
   setReading(p=>({...p,view:'help'}));
@@ -52,9 +59,14 @@ function App(){
   <div className="global-status" role="status" hidden={reading.view!=='create'&&!busy&&!prepBusy}>{busy||(prepBusy?'開発準備を確認しています。「作る」に戻ると結果を確認できます。':`準備を確認 → フォルダーを作る → ${selected?.firstGoal||'サンプルを表示する'}`)}</div>
   {problem&&<p role="alert" className="error">{problem}</p>}
   {ready&&<><div hidden={reading.view!=='create'}>
-   {!project&&<section className="first-use" aria-labelledby="first-use-title"><div><p className="eyebrow">はじめての方におすすめ</p><h2 id="first-use-title">{recommended?.name||'はじめてのWeb画面'}</h2><p>最初のゴールはサンプル画面を表示することです。準備を確認し、フォルダーを作ったら、起動の手順へ進みます。内容の変更は、その後に試せます。</p><button type="button" className="lesson-link" disabled={!index} onClick={()=>learn('guide','start')}>全体の流れを読む</button></div><button type="button" className="primary" disabled={!catalog||!!busy||prepBusy} onClick={()=>setStartRequest(v=>v+1)}>{recommended?.name||'はじめてのWeb画面'}で始める</button></section>}
-   <Preparation result={prep} onBusy={setPrepBusy} templateId={template} storageTemplateName={catalog?.templates.find(t=>t.id==='S2')?.name} onResult={setPrep} onGuide={(chapter,heading)=>learn('setup',chapter,heading)} disabled={!!busy} distro={reading.distroId} onDistro={id=>setReading(p=>withDistro(p,id))}/>
-   <Generator startRequest={startRequest} onCatalog={setCatalog} externalBusy={prepBusy} onCreated={setProject} onHelp={showHelp} onBusy={setBusy} onTemplate={setTemplate} onCreationStage={setCreationStage} onLearn={id=>learn(id)} parentOverride={prep?.target?.home} platform={prep?.platform} preparation={prep} onPreparation={setPrep} distroId={reading.distroId}/>
+   {!project&&!started&&<section className="first-use" aria-labelledby="first-use-title"><div><p className="eyebrow">はじめての方におすすめ</p><h2 id="first-use-title">{recommended?.name||'はじめてのWeb画面'}</h2><p>最初のゴールはサンプル画面を表示することです。準備を確認し、フォルダーを作ったら、起動の手順へ進みます。内容の変更は、その後に試せます。</p><button type="button" className="lesson-link" disabled={!index} onClick={()=>learn('guide','start')}>全体の流れを読む</button></div><button type="button" className="primary" disabled={!catalog||!!busy||prepBusy} onClick={beginRecommended}>{recommended?.name||'はじめてのWeb画面'}で始める</button></section>}
+   <div hidden={started&&!preparationOpen}>
+   {started&&<div className="creation-return"><p>{recommendedPending?'保存先へ進む前に、使うWSLとファイル作成の準備を確認してください。':'入力した内容は保持しています。準備を確認したら作成へ戻れます。'}</p><button type="button" className="primary" disabled={prepBusy||!!busy||(recommendedPending&&!canBegin)} onClick={continueCreation}>{recommendedPending?'保存先へ進む':'作成に戻る'}</button></div>}
+   <Preparation onContinue={started?continueCreation:undefined} continueLabel={recommendedPending?'保存先へ進む':'作成に戻る'} continueDisabled={recommendedPending&&!canBegin} result={prep} onBusy={setPrepBusy} templateId={template} storageTemplateName={catalog?.templates.find(t=>t.id==='S2')?.name} onResult={setPrep} onGuide={(chapter,heading)=>learn('setup',chapter,heading)} disabled={!!busy} distro={reading.distroId} onDistro={id=>setReading(p=>withDistro(p,id))}/>
+   </div>
+   <div hidden={started&&preparationOpen}>
+   <Generator onShowPreparation={started?showPreparation:undefined} startRequest={startRequest} onCatalog={setCatalog} externalBusy={prepBusy} onCreated={setProject} onHelp={showHelp} onBusy={setBusy} onTemplate={setTemplate} onCreationStage={setCreationStage} onLearn={id=>learn(id)} parentOverride={prep?.target?.home} platform={prep?.platform} preparation={prep} onPreparation={setPrep} distroId={reading.distroId}/>
+   </div>
   </div>
   {reading.view!=='create'&&index&&<Reader key={reading.view} platform={prep?.platform} index={index} reading={reading.view==='help'?help:reading} onReading={reading.view==='help'?setHelp:updateReading} help={reading.view==='help'} project={project} anchor={anchor} onHelp={showHelp} onCurrentProject={project?heading=>learn(project.templateId,'first',heading):undefined} returnLabel={reading.view==='help'&&returnTo==='learn'?'読んでいた手順へ戻る':undefined} onReturn={reading.view==='help'&&returnTo==='learn'?()=>{setAnchor(undefined);setReading(p=>({...p,view:'learn'}))}:returnCreate}/>}</>}
  </div>

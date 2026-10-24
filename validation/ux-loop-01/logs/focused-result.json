@@ -1,0 +1,49 @@
+{
+  "scope": "FIXTURE",
+  "result": "PASS",
+  "records": [
+    {
+      "scenario": "one click reveals recommended destination and next action without scrolling",
+      "result": "PASS",
+      "viewport": "1148x900",
+      "geometry": {
+        "#generator-title": {
+          "top": 283.96875,
+          "bottom": 325.96875,
+          "fullyVisible": true
+        },
+        "#parent": {
+          "top": 485.84375,
+          "bottom": 539.03125,
+          "fullyVisible": true
+        },
+        "#folder": {
+          "top": 629.40625,
+          "bottom": 682.59375,
+          "fullyVisible": true
+        },
+        "button[form=\"destination\"]": {
+          "top": 822.96875,
+          "bottom": 872.96875,
+          "fullyVisible": true
+        }
+      }
+    },
+    {
+      "scenario": "preparation and help return preserve destination input and focus",
+      "result": "PASS"
+    },
+    {
+      "scenario": "configuration selection remains available",
+      "result": "PASS"
+    },
+    {
+      "scenario": "390px layout does not overflow and next action is reachable",
+      "result": "PASS"
+    },
+    {
+      "scenario": "Windows selected-WSL/helper gate remains enforced before direct destination",
+      "result": "PASS"
+    }
+  ]
+}

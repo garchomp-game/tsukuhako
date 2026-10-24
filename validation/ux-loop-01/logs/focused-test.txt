@@ -1,0 +1,2 @@
+{"#generator-title":{"top":283.96875,"bottom":325.96875,"fullyVisible":true},"#parent":{"top":485.84375,"bottom":539.03125,"fullyVisible":true},"#folder":{"top":629.40625,"bottom":682.59375,"fullyVisible":true},"button[form=\"destination\"]":{"top":822.96875,"bottom":872.96875,"fullyVisible":true}}
+PASS; Evidence: /tmp/tsukuhako-start-ux-5Dx9gu

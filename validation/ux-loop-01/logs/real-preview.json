@@ -1,0 +1,31 @@
+{
+  "scope": "REAL_HOST_SOURCE_PREVIEW",
+  "result": "PASS",
+  "viewport": {
+    "width": 1150,
+    "height": 900
+  },
+  "scrollY": 0,
+  "fields": [
+    {
+      "selector": "#parent",
+      "top": 485.84375,
+      "bottom": 539.03125,
+      "fullyVisible": true
+    },
+    {
+      "selector": "#folder",
+      "top": 629.40625,
+      "bottom": 682.59375,
+      "fullyVisible": true
+    },
+    {
+      "selector": "button[form=\"destination\"]",
+      "top": 822.96875,
+      "bottom": 872.96875,
+      "fullyVisible": true
+    }
+  ],
+  "profileIsolated": true,
+  "installedAppChanged": false
+}
