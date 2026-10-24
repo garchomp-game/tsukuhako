@@ -1,0 +1,42 @@
+{
+  "category": "EXTRACTED_DEB_ON_REAL_HOST",
+  "interaction": "AUTOMATED",
+  "productVersion": "0.4.5",
+  "sourceCommit": "bd006beb3dac5db2c18c1cf28e436cfc0dc3f643",
+  "dirty": false,
+  "helperVersion": "0.4.5",
+  "binarySha256": "3ba9114b7fbaafaf548f72c5d1bc86b7dc81098a85361784359c2c1199625bfc",
+  "menuInstallation": "NOT_RUN",
+  "offlineGuide": true,
+  "chapters": [
+    {
+      "name": "入口と準備",
+      "heading": "はじめて使う：F2の最初の画面まで"
+    },
+    {
+      "name": "F2の初回手順",
+      "heading": "F2を一つ作り、最初の画面まで進む"
+    },
+    {
+      "name": "困ったとき・再開",
+      "heading": "今の状態から、戻る場所を選ぶ"
+    },
+    {
+      "name": "任意：変更と復元",
+      "heading": "任意：一箇所変えて、元へ戻す"
+    },
+    {
+      "name": "記録票",
+      "heading": "試した場所を残す短い票"
+    }
+  ],
+  "restart": true,
+  "cwd": "/tmp",
+  "savedReading": {
+    "view": "learn",
+    "lessonId": "guide",
+    "chapterId": "first-run",
+    "scroll": 450
+  },
+  "result": "PASS"
+}

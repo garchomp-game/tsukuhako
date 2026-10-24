@@ -1,0 +1,10 @@
+{
+  "category": "STATIC_ON_REAL_HOST",
+  "status": "PASS",
+  "checkedAt": "2026-10-24T05:06:20.390Z",
+  "command": "apparmor_parser --skip-kernel-load --skip-cache <extracted profile>",
+  "profileSha256": "04d49c882d635d3274dbd5a363f2a08b62008ae5049a6bce7ef5b197a5d96db7",
+  "kernelPolicyChanged": false,
+  "cacheChanged": false,
+  "installedPolicy": "NOT_RUN"
+}

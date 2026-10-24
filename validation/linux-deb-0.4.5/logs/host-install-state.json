@@ -1,0 +1,10 @@
+{
+  "category": "REAL_HOST_READ_ONLY",
+  "checkedAt": "2026-10-24T05:06:20.409Z",
+  "installed": false,
+  "dpkgStatus": "package not found",
+  "systemDesktopEntry": false,
+  "normalUserConfig": false,
+  "normalUserDesktopEntry": false,
+  "installOrUninstallPerformed": false
+}

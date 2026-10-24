@@ -19,7 +19,7 @@ export async function inspectDeb(input) {
     assert.match(control.Maintainer,/^garchomp-game <[^<>]+@[^<>]+>$/);
     for(const dep of ['libgtk-3-0t64','libnss3','libasound2t64','libgbm1','xdg-utils'])assert.ok(control.Depends.includes(dep),dep);
     const listing=run('dpkg-deb',['--contents',deb]);
-    for(const line of listing.trim().split('\n'))assert.match(line,/\sroot\/root\s/,line);
+    for(const line of listing.trim().split('\n'))assert.match(line,/\s(?:root\/root|0\/0)\s/,line);
     assert.match(listing,/chrome-sandbox/);
     run('dpkg-deb',['--extract',deb,temp+'/root']);run('dpkg-deb',['--control',deb,temp+'/control']);
     const base=temp+'/root',read=relative=>fs.readFileSync(base+'/'+relative,'utf8');

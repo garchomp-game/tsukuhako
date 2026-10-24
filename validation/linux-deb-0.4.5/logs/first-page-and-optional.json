@@ -1,0 +1,13 @@
+{
+  "category": "EXTRACTED_DEB_ON_REAL_HOST",
+  "interaction": "AUTOMATED",
+  "result": "PASS",
+  "firstPageHeading": "小さく変えて、動きを確かめよう。",
+  "optionalChangedHeading": "わたしの練習室",
+  "restoredHash": "c519464d586ca774fbc969aeca14418aa10e837948cf22322317e3c61a5fd43e",
+  "sourceHash": "c519464d586ca774fbc969aeca14418aa10e837948cf22322317e3c61a5fd43e",
+  "editor": "VS Code actual Find/Replace and Save",
+  "browser": "Chrome 156.0.8078.47",
+  "hostUrlUsesGeneratedPort": true,
+  "optionalExerciseSeparateFromFirstPage": true
+}

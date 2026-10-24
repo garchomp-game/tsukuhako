@@ -1,0 +1,70 @@
+{
+  "category": "EXTRACTED_DEB_ON_REAL_HOST",
+  "interaction": "AUTOMATED",
+  "inputDebSha256": "665991ee388c71e9893f0f0da61b83eeacd1ce785f2ef7470dbcb7651c9c304a",
+  "productSourceCommit": "bd006beb3dac5db2c18c1cf28e436cfc0dc3f643",
+  "productVersion": "0.4.5",
+  "normalGuiInstallAndMenu": "NOT_RUN",
+  "screenshots": [
+    {
+      "file": "screenshots/00-first-screen.png",
+      "sha256": "b122216fdf79395adc3c329bf6347c3a0235d703b3d5498bdd39eebfc11998d1"
+    },
+    {
+      "file": "screenshots/01-generated.png",
+      "sha256": "fb55a1cf033369bc3dde980004ed2d62c444a51f20378ef69e6aa3681660a685"
+    },
+    {
+      "file": "screenshots/01-offline-guide.png",
+      "sha256": "8a9a471a9effcfd94d463ef57d4069d8b8ec5806d9898e159702f40f31485989"
+    },
+    {
+      "file": "screenshots/02-initialized.png",
+      "sha256": "c66d9fdd46cb11e854e4965803db4b0546a489fa9b3c19d449cbdd327e1199d8"
+    },
+    {
+      "file": "screenshots/02-reading-restored.png",
+      "sha256": "e81bd65bd63c7b5babdc851c1eaa1b1829a40774fa7c6407c1d17d44738325e0"
+    },
+    {
+      "file": "screenshots/03-first-page.png",
+      "sha256": "4b8973db6aaba64046cc10d668e2071ea964ec939df756869d1ffb20a5dff020"
+    },
+    {
+      "file": "screenshots/04-optional-change.png",
+      "sha256": "ab0d854dd82ab16d811447c0cef5a4ed8b1af77820ef240a29ddaaa068b35838"
+    }
+  ],
+  "tools": [
+    {
+      "file": "tools/linux-deb/ui-check.mjs",
+      "sha256": "4131ef34f27073b38f185faf85136e68c1ff22ee899dc2cd712ad8f1d60fdf45"
+    },
+    {
+      "file": "tools/linux-deb/f2-journey.mjs",
+      "sha256": "ce7bca74cc854cf5d90f9cc40d33ad5ca841618430bbc1566cdcb626f466b925"
+    },
+    {
+      "file": "tools/onboarding-evidence.mjs",
+      "sha256": "bbe7576f309509c7fc68a7e8bf8f7057913d71a3bc503263d1f676dbd7e8ad79"
+    },
+    {
+      "file": "tools/onboarding-desktop.sh",
+      "sha256": "1fa3d3e2bb2ceb4bdf3cc90b7b953b2da325328c1b1c66b0a31646e6e6c57341"
+    }
+  ],
+  "retryNotes": [
+    {
+      "case": "Xephyr desktop ended before initial launch",
+      "result": "HARNESS_FAILURE",
+      "source": "logs/ui-runner-attempt1.txt",
+      "resolution": "Started a detached, dedicated desktop and reran all guide checks"
+    },
+    {
+      "case": "Debug-only TCP 9430 remained owned by the isolated Code process after app close",
+      "result": "HARNESS_FAILURE",
+      "observed": "Cannot start http server for devtools; Code PID owned both 9430 and its intended 9431",
+      "resolution": "Guide runner now uses a separate 9432 port; repeated successfully from cwd /tmp"
+    }
+  ]
+}

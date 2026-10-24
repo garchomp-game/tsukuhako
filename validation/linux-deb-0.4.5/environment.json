@@ -1,0 +1,31 @@
+{
+  "category": "REAL_HOST_READ_ONLY",
+  "checkedAt": "2026-10-24T04:57:44.214Z",
+  "os": {
+    "NAME": "Linux Mint",
+    "VERSION": "22.3 (Zena)",
+    "ID": "linuxmint",
+    "VERSION_ID": "22.3"
+  },
+  "kernel": "Linux 7.0.0-31-generic x86_64 GNU/Linux",
+  "uid": 1000,
+  "node": "v24.19.0",
+  "captain": "1.1.2",
+  "debAssociation": "captain.desktop",
+  "apparmorUserNamespaceRestriction": "0",
+  "hostInstall": "NOT_RUN",
+  "normalProfileChanged": false,
+  "display": "Dedicated Xephyr :91 / Metacity, 1600×900",
+  "sourceCheckout": "No system package installation",
+  "dockerBaseline": [
+    {
+      "id": "b531d3443746",
+      "status": "Up 49 minutes (healthy)"
+    },
+    {
+      "id": "8e9f201539c5",
+      "status": "Up 49 minutes (healthy)"
+    }
+  ],
+  "note": "Existing Docker and VS Code installation/cache retained. A fresh, isolated Code profile is used for the UI test."
+}

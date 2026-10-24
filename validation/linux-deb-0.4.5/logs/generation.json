@@ -1,0 +1,13 @@
+{
+  "category": "EXTRACTED_DEB_ON_REAL_HOST",
+  "interaction": "AUTOMATED",
+  "result": "PASS",
+  "appVersion": "0.4.5",
+  "folder": "<isolated recipient>/projects/F2 deb 初回画面",
+  "nonDefaultPort": 38903,
+  "appUI": true,
+  "projectGuideMatchesDestinationAndPort": true,
+  "hostDiagnosis": "PASS",
+  "generatedEnvPresent": true,
+  "externalRecipientDownload": "NOT_RUN"
+}

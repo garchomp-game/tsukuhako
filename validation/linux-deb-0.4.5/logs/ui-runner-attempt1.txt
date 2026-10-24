@@ -1,0 +1,10 @@
+file:///home/garchomp-game/workspace/meikyo/tsukuhako-linux-deb-20261024/tools/onboarding-evidence.mjs:18
+export async function waitConnect(port){for(let i=0;i<60;i++){try{return await connect(port)}catch{await pause(1000)}}throw Error(`No CDP on ${port}`)}
+                                                                                                                            ^
+
+Error: No CDP on 9430
+    at waitConnect (file:///home/garchomp-game/workspace/meikyo/tsukuhako-linux-deb-20261024/tools/onboarding-evidence.mjs:18:125)
+    at async launch (file:///home/garchomp-game/workspace/meikyo/tsukuhako-linux-deb-20261024/tools/linux-deb/ui-check.mjs:10:161)
+    at async file:///home/garchomp-game/workspace/meikyo/tsukuhako-linux-deb-20261024/tools/linux-deb/ui-check.mjs:20:10
+
+Node.js v24.19.0

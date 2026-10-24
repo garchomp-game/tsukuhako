@@ -1,0 +1,30 @@
+{
+  "category": "REAL_HOST_OWNED_TEST_RESOURCES",
+  "checkedAt": "2026-10-24T05:06:20.311Z",
+  "result": "PASS",
+  "devServerStopped": true,
+  "ownedContainer": {
+    "id": "ae59123cc720",
+    "status": "exited",
+    "removed": false
+  },
+  "generatedProjectPreserved": true,
+  "optionalEditRestored": true,
+  "volumesPreserved": true,
+  "existingContainers": [
+    {
+      "id": "b531d3443746",
+      "status": "running",
+      "health": "healthy"
+    },
+    {
+      "id": "8e9f201539c5",
+      "status": "running",
+      "health": "healthy"
+    }
+  ],
+  "hostPackageChanges": false,
+  "ordinaryUserProfileChanged": false,
+  "dedicatedDesktopStopRequested": true,
+  "dedicatedDesktopStopped": true
+}

@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "category": "DEB_STATIC_INSPECTION",
+  "checkedAt": "2026-10-24T05:00:12.378Z",
+  "file": "tsukuhako-linux-amd64-0.4.5.deb",
+  "bytes": 133466152,
+  "sha256": "665991ee388c71e9893f0f0da61b83eeacd1ce785f2ef7470dbcb7651c9c304a",
+  "control": {
+    "Package": "tsukuhako",
+    "Version": "0.4.5",
+    "Architecture": "amd64",
+    "Maintainer": "garchomp-game <otoka.japanesedrum@gmail.com>",
+    "Depends": "libgtk-3-0t64 | libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0t64 | libatspi2.0-0, libuuid1, libsecret-1-0, libasound2t64 | libasound2, libgbm1",
+    "Homepage": "https://github.com/garchomp-game"
+  },
+  "bundle": {
+    "status": "PASS",
+    "category": "BUNDLE_INSPECTION",
+    "productVersion": "0.4.5",
+    "sourceCommit": "bd006beb3dac5db2c18c1cf28e436cfc0dc3f643",
+    "dirty": false,
+    "helperVersion": "0.4.5",
+    "files": 125,
+    "chapters": 55,
+    "templates": 7,
+    "helperSha256": "e9386f421036a35e9fe75b1ffd671b27ad32dfb7134d40d17a2704e43c89d371"
+  },
+  "desktop": "[Desktop Entry]\nName=ツクハコ\nExec=/opt/tsukuhako/tsukuhako %U\nTerminal=false\nType=Application\nIcon=tsukuhako\nStartupWMClass=tsukuhako\nComment=開発環境を生成するツールと使い始めのガイド、教材を同梱しています。Linux Mint 22.3 x64向けの候補です。アプリ本体の導入とDocker等の開発準備は別の段階です。\nKeywords=ツクハコ;Tsukuhako;Development;Learning;\nCategories=Development;\n",
+  "sandbox": {
+    "archiveOwner": "root:root",
+    "archiveMode": "755",
+    "installedMode": "See isolated lifecycle evidence; postinst selects 0755 or 4755"
+  },
+  "scripts": {
+    "postinst": "#!/bin/bash\n\nif type update-alternatives >/dev/null 2>&1; then\n    # Remove previous link if it doesn't use update-alternatives\n    if [ -L '/usr/bin/tsukuhako' -a -e '/usr/bin/tsukuhako' -a \"`readlink '/usr/bin/tsukuhako'`\" != '/etc/alternatives/tsukuhako' ]; then\n        rm -f '/usr/bin/tsukuhako'\n    fi\n    update-alternatives --install '/usr/bin/tsukuhako' 'tsukuhako' '/opt/tsukuhako/tsukuhako' 100 || ln -sf '/opt/tsukuhako/tsukuhako' '/usr/bin/tsukuhako'\nelse\n    ln -sf '/opt/tsukuhako/tsukuhako' '/usr/bin/tsukuhako'\nfi\n\n# Check if user namespaces are supported by the kernel and working with a quick test:\nif ! { [[ -L /proc/self/ns/user ]] && unshare --user true; }; then\n    # Use SUID chrome-sandbox only on systems without user namespaces:\n    chmod 4755 '/opt/tsukuhako/chrome-sandbox' || true\nelse\n    chmod 0755 '/opt/tsukuhako/chrome-sandbox' || true\nfi\n\nif hash update-mime-database 2>/dev/null; then\n    update-mime-database /usr/share/mime || true\nfi\n\nif hash update-desktop-database 2>/dev/null; then\n    update-desktop-database /usr/share/applications || true\nfi\n\n# Install apparmor profile. (Ubuntu 24+)\n# First check if the version of AppArmor running on the device supports our profile.\n# This is in order to keep backwards compatibility with Ubuntu 22.04 which does not support abi/4.0.\n# In that case, we just skip installing the profile since the app runs fine without it on 22.04.\n#\n# Those apparmor_parser flags are akin to performing a dry run of loading a profile.\n# https://wiki.debian.org/AppArmor/HowToUse#Dumping_profiles\n#\n# Unfortunately, at the moment AppArmor doesn't have a good story for backwards compatibility.\n# https://askubuntu.com/questions/1517272/writing-a-backwards-compatible-apparmor-profile\nif apparmor_status --enabled > /dev/null 2>&1; then\n  APPARMOR_PROFILE_SOURCE='/opt/tsukuhako/resources/apparmor-profile'\n  APPARMOR_PROFILE_TARGET='/etc/apparmor.d/tsukuhako'\n  if apparmor_parser --skip-kernel-load --debug \"$APPARMOR_PROFILE_SOURCE\" > /dev/null 2>&1; then\n    cp -f \"$APPARMOR_PROFILE_SOURCE\" \"$APPARMOR_PROFILE_TARGET\"\n\n    # Updating the current AppArmor profile is not possible and probably not meaningful in a chroot'ed environment.\n    # Use cases are for example environments where images for clients are maintained.\n    # There, AppArmor might correctly be installed, but live updating makes no sense.\n    if ! { [ -x '/usr/bin/ischroot' ] && /usr/bin/ischroot; } && hash apparmor_parser 2>/dev/null; then\n      # Extra flags taken from dh_apparmor:\n      # > By using '-W -T' we ensure that any abstraction updates are also pulled in.\n      # https://wiki.debian.org/AppArmor/Contribute/FirstTimeProfileImport\n      apparmor_parser --replace --write-cache --skip-read-cache \"$APPARMOR_PROFILE_TARGET\"\n    fi\n  else\n    echo \"Skipping the installation of the AppArmor profile as this version of AppArmor does not seem to support the bundled profile\"\n  fi\nfi\n",
+    "postrm": "#!/bin/bash\n\n# Delete the link to the binary\n# update-alternatives --remove <name> <path>: 'path' must be the registered alternative binary,\n# not the generic symlink — see https://man7.org/linux/man-pages/man1/update-alternatives.1.html\nif type update-alternatives >/dev/null 2>&1; then\n    update-alternatives --remove 'tsukuhako' '/opt/tsukuhako/tsukuhako'\nelse\n    rm -f '/usr/bin/tsukuhako'\nfi\n\nAPPARMOR_PROFILE_DEST='/etc/apparmor.d/tsukuhako'\n\n# Remove and unload apparmor profile.\nif [ -f \"$APPARMOR_PROFILE_DEST\" ]; then\n  # Unload the profile from the running kernel before deleting the file so the\n  # policy is not left enforced until the next reboot.  Mirror the chroot guard\n  # used in the after-install script — live AppArmor operations are not\n  # meaningful inside a chroot.\n  # https://wiki.debian.org/AppArmor/HowToUse\n  if apparmor_status --enabled > /dev/null 2>&1; then\n    if ! { [ -x '/usr/bin/ischroot' ] && /usr/bin/ischroot; } && hash apparmor_parser 2>/dev/null; then\n      apparmor_parser --remove \"$APPARMOR_PROFILE_DEST\" || true\n    fi\n  fi\n  rm -f \"$APPARMOR_PROFILE_DEST\"\nfi"
+  },
+  "apparmorProfile": "abi <abi/4.0>,\ninclude <tunables/global>\n\nprofile \"tsukuhako\" \"/opt/tsukuhako/tsukuhako\" flags=(unconfined) {\n  userns,\n\n  # Site-specific additions and overrides. See local/README for details.\n  include if exists <local/tsukuhako>\n}",
+  "hostInstallation": "NOT_RUN",
+  "mintGui": "NOT_RUN"
+}

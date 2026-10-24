@@ -7,7 +7,9 @@ if(!binary||!path.isAbsolute(binary)||!fs.existsSync(binary))throw Error('An ext
 const info=JSON.parse(fs.readFileSync(path.dirname(binary)+'/resources/app/build-info.json'));
 const results={category:'EXTRACTED_DEB_ON_REAL_HOST',interaction:'AUTOMATED',...info,binarySha256:sha(binary),menuInstallation:'NOT_RUN',offlineGuide:false,chapters:[],restart:false};
 const launched=[];
-async function launch(){const pid=start(binary,['--remote-debugging-port=9430','--remote-debugging-address=127.0.0.1'],'deb-ui.log');launched.push(pid);const c=await waitConnect(9430);return{...c,pid};}
+const port=Number(process.env.TSUKUHAKO_UI_PORT||9432);
+results.cwd=process.cwd();
+async function launch(){const pid=start(binary,[`--remote-debugging-port=${port}`,'--remote-debugging-address=127.0.0.1'],'deb-ui.log');launched.push(pid);const c=await waitConnect(port);return{...c,pid};}
 async function close(c){
  const row=command('wmctrl',['-lp'],{env:env()}).split('\n').find(l=>Number(l.trim().split(/\s+/)[2])===c.pid);
  if(!row)throw Error('Owned app window missing');
