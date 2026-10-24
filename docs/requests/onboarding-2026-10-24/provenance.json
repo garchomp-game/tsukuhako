@@ -1,0 +1,27 @@
+{
+  "received": "2026-10-24",
+  "zipSha256": "bcf6ddd4b4ee9b3f6a8b8ebd80c5c10c3cf5fb1c4873b74c5fd2294ff2036e94",
+  "standaloneMatchesArchive": true,
+  "files": [
+    {
+      "name": "00-READ-ME.txt",
+      "sha256": "a469c696fb48ced7271c843c6a0e4c4e8002a5baaeb8e6e5ee73eb1553a04186",
+      "bytes": 1700
+    },
+    {
+      "name": "tsukuhako-onboarding-revision-request-2026-10-24.md",
+      "sha256": "6ba1a7aa4d2f49551f0ccb6543872a2bdb55860c25a539f0b504f193cb425858",
+      "bytes": 30452
+    },
+    {
+      "name": "tsukuhako-current-flow-review-2026-10-24.md",
+      "sha256": "525726dde8e5ef22dbed51a8292e51e3480245af86573dc54d104fe4218ddbdc",
+      "bytes": 23874
+    },
+    {
+      "name": "tsukuhako-usability-research-2026-10-24.md",
+      "sha256": "1a75613a1dea34473e23ddbb92c6039d25cf0bedbb84094d29d24e5ca104a2e2",
+      "bytes": 43887
+    }
+  ]
+}

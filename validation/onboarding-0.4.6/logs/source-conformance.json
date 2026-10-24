@@ -1,0 +1,13 @@
+{
+  "scope": "READ_ONLY_SOURCE_REVIEW",
+  "result": "PASS",
+  "reviewedBy": "independent core agent",
+  "checks": {
+    "I1": "postCreate runs scripts/db.sh doctor and prints PASS: otoka_learning / PostgreSQL <version>; setup/check/query commands match",
+    "S2": "本文 / 保存する / 保存しました and GET on initial load match generated guide",
+    "B1": "GET /api/health returns HTTP 200 and {status:ok}",
+    "F1_F2_S1": "headings, labels and result conditions match source",
+    "webInitialization": "doctor.mjs prints 準備完了; guide requires normal postCreate completion in addition"
+  },
+  "runtimeExecution": false
+}

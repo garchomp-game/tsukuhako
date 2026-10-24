@@ -41,7 +41,7 @@ async function capture(name){
  // A hidden native window may return its previous painted frame. Show only this
  // isolated fixture window for capture, then restore its hidden state.
  await app.evaluate(({BrowserWindow})=>BrowserWindow.getAllWindows()[0].showInactive());
- try{await page.locator('.preparation').evaluate(el=>el.scrollIntoView({block:'start'}));await page.screenshot({path:path.join(run,name),timeout:20000});screenshots.push(name)}
+ try{await page.locator('.preparation').evaluate(el=>el.scrollIntoView({block:'start'}));await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));await page.screenshot({path:path.join(run,name),clip:{x:0,y:0,width:1280,height:720},timeout:20000});screenshots.push(name)}
  finally{await app.evaluate(({BrowserWindow})=>BrowserWindow.getAllWindows()[0].hide())}
 }
 const record=name=>{records.push(name);console.log('PASS',name)};

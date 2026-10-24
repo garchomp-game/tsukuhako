@@ -1,0 +1,13 @@
+{
+  "category": "REAL_HOST_READ_ONLY",
+  "time": "2026-10-24T08:52:04.662Z",
+  "os": "NAME=\"Linux Mint\"\nVERSION=\"22.3 (Zena)\"\nID=linuxmint\nID_LIKE=\"ubuntu debian\"\nPRETTY_NAME=\"Linux Mint 22.3\"\nVERSION_ID=\"22.3\"\nHOME_URL=\"https://www.linuxmint.com/\"\nSUPPORT_URL=\"https://forums.linuxmint.com/\"\nBUG_REPORT_URL=\"http://linuxmint-troubleshooting-guide.readthedocs.io/en/latest/\"\nPRIVACY_POLICY_URL=\"https://www.linuxmint.com/\"\nVERSION_CODENAME=zena\nUBUNTU_CODENAME=noble\n",
+  "kernel": "7.0.0-31-generic",
+  "node": "v24.19.0",
+  "installedApp": "0.4.5 installed",
+  "docker": "29.9.2 / 29.9.2",
+  "runningContainers": "b531d3443746 ikiiki-project-hr132-133_devcontainer-db-1 Up 5 hours (healthy)\n8e9f201539c5 ikiiki-backend-postgres Up 5 hours (healthy)",
+  "code": "1.143.1\ne646868227c3e3a9e3f24277c8c7220be42c0be7\nx64",
+  "sysctlUserns": "0",
+  "ordinaryAppUntouched": true
+}

@@ -1,0 +1,48 @@
+
+> tsukuhako-generator@0.4.6 test
+> node --test tests/*.test.mjs
+
+✔ G01/G03/G09: six stable read-only plans; archive bytes and per-template guide match (168.706623ms)
+✔ G04: I1 secret is created only in mode0600 .env; absent from public outputs (8.957853ms)
+✔ G02: goals map to known IDs; core rejects S3 even if its eligibility is tampered (2.650351ms)
+✔ G05: modified catalog, ZIP, destination, parent identity and public plan are rejected (24.264314ms)
+✔ G06: reserved guide, duplicate ZIP names, symlink entry and oversized metadata are rejected before writes (9.131767ms)
+✔ G06: parent replacement by symlink is refused; no unrelated files are touched (2.809162ms)
+✔ G06: structured partial result preserves a changed generated file (11.641654ms)
+✔ G07: Docker/VSCode unavailable never prevents generation; unentered destination stays unknown (42.212224ms)
+✔ G07: diagnostic subprocess times out and its process exits (126.64634ms)
+✔ G08: old synchronous create and explicit JSON create produce identical files (100.846507ms)
+✔ G10: non-TTY wizard terminates; JSON emits one value; stale expectation is exit1 (243.568272ms)
+✔ G10: write permission failure is exit2 without a partial directory (79.355813ms)
+✔ G11: Japanese, spaces and shell metacharacters stay literal data (81.053366ms)
+✔ 必須6構成を日本語・空白パスへ生成し、カタログの版とフォルダ識別を保持する (137.065223ms)
+ℹ F1: version 0.1.3, ZIP SHA256 12fe4bc2bf113e006a7bb7f68ed595920e9a8aa435e55bcf51a990d1464b0d8a, Japanese/space path PASS
+ℹ F2: version 0.1.1, ZIP SHA256 7a093c2bf9292bfbdcb1fc06178bdd0c14ac5e14b3ef6b51bf5676b7ce1ba0fe, Japanese/space path PASS
+ℹ B1: version 0.1.2, ZIP SHA256 98e0add9dbca84ce3f9a153840158d874e860dac50fb68cb40e9b6e12cbb56c6, Japanese/space path PASS
+ℹ S1: version 0.1.2, ZIP SHA256 94e55d547b8971e3263eabd99da386018e7a9cd9662872ba46515900c088f714, Japanese/space path PASS
+ℹ S2: version 0.1.2, ZIP SHA256 04266262b25b930a586558856457ec8a36f0c6f7127533cb05fa68d56de29e8e, Japanese/space path PASS
+ℹ I1: version 0.1.0, ZIP SHA256 2861fea034ced0baf1dd484f78c19be8bbfbb2ccc8ac8c880e0ec3f5e989e398, Japanese/space path PASS
+✔ 既存の空フォルダ・ファイル・symlink親は拒否し保持する (2.014304ms)
+✔ 名前・ポート・構成・DBポートの不正値で出力を作らない (1.074823ms)
+✔ カタログSHA256不一致を展開前に拒否する (1.006265ms)
+✔ ZIPの上位パスと実.envを拒否する (13.308405ms)
+✔ コミット途中の失敗は作成物とstageを戻す (11.550464ms)
+✔ 確定直前に出力先が作成された競合を拒否し、他の内容を残す (10.70315ms)
+✔ 失敗時でも作成中に利用者が変更したファイルを削除しない (10.841232ms)
+✔ onboarding: catalog and guides share names, technology and template-specific first outcomes (2.162267ms)
+✔ onboarding A05/A09: F1 saves actual values and working links; source edits are optional (51.70086ms)
+✔ onboarding A05/A09: F2 saves actual values and working links; source edits are optional (20.493072ms)
+✔ onboarding A05/A09: B1 saves actual values and working links; source edits are optional (19.779924ms)
+✔ onboarding A05/A09: S1 saves actual values and working links; source edits are optional (22.38644ms)
+✔ onboarding A05/A09: S2 saves actual values and working links; source edits are optional (23.818131ms)
+✔ onboarding A05/A09: I1 saves actual values and working links; source edits are optional (12.248938ms)
+✔ onboarding A09: Windows helper renders matching WSL guidance without exposing a new request option (89.511175ms)
+✔ onboarding: optional macOS rendering changes shortcuts without claiming platform validation (0.265983ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 30
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 970.983277

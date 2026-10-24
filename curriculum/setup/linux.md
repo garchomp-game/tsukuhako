@@ -1,19 +1,58 @@
 # Linuxの準備
 
-Linux Mint 22.3 x64向けの単体debが今回の主配布候補です。標準パッケージインストーラーで本体を導入し、メニューの「ツクハコ」から起動します。本体を導入できたことと、Docker等の開発準備が整ったことは別です。新debのMint GUI導入は本人の初回確認待ちです。UbuntuやDebianの実機合格には読み替えません。
+この章はツクハコを開いたあと、サンプルを動かす準備が不足していたときに使います。対象候補はLinux Mint 22.3 x64です。ほかのLinuxでの動作確認には読み替えません。
 
-## Docker Engine + Compose
+ファイルは先に作れます。生成される `.devcontainer` は開発環境の設定ファイルです。PC本体のDocker・VS Code・拡張機能は別に用意します。初回の環境作成と依存ファイルの取得にはインターネット接続が必要です。
 
-[Docker公式Ubuntu手順](https://docs.docker.com/engine/install/ubuntu/)で対象ディストリビューションを確認し、EngineとComposeプラグインを導入します。Mint等の派生版では公式対象と差があります。既存環境は消さず、提供元の案内と合わせて確認してください。EngineにDesktopのVM・KVMは不要です。
+## Dockerを使えるようにする
 
-[Linux導入後の設定](https://docs.docker.com/engine/install/linux-postinstall/)を読み、普段の一般ユーザーでDockerへ接続します。dockerグループは高い権限を与えます。ツクハコはグループを変更しません。常時sudoやchmod 666によるソケット開放を解決策にしません。設定後にログアウト・ログインが必要な場合は、戻って再診断します。
+操作する場所：PCの通常のターミナル。プロジェクトの中でなくても構いません。
 
-rootlessやDocker Desktopを使っている場合は自動置換しません。テンプレート適合性は別途未確認として扱います。[接続先とcontext](https://docs.docker.com/engine/manage-resources/contexts/)を確認してください。
+1. Dockerが未導入の場合は、[Docker公式のUbuntu向け手順](https://docs.docker.com/engine/install/ubuntu/)で必要なEngineとComposeプラグインを確認します。Linux Mintは派生版で公式サポート対象外のため、Mintの版と既存環境に合う案内も確認してから導入します。
+2. 導入済みで停止中の場合は、使っているDockerを起動します。接続先や権限の設定不足は未導入とは別です。[Linux導入後の設定](https://docs.docker.com/engine/install/linux-postinstall/)で一般ユーザーからの接続を確認します。
+3. 次の2つをそれぞれ実行します。
 
-## VS Code
+```sh
+docker version
+docker compose version
+```
 
-[Dev Containers公式ガイド](https://code.visualstudio.com/docs/devcontainers/containers)に沿ってVS Codeと拡張を用意します。生成後にReopen in Containerを選び、初回ダウンロード完了を待ちます。
+確認する結果：最初のコマンドでClientとServerが表示され、次のコマンドでComposeの版が表示されること。
 
-アプリ上の「準備チェックへ戻る」→「もう一度確認」で結果を更新します。
+できないとき：診断の理由を読み、[準備で困ったとき](lesson:setup/trouble#dockerへ接続できない)へ進みます。グループの設定後はログアウト・ログインが必要な場合があります。Dockerグループは高い権限を与えるため、設定内容を理解してから行います。ソケットを誰でも書けるようにしたり、常にsudoでツクハコを動かしたりしないでください。既存Dockerの入れ替え・削除はこの手順では行いません。
 
-[再確認と復旧](lesson:setup/trouble)
+## VS Codeを使えるようにする
+
+操作する場所：PC本体。
+
+1. 未導入なら[VS CodeのLinux向け案内](https://code.visualstudio.com/docs/setup/linux)を開き、PCに合うパッケージを導入します。
+2. アプリ一覧からVisual Studio Codeを開きます。ローカルのサンプルを動かすためのサインインは不要です。
+
+確認する結果：VS Codeの編集画面が開くこと。
+
+できないとき：導入先と起動時の表示を確認し、ツクハコへ戻って「もう一度確認」を押します。診断が「確認できない」の場合は未導入と決めつけず、詳細の理由を確認します。
+
+## VS Codeへ必要な機能を追加する
+
+操作する場所：PC本体のVS Code。
+
+1. 左側の「拡張機能」を押します。キーボードでは `Ctrl+Shift+X` で開けます。
+2. 検索欄に `Dev Containers` を入力します。
+3. 発行元がMicrosoft、識別子が `ms-vscode-remote.remote-containers` の拡張機能を選び、「Install」（インストール）を押します。
+4. インストールが終わるまで待ちます。再読み込みを求められた場合はVS Codeの案内に従います。
+
+確認する結果：拡張機能の画面でインストール済みになり、「Install」の代わりに無効化・アンインストールの操作が表示されること。
+
+できないとき：[VS Code公式の拡張機能ガイド](https://code.visualstudio.com/docs/configure/extensions/extension-marketplace)で接続や組織の制限を確認します。
+
+**ここまでできたら**、ツクハコ上部の「準備チェックへ戻る」を押し、「もう一度確認」で状態を更新します。手順を読んだだけでは診断結果は変わりません。
+
+## メモを保存する画面の追加準備
+
+この構成を選んだ場合だけ、Linuxホストで使う追加コマンドを診断します。未導入と表示されたコマンド名を診断の詳細で確認し、[この構成の準備手順](lesson:S2/setup)を読みます。導入する場所はPC本体のLinuxで、開発コンテナーの中ではありません。教材から戻ったら同じ構成で「もう一度確認」を押してください。
+
+## 次に行うこと
+
+生成済みなら「今回の起動手順へ戻る」から、今回の保存先が入った手順に戻ります。まだ生成していなければ作る画面へ戻ります。準備チェックの成功は、コンテナーの起動やサンプル表示の成功とは別です。
+
+[準備で困ったとき](lesson:setup/trouble) · [サンプル表示の流れ](lesson:guide/first-run)

@@ -17,12 +17,13 @@ const chapters=sources.map(([id,source])=>{
  const bytes=fs.readFileSync(path.join(root,'docs/launch/sunday-pack',source));
  return{id,title:bytes.toString().split('\n')[0].replace(/^# /,''),source,file:`guide/${source}`,bytes:bytes.length,sha256:createHash('sha256').update(bytes).digest('hex')};
 });
-const manifest={version,appVersion:version,lessons:[{id:'guide',title:'はじめて使う',version:'2026-10-24-r3',templateVersion:null,chapters}],assets:[]};
+const manifest={version,appVersion:version,lessons:[...JSON.parse(fs.readFileSync(root+'/curriculum/manifest.json')).lessons.filter(l=>l.id==='setup'),{id:'guide',title:'はじめて使う',version:'2026-10-24-r4',templateVersion:null,chapters}],assets:[]};
 
 test('Guide: existing content API loads five canonical chapters and resolves their uppercase source links',async()=>{
  const temp=fs.mkdtempSync(path.join(os.tmpdir(),'tsukuhako-guide-'));
  try{
   fs.mkdirSync(path.join(temp,'guide'));
+  fs.cpSync(path.join(root,'curriculum/setup'),path.join(temp,'setup'),{recursive:true});
   fs.writeFileSync(path.join(temp,'manifest.json'),JSON.stringify(manifest));
   for(const chapter of chapters)fs.copyFileSync(path.join(root,'docs/launch/sunday-pack',chapter.source),path.join(temp,chapter.file));
   const library=new ContentLibrary(temp),parser=new MarkdownIt();

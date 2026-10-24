@@ -1,25 +1,32 @@
 {
   "schemaVersion": 1,
-  "appVersion": "0.4.5",
-  "version": "0.4.5",
+  "appVersion": "0.4.6",
+  "version": "0.4.6",
   "lessons": [
     {
       "id": "F1",
-      "title": "F1 · React + Vite + TypeScript",
-      "version": "0.4.5",
+      "title": "入力と表示のWeb画面",
+      "version": "0.4.6",
       "templateVersion": "0.1.3",
+      "name": "入力と表示のWeb画面",
+      "summary": "入力したことばが画面に映るサンプルから、画面づくりを始めます。",
+      "technology": "React + Vite",
+      "firstGoal": "サンプル画面を表示する",
+      "guideAction": "サンプル画面を表示する手順へ",
+      "success": "ブラウザーに「ことばの鏡」と、入力欄「表示することば」が表示されます。",
+      "route": "/",
       "chapters": [
         {
           "id": "first",
-          "title": "最初の一歩",
+          "title": "サンプル画面を表示する",
           "file": "F1/first.md",
           "source": "START_HERE.md",
-          "bytes": 6253,
-          "sha256": "78972dfe20c5d9407eaf0bc65faaa61f1aa283c1d19f8d7fdbcdec1bb36f6ff4"
+          "bytes": 12959,
+          "sha256": "84f13a80ab718d97819f8c33cfe0d50fda29c73baf4768a24b29b70a41bf1334"
         },
         {
           "id": "readme",
-          "title": "全体の使い方",
+          "title": "詳しい使い方",
           "file": "F1/readme.md",
           "source": "README.md",
           "bytes": 4154,
@@ -69,21 +76,28 @@
     },
     {
       "id": "F2",
-      "title": "F2 · Next.js + TypeScript + Tailwind",
-      "version": "0.4.5",
+      "title": "はじめてのWeb画面",
+      "version": "0.4.6",
       "templateVersion": "0.1.1",
+      "name": "はじめてのWeb画面",
+      "summary": "まずサンプル画面を表示します。そのあと、ページの移動や文字の変更を試せます。",
+      "technology": "Next.js + Tailwind CSS",
+      "firstGoal": "サンプル画面を表示する",
+      "guideAction": "サンプル画面を表示する手順へ",
+      "success": "ブラウザーに「小さく変えて、動きを確かめよう。」という大きな見出しと「練習画面へ →」が表示されます。",
+      "route": "/",
       "chapters": [
         {
           "id": "first",
-          "title": "最初の一歩",
+          "title": "サンプル画面を表示する",
           "file": "F2/first.md",
           "source": "START_HERE.md",
-          "bytes": 6390,
-          "sha256": "adf5f5482865f5daa6fedbb4e4b5db6a4f4ad45c079fe63c2a5db3788ee8e410"
+          "bytes": 13192,
+          "sha256": "252457e04db306c8be40d63de0723a9c29d7633ac154174366fbd8890eb234eb"
         },
         {
           "id": "readme",
-          "title": "全体の使い方",
+          "title": "詳しい使い方",
           "file": "F2/readme.md",
           "source": "README.md",
           "bytes": 2894,
@@ -133,21 +147,28 @@
     },
     {
       "id": "B1",
-      "title": "B1 · Next.js Route Handlers API only",
-      "version": "0.4.5",
+      "title": "データを返すAPI",
+      "version": "0.4.6",
       "templateVersion": "0.1.2",
+      "name": "データを返すAPI",
+      "summary": "APIからJSONを受け取ります。そのあと、入力に応じた応答を試せます。",
+      "technology": "Next.js API",
+      "firstGoal": "APIの応答を確認する",
+      "guideAction": "APIの応答を確認する手順へ",
+      "success": "HTTP 200の応答と、statusがokのJSON（{\"status\":\"ok\"}）が表示されます。",
+      "route": "/api/health",
       "chapters": [
         {
           "id": "first",
-          "title": "最初の一歩",
+          "title": "APIの応答を確認する",
           "file": "B1/first.md",
           "source": "START_HERE.md",
-          "bytes": 6572,
-          "sha256": "b8053126e4faf7813146c69c816fe7d0e5b7776759966aae94bae874be3e29b8"
+          "bytes": 13133,
+          "sha256": "a9287e67c28361ea847d6e239b2b2207014a0cf102e001cf43bf8ebc9b04b888"
         },
         {
           "id": "readme",
-          "title": "全体の使い方",
+          "title": "詳しい使い方",
           "file": "B1/readme.md",
           "source": "README.md",
           "bytes": 4242,
@@ -205,21 +226,28 @@
     },
     {
       "id": "S1",
-      "title": "S1 · Next.js + Route Handlers",
-      "version": "0.4.5",
+      "title": "画面からつなぐAPI",
+      "version": "0.4.6",
       "templateVersion": "0.1.2",
+      "name": "画面からつなぐAPI",
+      "summary": "画面で入力したことばをAPIへ送り、応答が画面へ戻る流れを試します。",
+      "technology": "Next.js 画面 + API",
+      "firstGoal": "画面からAPIの応答を確認する",
+      "guideAction": "画面からAPIを試す手順へ",
+      "success": "「ことばを送ってみる」の画面から送信すると、「APIからの返事」に入力したことばと文字数が表示されます。",
+      "route": "/practice",
       "chapters": [
         {
           "id": "first",
-          "title": "最初の一歩",
+          "title": "画面からAPIの応答を確認する",
           "file": "S1/first.md",
           "source": "START_HERE.md",
-          "bytes": 6302,
-          "sha256": "db93c24da3a74821b0dd587dd8b6589f39253745d2f3beacf8c08caa69e392ce"
+          "bytes": 13199,
+          "sha256": "50597a13a978b0b1d951b7edcf28895fd2bff45d74fea36ca1bffb21ad4a2222"
         },
         {
           "id": "readme",
-          "title": "全体の使い方",
+          "title": "詳しい使い方",
           "file": "S1/readme.md",
           "source": "README.md",
           "bytes": 4428,
@@ -277,21 +305,28 @@
     },
     {
       "id": "S2",
-      "title": "S2 · Next.js + local Supabase",
-      "version": "0.4.5",
+      "title": "メモを保存するWeb画面",
+      "version": "0.4.6",
       "templateVersion": "0.1.2",
+      "name": "メモを保存するWeb画面",
+      "summary": "このPCのDBに架空のメモを保存し、ページを読み直しても残ることを試します。",
+      "technology": "Next.js + ローカルSupabase",
+      "firstGoal": "メモを保存して読み直す",
+      "guideAction": "メモの保存を試す手順へ",
+      "success": "「ローカル学習メモ」で保存した架空のメモが一覧に表示され、ブラウザーを再読み込みしても残ります。",
+      "route": "/",
       "chapters": [
         {
           "id": "first",
-          "title": "最初の一歩",
+          "title": "メモを保存して読み直す",
           "file": "S2/first.md",
           "source": "START_HERE.md",
-          "bytes": 6607,
-          "sha256": "293cb943a1a45d2772170fce7c1b5ceea9bde73fbbd004699b913729abfb2671"
+          "bytes": 14025,
+          "sha256": "f8eb9feda750420c72d38686138f802cd7dbcda24d991958d3327c950ab59f03"
         },
         {
           "id": "readme",
-          "title": "全体の使い方",
+          "title": "詳しい使い方",
           "file": "S2/readme.md",
           "source": "README.md",
           "bytes": 5401,
@@ -341,21 +376,28 @@
     },
     {
       "id": "I1",
-      "title": "I1 · PostgreSQL + development workbench",
-      "version": "0.4.5",
+      "title": "SQLで調べるデータベース",
+      "version": "0.4.6",
       "templateVersion": "0.1.0",
+      "name": "SQLで調べるデータベース",
+      "summary": "DBへ接続し、SQLで在庫のサンプルを検索します。Web画面は使いません。",
+      "technology": "PostgreSQL + SQL",
+      "firstGoal": "SQLでサンプルデータを確認する",
+      "guideAction": "SQLで確認する手順へ",
+      "success": "DBへの接続が成功し、SQLの結果にlesson列の「SQLの練習」と在庫のサンプルが表示されます。",
+      "route": null,
       "chapters": [
         {
           "id": "first",
-          "title": "最初の一歩",
+          "title": "SQLでサンプルデータを確認する",
           "file": "I1/first.md",
           "source": "START_HERE.md",
-          "bytes": 4573,
-          "sha256": "f365ba8a41db54fc23e18052fd322f66d9093bbe499c6960d2fa5ce8f184235c"
+          "bytes": 12552,
+          "sha256": "b4c5335b6c403a06956fbc3e17379e988440cecf9e6894085214a89eb75d4834"
         },
         {
           "id": "readme",
-          "title": "全体の使い方",
+          "title": "詳しい使い方",
           "file": "I1/readme.md",
           "source": "README.md",
           "bytes": 4705,
@@ -413,8 +455,8 @@
     },
     {
       "id": "setup",
-      "title": "開発準備・困ったとき",
-      "version": "0.4.5",
+      "title": "開発準備",
+      "version": "0.4.6",
       "templateVersion": null,
       "chapters": [
         {
@@ -422,88 +464,88 @@
           "title": "開発準備の全体像",
           "file": "setup/overview.md",
           "source": "overview.md",
-          "bytes": 1760,
-          "sha256": "88f31410ec2d707513786fae51ea1ea22143e6e728ced9219fca8537f60c020c"
+          "bytes": 2107,
+          "sha256": "9ebeb22f32d3a301fa21294dfd8a69f57678b23095b3435f13d027e76717b3e1"
         },
         {
           "id": "windows",
           "title": "Windows / WSL 2の準備",
           "file": "setup/windows.md",
           "source": "windows.md",
-          "bytes": 5940,
-          "sha256": "0a408c5e21cba960bed5d9a4779c80dd6ba748b6b5612d3891cbaa7eb13c55bd"
+          "bytes": 6211,
+          "sha256": "62a6fb53b5ca4106e739aa554f096339c81cf3099f4178d1e0153323d0c12472"
         },
         {
           "id": "macos",
-          "title": "macOSの準備",
+          "title": "macOSの参考手順",
           "file": "setup/macos.md",
           "source": "macos.md",
-          "bytes": 1328,
-          "sha256": "ab2798e0463d4896b65270d99e1f80af3d403c609ec893b9d581951c2ab826e1"
+          "bytes": 1527,
+          "sha256": "adc5121c0ff5ba341c5988a9bc97eb971cd593a072e3ec25b62ddb238854ddde"
         },
         {
           "id": "linux",
           "title": "Linuxの準備",
           "file": "setup/linux.md",
           "source": "linux.md",
-          "bytes": 1925,
-          "sha256": "55c741233ac806530a75a13c5d40e09ab2e451919bf02e877c812f8b856fc73c"
+          "bytes": 4772,
+          "sha256": "bcbdc0705b40a680805537572d226c987f51ddf9e815f245fcc05ba129934878"
         },
         {
           "id": "trouble",
-          "title": "困ったとき：準備と起動",
+          "title": "準備で困ったとき",
           "file": "setup/trouble.md",
           "source": "trouble.md",
-          "bytes": 1985,
-          "sha256": "19c9bfb90389436d67ce299fa9960f90424a2a2f469f4318a71eeac6ac1f8841"
+          "bytes": 2903,
+          "sha256": "81a984bf10789eda61591a209a3f9b42db89b1c7f7dcc47850549384a9fad10f"
         }
       ]
     },
     {
       "id": "guide",
       "title": "はじめて使う・ガイド",
-      "version": "0.4.5",
+      "version": "0.4.6",
       "templateVersion": null,
       "chapters": [
         {
           "id": "start",
-          "title": "入口と準備",
+          "title": "はじめに",
           "file": "guide/start.md",
           "source": "START_HERE.md",
-          "bytes": 5612,
-          "sha256": "f5d33a948349396ffed823cfc60eb09108e1b13871e1c85eedb08b89f3d4e983"
+          "bytes": 2433,
+          "sha256": "60693a048d7fd06ab0232029c4c0151243bf538fe568e95ba3cff65202ad162e"
         },
         {
           "id": "first-run",
-          "title": "F2の初回手順",
+          "title": "サンプル画面を表示する",
           "file": "guide/first-run.md",
           "source": "FIRST-RUN.md",
-          "bytes": 10146,
-          "sha256": "f6f3ef9e02973207076ccf74b4157d5b561606a2b3137216d3ceb1e12596b799"
+          "bytes": 7626,
+          "sha256": "524885b5a027c55dd738809311b6b25e487a3fe7a974013f6bd11b0238243faa"
         },
         {
           "id": "troubleshooting",
           "title": "困ったとき・再開",
           "file": "guide/troubleshooting.md",
           "source": "TROUBLESHOOTING.md",
-          "bytes": 7873,
-          "sha256": "bdd8300e9df2b7b4da50842002fcc00f5140b50726c15bc59265341c36aa68d3"
+          "bytes": 9198,
+          "sha256": "366b2ab7b0e4253826e82401538d258b18826b474f1f98035ab4b8d56734b2a9"
         },
         {
           "id": "next-step",
           "title": "任意：変更と復元",
           "file": "guide/next-step.md",
           "source": "NEXT-STEP.md",
-          "bytes": 1586,
-          "sha256": "1680b0fca9ae1e4675ccfbd0023ac026fa3520b45c8c0ee801283e723ef2dd1c"
+          "bytes": 2256,
+          "sha256": "ffe260184ebdabfa10efeb436afd4caab12e69a8bace4fc810c68720bf4601f7"
         },
         {
           "id": "feedback",
           "title": "記録票",
           "file": "guide/feedback.md",
           "source": "FEEDBACK.md",
-          "bytes": 2261,
-          "sha256": "0919669f19fe6e223f01aaa3d1d39fae808f863321f6f2d1ad0c082707106bd3"
+          "bytes": 1697,
+          "sha256": "e10d524b5be8d622f1438eef57717489ada4c868de89def4ca265c8e1e0c0a95"
         }
       ]
     }

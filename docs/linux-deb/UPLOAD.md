@@ -2,7 +2,7 @@
 
 公開・販売開始は未実施。まず所有者がINSTALL.txtの導入経路を確認し、REPORTの未確認項目を埋める。
 
-1. `dist/delivery-linux-deb-0.4.5/` のdeb、SHA256SUMS、INSTALL.txt、manifest.jsonを確認する。debのSHA-256はmanifestと照合する。
+1. `dist/delivery-linux-deb-0.4.6/` のdeb、SHA256SUMS、INSTALL.txt、manifest.jsonを確認する。debのSHA-256はmanifestと照合する。
 2. 既存の購入者向け受取先を決め、そのアクセス制御と利用期限を確認する。private GitHub・期限付きActions artifactのURLを一般購入者用にしない。
 3. **単体debを直接受け取れるファイル**としてアップロードする。Linuxの主ボタンは「Linux Mint向け・ツクハコをダウンロード」。外側ZIPを必須にしない。案内とハッシュも並べる。
 4. Brain本文、メール草稿、受取画面のLinuxリンクを同じdebへ合わせる。Windows候補は既存0.4.4のままで、新版の実機合格と混ぜない。
