@@ -69,6 +69,15 @@ try{
  await p.keyboard.press('ArrowRight');await expect(mode(quick)).toBeChecked();await expect(mode(quick)).toBeFocused();await expect.poll(async()=>(await focusInReader()).visible).toBe(true);const quickFocus=await focusInReader();await screen('mode-switch-focus-390.png');
  record('390px keyboard mode switches keep the focused radio inside the visible reader viewport',{guidedFocus,quickFocus});
 
+ await body.getByRole('button',{name:'詳しい確認方法',exact:true}).first().click();
+ await expect(b('簡潔な手順に戻る')).toBeVisible();await expect(p.locator('.reader-layout')).not.toHaveClass(/reader-quick/);await expect(mode(quick)).toBeChecked();
+ await mode(quick).scrollIntoViewIfNeeded();await mode(quick).focus();await p.keyboard.press('ArrowLeft');
+ await expect(mode(guided)).toBeChecked();await expect(mode(guided)).toBeFocused();await expect(b('簡潔な手順に戻る')).toHaveCount(0);await expect(p.locator('.reader-layout')).not.toHaveClass(/reader-quick/);
+ await expect.poll(async()=>(await focusInReader()).visible).toBe(true);const detailToGuidedFocus=await focusInReader();
+ await expect.poll(()=>app.evaluate(()=>globalThis.fixture.saved.guideMode)).toBe('guided');await screen('detail-to-guided-focus-390.png');
+ record('390px detail override to guided preference keeps the same full guide and visible keyboard focus',{detailToGuidedFocus});
+ await p.keyboard.press('ArrowRight');await expect(mode(quick)).toBeChecked();await expect(p.locator('.reader-layout')).toHaveClass(/reader-quick/);
+
  await p.setViewportSize({width:1150,height:900});await nav('作る').click();await b('別のプロジェクトを作る').click();await create('次の画面',null);
  await expect(p.locator('.project-context')).toContainText('http://localhost:3000/');await expect(p.locator('.port-explanation')).toHaveCount(0);await b('このフォルダーをVS Codeで開く').click();expect((await app.evaluate(()=>globalThis.fixture.opened)).at(-1)).toBe('/home/student/日本語の親フォルダー/次の画面');
  record('default 3000 omits mismatch prose; new project changes the editor target');
