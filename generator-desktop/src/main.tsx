@@ -5,7 +5,7 @@ import {Generator} from './Generator';
 import {Reader} from './Reader';
 import {Preparation} from './Preparation';
 import type {Catalog,Curriculum,Reading,ReaderAnchor,Created,Preparation as Prep} from './types';
-import {helpChapter,withDistro} from './flow';
+import {onboardingHelp,withDistro} from './flow';
 import './style.css';
 const initial:Reading={view:'create',lessonId:'F2',chapterId:'',scroll:0};
 function App(){
@@ -27,8 +27,10 @@ function App(){
  function returnCreate(){setAnchor(undefined);setReading(p=>({...p,view:'create'}));requestAnimationFrame(()=>document.getElementById(reading.lessonId==='setup'?'preparation-title':'generator-title')?.focus())}
  function showHelp(){
   if(!index||reading.view==='help')return;
-  const from=reading.view==='learn'?'learn':'create';setReturnTo(from);setAnchor(undefined);
-  setHelp({...initial,view:'help',...helpChapter(index,from==='learn'?reading.lessonId:'guide',from==='learn'?reading.chapterId:'first')});
+  const from=reading.view==='learn'?'learn':'create';setReturnTo(from);
+  const {heading,...destination}=onboardingHelp(index,from==='learn'?reading:project?{lessonId:project.templateId,chapterId:'first'}:{lessonId:'guide',chapterId:'start'},project,prep?.platform);
+  setAnchor(heading?{...destination,heading,request:Date.now()}:undefined);
+  setHelp({...initial,view:'help',...destination});
   setReading(p=>({...p,view:'help'}));
  }
  function learn(id:string,chapter='first',heading=''){
@@ -53,7 +55,7 @@ function App(){
    <Preparation result={prep} onBusy={setPrepBusy} templateId={template} storageTemplateName={catalog?.templates.find(t=>t.id==='S2')?.name} onResult={setPrep} onGuide={(chapter,heading)=>learn('setup',chapter,heading)} disabled={!!busy} distro={reading.distroId} onDistro={id=>setReading(p=>withDistro(p,id))}/>
    <Generator startRequest={startRequest} onCatalog={setCatalog} externalBusy={prepBusy} onCreated={setProject} onHelp={showHelp} onBusy={setBusy} onTemplate={setTemplate} onLearn={id=>learn(id)} parentOverride={prep?.target?.home} platform={prep?.platform} preparation={prep} onPreparation={setPrep} distroId={reading.distroId}/>
   </div>
-  {reading.view!=='create'&&index&&<Reader key={reading.view} index={index} reading={reading.view==='help'?help:reading} onReading={reading.view==='help'?setHelp:updateReading} help={reading.view==='help'} project={project} anchor={anchor} onCurrentProject={project?heading=>learn(project.templateId,'first',heading):undefined} returnLabel={reading.view==='help'&&returnTo==='learn'?'読んでいた手順へ戻る':undefined} onReturn={reading.view==='help'&&returnTo==='learn'?()=>{setAnchor(undefined);setReading(p=>({...p,view:'learn'}))}:returnCreate}/>}</>}
+  {reading.view!=='create'&&index&&<Reader key={reading.view} index={index} reading={reading.view==='help'?help:reading} onReading={reading.view==='help'?setHelp:updateReading} help={reading.view==='help'} project={project} anchor={anchor} onHelp={showHelp} onCurrentProject={project?heading=>learn(project.templateId,'first',heading):undefined} returnLabel={reading.view==='help'&&returnTo==='learn'?'読んでいた手順へ戻る':undefined} onReturn={reading.view==='help'&&returnTo==='learn'?()=>{setAnchor(undefined);setReading(p=>({...p,view:'learn'}))}:returnCreate}/>}</>}
  </div>
 }
 createRoot(document.getElementById('root')!).render(<App/>);

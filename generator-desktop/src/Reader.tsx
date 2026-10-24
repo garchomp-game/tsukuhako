@@ -3,7 +3,7 @@ import type {Curriculum,Reading,ReaderAnchor,Created} from './types';
 import {resolveProjectChapter,classifyLink} from './links';
 import {projectForChapter,readerContentKey} from './flow';
 const Markdown=lazy(()=>import('./Markdown'));
-export function Reader({index,reading,onReading,help,project,onReturn,returnLabel,anchor,onCurrentProject}:{index:Curriculum;reading:Reading;onReading:(r:Reading)=>void;help:boolean;project?:Created;onReturn:()=>void;returnLabel?:string;anchor?:ReaderAnchor;onCurrentProject?:(heading?:string)=>void}){
+export function Reader({index,reading,onReading,help,project,onReturn,returnLabel,anchor,onCurrentProject,onHelp}:{index:Curriculum;reading:Reading;onReading:(r:Reading)=>void;help:boolean;project?:Created;onReturn:()=>void;returnLabel?:string;anchor?:ReaderAnchor;onCurrentProject?:(heading?:string)=>void;onHelp:()=>void}){
  const activeProject=projectForChapter(project,reading),key=readerContentKey(reading,project);
  const currentKey=useRef(key);currentKey.current=key;
  const lastAnchor=useRef<number|undefined>(undefined);
@@ -33,13 +33,24 @@ export function Reader({index,reading,onReading,help,project,onReturn,returnLabe
   return()=>{active=false;clearTimeout(timer.current)}
  },[key]);
  useEffect(()=>{if(anchor&&anchor.request!==lastAnchor.current&&anchor.lessonId===reading.lessonId&&anchor.chapterId===reading.chapterId){lastAnchor.current=anchor.request;setHeading(anchor.heading)}},[anchor,reading.lessonId,reading.chapterId]);
- useEffect(()=>{if(!body||!heading)return;const frame=requestAnimationFrame(()=>{const target=Array.from(area.current?.querySelectorAll<HTMLElement>('[id]')||[]).find(node=>node.id===heading);if(target&&area.current){area.current.scrollTop+=target.getBoundingClientRect().top-area.current.getBoundingClientRect().top;target.focus({preventScroll:true});setHeading('')}});return()=>cancelAnimationFrame(frame)},[body,heading]);
+ function jumpToHeading(id:string){
+  const target=Array.from(area.current?.querySelectorAll<HTMLElement>('[id]')||[]).find(node=>node.id===id);
+  if(!target||!area.current)return false;
+  area.current.scrollTop+=target.getBoundingClientRect().top-area.current.getBoundingClientRect().top;
+  target.focus({preventScroll:true});focusChapter.current=false;return true;
+ }
+ useEffect(()=>{if(!body||!heading)return;const frame=requestAnimationFrame(()=>{if(jumpToHeading(heading))setHeading('')});return()=>cancelAnimationFrame(frame)},[body,heading]);
  useEffect(()=>()=>{clearTimeout(timer.current);write.current({...latest.current,scroll:scrollRef.current})},[]);
  function open(lessonId:string,chapterId:string,anchor=''){clearTimeout(timer.current);setHeading(anchor);scrollRef.current=0;focusChapter.current=true;setTocOpen(false);onReading({...reading,lessonId,chapterId,scroll:0});if(area.current)area.current.scrollTop=0}
  function follow(href:string){const target=resolveProjectChapter(index,reading.lessonId,reading.chapterId,href,project);if(target){if(help&&project&&target.lessonId===project.templateId&&target.chapterId==='first'&&onCurrentProject)onCurrentProject(target.heading);else open(target.lessonId,target.chapterId,target.heading);return}if(href.startsWith('https://')){void window.tsukuhako.openLessonLink({lessonId:reading.lessonId,chapterId:reading.chapterId,href}).then(r=>{if(!r.ok)setError(r.error.message)});return}setError('このリンクは実行しません。生成先の該当ファイルや対応する教材を確認してください。')}
  useLayoutEffect(()=>{if(focusChapter.current&&(!chapter||body)){const title=area.current?.querySelector<HTMLElement>('h1');if(title){title.focus({preventScroll:true});focusChapter.current=false}}if(focusToc.current==='select')document.getElementById('lesson-choice')?.focus();if(focusToc.current==='toggle')toggle.current?.focus();if(focusToc.current==='body')area.current?.focus({preventScroll:true});focusToc.current=null});
  function showToc(){if(body&&area.current){scrollRef.current=area.current.scrollTop;write.current({...latest.current,scroll:scrollRef.current})}if(compact){focusToc.current=tocOpen?'body':'select';setTocOpen(!tocOpen)}else document.getElementById('lesson-choice')?.focus()}
- function ready(){if(area.current){area.current.scrollTop=latest.current.scroll;if(focusChapter.current){area.current.querySelector<HTMLElement>('h1')?.focus({preventScroll:true});focusChapter.current=false}}}
+ function ready(){
+  // A cold lazy-render may mount after the anchor effect's first animation frame.
+  // Apply the requested destination here as well, before restoring chapter focus.
+  if(heading){const found=jumpToHeading(heading);setHeading('');if(found)return}
+  if(area.current){area.current.scrollTop=latest.current.scroll;if(focusChapter.current){area.current.querySelector<HTMLElement>('h1')?.focus({preventScroll:true});focusChapter.current=false}}
+ }
  async function copyValue(text:string){
   const requestKey=key;
   try{try{await navigator.clipboard.writeText(text)}catch{const previous=document.activeElement;const field=document.createElement('textarea');field.value=text;field.className='copy-field';document.body.append(field);field.select();const copied=document.execCommand('copy');field.remove();if(previous instanceof HTMLElement&&previous.isConnected)previous.focus({preventScroll:true});if(!copied)throw new Error('copy')}if(currentKey.current===requestKey)setActionNote('コピーしました。')}
@@ -53,7 +64,7 @@ export function Reader({index,reading,onReading,help,project,onReturn,returnLabe
  }
  const editorHeading='vs-codeでフォルダーを開く';
  const urls=activeProject?[...new Set(activeProject.nextSteps.flatMap(step=>[...(step.url?[step.url]:[]),...(step.command?.args.filter(arg=>/^http:\/\/localhost:\d+(?:\/|$)/.test(arg))||[])]))]:[];
- const editorAction=<div className="project-editor-action"><p>今回作ったフォルダーを開きます。準備が不足している場合は、先に準備手順を確認してください。</p><p className="path">{activeProject?.destination}</p><button type="button" className="primary" disabled={opening} onClick={()=>void openEditor()}>{opening?'VS Codeを開いています…':'このフォルダーをVS Codeで開く'}</button><button type="button" className="text-button" onClick={()=>activeProject&&void copyValue(activeProject.destination)}>保存先をコピー</button><p role="status">{actionNote}</p>{actionError&&<div className="error" role="alert"><p>{actionError}</p><p>保存先：<span className="path">{activeProject?.destination}</span></p><button className="lesson-link" onClick={()=>open('guide','troubleshooting')}>困ったときの手順へ</button></div>}</div>;
+ const editorAction=<div className="project-editor-action"><p>今回作ったフォルダーを開きます。準備が不足している場合は、先に準備手順を確認してください。</p><p className="path">{activeProject?.destination}</p><button type="button" className="primary" disabled={opening} onClick={()=>void openEditor()}>{opening?'VS Codeを開いています…':'このフォルダーをVS Codeで開く'}</button><button type="button" className="text-button" onClick={()=>activeProject&&void copyValue(activeProject.destination)}>保存先をコピー</button><p role="status">{actionNote}</p>{actionError&&<div className="error" role="alert"><p>{actionError}</p><p>保存先：<span className="path">{activeProject?.destination}</span></p><button className="lesson-link" onClick={()=>help?open(reading.lessonId,'first','準備が足りないとき'):onHelp()}>困ったときの手順へ</button></div>}</div>;
  const tocHidden=compact&&!tocOpen,bodyHidden=compact&&tocOpen;
  return <div className={'reader-layout'+(tocOpen?' toc-open':'')}>
  <div className="reader-toolbar"><button className="secondary" onClick={onReturn}>{returnLabel||(reading.lessonId==='setup'?'準備チェックへ戻る':'作る画面へ戻る')}</button><button ref={toggle} className="secondary" aria-controls="curriculum-toc" aria-expanded={compact?tocOpen:undefined} onClick={showToc}>{compact?(tocOpen?'本文に戻る':'目次を開く'):'目次へ移動'}</button><span className="reader-current">{lesson?.title||'教材'} · {chapter?.title||'教材の目次'}</span></div>
