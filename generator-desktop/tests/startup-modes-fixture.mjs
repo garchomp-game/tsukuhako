@@ -28,7 +28,8 @@ async function main(){
    return fixture.plan={planId:'a'.repeat(64),request:p,destination:p.parent+'/'+p.folder,templateVersion:t.version,projectName:p.name||'study',ports,files:[],nextSteps:nextSteps(p.templateId,ports,{platform:fixture.platform})};
   },
   diagnose:()=>({generationReady:true,runtimeReady:true,checks:[]}),
-  apply:()=>{const p=fixture.plan;return fixture.last={status:'created',destination:p.destination,templateId:p.request.templateId,templateVersion:p.templateVersion,projectName:p.projectName,ports:p.ports,readme:'README.md',startHere:'START_HERE.md',readmeText:'# README',nextSteps:p.nextSteps,guide:startHere(p,{platform:fixture.platform})}},
+  // A fixture-only link exercises a help -> first-guide incoming detail anchor.
+  apply:()=>{const p=fixture.plan,guide=startHere(p,{platform:fixture.platform})+(fixture.platform==='win32'?'\n[再開手順へ進む](#同じフォルダーから再開する)\n':'');return fixture.last={status:'created',destination:p.destination,templateId:p.request.templateId,templateVersion:p.templateVersion,projectName:p.projectName,ports:p.ports,readme:'README.md',startHere:'START_HERE.md',readmeText:'# README',nextSteps:p.nextSteps,guide}},
   openInVSCode:p=>{fixture.openPayloads.push(p===undefined?'no-payload':p);if(fixture.editorError)throw {code:'EDITOR_UNAVAILABLE',message:'VS Codeへ接続を渡せませんでした。',nextAction:'VS Codeの「フォルダーを開く」で保存先を選んでください。',details:{}};fixture.opened.push(fixture.last.destination);return{opened:true}}
  };
  for(const [name,fn]of Object.entries(handlers))ipcMain.handle('tsukuhako:'+name,(_event,input)=>{try{return{ok:true,value:fn(validatePayload(name,input))}}catch(error){return{ok:false,error:{code:error.code||'FIXTURE_ERROR',message:error.message||'fixture failed',nextAction:error.nextAction||'fixture failed',details:{}}}}});

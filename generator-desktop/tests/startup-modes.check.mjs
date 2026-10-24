@@ -58,6 +58,17 @@ try{
  expect(await p.evaluate(()=>({body:document.body.scrollWidth>innerWidth,reader:document.querySelector('.reader-scroll').scrollWidth>document.querySelector('.reader-scroll').clientWidth}))).toEqual({body:false,reader:false});
  await b('このフォルダーをVS Codeで開く').focus();await p.keyboard.press('Tab');await expect(b('保存先をコピー')).toBeFocused();await screen('quick-390.png');record('390px layout and keyboard primary-action sequence');
 
+ await b('目次を開く').click();await expect(p.getByLabel('教材・ガイドを選ぶ')).toBeFocused();await p.setViewportSize({width:1150,height:900});await expect(b('目次を開く')).toBeFocused();await expect(p.locator('.reader-layout')).not.toHaveClass(/toc-open/);await expect(p.locator('.curriculum-toc')).toHaveAttribute('aria-hidden','true');
+ expect(await p.evaluate(()=>document.activeElement.closest('[inert]')===null)).toBe(true);
+ record('quick-mode TOC resize closes the overlay and restores focus to its visible toggle');
+
+ await p.setViewportSize({width:390,height:844});await mode(quick).scrollIntoViewIfNeeded();await mode(quick).focus();
+ // Chromium can round scrollTop to integer pixels; also keep the option text visible.
+ const focusInReader=()=>p.evaluate(()=>{const active=document.activeElement,area=document.querySelector('.reader-scroll'),r=active.getBoundingClientRect(),option=active.closest('label').getBoundingClientRect(),a=area.getBoundingClientRect(),top=Math.max(0,a.top)-1,bottom=Math.min(innerHeight,a.bottom)+1;return{top:r.top,bottom:r.bottom,optionTop:option.top,optionBottom:option.bottom,readerTop:a.top,readerBottom:a.bottom,visible:r.top>=top&&r.bottom<=bottom&&option.top>=top&&option.bottom<=bottom&&!active.closest('[inert]')}});
+ await p.keyboard.press('ArrowLeft');await expect(mode(guided)).toBeChecked();await expect(mode(guided)).toBeFocused();await expect.poll(async()=>(await focusInReader()).visible).toBe(true);const guidedFocus=await focusInReader();
+ await p.keyboard.press('ArrowRight');await expect(mode(quick)).toBeChecked();await expect(mode(quick)).toBeFocused();await expect.poll(async()=>(await focusInReader()).visible).toBe(true);const quickFocus=await focusInReader();await screen('mode-switch-focus-390.png');
+ record('390px keyboard mode switches keep the focused radio inside the visible reader viewport',{guidedFocus,quickFocus});
+
  await p.setViewportSize({width:1150,height:900});await nav('作る').click();await b('別のプロジェクトを作る').click();await create('次の画面',null);
  await expect(p.locator('.project-context')).toContainText('http://localhost:3000/');await expect(p.locator('.port-explanation')).toHaveCount(0);await b('このフォルダーをVS Codeで開く').click();expect((await app.evaluate(()=>globalThis.fixture.opened)).at(-1)).toBe('/home/student/日本語の親フォルダー/次の画面');
  record('default 3000 omits mismatch prose; new project changes the editor target');
@@ -73,8 +84,11 @@ try{
  await expect(body).toContainText('選択したWSL');await expect(body).not.toContainText('macOSのターミナル');await nav('困ったとき').click();await expect(p.locator('#準備が足りないとき')).toBeFocused();await b('読んでいた手順へ戻る').click();await expect(mode(quick)).toBeChecked();await expect(p.locator('.project-context')).toContainText('Windowsの手順');
  record('Windows fixture retains selected-WSL gate, WSL work locations and quick/help return');
 
+ await nav('困ったとき').click();await expect(p.locator('#準備が足りないとき')).toBeFocused();await body.getByRole('button',{name:'再開手順へ進む',exact:true}).click();await expect(p.locator('#同じフォルダーから再開する')).toBeFocused();await expect(b('簡潔な手順に戻る')).toBeVisible();await expect(p.locator('.reader-layout')).not.toHaveClass(/reader-quick/);await expect(mode(quick)).toBeChecked();await b('簡潔な手順に戻る').click();await expect(p.locator('.reader-layout')).toHaveClass(/reader-quick/);
+ record('incoming first-guide anchor from Windows help reveals full detail and focuses its requested heading');
+
  await nav('作る').click();await expect.poll(()=>app.evaluate(()=>globalThis.fixture.saved.view)).toBe('create');await p.reload();await expect(mode(quick)).toBeChecked();await expect(p.locator('.project-context')).toHaveCount(0);
  await nav('学ぶ').click();await p.getByLabel('教材・ガイドを選ぶ').selectOption('F2');await p.getByRole('navigation',{name:'章の一覧'}).getByRole('button',{name:'サンプル画面を表示する',exact:true}).click();await expect(body).toContainText('見本');await expect(b('このフォルダーをVS Codeで開く')).toHaveCount(0);
  record('mode persists across reload; an unbound reference guide never opens an arbitrary project');
  expect(errors).toEqual([]);fs.writeFileSync(run+'/result.json',JSON.stringify({scope:'FIXTURE_WITH_REAL_GUIDE_DATA',result:'PASS',records,errors},null,2)+'\n');console.log('Evidence:',run);
-}catch(error){console.error('Evidence:',run);console.error('Focus:',await p?.evaluate(()=>document.activeElement?.outerHTML).catch(()=>''));await p?.screenshot({path:run+'/failure.png',timeout:3000}).catch(()=>{});throw error}finally{await app?.close()}
+}catch(error){console.error('Evidence:',run);console.error('Focus:',await p?.evaluate(()=>{const active=document.activeElement,area=document.querySelector('.reader-scroll'),r=active?.getBoundingClientRect(),a=area?.getBoundingClientRect();return{element:active?.outerHTML,top:r?.top,bottom:r?.bottom,readerTop:a?.top,readerBottom:a?.bottom,scroll:area?.scrollTop,viewport:innerHeight}}).catch(()=>''));await p?.screenshot({path:run+'/failure.png',timeout:3000}).catch(()=>{});throw error}finally{await app?.close()}
