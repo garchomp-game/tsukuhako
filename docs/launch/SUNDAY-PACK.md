@@ -1,8 +1,52 @@
-# 10月25日向け：本体＋ガイド同梱候補（制作メモ）
+# 10月25日向け：Linux debと内蔵ガイド（制作メモ）
+
+## 現行方針：2026-10-24 / Linux版0.4.5
+
+`tsukuhako-linux-installer-revision-2026-10-24.md` と基点 `9ba29399d707e75b0da8a656ef386c81169eab58` を引き継ぎます。ツール本体と教材・ガイドを一緒に届ける方針を維持し、**Linux Mint x64の通常受取は単体deb**へ変更します。Linuxで外側ZIP→内側tarを順に展開する旧経路は主経路から外します。このメモは制作者用で、アプリの読者用本文へ混ぜません。
+
+| 内容 | 現行の扱い |
+|---|---|
+| Linux本体 | 0.4.5 / `tsukuhako-linux-amd64-0.4.5.deb`。Mint 22.3 x64が最初の実機確認対象 |
+| [入口](sunday-pack/START_HERE.md) / [初回](sunday-pack/FIRST-RUN.md) / [復旧](sunday-pack/TROUBLESHOOTING.md) / [任意練習](sunday-pack/NEXT-STEP.md) / [記録票](sunday-pack/FEEDBACK.md) | ガイド2026-10-24-r3。5本のMarkdownを正本とし、本体の既存Readerへ同梱 |
+| 本体への取込 | `tools/build-curriculum.mjs` がlesson `guide` を生成。章IDは `start / first-run / troubleshooting / next-step / feedback`、sourceは元の大文字MD名を保持 |
+| 現行ガイドの整合 | `tools/refresh-guide-checksums.mjs` で5正本・manifest・SHA256SUMSを更新。ガイド版は正本manifestと本文、同梱アプリ版はcurriculumの版で区別 |
+| Windows | 既存0.4.4・ガイドr2・同梱ZIP2026-10-25-b1を維持。今回Windows新版を生成した意味ではない |
+| [投稿ネタ帳](POST-IDEAS.md)・[用途別原稿](sunday-copy/README.md) | 未公開のまま。紹介・無償試用・購入後を分離し、Linux受取だけ新主経路へそろえる |
+
+Linux利用者は **単体debを開く → OS標準のパッケージインストーラー（このMintはCaptain）→ メニュー「ツクハコ」→「はじめて使う」→ F2の初回手順** の順に進みます。通常利用中も「ガイド」navから同じReaderを開けます。新IPCや読書設定形式を追加せず、インストーラーの保存場所へ依存しません。
+
+本体の起動・ガイドの読了・開発準備チェック・実Dev Container起動は別の進捗です。F2の初期処理正常終了と最初の画面が初回到達点で、変更・復元は任意です。生成済みプロジェクトを配る方式や、F2専用の商品への縮小は採用しません。旧tarコピー、生成プロジェクト、Dockerデータ、読書設定を勝手に削除しません。
+
+### 現行の制作順序
+
+統合後のリポジトリで、既存の固定済み開発依存を使います。以下は制作・静的検査の手順で、利用者のPCにNode/npm等を要求するものではありません。
+
+```sh
+node tools/refresh-guide-checksums.mjs
+npm --prefix generator-desktop run curriculum
+npm --prefix generator-desktop run build
+npm --prefix generator-desktop run stage
+npm --prefix generator-desktop run package:linux
+node tools/linux-deb/inspect.mjs dist/linux-deb/tsukuhako-linux-amd64-0.4.5.deb
+```
+
+パッケージの検査後は、`tools/linux-deb/deliver.mjs` へ最終debと**新しい**出力先を指定し、単体deb、SHA256SUMS、INSTALL.txt、manifestを用意します。入力・既存配布物を削除せず、最終コピー後のバイト列を照合します。詳細と最終保存先は `validation/linux-deb-0.4.5/REPORT.md` に記録します。サイズ・SHAを旧tarや旧ZIPから転記しません。
+
+現行5正本を変えたら、チェックサム更新→curriculum生成→UI build→stage→debを作り直し、最終deb内のガイドと版を再照合します。旧r2用 `tools/package-sunday-guide.mjs` と旧b1用 `tools/package-delivery-bundle.mjs` は、現行r3を梱包する手順には使いません。
+
+### 今回の公開判断
+
+debの生成・静的検査・隔離検証は、Mintの通常GUIでの導入やメニュー起動とは区別します。本人の初回確認前にこれらを合格へ変えません。旧0.4.4のLinux実績、新debの実F2、未準備PC、一般受取人のダウンロード、人による無補足試用も別の結果です。[現行の公開前条件](PUBLISH-CHECKLIST.md)を使い、候補完成と一般公開可能の判断を分けます。
+
+Windows 11通常ユーザー・実WSL/F2は未確認です。価格、本番受取URL、提供対象、試用/販売、窓口等は本人が決める条件として残します。メルマガ登録や会員認証の本番化を、今回のdeb作成の条件にしません。
+
+## 以下は旧b1の制作記録・再現用メモ
+
+以下の2026-10-23の説明とコマンドは、**旧固定点9ba2939の0.4.4/r2/b1を対象**とした記録です。再現する場合はその固定点の正本・ツール・Aセットを使います。現行r3正本で旧b1を作り直したり、既存成果物・証拠を上書きしたりしません。Linuxの現行受取方式は上の単体debが優先です。
 
 2026-10-23 JST。起点は`codex/abc-launch-preparation-20261022` / `cd8f8f8fd09b08a27ef7b1e9ee9e157a2a61d663`。開始時にローカルの変更なし、remoteの同branchも同SHA、mainは`55d3b051935df80d24f988719b52a4937f2f559b`と確認しました。このメモは読者用ZIPへ入れません。
 
-## 今回採用した体験
+## 旧b1で採用した体験
 
 **既存アプリ0.4.4でF2を選び、初期処理の正常終了を確認し、Next.jsの最初の画面を表示する。** 達成条件は初期見出しの表示です。一箇所変更・復元は任意に分離します。初回に全6構成の比較や詳細なDocker理論を要求しません。既存の構成・教材・アプリ機能は保持します。
 
@@ -10,7 +54,7 @@
 
 Windows専用への商品変更、Linux専用への変更、価格・ライセンス・販売開始日は決定していません。100円は決定値ではありません。日程は準備の目安であり、予約投稿や予約販売ではありません。
 
-## 正式な梱包方針：OS別の本体＋ガイドZIP
+## 旧b1の梱包方針：OS別の本体＋ガイドZIP
 
 2026-10-23の追加依頼により、`7af82d9` 時点の「OS別アプリセット＋別のガイドZIP」から、一つのOS別ZIPへ変更します。ツールが商品本体です。制作時はAセットとガイドを別管理し、受取人にはWindows用またはLinux用の一つのZIPで渡します。過去レポートは当時の別梱包の記録として保持します。
 
@@ -49,7 +93,7 @@ Aの[商品事実](../../validation/release-0.4.4-followup/PRODUCT-FACTS.md)と[
 
 製品0.4.4のWindows保存先は選択WSL内の既存HOME配下で、`/mnt`を拒否します。これは製品の制約であり、Microsoftが全WSL利用で`/mnt/c`を禁止しているという意味ではありません。Windows Server 2022 CIはインストーラー等の補助確認です。
 
-## 配布候補の生成と照合
+## 旧b1固定点での生成と照合
 
 リポジトリ直下、Node 24・zip/unzip・sha256sumと、`generator-desktop` の固定済み依存を用意した制作環境で実行します。既存アプリと同じmarkdown-itを使い、製品ビルドは行いません。包装ソースと5ガイドをcommitしてから、A採用版の親ディレクトリを指定します。以下の `A_SET_ROOT` は制作者が実在するパスへ置き換える入力です。
 
@@ -67,7 +111,7 @@ manifestのファイル一覧は自身とルートSHAを除外し、ルートSHA
 
 補助の `node tools/package-sunday-guide.mjs` はr2のMarkdown単独ZIPを `dist/guide-supplement-2026-10-25-r2/` へ作る処理です。本体は入りません。旧r1成果物と当時の検証記録は変更しません。
 
-## 日曜の判断と残る条件
+## 旧b1時点の日曜の判断と残る条件
 
 - **現段階の候補：検証協力者向け。** ガイドと既存アプリを使うF2一経路。Win11通常ユーザー/実WSL/F2と未準備PCは未確認です。
 - **一般向け配布・販売：公開保留。** 配布先・受取権限・対象OS・窓口等が未確定です。Linux既存環境の成功だけでWindowsや未準備PCへ一般化しません。
