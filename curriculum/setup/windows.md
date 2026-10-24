@@ -1,6 +1,6 @@
 # Windows / WSL 2の準備
 
-対象目標：Windows 11 x64、サポート中のUbuntu LTS / WSL 2。実機未確認です。Windows ARMは対象外です。
+Windowsの既存配布候補0.4.4向けの参考手順です。今回Windows 0.4.5は生成していません。対象目標：Windows 11 x64、サポート中のUbuntu LTS / WSL 2。実機未確認です。Windows ARMは対象外です。
 
 ## WSLと通常ユーザー
 

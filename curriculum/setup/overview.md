@@ -10,7 +10,7 @@
 
 [Windows / WSL 2](lesson:setup/windows) · [macOS](lesson:setup/macos) · [Linux](lesson:setup/linux)
 
-今回の初回配布対象はWindows 11 x64とLinux x64です。macOS・ARMは対象外です。Windowsの実機開発経路は未確認、Linuxの確認範囲はMint 22.3です。
+今回の新しい配布候補はLinux Mint 22.3 x64向けの0.4.5（単体deb）です。標準GUIでの導入・メニュー起動は所有者の初回確認待ちです。Windowsの既存候補は0.4.4で、Windows 11通常ユーザーと実WSLの開発経路は未確認です。macOS・ARM・他のLinux版は今回の確認対象外です。
 
 ## VS Codeを初めて開くとき
 

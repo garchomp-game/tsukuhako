@@ -422,16 +422,16 @@
           "title": "開発準備の全体像",
           "file": "setup/overview.md",
           "source": "overview.md",
-          "bytes": 1594,
-          "sha256": "df3f2fb386c7eecf94038b5d30380c68fc5f041ea918391417205beb3d74cf3c"
+          "bytes": 1760,
+          "sha256": "88f31410ec2d707513786fae51ea1ea22143e6e728ced9219fca8537f60c020c"
         },
         {
           "id": "windows",
           "title": "Windows / WSL 2の準備",
           "file": "setup/windows.md",
           "source": "windows.md",
-          "bytes": 5828,
-          "sha256": "560a3922f237f2374b2d9575a5c18bb321f043761623d384831b46e8ebae9f0a"
+          "bytes": 5940,
+          "sha256": "0a408c5e21cba960bed5d9a4779c80dd6ba748b6b5612d3891cbaa7eb13c55bd"
         },
         {
           "id": "macos",
