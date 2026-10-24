@@ -46,7 +46,7 @@ try{
  await mode(guided).check();await expect(p.locator('.project-editor-action .error')).toContainText(destination);await mode(quick).check();await expect(p.locator('.project-editor-action .error')).toContainText(destination);
  await app.evaluate(()=>{globalThis.fixture.editorError=false});await b('このフォルダーをVS Codeで開く').click();
  expect(await app.evaluate(()=>globalThis.fixture.opened)).toEqual([destination]);expect(await app.evaluate(()=>globalThis.fixture.openPayloads)).toEqual(['no-payload','no-payload']);
- await p.locator('.project-context details').filter({has:p.getByRole('button',{name:'手順全体をコピー',exact:true})}).locator('summary').click();await p.locator('.project-context').getByRole('button',{name:'手順全体をコピー',exact:true}).click();expect(await p.evaluate(()=>window.__copied)).toBe(await app.evaluate(()=>globalThis.fixture.last.guide));
+ await p.locator('.project-context details').filter({has:p.getByRole('button',{name:'手順全体をコピー',exact:true,includeHidden:true})}).locator('summary').click();await p.locator('.project-context').getByRole('button',{name:'手順全体をコピー',exact:true}).click();expect(await p.evaluate(()=>window.__copied)).toBe(await app.evaluate(()=>globalThis.fixture.last.guide));
  record('mode switching preserves project and editor failure; retry opens only trusted current project; full-copy stays complete');
 
  await body.getByRole('button',{name:'終了する',exact:true}).click();await expect(p.locator('#終了する')).toBeFocused();await expect(b('簡潔な手順に戻る')).toBeVisible();
@@ -68,6 +68,10 @@ try{
   if(forbidden){await expect(body).not.toContainText(forbidden);await expect(p.locator('.project-context')).not.toContainText('http://localhost');await expect(body).toContainText('sql/practice.sql')}
   record(id+' quick mode retains mandatory operations and correct service-specific instructions');
  }
+
+ await app.evaluate(()=>{Object.assign(globalThis.fixture,{platform:'win32',helper:false,saved:{view:'create',lessonId:'F2',chapterId:'',scroll:0,guideMode:'quick'}})});await p.reload();await expect(mode(quick)).toBeChecked();await b('はじめてのWeb画面で始める').click();await expect(b('保存先へ進む').first()).toBeDisabled();await p.getByLabel('開発するWSL').selectOption('aaaaaaaaaaaaaaaa');await b('WSL用ファイルを準備').click();await b('保存先へ進む').first().click();await create('Windowsの手順',3311);
+ await expect(body).toContainText('選択したWSL');await expect(body).not.toContainText('macOSのターミナル');await nav('困ったとき').click();await expect(p.locator('#準備が足りないとき')).toBeFocused();await b('読んでいた手順へ戻る').click();await expect(mode(quick)).toBeChecked();await expect(p.locator('.project-context')).toContainText('Windowsの手順');
+ record('Windows fixture retains selected-WSL gate, WSL work locations and quick/help return');
 
  await nav('作る').click();await expect.poll(()=>app.evaluate(()=>globalThis.fixture.saved.view)).toBe('create');await p.reload();await expect(mode(quick)).toBeChecked();await expect(p.locator('.project-context')).toHaveCount(0);
  await nav('学ぶ').click();await p.getByLabel('教材・ガイドを選ぶ').selectOption('F2');await p.getByRole('navigation',{name:'章の一覧'}).getByRole('button',{name:'サンプル画面を表示する',exact:true}).click();await expect(body).toContainText('見本');await expect(b('このフォルダーをVS Codeで開く')).toHaveCount(0);
