@@ -5,7 +5,7 @@ import {Generator} from './Generator';
 import {Reader} from './Reader';
 import {Preparation} from './Preparation';
 import type {Catalog,Curriculum,Reading,ReaderAnchor,Created,Preparation as Prep} from './types';
-import {onboardingHelp,withDistro} from './flow';
+import {creationHelp,onboardingHelp,withDistro,type CreationStage} from './flow';
 import './style.css';
 const initial:Reading={view:'create',lessonId:'F2',chapterId:'',scroll:0};
 function App(){
@@ -14,6 +14,7 @@ function App(){
  const [ready,setReady]=useState(false),[busy,setBusy]=useState(''),[prepBusy,setPrepBusy]=useState(false);
  const [project,setProject]=useState<Created>(),[returnTo,setReturnTo]=useState<'create'|'learn'>('create'),[template,setTemplate]=useState('F2');
  const [prep,setPrep]=useState<Prep>(),[problem,setProblem]=useState(''),[anchor,setAnchor]=useState<ReaderAnchor>(),[startRequest,setStartRequest]=useState(0);
+ const [creationStage,setCreationStage]=useState<CreationStage>('selection');
  const lastSaved=useRef(''),learningPosition=useRef<Reading|undefined>(undefined);
  const selected=catalog?.templates.find(t=>t.id===template),recommended=catalog?.templates.find(t=>t.id==='F2');
  useEffect(()=>{void Promise.all([window.tsukuhako.getLearningIndex(),window.tsukuhako.readSettings()]).then(([m,s])=>{
@@ -24,11 +25,11 @@ function App(){
   if(!ready)return;const record=reading.view==='help'?{...help,distroId:reading.distroId}:reading;const value=JSON.stringify(record);
   if(value===lastSaved.current)return;lastSaved.current=value;void window.tsukuhako.saveSettings(record).then(r=>{if(!r.ok)setProblem('読書位置を保存できませんでした。')})
  },[reading,help,ready]);
- function returnCreate(){setAnchor(undefined);setReading(p=>({...p,view:'create'}));requestAnimationFrame(()=>document.getElementById(reading.lessonId==='setup'?'preparation-title':'generator-title')?.focus())}
+ function returnCreate(){const lessonId=reading.view==='help'?help.lessonId:reading.lessonId;setAnchor(undefined);setReading(p=>({...p,view:'create'}));requestAnimationFrame(()=>document.getElementById(lessonId==='setup'?'preparation-title':'generator-title')?.focus())}
  function showHelp(){
   if(!index||reading.view==='help')return;
   const from=reading.view==='learn'?'learn':'create';setReturnTo(from);
-  const {heading,...destination}=onboardingHelp(index,from==='learn'?reading:project?{lessonId:project.templateId,chapterId:'first'}:{lessonId:'guide',chapterId:'start'},project,prep?.platform);
+  const {heading,...destination}=from==='create'&&!project?creationHelp(template,creationStage):onboardingHelp(index,from==='learn'?reading:{lessonId:project!.templateId,chapterId:'first'},project,prep?.platform);
   setAnchor(heading?{...destination,heading,request:Date.now()}:undefined);
   setHelp({...initial,view:'help',...destination});
   setReading(p=>({...p,view:'help'}));
@@ -53,9 +54,9 @@ function App(){
   {ready&&<><div hidden={reading.view!=='create'}>
    {!project&&<section className="first-use" aria-labelledby="first-use-title"><div><p className="eyebrow">はじめての方におすすめ</p><h2 id="first-use-title">{recommended?.name||'はじめてのWeb画面'}</h2><p>最初のゴールはサンプル画面を表示することです。準備を確認し、フォルダーを作ったら、起動の手順へ進みます。内容の変更は、その後に試せます。</p><button type="button" className="lesson-link" disabled={!index} onClick={()=>learn('guide','start')}>全体の流れを読む</button></div><button type="button" className="primary" disabled={!catalog||!!busy||prepBusy} onClick={()=>setStartRequest(v=>v+1)}>{recommended?.name||'はじめてのWeb画面'}で始める</button></section>}
    <Preparation result={prep} onBusy={setPrepBusy} templateId={template} storageTemplateName={catalog?.templates.find(t=>t.id==='S2')?.name} onResult={setPrep} onGuide={(chapter,heading)=>learn('setup',chapter,heading)} disabled={!!busy} distro={reading.distroId} onDistro={id=>setReading(p=>withDistro(p,id))}/>
-   <Generator startRequest={startRequest} onCatalog={setCatalog} externalBusy={prepBusy} onCreated={setProject} onHelp={showHelp} onBusy={setBusy} onTemplate={setTemplate} onLearn={id=>learn(id)} parentOverride={prep?.target?.home} platform={prep?.platform} preparation={prep} onPreparation={setPrep} distroId={reading.distroId}/>
+   <Generator startRequest={startRequest} onCatalog={setCatalog} externalBusy={prepBusy} onCreated={setProject} onHelp={showHelp} onBusy={setBusy} onTemplate={setTemplate} onCreationStage={setCreationStage} onLearn={id=>learn(id)} parentOverride={prep?.target?.home} platform={prep?.platform} preparation={prep} onPreparation={setPrep} distroId={reading.distroId}/>
   </div>
-  {reading.view!=='create'&&index&&<Reader key={reading.view} index={index} reading={reading.view==='help'?help:reading} onReading={reading.view==='help'?setHelp:updateReading} help={reading.view==='help'} project={project} anchor={anchor} onHelp={showHelp} onCurrentProject={project?heading=>learn(project.templateId,'first',heading):undefined} returnLabel={reading.view==='help'&&returnTo==='learn'?'読んでいた手順へ戻る':undefined} onReturn={reading.view==='help'&&returnTo==='learn'?()=>{setAnchor(undefined);setReading(p=>({...p,view:'learn'}))}:returnCreate}/>}</>}
+  {reading.view!=='create'&&index&&<Reader key={reading.view} platform={prep?.platform} index={index} reading={reading.view==='help'?help:reading} onReading={reading.view==='help'?setHelp:updateReading} help={reading.view==='help'} project={project} anchor={anchor} onHelp={showHelp} onCurrentProject={project?heading=>learn(project.templateId,'first',heading):undefined} returnLabel={reading.view==='help'&&returnTo==='learn'?'読んでいた手順へ戻る':undefined} onReturn={reading.view==='help'&&returnTo==='learn'?()=>{setAnchor(undefined);setReading(p=>({...p,view:'learn'}))}:returnCreate}/>}</>}
  </div>
 }
 createRoot(document.getElementById('root')!).render(<App/>);

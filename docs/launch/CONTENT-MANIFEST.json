@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "status": "draft",
-  "productVersion": "0.4.6",
+  "productVersion": "0.4.7",
   "sourceProductCommit": "1d0a0441e3aa8d1003f3e104fc71bf95d3212d0c",
   "factsCommit": "3b0b9547f6895684bf4735d70af644ee164c7ddb",
   "publicDocuments": [
@@ -93,5 +93,5 @@
     "evidence/content-audit.json"
   ],
   "productionApproved": false,
-  "sourceProductCommitNote": "Final clean product snapshot for Linux 0.4.6. See validation/onboarding-0.4.6/REPORT.md for evidence and remaining limits."
+  "sourceProductCommitNote": "0.4.7 V01/V02 source revision in progress; sourceProductCommit retains the prior product snapshot until the clean 0.4.7 build is recorded. See validation/onboarding-0.4.7/REPORT.md."
 }

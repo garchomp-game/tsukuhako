@@ -1,0 +1,22 @@
+{
+  "category": "STATIC",
+  "productVersion": "0.4.7",
+  "files": [
+    {
+      "file": "generator-desktop/build/assets/Markdown-Cj3YgN6O.js",
+      "sha256": "7d3ac735d27fe38d38aa34915fd7ea0df180a8a2a59b63e2425f99315aa6c36b"
+    },
+    {
+      "file": "generator-desktop/build/assets/index-3zMgyyeM.js",
+      "sha256": "dc67f8a239b029b5408ef0bd6c2ebbd47167137ce66068e0da718170543d11b2"
+    },
+    {
+      "file": "generator-desktop/build/assets/index-B73PUPwc.css",
+      "sha256": "c7b4dcab85ed65be86f6f8d43d27a0b0f3b62b04941ca31ef55087bd373add8b"
+    },
+    {
+      "file": "generator-desktop/build/index.html",
+      "sha256": "60e0124d1f8717574f0d406c3c96fe38a00b7bb1229d8b416131e1335a6f5ace"
+    }
+  ]
+}

@@ -1,10 +1,10 @@
 import {lazy,Suspense,useEffect,useLayoutEffect,useRef,useState} from 'react';
 import type {Curriculum,Reading,ReaderAnchor,Created} from './types';
 import {resolveProjectChapter,classifyLink} from './links';
-import {projectForChapter,readerContentKey} from './flow';
+import {localizeCreationHelp,projectForChapter,readerContentKey} from './flow';
 const Markdown=lazy(()=>import('./Markdown'));
-export function Reader({index,reading,onReading,help,project,onReturn,returnLabel,anchor,onCurrentProject,onHelp}:{index:Curriculum;reading:Reading;onReading:(r:Reading)=>void;help:boolean;project?:Created;onReturn:()=>void;returnLabel?:string;anchor?:ReaderAnchor;onCurrentProject?:(heading?:string)=>void;onHelp:()=>void}){
- const activeProject=projectForChapter(project,reading),key=readerContentKey(reading,project);
+export function Reader({platform,index,reading,onReading,help,project,onReturn,returnLabel,anchor,onCurrentProject,onHelp}:{platform?:string;index:Curriculum;reading:Reading;onReading:(r:Reading)=>void;help:boolean;project?:Created;onReturn:()=>void;returnLabel?:string;anchor?:ReaderAnchor;onCurrentProject?:(heading?:string)=>void;onHelp:()=>void}){
+ const activeProject=projectForChapter(project,reading),key=JSON.stringify([readerContentKey(reading,project),reading.chapterId==='creation'?platform:null]);
  const currentKey=useRef(key);currentKey.current=key;
  const lastAnchor=useRef<number|undefined>(undefined);
  const [opening,setOpening]=useState(false),[actionNote,setActionNote]=useState(''),[actionError,setActionError]=useState('');
@@ -28,6 +28,7 @@ export function Reader({index,reading,onReading,help,project,onReturn,returnLabe
   if(chapter)void (async()=>{
    let text=activeProject?.guide;
    if(text===undefined){const reply=await window.tsukuhako.readChapter({lessonId:reading.lessonId,chapterId:reading.chapterId});if(!active)return;if(!reply.ok){setError([reply.error.message,reply.error.nextAction].filter(Boolean).join(' '));return}text=reply.value.text}
+   if(reading.chapterId==='creation')text=localizeCreationHelp(text,platform);
    const m=await import('./Markdown');if(active)setContent({key,text,heads:m.headings(text)});
   })().catch(()=>{if(active)setError('教材を読み込めませんでした。目次から章を開き直してください。')});
   return()=>{active=false;clearTimeout(timer.current)}
@@ -68,7 +69,7 @@ export function Reader({index,reading,onReading,help,project,onReturn,returnLabe
  const tocHidden=compact&&!tocOpen,bodyHidden=compact&&tocOpen;
  return <div className={'reader-layout'+(tocOpen?' toc-open':'')}>
  <div className="reader-toolbar"><button className="secondary" onClick={onReturn}>{returnLabel||(reading.lessonId==='setup'?'準備チェックへ戻る':'作る画面へ戻る')}</button><button ref={toggle} className="secondary" aria-controls="curriculum-toc" aria-expanded={compact?tocOpen:undefined} onClick={showToc}>{compact?(tocOpen?'本文に戻る':'目次を開く'):'目次へ移動'}</button><span className="reader-current">{lesson?.title||'教材'} · {chapter?.title||'教材の目次'}</span></div>
- <aside ref={toc} id="curriculum-toc" className="curriculum-toc" aria-label="教材の目次" aria-hidden={tocHidden||undefined} inert={tocHidden} onKeyDown={e=>{if(compact&&e.key==='Escape'){setTocOpen(false);toggle.current?.focus();e.preventDefault()}}}><p className="eyebrow">{help?'困ったとき':isGuide?'ガイド':'学ぶ'}</p><label htmlFor="lesson-choice">教材・ガイドを選ぶ</label><select id="lesson-choice" value={reading.lessonId} onChange={e=>open(e.target.value,'')}>{index.lessons.map(l=><option value={l.id} key={l.id}>{l.title}</option>)}</select><button type="button" className="text-button" onClick={()=>open(reading.lessonId,'')}>{isGuide?'ガイドの目次':'この教材の目次'}</button><nav aria-label="章の一覧">{lesson?.chapters.filter(c=>!help||['trouble','recovery','troubleshooting','setup','windows','macos','linux','overview'].includes(c.id)).map(c=><button type="button" className={c.id===reading.chapterId?'current':''} key={c.id} aria-current={c.id===reading.chapterId?'page':undefined} onClick={()=>open(reading.lessonId,c.id)}>{c.title}</button>)}</nav><p className="hint">{isGuide?'ガイド '+lesson?.version:'教材 v'+lesson?.version}<br/>{isGuide?'本体の導入とサンプル画面の表示':lesson?.templateVersion?'対象テンプレート v'+lesson.templateVersion:'OS別の準備手順'}</p></aside>
+ <aside ref={toc} id="curriculum-toc" className="curriculum-toc" aria-label="教材の目次" aria-hidden={tocHidden||undefined} inert={tocHidden} onKeyDown={e=>{if(compact&&e.key==='Escape'){setTocOpen(false);toggle.current?.focus();e.preventDefault()}}}><p className="eyebrow">{help?'困ったとき':isGuide?'ガイド':'学ぶ'}</p><label htmlFor="lesson-choice">教材・ガイドを選ぶ</label><select id="lesson-choice" value={reading.lessonId} onChange={e=>open(e.target.value,'')}>{index.lessons.map(l=><option value={l.id} key={l.id}>{l.title}</option>)}</select><button type="button" className="text-button" onClick={()=>open(reading.lessonId,'')}>{isGuide?'ガイドの目次':'この教材の目次'}</button><nav aria-label="章の一覧">{lesson?.chapters.filter(c=>!help||['creation','trouble','recovery','troubleshooting','setup','windows','macos','linux','overview'].includes(c.id)).map(c=><button type="button" className={c.id===reading.chapterId?'current':''} key={c.id} aria-current={c.id===reading.chapterId?'page':undefined} onClick={()=>open(reading.lessonId,c.id)}>{c.title}</button>)}</nav><p className="hint">{isGuide?'ガイド '+lesson?.version:'教材 v'+lesson?.version}<br/>{isGuide?'本体の導入とサンプル画面の表示':lesson?.templateVersion?'対象テンプレート v'+lesson.templateVersion:'OS別の準備手順'}</p></aside>
  <div ref={area} className="reader-scroll" role="region" aria-label="教材本文" tabIndex={0} aria-hidden={bodyHidden||undefined} inert={bodyHidden} onScroll={()=>{if(!body)return;scrollRef.current=area.current?.scrollTop||0;clearTimeout(timer.current);timer.current=setTimeout(()=>write.current({...latest.current,scroll:scrollRef.current}),400)}}>
  {project&&!activeProject&&<div className="current-project"><strong>今回作ったプロジェクト</strong><p className="path">{project.destination}</p><button type="button" className="lesson-link" onClick={()=>onCurrentProject?onCurrentProject():open(project.templateId,'first')}>今回の起動手順へ戻る</button></div>}
  {error&&<p role="alert" className="error">{error}</p>}

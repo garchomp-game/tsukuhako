@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "name": "ツクハコ 内蔵初回ガイド",
-  "guideRevision": "2026-10-24-r4",
-  "productVersion": "0.4.6",
+  "guideRevision": "2026-10-24-r5",
+  "productVersion": "0.4.7",
   "status": "EMBEDDED_GUIDE_SOURCE",
   "scope": "After opening the application on Linux Mint, create the recommended Web project, follow its own path and URL, wait for successful initialization, and display the sample page. Changes and restoration are optional.",
   "includesProductBinary": false,
@@ -18,34 +18,34 @@
     {
       "file": "START_HERE.md",
       "bytes": 2433,
-      "sha256": "60693a048d7fd06ab0232029c4c0151243bf538fe568e95ba3cff65202ad162e"
+      "sha256": "9b9965b088148a61ce64f6d5a4cb4a1f8dfe996ce89af90291200ad96af898b1"
     },
     {
       "file": "FIRST-RUN.md",
-      "bytes": 7626,
-      "sha256": "524885b5a027c55dd738809311b6b25e487a3fe7a974013f6bd11b0238243faa"
+      "bytes": 7943,
+      "sha256": "9002961d011ec1440f776256026b0de916c4b8e1f9a75a232db6c5e8c28d1a4d"
     },
     {
       "file": "TROUBLESHOOTING.md",
       "bytes": 9198,
-      "sha256": "366b2ab7b0e4253826e82401538d258b18826b474f1f98035ab4b8d56734b2a9"
+      "sha256": "e8d1ecc57717b4021214005e2ea5f0948af2e482dcb2dbc5d348dc4b14526f4f"
     },
     {
       "file": "NEXT-STEP.md",
       "bytes": 2256,
-      "sha256": "ffe260184ebdabfa10efeb436afd4caab12e69a8bace4fc810c68720bf4601f7"
+      "sha256": "fd065919df7a8718a189c54900af06be623216ccfe6a0f4db1e008ff6a30f181"
     },
     {
       "file": "FEEDBACK.md",
       "bytes": 1697,
-      "sha256": "e10d524b5be8d622f1438eef57717489ada4c868de89def4ca265c8e1e0c0a95"
+      "sha256": "4ee31084a12c52cf86d2c73c3c2a485abb5dbb0487f041e6eca6646b6cd3235f"
     }
   ],
   "distribution": {
     "linux": {
-      "productVersion": "0.4.6",
+      "productVersion": "0.4.7",
       "format": "deb",
-      "file": "tsukuhako-linux-amd64-0.4.6.deb",
+      "file": "tsukuhako-linux-amd64-0.4.7.deb",
       "target": "Linux Mint 22.3 x64"
     },
     "windows": {
@@ -64,7 +64,8 @@
     "cleanPCSetup": "NOT_RUN",
     "publicRecipientDownload": "NOT_RUN",
     "unaidedHumanTrial": "NOT_RUN; awaiting an actual first-time user",
-    "linux046FirstRun": "NOT_RUN in this source-editing task; use the 0.4.6 integration report for final artifact results"
+    "linux046FirstRun": "NOT_RUN in this source-editing task; use the 0.4.6 integration report for final artifact results",
+    "linux047Revision": "V01/V02 checks are recorded separately in validation/onboarding-0.4.7/REPORT.md; prior full runtime journey remains 0.4.6 evidence."
   },
   "checksums": {
     "algorithm": "SHA-256",

@@ -1,17 +1,17 @@
 # 10月25日向け：Linux debと内蔵ガイド（制作メモ）
 
-## 現行方針：2026-10-24 / Linux版0.4.6
+## 現行方針：2026-10-24 / Linux版0.4.7
 
 `tsukuhako-onboarding-revision-request-2026-10-24.md` と基点 `24e3b852f8357c05e59814bec9ee9a7c9f4a2dca` を引き継ぎます。ツール本体と教材・ガイドを一緒に届ける方針を維持し、**Linux Mint x64の通常受取は単体deb**へ変更します。Linuxで外側ZIP→内側tarを順に展開する旧経路は主経路から外します。このメモは制作者用で、アプリの読者用本文へ混ぜません。
 
 | 内容 | 現行の扱い |
 |---|---|
-| Linux本体 | 0.4.6 / `tsukuhako-linux-amd64-0.4.6.deb`。Mint 22.3 x64が最初の実機確認対象 |
-| [入口](sunday-pack/START_HERE.md) / [初回](sunday-pack/FIRST-RUN.md) / [復旧](sunday-pack/TROUBLESHOOTING.md) / [任意練習](sunday-pack/NEXT-STEP.md) / [記録票](sunday-pack/FEEDBACK.md) | ガイド2026-10-24-r4。5本のMarkdownを正本とし、本体の既存Readerへ同梱 |
+| Linux本体 | 0.4.7 / `tsukuhako-linux-amd64-0.4.7.deb`。Mint 22.3 x64が最初の実機確認対象 |
+| [入口](sunday-pack/START_HERE.md) / [初回](sunday-pack/FIRST-RUN.md) / [復旧](sunday-pack/TROUBLESHOOTING.md) / [任意練習](sunday-pack/NEXT-STEP.md) / [記録票](sunday-pack/FEEDBACK.md) | ガイド2026-10-24-r5。5本のMarkdownを正本とし、本体の既存Readerへ同梱 |
 | 本体への取込 | `tools/build-curriculum.mjs` がlesson `guide` を生成。章IDは `start / first-run / troubleshooting / next-step / feedback`、sourceは元の大文字MD名を保持 |
 | 現行ガイドの整合 | `tools/refresh-guide-checksums.mjs` で5正本・manifest・SHA256SUMSを更新。ガイド版は正本manifestと本文、同梱アプリ版はcurriculumの版で区別 |
 | Windows | 既存0.4.4・ガイドr2・同梱ZIP2026-10-25-b1を維持。今回Windows新版を生成した意味ではない |
-| [投稿ネタ帳](POST-IDEAS.md)・[用途別原稿](sunday-copy/README.md) | 未公開のまま。紹介・無償試用・購入後を分離し、Linux0.4.6の操作名・到達点へそろえる |
+| [投稿ネタ帳](POST-IDEAS.md)・[用途別原稿](sunday-copy/README.md) | 未公開のまま。紹介・無償試用・購入後を分離し、Linux0.4.7の操作名・到達点へそろえる |
 
 Linux利用者は **単体debを開く → OS標準のパッケージインストーラー（このMintはCaptain）→ メニュー「ツクハコ」→「全体の流れを読む」→ サンプル画面を表示する** の順に進みます。通常利用中も「ガイド」navから同じReaderを開けます。新IPCや読書設定形式を追加せず、インストーラーの保存場所へ依存しません。
 
@@ -27,10 +27,10 @@ npm --prefix generator-desktop run curriculum
 npm --prefix generator-desktop run build
 npm --prefix generator-desktop run stage
 npm --prefix generator-desktop run package:linux
-node tools/linux-deb/inspect.mjs dist/linux-deb/tsukuhako-linux-amd64-0.4.6.deb
+node tools/linux-deb/inspect.mjs dist/linux-deb/tsukuhako-linux-amd64-0.4.7.deb
 ```
 
-パッケージの検査後は、`tools/linux-deb/deliver.mjs` へ最終debと**新しい**出力先を指定し、単体deb、SHA256SUMS、INSTALL.txt、manifestを用意します。入力・既存配布物を削除せず、最終コピー後のバイト列を照合します。詳細と最終保存先は0.4.6の統合レポートに記録します。サイズ・SHAを旧tarや旧ZIPから転記しません。
+パッケージの検査後は、`tools/linux-deb/deliver.mjs` へ最終debと**新しい**出力先を指定し、単体deb、SHA256SUMS、INSTALL.txt、manifestを用意します。入力・既存配布物を削除せず、最終コピー後のバイト列を照合します。詳細と最終保存先は0.4.7の統合レポートに記録します。サイズ・SHAを旧tarや旧ZIPから転記しません。
 
 現行5正本を変えたら、チェックサム更新→curriculum生成→UI build→stage→debを作り直し、最終deb内のガイドと版を再照合します。旧r2用 `tools/package-sunday-guide.mjs` と旧b1用 `tools/package-delivery-bundle.mjs` は、現行r4を梱包する手順には使いません。
 

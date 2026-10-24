@@ -58,3 +58,22 @@ test('onboarding: an observed Docker runtime with unverified compatibility is no
  assert.doesNotMatch(item.purpose+item.action,/未導入|インストール/);assert.match(item.action,/既存の設定/);assert.match(item.action,/起動/);
  assert.equal(check.label,'確認できない');
 });
+
+test('creation help: real curriculum covers every configuration, stage and platform without runtime commands',async()=>{
+ const fs=await import('node:fs');
+ const {creationHelp,localizeCreationHelp}=await import('../src/flow.ts');
+ const {resolveChapter}=await import('../src/links.ts');
+ const real=JSON.parse(fs.readFileSync(new URL('../../curriculum/manifest.json',import.meta.url)));
+ for(const id of ['F1','F2','B1','S1','S2','I1'])for(const stage of ['selection','destination','confirmation','generation-error']) {
+  const route=creationHelp(id,stage),lesson=real.lessons.find(l=>l.id===id),chapter=lesson.chapters.find(c=>c.id===route.chapterId);
+  assert.ok(chapter);const text=fs.readFileSync(new URL('../../curriculum/'+chapter.file,import.meta.url),'utf8');
+  assert.ok(text.includes(lesson.title));assert.ok(text.includes('## '+route.heading));assert.doesNotMatch(text,/npm run dev|scripts\/db.sh|\{\{/);
+  for(const [platform,target] of [['linux','linux'],['win32','windows'],['darwin','macos'],[undefined,null],['unknown',null]]) {
+   const localized=localizeCreationHelp(text,platform);
+   const osLinks=[...localized.matchAll(/\]\((lesson:setup\/(linux|windows|macos))\)/g)];
+   assert.equal(osLinks.length,target?1:3);if(target)assert.equal(osLinks[0][2],target);
+   for(const [,href] of localized.matchAll(/\]\((lesson:[^)]+)\)/g))assert.ok(resolveChapter(real,id,'creation',href),href);
+  }
+  if(id==='I1')assert.match(text,/lesson:I1\/troubleshooting/);
+ }
+});

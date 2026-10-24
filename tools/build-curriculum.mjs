@@ -29,6 +29,9 @@ for(const t of catalog.templates.filter(t=>t.generatorEligible)) {
   const body=fs.readFileSync(root+'/'+t.sourcePath+'/docs/'+file,'utf8');
   rows.push([file.replace(/\.md$/,'').toLowerCase(),body.match(/^#\s+(.+)$/m)?.[1]||file,body,'docs/'+file]);
  }
+ const recovery=['troubleshooting','recovery','trouble'].find(id=>rows.some(row=>row[0]===id));
+ const creation=fs.readFileSync(root+'/docs/desktop-setup/creation.md','utf8').replaceAll('{{name}}',presentation.name).replaceAll('{{recovery}}',`lesson:${t.id}/${recovery||'setup'}`);
+ rows.push(['creation','作成前に困ったとき',creation,'guides/CREATION.md']);
  lesson(t.id,presentation.name,t.implementationVersion,rows,presentation);
 }
 const setup=[['overview','開発準備の全体像'],['windows','Windows / WSL 2の準備'],['macos','macOSの参考手順'],['linux','Linuxの準備'],['trouble','準備で困ったとき']];

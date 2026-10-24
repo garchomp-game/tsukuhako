@@ -1,5 +1,19 @@
 import type {Preparation, Curriculum, Reading, Created} from './types';
 
+export type CreationStage = 'selection'|'destination'|'confirmation'|'generation-error';
+export function creationHelp(templateId:string, stage:CreationStage) {
+  const headings={selection:'準備を確認する',destination:'保存先を確認する',confirmation:'作成内容を確認する','generation-error':'作成に失敗したとき'};
+  return {lessonId:templateId,chapterId:'creation',heading:headings[stage]};
+}
+
+// The bundled chapter remains readable with all OS choices when no platform is
+// known. A detected platform selects its preparation link; never guess Linux.
+export function localizeCreationHelp(text:string, platform?:string) {
+  const guides:Record<string,string>={linux:'[Linuxの準備](lesson:setup/linux)',win32:'[Windowsと選択したWSLの準備](lesson:setup/windows)',darwin:'[macOSの参考手順](lesson:setup/macos)'};
+  const link=platform?guides[platform]:undefined;
+  return link?text.replace(/<!-- os-preparation-start -->[\s\S]*?<!-- os-preparation-end -->/,`このPCの準備は${link}を開きます。準備後は「準備チェックへ戻る」から「もう一度確認」を押します。`):text;
+}
+
 export function withDistro(reading:Reading, id:string):Reading {
   return {...reading, distroId:id || undefined};
 }

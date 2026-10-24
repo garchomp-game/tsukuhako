@@ -37,7 +37,7 @@ try {
  }
  for(const lesson of index.lessons)for(const chapter of lesson.chapters){
   const body=fs.readFileSync(root+'/curriculum/'+chapter.file,'utf8');assert.equal(hash(body),chapter.sha256);assert.equal(Buffer.byteLength(body),chapter.bytes);results.curriculumHashes++;
-  if(!['guide','setup'].includes(lesson.id)&&chapter.id!=='first')continue;
+  if(!['guide','setup'].includes(lesson.id)&&!['first','creation'].includes(chapter.id))continue;
   for(const href of links(body)){
    if(/^https:/.test(href))continue;
    const target=resolveChapter(index,lesson.id,chapter.id,href);

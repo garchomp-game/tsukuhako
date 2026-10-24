@@ -2,11 +2,11 @@ import { useEffect, useRef, useState } from 'react';
 
 import type { Catalog, Created, Plan, Problem, Report, Reply, Request } from './types';
 import './style.css';
-import {canCreateFiles} from './flow';
+import {canCreateFiles,type CreationStage} from './flow';
 const stages = ['何を作るか', 'どこへ作るか', '内容の確認', '作成完了'];
 function value<T>(reply:Reply<T>):T { if (!reply.ok) throw reply.error; return reply.value; }
 const unknownProblem:Problem = {code:'CONNECTION_FAILED',message:'処理との接続を確認できませんでした。',nextAction:'入力へ戻り、内容を確認し直してください。',details:{}};
-export function Generator({onBusy,onLearn,onTemplate,parentOverride,platform,preparation,distroId,onPreparation,onCreated,onHelp,externalBusy,onCatalog,startRequest}:{onBusy:(v:string)=>void;onCatalog:(c:Catalog)=>void;startRequest:number;onCreated:(p:Created|undefined)=>void;onHelp:()=>void;externalBusy:boolean;onLearn:(id:string)=>void;onTemplate:(id:string)=>void;parentOverride?:string;platform?:string;onPreparation:(p:import('./types').Preparation)=>void;distroId?:string;preparation?:import('./types').Preparation}) {
+export function Generator({onBusy,onLearn,onTemplate,onCreationStage,parentOverride,platform,preparation,distroId,onPreparation,onCreated,onHelp,externalBusy,onCatalog,startRequest}:{onBusy:(v:string)=>void;onCatalog:(c:Catalog)=>void;startRequest:number;onCreated:(p:Created|undefined)=>void;onHelp:()=>void;onCreationStage:(stage:CreationStage)=>void;externalBusy:boolean;onLearn:(id:string)=>void;onTemplate:(id:string)=>void;parentOverride?:string;platform?:string;onPreparation:(p:import('./types').Preparation)=>void;distroId?:string;preparation?:import('./types').Preparation}) {
   const [catalog,setCatalog] = useState<Catalog>();
   const [goal,setGoal] = useState('screen'), [id,setId] = useState('F2');
   const [parent,setParent] = useState(''), [folder,setFolder] = useState('my-app');
@@ -22,6 +22,7 @@ export function Generator({onBusy,onLearn,onTemplate,parentOverride,platform,pre
   useEffect(()=>{ window.tsukuhako.getTemplates().then(value).then(c=>{setCatalog(c);onCatalog(c);setParent(parentOverride||c.defaultParent)}).catch(fail); },[]);
   useEffect(()=>{onBusy(busy)},[busy]);
   useEffect(()=>{onTemplate(id)},[id]);
+  useEffect(()=>{onCreationStage(step===1?'selection':step===2?'destination':problem?'generation-error':'confirmation')},[step,problem]);
   useEffect(()=>{if(platform==='win32'){invalidate();updateCreated(undefined);setParent('');setStep(1)}},[distroId]);
   useEffect(()=>{if(startRequest){invalidate();setGoal('screen');setId('F2');setPort('');setDbBase('');setStep(1);requestAnimationFrame(()=>window.document.getElementById('preparation-title')?.focus())}},[startRequest]);
   useEffect(()=>{if(parentOverride){setParent(p=>!p||p===catalog?.defaultParent?parentOverride:p)}},[parentOverride]);
