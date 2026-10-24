@@ -13,7 +13,7 @@ Linuxの主配布物を**単体deb**に変更しました。対象候補はLinux
 
 Windowsの既存候補は0.4.4（未署名NSIS）のままです。今回Windows成果物は再生成していません。Windows 11通常ユーザーと実WSL経路は確認待ちです。macOS・ARM・他のLinuxディストリビューションは今回の対応確認対象外です。
 
-F1/F2/B1/S1/S2/I1が生成対象、S3は参考資料です。テンプレートZIP自体は変更していません。生成済みプロジェクトは自動更新しません。
+F1/F2/B1/S1/S2/I1が生成対象、S3は参考資料です。Webサンプル4構成は、通常表示の管理IDを外す表示変更に合わせてテンプレート版とZIPを更新しました。生成済みプロジェクトは自動更新しません。
 
 過去の検証記録：[0.4.5](validation/linux-deb-0.4.5/REPORT.md)、[0.4.4](validation/release-0.4.4/REPORT.md)、[担当A](validation/release-0.4.4-followup/REPORT.md)、[A・B・C](validation/launch-abc-2026-10-22/REPORT.md)、[旧b1同梱ZIP](validation/sunday-bundle-2026-10-25/REPORT.md)。過去版の成功を0.4.6の実機証拠へ読み替えません。
 

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "status": "draft",
   "productVersion": "0.4.6",
-  "sourceProductCommit": "2b141f7c583d796e1ba75ad312c6ab199056c7de",
+  "sourceProductCommit": "69bbe3b8b1eca89f4506e6a7a1ad11a62eedf812",
   "factsCommit": "3b0b9547f6895684bf4735d70af644ee164c7ddb",
   "publicDocuments": [
     {
@@ -93,5 +93,5 @@
     "evidence/content-audit.json"
   ],
   "productionApproved": false,
-  "sourceProductCommitNote": "Inherited 0.4.4 evidence reference, not the final 0.4.6 implementation commit. The integration owner updates this field after finalizing the product source; see validation/onboarding-0.4.6/REPORT.md."
+  "sourceProductCommitNote": "Final clean product snapshot for Linux 0.4.6. See validation/onboarding-0.4.6/REPORT.md for evidence and remaining limits."
 }

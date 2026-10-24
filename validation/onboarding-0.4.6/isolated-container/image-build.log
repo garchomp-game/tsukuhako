@@ -1,0 +1,37 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.validation
+#1 transferring dockerfile: 557B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:24.04
+#2 DONE 2.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/3] FROM docker.io/library/ubuntu:24.04@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac
+#4 resolve docker.io/library/ubuntu:24.04@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 7.78kB done
+#5 DONE 0.0s
+
+#6 [2/3] COPY container-check.sh /usr/local/bin/tsukuhako-deb-check
+#6 CACHED
+
+#7 [3/3] RUN chmod 0755 /usr/local/bin/tsukuhako-deb-check     && command -v dpkg-deb     && command -v apt-get     && command -v ldd     && command -v useradd     && command -v runuser
+#7 CACHED
+
+#8 exporting to image
+#8 exporting layers done
+#8 exporting manifest sha256:22ab3aee0f34ebf1e95f6ed8c85193c07cb907effe951e54cf6cb2602f4ac621 done
+#8 exporting config sha256:3971f8af91ea6aea5163b8eb240322da5277caf44b493a9db8adf72d0bf8a7a3 done
+#8 exporting attestation manifest sha256:1b44f143589c489912abec239db031b323b2a46e9feb3285bd95ea45b88983e5 done
+#8 exporting manifest list sha256:a5be0ea1e644f6cee69ff611cc41d00b987dfe84ba109239f93abc8f22631c90 done
+#8 naming to docker.io/library/tsukuhako-deb-validation:20261024090424374-cdb30b73 done
+#8 unpacking to docker.io/library/tsukuhako-deb-validation:20261024090424374-cdb30b73
+#8 unpacking to docker.io/library/tsukuhako-deb-validation:20261024090424374-cdb30b73 0.5s done
+#8 DONE 0.5s

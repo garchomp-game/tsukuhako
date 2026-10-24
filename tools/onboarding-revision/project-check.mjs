@@ -1,4 +1,5 @@
 // Final deb, real IPC and real X clipboard. A second mode checks target replacement.
+import {createHash} from 'node:crypto';
 import {fs,out,runtime,connect,expect,command,env,json,sha,pause,spawnSync} from '../onboarding-evidence.mjs';
 const a=await connect(Number(process.env.TSUKUHAKO_APP_PORT||9430)),p=a.page;
 const button=name=>p.getByRole('button',{name,exact:true});
@@ -9,8 +10,8 @@ try {
  await nav('作る').click();await button('サンプル画面を表示する手順へ').click();
  await expect(p.locator('.project-context')).toContainText(project.destination);
  await p.locator('.project-context summary').click();await button('手順全体をコピー').click();
- expect(spawnSync('xclip',['-selection','clipboard','-o'],{env:env(),encoding:'utf8'}).stdout).toBe(guide);
- await button('URLをコピー').click();expect(spawnSync('xclip',['-selection','clipboard','-o'],{env:env(),encoding:'utf8'}).stdout).toBe('http://localhost:'+project.port+'/');
+ await expect.poll(()=>createHash('sha256').update(spawnSync('xclip',['-selection','clipboard','-o'],{env:env(),encoding:'utf8'}).stdout||'').digest('hex')).toBe(sha(project.destination+'/START_HERE.md'));
+ await button('URLをコピー').click();await expect.poll(()=>spawnSync('xclip',['-selection','clipboard','-o'],{env:env(),encoding:'utf8'}).stdout).toBe('http://localhost:'+project.port+'/');
  await a.context.setOffline(true);await nav('困ったとき').click();
  await p.locator('.markdown').getByRole('button',{name:'初期処理の状態を確認する',exact:true}).click();
  await expect(p.locator('#初期処理が終わらない')).toBeFocused();

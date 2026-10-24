@@ -6,7 +6,7 @@ export default function App() {
   return (
     <main>
       <header>
-        <p className="eyebrow">ツクハコ / F1 · REACT / VITE</p>
+        <p className="eyebrow">ツクハコ / REACT / VITE</p>
         <h1>ことばの鏡</h1>
         <p className="intro">書いたことばが、そのまま画面に映ります。</p>
       </header>

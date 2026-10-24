@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main className="mx-auto my-16 max-w-3xl px-6">
-      <p className="text-xs font-bold tracking-widest text-emerald-800">ツクハコ / S1 · NEXT.JS / ROUTE HANDLERS</p>
+      <p className="text-xs font-bold tracking-widest text-emerald-800">ツクハコ / NEXT.JS / ROUTE HANDLERS</p>
       <h1 className="mt-5 text-5xl font-semibold tracking-tight">ことばの便り</h1>
       <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">画面から送ったことばをAPIが整えて返します。入力、送信、応答の流れを、小さな画面で確かめましょう。</p>
       <ol className="my-9 grid gap-4 sm:grid-cols-3">

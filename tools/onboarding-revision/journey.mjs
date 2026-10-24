@@ -140,7 +140,7 @@ if(phase==='generate') {
  const project=JSON.parse(fs.readFileSync(metadata)),c=await connect(9431);
  const browser=await chromium.launch({channel:'chrome',headless:false,env:env(),args:['--window-size=1400,820']});const p=await browser.newPage({viewport:{width:1280,height:760}});
  try {
-  await p.goto(`http://localhost:${project.port}/`);await expect(p.locator('h1')).toContainText('小さく変えて');
+  await p.goto(`http://localhost:${project.port}/`);await expect(p.locator('h1')).toContainText('小さく変えて');await expect(p.locator('header')).not.toContainText('F2');
   await p.screenshot({path:out+'/screenshots/03-first-page.png'});
   json(out+'/logs/first-page.json',{category:'EXTRACTED_DEB_ON_REAL_HOST',interaction:'AUTOMATED',result:'PASS',firstPageHeading:await p.locator('h1').innerText(),sourceUnchanged:sha(project.destination+'/app/page.tsx')===project.sourceHash,browser:'Chrome '+browser.version(),hostUrlUsesGeneratedPort:true,optionalExerciseRequired:false});
  }finally{await browser.close();await c.browser.close();}

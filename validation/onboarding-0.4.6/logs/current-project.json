@@ -1,0 +1,12 @@
+{
+  "category": "EXTRACTED_DEB_ON_REAL_HOST",
+  "result": "PASS",
+  "guideCopiedExactly": true,
+  "guideSha256": "e4948d8cc1a152d458fcca7a0cdb4cec5b850d3b82ca731807a6f2b27dfab7ab",
+  "urlCopiedExactly": true,
+  "helpRoundTrip": true,
+  "offlineSymptomAndRecoveryAnchors": true,
+  "narrowWindowWidth": 860,
+  "noHorizontalOverflow": true,
+  "keyboardTocFocus": true
+}

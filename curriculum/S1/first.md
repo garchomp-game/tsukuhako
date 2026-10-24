@@ -219,7 +219,7 @@ VS Codeの構成ターミナルとDev Containersのログを開きます。ロ�
 
 - 使用技術：Next.js 画面 + API
 - 管理用ID：S1
-- 版：0.1.2
+- 版：0.1.3
 - 識別名：sample
 - ポート：app=3003
 

@@ -1,0 +1,8 @@
+PASS Linux runtime missing allows creation; preparation link focuses the exact heading
+PASS stopped, setup, restart, unknown remain distinct
+PASS actual destination/port, code/full-guide copies, editor failure/retry, help and create round trip
+PASS 390px long path and keyboard TOC focus
+PASS new project replaces old guide and editor target
+PASS Windows first-guide help and editor failure stay on its current project and preserve return state
+PASS Windows requires the helper for the selected distribution; switching invalidates it
+Evidence: /tmp/tsukuhako-onboarding-ui-bIcSiK

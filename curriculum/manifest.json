@@ -7,7 +7,7 @@
       "id": "F1",
       "title": "入力と表示のWeb画面",
       "version": "0.4.6",
-      "templateVersion": "0.1.3",
+      "templateVersion": "0.1.4",
       "name": "入力と表示のWeb画面",
       "summary": "入力したことばが画面に映るサンプルから、画面づくりを始めます。",
       "technology": "React + Vite",
@@ -22,7 +22,7 @@
           "file": "F1/first.md",
           "source": "START_HERE.md",
           "bytes": 12959,
-          "sha256": "84f13a80ab718d97819f8c33cfe0d50fda29c73baf4768a24b29b70a41bf1334"
+          "sha256": "8db26fd7c9aa3cd2bd1abe217a2b0b829c7d29822beaa8412e663443e0f2389b"
         },
         {
           "id": "readme",
@@ -46,7 +46,7 @@
           "file": "F1/build-your-own.md",
           "source": "docs/BUILD-YOUR-OWN.md",
           "bytes": 5147,
-          "sha256": "9ec9feaa28356bfa903b2a4848bd8f759e18217c8eb2d409ea0276654246cce1"
+          "sha256": "2eb12abc10e233645385593f82dfc0395dab71f01128e5008797444f15bdaa85"
         },
         {
           "id": "exercises",
@@ -78,7 +78,7 @@
       "id": "F2",
       "title": "はじめてのWeb画面",
       "version": "0.4.6",
-      "templateVersion": "0.1.1",
+      "templateVersion": "0.1.2",
       "name": "はじめてのWeb画面",
       "summary": "まずサンプル画面を表示します。そのあと、ページの移動や文字の変更を試せます。",
       "technology": "Next.js + Tailwind CSS",
@@ -93,7 +93,7 @@
           "file": "F2/first.md",
           "source": "START_HERE.md",
           "bytes": 13192,
-          "sha256": "252457e04db306c8be40d63de0723a9c29d7633ac154174366fbd8890eb234eb"
+          "sha256": "02bb696caa99ed0469861f2367a1a1988e178b881570c8736d8a947300d8f9f3"
         },
         {
           "id": "readme",
@@ -228,7 +228,7 @@
       "id": "S1",
       "title": "画面からつなぐAPI",
       "version": "0.4.6",
-      "templateVersion": "0.1.2",
+      "templateVersion": "0.1.3",
       "name": "画面からつなぐAPI",
       "summary": "画面で入力したことばをAPIへ送り、応答が画面へ戻る流れを試します。",
       "technology": "Next.js 画面 + API",
@@ -243,7 +243,7 @@
           "file": "S1/first.md",
           "source": "START_HERE.md",
           "bytes": 13199,
-          "sha256": "50597a13a978b0b1d951b7edcf28895fd2bff45d74fea36ca1bffb21ad4a2222"
+          "sha256": "851de1862ab346bb383aeea6aaa31e78083d4f157fd9b6c9e5356ba9c841ae44"
         },
         {
           "id": "readme",
@@ -307,7 +307,7 @@
       "id": "S2",
       "title": "メモを保存するWeb画面",
       "version": "0.4.6",
-      "templateVersion": "0.1.2",
+      "templateVersion": "0.1.3",
       "name": "メモを保存するWeb画面",
       "summary": "このPCのDBに架空のメモを保存し、ページを読み直しても残ることを試します。",
       "technology": "Next.js + ローカルSupabase",
@@ -322,7 +322,7 @@
           "file": "S2/first.md",
           "source": "START_HERE.md",
           "bytes": 14025,
-          "sha256": "f8eb9feda750420c72d38686138f802cd7dbcda24d991958d3327c950ab59f03"
+          "sha256": "91430252aa9cd08abe0789be1d0cae71bf43f9f54a5cc9b48aecf214d68d6fe7"
         },
         {
           "id": "readme",

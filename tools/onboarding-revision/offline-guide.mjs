@@ -33,7 +33,7 @@ try {
  for(const name of chapters){await p.getByRole('navigation',{name:'章の一覧',exact:true}).getByRole('button',{name,exact:true}).click();await expect(p.locator('.markdown h1')).toBeVisible();await expect(p.getByRole('alert')).toHaveCount(0);results.chapters.push({name,heading:await p.locator('.markdown h1').innerText()});}
  results.offlineGuide=true;
  await p.getByRole('navigation',{name:'章の一覧',exact:true}).getByRole('button',{name:'サンプル画面を表示する',exact:true}).click();
- await p.locator('.markdown').getByRole('button',{name:'VS Codeへ必要な機能を追加する',exact:true}).click();
+ await p.locator('.markdown').getByRole('button',{name:'VS Codeへ必要な機能を追加する',exact:true}).first().click();
  await expect(p.locator('#vs-codeへ必要な機能を追加する')).toBeFocused();
  results.offlinePreparationAnchor=true;
  await p.getByRole('navigation',{name:'ツクハコの画面'}).getByRole('button',{name:'ガイド',exact:true}).click();

@@ -1,0 +1,11 @@
+{
+  "category": "EXTRACTED_DEB_ON_REAL_HOST",
+  "result": "PASS",
+  "differentDestination": true,
+  "nonDefaultPort": 46831,
+  "oldDestinationAbsent": true,
+  "oldUrlAbsent": true,
+  "actualCodeWindowShowsNewFolder": true,
+  "savedGuideUsesNewDestination": true,
+  "containerNotStarted": true
+}
