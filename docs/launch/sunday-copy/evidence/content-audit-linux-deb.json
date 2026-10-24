@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "recordedOnJST": "2026-10-24",
+  "category": "STATIC / FIXTURE",
+  "baseCommit": "9ba29399d707e75b0da8a656ef386c81169eab58",
+  "uiGuideCommit": "5501249cd90b41aa1eee187e1606e87f82d56be0",
+  "status": "PASS",
+  "productionApproved": false,
+  "hostInstallOrUninstall": 0,
+  "checks": [
+    {
+      "name": "OS-specific receipt",
+      "result": "PASS",
+      "detail": "Linux単体debと既存Windows版を分離"
+    },
+    {
+      "name": "Linux built-in guide",
+      "result": "PASS",
+      "detail": "受取案内はメニュー起動からアプリ内ガイドへ"
+    },
+    {
+      "name": "Versioned evidence",
+      "result": "PASS",
+      "detail": "旧Linux実績を新debのGUI導入成功へ転用しない"
+    },
+    {
+      "name": "Separate purposes",
+      "result": "PASS",
+      "detail": "試用・購入後を分離"
+    },
+    {
+      "name": "No invented values",
+      "result": "PASS",
+      "detail": "読者3本文に未解決変数・架空URL・作者パス・価格なし"
+    },
+    {
+      "name": "No automatic preparation success",
+      "result": "PASS",
+      "detail": "本体導入・読了と開発準備を区別"
+    },
+    {
+      "name": "Same deb name",
+      "result": "PASS",
+      "detail": "指示書例・ビルド担当の予定名と一致"
+    },
+    {
+      "name": "Drafts stay unpublished",
+      "result": "PASS",
+      "detail": "掲載・送信承認をしない"
+    },
+    {
+      "name": "Guide revision",
+      "result": "PASS",
+      "detail": "Linux0.4.5/r3、正本5章"
+    },
+    {
+      "name": "Guide hashes",
+      "result": "PASS",
+      "detail": "5正本とmanifestのbytes/SHA一致"
+    },
+    {
+      "name": "Checksum file",
+      "result": "PASS",
+      "detail": "正本5本＋manifestの6SHA一致"
+    },
+    {
+      "name": "Historical evidence unchanged",
+      "result": "PASS",
+      "detail": "POST-IDEAS・旧監査・固定点レポート不変"
+    },
+    {
+      "name": "No mail changes",
+      "result": "PASS",
+      "detail": "メール・webコード・配信条件は不変"
+    },
+    {
+      "name": "Existing content contracts",
+      "result": "PASS",
+      "detail": "79/79。旧監査出力は上書きしない"
+    }
+  ],
+  "manualReview": [
+    "Linux主経路は単体deb→OS標準パッケージインストーラー（このMintはCaptain）→メニュー→はじめて使う。通常起動に端末やchmodを要求しない。",
+    "Linux0.4.5用r3ガイドと、Windows既存0.4.4/b1を分離。Windows新版生成や実WSL成功を主張しない。",
+    "ガイド読了・本体導入・開発準備チェック・コンテナ初期処理を区別。旧tar、生成プロジェクト、Dockerデータを削除しない。",
+    "価格、提供対象、販売/試用、窓口、本番受取先は未決。既存Brain予約変数はdraftのまま。"
+  ],
+  "validation": {
+    "uiBuild": {
+      "command": "npm --prefix generator-desktop run build",
+      "result": "PASS",
+      "note": "UI担当worktreeは基点package0.4.4。Linux0.4.5の統合buildはroot担当。"
+    },
+    "unitAndUx": {
+      "command": "node --test generator-desktop/tests/guide.test.mjs generator-desktop/tests/ux.test.mjs",
+      "result": "PASS",
+      "count": 10,
+      "category": "FIXTURE",
+      "scope": "新規2件: 5正本を既存ContentLibrary/相対リンク解決で読む、既存IPC/settingsでguide章と読書位置を保存。既存関連UX8件。実インストールやGUI操作ではない。"
+    },
+    "existingContent": {
+      "result": "PASS",
+      "total": 79,
+      "sourceSha256": "68391e30371163d948a8b982ddf177b4faf55e990e9ed7fdfcf76ce254aa5e4c",
+      "output": "出力だけメモリに差し替え。旧auditは不変。"
+    }
+  },
+  "handoff": {
+    "curriculum": "rootが0.4.5へ版をそろえ、5正本をlesson guideへ生成してステージ/パッケージを検証。",
+    "bPreview": "guides/start.md変更のため、必要ならnpm --prefix web run contentで再取込。メール原稿/配信条件は不変。",
+    "checksumRefresh": "node tools/refresh-guide-checksums.mjs"
+  },
+  "notRun": [
+    "新debのGUIインストール、通常ユーザーメニュー起動",
+    "新UIの実ブラウザ操作（rootへ引継ぎ）",
+    "新debの実機F2完走",
+    "更新・アンインストール・再導入",
+    "Windows 11通常ユーザー・実WSL/F2",
+    "一般受取人のURL/権限でのダウンロード",
+    "未準備PC・人による無補足試用"
+  ],
+  "files": [
+    {
+      "file": "docs/launch/sunday-copy/INTRODUCTION.md",
+      "bytes": 1675,
+      "sha256": "928b05d3f598f50a2547020bbc728a494d493f64c5c9e26b364083b731ba5d90"
+    },
+    {
+      "file": "docs/launch/sunday-copy/FREE-TRIAL.md",
+      "bytes": 4121,
+      "sha256": "7dae073e9e76dd2486ebde4dc522b8e67f4bf2d7c968c15ba0e01a2ef553e985"
+    },
+    {
+      "file": "docs/launch/sunday-copy/AFTER-PURCHASE.md",
+      "bytes": 3577,
+      "sha256": "478c6f91923cc935f95e15887e528714e2ed6480eed0f0888a2e5db3a63e0d7b"
+    },
+    {
+      "file": "docs/launch/sunday-copy/README.md",
+      "bytes": 4426,
+      "sha256": "948d55db70839beb80c011ae087586cbb2d64338a04816127f12964312816ab5"
+    },
+    {
+      "file": "docs/launch/sunday-copy/DECISIONS.md",
+      "bytes": 12077,
+      "sha256": "880f573a71e00193918fbc4ee59362689c31a237ea8052166d0f78b099091b0d"
+    },
+    {
+      "file": "docs/launch/brain-free.md",
+      "bytes": 6440,
+      "sha256": "fd568f169dd654df2612d212e4ae95b55e9502efbac8fc61c09aad4bce14436b"
+    },
+    {
+      "file": "docs/launch/brain-paid.md",
+      "bytes": 6430,
+      "sha256": "fdf39bd1107c20906c2bfb59ad1c1e88a8225836a7c5edcf76bfdd66a3b803c8"
+    },
+    {
+      "file": "docs/launch/guides/start.md",
+      "bytes": 3299,
+      "sha256": "e5800662c07c7f39d8f7ef1156d167f6f97babe66206f88565042b765fe1ed41"
+    }
+  ],
+  "canonicalFiles": [
+    {
+      "file": "START_HERE.md",
+      "bytes": 5612,
+      "sha256": "f5d33a948349396ffed823cfc60eb09108e1b13871e1c85eedb08b89f3d4e983"
+    },
+    {
+      "file": "FIRST-RUN.md",
+      "bytes": 10146,
+      "sha256": "f6f3ef9e02973207076ccf74b4157d5b561606a2b3137216d3ceb1e12596b799"
+    },
+    {
+      "file": "TROUBLESHOOTING.md",
+      "bytes": 7873,
+      "sha256": "bdd8300e9df2b7b4da50842002fcc00f5140b50726c15bc59265341c36aa68d3"
+    },
+    {
+      "file": "NEXT-STEP.md",
+      "bytes": 1586,
+      "sha256": "1680b0fca9ae1e4675ccfbd0023ac026fa3520b45c8c0ee801283e723ef2dd1c"
+    },
+    {
+      "file": "FEEDBACK.md",
+      "bytes": 2261,
+      "sha256": "0919669f19fe6e223f01aaa3d1d39fae808f863321f6f2d1ad0c082707106bd3"
+    }
+  ],
+  "preserved": [
+    {
+      "file": "docs/launch/POST-IDEAS.md",
+      "sha256": "5596cae999c973ab45e491dafe9b42777249f8e278532c78f3b23bd2d327b98c"
+    },
+    {
+      "file": "docs/launch/sunday-copy/evidence/content-audit.json",
+      "sha256": "326542af177054b62243397eda70fcd5681a4b09fbef39d8b8585f65556229ad"
+    },
+    {
+      "file": "docs/launch/sunday-copy/evidence/content-audit-b1.json",
+      "sha256": "2927b7cbba57196cd74579f76852b05483390a55a7ac1b75958f2f3861ab8522"
+    },
+    {
+      "file": "docs/launch/evidence/content-audit.json",
+      "sha256": "fe4f86246a13e9e9f3b69820cbb070c73270e9be3985fbd5f2432571ab0013b2"
+    },
+    {
+      "file": "validation/sunday-bundle-2026-10-25/REPORT.md",
+      "sha256": "237f2b153298c21288281ea4a599621520e5e076860c8835730591ae1fed52be"
+    }
+  ]
+}
