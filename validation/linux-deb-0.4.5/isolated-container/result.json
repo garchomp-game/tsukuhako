@@ -1,0 +1,84 @@
+{
+  "category": "ISOLATED_CONTAINER",
+  "interaction": "AUTOMATED",
+  "result": "FAIL",
+  "startedAt": "2026-10-24T04:59:51.219Z",
+  "input": {
+    "file": "tsukuhako-linux-amd64-0.4.5.deb",
+    "bytes": 133466152,
+    "sha256": "665991ee388c71e9893f0f0da61b83eeacd1ce785f2ef7470dbcb7651c9c304a",
+    "Package": "tsukuhako",
+    "Version": "0.4.5",
+    "Architecture": "amd64",
+    "Depends": "libgtk-3-0t64 | libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0t64 | libatspi2.0-0, libuuid1, libsecret-1-0, libasound2t64 | libasound2, libgbm1"
+  },
+  "sourceRevision": "870ecca1b3adf3502e4fe57a68516f9488c871d9",
+  "sourceFiles": [
+    {
+      "file": "tools/linux-deb/Dockerfile.validation",
+      "sha256": "7734f843f466a03f18e95a59514c8d9bd7a462ca41b6a22098a7eb340d3692f2"
+    },
+    {
+      "file": "tools/linux-deb/container-check.sh",
+      "sha256": "ce21fc1fe70d84a9b85845ee076a1dbceee6ecb300f899b4714ed53f0bb1cc0c"
+    },
+    {
+      "file": "tools/linux-deb/container-check.mjs",
+      "sha256": "0c1077855199d26c984e32ca46508aee902bc0fac3bb3729c6c90c7c88a116dc"
+    }
+  ],
+  "purpose": "Debian package lifecycle and dependency resolution; no desktop application launch",
+  "fixture": "Lower package metadata version with identical final application payload; user settings/project/old tar and Docker-location sentinels",
+  "notRun": [
+    "Mint Captain GUI installation and authentication",
+    "Mint application-menu launch",
+    "Application sandbox under Mint AppArmor policy",
+    "Real older-release settings migration",
+    "Actual Docker volume lifecycle",
+    "Unaided human trial",
+    "Public recipient download"
+  ],
+  "hostPackageInstallation": false,
+  "hostHomeMounted": false,
+  "dockerSocketMounted": false,
+  "hostAppArmorMounted": false,
+  "privileged": false,
+  "image": {
+    "id": "sha256:2cc5587367cad440e9d3ed5530ae7a8c1e860aabcbd9966433395b4268739e47",
+    "created": "2026-10-24T13:48:43.640778063+09:00",
+    "base": "ubuntu:24.04",
+    "architecture": "amd64"
+  },
+  "containerId": "c5936ccfd743b2b79188156200d6bdee890a0187d37bc96b216767bb769d9e88",
+  "isolation": {
+    "bindMounts": [
+      {
+        "destination": "/input/final.deb",
+        "readOnly": true
+      }
+    ],
+    "networkMode": "bridge",
+    "privileged": false,
+    "addedCapabilities": [],
+    "securityOptions": []
+  },
+  "error": "docker exited 1; container-run.log\necting previously unselected package libxdamage1:amd64.\r\nPreparing to unpack .../108-libxdamage1_1%3a1.1.6-1build1_amd64.deb ...\r\nUnpacking libxdamage1:amd64 (1:1.1.6-1build1) ...\r\nSelecting previously unselected package libxinerama1:amd64.\r\nPreparing to unpack .../109-libxinerama1_2%3a1.1.4-3build1_amd64.deb ...\r\nUnpacking libxinerama1:amd64 (2:1.1.4-3build1) ...\r\nSelecting previously unselected package libxrandr2:amd64.\r\nPreparing to unpack .../110-libxrandr2_2%3a1.5.2-2build1_amd64.deb ...\r\nUnpacking libxrandr2:amd64 (2:1.5.2-2build1) ...\r\nSelecting previously unselected package libgtk-3-common.\r\nPreparing to unpack .../111-libgtk-3-common_3.24.41-4ubuntu1.3_all.deb ...\r\nUnpacking libgtk-3-common (3.24.41-4ubuntu1.3) ...\r\nSelecting previously unselected package libgtk-3-0t64:amd64.\r\nPreparing to unpack .../112-libgtk-3-0t64_3.24.41-4ubuntu1.3_amd64.deb ...\r\nUnpacking libgtk-3-0t64:amd64 (3.24.41-4ubuntu1.3) ...\r\nSelecting previously unselected package libnotify4:amd64.\r\nPreparing to unpack .../113-libnotify4_0.8.3-1build2_amd64.deb ...\r\nUnpacking libnotify4:amd64 (0.8.3-1build2) ...\r\nSelecting previously unselected package libnspr4:amd64.\r\nPreparing to unpack .../114-libnspr4_2%3a4.35-1.1build1_amd64.deb ...\r\nUnpacking libnspr4:amd64 (2:4.35-1.1build1) ...\r\nSelecting previously unselected package libnss3:amd64.\r\nPreparing to unpack .../115-libnss3_2%3a3.98-1ubuntu0.3_amd64.deb ...\r\nUnpacking libnss3:amd64 (2:3.98-1ubuntu0.3) ...\r\nSelecting previously unselected package libsecret-common.\r\nPreparing to unpack .../116-libsecret-common_0.21.4-1build3_all.deb ...\r\nUnpacking libsecret-common (0.21.4-1build3) ...\r\nSelecting previously unselected package libsecret-1-0:amd64.\r\nPreparing to unpack .../117-libsecret-1-0_0.21.4-1build3_amd64.deb ...\r\nUnpacking libsecret-1-0:amd64 (0.21.4-1build3) ...\r\nSelecting previously unselected package x11-common.\r\nPreparing to unpack .../118-x11-common_1%3a7.7+23ubuntu3_all.deb ...\r\nUnpacking x11-common (1:7.7+23ubuntu3) ...\r\nSelecting previously unselected package libxss1:amd64.\r\nPreparing to unpack .../119-libxss1_1%3a1.2.3-1build3_amd64.deb ...\r\nUnpacking libxss1:amd64 (1:1.2.3-1build3) ...\r\nSelecting previously unselected package libxtst6:amd64.\r\nPreparing to unpack .../120-libxtst6_2%3a1.2.3-1.1ubuntu0.1_amd64.deb ...\r\nUnpacking libxtst6:amd64 (2:1.2.3-1.1ubuntu0.1) ...\r\nSelecting previously unselected package xdg-utils.\r\nPreparing to unpack .../121-xdg-utils_1.1.3-4.1ubuntu3_all.deb ...\r\nUnpacking xdg-utils (1.1.3-4.1ubuntu3) ...\r\nSelecting previously unselected package tsukuhako.\r\nPreparing to unpack .../122-lower.deb ...\r\nUnpacking tsukuhako (0.4.5~upgrade-test1) ...\r\nSetting up libexpat1:amd64 (2.6.1-2ubuntu0.6) ...\r\nSetting up libgraphite2-3:amd64 (1.3.14-2ubuntu0.24.04.1) ...\r\nSetting up liblcms2-2:amd64 (2.14-2ubuntu0.1) ...\r\nSetting up libpixman-1-0:amd64 (0.42.2-1build1) ...\r\nSetting up libsharpyuv0:amd64 (1.3.2-0.4build3) ...\r\nSetting up libpciaccess0:amd64 (0.17-3ubuntu0.24.04.3) ...\r\nSetting up systemd-sysv (255.4-1ubuntu8.18) ...\r\nSetting up libxau6:amd64 (1:1.0.9-1build6) ...\r\nSetting up libkeyutils1:amd64 (1.6.3-3build1) ...\r\nSetting up liblerc4:amd64 (4.0.0+ds-4ubuntu2) ...\r\nSetting up hicolor-icon-theme (0.17-2) ...\r\nSetting up libdatrie1:amd64 (0.2.13-3build1) ...\r\nSetting up libbrotli1:amd64 (1.1.0-2build2) ...\r\nSetting up libsqlite3-0:amd64 (3.45.1-1ubuntu2.8) ...\r\nSetting up libgdk-pixbuf2.0-common (2.42.10+dfsg-3ubuntu3.3) ...\r\nSetting up x11-common (1:7.7+23ubuntu3) ...\r\ninvoke-rc.d: could not determine current runlevel\r\ninvoke-rc.d: policy-rc.d denied execution of start.\r\nSetting up libsensors-config (1:3.6.0-9build1) ...\r\nSetting up libdeflate0:amd64 (1.19-1build1.1) ...\r\nSetting up xkb-data (2.41-2ubuntu1.1) ...\r\nSetting up libjbig0:amd64 (2.1-6.1ubuntu2) ...\r\nSetting up libelf1t64:amd64 (0.190-1.1ubuntu0.1) ...\r\nSetting up libkrb5support0:amd64 (1.20.1-6ubuntu2.10) ...\r\nSetting up libasound2-data (1.2.11-1ubuntu0.3) ...\r\nSetting up libglib2.0-0t64:amd64 (2.80.0-6ubuntu3.10) ...\r\nSetting up libasound2t64:amd64 (1.2.11-1ubuntu0.3) ...\r\nSetting up libx11-data (2:1.8.7-1ubuntu0.1) ...\r\nSetting up libepoxy0:amd64 (1.5.10-1build1) ...\r\nSetting up libnspr4:amd64 (2:4.35-1.1build1) ...\r\nSetting up libavahi-common-data:amd64 (0.8-13ubuntu6.2) ...\r\nSetting up libdbus-1-3:amd64 (1.14.10-4ubuntu4.1) ...\r\nSetting up libfribidi0:amd64 (1.0.13-3build1) ...\r\nSetting up fonts-dejavu-mono (2.37-8) ...\r\nSetting up libpng16-16t64:amd64 (1.6.43-5ubuntu0.7) ...\r\nSetting up fonts-dejavu-core (2.37-8) ...\r\nSetting up libsensors5:amd64 (1:3.6.0-9build1) ...\r\nSetting up libk5crypto3:amd64 (1.20.1-6ubuntu2.10) ...\r\nSetting up libjpeg-turbo8:amd64 (2.1.5-2ubuntu2) ...\r\nSetting up libwebp7:amd64 (1.3.2-0.4build3) ...\r\nSetting up libicu74:amd64 (74.2-1ubuntu3.1) ...\r\nSetting up libxshmfence1:amd64 (1.3-1build5) ...\r\nSetting up at-spi2-common (2.52.0-1build1) ...\r\nSetting up dbus-session-bus-common (1.14.10-4ubuntu4.1) ...\r\nSetting up libthai-data (0.1.29-2build1) ...\r\nSetting up libkrb5-3:amd64 (1.20.1-6ubuntu2.10) ...\r\nSetting up libwayland-egl1:amd64 (1.22.0-2.1build1) ...\r\nSetting up dbus-system-bus-common (1.14.10-4ubuntu4.1) ...\r\nSetting up libbsd0:amd64 (0.12.1-1build1.1) ...\r\nSetting up libdrm-common (2.4.125-1ubuntu0.1~24.04.2) ...\r\nSetting up libxml2:amd64 (2.9.14+dfsg-1.3ubuntu3.10) ...\r\nSetting up xdg-utils (1.1.3-4.1ubuntu3) ...\r\nupdate-alternatives: using /usr/bin/xdg-open to provide /usr/bin/open (open) in auto mode\r\nupdate-alternatives: warning: skip creation of /usr/share/man/man1/open.1.gz because associated file /usr/share/man/man1/xdg-open.1.gz (of link group open) doesn't exist\r\nSetting up dbus-bin (1.14.10-4ubuntu4.1) ...\r\nSetting up libsecret-common (0.21.4-1build3) ...\r\nSetting up libxkbcommon0:amd64 (1.6.0-1build1) ...\r\nSetting up libwayland-client0:amd64 (1.22.0-2.1build1) ...\r\nSetting up libjpeg8:amd64 (8c-2ubuntu11) ...\r\nSetting up libxdmcp6:amd64 (1:1.1.3-0ubuntu6) ...\r\nSetting up libxcb1:amd64 (1.15-1ubuntu2) ...\r\nSetting up libxcb-xfixes0:amd64 (1.15-1ubuntu2) ...\r\nSetting up libatk1.0-0t64:amd64 (2.52.0-1build1) ...\r\nSetting up libxcb-render0:amd64 (1.15-1ubuntu2) ...\r\nSetting up fontconfig-config (2.15.0-1.1ubuntu2) ...\r\nSetting up libedit2:amd64 (3.1-20230828-1build1) ...\r\nSetting up libavahi-common3:amd64 (0.8-13ubuntu6.2) ...\r\nSetting up libnss3:amd64 (2:3.98-1ubuntu0.3) ...\r\nSetting up libxcb-shm0:amd64 (1.15-1ubuntu2) ...\r\nSetting up dbus-daemon (1.14.10-4ubuntu4.1) ...\r\nSetting up libcolord2:amd64 (1.4.7-1build2) ...\r\nSetting up libxcb-present0:amd64 (1.15-1ubuntu2) ...\r\nSetting up libdconf1:amd64 (0.40.0-4ubuntu0.1) ...\r\nSetting up libthai0:amd64 (0.1.29-2build1) ...\r\nSetting up libsecret-1-0:amd64 (0.21.4-1build3) ...\r\nSetting up libfreetype6:amd64 (2.13.2+dfsg-1ubuntu0.2) ...\r\nSetting up libxcb-sync1:amd64 (1.15-1ubuntu2) ...\r\nSetting up dbus (1.14.10-4ubuntu4.1) ...\r\nSetting up shared-mime-info (2.4-4) ...\r\nSetting up libgssapi-krb5-2:amd64 (1.20.1-6ubuntu2.10) ...\r\nSetting up libllvm20:amd64 (1:20.1.2-0ubuntu1~24.04.3) ...\r\nSetting up libdrm2:amd64 (2.4.125-1ubuntu0.1~24.04.2) ...\r\nSetting up libtiff6:amd64 (4.5.1+git230720-4ubuntu2.5) ...\r\nSetting up libwayland-cursor0:amd64 (1.22.0-2.1build1) ...\r\nSetting up libxcb-randr0:amd64 (1.15-1ubuntu2) ...\r\nSetting up libpam-systemd:amd64 (255.4-1ubuntu8.18) ...\r\nSetting up libx11-6:amd64 (2:1.8.7-1ubuntu0.1) ...\r\nSetting up libharfbuzz0b:amd64 (8.3.0-2build2) ...\r\nSetting up libgdk-pixbuf-2.0-0:amd64 (2.42.10+dfsg-3ubuntu3.3) ...\r\nSetting up libfontconfig1:amd64 (2.15.0-1.1ubuntu2) ...\r\nSetting up libxcomposite1:amd64 (1:0.4.5-1build3) ...\r\nSetting up libavahi-client3:amd64 (0.8-13ubuntu6.2) ...\r\nSetting up libdrm-amdgpu1:amd64 (2.4.125-1ubuntu0.1~24.04.2) ...\r\nSetting up libxcb-dri3-0:amd64 (1.15-1ubuntu2) ...\r\nSetting up gtk-update-icon-cache (3.24.41-4ubuntu1.3) ...\r\nSetting up libx11-xcb1:amd64 (2:1.8.7-1ubuntu0.1) ...\r\nSetting up fontconfig (2.15.0-1.1ubuntu2) ...\r\nRegenerating fonts cache... done.\r\nSetting up libxdamage1:amd64 (1:1.1.6-1build1) ...\r\nSetting up libxrender1:amd64 (1:0.9.10-1.1build1) ...\r\nSetting up libpango-1.0-0:amd64 (1.52.1+ds-1build1) ...\r\nSetting up libdrm-intel1:amd64 (2.4.125-1ubuntu0.1~24.04.2) ...\r\nSetting up libxext6:amd64 (2:1.3.4-1build2) ...\r\nSetting up libcairo2:amd64 (1.18.0-3build1) ...\r\nSetting up dbus-user-session (1.14.10-4ubuntu4.1) ...\r\nSetting up libxfixes3:amd64 (1:6.0.0-2build1) ...\r\nSetting up libnotify4:amd64 (0.8.3-1build2) ...\r\nSetting up libxinerama1:amd64 (2:1.1.4-3build1) ...\r\nSetting up libxrandr2:amd64 (2:1.5.2-2build1) ...\r\nSetting up libcairo-gobject2:amd64 (1.18.0-3build1) ...\r\nSetting up libxss1:amd64 (1:1.2.3-1build3) ...\r\nSetting up libpangoft2-1.0-0:amd64 (1.52.1+ds-1build1) ...\r\nSetting up libcups2t64:amd64 (2.4.7-1.2ubuntu7.14) ...\r\nSetting up libpangocairo-1.0-0:amd64 (1.52.1+ds-1build1) ...\r\nSetting up mesa-libgallium:amd64 (25.2.8-0ubuntu0.24.04.4) ...\r\nSetting up libxi6:amd64 (2:1.8.1-1build1) ...\r\nSetting up libgbm1:amd64 (25.2.8-0ubuntu0.24.04.4) ...\r\nSetting up libxtst6:amd64 (2:1.2.3-1.1ubuntu0.1) ...\r\nSetting up libxcursor1:amd64 (1:1.2.1-1build1) ...\r\nSetting up dconf-service (0.40.0-4ubuntu0.1) ...\r\nSetting up libatspi2.0-0t64:amd64 (2.52.0-1build1) ...\r\nSetting up libatk-bridge2.0-0t64:amd64 (2.52.0-1build1) ...\r\nSetting up dconf-gsettings-backend:amd64 (0.40.0-4ubuntu0.1) ...\r\nSetting up libgtk-3-common (3.24.41-4ubuntu1.3) ...\r\nSetting up adwaita-icon-theme (46.0-1) ...\r\nupdate-alternatives: using /usr/share/icons/Adwaita/cursor.theme to provide /usr/share/icons/default/index.theme (x-cursor-theme) in auto mode\r\nSetting up libgtk-3-0t64:amd64 (3.24.41-4ubuntu1.3) ...\r\nSetting up tsukuhako (0.4.5~upgrade-test1) ...\r\nupdate-alternatives: using /opt/tsukuhako/tsukuhako to provide /usr/bin/tsukuhako (tsukuhako) in auto mode\r\nunshare: unshare failed: Operation not permitted\r\nSetting up humanity-icon-theme (0.6.16) ...\r\nSetting up ubuntu-mono (24.04-0ubuntu1) ...\r\nProcessing triggers for libc-bin (2.39-0ubuntu8.9) ...\r\n",
+  "containerRemoved": true,
+  "imageTagRemoved": true,
+  "finishedAt": "2026-10-24T05:01:12.806Z",
+  "inputUnchanged": true,
+  "checks": [
+    {
+      "id": "input",
+      "status": "PASS"
+    },
+    {
+      "id": "sentinels",
+      "status": "PASS"
+    },
+    {
+      "id": "lower-version-fixture",
+      "status": "PASS"
+    }
+  ]
+}

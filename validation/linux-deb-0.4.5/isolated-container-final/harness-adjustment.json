@@ -1,0 +1,12 @@
+{
+  "category": "TEST_HARNESS_ADJUSTMENT",
+  "productChanged": false,
+  "inputSha256": "665991ee388c71e9893f0f0da61b83eeacd1ce785f2ef7470dbcb7651c9c304a",
+  "firstAttempt": "../isolated-container/result.json",
+  "firstToolSource": "870ecca1b3adf3502e4fe57a68516f9488c871d9",
+  "finalToolSource": "68ca276f0b10fe73675b50ea4b1d7b0c5b7d0643",
+  "observed": "Package installation succeeded. root:root application resources had 0664/0775 modes; the ordinary user could not write the installation directory. The initial test rejected root-group write bits without checking effective access.",
+  "correction": "Replace the blanket group/world-write rejection with an ordinary-user find -writable check over the installation tree and a separate world-write rejection. Preserve root-group mode observations as informational evidence.",
+  "rerun": "Complete lifecycle in a fresh container against the unchanged final deb",
+  "result": "PASS"
+}
