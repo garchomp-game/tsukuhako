@@ -1,0 +1,85 @@
+{
+  "category": "EXTRACTED_DEB_ON_REAL_HOST",
+  "interaction": "AUTOMATED",
+  "result": "PASS",
+  "productVersion": "0.4.7",
+  "sourceCommit": "418a00725dc40d686d2f83a177b67566b15b1ce6",
+  "dirty": false,
+  "helperVersion": "0.4.7",
+  "checkedAt": "2026-10-24T10:53:47.264Z",
+  "records": [
+    {
+      "id": "V01",
+      "result": "PASS",
+      "guideReadOffline": true,
+      "recommendedSelection": true,
+      "preparationFocused": true,
+      "explicitDestinationButton": true
+    },
+    {
+      "id": "V02",
+      "templateId": "F2",
+      "result": "PASS",
+      "os": "linux",
+      "preparationLink": true,
+      "returnedPreparationFocus": true,
+      "topNavigationStages": [
+        "selection",
+        "destination",
+        "confirmation",
+        "generation-error"
+      ],
+      "realPlanError": "existing directory",
+      "realApplyError": "directory created after preview",
+      "valuesRetained": true
+    },
+    {
+      "id": "V02",
+      "templateId": "I1",
+      "result": "PASS",
+      "os": "linux",
+      "preparationLink": true,
+      "returnedPreparationFocus": true,
+      "topNavigationStages": [
+        "selection",
+        "destination",
+        "confirmation",
+        "generation-error"
+      ],
+      "realPlanError": "existing directory",
+      "realApplyError": "directory created after preview",
+      "valuesRetained": true
+    },
+    {
+      "id": "V02",
+      "templateId": "S2",
+      "result": "PASS",
+      "os": "linux",
+      "preparationLink": true,
+      "returnedPreparationFocus": true,
+      "topNavigationStages": [
+        "selection",
+        "destination",
+        "confirmation",
+        "generation-error"
+      ],
+      "realPlanError": "existing directory",
+      "realApplyError": "directory created after preview",
+      "valuesRetained": true
+    },
+    {
+      "id": "generated-regression",
+      "result": "PASS",
+      "destination": "/home/garchomp-game/workspace/meikyo/tsukuhako-onboarding-20261024/validation/onboarding-0.4.7/final/runs/projects/改訂版 日本語のプロジェクト",
+      "port": 38107,
+      "savedGuideSha256": "e07a5031f4c2a2eec81d9bb4e1c443e4b47774758bddcc0c2c768723888f8d91",
+      "envGenerated": true,
+      "realGeneration": true,
+      "helpReturn": true,
+      "sampleRuntime": "NOT_RUN in this revision; see historical 0.4.6 evidence"
+    }
+  ],
+  "appClosedNormally": true,
+  "hostInstallation": "NOT_RUN",
+  "humanAcceptance": "利用者確認待ち"
+}

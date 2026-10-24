@@ -1,0 +1,195 @@
+{
+  "schemaVersion": 1,
+  "productVersion": "0.4.7",
+  "sourceCommit": "418a00725dc40d686d2f83a177b67566b15b1ce6",
+  "deb": {
+    "file": "tsukuhako-linux-amd64-0.4.7.deb",
+    "bytes": 133499948,
+    "sha256": "f83b23cfd45d68ad8ec1d21072b65386e4e66f9d4b69fe82c5d5425eb4f3a43b"
+  },
+  "checkedAt": "2026-10-24T10:55:37.564Z",
+  "humanAcceptance": "利用者確認待ち",
+  "method": "Scopes are specified by individual records and REPORT.md. No 0.4.6 runtime evidence is reclassified as 0.4.7.",
+  "files": [
+    {
+      "file": "REPORT.md",
+      "bytes": 7591,
+      "sha256": "7650569f122100c6532672e0918e0cbcf9399ede3b2781c7345650b9c985cab9"
+    },
+    {
+      "file": "final/logs/cleanup.json",
+      "bytes": 387,
+      "sha256": "d67272db1e78f236ad7a1f74e8aa62c60a02a4606d5807aab1c1de1ad268aca3"
+    },
+    {
+      "file": "final/logs/deb-inspection.json",
+      "bytes": 6193,
+      "sha256": "c99acc94959c3fd70327d30319cab7e3229d64d4ae2a65b0300d51c22a7a850b"
+    },
+    {
+      "file": "final/logs/delivery.json",
+      "bytes": 880,
+      "sha256": "c7375cb7fe7879cb421f57dcaa4f7e6df206341fd536b8dc5a060f2686abae51"
+    },
+    {
+      "file": "final/logs/environment.json",
+      "bytes": 325,
+      "sha256": "7eb10450c0b08037be3cec63f2f4d5105df3a5406628867b83d9304e15e056fe"
+    },
+    {
+      "file": "final/logs/helper-archive.json",
+      "bytes": 175,
+      "sha256": "34c2f7c6cb6fbc2d413909e733d0479489d517039cab68fefedc84c2ea7e6b06"
+    },
+    {
+      "file": "final/logs/package-linux.txt",
+      "bytes": 1709,
+      "sha256": "07b0bce31f6c9e9f59b4debb043e18f9075181a66575259a7668d9cde4778aca"
+    },
+    {
+      "file": "final/logs/packaging-tests.txt",
+      "bytes": 320,
+      "sha256": "13e70bfb3e6e95aafe9521355121058b35bf00e8471251071f75c943f709bc7c"
+    },
+    {
+      "file": "final/logs/renderer-fixture-match.json",
+      "bytes": 764,
+      "sha256": "00b766efd81f1590fa2fbd8049b7afec2eef2d8b5875e013161aac407f3572bb"
+    },
+    {
+      "file": "final/logs/review-smoke.json",
+      "bytes": 2461,
+      "sha256": "70f3f9957346de671d3ed3a9f68978084b48f3e491080965bc7e6655a95b0c0f"
+    },
+    {
+      "file": "final/logs/review-smoke.txt",
+      "bytes": 66,
+      "sha256": "f2552263963bb55047d908ac359b947a48ffe8c227016ffd5db433a40a4b08e9"
+    },
+    {
+      "file": "final/logs/stage.json",
+      "bytes": 333,
+      "sha256": "8d4a78950e1ca9c3b16290f60c001895743806d2c6bb925156fdd7510d07aed3"
+    },
+    {
+      "file": "final/screenshots/01-corrected-first-guide.png",
+      "bytes": 173208,
+      "sha256": "f3aca8373f5aaf443f7dec7cd9c3434672c663604a24dc037cc787ee6da8f89b"
+    },
+    {
+      "file": "final/screenshots/02-start-preparation.png",
+      "bytes": 130121,
+      "sha256": "029ddb8ae08d0f8b9417261e37993a39484590d0e292975c920bdc2d25ca5b52"
+    },
+    {
+      "file": "final/screenshots/03-destination.png",
+      "bytes": 126355,
+      "sha256": "447235761ff6adc7a75369bc5f76ae32568d5265427f1cf706d623f701c7bb79"
+    },
+    {
+      "file": "final/screenshots/04-F2-preparation-help.png",
+      "bytes": 203109,
+      "sha256": "7dbd085ee7847fe033289bb6559506f69768d672edc36188fa9578449e28a86b"
+    },
+    {
+      "file": "final/screenshots/04-I1-preparation-help.png",
+      "bytes": 204788,
+      "sha256": "f6a028a67fd101d1f0a699033d1cc8771ff3ebea7464ac02f5d41f6db397d100"
+    },
+    {
+      "file": "final/screenshots/04-S2-preparation-help.png",
+      "bytes": 205147,
+      "sha256": "371fb3b7fb039380a1ede489daa614fdf457100571aec899a4b2b9c5078c932b"
+    },
+    {
+      "file": "final/screenshots/05-F2-generation-error-help.png",
+      "bytes": 175181,
+      "sha256": "a49df451e246d0dffc1d1ac31c7318f39f350e4c671fafe21aedd3c9536bd39b"
+    },
+    {
+      "file": "final/screenshots/05-I1-generation-error-help.png",
+      "bytes": 177455,
+      "sha256": "d393df8106161e942463ae8f234b4dd79502e2f955af02148735bc784ab44e32"
+    },
+    {
+      "file": "final/screenshots/05-S2-generation-error-help.png",
+      "bytes": 177946,
+      "sha256": "f72270131ee2b9689c90a5111b41b9ac885d564dac47a9eaa5e475daee71fe4e"
+    },
+    {
+      "file": "final/screenshots/06-current-project.png",
+      "bytes": 138766,
+      "sha256": "b491c819943f9da843ea87a8ee1fa9c0c00f5e66d6673b12c174791528ae68c0"
+    },
+    {
+      "file": "logs/build.txt",
+      "bytes": 484,
+      "sha256": "42afc7379bfe4b79e47a318acab4cc7761c87b6abe245f6803086d535a601f05"
+    },
+    {
+      "file": "logs/content-check.json",
+      "bytes": 2462,
+      "sha256": "a06b19a766a260bf1bd836a5c042143a4660194b3018275e94ba7f7c61d512db"
+    },
+    {
+      "file": "logs/desktop-tests.txt",
+      "bytes": 3413,
+      "sha256": "9a2810682b746754a605dfbf3f3d54137e1e1052ae230e192bec8a1606f29f17"
+    },
+    {
+      "file": "logs/generator-tests.txt",
+      "bytes": 3821,
+      "sha256": "fe94c3152990855b84101771005c6e002abffc75e272b65bd875a674f9ccadc3"
+    },
+    {
+      "file": "logs/helper-build.json",
+      "bytes": 562,
+      "sha256": "299c6670b8de74ad4666a2f9cbc2f2b080f70a8e9213391c53a761264da00fc1"
+    },
+    {
+      "file": "logs/launch-content-final.json",
+      "bytes": 16789,
+      "sha256": "43526f0d258af9189c29f255554b3d1690e737e86c358a6d588460451d009537"
+    },
+    {
+      "file": "logs/launch-content.json",
+      "bytes": 16829,
+      "sha256": "9ce96743d9041fc7f0b64233f42a2fd48aa5c259131afbbbd02ee86dc54e5329"
+    },
+    {
+      "file": "logs/renderer-build.json",
+      "bytes": 711,
+      "sha256": "8b239259979b0b48041e6c5fdbfde9f955e2abe7da7cacff286863ccbb4a613d"
+    },
+    {
+      "file": "logs/ui-fixture.json",
+      "bytes": 1687,
+      "sha256": "d40c8c70c43842db3b56908e29514a0a85ff640a4d42ac12042ef41c661e4cc2"
+    },
+    {
+      "file": "logs/ui-fixture.txt",
+      "bytes": 1496,
+      "sha256": "eb6472756cd5d3165aaf5fad0fd49fb42210a9e320540fdb70be25c86bbde704"
+    },
+    {
+      "file": "logs/verification-notes.md",
+      "bytes": 1259,
+      "sha256": "1840cfa0e00b98dc07bcbc374de6052e0423e621485b31e92870c86d148e33a6"
+    },
+    {
+      "file": "screenshots/preparation-missing-fixture.png",
+      "bytes": 139303,
+      "sha256": "2a7e185fc4f9281d1c9208a68798e06d386fa1cde2488da6242107dc7f7dd8f9"
+    },
+    {
+      "file": "screenshots/preparation-unknown-fixture.png",
+      "bytes": 145493,
+      "sha256": "e1471e7f8106933ce07b33d1ba2a826c91cf50d7a5412cf8be673ce766cc0d63"
+    },
+    {
+      "file": "screenshots/windows-sql-creation-help-fixture.png",
+      "bytes": 225669,
+      "sha256": "d528c36fac301849f4f7d24723db30b86f5cf2ae851d684383df45b5b7e4f267"
+    }
+  ]
+}

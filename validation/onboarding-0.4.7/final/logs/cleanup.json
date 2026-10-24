@@ -1,0 +1,11 @@
+{
+  "category": "REAL_HOST",
+  "result": "PASS",
+  "checkedAt": "2026-10-24T10:54:31.280Z",
+  "dedicatedDesktopStopped": true,
+  "applicationClosedNormally": true,
+  "projectRuntimeStarted": false,
+  "generatedFilesPreserved": true,
+  "installedVersion": "0.4.5",
+  "unrelatedContainers": "b531d3443746 ikiiki-project-hr132-133_devcontainer-db-1\n8e9f201539c5 ikiiki-backend-postgres"
+}

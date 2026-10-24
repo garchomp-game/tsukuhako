@@ -30,7 +30,8 @@ export async function inspectDeb(input) {
     assert.ok(!desktop.includes('--no-sandbox'));assert.ok(!desktop.includes('--disable-sandbox'));
     assert.ok(fs.existsSync(base+'/usr/share/icons/hicolor/256x256/apps/tsukuhako.png'));
     const app=base+'/opt/tsukuhako/resources/app',bundle=await verifyBundle(app);
-    assert.equal(bundle.dirty,false);assert.equal(bundle.productVersion,control.Version);assert.equal(bundle.chapters,55);
+    const chapterCountByVersion={'0.4.5':55,'0.4.6':55,'0.4.7':61};
+    assert.equal(bundle.dirty,false);assert.equal(bundle.productVersion,control.Version);assert.equal(bundle.chapters,chapterCountByVersion[control.Version]);
     const curriculum=JSON.parse(fs.readFileSync(app+'/bundle/curriculum/manifest.json','utf8'));
     assert.deepEqual(curriculum.lessons.find(l=>l.id==='guide').chapters.map(c=>c.id),['start','first-run','troubleshooting','next-step','feedback']);
     assert.match(fs.readFileSync(app+'/main.mjs','utf8'),/app\.enableSandbox\(\)/);

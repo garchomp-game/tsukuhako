@@ -1,0 +1,27 @@
+{
+  "scope": "FIXTURE",
+  "records": [
+    "Linux runtime missing allows creation; preparation link focuses the exact heading",
+    "stopped, setup, restart, unknown remain distinct",
+    "actual destination/port, code/full-guide copies, editor failure/retry, help and create round trip",
+    "390px long path and keyboard TOC focus",
+    "new project replaces old guide and editor target",
+    "Windows first-guide help and editor failure stay on its current project and preserve return state",
+    "Windows requires the helper for the selected distribution; switching invalidates it",
+    "V01: real bundled guide names every action from recommendation through preparation to destination",
+    "V02: linux F2 selected preparation, destination/plan error, confirmation/apply error and preserved return",
+    "V02: linux I1 selected preparation, destination/plan error, confirmation/apply error and preserved return",
+    "V02: linux S2 selected preparation, destination/plan error, confirmation/apply error and preserved return",
+    "V02: win32 F2 selected preparation, destination/plan error, confirmation/apply error and preserved return",
+    "V02: win32 I1 selected preparation, destination/plan error, confirmation/apply error and preserved return",
+    "V02: win32 S2 selected preparation, destination/plan error, confirmation/apply error and preserved return",
+    "V02: darwin creation help keeps explicit OS guidance without markup",
+    "V02: unknown creation help keeps explicit OS guidance without markup"
+  ],
+  "errors": [],
+  "screenshots": [
+    "preparation-missing-fixture.png",
+    "preparation-unknown-fixture.png",
+    "windows-sql-creation-help-fixture.png"
+  ]
+}

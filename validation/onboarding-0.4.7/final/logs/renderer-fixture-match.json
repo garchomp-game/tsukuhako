@@ -1,0 +1,23 @@
+{
+  "category": "STATIC",
+  "result": "PASS",
+  "sourceCommit": "418a00725dc40d686d2f83a177b67566b15b1ce6",
+  "files": [
+    {
+      "file": "generator-desktop/build/assets/Markdown-DTSNXGcW.js",
+      "sha256": "e3dfe28d4d5230039665e5675a57539e420ddd887fc05dabfcd23b99fb4500d3"
+    },
+    {
+      "file": "generator-desktop/build/assets/index-B73PUPwc.css",
+      "sha256": "c7b4dcab85ed65be86f6f8d43d27a0b0f3b62b04941ca31ef55087bd373add8b"
+    },
+    {
+      "file": "generator-desktop/build/assets/index-IrfWZGHl.js",
+      "sha256": "8e26cdfc95e4a3fb2b2d1e9302f52f28c5dec322a786c05148e5121b84434d22"
+    },
+    {
+      "file": "generator-desktop/build/index.html",
+      "sha256": "ffa00c249865965e31b6d7d828eb61557222faa102441311d39ea1bff4a30f17"
+    }
+  ]
+}

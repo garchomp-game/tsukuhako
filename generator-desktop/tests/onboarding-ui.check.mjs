@@ -21,6 +21,7 @@ const chapters={
  'F2/recovery':'# 詳しい技術手順'
 };
 for(const id of ['F2','I1','S2'])chapters[id+'/creation']=fs.readFileSync(root+'/curriculum/'+id+'/creation.md','utf8');
+chapters['setup/macos']=fs.readFileSync(root+'/curriculum/setup/macos.md','utf8');
 chapters['I1/troubleshooting']=fs.readFileSync(root+'/curriculum/I1/troubleshooting.md','utf8');
 chapters['S2/recovery']=fs.readFileSync(root+'/curriculum/S2/recovery.md','utf8');
 chapters['guide/first-run']=fs.readFileSync(root+'/curriculum/guide/first-run.md','utf8');
@@ -110,6 +111,7 @@ try{
    await expect(body.getByRole('button',{name:platform==='linux'?'Windowsと選択したWSLの準備':'Linuxの準備',exact:true})).toHaveCount(0);
   };
   await checkHelp('準備を確認する',nav('困ったとき'));
+  if(platform==='win32'&&id==='I1'){await page.locator('.reader-scroll').evaluate(e=>{e.scrollTop=0});await page.screenshot({path:path.join(run,'windows-sql-creation-help-fixture.png')});screenshots.push('windows-sql-creation-help-fixture.png')}
   await page.locator('.markdown').getByRole('button',{name:platform==='linux'?'Linuxの準備':'Windowsと選択したWSLの準備',exact:true}).click();await expect(page.locator('.markdown h1')).toHaveText(platform==='linux'?'Linuxの準備':'Windowsの準備');await button('準備チェックへ戻る').click();await expect(page.locator('#preparation-title')).toBeFocused();
   if(platform==='win32'){
    await expect(button('保存先を決める')).toBeDisabled();await page.getByLabel('開発するWSL').selectOption('aaaaaaaaaaaaaaaa');await button('もう一度確認').click();await expect(button('保存先を決める')).toBeDisabled();await button('WSL用ファイルを準備').click();
@@ -124,6 +126,14 @@ try{
   await checkHelp('作成に失敗したとき',button('困ったときの手順を読む'));await button('作る画面へ戻る').click();
   await checkHelp('作成に失敗したとき',nav('困ったとき'));await button('作る画面へ戻る').click();await expect(page.locator('.preview')).toContainText('保持する入力 '+id);
   record('V02: '+platform+' '+id+' selected preparation, destination/plan error, confirmation/apply error and preserved return');
+ }
+
+ for(const platform of ['darwin','unknown']){
+  await app.evaluate((_,platform)=>{Object.assign(globalThis.fixture,{platform,helper:false,planError:false,applyError:false,saved:{view:'create',lessonId:'F2',chapterId:'',scroll:0}})},platform);await page.reload();await expect(button('はじめてのWeb画面で始める')).toBeEnabled();await nav('困ったとき').click();
+  await expect(page.locator('.markdown h1')).toHaveText('はじめてのWeb画面を作る前に困ったとき');await expect(page.locator('.markdown')).not.toContainText('<!--');
+  const choices=page.locator('.markdown').getByRole('button').filter({hasText:/^(Linuxの準備|Windowsと選択したWSLの準備|macOSの参考手順)$/});await expect(choices).toHaveCount(platform==='darwin'?1:3);
+  if(platform==='darwin')await expect(choices).toHaveText('macOSの参考手順');else await expect(page.locator('.markdown')).toContainText('OSの確認結果がまだない場合');
+  record('V02: '+platform+' creation help keeps explicit OS guidance without markup');
  }
  expect(errors).toEqual([]);fs.writeFileSync(path.join(run,'result.json'),JSON.stringify({scope:'FIXTURE',records,errors,screenshots},null,2));console.log('Evidence:',run);
 }catch(error){console.error(error);console.error('Focus:',await page?.evaluate(()=>document.activeElement?.outerHTML).catch(()=>''));await page?.screenshot({path:path.join(run,'failure.png'),timeout:3000}).catch(()=>{});console.error('Evidence:',run);throw error}finally{await app?.close()}
