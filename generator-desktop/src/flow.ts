@@ -11,7 +11,7 @@ export function creationHelp(templateId:string, stage:CreationStage) {
 export function localizeCreationHelp(text:string, platform?:string) {
   const guides:Record<string,string>={linux:'[Linuxの準備](lesson:setup/linux)',win32:'[Windowsと選択したWSLの準備](lesson:setup/windows)',darwin:'[macOSの参考手順](lesson:setup/macos)'};
   const link=platform?guides[platform]:undefined;
-  return link?text.replace(/<!-- os-preparation-start -->[\s\S]*?<!-- os-preparation-end -->/,`このPCの準備は${link}を開きます。準備後は「準備チェックへ戻る」から「もう一度確認」を押します。`):text;
+  return link?text.replace(/<!-- os-preparation-start -->[\s\S]*?<!-- os-preparation-end -->/,`このPCの準備は${link}を開きます。準備後は「準備チェックへ戻る」から「もう一度確認」を押します。`):text.replace(/<!-- os-preparation-(?:start|end) -->/g,'');
 }
 
 export function withDistro(reading:Reading, id:string):Reading {

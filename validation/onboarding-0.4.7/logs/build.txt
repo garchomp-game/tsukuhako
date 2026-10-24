@@ -9,7 +9,7 @@ rendering chunks...
 computing gzip size...
 build/index.html                     0.39 kB │ gzip:  0.32 kB
 build/assets/index-B73PUPwc.css     17.81 kB │ gzip:  4.17 kB
-build/assets/Markdown-Cj3YgN6O.js  101.47 kB │ gzip: 42.83 kB
-build/assets/index-3zMgyyeM.js     271.36 kB │ gzip: 84.46 kB
+build/assets/Markdown-DTSNXGcW.js  101.47 kB │ gzip: 42.83 kB
+build/assets/index-IrfWZGHl.js     271.41 kB │ gzip: 84.48 kB
 
-✓ built in 145ms
+✓ built in 140ms
