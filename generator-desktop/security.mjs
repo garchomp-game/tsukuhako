@@ -20,9 +20,10 @@ export function validatePayload(method, payload) {
   }
   if(method==='readAsset'){if(!plain(payload)||Object.keys(payload).length!==1||typeof payload.id!=='string'||!/^[a-z0-9-]{1,64}$/.test(payload.id))bad();return {...payload};}
   if(method==='saveSettings'){
-    if(!plain(payload)||Object.keys(payload).some(k=>!['view','lessonId','chapterId','scroll','distroId'].includes(k)))bad();
+    if(!plain(payload)||Object.keys(payload).some(k=>!['view','lessonId','chapterId','scroll','distroId','guideMode'].includes(k)))bad();
     if(!['create','learn','help'].includes(payload.view)||typeof payload.lessonId!=='string'||!/^[A-Za-z0-9-]{1,64}$/.test(payload.lessonId)||typeof payload.chapterId!=='string'||!/^[A-Za-z0-9-]{0,64}$/.test(payload.chapterId)||!Number.isFinite(payload.scroll)||payload.scroll<0||payload.scroll>10000000)bad();
-    if(payload.distroId!==undefined&&!/^[a-f0-9]{16}$/.test(payload.distroId))bad();return {...payload};
+    if(payload.distroId!==undefined&&!/^[a-f0-9]{16}$/.test(payload.distroId))bad();
+    if(payload.guideMode!==undefined&&!['guided','quick'].includes(payload.guideMode))bad();return {...payload};
   }
   if(['checkPreparation','prepareWSL'].includes(method)){
     if(!plain(payload)||Object.keys(payload).some(k=>!['templateId','distroId'].includes(k))||!['F1','F2','B1','S1','S2','I1'].includes(payload.templateId))bad();

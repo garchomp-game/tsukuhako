@@ -1,0 +1,80 @@
+{
+  "scope": "FIXTURE_WITH_REAL_GUIDE_DATA",
+  "result": "PASS",
+  "records": [
+    {
+      "scenario": "keyboard mode selection, exact project URL and primary action immediately below context without scrolling",
+      "result": "PASS",
+      "geometry": {
+        "adjacent": true,
+        "actionBeforeTitle": true,
+        "top": 583.328125,
+        "bottom": 633.328125,
+        "fullyVisible": true
+      }
+    },
+    {
+      "scenario": "mode switching preserves project and editor failure; retry opens only trusted current project; full-copy stays complete",
+      "result": "PASS"
+    },
+    {
+      "scenario": "quick links open focused detailed help and return to quick; global help preserves mode and project",
+      "result": "PASS"
+    },
+    {
+      "scenario": "390px layout and keyboard primary-action sequence",
+      "result": "PASS"
+    },
+    {
+      "scenario": "quick-mode TOC resize closes the overlay and restores focus to its visible toggle",
+      "result": "PASS"
+    },
+    {
+      "scenario": "390px keyboard mode switches keep the focused radio inside the visible reader viewport",
+      "result": "PASS",
+      "guidedFocus": {
+        "top": 518.859375,
+        "bottom": 531.859375,
+        "optionTop": 499.859375,
+        "optionBottom": 573.453125,
+        "readerTop": 230.171875,
+        "readerBottom": 844,
+        "visible": true
+      },
+      "quickFocus": {
+        "top": 508.453125,
+        "bottom": 521.453125,
+        "optionTop": 489.453125,
+        "optionBottom": 585.140625,
+        "readerTop": 230.171875,
+        "readerBottom": 844,
+        "visible": true
+      }
+    },
+    {
+      "scenario": "default 3000 omits mismatch prose; new project changes the editor target",
+      "result": "PASS"
+    },
+    {
+      "scenario": "S2 quick mode retains mandatory operations and correct service-specific instructions",
+      "result": "PASS"
+    },
+    {
+      "scenario": "I1 quick mode retains mandatory operations and correct service-specific instructions",
+      "result": "PASS"
+    },
+    {
+      "scenario": "Windows fixture retains selected-WSL gate, WSL work locations and quick/help return",
+      "result": "PASS"
+    },
+    {
+      "scenario": "incoming first-guide anchor from Windows help reveals full detail and focuses its requested heading",
+      "result": "PASS"
+    },
+    {
+      "scenario": "mode persists across reload; an unbound reference guide never opens an arbitrary project",
+      "result": "PASS"
+    }
+  ],
+  "errors": []
+}

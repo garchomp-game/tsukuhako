@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       platform:
-        description: Build only the selected OS (Windows 0.4.6 is unverified)
+        description: Build only the selected OS (Windows runtime remains unverified)
         type: choice
         options: [linux, windows]
         default: linux
@@ -89,7 +89,9 @@ jobs:
           if ($LASTEXITCODE -ne 0) { throw 'Delivery pack failed' }
       - name: Assemble Linux recipient folder
         if: inputs.platform == 'linux'
-        run: node tools/linux-deb/deliver.mjs dist/linux-deb/tsukuhako-linux-amd64-0.4.6.deb dist/delivery/linux
+        run: |
+          product_version=$(node -p "require('./generator-desktop/package.json').version")
+          node tools/linux-deb/deliver.mjs "dist/linux-deb/tsukuhako-linux-amd64-${product_version}.deb" dist/delivery/linux
       - name: Windows recipient download (private; no release publishing)
         if: inputs.platform == 'windows'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4

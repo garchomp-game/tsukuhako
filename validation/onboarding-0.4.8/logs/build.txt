@@ -1,0 +1,15 @@
+
+> tsukuhako-desktop@0.4.8 build
+> tsc --noEmit && vite build
+
+vite v8.3.4 building client environment for production...
+transforming...
+✓ 45 modules transformed.
+rendering chunks...
+computing gzip size...
+build/index.html                     0.39 kB │ gzip:  0.32 kB
+build/assets/index-D8nXd2ZT.css     20.24 kB │ gzip:  4.57 kB
+build/assets/Markdown-U9T4gYhC.js  101.47 kB │ gzip: 42.83 kB
+build/assets/index-JMNScFbT.js     296.12 kB │ gzip: 92.13 kB
+
+✓ built in 148ms

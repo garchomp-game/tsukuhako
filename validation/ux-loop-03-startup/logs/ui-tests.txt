@@ -1,0 +1,13 @@
+PASS keyboard mode selection, exact project URL and primary action immediately below context without scrolling
+PASS mode switching preserves project and editor failure; retry opens only trusted current project; full-copy stays complete
+PASS quick links open focused detailed help and return to quick; global help preserves mode and project
+PASS 390px layout and keyboard primary-action sequence
+PASS quick-mode TOC resize closes the overlay and restores focus to its visible toggle
+PASS 390px keyboard mode switches keep the focused radio inside the visible reader viewport
+PASS default 3000 omits mismatch prose; new project changes the editor target
+PASS S2 quick mode retains mandatory operations and correct service-specific instructions
+PASS I1 quick mode retains mandatory operations and correct service-specific instructions
+PASS Windows fixture retains selected-WSL gate, WSL work locations and quick/help return
+PASS incoming first-guide anchor from Windows help reveals full detail and focuses its requested heading
+PASS mode persists across reload; an unbound reference guide never opens an arbitrary project
+Evidence: /tmp/tsukuhako-startup-modes-gUi2sS

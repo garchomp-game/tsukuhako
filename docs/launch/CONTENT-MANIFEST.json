@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "status": "draft",
-  "productVersion": "0.4.7",
+  "productVersion": "0.4.8",
   "sourceProductCommit": "418a00725dc40d686d2f83a177b67566b15b1ce6",
   "factsCommit": "3b0b9547f6895684bf4735d70af644ee164c7ddb",
   "publicDocuments": [
@@ -93,12 +93,12 @@
     "evidence/content-audit.json"
   ],
   "productionApproved": false,
-  "sourceProductCommitNote": "Final clean product snapshot for Linux 0.4.7 (V01/V02). See validation/onboarding-0.4.7/REPORT.md for revision evidence and remaining limits.",
+  "sourceProductCommitNote": "The sourceProductCommit is the prior 0.4.7 release. Current 0.4.8 candidate provenance is recorded in validation/onboarding-0.4.8/REPORT.md and its build-info.json.",
   "unreleasedPreview": {
-    "name": "UX loops 01–02",
+    "name": "0.4.8 local release candidate",
     "releasedProductCommit": "418a00725dc40d686d2f83a177b67566b15b1ce6",
-    "report": "validation/ux-loop-01/REPORT.md",
-    "note": "The owner-delivered 0.4.7 deb is unchanged; current source includes direct-start UX and new Web/API project defaults of 3000.",
+    "report": "validation/onboarding-0.4.8/REPORT.md",
+    "note": "Adds direct-start UX, Web/API defaults 3000, immediate VS Code action and selectable guidance. No external publication.",
     "portDefaultsReport": "validation/ux-loop-02-ports/REPORT.md"
   }
 }

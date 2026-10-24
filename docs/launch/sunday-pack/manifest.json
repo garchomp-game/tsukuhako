@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "name": "ツクハコ 内蔵初回ガイド",
-  "guideRevision": "2026-10-24-r6-preview",
-  "productVersion": "0.4.7",
-  "status": "UNRELEASED_UX_PREVIEW_SOURCE",
+  "guideRevision": "2026-10-24-r7",
+  "productVersion": "0.4.8",
+  "status": "LOCAL_RELEASE_CANDIDATE_SOURCE",
   "scope": "After opening the application on Linux Mint, create the recommended Web project, follow its own path and URL, wait for successful initialization, and display the sample page. Changes and restoration are optional.",
   "includesProductBinary": false,
   "includesGeneratedProject": false,
@@ -17,37 +17,37 @@
   "files": [
     {
       "file": "START_HERE.md",
-      "bytes": 2441,
-      "sha256": "cccb63cde710962890912a39a05e192aa7b087948194a363c6326d12dcd06e19"
+      "bytes": 2433,
+      "sha256": "ae839c34c4edbec8c92c4c9d69fa6b31e3144908e0c5c5b53e6c9e45ddf37bea"
     },
     {
       "file": "FIRST-RUN.md",
-      "bytes": 7971,
-      "sha256": "3f813940eeddbbb488de5d21a87c9e28a2f3c828a892922e8ba7150c48b4dcaa"
+      "bytes": 8477,
+      "sha256": "cd255297fc9aa7eb12a082b4fce48640c766fa7c007ae2c226e908829982e48a"
     },
     {
       "file": "TROUBLESHOOTING.md",
-      "bytes": 9206,
-      "sha256": "cbeaa587a135766b461fa3e6d54a9ab5ba2bc59b023dbc52f3a97435bc0cb5d2"
+      "bytes": 9198,
+      "sha256": "6397065dc85a5fa5aacc7ae7b0d06cd7e3aa5611b95c58f90149f5f9b1cee7ef"
     },
     {
       "file": "NEXT-STEP.md",
-      "bytes": 2264,
-      "sha256": "e6d0eaba0779f6ae81cc699d8dfe5db4f24d596ffbc7353ae1bfd01613494167"
+      "bytes": 2256,
+      "sha256": "6498649b40c36aff66755e0356371d2cdf25fa25651a1e0efb38da56554cd694"
     },
     {
       "file": "FEEDBACK.md",
-      "bytes": 1705,
-      "sha256": "077ec5856c22275ea4178565875c46bbdf43ae4a957b96cfccb0eb223edd564b"
+      "bytes": 1697,
+      "sha256": "35ac81e4d534a23e059d590d565e791b05f68804ae4f81ebf1d4904ac05296d0"
     }
   ],
   "distribution": {
     "linux": {
-      "productVersion": "0.4.7",
+      "productVersion": "0.4.8",
       "format": "deb",
-      "file": "tsukuhako-linux-amd64-0.4.7.deb",
+      "file": "tsukuhako-linux-amd64-0.4.8.deb",
       "target": "Linux Mint 22.3 x64",
-      "status": "EXISTING_047_RELEASE_UNCHANGED"
+      "status": "LOCAL_CANDIDATE"
     },
     "windows": {
       "productVersion": "0.4.4",
@@ -67,7 +67,8 @@
     "unaidedHumanTrial": "NOT_RUN; awaiting an actual first-time user",
     "linux046FirstRun": "NOT_RUN in this source-editing task; use the 0.4.6 integration report for final artifact results",
     "linux047Revision": "V01/V02 checks are recorded separately in validation/onboarding-0.4.7/REPORT.md; prior full runtime journey remains 0.4.6 evidence.",
-    "uxLoop01": "Unreleased source preview; validation/ux-loop-01/REPORT.md"
+    "uxLoop01": "Unreleased source preview; validation/ux-loop-01/REPORT.md",
+    "linux048Revision": "See validation/onboarding-0.4.8/REPORT.md for final artifact checks; UX modes covered in validation/ux-loop-03-startup."
   },
   "checksums": {
     "algorithm": "SHA-256",

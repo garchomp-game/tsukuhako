@@ -3,8 +3,9 @@ import {useEffect,useRef,useState} from 'react';
 import {createRoot} from 'react-dom/client';
 import {Generator} from './Generator';
 import {Reader} from './Reader';
+import {GuideModeChoice} from './GuideModeChoice';
 import {Preparation} from './Preparation';
-import type {Catalog,Curriculum,Reading,ReaderAnchor,Created,Preparation as Prep} from './types';
+import type {Catalog,Curriculum,Reading,ReaderAnchor,Created,GuideMode,Preparation as Prep} from './types';
 import {canCreateFiles,creationHelp,onboardingHelp,withDistro,type CreationStage} from './flow';
 import './style.css';
 const initial:Reading={view:'create',lessonId:'F2',chapterId:'',scroll:0};
@@ -23,10 +24,10 @@ function App(){
  const selected=catalog?.templates.find(t=>t.id===template),recommended=catalog?.templates.find(t=>t.id==='F2');
  useEffect(()=>{void Promise.all([window.tsukuhako.getLearningIndex(),window.tsukuhako.readSettings()]).then(([m,s])=>{
   if(!m.ok){setProblem(m.error.message);setReady(true);return}setIndex(m.value);
-  if(s.ok){const saved=s.value,l=m.value.lessons.find(l=>l.id===saved.lessonId);const restored:Reading={...initial,...saved,view:saved.view==='help'?'help':saved.view==='learn'?'learn':'create',lessonId:l?.id||'F2',chapterId:l?.chapters.some(c=>c.id===saved.chapterId)?saved.chapterId!:'',scroll:Number.isFinite(saved.scroll)&&saved.scroll!>=0&&saved.scroll!<10000000?saved.scroll!:0};setReading(restored);if(restored.view==='help')setHelp(restored)}setReady(true)
+  if(s.ok){const saved=s.value,l=m.value.lessons.find(l=>l.id===saved.lessonId);const restored:Reading={...initial,...saved,guideMode:saved.guideMode==='quick'?'quick':'guided',view:saved.view==='help'?'help':saved.view==='learn'?'learn':'create',lessonId:l?.id||'F2',chapterId:l?.chapters.some(c=>c.id===saved.chapterId)?saved.chapterId!:'',scroll:Number.isFinite(saved.scroll)&&saved.scroll!>=0&&saved.scroll!<10000000?saved.scroll!:0};setReading(restored);if(restored.view==='help')setHelp(restored)}setReady(true)
  }).catch(()=>{setProblem('教材一覧を読み込めませんでした。');setReady(true)})},[]);
  useEffect(()=>{
-  if(!ready)return;const record=reading.view==='help'?{...help,distroId:reading.distroId}:reading;const value=JSON.stringify(record);
+  if(!ready)return;const record=reading.view==='help'?{...help,distroId:reading.distroId,guideMode:reading.guideMode}:reading;const value=JSON.stringify(record);
   if(value===lastSaved.current)return;lastSaved.current=value;void window.tsukuhako.saveSettings(record).then(r=>{if(!r.ok)setProblem('読書位置を保存できませんでした。')})
  },[reading,help,ready]);
  function beginRecommended(){setRecommendedPending(!canBegin);setPreparationOpen(!canBegin);setStartRequest(v=>v+1);window.scrollTo(0,0)}
@@ -46,8 +47,10 @@ function App(){
   setAnchor(heading?{lessonId:id,chapterId:chapter,heading,request:Date.now()}:undefined);
   setReading(p=>({...p,view:'learn',lessonId:id,chapterId:chapter,scroll:0}));
  }
- function showLearning(){setAnchor(undefined);if(project&&reading.view==='create'){learn(project.templateId);return}setReading(p=>p.lessonId==='guide'?{...(learningPosition.current||{...initial,lessonId:project?.templateId||initial.lessonId,chapterId:'first'}),view:'learn',distroId:p.distroId}:{...p,view:'learn'})}
- const updateReading=(r:Reading)=>setReading(p=>({...r,view:p.view,distroId:p.distroId}));
+ function showLearning(){setAnchor(undefined);if(project&&reading.view==='create'){learn(project.templateId);return}setReading(p=>p.lessonId==='guide'?{...(learningPosition.current||{...initial,lessonId:project?.templateId||initial.lessonId,chapterId:'first'}),view:'learn',distroId:p.distroId,guideMode:p.guideMode}:{...p,view:'learn'})}
+ const guideMode=reading.guideMode||'guided';
+ function setGuideMode(mode:GuideMode){setReading(p=>({...p,guideMode:mode,scroll:0}))}
+ const updateReading=(r:Reading)=>setReading(p=>({...r,view:p.view,distroId:p.distroId,guideMode:p.guideMode}));
  return <div className={'app-shell'+(reading.view!=='create'?' app-shell-reading':'')}>
   <header className="top"><div className="brand"><img className="mark" src="./brand-mark.svg" alt=""/><div><strong>ツクハコ</strong><span>開発環境と学びの道具箱</span></div></div><span className="version">LOCAL EDITION <b>{productVersion}</b></span></header>
   <nav className="app-nav" aria-label="ツクハコの画面">
@@ -59,7 +62,7 @@ function App(){
   <div className="global-status" role="status" hidden={reading.view!=='create'&&!busy&&!prepBusy}>{busy||(prepBusy?'開発準備を確認しています。「作る」に戻ると結果を確認できます。':`準備を確認 → フォルダーを作る → ${selected?.firstGoal||'サンプルを表示する'}`)}</div>
   {problem&&<p role="alert" className="error">{problem}</p>}
   {ready&&<><div hidden={reading.view!=='create'}>
-   {!project&&!started&&<section className="first-use" aria-labelledby="first-use-title"><div><p className="eyebrow">はじめての方におすすめ</p><h2 id="first-use-title">{recommended?.name||'はじめてのWeb画面'}</h2><p>最初のゴールはサンプル画面を表示することです。準備を確認し、フォルダーを作ったら、起動の手順へ進みます。内容の変更は、その後に試せます。</p><button type="button" className="lesson-link" disabled={!index} onClick={()=>learn('guide','start')}>全体の流れを読む</button></div><button type="button" className="primary" disabled={!catalog||!!busy||prepBusy} onClick={beginRecommended}>{recommended?.name||'はじめてのWeb画面'}で始める</button></section>}
+   {!project&&!started&&<section className="first-use" aria-labelledby="first-use-title"><div><p className="eyebrow">はじめての方におすすめ</p><h2 id="first-use-title">{recommended?.name||'はじめてのWeb画面'}</h2><p>最初のゴールはサンプル画面を表示することです。準備を確認し、フォルダーを作ったら、起動の手順へ進みます。内容の変更は、その後に試せます。</p><button type="button" className="lesson-link" disabled={!index} onClick={()=>learn('guide','start')}>全体の流れを読む</button><GuideModeChoice id="initial-guide-mode" value={guideMode} onChange={setGuideMode}/></div><button type="button" className="primary" disabled={!catalog||!!busy||prepBusy} onClick={beginRecommended}>{recommended?.name||'はじめてのWeb画面'}で始める</button></section>}
    <div hidden={started&&!preparationOpen}>
    {started&&<div className="creation-return"><p>{recommendedPending?'保存先へ進む前に、使うWSLとファイル作成の準備を確認してください。':'入力した内容は保持しています。準備を確認したら作成へ戻れます。'}</p><button type="button" className="primary" disabled={prepBusy||!!busy||(recommendedPending&&!canBegin)} onClick={continueCreation}>{recommendedPending?'保存先へ進む':'作成に戻る'}</button></div>}
    <Preparation onContinue={started?continueCreation:undefined} continueLabel={recommendedPending?'保存先へ進む':'作成に戻る'} continueDisabled={recommendedPending&&!canBegin} result={prep} onBusy={setPrepBusy} templateId={template} storageTemplateName={catalog?.templates.find(t=>t.id==='S2')?.name} onResult={setPrep} onGuide={(chapter,heading)=>learn('setup',chapter,heading)} disabled={!!busy} distro={reading.distroId} onDistro={id=>setReading(p=>withDistro(p,id))}/>
@@ -68,7 +71,7 @@ function App(){
    <Generator onShowPreparation={started?showPreparation:undefined} startRequest={startRequest} onCatalog={setCatalog} externalBusy={prepBusy} onCreated={setProject} onHelp={showHelp} onBusy={setBusy} onTemplate={setTemplate} onCreationStage={setCreationStage} onLearn={id=>learn(id)} parentOverride={prep?.target?.home} platform={prep?.platform} preparation={prep} onPreparation={setPrep} distroId={reading.distroId}/>
    </div>
   </div>
-  {reading.view!=='create'&&index&&<Reader key={reading.view} platform={prep?.platform} index={index} reading={reading.view==='help'?help:reading} onReading={reading.view==='help'?setHelp:updateReading} help={reading.view==='help'} project={project} anchor={anchor} onHelp={showHelp} onCurrentProject={project?heading=>learn(project.templateId,'first',heading):undefined} returnLabel={reading.view==='help'&&returnTo==='learn'?'読んでいた手順へ戻る':undefined} onReturn={reading.view==='help'&&returnTo==='learn'?()=>{setAnchor(undefined);setReading(p=>({...p,view:'learn'}))}:returnCreate}/>}</>}
+  {reading.view!=='create'&&index&&<Reader key={reading.view} guideMode={guideMode} onGuideMode={setGuideMode} platform={prep?.platform} index={index} reading={reading.view==='help'?help:reading} onReading={reading.view==='help'?setHelp:updateReading} help={reading.view==='help'} project={project} anchor={anchor} onHelp={showHelp} onCurrentProject={project?heading=>learn(project.templateId,'first',heading):undefined} returnLabel={reading.view==='help'&&returnTo==='learn'?'読んでいた手順へ戻る':undefined} onReturn={reading.view==='help'&&returnTo==='learn'?()=>{setAnchor(undefined);setReading(p=>({...p,view:'learn'}))}:returnCreate}/>}</>}
  </div>
 }
 createRoot(document.getElementById('root')!).render(<App/>);

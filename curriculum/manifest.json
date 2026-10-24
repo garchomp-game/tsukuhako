@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "appVersion": "0.4.7",
-  "version": "0.4.7",
+  "appVersion": "0.4.8",
+  "version": "0.4.8",
   "lessons": [
     {
       "id": "F1",
       "title": "入力と表示のWeb画面",
-      "version": "0.4.7",
+      "version": "0.4.8",
       "templateVersion": "0.1.4",
       "name": "入力と表示のWeb画面",
       "summary": "入力したことばが画面に映るサンプルから、画面づくりを始めます。",
@@ -21,8 +21,8 @@
           "title": "サンプル画面を表示する",
           "file": "F1/first.md",
           "source": "START_HERE.md",
-          "bytes": 12959,
-          "sha256": "8db26fd7c9aa3cd2bd1abe217a2b0b829c7d29822beaa8412e663443e0f2389b"
+          "bytes": 14562,
+          "sha256": "d73c96f538629d5c38539c3ec153ecbae6a5b583730f80253c4064a0eab904ad"
         },
         {
           "id": "readme",
@@ -85,7 +85,7 @@
     {
       "id": "F2",
       "title": "はじめてのWeb画面",
-      "version": "0.4.7",
+      "version": "0.4.8",
       "templateVersion": "0.1.3",
       "name": "はじめてのWeb画面",
       "summary": "まずサンプル画面を表示します。そのあと、ページの移動や文字の変更を試せます。",
@@ -100,8 +100,8 @@
           "title": "サンプル画面を表示する",
           "file": "F2/first.md",
           "source": "START_HERE.md",
-          "bytes": 13192,
-          "sha256": "102ee0a9fcd3d208866bf704f9fa1d2272bf46d74b59bcb109e391e88ea142b0"
+          "bytes": 14795,
+          "sha256": "81e161e2f3b1c7bd495f497009c7f66f3b260aee817bc659520625240b5b2ebe"
         },
         {
           "id": "readme",
@@ -164,7 +164,7 @@
     {
       "id": "B1",
       "title": "データを返すAPI",
-      "version": "0.4.7",
+      "version": "0.4.8",
       "templateVersion": "0.1.3",
       "name": "データを返すAPI",
       "summary": "APIからJSONを受け取ります。そのあと、入力に応じた応答を試せます。",
@@ -179,8 +179,8 @@
           "title": "APIの応答を確認する",
           "file": "B1/first.md",
           "source": "START_HERE.md",
-          "bytes": 13133,
-          "sha256": "d86b10abc2e7b1aa182bfaeefebabe3c505ec33877143129625a0b8f90fa2a59"
+          "bytes": 14770,
+          "sha256": "600ac214c7a936f367f45c5a28a53dd1f33637221211c9faff629b096c2718d3"
         },
         {
           "id": "readme",
@@ -251,7 +251,7 @@
     {
       "id": "S1",
       "title": "画面からつなぐAPI",
-      "version": "0.4.7",
+      "version": "0.4.8",
       "templateVersion": "0.1.4",
       "name": "画面からつなぐAPI",
       "summary": "画面で入力したことばをAPIへ送り、応答が画面へ戻る流れを試します。",
@@ -266,8 +266,8 @@
           "title": "画面からAPIの応答を確認する",
           "file": "S1/first.md",
           "source": "START_HERE.md",
-          "bytes": 13199,
-          "sha256": "97b9dbc5b8479d1668c9d38311ea4261f47ed3777c170003d336a0a824b029cc"
+          "bytes": 14897,
+          "sha256": "7396e640ec5f129281e471e20df4ae4d4c5261e5682695c3abd50582a561beff"
         },
         {
           "id": "readme",
@@ -338,7 +338,7 @@
     {
       "id": "S2",
       "title": "メモを保存するWeb画面",
-      "version": "0.4.7",
+      "version": "0.4.8",
       "templateVersion": "0.1.4",
       "name": "メモを保存するWeb画面",
       "summary": "このPCのDBに架空のメモを保存し、ページを読み直しても残ることを試します。",
@@ -353,8 +353,8 @@
           "title": "メモを保存して読み直す",
           "file": "S2/first.md",
           "source": "START_HERE.md",
-          "bytes": 14025,
-          "sha256": "de8f56653c62a70640987755a27f3f018093e1cc6cc4d7e8784767b2c40879cb"
+          "bytes": 15972,
+          "sha256": "93457ffe019d368185b9222a61a767a6f85c8e3375cb3eeddac3bc8854e225c7"
         },
         {
           "id": "readme",
@@ -417,7 +417,7 @@
     {
       "id": "I1",
       "title": "SQLで調べるデータベース",
-      "version": "0.4.7",
+      "version": "0.4.8",
       "templateVersion": "0.1.0",
       "name": "SQLで調べるデータベース",
       "summary": "DBへ接続し、SQLで在庫のサンプルを検索します。Web画面は使いません。",
@@ -432,8 +432,8 @@
           "title": "SQLでサンプルデータを確認する",
           "file": "I1/first.md",
           "source": "START_HERE.md",
-          "bytes": 12552,
-          "sha256": "b4c5335b6c403a06956fbc3e17379e988440cecf9e6894085214a89eb75d4834"
+          "bytes": 14403,
+          "sha256": "41ff5b4e1f3190000586acefe2345f777ea50879b3ffbb2406f453a7b45df707"
         },
         {
           "id": "readme",
@@ -504,7 +504,7 @@
     {
       "id": "setup",
       "title": "開発準備",
-      "version": "0.4.7",
+      "version": "0.4.8",
       "templateVersion": null,
       "chapters": [
         {
@@ -552,7 +552,7 @@
     {
       "id": "guide",
       "title": "はじめて使う・ガイド",
-      "version": "0.4.7",
+      "version": "0.4.8",
       "templateVersion": null,
       "chapters": [
         {
@@ -560,40 +560,40 @@
           "title": "はじめに",
           "file": "guide/start.md",
           "source": "START_HERE.md",
-          "bytes": 2441,
-          "sha256": "cccb63cde710962890912a39a05e192aa7b087948194a363c6326d12dcd06e19"
+          "bytes": 2433,
+          "sha256": "ae839c34c4edbec8c92c4c9d69fa6b31e3144908e0c5c5b53e6c9e45ddf37bea"
         },
         {
           "id": "first-run",
           "title": "サンプル画面を表示する",
           "file": "guide/first-run.md",
           "source": "FIRST-RUN.md",
-          "bytes": 7971,
-          "sha256": "3f813940eeddbbb488de5d21a87c9e28a2f3c828a892922e8ba7150c48b4dcaa"
+          "bytes": 8477,
+          "sha256": "cd255297fc9aa7eb12a082b4fce48640c766fa7c007ae2c226e908829982e48a"
         },
         {
           "id": "troubleshooting",
           "title": "困ったとき・再開",
           "file": "guide/troubleshooting.md",
           "source": "TROUBLESHOOTING.md",
-          "bytes": 9206,
-          "sha256": "cbeaa587a135766b461fa3e6d54a9ab5ba2bc59b023dbc52f3a97435bc0cb5d2"
+          "bytes": 9198,
+          "sha256": "6397065dc85a5fa5aacc7ae7b0d06cd7e3aa5611b95c58f90149f5f9b1cee7ef"
         },
         {
           "id": "next-step",
           "title": "任意：変更と復元",
           "file": "guide/next-step.md",
           "source": "NEXT-STEP.md",
-          "bytes": 2264,
-          "sha256": "e6d0eaba0779f6ae81cc699d8dfe5db4f24d596ffbc7353ae1bfd01613494167"
+          "bytes": 2256,
+          "sha256": "6498649b40c36aff66755e0356371d2cdf25fa25651a1e0efb38da56554cd694"
         },
         {
           "id": "feedback",
           "title": "記録票",
           "file": "guide/feedback.md",
           "source": "FEEDBACK.md",
-          "bytes": 1705,
-          "sha256": "077ec5856c22275ea4178565875c46bbdf43ae4a957b96cfccb0eb223edd564b"
+          "bytes": 1697,
+          "sha256": "35ac81e4d534a23e059d590d565e791b05f68804ae4f81ebf1d4904ac05296d0"
         }
       ]
     }

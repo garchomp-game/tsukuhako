@@ -1,0 +1,61 @@
+✔ G01/G03/G09: six stable read-only plans; archive bytes and per-template guide match (197.844049ms)
+✔ G04: I1 secret is created only in mode0600 .env; absent from public outputs (11.087154ms)
+✔ G02: goals map to known IDs; core rejects S3 even if its eligibility is tampered (2.783851ms)
+✔ G05: modified catalog, ZIP, destination, parent identity and public plan are rejected (29.471402ms)
+✔ G06: reserved guide, duplicate ZIP names, symlink entry and oversized metadata are rejected before writes (10.447646ms)
+✔ G06: parent replacement by symlink is refused; no unrelated files are touched (3.109583ms)
+✔ G06: structured partial result preserves a changed generated file (12.257911ms)
+✔ G07: Docker/VSCode unavailable never prevents generation; unentered destination stays unknown (45.490643ms)
+✔ G07: diagnostic subprocess times out and its process exits (126.36108ms)
+✔ G08: old synchronous create and explicit JSON create produce identical files (108.778609ms)
+✔ G10: non-TTY wizard terminates; JSON emits one value; stale expectation is exit1 (271.800174ms)
+✔ G10: write permission failure is exit2 without a partial directory (77.129303ms)
+✔ G11: Japanese, spaces and shell metacharacters stay literal data (83.564022ms)
+✔ 必須6構成を日本語・空白パスへ生成し、カタログの版とフォルダ識別を保持する (158.926525ms)
+ℹ F1: version 0.1.4, ZIP SHA256 14f6fdb51772afa3706330eecb2738ecb1e04a675516be5f15ebc3f759f345a8, Japanese/space path PASS
+ℹ F2: version 0.1.3, ZIP SHA256 010ec4e06a5fa2fede3628261492041c6e9fb3087ebd3cb04579d606112958e9, Japanese/space path PASS
+ℹ B1: version 0.1.3, ZIP SHA256 1f5d423217069c1d5b562e1506d3a46bfe87ede7e6c958ef8da7eba89664795b, Japanese/space path PASS
+ℹ S1: version 0.1.4, ZIP SHA256 d8930e022ca2b710e47fb7d203c611a440571270e6442a5e2ede2b1f706e7850, Japanese/space path PASS
+ℹ S2: version 0.1.4, ZIP SHA256 cd974d4fc28547de9cb4b78b5f909b40cdf6570f6ada8cf7676edfa62f386f50, Japanese/space path PASS
+ℹ I1: version 0.1.0, ZIP SHA256 2861fea034ced0baf1dd484f78c19be8bbfbb2ccc8ac8c880e0ec3f5e989e398, Japanese/space path PASS
+✔ 既存の空フォルダ・ファイル・symlink親は拒否し保持する (2.070381ms)
+✔ 名前・ポート・構成・DBポートの不正値で出力を作らない (1.130954ms)
+✔ カタログSHA256不一致を展開前に拒否する (0.989698ms)
+✔ ZIPの上位パスと実.envを拒否する (4.531918ms)
+✔ コミット途中の失敗は作成物とstageを戻す (12.583563ms)
+✔ 確定直前に出力先が作成された競合を拒否し、他の内容を残す (12.007106ms)
+✔ 失敗時でも作成中に利用者が変更したファイルを削除しない (12.152132ms)
+✔ onboarding: catalog and guides share names, technology and template-specific first outcomes (2.661177ms)
+✔ onboarding A05/A09: F1 saves actual values and working links; source edits are optional (61.062627ms)
+✔ onboarding A05/A09: F2 saves actual values and working links; source edits are optional (23.850687ms)
+✔ onboarding A05/A09: B1 saves actual values and working links; source edits are optional (33.098279ms)
+✔ onboarding A05/A09: S1 saves actual values and working links; source edits are optional (27.087813ms)
+✔ onboarding A05/A09: S2 saves actual values and working links; source edits are optional (26.436522ms)
+✔ onboarding A05/A09: I1 saves actual values and working links; source edits are optional (15.423434ms)
+✔ onboarding A09: Windows helper renders matching WSL guidance without exposing a new request option (102.318525ms)
+✔ onboarding: optional macOS rendering changes shortcuts without claiming platform validation (0.34656ms)
+✔ ports: F1 defaults and explicit values agree across UI catalog, generated env, Compose and guide (65.198126ms)
+✔ ports: F2 defaults and explicit values agree across UI catalog, generated env, Compose and guide (36.328735ms)
+✔ ports: B1 defaults and explicit values agree across UI catalog, generated env, Compose and guide (56.910411ms)
+✔ ports: S1 defaults and explicit values agree across UI catalog, generated env, Compose and guide (43.972062ms)
+✔ ports: S2 defaults and explicit values agree across UI catalog, generated env, Compose and guide (43.300551ms)
+✔ ports: standalone ZIPs match their sources; configure uses 3000, respects --port and preserves saved settings (133.640828ms)
+✔ ports: SQL retains its database default and has no Web URL (2.019104ms)
+✔ ports: an occupied default is reported; explicit port selection remains unchanged (34.479864ms)
+✔ quick guide: F1 preserves required actions, current values and full-guide targets (5.60854ms)
+✔ quick guide: F2 preserves required actions, current values and full-guide targets (1.465247ms)
+✔ quick guide: B1 preserves required actions, current values and full-guide targets (1.672641ms)
+✔ quick guide: S1 preserves required actions, current values and full-guide targets (1.321623ms)
+✔ quick guide: S2 preserves required actions, current values and full-guide targets (1.416523ms)
+✔ quick guide: I1 preserves required actions, current values and full-guide targets (0.986934ms)
+✔ quick guide: compact renderer can supply context while retaining the title, working path and actions (0.210881ms)
+✔ quick guide: unusual paths stay one quoted directory and cannot break the command fence (4.701635ms)
+✔ quick guide: macOS retains its reference-only scope and shortcut (0.320827ms)
+ℹ tests 47
+ℹ suites 0
+ℹ pass 47
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1054.564127
