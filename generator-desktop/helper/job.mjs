@@ -2,7 +2,7 @@ import {parentPort,workerData} from 'node:worker_threads';import fs from 'node:f
 import {planGeneration} from './bundle/generator/src/core/plan.mjs';import {applyGeneration} from './bundle/generator/src/core/apply.mjs';import {destinationFromParts} from './bundle/generator/src/core/configuration.mjs';import {hash,stable,publicError,fail,readRegular} from './bundle/generator/src/core/common.mjs';import {startHere} from './bundle/generator/src/core/next-steps.mjs';import {diagnoseHost,probePort} from './bundle/generator/src/core/diagnostics.mjs';
 import {diagnoseLocal} from './adapters/local.mjs';
 const root=workerData.root+'/bundle',flag=new Int32Array(workerData.flag);let current;
-const bindingCheck=b=>{if(b.helperVersion!=='0.4.6'||b.arch!==process.arch||b.user!==os.userInfo().username||b.uid!==process.getuid()||b.home!==os.homedir()||b.distro!==process.env.WSL_DISTRO_NAME)fail('TARGET_CHANGED','WSLの実行先が変わりました。','通常ユーザーとdistroを選び直してください。')};
+const bindingCheck=b=>{if(b.helperVersion!=='0.4.7'||b.arch!==process.arch||b.user!==os.userInfo().username||b.uid!==process.getuid()||b.home!==os.homedir()||b.distro!==process.env.WSL_DISTRO_NAME)fail('TARGET_CHANGED','WSLの実行先が変わりました。','通常ユーザーとdistroを選び直してください。')};
 const cancel=()=>{if(Atomics.load(flag,0))fail('CANCELLED','作成を中断しました。','保存先を確認してから内容を確認し直してください。')};
 parentPort.on('message',async m=>{if(m.method==='shutdown')process.exit(0);try{bindingCheck(m.binding);cancel();let value;
  if(m.method==='reset'){current=null;value=null}
