@@ -1,0 +1,66 @@
+{
+  "recordedAt": "2026-10-24T08:59:35.471Z",
+  "category": "FIXTURE_STATIC_IMPORT",
+  "result": "PASS",
+  "databaseUsed": false,
+  "liveImport": false,
+  "deliveryPlansChanged": false,
+  "messagesSent": 0,
+  "temporaryDirectoryRemovedAfterRun": true,
+  "productionApproved": false,
+  "sourceHash": "7dee876f017319ff2ff5f67eb94cac572b504fa38cbc87b635a79a5b07c46130",
+  "importScriptSha256": "27f4b3a37c23984e03eeb25cf8cefa6f558810c3aa8c0990afe362ed8fb2f071",
+  "editions": [
+    {
+      "id": "confirm",
+      "revision": 1,
+      "status": "draft"
+    },
+    {
+      "id": "welcome-01",
+      "revision": 1,
+      "status": "draft"
+    },
+    {
+      "id": "welcome-02",
+      "revision": 2,
+      "status": "draft"
+    },
+    {
+      "id": "welcome-03",
+      "revision": 2,
+      "status": "draft"
+    },
+    {
+      "id": "broadcast-001",
+      "revision": 2,
+      "status": "draft"
+    }
+  ],
+  "checks": [
+    {
+      "name": "Five draft editions preserve intended revisions",
+      "result": "PASS"
+    },
+    {
+      "name": "Four public guides match exact current source",
+      "result": "PASS"
+    },
+    {
+      "name": "Private purchase content and keys are excluded",
+      "result": "PASS"
+    },
+    {
+      "name": "Public production link values stay null",
+      "result": "PASS"
+    },
+    {
+      "name": "Transactional and learning footers remain distinct",
+      "result": "PASS"
+    },
+    {
+      "name": "Mail main links match the unchanged declared key lists",
+      "result": "PASS"
+    }
+  ]
+}

@@ -1,10 +1,15 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { createHash } from 'node:crypto';
+import { parseArgs } from 'node:util';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const repo = path.resolve(root, '../..');
+const { values } = parseArgs({ options: { output: { type: 'string' }, 'product-root': { type: 'string' }, 'curriculum-root': { type: 'string' } } });
+const productRoot = path.resolve(values['product-root'] || repo);
+const curriculumRoot = path.resolve(values['curriculum-root'] || path.join(repo, 'curriculum'));
+const outputPath = values.output && path.resolve(values.output);
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 const json = file => JSON.parse(read(file));
 const checks = [];
@@ -45,7 +50,7 @@ for (const entry of manifest.mailDocuments) {
   const { value, body } = frontmatter(read(entry.path));
   const expectedType = entry.id === 'confirm' ? 'transactional' : entry.id.startsWith('welcome-') ? 'step' : 'broadcast';
   const actualLinkKeys = [...body.matchAll(/\{\{links\.([a-zA-Z]+)\}\}/g)].map(match => match[1]);
-  check(`${entry.id}: complete draft frontmatter`, ['id', 'type', 'revision', 'status', 'subject', 'audience', 'links', 'sourceRefs'].every(key => key in value) && value.id === entry.id && value.type === expectedType && value.status === 'draft' && value.revision === '1' && value.sourceRefs.length > 0);
+  check(`${entry.id}: complete draft frontmatter`, ['id', 'type', 'revision', 'status', 'subject', 'audience', 'links', 'sourceRefs'].every(key => key in value) && value.id === entry.id && value.type === expectedType && value.status === 'draft' && /^[1-9]\d*$/.test(value.revision) && value.sourceRefs.length > 0);
   check(`${entry.id}: declared links match body`, JSON.stringify([...new Set(actualLinkKeys)].sort()) === JSON.stringify([...value.links].sort()));
   check(`${entry.id}: one primary action and no duplicated footer`, (body.match(/\]\(/g) || []).length === 1 && !/\{\{(?:senderName|senderContact|unsubscribeUrl)\}\}/.test(body));
   check(`${entry.id}: no purchase assumption or editorial text`, !/ご購入(?:いただき|ありがとう)|編集メモ|DRAFT|TODO|FIXME/.test(body));
@@ -80,24 +85,87 @@ check('F2 guide matches shipped heading and exercise', page.includes('小さく�
 check('Setup guide requires completed configuration before npm run dev', read('guides/setup-check.md').indexOf('正常終了後') < read('guides/setup-check.md').indexOf('\nnpm run dev\n') && read('guides/setup-check.md').includes('処理中は、別の `npm ci` を重ねて実行せず'));
 check('One-less-step discloses snapshot rather than auto update', read('guides/one-less-step.md').includes('この案内が自動更新されるわけではありません'));
 const free = read('brain-free.md');
-check('Free copy names exactly six generated template rows and S3 reference', (free.match(/^\| (?:F1|F2|B1|S1|S2|I1) \|/gm) || []).length === 6 && free.includes('クラウドSupabaseのS3は参考資料'));
+const { presentationFor } = await import(pathToFileURL(path.join(productRoot, 'generator/src/core/presentation.mjs')));
+const catalog = JSON.parse(fs.readFileSync(path.join(productRoot, 'catalog.json'), 'utf8'));
+const generatedNames = catalog.templates.filter(item => item.generatorEligible && item.id !== 'S3').map(item => presentationFor(item.id).name);
+const tableNames = [...free.matchAll(/^\| ([^|]+) \|/gm)].map(match => match[1].trim()).filter(name => generatedNames.includes(name));
+check('Free copy uses the six product display names and keeps cloud DB reference separate', generatedNames.length === 6 && tableNames.length === 6 && generatedNames.every(name => tableNames.includes(name)) && free.includes(presentationFor('S3').name) && free.includes('専用接続は未確認') && free.includes('プロジェクト生成の対象には含めていません'));
 check('Free copy states Linux and Windows limitations before purchase', free.includes('Linux Mint 22.3 x64') && free.includes('既存の開発環境') && free.includes('Windows Server 2022') && free.includes('Windows 11の通常ユーザー') && free.includes('まだ確認していない範囲'));
 
 // Check repository document links separately; runtime placeholders are intentionally unresolved.
 const walk = dir => fs.readdirSync(dir, { withFileTypes: true }).flatMap(entry => entry.isDirectory() ? walk(path.join(dir, entry.name)) : [path.join(dir, entry.name)]);
 const markdown = walk(root).filter(file => file.endsWith('.md'));
 const broken = [];
+const curriculum = JSON.parse(fs.readFileSync(path.join(curriculumRoot, 'manifest.json'), 'utf8'));
+const headingId = text => text.toLowerCase().trim().replace(/[^\p{L}\p{N}\s_-]/gu, '').replace(/\s+/g, '-');
+const headings = source => [...source.matchAll(/^#{1,6} (.+)$/gm)].map(match => headingId(match[1]));
+let lessonLinks = 0;
 for (const file of markdown) for (const match of fs.readFileSync(file, 'utf8').matchAll(/\[[^\]]*\]\(([^)]+)\)/g)) {
   const target = match[1];
+  if (target.startsWith('lesson:')) {
+    const [route, rawHeading = ''] = target.slice(7).split('#');
+    const [lessonId, chapterId] = route.split('/');
+    const chapter = curriculum.lessons.find(lesson => lesson.id === lessonId)?.chapters.find(chapter => chapter.id === chapterId);
+    const chapterPath = chapter && path.join(curriculumRoot, chapter.file);
+    let anchor; try { anchor = decodeURIComponent(rawHeading); } catch { anchor = null; }
+    if (!chapterPath || !fs.existsSync(chapterPath) || anchor === null || (anchor && !headings(fs.readFileSync(chapterPath, 'utf8')).includes(anchor))) broken.push(`${path.relative(root, file)} -> ${target}`);
+    lessonLinks++;
+    continue;
+  }
   if (/^(https?:|#|\{\{)/.test(target)) continue;
-  if (!fs.existsSync(path.resolve(path.dirname(file), target.split('#')[0]))) broken.push(`${path.relative(root, file)} -> ${target}`);
+  const destination = path.resolve(path.dirname(file), target.split('#')[0]);
+  const repositorySource = destination.startsWith(repo + path.sep) && !destination.startsWith(root + path.sep)
+    ? path.resolve(productRoot, path.relative(repo, destination)) : null;
+  if (destination !== outputPath && !fs.existsSync(destination) && !(repositorySource && fs.existsSync(repositorySource))) broken.push(`${path.relative(root, file)} -> ${target}`);
 }
 check('Relative documentation links resolve', broken.length === 0, broken);
+check('Onboarding preparation links resolve to generated curriculum headings', lessonLinks > 0 && broken.every(link => !link.includes('lesson:')), { lessonLinks });
 
-const files = [...new Set([...allReaderFiles, 'LINKS.example.json', 'PRIVATE-LINKS.example.json', 'CONTENT-MANIFEST.json'])].sort();
-const result = { recordedAt: new Date().toISOString(), category: 'STATIC', result: checks.every(item => item.result === 'PASS') ? 'PASS' : 'FAIL', sourceProductCommit: manifest.sourceProductCommit, factsCommit: manifest.factsCommit, newAppOrBrowserTrials: 0, productionApproved: false, externalRequests: 0, mailDocuments: mails, checks, files: files.map(file => ({ file, sha256: createHash('sha256').update(read(file)).digest('hex') })) };
-fs.mkdirSync(path.join(root, 'evidence'), { recursive: true });
-fs.writeFileSync(path.join(root, 'evidence/content-audit.json'), JSON.stringify(result, null, 2) + '\n');
+const guideManifest = json('sunday-pack/manifest.json');
+const guideFiles = guideManifest.files.map(item => `sunday-pack/${item.file}`);
+const guideBodies = Object.fromEntries(guideFiles.map(file => [file, read(file)]));
+check('Canonical guide content matches its versioned manifest', guideManifest.productVersion === manifest.productVersion && guideManifest.files.length === 5 && guideManifest.files.every(item => {
+  const body = read(`sunday-pack/${item.file}`);
+  return Buffer.byteLength(body) === item.bytes && createHash('sha256').update(body).digest('hex') === item.sha256;
+}));
+const brokenGuideLinks = [];
+let guideLinks = 0;
+for (const [file, body] of Object.entries(guideBodies)) for (const [, href] of body.matchAll(/\[[^\]]*\]\(([^)]+)\)/g)) {
+  if (/^(?:lesson:|https:)/.test(href)) continue; // Lesson anchors were checked against the actual generated curriculum above.
+  const [target, rawHeading = ''] = href.split('#');
+  const destination = target ? `sunday-pack/${target}` : file;
+  let anchor; try { anchor = decodeURIComponent(rawHeading); } catch { anchor = null; }
+  if (!(destination in guideBodies) || anchor === null || (anchor && !headings(guideBodies[destination]).includes(anchor))) brokenGuideLinks.push(`${file} -> ${href}`);
+  guideLinks++;
+}
+check('Every canonical recovery link reaches a local document and heading', brokenGuideLinks.length === 0, { guideLinks, brokenGuideLinks });
+const { GUIDE_ANCHORS } = await import(pathToFileURL(path.join(productRoot, 'generator/src/core/next-steps.mjs')));
+const firstHeadings = headings(guideBodies['sunday-pack/FIRST-RUN.md']);
+const requiredStages = ['prepare', 'open', 'connect', 'initialize', 'server', 'verify', 'complete', 'stop', 'resume'];
+const positions = requiredStages.map(key => firstHeadings.indexOf(GUIDE_ANCHORS[key]));
+check('Static and generated guide stages share anchors and preserve required order', positions.every((at, index) => at >= 0 && (index === 0 || at > positions[index - 1])), { stages: requiredStages });
+const waitingSection = guideBodies['sunday-pack/TROUBLESHOOTING.md'].split('## 初期処理が終わらない\n')[1]?.split('\n## ')[0] || '';
+check('Recovery from waiting resumes at server start before browser verification', waitingSection.includes(`FIRST-RUN.md#${GUIDE_ANCHORS.server}`) && !waitingSection.includes(`FIRST-RUN.md#${GUIDE_ANCHORS.verify}`));
+const sundayCopies = ['INTRODUCTION', 'FREE-TRIAL', 'AFTER-PURCHASE'].map(name => `sunday-copy/${name}.md`);
+const routineFiles = [...allReaderFiles.filter(file => file !== 'screen-copy.json'), ...guideFiles, ...sundayCopies];
+const internalNames = [];
+for (const file of routineFiles) {
+  const source = read(file);
+  const body = manifest.mailDocuments.some(item => item.path === file) ? frontmatter(source).body : source;
+  const prose = body.replace(/```[\s\S]*?```/g, '').replace(/`[^`]*`/g, '');
+  if (/\b(?:F[12]|B1|S[123]|I1)\b/.test(prose)) internalNames.push(file);
+}
+check('Routine reader prose uses product names instead of internal IDs', internalNames.length === 0, internalNames);
+check('Three Sunday reader drafts contain no live URL, unresolved variable or editorial memo', sundayCopies.every(file => !/https?:\/\/|\{\{|DRAFT|TODO|FIXME|編集メモ/.test(read(file))));
+
+const files = [...new Set([...allReaderFiles, ...guideFiles, ...sundayCopies, 'sunday-pack/manifest.json', 'sunday-pack/SHA256SUMS', 'LINKS.example.json', 'PRIVATE-LINKS.example.json', 'CONTENT-MANIFEST.json'])].sort();
+const productInputs = ['generator/src/core/presentation.mjs', 'generator/src/core/next-steps.mjs', 'catalog.json'].map(file => ({ file, sha256: createHash('sha256').update(fs.readFileSync(path.join(productRoot, file))).digest('hex') }));
+const result = { recordedAt: new Date().toISOString(), category: 'STATIC', result: checks.every(item => item.result === 'PASS') ? 'PASS' : 'FAIL', productVersion: manifest.productVersion, guideRevision: guideManifest.guideRevision, sourceProductCommit: manifest.sourceProductCommit, sourceProductCommitNote: manifest.sourceProductCommitNote, factsCommit: manifest.factsCommit, productInputs, newAppOrBrowserTrials: 0, unaidedHumanTrial: 'NOT_RUN', productionApproved: false, externalRequests: 0, liveMailImport: false, mailDocuments: mails, checks, files: files.map(file => ({ file, sha256: createHash('sha256').update(read(file)).digest('hex') })) };
+// Evidence is opt-in and never replaces a previous audit.
+if (outputPath) {
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+  fs.writeFileSync(outputPath, JSON.stringify(result, null, 2) + '\n', { flag: 'wx' });
+}
 console.log(`${result.result}: ${checks.filter(item => item.result === 'PASS').length}/${checks.length} content checks; all 5 mail editions remain draft`);
 for (const item of checks.filter(item => item.result === 'FAIL')) console.error(item.name, item.detail || '');
 if (result.result === 'FAIL') process.exitCode = 1;

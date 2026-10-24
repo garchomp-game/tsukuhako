@@ -1,7 +1,7 @@
 ---
 id: welcome-02
 type: step
-revision: 1
+revision: 2
 status: draft
 subject: 準備で止まったら、三つだけメモしてみてください
 audience: subscribed
@@ -11,6 +11,7 @@ sourceRefs:
   - curriculum/F2/first.md@2b141f7c583d796e1ba75ad312c6ab199056c7de
   - curriculum/F2/recovery.md@2b141f7c583d796e1ba75ad312c6ab199056c7de
   - docs/launch/guides/setup-check.md
+  - generator/src/core/presentation.mjs
 ---
 
 こんにちは。おとかです。
@@ -23,7 +24,7 @@ sourceRefs:
 
 「うまくいかない」を少し分けると、確認するガイドを探しやすくなります。
 
-画面が開いていても、初回の準備が続いている場合があります。F2を例に、準備の完了を見分ける場所と、止まったときに戻る案内をまとめました。
+画面が開いていても、初回の準備が続いている場合があります。「はじめてのWeb画面」を例に、準備の完了を見分ける場所と、止まったときに戻る案内をまとめました。
 
 [準備の確認ガイドを読む]({{links.setupGuide}})
 
