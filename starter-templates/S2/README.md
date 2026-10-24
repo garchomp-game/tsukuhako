@@ -10,7 +10,7 @@
 2. `bash scripts/configure.sh`、続いて `bash scripts/doctor-host.sh` を実行します。`.env`にコピーごとの識別名が作られます。
 3. **ホストで** `bash scripts/db.sh start` を実行します。固定版のSupabase CLIをこのフォルダの`.cache`に取得します。初回のみ空DBへmigrationとseedが適用されます。「準備完了」を待ちます。
 4. VS Codeでこのフォルダを開き、**Dev Containers: Reopen in Container** を実行します。依存復元とDB診断が終わるのを待ちます。
-5. **コンテナ内ターミナルで** `npm run dev`。ブラウザで [http://localhost:3004](http://localhost:3004) を開きます。架空のメモ2件と入力欄が表示されます。
+5. **コンテナ内ターミナルで** `npm run dev`。ブラウザで [http://localhost:3000](http://localhost:3000) を開きます。架空のメモ2件と入力欄が表示されます。
 6. 本文を保存し、編集・削除を試します。再読み込み後も保存したメモが残ることを確かめます。
 
 Studioは [http://localhost:54323](http://localhost:54323)。Table Editorの`notes`で同じデータを確認できます。未使用のStorage/Realtime/メール/Edge Functions/Analyticsは起動していません。

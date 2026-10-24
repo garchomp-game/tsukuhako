@@ -1,0 +1,41 @@
+✔ Guide: existing content API loads five canonical chapters and resolves their uppercase source links (32.14825ms)
+✔ Guide: the unchanged settings and chapter IPC contracts preserve a guide chapter, position and WSL selection (10.62344ms)
+✔ L01/L05/L10: metadata only, 50 lazy chapters with hashes and bounded cache (27.515192ms)
+✔ L05: traversals, symlinks, oversized and changed content rejected (6.17944ms)
+✔ L09: reading settings serialized, no generation inputs persisted (42.993528ms)
+✔ L05/P12: content and preparation IPC has no arbitrary path or command (0.575235ms)
+✔ P02/P03: WSL Unicode/localized lists, spaces, stopped, internal exclusion (1.991214ms)
+✔ P05: WSL Linux paths, literal metacharacters, forbidden Windows paths (0.444609ms)
+✔ P03/P12: default root and WSL1 refused; only selected distro arguments (1.307327ms)
+✔ P09/P12: preparation abort sends a cancellation for only its structured helper job (1.634959ms)
+✔ P04: unknown vs absent vs stopped vs permissions; no remote server contact (1.52365ms)
+✔ P04/P07: Linux containers and required extensions differentiated (0.548628ms)
+✔ P09: timeout, abort, output limit; only own process group stopped (232.792013ms)
+✔ P06: portable cksum preserves every existing identity (18.161381ms)
+✔ L04/P08/P12: cooperative cancellation rolls back only own output (36.788444ms)
+✔ version mismatch is rejected on every access and never cached (1.729217ms)
+✔ onboarding: missing runtime tools never block Linux file creation; Windows requires its selected helper (0.962999ms)
+✔ onboarding: diagnostic observations retain distinct states and route to the specific OS heading (1.00088ms)
+✔ onboarding: a current project is used only for its first chapter and a new project invalidates its content key (0.409315ms)
+✔ onboarding: normal help opens symptom guidance and return links target the current project (1.080107ms)
+✔ onboarding: help uses the current project for non-Web or non-Linux guides, with no persisted anchor (0.306075ms)
+✔ onboarding: an observed Docker runtime with unverified compatibility is not described as possibly uninstalled (0.189276ms)
+✔ creation help: real curriculum covers every configuration, stage and platform without runtime commands (5.965589ms)
+✔ G13 IPC: exact sender, main frame and local URL are all required (1.720941ms)
+✔ G13 IPC: fixed methods, strict bounded arguments; shell/root/files/hooks cannot be supplied (1.437385ms)
+✔ UX: WSL observations survive routing and all Docker states go to Windows setup (1.318399ms)
+✔ UX: re-list preserves valid distro, clears removed candidates, selects a sole new candidate (0.223098ms)
+✔ UX: source references are not actionable, chapter links round-trip, malformed paths do not throw (2.245265ms)
+✔ UX: all shipped chapter links resolve, source references exist or are labelled as historical (36.771369ms)
+✔ UX: help follows the current lesson and falls back to setup (0.305058ms)
+✔ UX: generated first steps use actual ports, target version and safely quoted directory for every template (2.344935ms)
+✔ UX: clearing a WSL selection still allows reading position to be saved (0.456577ms)
+✔ R041-3: missing S2 tools retain observations and reach the additional setup via Windows (10.916166ms)
+ℹ tests 33
+ℹ suites 0
+ℹ pass 33
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 700.017921

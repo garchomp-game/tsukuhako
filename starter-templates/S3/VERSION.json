@@ -1,6 +1,6 @@
 {
   "id": "S3",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "requirementsVersion": "0.3",
   "node": "24.22.0",
   "npm": "11.17.0",

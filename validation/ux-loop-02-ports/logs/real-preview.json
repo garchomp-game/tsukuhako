@@ -1,0 +1,13 @@
+{
+  "scope": "REAL_HOST_SOURCE_PREVIEW",
+  "result": "PASS",
+  "os": "Linux",
+  "template": "F2",
+  "defaultPlaceholder": 3000,
+  "defaultPlan": 3000,
+  "explicitPlan": 3311,
+  "generatedByUI": false,
+  "dockerStarted": false,
+  "profileIsolated": true,
+  "installedAppChanged": false
+}

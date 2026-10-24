@@ -5,7 +5,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 NODE_IMAGE = 'node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5'
-PORTS = {'F1': 3000, 'F2': 3001, 'B1': 3002, 'S1': 3003, 'S2': 3004, 'S3': 3005}
+PORTS = dict.fromkeys(('F1', 'F2', 'B1', 'S1', 'S2', 'S3'), 3000)
 
 def put(root, path, text):
     dest = root / path

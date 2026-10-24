@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.."
-port=3002
+port=3000
 project="otoka-b1-$(pwd -P | cksum | awk '{print $1}')"
 while (($#)); do
   case "$1" in

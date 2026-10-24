@@ -82,7 +82,7 @@ VS Codeの構成ターミナル（Configuring... など）を開き、本文の�
 開発サーバーを動かしたまま、下のコマンドでAPIの応答を取得します。 期待した結果にならない場合は[サンプルを確認できないとき](#サンプルを確認できないとき)へ進みます。
 
 ```sh
-'curl' '-i' 'http://localhost:3002/api/health'
+'curl' '-i' 'http://localhost:3000/api/health'
 ```
 
 確認できる結果：HTTP 200の応答と、statusがokのJSON（{"status":"ok"}）が表示されます。
@@ -166,7 +166,7 @@ Response.jsonの { status: "ok" } を { status: "ok", lesson: "preview" } に変
 JSONに lesson: "preview" が増えます。 開発サーバーを動かしたまま確かめます。 反映されない場合は[サンプルを確認できないとき](#サンプルを確認できないとき)へ進みます。
 
 ```sh
-'curl' '-i' 'http://localhost:3002/api/health'
+'curl' '-i' 'http://localhost:3000/api/health'
 ```
 
 ### 元の内容に戻して保存する
@@ -184,7 +184,7 @@ JSONに lesson: "preview" が増えます。 開発サーバーを動かした�
 上のcurlコマンドで再取得し、JSONが { status: "ok" } に戻り、lessonがないことを確認します。
 
 ```sh
-'curl' '-i' 'http://localhost:3002/api/health'
+'curl' '-i' 'http://localhost:3000/api/health'
 ```
 
 ## 続きの教材と補助資料
@@ -225,8 +225,8 @@ JSONに lesson: "preview" が増えます。 開発サーバーを動かした�
 
 - 使用技術：Next.js API
 - 管理用ID：B1
-- 版：0.1.2
+- 版：0.1.3
 - 識別名：sample
-- ポート：app=3002
+- ポート：app=3000
 
 生成前の診断はその時点の観察です。ポートや起動成功の保証ではありません。秘密値は.envだけに保存し、この案内には載せません。

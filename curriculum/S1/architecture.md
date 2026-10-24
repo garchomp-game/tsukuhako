@@ -1,6 +1,6 @@
 # 構成を理解する
 
-ホストにあるソースを `/workspace` にbind mountします。コンテナにはNode/npmなどの実行道具が入り、ブラウザはホスト側で動きます。ブラウザの `http://localhost:3003` は `127.0.0.1:HOST_PORT → app:3000` に接続します。コンテナ内のlocalhostはそのコンテナ自身です。
+ホストにあるソースを `/workspace` にbind mountします。コンテナにはNode/npmなどの実行道具が入り、ブラウザはホスト側で動きます。ブラウザの `http://localhost:3000` は `127.0.0.1:HOST_PORT → app:3000` に接続します。コンテナ内のlocalhostはそのコンテナ自身です。
 
 `compose.yaml` は起動単位・ポート・volumeを定義し、`.devcontainer/devcontainer.json` はVS Codeの接続先・ユーザー・初回処理を定義します。Dockerfileは道具を固定し、package-lock.jsonはnpm依存の具体的な版を固定します。初回は `npm ci` の完了を待ち、その後に利用者が開発サーバーを起動します。再接続だけでサーバーを重複起動しません。
 

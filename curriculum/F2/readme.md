@@ -8,7 +8,7 @@
 
 1. ZIPを新しいフォルダへ展開し、そのフォルダをホストのターミナルで開きます。`bash scripts/configure.sh`、続いて `bash scripts/doctor-host.sh`。診断OKとURLが出れば次へ。ポートを変える場合は初回に `bash scripts/configure.sh --port 3301` とします。
 2. VS Codeでそのフォルダを開き、コマンドパレットから **Dev Containers: Reopen in Container**。初回の依存復元が終わり「準備完了」と表示されるまで待ちます。
-3. **コンテナ内のVS Codeターミナル**で `npm run dev`。Readyが出たらホストのブラウザで **http://localhost:3001**（変更時は.envのHOST_PORT）を開きます。
+3. **コンテナ内のVS Codeターミナル**で `npm run dev`。Readyが出たらホストのブラウザで **http://localhost:3000**（変更時は.envのHOST_PORT）を開きます。
 4. 「練習画面へ」を選び「つくりたいもの」に入力します。下のカードが同時に変われば成功です。「クリア」で消え、再読込でも入力は消えます。
 5. `app/page.tsx` の見出しを一つ変更して保存します。サーバーを再起動せずトップページに変更が反映されることを確かめます。
 

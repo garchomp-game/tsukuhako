@@ -1,6 +1,6 @@
 # 読取りと権限の構成
 
-ホストのブラウザ → 127.0.0.1:3005 → Dev ContainerのNext.js:3000 → 設定したSupabase RESTの順で接続します。localhostはホストとコンテナで異なります。SupabaseのクラウドURLはHTTPSで外部へ接続する宛先です。ローカル検証ではlocalhost HTTPも受け付けます。
+ホストのブラウザ → 127.0.0.1:3000 → Dev ContainerのNext.js:3000 → 設定したSupabase RESTの順で接続します。localhostはホストとコンテナで異なります。SupabaseのクラウドURLはHTTPSで外部へ接続する宛先です。ローカル検証ではlocalhost HTTPも受け付けます。
 
 page.tsxはServer Componentで、設定・取得・安全なエラー表示を担当します。lib/catalog.tsはキー/URLの検証とGETだけの読取りを行います。実キーをクライアントpropsやNEXT_PUBLIC変数に入れません。ブラウザに届くのは公開商品の表示と案内だけです。公開キーでSELECTできない場合も強いキーに切り替えません。
 

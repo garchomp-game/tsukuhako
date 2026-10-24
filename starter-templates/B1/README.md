@@ -23,7 +23,7 @@ npm run doctor
 npm run dev
 ```
 
-5. コンテナ内の別ターミナルで `curl http://localhost:3000/api/health` を実行します。`{"status":"ok"}` が返れば起動できています。ホストから呼ぶ場合は http://localhost:3002/api/health です。
+5. コンテナ内の別ターミナルで `curl http://localhost:3000/api/health` を実行します。`{"status":"ok"}` が返れば起動できています。ホストから呼ぶ場合は http://localhost:3000/api/health です。
 
 初回にランダム生成やサンプル再生成はしません。配布物の固定版・lockfileを復元します。コンテナはNode 24.22.0 / npm 11.17.0です。版は [VERSION.json](VERSION.json)、全依存はpackage-lock.jsonで確認します。初回生成ツールは使わず、このソースを手書きで作成しました。
 

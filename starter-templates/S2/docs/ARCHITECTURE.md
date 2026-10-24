@@ -3,7 +3,7 @@
 ブラウザはホスト、Next.jsはDev Container、Supabaseは同じホストDocker上の独立したサービス群です。Supabase CLIは固定版のバイナリをホストから実行します。Docker socketをアプリへ共有していません。
 
 ```text
-ブラウザ → 127.0.0.1:3004 → app:3000 /api/notes
+ブラウザ → 127.0.0.1:3000 → app:3000 /api/notes
                                  ↓ server-only fetch（anon権限）
                  supabase_kong_<PROJECT_NAME>:8000
                                  ↓ REST / PostgreSQL
@@ -12,7 +12,7 @@
 
 |見る場所|接続先（初期値）|役割|
 |---|---|---|
-|ホストのブラウザ|http://localhost:3004|学習メモ画面。キーを持たない|
+|ホストのブラウザ|http://localhost:3000|学習メモ画面。キーを持たない|
 |ブラウザからNext|同じオリジンの`/api/notes`|メモCRUDのJSON API|
 |Nextのサーバー|`http://supabase_kong_<PROJECT_NAME>:8000`|専用Docker network内のSupabase REST|
 |ホストのブラウザ|http://localhost:54323|Supabase Studio|

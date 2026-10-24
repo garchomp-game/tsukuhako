@@ -86,7 +86,7 @@
       "id": "F2",
       "title": "はじめてのWeb画面",
       "version": "0.4.7",
-      "templateVersion": "0.1.2",
+      "templateVersion": "0.1.3",
       "name": "はじめてのWeb画面",
       "summary": "まずサンプル画面を表示します。そのあと、ページの移動や文字の変更を試せます。",
       "technology": "Next.js + Tailwind CSS",
@@ -101,7 +101,7 @@
           "file": "F2/first.md",
           "source": "START_HERE.md",
           "bytes": 13192,
-          "sha256": "02bb696caa99ed0469861f2367a1a1988e178b881570c8736d8a947300d8f9f3"
+          "sha256": "102ee0a9fcd3d208866bf704f9fa1d2272bf46d74b59bcb109e391e88ea142b0"
         },
         {
           "id": "readme",
@@ -109,7 +109,7 @@
           "file": "F2/readme.md",
           "source": "README.md",
           "bytes": 2894,
-          "sha256": "ea9fbb53fd09ae7800387516e7b0d7636b4d907ed3a7696b008b0e82f78fdba7"
+          "sha256": "2fe7f80d9a0c0af3f39107983fa286a841b960358202352bfca578234ab40ae0"
         },
         {
           "id": "architecture",
@@ -117,7 +117,7 @@
           "file": "F2/architecture.md",
           "source": "docs/ARCHITECTURE.md",
           "bytes": 1612,
-          "sha256": "0726ad09f6099797c9aab0c43ff4e8a34f6fd9fa22a5fe526f9da843bcc430e5"
+          "sha256": "dff1f5518a1cbe42fb62c06462fa697ec4f270fe4fa46a65c2d7b392197716d5"
         },
         {
           "id": "build-your-own",
@@ -165,7 +165,7 @@
       "id": "B1",
       "title": "データを返すAPI",
       "version": "0.4.7",
-      "templateVersion": "0.1.2",
+      "templateVersion": "0.1.3",
       "name": "データを返すAPI",
       "summary": "APIからJSONを受け取ります。そのあと、入力に応じた応答を試せます。",
       "technology": "Next.js API",
@@ -180,7 +180,7 @@
           "file": "B1/first.md",
           "source": "START_HERE.md",
           "bytes": 13133,
-          "sha256": "a9287e67c28361ea847d6e239b2b2207014a0cf102e001cf43bf8ebc9b04b888"
+          "sha256": "d86b10abc2e7b1aa182bfaeefebabe3c505ec33877143129625a0b8f90fa2a59"
         },
         {
           "id": "readme",
@@ -188,7 +188,7 @@
           "file": "B1/readme.md",
           "source": "README.md",
           "bytes": 4242,
-          "sha256": "1d58246cea4ba8547e8e8d1be0ebef71cdf40b765b0dc94b25dc764a3619930b"
+          "sha256": "bd30a1b6a4fa991d287b800ae157bffc2e0d4d65c889b5b7f99c25b78854559e"
         },
         {
           "id": "api",
@@ -204,7 +204,7 @@
           "file": "B1/architecture.md",
           "source": "docs/ARCHITECTURE.md",
           "bytes": 1473,
-          "sha256": "678161d8edc38b6eb25b25af39fd05156b44b58bcb925aba05bcfbe302d2b066"
+          "sha256": "d143e8d3f51cd475f2ee378a76bd87e022089514329866a850afd4ea02607d60"
         },
         {
           "id": "build-your-own",
@@ -252,7 +252,7 @@
       "id": "S1",
       "title": "画面からつなぐAPI",
       "version": "0.4.7",
-      "templateVersion": "0.1.3",
+      "templateVersion": "0.1.4",
       "name": "画面からつなぐAPI",
       "summary": "画面で入力したことばをAPIへ送り、応答が画面へ戻る流れを試します。",
       "technology": "Next.js 画面 + API",
@@ -267,7 +267,7 @@
           "file": "S1/first.md",
           "source": "START_HERE.md",
           "bytes": 13199,
-          "sha256": "851de1862ab346bb383aeea6aaa31e78083d4f157fd9b6c9e5356ba9c841ae44"
+          "sha256": "97b9dbc5b8479d1668c9d38311ea4261f47ed3777c170003d336a0a824b029cc"
         },
         {
           "id": "readme",
@@ -275,7 +275,7 @@
           "file": "S1/readme.md",
           "source": "README.md",
           "bytes": 4428,
-          "sha256": "3cc8a79d8e2bfe715f35163edef7d5a86d6c4f38ae35d13f8359ff3ddf07bc81"
+          "sha256": "73f70aa799261d66b8bf1dcaafd1af430cab0bf8cf7d475823559763a9d13572"
         },
         {
           "id": "api",
@@ -291,7 +291,7 @@
           "file": "S1/architecture.md",
           "source": "docs/ARCHITECTURE.md",
           "bytes": 1623,
-          "sha256": "642079ca2681c2c27483735c3ba898af8c7029638f2c391a3da7efc498040f2c"
+          "sha256": "e76aab626983e668f718c547054b7d414fcbdbd98fbb6390ed6a312338b75310"
         },
         {
           "id": "build-your-own",
@@ -339,7 +339,7 @@
       "id": "S2",
       "title": "メモを保存するWeb画面",
       "version": "0.4.7",
-      "templateVersion": "0.1.3",
+      "templateVersion": "0.1.4",
       "name": "メモを保存するWeb画面",
       "summary": "このPCのDBに架空のメモを保存し、ページを読み直しても残ることを試します。",
       "technology": "Next.js + ローカルSupabase",
@@ -354,7 +354,7 @@
           "file": "S2/first.md",
           "source": "START_HERE.md",
           "bytes": 14025,
-          "sha256": "91430252aa9cd08abe0789be1d0cae71bf43f9f54a5cc9b48aecf214d68d6fe7"
+          "sha256": "de8f56653c62a70640987755a27f3f018093e1cc6cc4d7e8784767b2c40879cb"
         },
         {
           "id": "readme",
@@ -362,7 +362,7 @@
           "file": "S2/readme.md",
           "source": "README.md",
           "bytes": 5401,
-          "sha256": "b69077c8daa4f5d72d0eebadf83850cb4e85d2193ed0c983c8c0939c6ada6daa"
+          "sha256": "b73be027b3aacae24701ea3d96309941a590ec7f68f317ffe301c5e3c388b1ed"
         },
         {
           "id": "architecture",
@@ -370,7 +370,7 @@
           "file": "S2/architecture.md",
           "source": "docs/ARCHITECTURE.md",
           "bytes": 4932,
-          "sha256": "e2f5e8d446d3ad9e8ef70971382a528ee93ecaef9121dc6842ab816504abf91f"
+          "sha256": "5666a1b53e8e695d8973fe8e30ce8d05f5a53728c199c1be42ebc218580806ec"
         },
         {
           "id": "build-your-own",

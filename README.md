@@ -18,3 +18,5 @@ F1/F2/B1/S1/S2/I1が生成対象、S3は参考資料です。Webサンプル4構
 過去の検証記録：[0.4.6](validation/onboarding-0.4.6/REPORT.md)、[0.4.5](validation/linux-deb-0.4.5/REPORT.md)、[0.4.4](validation/release-0.4.4/REPORT.md)、[担当A](validation/release-0.4.4-followup/REPORT.md)、[A・B・C](validation/launch-abc-2026-10-22/REPORT.md)、[旧b1同梱ZIP](validation/sunday-bundle-2026-10-25/REPORT.md)。過去版の成功を0.4.7の実機証拠へ読み替えません。
 
 ソースは[garchomp-game/tsukuhako](https://github.com/garchomp-game/tsukuhako)（private）で管理します。依存フォルダ・製品ランタイム・大容量配布物・実際の.envをGitへ追加しません。公開販売・課金・公開ストレージへのアップロードは行っていません。
+
+現在のソース版では、Web画面・APIの新規作成時の既定ポートを `3000`（PC側・コンテナー内とも）に統一しています。使用中なら現在の診断に従い、詳細設定で別の空きポートを指定します。作成済みの設定やDB用ポートは維持します。インストーラーへの反映は未実施です。[ポート変更の検証](validation/ux-loop-02-ports/REPORT.md)

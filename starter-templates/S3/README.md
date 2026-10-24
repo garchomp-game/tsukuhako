@@ -8,7 +8,7 @@
 
 1. 新しいフォルダへ展開し、ホストで `bash scripts/configure.sh` → `bash scripts/doctor-host.sh`。
 2. VS Codeでこのフォルダを開き、**Dev Containers: Reopen in Container**。初回の依存復元を待ちます。
-3. コンテナ内で `npm run dev`。ブラウザで [http://localhost:3005](http://localhost:3005) を開きます。
+3. コンテナ内で `npm run dev`。ブラウザで [http://localhost:3000](http://localhost:3000) を開きます。
 4. 「接続設定から始めましょう」が表示されれば、クラウドなしの初回起動は成功です。設定不足を接続成功と扱いません。
 
 ## 専用クラウドへ接続する（利用者が行う）
