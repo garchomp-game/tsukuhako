@@ -20,7 +20,7 @@ let c,failure,closure;const errors=[],checks=[];
 try{
  c=await waitConnect(port);const p=c.page;p.on('pageerror',error=>errors.push(error.message));await c.context.setOffline(true);
  const b=name=>p.getByRole('button',{name,exact:true}),nav=name=>p.getByRole('navigation',{name:'ツクハコの画面'}).getByRole('button',{name,exact:true});
- await expect(p.locator('.version')).toHaveText(info.productVersion);
+ await expect(p.locator('.version b')).toHaveText(info.productVersion);
  await nav('作る').click();await expect(p.getByRole('radio',{name:'必要な操作だけ進める',exact:true})).toBeChecked();
  await p.screenshot({path:out+'/screenshots/01-version-and-preference.png'});
  checks.push('New version displayed; copied 0.4.8 reading preference retained');

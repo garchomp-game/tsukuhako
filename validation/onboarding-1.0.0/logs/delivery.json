@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "directory": "/home/garchomp-game/ダウンロード/ツクハコ-1.0.0-Linux",
+  "schemaVersion": 1,
+  "product": "ツクハコ",
+  "productVersion": "1.0.0",
+  "platform": "linux-amd64",
+  "initialTarget": "Linux Mint 22.3 x64",
+  "file": "tsukuhako-linux-amd64-1.0.0.deb",
+  "bytes": 133504832,
+  "sha256": "f7a767aa6ae9102fcc33aab18f2e0b3dd9e01a785182f04540d77efb589c5f87",
+  "sourceCommit": "ca7f39584c8452479fc2d8b299b206a06269739d",
+  "dirty": false,
+  "guideRevision": "2026-10-24-r8",
+  "delivery": "Single deb; do not wrap the primary download in another ZIP",
+  "staticInspection": "PASS",
+  "mintGuiInstall": "NOT_RUN",
+  "mintMenuLaunch": "NOT_RUN",
+  "buyerDownload": "NOT_RUN",
+  "runtimeEvidence": "See validation/onboarding-1.0.0/REPORT.md; static inspection does not imply runtime approval",
+  "generatedAt": "2026-10-24T14:16:30.542Z"
+}

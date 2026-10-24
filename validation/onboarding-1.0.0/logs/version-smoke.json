@@ -1,0 +1,30 @@
+{
+  "category": "EXTRACTED_DEB_ON_REAL_HOST",
+  "result": "PASS",
+  "productVersion": "1.0.0",
+  "sourceCommit": "ca7f39584c8452479fc2d8b299b206a06269739d",
+  "dirty": false,
+  "helperVersion": "1.0.0",
+  "checks": [
+    "New version displayed; copied 0.4.8 reading preference retained",
+    "Bundled guide identifies the new version offline",
+    "Real F2 generation, default 3000, immediate editor action, quick preference and complete saved guide"
+  ],
+  "rendererErrors": [],
+  "closure": {
+    "pid": 1061626,
+    "status": "PASS",
+    "requestIssued": true,
+    "timedOut": false,
+    "exitCode": 0,
+    "signal": null,
+    "cleanup": [],
+    "cleanupComplete": true,
+    "reason": "NORMAL_EXIT"
+  },
+  "previousReadingSha256": "54213fb389924d1ba71120dcc4b6c9cc3c4b57e35a562885a86a6386b1aedc50",
+  "previousReadingUnchanged": true,
+  "sandbox": "ENABLED",
+  "installation": "NOT_RUN",
+  "codeDockerAndSampleRuntime": "NOT_RUN"
+}
