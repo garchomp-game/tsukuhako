@@ -23,6 +23,7 @@ finish() {
   printf 'exitCode\t%s\nlastStep\t%s\n' "$code" "$current_step" > /evidence/status.tsv
 }
 trap finish EXIT
+trap 'printf "step=%s\nline=%s\ncommand=%s\n" "$current_step" "$LINENO" "$BASH_COMMAND" > /evidence/failure.txt' ERR
 pass() { printf '%s\tPASS\n' "$1" | tee -a /evidence/checks.tsv; }
 record_packages() { dpkg-query -W -f='${binary:Package}\t${Version}\t${db:Status-Status}\n' | sort > "/evidence/packages-$1.tsv"; }
 assert_data() { sha256sum --check /evidence/sentinels.sha256; pass "data-preserved-$1"; }
@@ -49,8 +50,14 @@ assert_installed() {
     printf '%s\n' 'Application installation directory is writable by the ordinary test user.' >&2
     return 1
   fi
-  find "$install_dir" -type f -perm /022 -print > "/evidence/writable-payload-$phase.txt"
-  [[ ! -s /evidence/writable-payload-$phase.txt ]]
+  # root-group write bits do not grant write access to the ordinary user.
+  # Check effective access rather than rejecting safe root:root 0664/0775 files.
+  runuser -u thvalidator -- find "$install_dir" -writable -print > "/evidence/user-writable-payload-$phase.txt"
+  [[ ! -s /evidence/user-writable-payload-$phase.txt ]]
+  find "$install_dir" -perm /002 -print > "/evidence/world-writable-payload-$phase.txt"
+  [[ ! -s /evidence/world-writable-payload-$phase.txt ]]
+  find "$install_dir" -perm /020 -printf '%u:%g %m %p\n' > "/evidence/group-writable-payload-$phase.txt"
+  cp "$install_dir/resources/app/build-info.json" "/evidence/build-info-$phase.json"
   mapfile -t desktops < <(sed -n '\|^/usr/share/applications/[^/]*\.desktop$|p' "/evidence/package-files-$phase.txt")
   [[ ${#desktops[@]} == 1 ]]
   desktop=${desktops[0]}
