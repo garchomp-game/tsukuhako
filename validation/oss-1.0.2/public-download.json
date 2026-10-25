@@ -1,0 +1,113 @@
+{
+  "status": "PASS",
+  "checkedAt": "2026-10-25T09:24:37.974531+00:00",
+  "authentication": "None: urllib without Authorization header, cookie handler or credential helper",
+  "repositoryVisibility": "public",
+  "releaseUrl": "https://github.com/garchomp-game/tsukuhako/releases/tag/v1.0.2",
+  "tagName": "v1.0.2",
+  "mainReadmeInstallerLinks": [
+    "https://github.com/garchomp-game/tsukuhako/releases/download/v1.0.2/tsukuhako-windows-x64-1.0.2-setup.exe",
+    "https://github.com/garchomp-game/tsukuhako/releases/download/v1.0.2/tsukuhako-linux-x86_64-1.0.2.rpm",
+    "https://github.com/garchomp-game/tsukuhako/releases/download/v1.0.2/tsukuhako-linux-amd64-1.0.2.deb"
+  ],
+  "allReleaseAssetsVerified": true,
+  "assets": [
+    {
+      "httpStatus": 200,
+      "bytes": 3726,
+      "sha256": "625bede791d7dc7f62d7ba06b84541012a44bb970023d8ce0dda07722a00fed4",
+      "file": "INSTALL-linux-deb.txt",
+      "url": "https://github.com/garchomp-game/tsukuhako/releases/download/v1.0.2/INSTALL-linux-deb.txt",
+      "status": "PASS"
+    },
+    {
+      "httpStatus": 200,
+      "bytes": 2638,
+      "sha256": "d070624792fef869fde380fa58b21da6e681f3afb52e5f1fd436c31dc3aac3ed",
+      "file": "INSTALL-linux-rpm.txt",
+      "url": "https://github.com/garchomp-game/tsukuhako/releases/download/v1.0.2/INSTALL-linux-rpm.txt",
+      "status": "PASS"
+    },
+    {
+      "httpStatus": 200,
+      "bytes": 2702,
+      "sha256": "c828a095915fae320ca73ad054c5c0e93e452d6e295a311ea2717fa3c08f7323",
+      "file": "INSTALL-windows.txt",
+      "url": "https://github.com/garchomp-game/tsukuhako/releases/download/v1.0.2/INSTALL-windows.txt",
+      "status": "PASS"
+    },
+    {
+      "httpStatus": 200,
+      "bytes": 1070,
+      "sha256": "a855760cb738f1dac66ca2b1c5ad821243bdb2cf22c93747cbfa88d35cf126e1",
+      "file": "LICENSE",
+      "url": "https://github.com/garchomp-game/tsukuhako/releases/download/v1.0.2/LICENSE",
+      "status": "PASS"
+    },
+    {
+      "httpStatus": 200,
+      "bytes": 990,
+      "sha256": "8db8005e53871f75c55dc17179620a48340b2446903b5e6113dc8a206350ea96",
+      "file": "SHA256SUMS",
+      "url": "https://github.com/garchomp-game/tsukuhako/releases/download/v1.0.2/SHA256SUMS",
+      "status": "PASS"
+    },
+    {
+      "httpStatus": 200,
+      "bytes": 352,
+      "sha256": "947bd367294637fc09348d017d432de9b862a28b27896bf55dc31ddb1804caab",
+      "file": "SHA256SUMS-windows",
+      "url": "https://github.com/garchomp-game/tsukuhako/releases/download/v1.0.2/SHA256SUMS-windows",
+      "status": "PASS"
+    },
+    {
+      "httpStatus": 200,
+      "bytes": 827,
+      "sha256": "6ac15076c8589c11fdf219f2b48a52a9acdc9239484c2e7fcbe69c8e80624b42",
+      "file": "manifest-linux-deb.json",
+      "url": "https://github.com/garchomp-game/tsukuhako/releases/download/v1.0.2/manifest-linux-deb.json",
+      "status": "PASS"
+    },
+    {
+      "httpStatus": 200,
+      "bytes": 620,
+      "sha256": "672e1c5c0ee5ca26b88b6e9662e749decdb132101606bdee8e41ea875ffb63f8",
+      "file": "manifest-linux-rpm.json",
+      "url": "https://github.com/garchomp-game/tsukuhako/releases/download/v1.0.2/manifest-linux-rpm.json",
+      "status": "PASS"
+    },
+    {
+      "httpStatus": 200,
+      "bytes": 1512,
+      "sha256": "815699dde41b8475fa32ffa7dc9f33a325e20013e1719e860a1cc4038d66fb24",
+      "file": "manifest-windows.json",
+      "url": "https://github.com/garchomp-game/tsukuhako/releases/download/v1.0.2/manifest-windows.json",
+      "status": "PASS"
+    },
+    {
+      "httpStatus": 200,
+      "bytes": 133506984,
+      "sha256": "9a6226a5696992c94f3731dd4f5ec7db083130c11845d1a2253cde5c5971b5f9",
+      "file": "tsukuhako-linux-amd64-1.0.2.deb",
+      "url": "https://github.com/garchomp-game/tsukuhako/releases/download/v1.0.2/tsukuhako-linux-amd64-1.0.2.deb",
+      "status": "PASS"
+    },
+    {
+      "httpStatus": 200,
+      "bytes": 118981653,
+      "sha256": "d2bc01620c81e7c3cecb8393239d09ee698433c5a21702cc6e61ca212cb37bba",
+      "file": "tsukuhako-linux-x86_64-1.0.2.rpm",
+      "url": "https://github.com/garchomp-game/tsukuhako/releases/download/v1.0.2/tsukuhako-linux-x86_64-1.0.2.rpm",
+      "status": "PASS"
+    },
+    {
+      "httpStatus": 200,
+      "bytes": 146364636,
+      "sha256": "ff514ae8712c69d5a9220e65b94e24a0932b0e940faf36ed84b69f2c793ea9ce",
+      "file": "tsukuhako-windows-x64-1.0.2-setup.exe",
+      "url": "https://github.com/garchomp-game/tsukuhako/releases/download/v1.0.2/tsukuhako-windows-x64-1.0.2-setup.exe",
+      "status": "PASS"
+    }
+  ],
+  "scope": "Anonymous full download of all release assets including all three installers; SHA-256 and byte count compared to final local delivery set. Redirect query strings are not recorded."
+}

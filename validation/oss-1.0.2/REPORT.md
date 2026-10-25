@@ -20,7 +20,7 @@ Windows x64を主な配布対象にし、Linux x64向けdebとrpmを用意する
 - Fedora 44 / Rocky Linux 9の使い捨てコンテナーで、同じ最終rpmの依存解決・ELFライブラリ解決・最小旧版fixtureからの更新・削除・再導入・設定/プロジェクト/Docker配置場所のfixture保持PASS。[RPM集計](rpm/summary.json)。実際の過去版データ移行や実DBの確認ではない。
 - Rocky Linux 9の初回削除は、DNFの自動依存削除が保護対象 `systemd-udev` を選び、DNFが処理を拒否してFAIL。保護を無効化せず、アプリ本体だけを削除する `dnf --setopt=clean_requirements_on_remove=False remove tsukuhako` を案内・検査へ反映。同じ最終rpmで両OSを再検査しPASS。[初回失敗と修正の記録](rpm/validation-history.json)。
 - 公開対象の案内・検査差分・証拠をgitleaksで確認。debの依存列 `libsecret-1-0` に対する2件は公開ライブラリ名の誤検知で、未解決の認証情報検出は0。[確認結果](secret-scan.json)。
-- 匿名公開ダウンロード結果は公開後に追記する。
+- [v1.0.2公開リリース](https://github.com/garchomp-game/tsukuhako/releases/tag/v1.0.2)を公開し、mainのREADMEにWindows・deb・rpmの実在するダウンロードリンクを反映。Authorization・Cookie・認証ヘルパーを使わないHTTPでpublic repository、公開Release、main README、全12assetsを取得した。3installerを含む全ファイルの全量ダウンロードでローカル配布コピーとサイズ・SHA-256一致PASS。[匿名取得の結果](public-download.json)。署名付きredirect URLや認証情報は記録していない。
 
 ## 未確認の範囲
 

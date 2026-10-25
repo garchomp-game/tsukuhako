@@ -1,7 +1,7 @@
 {
   "productVersion": "1.0.2",
   "status": "PASS",
-  "scope": "Final local delivery files; public download verification follows publication",
+  "scope": "Final local delivery files; all 12 public release assets fully downloaded anonymously and verified in public-download.json",
   "artifacts": [
     {
       "file": "tsukuhako-windows-x64-1.0.2-setup.exe",
