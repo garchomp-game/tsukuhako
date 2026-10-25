@@ -27,8 +27,12 @@
 - サイズ: 133,506,292 bytes。
 - SHA-256: `6790144899e469cd8c1720155f0235d43d26a44960b74516a4b47cdd23cbccf8`。
 - 製品ソース: `2c6b61d2533bf4b7821a3aa6297ff44fc81dda0c`、`dirty: false`。タグには、このビルド後の検証レポートの追記も含める。
-- 公開先: [v1.0.1 Release](https://github.com/garchomp-game/tsukuhako/releases/tag/v1.0.1)。公開後の匿名ダウンロード結果は完了後に追記する。
+- 公開先: [v1.0.1 Release](https://github.com/garchomp-game/tsukuhako/releases/tag/v1.0.1)。公開済み。ログインなしのHTTP取得でリポジトリ・README・5つのRelease asset・検証レポートのリンクを確認し、debを全量ダウンロードしてSHA-256とサイズの一致を確認した（`public-download.json`）。
 
 ## 未確認の範囲
 
 この版での所有者のGUIインストール・メニュー起動、Dev Containerからサンプル表示までの通し操作、Windows・macOS・ARM・新規PCは未実施。1.0.0以前の実機結果は過去の証拠であり、この版の結果とは区別する。インストール済みアプリは変更しない。
+
+## 公開後の記録
+
+GitHubのvisibilityはpublic、既定ブランチはmain、認識されたライセンスはMIT。READMEの直接ダウンロード先はv1.0.1のdeb。配布manifestの検証レポート参照先を実在するOSSレポートへ補正し、配布ツールも実在するレポートを選ぶようにした。公開済みdebのバイト列は変更していない。

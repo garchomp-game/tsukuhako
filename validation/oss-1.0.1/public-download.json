@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "checkedAt": "2026-10-25T08:52:00.495418+00:00",
+  "authentication": "No Authorization header or browser cookies; urllib anonymous requests",
+  "repository": "https://github.com/garchomp-game/tsukuhako",
+  "visibility": "public",
+  "defaultBranch": "main",
+  "license": "MIT",
+  "release": "https://github.com/garchomp-game/tsukuhako/releases/tag/v1.0.1",
+  "readmeDirectDownloadLink": true,
+  "fiveReleaseAssetsReadable": true,
+  "downloadUrl": "https://github.com/garchomp-game/tsukuhako/releases/download/v1.0.1/tsukuhako-linux-amd64-1.0.1.deb",
+  "httpStatus": 200,
+  "bytes": 133506292,
+  "sha256": "6790144899e469cd8c1720155f0235d43d26a44960b74516a4b47cdd23cbccf8",
+  "matchesLocalDelivery": true,
+  "runtimeReportLinkExists": true
+}

@@ -17,6 +17,6 @@
   "mintGuiInstall": "NOT_RUN",
   "mintMenuLaunch": "NOT_RUN",
   "buyerDownload": "NOT_RUN",
-  "runtimeEvidence": "See validation/onboarding-1.0.1/REPORT.md; static inspection does not imply runtime approval",
+  "runtimeEvidence": "See validation/oss-1.0.1/REPORT.md; static inspection does not imply runtime approval",
   "generatedAt": "2026-10-25T08:47:22.753Z"
 }
