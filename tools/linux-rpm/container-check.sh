@@ -97,13 +97,13 @@ assert_installed upgraded
 pass upgrade-link-preserved
 
 step=remove
-dnf -y remove tsukuhako
+dnf -y --setopt=clean_requirements_on_remove=False remove tsukuhako
 assert_removed remove
 step=reinstall
 dnf -y --setopt=localpkg_gpgcheck=0 install /input/final.rpm
 assert_installed reinstalled
 step=final-remove
-dnf -y remove tsukuhako
+dnf -y --setopt=clean_requirements_on_remove=False remove tsukuhako
 assert_removed final
 step=complete
 pass complete

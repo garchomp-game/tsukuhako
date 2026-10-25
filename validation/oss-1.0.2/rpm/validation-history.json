@@ -1,0 +1,31 @@
+{
+  "category": "VALIDATION_HISTORY",
+  "initialRocky9": {
+    "result": "FAIL",
+    "lastStep": "remove",
+    "alreadyPassed": [
+      "dependency resolution",
+      "initial installation",
+      "ELF dependencies",
+      "fixture upgrade",
+      "upgrade launch link preserved"
+    ],
+    "reason": "dnf automatic dependency cleanup selected protected systemd-udev in the minimal container; DNF refused the transaction. Protection was never disabled."
+  },
+  "initialFedora44": {
+    "result": "PASS",
+    "removal": "default dnf remove"
+  },
+  "correction": {
+    "command": "dnf --setopt=clean_requirements_on_remove=False remove tsukuhako",
+    "scope": "Remove this application only; keep shared dependencies. Per-command option, no persistent DNF configuration changes.",
+    "modifiedFiles": [
+      "tools/linux-rpm/container-check.sh",
+      "docs/linux-rpm/INSTALL.txt"
+    ],
+    "rpmRebuilt": false
+  },
+  "finalRocky9": "PASS",
+  "finalFedora44": "PASS",
+  "rawLogs": "Retained locally; not included in the public repository."
+}

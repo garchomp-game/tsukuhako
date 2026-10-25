@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "category": "RPM_STATIC_INSPECTION",
+  "checkedAt": "2026-10-25T09:08:53.555Z",
+  "file": "tsukuhako-linux-x86_64-1.0.2.rpm",
+  "bytes": 118981653,
+  "sha256": "d2bc01620c81e7c3cecb8393239d09ee698433c5a21702cc6e61ca212cb37bba",
+  "metadata": {
+    "name": "tsukuhako",
+    "version": "1.0.2",
+    "architecture": "x86_64",
+    "license": "MIT"
+  },
+  "requires": [
+    "/bin/sh",
+    "/bin/sh",
+    "alsa-lib",
+    "at-spi2-core",
+    "gtk3",
+    "libXScrnSaver",
+    "libXtst",
+    "libnotify",
+    "libsecret",
+    "libuuid",
+    "mesa-libgbm",
+    "nss",
+    "rpmlib(CompressedFileNames) <= 3.0.4-1",
+    "rpmlib(PayloadFilesHavePrefix) <= 4.0-1",
+    "rpmlib(PayloadIsXz) <= 5.2-1",
+    "xdg-utils"
+  ],
+  "bundle": {
+    "status": "PASS",
+    "category": "BUNDLE_INSPECTION",
+    "productVersion": "1.0.2",
+    "sourceCommit": "05b2a8f7671b6aab2ed73c80208552cf5bae4d07",
+    "dirty": false,
+    "helperVersion": "1.0.2",
+    "files": 136,
+    "chapters": 61,
+    "templates": 7,
+    "helperSha256": "642d19b31aa2e47170df264669910c3df976279d96fdb7097c4909c7c1b15085"
+  },
+  "desktop": "[Desktop Entry]\nName=ツクハコ\nExec=/opt/tsukuhako/tsukuhako %U\nTerminal=false\nType=Application\nIcon=tsukuhako\nStartupWMClass=tsukuhako\nComment=開発環境を生成するツールと使い始めのガイド、教材を同梱しています。Fedora・Rocky LinuxなどのRPM系Linux x64向けです。本体の導入とDocker等の開発準備は別の段階です。\nKeywords=ツクハコ;Tsukuhako;Development;Learning;\nCategories=Development;\n",
+  "maximumMainBinaryGlibc": "GLIBC_2.25",
+  "signing": "UNSIGNED",
+  "hostInstallation": "NOT_RUN",
+  "desktopGui": "NOT_RUN"
+}

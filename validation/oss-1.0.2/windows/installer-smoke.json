@@ -1,0 +1,79 @@
+{
+  "category": "CI",
+  "status": "PASS",
+  "productVersion": "1.0.2",
+  "sourceCommit": "05b2a8f7671b6aab2ed73c80208552cf5bae4d07",
+  "file": "tsukuhako-windows-x64-1.0.2-setup.exe",
+  "sha256": "ff514ae8712c69d5a9220e65b94e24a0932b0e940faf36ed84b69f2c793ea9ce",
+  "signing": "NotSigned",
+  "environment": {
+    "os": "Microsoft Windows Server 2022 Datacenter",
+    "build": "10.0.20348.0",
+    "administratorToken": true,
+    "sessionId": 2
+  },
+  "install": {
+    "process": {
+      "pid": 6660,
+      "exitCode": 0,
+      "timeoutSeconds": 120
+    },
+    "displayVersion": "1.0.2",
+    "status": "PASS",
+    "registry": "HKCU",
+    "path": "<RUNNER_TEMP>/isolated/導入 日本語 空白",
+    "executableSha256": "1c7f95ac1af73a451911077392d8025a0d89d092580dd51e35ce2df2202ecf8c",
+    "displayName": "ツクハコ 1.0.2",
+    "sourceCommit": "05b2a8f7671b6aab2ed73c80208552cf5bae4d07"
+  },
+  "launch": {
+    "category": "CI",
+    "status": "PASS",
+    "launch": "installed executable; isolated --user-data-dir and CDP observation; no sandbox overrides",
+    "rendererErrors": [],
+    "pid": 4988,
+    "productVersion": "1.0.2",
+    "sourceCommit": "05b2a8f7671b6aab2ed73c80208552cf5bae4d07",
+    "window": {
+      "handle": 328188,
+      "title": "ツクハコ | 作る・学ぶ・困ったとき",
+      "pid": 4988,
+      "responding": true,
+      "sessionId": 2
+    },
+    "savedReading": {
+      "view": "learn",
+      "lessonId": "F2",
+      "chapterId": "first",
+      "scroll": 388,
+      "guideMode": "guided"
+    },
+    "chapterLoaded": true,
+    "url": "app://tsukuhako/index.html",
+    "gracefulExit": true
+  },
+  "uninstall": {
+    "directoryRemoved": true,
+    "registrationRemoved": true,
+    "status": "PASS",
+    "applicationRemoved": true,
+    "settledTimeoutSeconds": 60,
+    "process": {
+      "pid": 4764,
+      "exitCode": 0,
+      "timeoutSeconds": 120
+    }
+  },
+  "retention": {
+    "beforeSha256": "4745cd9a5b9fedece25e6434d361a41af2ebd2a270d35a8c93b222ee35bf7bf4",
+    "scope": "actual app-created reading.json in isolated --user-data-dir; not WSL or DB data, not default APPDATA",
+    "status": "PASS",
+    "afterSha256": "4745cd9a5b9fedece25e6434d361a41af2ebd2a270d35a8c93b222ee35bf7bf4"
+  },
+  "notRun": [
+    "Windows 11 standard user / SmartScreen warnings",
+    "default install path and Start menu click",
+    "WSL / Docker / VS Code / F2 or S2 runtime",
+    "real WSL, projects and DB retention"
+  ]
+}

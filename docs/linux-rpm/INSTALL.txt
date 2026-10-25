@@ -18,8 +18,9 @@ VS Code（RPM系）：https://code.visualstudio.com/docs/setup/linux
 
 更新：ツクハコを閉じ、新版のrpmを同じようにdnfでインストールします。
 削除：ツクハコを閉じ、パッケージ管理画面で削除するか、次を実行します。
-  sudo dnf remove tsukuhako
-本体を削除しても、生成したプロジェクト、Dockerデータ、読書設定は残ります。
+  sudo dnf --setopt=clean_requirements_on_remove=False remove tsukuhako
+このコマンドは本体を削除し、共有ライブラリの自動削除は行いません。
+生成したプロジェクト、Dockerデータ、読書設定も残ります。
 読書設定は通常 ~/.config/tsukuhako（XDG_CONFIG_HOME指定時はその配下）です。
 
 未署名のRPMです。SHA256SUMSの同名行を sha256sum コマンドの結果と比較できます。

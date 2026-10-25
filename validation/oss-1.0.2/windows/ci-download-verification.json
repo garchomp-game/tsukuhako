@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "checkedAt": "2026-10-25T09:12:40.114486+00:00",
+  "runUrl": "https://github.com/garchomp-game/tsukuhako/actions/runs/40179249095",
+  "runId": 40179249095,
+  "sourceCommit": "05b2a8f7671b6aab2ed73c80208552cf5bae4d07",
+  "productVersion": "1.0.2",
+  "installer": "tsukuhako-windows-x64-1.0.2-setup.exe",
+  "bytes": 146364636,
+  "sha256": "ff514ae8712c69d5a9220e65b94e24a0932b0e940faf36ed84b69f2c793ea9ce",
+  "checksumsVerified": true,
+  "ciInstallerSmoke": "PASS",
+  "rendererErrors": [],
+  "scope": "Windows Server 2022 CI; Win11 standard-user/WSL/Docker/VS Code runtime NOT_RUN"
+}

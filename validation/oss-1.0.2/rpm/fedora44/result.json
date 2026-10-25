@@ -1,0 +1,100 @@
+{
+  "category": "ISOLATED_CONTAINER",
+  "result": "PASS",
+  "image": "registry.fedoraproject.org/fedora:44",
+  "input": {
+    "file": "tsukuhako-linux-x86_64-1.0.2.rpm",
+    "bytes": 118981653,
+    "sha256": "d2bc01620c81e7c3cecb8393239d09ee698433c5a21702cc6e61ca212cb37bba"
+  },
+  "startedAt": "2026-10-25T09:14:15.818Z",
+  "hostPackageInstallation": false,
+  "hostHomeMounted": false,
+  "dockerSocketMounted": false,
+  "privileged": false,
+  "notRun": [
+    "Desktop GUI launch",
+    "SELinux on a real host",
+    "Actual older-release migration",
+    "Dev Container and sample application lifecycle"
+  ],
+  "imageDetails": [
+    "registry.fedoraproject.org/fedora@sha256:40005ed606ff7bbdc5344f3625e043f64493358b3dfaf2cc6b1995282189f3f5"
+  ],
+  "isolation": {
+    "bindMounts": [
+      {
+        "destination": "/input/check.sh",
+        "readOnly": true
+      },
+      {
+        "destination": "/input/final.rpm",
+        "readOnly": true
+      }
+    ],
+    "network": "bridge",
+    "capAdd": []
+  },
+  "containerRemoved": true,
+  "checks": [
+    {
+      "id": "input",
+      "status": "PASS"
+    },
+    {
+      "id": "data-preserved-initial",
+      "status": "PASS"
+    },
+    {
+      "id": "installed-initial",
+      "status": "PASS"
+    },
+    {
+      "id": "data-preserved-upgraded",
+      "status": "PASS"
+    },
+    {
+      "id": "installed-upgraded",
+      "status": "PASS"
+    },
+    {
+      "id": "upgrade-link-preserved",
+      "status": "PASS"
+    },
+    {
+      "id": "data-preserved-remove",
+      "status": "PASS"
+    },
+    {
+      "id": "removed-remove",
+      "status": "PASS"
+    },
+    {
+      "id": "data-preserved-reinstalled",
+      "status": "PASS"
+    },
+    {
+      "id": "installed-reinstalled",
+      "status": "PASS"
+    },
+    {
+      "id": "data-preserved-final",
+      "status": "PASS"
+    },
+    {
+      "id": "removed-final",
+      "status": "PASS"
+    },
+    {
+      "id": "complete",
+      "status": "PASS"
+    }
+  ],
+  "inputUnchanged": true,
+  "finishedAt": "2026-10-25T09:16:21.067Z",
+  "testSources": {
+    "containerScriptSha256": "35e5158903fe927f6365f46d13cee3ab562f462610137880df611275f9974cc8",
+    "runnerSha256": "4e74124718b993e45fe6bbe969e975d13ebc71c782f125fa3d883b8682baba09",
+    "note": "Package-only removal: clean_requirements_on_remove=False; protected_packages remains unchanged."
+  }
+}

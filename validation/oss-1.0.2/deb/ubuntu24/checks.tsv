@@ -1,0 +1,14 @@
+input	PASS
+sentinels	PASS
+lower-version-fixture	PASS
+data-preserved-lower	PASS
+installed-lower	PASS
+data-preserved-final	PASS
+installed-final	PASS
+data-preserved-remove	PASS
+removed-remove	PASS
+data-preserved-reinstall	PASS
+installed-reinstall	PASS
+data-preserved-purge	PASS
+removed-purge	PASS
+complete	PASS

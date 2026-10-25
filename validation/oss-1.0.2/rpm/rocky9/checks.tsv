@@ -1,0 +1,13 @@
+input	PASS
+data-preserved-initial	PASS
+installed-initial	PASS
+data-preserved-upgraded	PASS
+installed-upgraded	PASS
+upgrade-link-preserved	PASS
+data-preserved-remove	PASS
+removed-remove	PASS
+data-preserved-reinstalled	PASS
+installed-reinstalled	PASS
+data-preserved-final	PASS
+removed-final	PASS
+complete	PASS

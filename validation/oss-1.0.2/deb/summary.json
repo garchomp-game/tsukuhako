@@ -1,0 +1,40 @@
+{
+  "scope": "Isolated Debian-family package lifecycle; no GUI session or real project runtime",
+  "status": "PASS",
+  "results": [
+    {
+      "os": "Ubuntu 24.04.5 LTS",
+      "image": "ubuntu:24.04",
+      "result": "PASS",
+      "checks": 14,
+      "sourceCommit": "05b2a8f7671b6aab2ed73c80208552cf5bae4d07",
+      "sha256": "9a6226a5696992c94f3731dd4f5ec7db083130c11845d1a2253cde5c5971b5f9",
+      "packageVersion": "1.0.2",
+      "runtimeDependenciesResolved": true,
+      "missingLddLibraries": false,
+      "userFixturesPreserved": true,
+      "cleanup": {
+        "containerRemoved": true,
+        "imageTagRemoved": true
+      },
+      "evidence": "ubuntu24/result.json"
+    },
+    {
+      "os": "Debian GNU/Linux 13 (trixie)",
+      "image": "debian:13",
+      "result": "PASS",
+      "checks": 14,
+      "sourceCommit": "05b2a8f7671b6aab2ed73c80208552cf5bae4d07",
+      "sha256": "9a6226a5696992c94f3731dd4f5ec7db083130c11845d1a2253cde5c5971b5f9",
+      "packageVersion": "1.0.2",
+      "runtimeDependenciesResolved": true,
+      "missingLddLibraries": false,
+      "userFixturesPreserved": true,
+      "cleanup": {
+        "containerRemoved": true,
+        "imageTagRemoved": true
+      },
+      "evidence": "debian13/result.json"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "category": "RPM_RELEASE_VERIFICATION",
+  "file": "tsukuhako-linux-x86_64-1.0.2.rpm",
+  "bytes": 118981653,
+  "sha256": "d2bc01620c81e7c3cecb8393239d09ee698433c5a21702cc6e61ca212cb37bba",
+  "sourceCommit": "05b2a8f7671b6aab2ed73c80208552cf5bae4d07",
+  "dirty": false,
+  "builder": {
+    "type": "isolated Docker build",
+    "image": "tsukuhako-rpm-toolchain:node24-bookworm",
+    "imageId": "sha256:34fa7ba7e7ce79ff0787d5a94c0364c98f059f3e9ffcbbe389105fa8fbeef369",
+    "base": "node:24.19.0-bookworm-slim",
+    "hostRpmInstalled": false,
+    "sharedStageReadOnly": true
+  },
+  "staticInspection": "PASS",
+  "containerLifecycle": {
+    "Rocky Linux 9": "PASS",
+    "Fedora 44": "PASS"
+  },
+  "testedOperations": [
+    "install with distribution dependency resolution",
+    "ldd of executable/crashpad/shared libraries",
+    "minimal older-package fixture upgrade",
+    "remove app without automatic dependency removal",
+    "reinstall",
+    "final removal",
+    "preserve settings/project/Docker-location sentinel files"
+  ],
+  "notRun": [
+    "Desktop GUI launch",
+    "Real-host SELinux policy",
+    "RHEL itself",
+    "Actual older-release data migration",
+    "Dev Container/sample application end-to-end"
+  ],
+  "deliveryFiles": [
+    "INSTALL-linux-rpm.txt",
+    "LICENSE",
+    "SHA256SUMS",
+    "manifest-linux-rpm.json",
+    "tsukuhako-linux-x86_64-1.0.2.rpm"
+  ]
+}

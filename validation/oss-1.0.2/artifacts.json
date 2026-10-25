@@ -1,0 +1,39 @@
+{
+  "productVersion": "1.0.2",
+  "status": "PASS",
+  "scope": "Final local delivery files; public download verification follows publication",
+  "artifacts": [
+    {
+      "file": "tsukuhako-windows-x64-1.0.2-setup.exe",
+      "bytes": 146364636,
+      "sha256": "ff514ae8712c69d5a9220e65b94e24a0932b0e940faf36ed84b69f2c793ea9ce",
+      "sourceCommit": "05b2a8f7671b6aab2ed73c80208552cf5bae4d07"
+    },
+    {
+      "file": "tsukuhako-linux-amd64-1.0.2.deb",
+      "bytes": 133506984,
+      "sha256": "9a6226a5696992c94f3731dd4f5ec7db083130c11845d1a2253cde5c5971b5f9",
+      "sourceCommit": "05b2a8f7671b6aab2ed73c80208552cf5bae4d07"
+    },
+    {
+      "file": "tsukuhako-linux-x86_64-1.0.2.rpm",
+      "bytes": 118981653,
+      "sha256": "d2bc01620c81e7c3cecb8393239d09ee698433c5a21702cc6e61ca212cb37bba",
+      "sourceCommit": "05b2a8f7671b6aab2ed73c80208552cf5bae4d07"
+    }
+  ],
+  "deliveryFiles": [
+    "INSTALL-linux-deb.txt",
+    "INSTALL-linux-rpm.txt",
+    "INSTALL-windows.txt",
+    "LICENSE",
+    "SHA256SUMS",
+    "SHA256SUMS-windows",
+    "manifest-linux-deb.json",
+    "manifest-linux-rpm.json",
+    "manifest-windows.json",
+    "tsukuhako-linux-amd64-1.0.2.deb",
+    "tsukuhako-linux-x86_64-1.0.2.rpm",
+    "tsukuhako-windows-x64-1.0.2-setup.exe"
+  ]
+}
