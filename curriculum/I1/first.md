@@ -237,7 +237,7 @@ SELECTの「SQLの練習」を「在庫を調べる」に変えて保存しま�
 
 - 使用技術：PostgreSQL + SQL
 - 管理用ID：I1
-- 版：0.1.0
+- 版：0.1.1
 - 識別名：sample
 - ポート：database=55432
 

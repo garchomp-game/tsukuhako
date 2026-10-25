@@ -16,6 +16,7 @@ assert.equal(copied.length,result.bytes,'Copied deb size changed');
 assert.equal(createHash('sha256').update(copied).digest('hex'),result.sha256,'Copied deb hash changed; do not distribute this incomplete folder');
 fs.writeFileSync(out+'/SHA256SUMS',`${result.sha256}  ${name}\n`);
 fs.copyFileSync(new URL('../../docs/linux-deb/INSTALL.txt',import.meta.url),out+'/INSTALL.txt');
+fs.copyFileSync(new URL('../../LICENSE',import.meta.url),out+'/LICENSE');
 const guide=JSON.parse(fs.readFileSync(new URL('../../docs/launch/sunday-pack/manifest.json',import.meta.url)));
 assert.equal(guide.productVersion,result.control.Version,'Delivery guide does not match this binary');
 const manifest={schemaVersion:1,product:'ツクハコ',productVersion:result.control.Version,platform:'linux-amd64',initialTarget:'Linux Mint 22.3 x64',file:name,bytes:result.bytes,sha256:result.sha256,sourceCommit:result.bundle.sourceCommit,dirty:result.bundle.dirty,guideRevision:guide.guideRevision,delivery:'Single deb; do not wrap the primary download in another ZIP',staticInspection:'PASS',mintGuiInstall:'NOT_RUN',mintMenuLaunch:'NOT_RUN',buyerDownload:'NOT_RUN',runtimeEvidence:`See validation/onboarding-${result.control.Version}/REPORT.md; static inspection does not imply runtime approval`,generatedAt:new Date().toISOString()};

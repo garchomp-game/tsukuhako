@@ -1,6 +1,6 @@
 {
   "name": "tsukuhako-generator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "type": "module",
   "engines": {
@@ -11,5 +11,7 @@
   },
   "dependencies": {
     "fflate": "0.8.3"
-  }
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/garchomp-game/tsukuhako"
 }

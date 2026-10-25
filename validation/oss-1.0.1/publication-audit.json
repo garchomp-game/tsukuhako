@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-25",
+  "scanner": "Gitleaks 8.30.1; official release checksum verified",
+  "scope": [
+    "all fetched Git refs/history",
+    "17 historical tracked ZIP archive objects, extracted",
+    "7 GitHub Actions run logs"
+  ],
+  "historyFindings": 56,
+  "reviewedFalsePositives": {
+    "sha256FileManifests": 32,
+    "debianLibsecretDependency": 23,
+    "logFilenameReference": 1
+  },
+  "unresolvedFindings": 0,
+  "historicalArchiveFindings": 0,
+  "actionsLogFindings": 0,
+  "notes": "Automated scan plus targeted privacy review; not a guarantee that every possible sensitive value is detectable. No personal learning library included."
+}

@@ -92,7 +92,7 @@ jobs:
         run: |
           product_version=$(node -p "require('./generator-desktop/package.json').version")
           node tools/linux-deb/deliver.mjs "dist/linux-deb/tsukuhako-linux-amd64-${product_version}.deb" dist/delivery/linux
-      - name: Windows recipient download (private; no release publishing)
+      - name: Windows recipient download (build artifact; no release publishing)
         if: inputs.platform == 'windows'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
@@ -101,7 +101,7 @@ jobs:
           retention-days: 14
           compression-level: 0
           if-no-files-found: error
-      - name: Linux recipient download (private; no release publishing)
+      - name: Linux recipient download (build artifact; no release publishing)
         if: inputs.platform == 'linux'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:

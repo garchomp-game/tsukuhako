@@ -244,7 +244,7 @@ VS Codeの構成ターミナルとDev Containersのログを開きます。ロ�
 
 - 使用技術：Next.js + ローカルSupabase
 - 管理用ID：S2
-- 版：0.1.4
+- 版：0.1.5
 - 識別名：sample
 - ポート：app=3000 / shadow=54320 / api=54321 / database=54322 / studio=54323
 

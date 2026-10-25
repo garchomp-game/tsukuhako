@@ -11,17 +11,17 @@
       "priority": "required",
       "lifecycle": "implemented",
       "externalAccountRequired": false,
-      "implementationVersion": "0.1.4",
-      "packageSha256": "14f6fdb51772afa3706330eecb2738ecb1e04a675516be5f15ebc3f759f345a8",
+      "implementationVersion": "0.1.5",
+      "packageSha256": "1fcb161527c638add0bca82e61a2615c6370834b96f253119ddd40b9a509f6b7",
       "validatedEnvironments": [
         "Linux Mint22.3 / x86_64 / Docker29.9.1 / Node24.22.0 / npm11.17.0; template Dockerfile"
       ],
       "validationStatus": "PASS",
-      "packagePath": "dist/F1-0.1.4.zip",
+      "packagePath": "dist/F1-0.1.5.zip",
       "sourcePath": "starter-templates/F1",
       "defaultPort": 3000,
       "generatorEligible": true,
-      "validationScope": "0.4.6: presentation-only badge/version change; generation and source/ZIP consistency checked. Runtime baseline: 0.4.0: F1 HTTP title regression fixed. Shared-core generation + actual Dev Container startup, npm test/check/build and browser edit/restore on Linux Mint x64. Other OS not run.",
+      "validationScope": "1.0.1: MIT license and notices added; template runtime behavior unchanged. 0.4.6: presentation-only badge/version change; generation and source/ZIP consistency checked. Runtime baseline: 0.4.0: F1 HTTP title regression fixed. Shared-core generation + actual Dev Container startup, npm test/check/build and browser edit/restore on Linux Mint x64. Other OS not run.",
       "validationEvidence": "validation/learning-0.4.0/linux-template-startup.json",
       "notRun": [
         "VS Code GUI",
@@ -48,7 +48,7 @@
         "stop": "bash scripts/compose.sh stop"
       },
       "readme": "starter-templates/F1/README.md",
-      "packageBytes": 59520,
+      "packageBytes": 60285,
       "acceptanceStatus": "NOT_RUN",
       "initialSetupRequiresNetwork": true,
       "services": [
@@ -86,17 +86,17 @@
       "priority": "required",
       "lifecycle": "implemented",
       "externalAccountRequired": false,
-      "implementationVersion": "0.1.3",
-      "packageSha256": "010ec4e06a5fa2fede3628261492041c6e9fb3087ebd3cb04579d606112958e9",
+      "implementationVersion": "0.1.4",
+      "packageSha256": "fc5b55fabcebfc8858bc25ec9df1c7056d102aac44c0a499a9a1e2dd2c3da8b0",
       "validatedEnvironments": [
         "Linux Mint22.3 / x86_64 / Docker29.9.1 / Node24.22.0 / npm11.17.0; template Dockerfile"
       ],
       "validationStatus": "PASS",
-      "packagePath": "dist/F2-0.1.3.zip",
+      "packagePath": "dist/F2-0.1.4.zip",
       "sourcePath": "starter-templates/F2",
       "defaultPort": 3000,
       "generatorEligible": true,
-      "validationScope": "UX loop 02: app host default 3000; source/ZIP, generated configuration and guides checked. Runtime/OS scope remains the historical baseline below. 0.4.6: presentation-only badge/version change; generation and source/ZIP consistency checked. Runtime baseline: 0.3.0 brand migration: final template ZIP check/build with unchanged pinned dependencies. F1/B1/S1 local preview; F2/S2 generated-project startup evidence is recorded separately in validation/brand-0.3.0/startup. Older functional acceptance remains historical.",
+      "validationScope": "1.0.1: MIT license and notices added; template runtime behavior unchanged. UX loop 02: app host default 3000; source/ZIP, generated configuration and guides checked. Runtime/OS scope remains the historical baseline below. 0.4.6: presentation-only badge/version change; generation and source/ZIP consistency checked. Runtime baseline: 0.3.0 brand migration: final template ZIP check/build with unchanged pinned dependencies. F1/B1/S1 local preview; F2/S2 generated-project startup evidence is recorded separately in validation/brand-0.3.0/startup. Older functional acceptance remains historical.",
       "validationEvidence": "validation/brand-0.3.0/templates/F2.json",
       "notRun": [
         "VS Code GUI",
@@ -123,7 +123,7 @@
         "stop": "bash scripts/compose.sh stop"
       },
       "readme": "starter-templates/F2/README.md",
-      "packageBytes": 77784,
+      "packageBytes": 78546,
       "acceptanceStatus": "NOT_RUN",
       "initialSetupRequiresNetwork": true,
       "services": [
@@ -161,17 +161,17 @@
       "priority": "required",
       "lifecycle": "implemented",
       "externalAccountRequired": false,
-      "implementationVersion": "0.1.3",
-      "packageSha256": "1f5d423217069c1d5b562e1506d3a46bfe87ede7e6c958ef8da7eba89664795b",
+      "implementationVersion": "0.1.4",
+      "packageSha256": "6842702b212a11523f6235c1a33f83be27455194a574fc0622a5713348616f00",
       "validatedEnvironments": [
         "Linux Mint22.3 / x86_64 / Docker29.9.1 / Node24.22.0 / npm11.17.0; template Dockerfile"
       ],
       "validationStatus": "PASS",
-      "packagePath": "dist/B1-0.1.3.zip",
+      "packagePath": "dist/B1-0.1.4.zip",
       "sourcePath": "starter-templates/B1",
       "defaultPort": 3000,
       "generatorEligible": true,
-      "validationScope": "UX loop 02: app host default 3000; source/ZIP, generated configuration and guides checked. Runtime/OS scope remains the historical baseline below. 0.3.0 brand migration: final template ZIP check/build with unchanged pinned dependencies. F1/B1/S1 local preview; F2/S2 generated-project startup evidence is recorded separately in validation/brand-0.3.0/startup. Older functional acceptance remains historical.",
+      "validationScope": "1.0.1: MIT license and notices added; template runtime behavior unchanged. UX loop 02: app host default 3000; source/ZIP, generated configuration and guides checked. Runtime/OS scope remains the historical baseline below. 0.3.0 brand migration: final template ZIP check/build with unchanged pinned dependencies. F1/B1/S1 local preview; F2/S2 generated-project startup evidence is recorded separately in validation/brand-0.3.0/startup. Older functional acceptance remains historical.",
       "validationEvidence": "validation/brand-0.3.0/templates/B1.json",
       "notRun": [
         "VS Code GUI",
@@ -198,7 +198,7 @@
         "stop": "bash scripts/compose.sh stop"
       },
       "readme": "starter-templates/B1/README.md",
-      "packageBytes": 82834,
+      "packageBytes": 83601,
       "acceptanceStatus": "NOT_RUN",
       "initialSetupRequiresNetwork": true,
       "services": [
@@ -236,17 +236,17 @@
       "priority": "required",
       "lifecycle": "implemented",
       "externalAccountRequired": false,
-      "implementationVersion": "0.1.4",
-      "packageSha256": "d8930e022ca2b710e47fb7d203c611a440571270e6442a5e2ede2b1f706e7850",
+      "implementationVersion": "0.1.5",
+      "packageSha256": "e755bf6aee8943dac1734106376581154ba79886b935888240497ae73648efa1",
       "validatedEnvironments": [
         "Linux Mint22.3 / x86_64 / Docker29.9.1 / Node24.22.0 / npm11.17.0; template Dockerfile"
       ],
       "validationStatus": "PASS",
-      "packagePath": "dist/S1-0.1.4.zip",
+      "packagePath": "dist/S1-0.1.5.zip",
       "sourcePath": "starter-templates/S1",
       "defaultPort": 3000,
       "generatorEligible": true,
-      "validationScope": "UX loop 02: app host default 3000; source/ZIP, generated configuration and guides checked. Runtime/OS scope remains the historical baseline below. 0.4.6: presentation-only badge/version change; generation and source/ZIP consistency checked. Runtime baseline: 0.3.0 brand migration: final template ZIP check/build with unchanged pinned dependencies. F1/B1/S1 local preview; F2/S2 generated-project startup evidence is recorded separately in validation/brand-0.3.0/startup. Older functional acceptance remains historical.",
+      "validationScope": "1.0.1: MIT license and notices added; template runtime behavior unchanged. UX loop 02: app host default 3000; source/ZIP, generated configuration and guides checked. Runtime/OS scope remains the historical baseline below. 0.4.6: presentation-only badge/version change; generation and source/ZIP consistency checked. Runtime baseline: 0.3.0 brand migration: final template ZIP check/build with unchanged pinned dependencies. F1/B1/S1 local preview; F2/S2 generated-project startup evidence is recorded separately in validation/brand-0.3.0/startup. Older functional acceptance remains historical.",
       "validationEvidence": "validation/brand-0.3.0/templates/S1.json",
       "notRun": [
         "VS Code GUI",
@@ -273,7 +273,7 @@
         "stop": "bash scripts/compose.sh stop"
       },
       "readme": "starter-templates/S1/README.md",
-      "packageBytes": 96393,
+      "packageBytes": 97155,
       "acceptanceStatus": "NOT_RUN",
       "initialSetupRequiresNetwork": true,
       "services": [
@@ -311,17 +311,17 @@
       "priority": "required",
       "lifecycle": "implemented",
       "externalAccountRequired": false,
-      "implementationVersion": "0.1.4",
-      "packageSha256": "cd974d4fc28547de9cb4b78b5f909b40cdf6570f6ada8cf7676edfa62f386f50",
+      "implementationVersion": "0.1.5",
+      "packageSha256": "a2de2e2fd6f8777b9bc948a48900b7f3df07394eac696aa40666d78e0eb9df28",
       "validatedEnvironments": [
         "Linux Mint22.3 / x86_64 / Docker29.9.1 / Node24.22.0 / npm11.17.0; template Dockerfile"
       ],
       "validationStatus": "PASS",
-      "packagePath": "dist/S2-0.1.4.zip",
+      "packagePath": "dist/S2-0.1.5.zip",
       "sourcePath": "starter-templates/S2",
       "defaultPort": 3000,
       "generatorEligible": true,
-      "validationScope": "UX loop 02: app host default 3000; source/ZIP, generated configuration and guides checked. Runtime/OS scope remains the historical baseline below. 0.4.6: presentation-only badge/version change; generation and source/ZIP consistency checked. Runtime baseline: 0.3.0 brand migration: final template ZIP check/build with unchanged pinned dependencies. F1/B1/S1 local preview; F2/S2 generated-project startup evidence is recorded separately in validation/brand-0.3.0/startup. Older functional acceptance remains historical.",
+      "validationScope": "1.0.1: MIT license and notices added; template runtime behavior unchanged. UX loop 02: app host default 3000; source/ZIP, generated configuration and guides checked. Runtime/OS scope remains the historical baseline below. 0.4.6: presentation-only badge/version change; generation and source/ZIP consistency checked. Runtime baseline: 0.3.0 brand migration: final template ZIP check/build with unchanged pinned dependencies. F1/B1/S1 local preview; F2/S2 generated-project startup evidence is recorded separately in validation/brand-0.3.0/startup. Older functional acceptance remains historical.",
       "validationEvidence": "validation/brand-0.3.0/templates/S2.json",
       "notRun": [
         "VS Code GUI",
@@ -348,7 +348,7 @@
         "stop": "bash scripts/app.sh stop"
       },
       "readme": "starter-templates/S2/README.md",
-      "packageBytes": 100311,
+      "packageBytes": 101072,
       "acceptanceStatus": "NOT_RUN",
       "initialSetupRequiresNetwork": true,
       "services": [
@@ -391,17 +391,17 @@
       "priority": "required",
       "lifecycle": "implemented",
       "externalAccountRequired": false,
-      "implementationVersion": "0.1.0",
-      "packageSha256": "2861fea034ced0baf1dd484f78c19be8bbfbb2ccc8ac8c880e0ec3f5e989e398",
+      "implementationVersion": "0.1.1",
+      "packageSha256": "58b285820407721ca72539991582d8d8b8b1e8804a1fda4df854f339e609dd48",
       "validatedEnvironments": [
         "Linux Mint 22.3 / x86_64 / Docker29.9.1 / Compose5.6.0 / DevContainerCLI0.89.0"
       ],
       "validationStatus": "PASS",
-      "packagePath": "dist/I1-0.1.0.zip",
+      "packagePath": "dist/I1-0.1.1.zip",
       "sourcePath": "starter-templates/I1",
       "defaultPort": 55432,
       "generatorEligible": true,
-      "validationScope": "Linux x86_64, Dev Container CLI, local functional/recreation/standalone ZIP checks",
+      "validationScope": "1.0.1: MIT license and notices added; template runtime behavior unchanged. Linux x86_64, Dev Container CLI, local functional/recreation/standalone ZIP checks",
       "validationEvidence": "validation/i1/results.json",
       "notRun": [
         "VS Code GUI",
@@ -428,7 +428,7 @@
         "stop": "bash scripts/project.sh stop"
       },
       "readme": "starter-templates/I1/README.md",
-      "packageBytes": 26663,
+      "packageBytes": 27894,
       "acceptanceStatus": "NOT_RUN",
       "initialSetupRequiresNetwork": true,
       "services": [
@@ -464,17 +464,17 @@
       "priority": "additional",
       "lifecycle": "implemented",
       "externalAccountRequired": true,
-      "implementationVersion": "0.1.2",
-      "packageSha256": "34bb06c097c40f0dd5fdf291c49b3d415ea12eccdd0b967f56287140158298c3",
+      "implementationVersion": "0.1.3",
+      "packageSha256": "e2fd8c82f6033f695467bcc09d0252dc51f681477f5da6cb7c4f781d90317c9c",
       "validatedEnvironments": [
         "Linux Mint22.3 / x86_64 / Docker29.9.1 / Node24.22.0 / npm11.17.0; template Dockerfile"
       ],
       "validationStatus": "BLOCKED",
-      "packagePath": "dist/S3-0.1.2.zip",
+      "packagePath": "dist/S3-0.1.3.zip",
       "sourcePath": "starter-templates/S3",
       "defaultPort": 3000,
       "generatorEligible": false,
-      "validationScope": "UX loop 02: app host default 3000; source/ZIP, generated configuration and guides checked. Runtime/OS scope remains the historical baseline below. 0.3.0: local check/build and unconfigured browser page PASS. Dedicated live cloud connection BLOCKED; excluded from generation.",
+      "validationScope": "1.0.1: MIT license and notices added; template runtime behavior unchanged. UX loop 02: app host default 3000; source/ZIP, generated configuration and guides checked. Runtime/OS scope remains the historical baseline below. 0.3.0: local check/build and unconfigured browser page PASS. Dedicated live cloud connection BLOCKED; excluded from generation.",
       "validationEvidence": "validation/brand-0.3.0/templates/S3.json",
       "notRun": [
         "VS Code GUI",
@@ -501,7 +501,7 @@
         "stop": "bash scripts/app.sh stop"
       },
       "readme": "starter-templates/S3/README.md",
-      "packageBytes": 80306,
+      "packageBytes": 81070,
       "acceptanceStatus": "NOT_RUN",
       "initialSetupRequiresNetwork": true,
       "services": [
@@ -547,8 +547,8 @@
     "dedicated live cloud connection",
     "Windows native GUI"
   ],
-  "generatedDate": "2026-10-21",
-  "packageVersion": "1.0.0",
+  "generatedDate": "2026-10-25",
+  "packageVersion": "1.0.1",
   "statusNote": "Validation applies only to stated local CLI/function scope. VS Code GUI and other listed acceptance work remain NOT_RUN; no universal compatibility guarantee.",
   "finalPackageEvidence": "validation/package-audit.json",
   "previousPackageVersion": "0.2.1",

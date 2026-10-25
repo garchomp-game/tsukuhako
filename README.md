@@ -1,26 +1,47 @@
-# ツクハコ 1.0.0
+# ツクハコ
 
-ユーザー指定により、0.4.8の機能を正式な版番号1.0.0へ揃えました。機能・依存パッケージの追加変更はなく、外部公開は未実施です。
+**開発環境を作り、手順を読みながら最初のWeb画面を動かすための、無料のデスクトップアプリです。**
 
-学習用の開発環境を作り、同梱教材でサンプルの動作確認まで進む。文字の変更・復元は任意で続けられるReact/Electronアプリです。明鏡の公式アプリではありません。
+プロジェクトのファイル作成と61章の教材をひとつにまとめています。アカウント登録は不要です。ソースコード・教材・テンプレートはMITライセンスで公開しています。
 
-Linuxの主配布物を**単体deb**に変更しました。対象候補はLinux Mint 22.3 x64です。`tsukuhako-linux-amd64-1.0.0.deb`を標準のパッケージインストーラーで導入し、メニューの「ツクハコ」→「はじめてのWeb画面で始める」へ進みます。通常画面にも「ガイド」があります。所有者のPCでの初回GUI導入・メニュー起動は確認待ちです。詳細な検証範囲は[1.0.0レポート](validation/onboarding-1.0.0/REPORT.md)を参照してください。
+## ダウンロード
 
-本体と61章の教材・ガイド、テンプレート、ファイル生成機能を同梱しています。本体を使うためのアカウント登録・ホストNode.js・Pythonは不要です。Docker・VS Code等の開発準備と、本体の導入完了は別です。最初の推奨構成は「はじめてのWeb画面」です。ブラウザでサンプル画面を確認できれば初回完了です。
+### [Linux Mint向けインストーラーをダウンロード（1.0.1・deb）](https://github.com/garchomp-game/tsukuhako/releases/download/v1.0.1/tsukuhako-linux-amd64-1.0.1.deb)
 
-- [短い導入・更新・削除案内](docs/linux-deb/INSTALL.txt)
-- [制作・再現手順とWindowsの扱い](generator-desktop/README.md)
-- [購入者向け受取先の準備手順](docs/linux-deb/UPLOAD.md)（外部配布は未実施）
-- [Brain・ガイドの制作メモ](docs/launch/SUNDAY-PACK.md) / [原稿等](docs/launch/REPORT.md) / [任意メールのローカル試作](web/README.md)
+対象：**Linux Mint 22.3・x64（Intel / AMD）**。
 
-Windowsの既存候補は0.4.4（未署名NSIS）のままです。今回Windows成果物は再生成していません。Windows 11通常ユーザーと実WSL経路は確認待ちです。macOS・ARM・他のLinuxディストリビューションは今回の対応確認対象外です。
+[リリースと確認済みの範囲](https://github.com/garchomp-game/tsukuhako/releases/tag/v1.0.1) · [インストール・更新・削除の説明](docs/linux-deb/INSTALL.txt) · [ファイルの確認用SHA-256](https://github.com/garchomp-game/tsukuhako/releases/download/v1.0.1/SHA256SUMS)
 
-F1/F2/B1/S1/S2/I1が生成対象、S3は参考資料です。Webサンプル4構成は、通常表示の管理IDを外す表示変更に合わせてテンプレート版とZIPを更新しました。生成済みプロジェクトは自動更新しません。
+Windows・macOS・ARM向けの公開インストーラーはありません。Ubuntu・Debian・ほかのMint版の動作も未確認です。Linux版の検証内容と未確認項目は[検証レポート](validation/oss-1.0.1/REPORT.md)をご覧ください。
 
-過去の検証記録：[0.4.8](validation/onboarding-0.4.8/REPORT.md)、[0.4.6](validation/onboarding-0.4.6/REPORT.md)、[0.4.5](validation/linux-deb-0.4.5/REPORT.md)、[0.4.4](validation/release-0.4.4/REPORT.md)、[担当A](validation/release-0.4.4-followup/REPORT.md)、[A・B・C](validation/launch-abc-2026-10-22/REPORT.md)、[旧b1同梱ZIP](validation/sunday-bundle-2026-10-25/REPORT.md)。過去版の成功を1.0.0の実機証拠へ読み替えません。
+## はじめる
 
-ソースは[garchomp-game/tsukuhako](https://github.com/garchomp-game/tsukuhako)（private）で管理します。依存フォルダ・製品ランタイム・大容量配布物・実際の.envをGitへ追加しません。公開販売・課金・公開ストレージへのアップロードは行っていません。
+1. ダウンロードした **`.deb` ファイルを開き、インストール**します。
+2. アプリケーションメニューから **「ツクハコ」** を起動します。
+3. **「はじめてのWeb画面で始める」** を押し、画面の案内に沿って保存先を選びます。
+4. 作成後の手順で **「このフォルダーをVS Codeで開く」** を押します。その下の案内に沿って開発環境を起動し、表示されたURLでサンプル画面を確認します。
 
-現在のソース版では、Web画面・APIの新規作成時の既定ポートを `3000`（PC側・コンテナー内とも）に統一しています。使用中なら現在の診断に従い、詳細設定で別の空きポートを指定します。作成済みの設定やDB用ポートは維持します。1.0.0のローカル配布候補に反映します。[ポート変更の検証](validation/ux-loop-02-ports/REPORT.md)
+開発環境を動かす際にはDockerとVS Code・Dev Containers拡張が必要です。アプリ内の「準備チェック」から確認できます。プロジェクト用のDev Container設定はツクハコが作成します。本体の利用のためにNode.js・npm・Pythonを別途インストールする必要はありません。
 
-1.0.0では、今回の保存先・接続先の直下からVS Codeを開けます。「手順を見ながら進める」と「必要な操作だけ進める」を選択・切り替えできます。[設計](docs/ux-startup-modes.md) / [今回の検証と配布候補](validation/onboarding-1.0.0/REPORT.md)。公開・main統合は未実施です。
+教材はアプリ内の **「学ぶ」「ガイド」「困ったとき」** からオフラインでも読めます。開発環境の初回起動には、依存ファイルを取得するためのネット接続が必要です。
+
+## できること
+
+- Web画面、API、データベースなどの学習用プロジェクトを作成する
+- 今回の保存先と接続先が入った手順を読みながら進める
+- 「手順を見ながら進める」「必要な操作だけ進める」を切り替える
+- サンプルを動かし、変更・復元・停止・再開を学ぶ
+
+Web画面・APIの標準ポートは、PC側とコンテナー内ともに3000です。使用中の場合は詳細設定で空いているポートを選びます。現在は自動で3001へ切り替える機能はありません。
+
+## 開発に参加する
+
+[ソースからのビルド・検証手順](generator-desktop/README.md) · [リリース手順](docs/linux-deb/UPLOAD.md) · [不具合・改善の提案](https://github.com/garchomp-game/tsukuhako/issues)
+
+不具合の報告には、OS、ツクハコの版、行った操作、表示されたエラーを添えてください。認証情報や `.env` の内容は載せないでください。個人で開発しているため、対応時期の約束はできません。
+
+## ライセンス
+
+[MIT License](LICENSE)。本リポジトリのオリジナルのコード・教材・テンプレートは、ライセンスの条件に従って利用・改変・再配布できます。生成したプロジェクトにもライセンスを同梱します。依存パッケージとランタイムにはそれぞれのライセンスが適用されます。[同梱ライセンスの説明](THIRD-PARTY-NOTICES.md)
+
+本アプリは明鏡の公式アプリではありません。過去の販売案や検証記録は開発履歴として残しています。現在の配布窓口は、このREADMEとGitHub Releasesです。

@@ -34,6 +34,8 @@ with tarfile.open(archive) as tar:
     assert sha(tar.extractfile('node').read()) == meta['nodeSha256']
     assert sha(tar.extractfile('helper.mjs').read()) == meta['helperSha256']
     assert len(tar.extractfile('Node-LICENSE').read()) > 1000
+    if tuple(map(int,meta['version'].split('.'))) >= (1,0,1):
+        assert b'MIT License' in tar.extractfile('LICENSE').read()
     assert len(tar.extractfile('bundle/generator/node_modules/fflate/LICENSE').read()) > 100
     catalog = json.load(tar.extractfile('bundle/catalog.json'))
     assert catalog['packageVersion'] == meta['version']

@@ -236,7 +236,7 @@ JSONに lesson: "preview" が増えます。 開発サーバーを動かした�
 
 - 使用技術：Next.js API
 - 管理用ID：B1
-- 版：0.1.3
+- 版：0.1.4
 - 識別名：sample
 - ポート：app=3000
 

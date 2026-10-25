@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import { createHash } from 'node:crypto';
 
-export const VERSION = '1.0.0';
+export const VERSION = '1.0.1';
 export const hash = value => createHash('sha256').update(value).digest('hex');
 export const stable = value => JSON.stringify(order(value));
 function order(value) {

@@ -1,6 +1,6 @@
 # 作業と提出
 
-- GitHubは `garchomp-game/tsukuhako` のプライベートリポジトリ。`gh` は `garchomp-game` を使う。
+- GitHubは `garchomp-game/tsukuhako` のMITライセンスの公開リポジトリ。`gh` は `garchomp-game` を使う。
 - 完了した変更は検証してcommit・pushし、簡潔なレポートと必要なエビデンスを渡す。
 - ソースはリポジトリで確認するため、ソース一式のレビューZIPは別途依頼があった場合だけ作る。
 - 実機確認、fixtureによる確認、未実施を分けて記録する。

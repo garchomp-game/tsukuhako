@@ -19,6 +19,7 @@ with tarfile.open(archive) as t:
  for source,target in [(name+'/bin/node','node'),(name+'/LICENSE','Node-LICENSE')]:
   (stage/target).write_bytes(t.extractfile(source).read())
 (stage/'node').chmod(0o755)
+shutil.copy2(R/'LICENSE',stage/'LICENSE')
 for f in ['helper.mjs','job.mjs']:shutil.copy2(R/'generator-desktop/helper'/f,stage/f)
 (stage/'adapters').mkdir()
 for f in ['local.mjs','process.mjs']:shutil.copy2(R/'generator-desktop/adapters'/f,stage/'adapters'/f)

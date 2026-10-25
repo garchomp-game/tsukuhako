@@ -16,6 +16,8 @@ test('distribution: independent cwd and Unicode/space paths; missing helper and 
     assert.equal(result.status,'PASS');assert.equal(result.chapters,61); // 50 lessons + 5 first-run guides + 6 creation help chapters.
     const helper=path.join(app,'wsl-helper/helper.tar');fs.renameSync(helper,helper+'.held');
     await assert.rejects(verifyBundle(app));fs.renameSync(helper+'.held',helper);
+    const license=path.join(app,'LICENSE');fs.renameSync(license,license+'.held');
+    await assert.rejects(verifyBundle(app));fs.renameSync(license+'.held',license);
     fs.appendFileSync(path.join(app,'bundle/curriculum/F2/first.md'),'corrupt');
     await assert.rejects(verifyBundle(app));
   }finally{fs.rmSync(tmp,{recursive:true,force:true});}

@@ -1,6 +1,6 @@
 {
   "name": "tsukuhako-desktop",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "type": "module",
   "main": "main.mjs",
@@ -30,5 +30,6 @@
   },
   "productName": "ツクハコ",
   "desktopName": "tsukuhako.desktop",
-  "homepage": "https://github.com/garchomp-game"
+  "homepage": "https://github.com/garchomp-game/tsukuhako",
+  "license": "MIT"
 }

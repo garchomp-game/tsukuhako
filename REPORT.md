@@ -1,3 +1,5 @@
+> 過去の開発・配布計画の記録です。現在はMITライセンスのOSSとして無料配布しています。最新の入口は[リポジトリのREADME](https://github.com/garchomp-game/tsukuhako#readme)です。
+
 > 販売原稿と任意メール導線の準備は [A・B・C統合レポート](validation/launch-abc-2026-10-22/REPORT.md)、製品0.4.4の採用配布物と終了検証の追補は [担当Aレポート](validation/release-0.4.4-followup/REPORT.md) を参照してください。販売公開・実メール送信・mainへの統合は行っていません。
 >
 > 0.4.4（OS別配布パック・教材UX・Windows CI補助検証）は [短いレポート](validation/release-0.4.4/REPORT.md) と [5〜10分の試用](validation/release-0.4.4/TRY-5-10-MIN.md) を参照してください。以下は0.4.2の記録です。

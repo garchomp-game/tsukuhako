@@ -1,3 +1,5 @@
+> 過去の開発・配布計画の記録です。現在はMITライセンスのOSSとして無料配布しています。最新の入口は[リポジトリのREADME](https://github.com/garchomp-game/tsukuhako#readme)です。
+
 # 10月25日向け：Linux debと内蔵ガイド（制作メモ）
 
 ## 現行方針：2026-10-24 / Linux版1.0.0

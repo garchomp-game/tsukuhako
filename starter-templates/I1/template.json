@@ -1,24 +1,78 @@
 {
   "id": "I1",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "category": "infrastructure",
   "description": "PostgreSQL 18.6 + 非root psql Dev Container。SQL / migration / seed のローカル学習。",
-  "prerequisites": ["Bash", "Docker Engine/Desktop", "Docker Compose v2+", "VS Code + Dev Containers extension"],
+  "prerequisites": [
+    "Bash",
+    "Docker Engine/Desktop",
+    "Docker Compose v2+",
+    "VS Code + Dev Containers extension"
+  ],
   "hostNodeRequired": false,
-  "services": ["app: psql workbench", "db: PostgreSQL 18.6"],
-  "ports": [{"host": "127.0.0.1", "default": 55432, "container": 5432, "variable": "HOST_PORT"}],
+  "services": [
+    "app: psql workbench",
+    "db: PostgreSQL 18.6"
+  ],
+  "ports": [
+    {
+      "host": "127.0.0.1",
+      "default": 55432,
+      "container": 5432,
+      "variable": "HOST_PORT"
+    }
+  ],
   "persistence": "Compose project ごとの pgdata named volume",
   "commands": {
-    "configure": {"location": "host", "command": "bash scripts/configure.sh"},
-    "doctor": {"location": "host", "command": "bash scripts/doctor.sh"},
-    "start": {"location": "host", "command": "bash scripts/project.sh start"},
-    "stop": {"location": "host", "command": "bash scripts/project.sh stop"},
-    "setup": {"location": "container", "command": "bash scripts/db.sh setup"},
-    "dev": {"location": "container", "command": "bash scripts/db.sh dev"},
-    "check": {"location": "container", "command": "bash scripts/db.sh check"},
-    "test": {"location": "container", "command": "bash scripts/db.sh test"}
+    "configure": {
+      "location": "host",
+      "command": "bash scripts/configure.sh"
+    },
+    "doctor": {
+      "location": "host",
+      "command": "bash scripts/doctor.sh"
+    },
+    "start": {
+      "location": "host",
+      "command": "bash scripts/project.sh start"
+    },
+    "stop": {
+      "location": "host",
+      "command": "bash scripts/project.sh stop"
+    },
+    "setup": {
+      "location": "container",
+      "command": "bash scripts/db.sh setup"
+    },
+    "dev": {
+      "location": "container",
+      "command": "bash scripts/db.sh dev"
+    },
+    "check": {
+      "location": "container",
+      "command": "bash scripts/db.sh check"
+    },
+    "test": {
+      "location": "container",
+      "command": "bash scripts/db.sh test"
+    }
   },
-  "docs": ["README.md", "docs/setup.md", "docs/learning.md", "docs/recovery.md", "docs/troubleshooting.md", "docs/versions.md", "docs/validation.md"],
-  "validation": {"linuxDevContainerCli": "PASS", "vscodeGui": "NOT_RUN", "windowsWsl": "NOT_RUN", "macos": "NOT_RUN", "githubActions": "NOT_RUN", "record": "docs/validation.md"},
+  "docs": [
+    "README.md",
+    "docs/setup.md",
+    "docs/learning.md",
+    "docs/recovery.md",
+    "docs/troubleshooting.md",
+    "docs/versions.md",
+    "docs/validation.md"
+  ],
+  "validation": {
+    "linuxDevContainerCli": "PASS",
+    "vscodeGui": "NOT_RUN",
+    "windowsWsl": "NOT_RUN",
+    "macos": "NOT_RUN",
+    "githubActions": "NOT_RUN",
+    "record": "docs/validation.md"
+  },
   "checksum": "配布ZIPのSHA-256は全体カタログとvalidation/i1に記録"
 }

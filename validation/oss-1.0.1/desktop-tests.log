@@ -1,0 +1,46 @@
+
+> tsukuhako-desktop@1.0.1 test
+> node --test tests/*.test.mjs
+
+✔ guide preference: legacy reading records and both modes preserve WSL and reading position (22.529593ms)
+✔ Guide: existing content API loads five canonical chapters and resolves their uppercase source links (39.523709ms)
+✔ Guide: the unchanged settings and chapter IPC contracts preserve a guide chapter, position and WSL selection (21.907151ms)
+✔ L01/L05/L10: metadata only, 50 lazy chapters with hashes and bounded cache (74.295741ms)
+✔ L05: traversals, symlinks, oversized and changed content rejected (6.863577ms)
+✔ L09: reading settings serialized, no generation inputs persisted (22.022299ms)
+✔ L05/P12: content and preparation IPC has no arbitrary path or command (0.59529ms)
+✔ P02/P03: WSL Unicode/localized lists, spaces, stopped, internal exclusion (2.691083ms)
+✔ P05: WSL Linux paths, literal metacharacters, forbidden Windows paths (0.470985ms)
+✔ P03/P12: default root and WSL1 refused; only selected distro arguments (4.779372ms)
+✔ P09/P12: preparation abort sends a cancellation for only its structured helper job (1.991228ms)
+✔ P04: unknown vs absent vs stopped vs permissions; no remote server contact (2.324283ms)
+✔ P04/P07: Linux containers and required extensions differentiated (0.849192ms)
+✔ P09: timeout, abort, output limit; only own process group stopped (267.390078ms)
+✔ P06: portable cksum preserves every existing identity (35.756135ms)
+✔ L04/P08/P12: cooperative cancellation rolls back only own output (54.334521ms)
+✔ version mismatch is rejected on every access and never cached (6.630195ms)
+✔ onboarding: missing runtime tools never block Linux file creation; Windows requires its selected helper (1.711819ms)
+✔ onboarding: diagnostic observations retain distinct states and route to the specific OS heading (1.755367ms)
+✔ onboarding: a current project is used only for its first chapter and a new project invalidates its content key (0.841426ms)
+✔ onboarding: normal help opens symptom guidance and return links target the current project (1.923646ms)
+✔ onboarding: help uses the current project for non-Web or non-Linux guides, with no persisted anchor (0.538803ms)
+✔ onboarding: an observed Docker runtime with unverified compatibility is not described as possibly uninstalled (0.345566ms)
+✔ creation help: real curriculum covers every configuration, stage and platform without runtime commands (9.740333ms)
+✔ G13 IPC: exact sender, main frame and local URL are all required (2.468537ms)
+✔ G13 IPC: fixed methods, strict bounded arguments; shell/root/files/hooks cannot be supplied (1.876679ms)
+✔ UX: WSL observations survive routing and all Docker states go to Windows setup (1.820208ms)
+✔ UX: re-list preserves valid distro, clears removed candidates, selects a sole new candidate (1.186744ms)
+✔ UX: source references are not actionable, chapter links round-trip, malformed paths do not throw (2.802711ms)
+✔ UX: all shipped chapter links resolve, source references exist or are labelled as historical (56.232364ms)
+✔ UX: help follows the current lesson and falls back to setup (0.77698ms)
+✔ UX: generated first steps use actual ports, target version and safely quoted directory for every template (3.232428ms)
+✔ UX: clearing a WSL selection still allows reading position to be saved (0.690832ms)
+✔ R041-3: missing S2 tools retain observations and reach the additional setup via Windows (28.123115ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 796.512252

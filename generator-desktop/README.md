@@ -1,10 +1,10 @@
-# ツクハコ Desktop 1.0.0
+# ツクハコ Desktop 1.0.1
 
 開発環境のファイルを作り、同梱教材でサンプルの動作確認まで進む。文字の変更・復元は任意で続けられるアプリです。明鏡の公式アプリではありません。
 
 ## Linuxの導入と保存場所
 
-主配布物は `tsukuhako-linux-amd64-1.0.0.deb`。最初の対象候補はLinux Mint 22.3 x64です。ファイルマネージャーからdebを開き、標準の「パッケージインストーラー」（Captain）で導入して、メニューの「ツクハコ」から起動します。所有者による通常GUI経路は確認待ちです。短い導入案内は配布フォルダのINSTALL.txt、検証結果はソース側のvalidation/onboarding-1.0.0/REPORT.mdを参照してください。
+主配布物は `tsukuhako-linux-amd64-1.0.1.deb`。最初の対象候補はLinux Mint 22.3 x64です。ファイルマネージャーからdebを開き、標準の「パッケージインストーラー」（Captain）で導入して、メニューの「ツクハコ」から起動します。所有者による通常GUI経路は確認待ちです。短い導入案内は配布フォルダのINSTALL.txt、検証結果はソース側のvalidation/oss-1.0.1/REPORT.mdを参照してください。
 
 本体は `/opt/tsukuhako`、メニューは `tsukuhako.desktop`、パッケージ・実行ファイル名は `tsukuhako`、appIdは `jp.tsukuhako.desktop` です。導入時の管理者認証はシステムへの配置に必要です。普段は通常ユーザーで起動します。Node.js・npm・Python・ビルドツールは利用者のPCへ要求しません。OSの実行時ライブラリはdebの依存で取得するため、初回導入時には通信が必要な場合があります。
 
@@ -26,7 +26,7 @@ F1/F2/B1/S1/S2はReopen in Containerのあと、構成ターミナルの「準�
 
 既存のWindows成果物は0.4.4の未署名NSISです。今回のLinux修正に伴う再生成は行いません。Windows Server CIの補助検証と、Windows 11通常ユーザー・実WSLの確認待ちを区別してください。既存候補の再現にはその版のcommitを使います。
 
-現在のソースで将来Windows版を作る場合、同じ1.0.0ステージとLinux x64 WSLヘルパーを使います。`~/.tsukuhako-helper/1.0.0-linux-x64` へ展開し、ハッシュを照合します。これはWindows 1.0.0の動作確認済みという意味ではありません。Windows用NSIS設定は変更していません。
+現在のソースで将来Windows版を作る場合、同じ1.0.1ステージとLinux x64 WSLヘルパーを使います。`~/.tsukuhako-helper/1.0.1-linux-x64` へ展開し、ハッシュを照合します。これはWindows 1.0.1の動作確認済みという意味ではありません。Windows用NSIS設定は変更していません。
 
 ## 制作側の再現手順
 
@@ -50,18 +50,18 @@ node tools/stage-desktop.mjs
 npm run test:package --prefix generator-desktop
 uv run --no-project --python 3.12 python tools/verify-helper-archive.py dist/desktop-app
 npm run package:linux --prefix generator-desktop
-node tools/linux-deb/inspect.mjs dist/linux-deb/tsukuhako-linux-amd64-1.0.0.deb
-node tools/linux-deb/deliver.mjs dist/linux-deb/tsukuhako-linux-amd64-1.0.0.deb dist/delivery-linux-deb-1.0.0
+node tools/linux-deb/inspect.mjs dist/linux-deb/tsukuhako-linux-amd64-1.0.1.deb
+node tools/linux-deb/deliver.mjs dist/linux-deb/tsukuhako-linux-amd64-1.0.1.deb dist/delivery-linux-deb-1.0.1
 ```
 
 隔離環境の更新・削除試験はtools/linux-debの検証ツールを使います。詳しい引数・条件はその冒頭と検証レポートを参照してください。所有者のPCへは先回りしてインストールしません。
 
-手動の `Desktop validation artifacts` workflowはOSを選択し、既定でLinuxだけを生成します。private artifactを14日保持し、公開Releaseは作りません。ActionsのZIPは制作側の輸送用です。購入者の主入口は取り出した単体debにします。
+手動の `Desktop validation artifacts` workflowはOSを選択し、既定でLinuxだけを生成します。ビルド用artifactを14日保持します。このworkflow自体はReleaseを作りません。一般利用者にはGitHub Releasesの単体debを案内します。
 
-Linux設定はelectron-builder.linux.json、Windows設定はelectron-builder.jsonです。共通ステージはASARを使用せず、worker・教材・テンプレート・ライセンスをresources/appへ配置します。Nodeのライセンスはhelper.tar、ElectronとChromiumはアプリ配布ルート、React/Markdown/fflateはthird-party、テンプレートの注意事項は各ZIPへ含めます。商品本文・ブランドの利用条件をOSSライセンスと混同しません。
+Linux設定はelectron-builder.linux.json、Windows設定はelectron-builder.jsonです。共通ステージはASARを使用せず、worker・教材・テンプレート・ライセンスをresources/appへ配置します。Nodeのライセンスはhelper.tar、ElectronとChromiumはアプリ配布ルート、React/Markdown/fflateはthird-party、テンプレートの注意事項は各ZIPへ含めます。オリジナルのコード・教材・テンプレートにはMITライセンスを適用し、本体・ヘルパー・生成プロジェクトにもLICENSEを同梱します。
 
-build-info.jsonとbundle-files.jsonに版・ソースcommit・ファイルのSHA-256を記録します。購入者向けの受取先は未設置で、docs/linux-deb/UPLOAD.mdにアップロード手順を用意しています。
+build-info.jsonとbundle-files.jsonに版・ソースcommit・ファイルのSHA-256を記録します。配布先はGitHub Releasesです。docs/linux-deb/UPLOAD.mdに公開手順を用意しています。
 
-## 1.0.0の案内モード
+## 1.0.1の案内モード
 
 開始前と生成後の手順で「手順を見ながら進める」「必要な操作だけ進める」を選べます。選択をローカルに保存します。必須操作、保存先、接続先は共通です。生成後のVS Codeボタンは接続先カード直下にあります。簡潔な表示から詳細の見出しを開いた場合も、元の表示へ戻れます。設計はdocs/ux-startup-modes.mdを参照してください。

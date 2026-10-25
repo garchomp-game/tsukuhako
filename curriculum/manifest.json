@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "appVersion": "1.0.0",
-  "version": "1.0.0",
+  "appVersion": "1.0.1",
+  "version": "1.0.1",
   "lessons": [
     {
       "id": "F1",
       "title": "入力と表示のWeb画面",
-      "version": "1.0.0",
-      "templateVersion": "0.1.4",
+      "version": "1.0.1",
+      "templateVersion": "0.1.5",
       "name": "入力と表示のWeb画面",
       "summary": "入力したことばが画面に映るサンプルから、画面づくりを始めます。",
       "technology": "React + Vite",
@@ -22,7 +22,7 @@
           "file": "F1/first.md",
           "source": "START_HERE.md",
           "bytes": 14562,
-          "sha256": "d73c96f538629d5c38539c3ec153ecbae6a5b583730f80253c4064a0eab904ad"
+          "sha256": "acf3556e6124113b07ab1643cafc5224fba3b1a84a5b2a7fa1f837791fb353e0"
         },
         {
           "id": "readme",
@@ -85,8 +85,8 @@
     {
       "id": "F2",
       "title": "はじめてのWeb画面",
-      "version": "1.0.0",
-      "templateVersion": "0.1.3",
+      "version": "1.0.1",
+      "templateVersion": "0.1.4",
       "name": "はじめてのWeb画面",
       "summary": "まずサンプル画面を表示します。そのあと、ページの移動や文字の変更を試せます。",
       "technology": "Next.js + Tailwind CSS",
@@ -101,7 +101,7 @@
           "file": "F2/first.md",
           "source": "START_HERE.md",
           "bytes": 14795,
-          "sha256": "81e161e2f3b1c7bd495f497009c7f66f3b260aee817bc659520625240b5b2ebe"
+          "sha256": "d40a20db7238720b6f9844f2d072818fc3379509358b13991c01714f5a36b68f"
         },
         {
           "id": "readme",
@@ -164,8 +164,8 @@
     {
       "id": "B1",
       "title": "データを返すAPI",
-      "version": "1.0.0",
-      "templateVersion": "0.1.3",
+      "version": "1.0.1",
+      "templateVersion": "0.1.4",
       "name": "データを返すAPI",
       "summary": "APIからJSONを受け取ります。そのあと、入力に応じた応答を試せます。",
       "technology": "Next.js API",
@@ -180,7 +180,7 @@
           "file": "B1/first.md",
           "source": "START_HERE.md",
           "bytes": 14770,
-          "sha256": "600ac214c7a936f367f45c5a28a53dd1f33637221211c9faff629b096c2718d3"
+          "sha256": "8e87a864c300e4ea95b61924ac6be3bac899e19b06a43c4b04e029a769c72415"
         },
         {
           "id": "readme",
@@ -251,8 +251,8 @@
     {
       "id": "S1",
       "title": "画面からつなぐAPI",
-      "version": "1.0.0",
-      "templateVersion": "0.1.4",
+      "version": "1.0.1",
+      "templateVersion": "0.1.5",
       "name": "画面からつなぐAPI",
       "summary": "画面で入力したことばをAPIへ送り、応答が画面へ戻る流れを試します。",
       "technology": "Next.js 画面 + API",
@@ -267,7 +267,7 @@
           "file": "S1/first.md",
           "source": "START_HERE.md",
           "bytes": 14897,
-          "sha256": "7396e640ec5f129281e471e20df4ae4d4c5261e5682695c3abd50582a561beff"
+          "sha256": "59e70ff961cac61e3e4ca048a1ddfa524eb245978a16b3ea1e8b9ceb145d2cd0"
         },
         {
           "id": "readme",
@@ -338,8 +338,8 @@
     {
       "id": "S2",
       "title": "メモを保存するWeb画面",
-      "version": "1.0.0",
-      "templateVersion": "0.1.4",
+      "version": "1.0.1",
+      "templateVersion": "0.1.5",
       "name": "メモを保存するWeb画面",
       "summary": "このPCのDBに架空のメモを保存し、ページを読み直しても残ることを試します。",
       "technology": "Next.js + ローカルSupabase",
@@ -354,7 +354,7 @@
           "file": "S2/first.md",
           "source": "START_HERE.md",
           "bytes": 15972,
-          "sha256": "93457ffe019d368185b9222a61a767a6f85c8e3375cb3eeddac3bc8854e225c7"
+          "sha256": "bcf3ee85f02f220d878b161a12502b06a317891fafd3d8fa3d7a1c946dadfc56"
         },
         {
           "id": "readme",
@@ -417,8 +417,8 @@
     {
       "id": "I1",
       "title": "SQLで調べるデータベース",
-      "version": "1.0.0",
-      "templateVersion": "0.1.0",
+      "version": "1.0.1",
+      "templateVersion": "0.1.1",
       "name": "SQLで調べるデータベース",
       "summary": "DBへ接続し、SQLで在庫のサンプルを検索します。Web画面は使いません。",
       "technology": "PostgreSQL + SQL",
@@ -433,7 +433,7 @@
           "file": "I1/first.md",
           "source": "START_HERE.md",
           "bytes": 14403,
-          "sha256": "41ff5b4e1f3190000586acefe2345f777ea50879b3ffbb2406f453a7b45df707"
+          "sha256": "6b98e81ca845525cb0073451d1c1c296f58d3436b917484de33b1893af5243b7"
         },
         {
           "id": "readme",
@@ -504,7 +504,7 @@
     {
       "id": "setup",
       "title": "開発準備",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "templateVersion": null,
       "chapters": [
         {
@@ -552,7 +552,7 @@
     {
       "id": "guide",
       "title": "はじめて使う・ガイド",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "templateVersion": null,
       "chapters": [
         {
@@ -561,7 +561,7 @@
           "file": "guide/start.md",
           "source": "START_HERE.md",
           "bytes": 2433,
-          "sha256": "5ac8b0b8c4b415928b5219ea540b40f697af28049c8ddb3089b721f5fe7156c1"
+          "sha256": "f8518745600afa5a4f1f0bc3ea79214a94f821483eeeb0e4f07e72305a23283c"
         },
         {
           "id": "first-run",
@@ -569,7 +569,7 @@
           "file": "guide/first-run.md",
           "source": "FIRST-RUN.md",
           "bytes": 8477,
-          "sha256": "8125df4649d00a3603b440179525f39f54981d6265dd0e16407f7e0bf7f213a9"
+          "sha256": "8df0a746bd41c486b7a306fadb3cac295d051d04091112723bdf827fe418d2f6"
         },
         {
           "id": "troubleshooting",
