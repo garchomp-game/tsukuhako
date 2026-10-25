@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "category": "PACKAGED_CORE_GENERATION",
+  "results": [
+    {
+      "id": "F1",
+      "license": "MIT",
+      "guide": true
+    },
+    {
+      "id": "F2",
+      "license": "MIT",
+      "guide": true
+    },
+    {
+      "id": "B1",
+      "license": "MIT",
+      "guide": true
+    },
+    {
+      "id": "S1",
+      "license": "MIT",
+      "guide": true
+    },
+    {
+      "id": "S2",
+      "license": "MIT",
+      "guide": true
+    },
+    {
+      "id": "I1",
+      "license": "MIT",
+      "guide": true
+    }
+  ]
+}

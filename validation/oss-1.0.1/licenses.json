@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "npmRuntimeDependencies": [
+    "argparse",
+    "entities",
+    "linkify-it",
+    "markdown-it",
+    "mdurl",
+    "punycode.js",
+    "react",
+    "react-dom",
+    "scheduler",
+    "uc.micro"
+  ],
+  "templates": 7,
+  "helper": "MIT + Node-LICENSE",
+  "application": "MIT",
+  "sourceCommit": "2c6b61d2533bf4b7821a3aa6297ff44fc81dda0c"
+}

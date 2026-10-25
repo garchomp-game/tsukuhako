@@ -15,5 +15,9 @@
   "unresolvedFindings": 0,
   "historicalArchiveFindings": 0,
   "actionsLogFindings": 0,
-  "notes": "Automated scan plus targeted privacy review; not a guarantee that every possible sensitive value is detectable. No personal learning library included."
+  "notes": "Automated scan plus targeted privacy review; not a guarantee that every possible sensitive value is detectable. No personal learning library included.",
+  "newCommitFindings": 8,
+  "newCommitReviewedFalsePositives": 8,
+  "smallCiEvidenceArtifacts": 4,
+  "smallCiEvidenceFindings": 0
 }
