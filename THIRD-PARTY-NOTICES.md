@@ -5,7 +5,7 @@
 Linuxインストーラーには次のライセンスを同梱しています。
 
 - ツクハコ：`resources/app/LICENSE`
-- React / React DOM、Markdown処理の依存、fflate：`resources/app/third-party/`
+- React / React DOM / Scheduler、Markdown処理の依存、fflate：`resources/app/third-party/`
 - Electron：`LICENSE.electron.txt`
 - Chromiumとその依存：`LICENSES.chromium.html`
 - WSL用ヘルパー内のNode.jsとその依存：`resources/app/wsl-helper/helper.tar` 内の `Node-LICENSE`

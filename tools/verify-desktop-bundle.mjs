@@ -14,6 +14,7 @@ export async function verifyBundle(directory) {
     assert.equal(pkg.license,'MIT');
     assert.match(fs.readFileSync(path.join(dir,'LICENSE'),'utf8'), /MIT License/);
     assert.ok(fs.statSync(path.join(dir,'THIRD-PARTY-NOTICES.md')).isFile());
+    assert.ok(fs.statSync(path.join(dir,'third-party/scheduler-LICENSE.txt')).size > 100);
   }
   assert.match(info.sourceCommit,/^[a-f0-9]{40}$/);
   for (const file of ['main.mjs','preload.cjs','worker.mjs','security.mjs','build/index.html','lib/content.mjs','adapters/wsl.mjs','wsl-helper/bundle.json','wsl-helper/helper.tar','third-party/fflate-LICENSE.txt','third-party/react-LICENSE.txt','third-party/markdown-it-LICENSE.txt','bundle/generator/node_modules/fflate/package.json']) assert.ok(fs.statSync(path.join(dir,file)).isFile(),file);

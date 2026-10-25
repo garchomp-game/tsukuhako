@@ -26,7 +26,7 @@ export async function stageDesktop(destination = path.join(root, 'dist/desktop-a
   for (const t of read(path.join(root,'catalog.json')).templates) copy(path.join(root,t.packagePath),path.join(bundle,t.packagePath));
   const licenses = path.join(destination,'third-party');
   fs.mkdirSync(licenses);
-  for (const name of ['react','react-dom','markdown-it','entities','linkify-it','mdurl','punycode.js','uc.micro','argparse']) {
+  for (const name of ['react','react-dom','scheduler','markdown-it','entities','linkify-it','mdurl','punycode.js','uc.micro','argparse']) {
     const source = path.join(gui,'node_modules',name);
     const license = fs.readdirSync(source).find(f=>/^license/i.test(f));
     if (!license) throw Error('License missing: '+name);
