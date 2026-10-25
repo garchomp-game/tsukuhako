@@ -6,49 +6,49 @@
       "version": "0.1.5",
       "license": "MIT",
       "sourceMatchesZip": true,
-      "sha256": "1fcb161527c638add0bca82e61a2615c6370834b96f253119ddd40b9a509f6b7"
+      "sha256": "859195e9538fb9f2a1b3615334b70d1f104e192329ae939acc8aeca21ad378d6"
     },
     {
       "id": "F2",
       "version": "0.1.4",
       "license": "MIT",
       "sourceMatchesZip": true,
-      "sha256": "fc5b55fabcebfc8858bc25ec9df1c7056d102aac44c0a499a9a1e2dd2c3da8b0"
+      "sha256": "8500a81655db8d29260718f6f7b984ad2dd1758d67a564e945597dc955059641"
     },
     {
       "id": "B1",
       "version": "0.1.4",
       "license": "MIT",
       "sourceMatchesZip": true,
-      "sha256": "6842702b212a11523f6235c1a33f83be27455194a574fc0622a5713348616f00"
+      "sha256": "da4eb6bcad902d2a77a6404a7dffdd75c7951c6d995595d521dc0e43356e4ca8"
     },
     {
       "id": "S1",
       "version": "0.1.5",
       "license": "MIT",
       "sourceMatchesZip": true,
-      "sha256": "e755bf6aee8943dac1734106376581154ba79886b935888240497ae73648efa1"
+      "sha256": "0f7c7be514844829064b5214697650fcb491d0cbacd46532f4e598cc292ba610"
     },
     {
       "id": "S2",
       "version": "0.1.5",
       "license": "MIT",
       "sourceMatchesZip": true,
-      "sha256": "a2de2e2fd6f8777b9bc948a48900b7f3df07394eac696aa40666d78e0eb9df28"
+      "sha256": "37c1cc38214cd02e7f42f85c7dda2219e6c2d903abfef94c7a29878621a18026"
     },
     {
       "id": "I1",
       "version": "0.1.1",
       "license": "MIT",
       "sourceMatchesZip": true,
-      "sha256": "58b285820407721ca72539991582d8d8b8b1e8804a1fda4df854f339e609dd48"
+      "sha256": "53312003a79c38bf5e64052652a9a0f8261eb0874f4c98ad7a5c455d065325ae"
     },
     {
       "id": "S3",
       "version": "0.1.3",
       "license": "MIT",
       "sourceMatchesZip": true,
-      "sha256": "e2fd8c82f6033f695467bcc09d0252dc51f681477f5da6cb7c4f781d90317c9c"
+      "sha256": "3e27bc2c5ddd5aff405bf17445f823e84082cb0d91af41be603c88727a9f3d56"
     }
   ]
 }
