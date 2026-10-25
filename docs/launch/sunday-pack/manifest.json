@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "name": "ツクハコ 内蔵初回ガイド",
-  "guideRevision": "2026-10-25-r9",
-  "productVersion": "1.0.1",
-  "status": "OSS_RELEASE_SOURCE",
-  "scope": "After opening the application on Linux Mint, create the recommended Web project, follow its own path and URL, wait for successful initialization, and display the sample page. Changes and restoration are optional.",
+  "guideRevision": "2026-10-25-r10",
+  "productVersion": "1.0.2",
+  "status": "MULTIPLATFORM_OSS_RELEASE_SOURCE",
+  "scope": "Windows WSL 2 and Linux: prepare the host, create a Web project, open VS Code and display the sample.",
   "includesProductBinary": false,
   "includesGeneratedProject": false,
   "entry": "START_HERE.md",
@@ -17,18 +17,18 @@
   "files": [
     {
       "file": "START_HERE.md",
-      "bytes": 2433,
-      "sha256": "f8518745600afa5a4f1f0bc3ea79214a94f821483eeeb0e4f07e72305a23283c"
+      "bytes": 2663,
+      "sha256": "66c19939d101de1f3a292595f3cba9cf9a3fd78aecefb51202e5ecf6f383aa64"
     },
     {
       "file": "FIRST-RUN.md",
-      "bytes": 8477,
-      "sha256": "8df0a746bd41c486b7a306fadb3cac295d051d04091112723bdf827fe418d2f6"
+      "bytes": 8901,
+      "sha256": "34d9b5503a92056c54883e8fef0e775f61f48271657480c40cfe3a150cbf02e8"
     },
     {
       "file": "TROUBLESHOOTING.md",
-      "bytes": 9198,
-      "sha256": "e494920bfba05d2e5c8bdeae65190182fab1d91f5136c82d544d017897066c5b"
+      "bytes": 9783,
+      "sha256": "6745333b6298d71b4e50bc048e4b8b4a8abb83ff7e49347dad87ef340f34e9b7"
     },
     {
       "file": "NEXT-STEP.md",
@@ -37,23 +37,31 @@
     },
     {
       "file": "FEEDBACK.md",
-      "bytes": 1697,
-      "sha256": "4ae33b5cfb0cdb8c3c0e93b452dc23b41f55ca3a964249fde4306d8fcab28dd2"
+      "bytes": 1713,
+      "sha256": "6a8b45714a711076e98e1432b95e8209106e6d0ae49ee819d2838e36e301d859"
     }
   ],
   "distribution": {
-    "linux": {
-      "productVersion": "1.0.1",
-      "format": "deb",
-      "file": "tsukuhako-linux-amd64-1.0.1.deb",
-      "target": "Linux Mint 22.3 x64",
-      "status": "OSS_RELEASE_CANDIDATE"
-    },
     "windows": {
-      "productVersion": "0.4.4",
-      "guideRevision": "2026-10-25-r2",
-      "packageRevision": "2026-10-25-b1",
-      "status": "EXISTING_ARTIFACT_UNCHANGED"
+      "productVersion": "1.0.2",
+      "format": "nsis",
+      "file": "tsukuhako-windows-x64-1.0.2-setup.exe",
+      "target": "Windows 11 x64 with WSL 2",
+      "status": "BUILD_PENDING"
+    },
+    "linuxDeb": {
+      "productVersion": "1.0.2",
+      "format": "deb",
+      "file": "tsukuhako-linux-amd64-1.0.2.deb",
+      "target": "Debian / Ubuntu family x64",
+      "status": "BUILD_PENDING"
+    },
+    "linuxRpm": {
+      "productVersion": "1.0.2",
+      "format": "rpm",
+      "file": "tsukuhako-linux-x86_64-1.0.2.rpm",
+      "target": "Fedora / Rocky Linux family x64",
+      "status": "BUILD_PENDING"
     }
   },
   "verificationScope": {

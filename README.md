@@ -6,22 +6,28 @@
 
 ## ダウンロード
 
-### [Linux Mint向けインストーラーをダウンロード（1.0.1・deb）](https://github.com/garchomp-game/tsukuhako/releases/download/v1.0.1/tsukuhako-linux-amd64-1.0.1.deb)
+### [Windows版インストーラーをダウンロード（1.0.2・exe）](https://github.com/garchomp-game/tsukuhako/releases/download/v1.0.2/tsukuhako-windows-x64-1.0.2-setup.exe)
 
-対象：**Linux Mint 22.3・x64（Intel / AMD）**。
+主な対象は **Windows 11・x64（Intel / AMD）** です。開発環境にはWSL 2を使います。本体は通常ユーザーでインストールできます。未署名のためWindowsの警告が表示されることがあります。OSの保護機能を無効化する必要はありません。
 
-[リリースと確認済みの範囲](https://github.com/garchomp-game/tsukuhako/releases/tag/v1.0.1) · [インストール・更新・削除の説明](docs/linux-deb/INSTALL.txt) · [ファイルの確認用SHA-256](https://github.com/garchomp-game/tsukuhako/releases/download/v1.0.1/SHA256SUMS)
+| OS・形式 | ダウンロード | 導入・更新・削除の案内 |
+| --- | --- | --- |
+| **Windows x64** | [インストーラー（exe）](https://github.com/garchomp-game/tsukuhako/releases/download/v1.0.2/tsukuhako-windows-x64-1.0.2-setup.exe) | [Windowsの案内](https://github.com/garchomp-game/tsukuhako/releases/download/v1.0.2/INSTALL-windows.txt) |
+| Debian・Ubuntu系 Linux x64 | [debパッケージ](https://github.com/garchomp-game/tsukuhako/releases/download/v1.0.2/tsukuhako-linux-amd64-1.0.2.deb) | [debの案内](docs/linux-deb/INSTALL.txt) |
+| Fedora・Rocky LinuxなどRed Hat系 Linux x64 | [rpmパッケージ](https://github.com/garchomp-game/tsukuhako/releases/download/v1.0.2/tsukuhako-linux-x86_64-1.0.2.rpm) | [rpmの案内](docs/linux-rpm/INSTALL.txt) |
 
-Windows・macOS・ARM向けの公開インストーラーはありません。Ubuntu・Debian・ほかのMint版の動作も未確認です。Linux版の検証内容と未確認項目は[検証レポート](validation/oss-1.0.1/REPORT.md)をご覧ください。
+[リリース一覧](https://github.com/garchomp-game/tsukuhako/releases) · [ファイルの確認用SHA-256](https://github.com/garchomp-game/tsukuhako/releases/download/v1.0.2/SHA256SUMS) · [版別の検証レポート](validation/oss-1.0.2/REPORT.md)
+
+WindowsのCI検証とWindows 11＋実WSLでの操作確認、Linuxコンテナーでの導入検証とデスクトップの操作確認は区別しています。具体的なOS・合格した項目・未確認項目は検証レポートに記録しています。RHEL実機・macOS・ARM向けの動作確認はありません。
 
 ## はじめる
 
-1. ダウンロードした **`.deb` ファイルを開き、インストール**します。
-2. アプリケーションメニューから **「ツクハコ」** を起動します。
-3. **「はじめてのWeb画面で始める」** を押し、画面の案内に沿って保存先を選びます。
+1. 自分のOSに合う **インストーラーを開き、インストール**します。Windowsは `.exe`、Linuxは上の表から `.deb` または `.rpm` を選びます。
+2. Windowsのスタートメニュー、またはLinuxのアプリケーションメニューから **「ツクハコ」** を起動します。
+3. **「はじめてのWeb画面で始める」** を押し、画面の案内に沿って準備と保存先の選択を進めます。Windowsでは開発するWSLと同梱ヘルパーの準備を先に済ませます。
 4. 作成後の手順で **「このフォルダーをVS Codeで開く」** を押します。その下の案内に沿って開発環境を起動し、表示されたURLでサンプル画面を確認します。
 
-開発環境を動かす際にはDockerとVS Code・Dev Containers拡張が必要です。アプリ内の「準備チェック」から確認できます。プロジェクト用のDev Container設定はツクハコが作成します。本体の利用のためにNode.js・npm・Pythonを別途インストールする必要はありません。
+開発環境を動かす際にはDockerとVS Code・Dev Containers拡張が必要です。WindowsではWSL 2とVS CodeのWSL拡張も使います。アプリ内の「準備チェック」から確認できます。プロジェクト用のDev Container設定はツクハコが作成します。本体の利用のためにNode.js・npm・Pythonを別途インストールする必要はありません。
 
 教材はアプリ内の **「学ぶ」「ガイド」「困ったとき」** からオフラインでも読めます。開発環境の初回起動には、依存ファイルを取得するためのネット接続が必要です。
 

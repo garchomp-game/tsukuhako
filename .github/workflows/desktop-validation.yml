@@ -3,10 +3,10 @@ on:
   workflow_dispatch:
     inputs:
       platform:
-        description: Build only the selected OS (Windows runtime remains unverified)
+        description: Build selected OS; Windows Server CI smoke is separate from Windows 11 / WSL validation
         type: choice
         options: [linux, windows]
-        default: linux
+        default: windows
         required: true
 permissions:
   contents: read
@@ -33,6 +33,7 @@ jobs:
       - run: npm ci --prefix tools
         if: inputs.platform == 'windows'
       - run: node generator-desktop/node_modules/electron/install.js
+      - run: node --test tools/windows-delivery.test.mjs
       - run: npm run build --prefix generator-desktop
       - run: python tools/build-helper.py
       - run: node tools/stage-desktop.mjs
@@ -81,7 +82,7 @@ jobs:
           retention-days: 14
           if-no-files-found: warn
       - name: Assemble Windows recipient folder
-        if: inputs.platform == 'windows'
+        if: inputs.platform == 'windows' && steps.windowsSmoke.outcome == 'success'
         shell: pwsh
         run: |
           $installer = Get-Item dist/windows-x64/*-setup.exe
@@ -93,7 +94,7 @@ jobs:
           product_version=$(node -p "require('./generator-desktop/package.json').version")
           node tools/linux-deb/deliver.mjs "dist/linux-deb/tsukuhako-linux-amd64-${product_version}.deb" dist/delivery/linux
       - name: Windows recipient download (build artifact; no release publishing)
-        if: inputs.platform == 'windows'
+        if: inputs.platform == 'windows' && steps.windowsSmoke.outcome == 'success'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: tsukuhako-windows-x64-delivery

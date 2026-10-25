@@ -22,7 +22,7 @@ for(const t of catalog.templates.filter(t=>t.generatorEligible)) {
  if(t.id==='S2')Object.assign(ports,{shadow:t.hostPorts.shadow,api:t.hostPorts.shadow+1,database:t.hostPorts.shadow+2,studio:t.hostPorts.shadow+3});
  // Reader replaces this unbound reference with the current project's exact guide.
  const example={request:{templateId:t.id},destination:'/home/your-name/projects/sample',ports,templateVersion:t.implementationVersion,projectName:'sample',nextSteps:nextSteps(t.id,ports)};
- const first='> これは生成前に読める手順の見本です。保存先とポートは例です。生成後のボタンから、今回の値が入った手順を開いてください。\n\n'+startHere(example,{platform:'linux'});
+ const first='> これは生成前に読めるLinux向け手順の見本です。保存先とポートは例です。Windowsでは先に[Windows / WSL 2の準備](lesson:setup/windows)を確認してください。生成後のボタンから、今回のOS・保存先・ポートが入った手順を開いてください。\n\n'+startHere(example,{platform:'linux'});
  const rows=[['first',presentation.firstGoal,first,'START_HERE.md'],['readme','詳しい使い方',fs.readFileSync(root+'/'+t.sourcePath+'/README.md','utf8'),'README.md']];
  const files=fs.readdirSync(root+'/'+t.sourcePath+'/docs').filter(x=>x.endsWith('.md')).sort();
  for(const file of files) {

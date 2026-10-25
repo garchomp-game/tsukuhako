@@ -1,0 +1,6 @@
+# Build/inspect RPM in a disposable container; the host needs only Docker and Node.
+FROM node:24.19.0-bookworm-slim
+LABEL jp.tsukuhako.role="rpm-toolchain"
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends rpm rpm2cpio cpio xz-utils ca-certificates binutils \
+    && rm -rf /var/lib/apt/lists/*

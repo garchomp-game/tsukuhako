@@ -1,0 +1,86 @@
+{
+  "category": "GENERATED_FILES_AND_DOCUMENT_INTEGRATION",
+  "version": "1.0.2",
+  "configurations": [
+    {
+      "id": "F1",
+      "name": "入力と表示のWeb画面",
+      "goal": "サンプル画面を表示する",
+      "requiredFinal": "verify",
+      "ports": {
+        "app": 39471
+      },
+      "relativeLinksValid": true,
+      "windowsBranch": true,
+      "guideSha256": "f61848ea528f15689b495f24f726c2335cdefc060d971b480bc55625a639ae60"
+    },
+    {
+      "id": "F2",
+      "name": "はじめてのWeb画面",
+      "goal": "サンプル画面を表示する",
+      "requiredFinal": "verify",
+      "ports": {
+        "app": 39471
+      },
+      "relativeLinksValid": true,
+      "windowsBranch": true,
+      "guideSha256": "abe0f775821e69e89e0edfaed4939d5380502932bf3c3ac31c6de74fd8372fdc"
+    },
+    {
+      "id": "B1",
+      "name": "データを返すAPI",
+      "goal": "APIの応答を確認する",
+      "requiredFinal": "verify",
+      "ports": {
+        "app": 39471
+      },
+      "relativeLinksValid": true,
+      "windowsBranch": true,
+      "guideSha256": "6825e424bf09754cfd97f67898fceb740e04a99bd23156c527a90a9f52a0192e"
+    },
+    {
+      "id": "S1",
+      "name": "画面からつなぐAPI",
+      "goal": "画面からAPIの応答を確認する",
+      "requiredFinal": "verify",
+      "ports": {
+        "app": 39471
+      },
+      "relativeLinksValid": true,
+      "windowsBranch": true,
+      "guideSha256": "c82d4ae91aa0b63afd60685605a17395af8910816f65a27f7498711b96ffc0dc"
+    },
+    {
+      "id": "S2",
+      "name": "メモを保存するWeb画面",
+      "goal": "メモを保存して読み直す",
+      "requiredFinal": "verify",
+      "ports": {
+        "app": 39471,
+        "shadow": 54400,
+        "api": 54401,
+        "database": 54402,
+        "studio": 54403
+      },
+      "relativeLinksValid": true,
+      "windowsBranch": true,
+      "guideSha256": "79b6e10e528efdf0bc9d55bc74c7c9aaf8a83851646f7ae326769d9a3f479779"
+    },
+    {
+      "id": "I1",
+      "name": "SQLで調べるデータベース",
+      "goal": "SQLでサンプルデータを確認する",
+      "requiredFinal": "verify",
+      "ports": {
+        "database": 54041
+      },
+      "relativeLinksValid": true,
+      "windowsBranch": true,
+      "guideSha256": "537cddc309138520d26128dea819c7e3aa69b4c81232a3fb86e0a4621725b888"
+    }
+  ],
+  "canonicalLinks": 329,
+  "curriculumHashes": 61,
+  "regeneration": true,
+  "result": "PASS"
+}

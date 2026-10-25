@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "appVersion": "1.0.1",
-  "version": "1.0.1",
+  "appVersion": "1.0.2",
+  "version": "1.0.2",
   "lessons": [
     {
       "id": "F1",
       "title": "入力と表示のWeb画面",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "templateVersion": "0.1.5",
       "name": "入力と表示のWeb画面",
       "summary": "入力したことばが画面に映るサンプルから、画面づくりを始めます。",
@@ -21,8 +21,8 @@
           "title": "サンプル画面を表示する",
           "file": "F1/first.md",
           "source": "START_HERE.md",
-          "bytes": 14562,
-          "sha256": "acf3556e6124113b07ab1643cafc5224fba3b1a84a5b2a7fa1f837791fb353e0"
+          "bytes": 14693,
+          "sha256": "f4654e6c45b14165629df86ccec7da77a337b858ca8a00fc42ec8097fbd58455"
         },
         {
           "id": "readme",
@@ -85,7 +85,7 @@
     {
       "id": "F2",
       "title": "はじめてのWeb画面",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "templateVersion": "0.1.4",
       "name": "はじめてのWeb画面",
       "summary": "まずサンプル画面を表示します。そのあと、ページの移動や文字の変更を試せます。",
@@ -100,8 +100,8 @@
           "title": "サンプル画面を表示する",
           "file": "F2/first.md",
           "source": "START_HERE.md",
-          "bytes": 14795,
-          "sha256": "d40a20db7238720b6f9844f2d072818fc3379509358b13991c01714f5a36b68f"
+          "bytes": 14926,
+          "sha256": "2c451dadbb754513d57849964972a9680ba6807004f0d3d0a2d622aa6871ff9b"
         },
         {
           "id": "readme",
@@ -164,7 +164,7 @@
     {
       "id": "B1",
       "title": "データを返すAPI",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "templateVersion": "0.1.4",
       "name": "データを返すAPI",
       "summary": "APIからJSONを受け取ります。そのあと、入力に応じた応答を試せます。",
@@ -179,8 +179,8 @@
           "title": "APIの応答を確認する",
           "file": "B1/first.md",
           "source": "START_HERE.md",
-          "bytes": 14770,
-          "sha256": "8e87a864c300e4ea95b61924ac6be3bac899e19b06a43c4b04e029a769c72415"
+          "bytes": 14901,
+          "sha256": "a0abfc41851eefb922e550dd64d466db00e0d4cc1bff5fa47dca3eed895ab580"
         },
         {
           "id": "readme",
@@ -251,7 +251,7 @@
     {
       "id": "S1",
       "title": "画面からつなぐAPI",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "templateVersion": "0.1.5",
       "name": "画面からつなぐAPI",
       "summary": "画面で入力したことばをAPIへ送り、応答が画面へ戻る流れを試します。",
@@ -266,8 +266,8 @@
           "title": "画面からAPIの応答を確認する",
           "file": "S1/first.md",
           "source": "START_HERE.md",
-          "bytes": 14897,
-          "sha256": "59e70ff961cac61e3e4ca048a1ddfa524eb245978a16b3ea1e8b9ceb145d2cd0"
+          "bytes": 15028,
+          "sha256": "e880d5687a7e70aaffc7da268df3555058162b3f88aad5b8540ff20184e8b6d5"
         },
         {
           "id": "readme",
@@ -338,7 +338,7 @@
     {
       "id": "S2",
       "title": "メモを保存するWeb画面",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "templateVersion": "0.1.5",
       "name": "メモを保存するWeb画面",
       "summary": "このPCのDBに架空のメモを保存し、ページを読み直しても残ることを試します。",
@@ -353,8 +353,8 @@
           "title": "メモを保存して読み直す",
           "file": "S2/first.md",
           "source": "START_HERE.md",
-          "bytes": 15972,
-          "sha256": "bcf3ee85f02f220d878b161a12502b06a317891fafd3d8fa3d7a1c946dadfc56"
+          "bytes": 16103,
+          "sha256": "e53e3acf02d732799d21d094cc70aefbf4dea0867de397ba46272e5ab2b10c24"
         },
         {
           "id": "readme",
@@ -417,7 +417,7 @@
     {
       "id": "I1",
       "title": "SQLで調べるデータベース",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "templateVersion": "0.1.1",
       "name": "SQLで調べるデータベース",
       "summary": "DBへ接続し、SQLで在庫のサンプルを検索します。Web画面は使いません。",
@@ -432,8 +432,8 @@
           "title": "SQLでサンプルデータを確認する",
           "file": "I1/first.md",
           "source": "START_HERE.md",
-          "bytes": 14403,
-          "sha256": "6b98e81ca845525cb0073451d1c1c296f58d3436b917484de33b1893af5243b7"
+          "bytes": 14534,
+          "sha256": "d9680433a9d4deacd1f456e7fead241acef4f85fcf58542ebba1b5c859f8b914"
         },
         {
           "id": "readme",
@@ -504,7 +504,7 @@
     {
       "id": "setup",
       "title": "開発準備",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "templateVersion": null,
       "chapters": [
         {
@@ -512,16 +512,16 @@
           "title": "開発準備の全体像",
           "file": "setup/overview.md",
           "source": "overview.md",
-          "bytes": 2107,
-          "sha256": "9ebeb22f32d3a301fa21294dfd8a69f57678b23095b3435f13d027e76717b3e1"
+          "bytes": 2204,
+          "sha256": "f6069254b6b5e601e24682d3637562efc4bdfaefa9f745fa0a9697059f085d1f"
         },
         {
           "id": "windows",
           "title": "Windows / WSL 2の準備",
           "file": "setup/windows.md",
           "source": "windows.md",
-          "bytes": 6211,
-          "sha256": "62a6fb53b5ca4106e739aa554f096339c81cf3099f4178d1e0153323d0c12472"
+          "bytes": 6346,
+          "sha256": "0a6329e17818c332dd99fe954df7509e2d2c09ba9e3a5fc67a231348c35746cb"
         },
         {
           "id": "macos",
@@ -536,8 +536,8 @@
           "title": "Linuxの準備",
           "file": "setup/linux.md",
           "source": "linux.md",
-          "bytes": 4772,
-          "sha256": "bcbdc0705b40a680805537572d226c987f51ddf9e815f245fcc05ba129934878"
+          "bytes": 5128,
+          "sha256": "9e82ecc576b2241a0266bc658c425197ffa83a8ef2e3786ef3e865daffabe2f7"
         },
         {
           "id": "trouble",
@@ -552,7 +552,7 @@
     {
       "id": "guide",
       "title": "はじめて使う・ガイド",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "templateVersion": null,
       "chapters": [
         {
@@ -560,24 +560,24 @@
           "title": "はじめに",
           "file": "guide/start.md",
           "source": "START_HERE.md",
-          "bytes": 2433,
-          "sha256": "f8518745600afa5a4f1f0bc3ea79214a94f821483eeeb0e4f07e72305a23283c"
+          "bytes": 2663,
+          "sha256": "66c19939d101de1f3a292595f3cba9cf9a3fd78aecefb51202e5ecf6f383aa64"
         },
         {
           "id": "first-run",
           "title": "サンプル画面を表示する",
           "file": "guide/first-run.md",
           "source": "FIRST-RUN.md",
-          "bytes": 8477,
-          "sha256": "8df0a746bd41c486b7a306fadb3cac295d051d04091112723bdf827fe418d2f6"
+          "bytes": 8901,
+          "sha256": "34d9b5503a92056c54883e8fef0e775f61f48271657480c40cfe3a150cbf02e8"
         },
         {
           "id": "troubleshooting",
           "title": "困ったとき・再開",
           "file": "guide/troubleshooting.md",
           "source": "TROUBLESHOOTING.md",
-          "bytes": 9198,
-          "sha256": "e494920bfba05d2e5c8bdeae65190182fab1d91f5136c82d544d017897066c5b"
+          "bytes": 9783,
+          "sha256": "6745333b6298d71b4e50bc048e4b8b4a8abb83ff7e49347dad87ef340f34e9b7"
         },
         {
           "id": "next-step",
@@ -592,8 +592,8 @@
           "title": "記録票",
           "file": "guide/feedback.md",
           "source": "FEEDBACK.md",
-          "bytes": 1697,
-          "sha256": "4ae33b5cfb0cdb8c3c0e93b452dc23b41f55ca3a964249fde4306d8fcab28dd2"
+          "bytes": 1713,
+          "sha256": "6a8b45714a711076e98e1432b95e8209106e6d0ae49ee819d2838e36e301d859"
         }
       ]
     }

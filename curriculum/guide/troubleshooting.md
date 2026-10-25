@@ -7,9 +7,9 @@
 | 今の症状 | 次の操作 |
 |---|---|
 | 準備の項目が不足している／確認できない | [不足している準備を確認する](FIRST-RUN.md#準備を確認する) |
-| Dockerへ接続できない／停止中／権限エラー | [Dockerを使えるようにする](lesson:setup/linux#dockerを使えるようにする) |
-| VS Codeがない／開けない | [VS Codeを使えるようにする](lesson:setup/linux#vs-codeを使えるようにする) |
-| コンテナーで開くコマンドがない | [VS Codeへ必要な機能を追加する](lesson:setup/linux#vs-codeへ必要な機能を追加する) |
+| Dockerへ接続できない／停止中／権限エラー | [Dockerの準備：Windows](lesson:setup/windows#dockerを使えるようにする)／[Linux](lesson:setup/linux#dockerを使えるようにする) |
+| VS Codeがない／開けない | [VS Codeの準備：Windows](lesson:setup/windows#vs-codeを使えるようにする)／[Linux](lesson:setup/linux#vs-codeを使えるようにする) |
+| コンテナーで開くコマンドがない | [VS Code拡張の準備：Windows](lesson:setup/windows#vs-codeへ必要な機能を追加する)／[Linux](lesson:setup/linux#vs-codeへ必要な機能を追加する) |
 | 保存先を選べない／同じ名前がある | [保存先を確認する](#保存先を確認する) |
 | VS Codeで別のフォルダーが開いた | [今回のフォルダーを開く](#vs-codeで今回のフォルダーを開く) |
 | 初期処理が進まない／終わったか分からない | [初期処理の状態を確認する](#初期処理が終わらない) |
@@ -21,6 +21,8 @@
 
 ## 保存先を確認する
 
+Windowsでは、ツクハコで選択したWSLのHOME配下を使います。Cドライブや `/mnt/c` には作成しません。VS Codeも同じWSLのフォルダーへ接続してください。
+
 ツクハコの作成画面で、親フォルダーが存在し、自分が書き込める場所か確認します。アプリのインストール先を保存先にしません。
 
 同じ名前のフォルダーがある場合、作成済みなら[そのフォルダーから再開](#同じプロジェクトを再開する)します。作成途中のエラーなら表示された原因を確認し、既存ファイルを消さず、新しいフォルダー名を選びます。
@@ -31,7 +33,7 @@
 
 今回の手順にある保存先を確認し、**「このフォルダーをVS Codeで開く」** を押します。別のフォルダーが開いているときは、VS Codeの **「ファイル」→「フォルダーを開く」** から今回のフォルダーを選べます。今回の `START_HERE.md` が見えることを確認します。
 
-VS Code自体を開けない場合は[VS Codeの準備を確認](lesson:setup/linux#vs-codeを使えるようにする)します。制限モードが出ている場合は、その管理画面で**自分が生成したフォルダーだけ**を確認して信頼します。
+VS Code自体を開けない場合は[VS Codeの準備：Windows](lesson:setup/windows#vs-codeを使えるようにする)／[Linux](lesson:setup/linux#vs-codeを使えるようにする)します。制限モードが出ている場合は、その管理画面で**自分が生成したフォルダーだけ**を確認して信頼します。
 
 開けたら[開発環境へ接続する](FIRST-RUN.md#コンテナーで開く)へ戻ります。
 
@@ -64,14 +66,14 @@ VS Codeの **「表示」→「ターミナル」** で初期構成用のタブ�
 
 **ファイル作成後に変える場合だけ：** [作業を終える](#作業を終える)手順でサーバーと、このプロジェクトのコンテナーを止めます。作成したフォルダーの `.env` にある `HOST_PORT` だけを未使用の番号へ変更します。ほかの値を変えたり、`.env` 全体を作り直したりしません。
 
-Linuxの通常のターミナルで同じフォルダーへ移動し、`bash scripts/doctor-host.sh` を実行します。**診断OKと新しいURL**を確認し、VS Codeで **「Dev Containers: Rebuild Container」** を選びます。[初期処理の正常終了](FIRST-RUN.md#初期処理の正常終了を待つ)後にサーバーを起動し、診断に出た新しいURLを開きます。
+Windowsでは選択したWSL、LinuxではPCの通常のターミナルで同じフォルダーへ移動し、`bash scripts/doctor-host.sh` を実行します。**診断OKと新しいURL**を確認し、VS Codeで **「Dev Containers: Rebuild Container」** を選びます。[初期処理の正常終了](FIRST-RUN.md#初期処理の正常終了を待つ)後にサーバーを起動し、診断に出た新しいURLを開きます。
 
 作成後に手動で設定を変えても、ツクハコに残った手順と保存済み `START_HERE.md` のURLは自動更新されません。この場合は診断のURLを使い、保存済み手順のURLも変更後の番号に合わせます。
 
 ## 作業を終える
 
 1. **VS Codeでサーバーを動かしているターミナル**を選び、`Ctrl+C` を押します。コマンドを入力できる状態に戻れば、サーバーは終了しています。
-2. コンテナーも止める場合は、**Linuxの通常のターミナル**で今回のフォルダーへ移動し、次を実行します。
+2. コンテナーも止める場合は、**Windowsでは選択したWSL、LinuxではPCの通常のターミナル**で今回のフォルダーへ移動し、次を実行します。
 
 ```sh
 bash scripts/compose.sh stop
@@ -83,7 +85,7 @@ bash scripts/compose.sh stop
 
 **新しく作り直さず、前に作成したフォルダーをVS Codeで開きます。** ツクハコを閉じた後も、そのフォルダーの `START_HERE.md` に保存先・起動コマンド・URLが残っています。VS Codeで同ファイルを開き、**「プレビューを開く」** で手順と内部リンクを使えます。
 
-1. 必要なら[Dockerを使える状態にする](lesson:setup/linux#dockerを使えるようにする)ところから再開します。
+1. 必要なら[Dockerの準備：Windows](lesson:setup/windows#dockerを使えるようにする)／[Linux](lesson:setup/linux#dockerを使えるようにする)ところから再開します。
 2. VS Codeで **「Dev Containers: Reopen in Container」** を選びます。初期構成が再び始まった場合は、[正常終了を確認](FIRST-RUN.md#初期処理の正常終了を待つ)します。
 3. 新しいコンテナー内ターミナルで `pwd` が `/workspace` か確認し、`npm run dev` を実行します。`Ready` が出たら、保存済み手順にあるURLをブラウザーで開きます。
 

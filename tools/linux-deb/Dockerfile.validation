@@ -1,6 +1,7 @@
 # Package lifecycle checks only. Do not preinstall Electron runtime libraries:
 # all application dependencies must be resolved from the supplied deb itself.
-FROM ubuntu:24.04
+ARG BASE_IMAGE=ubuntu:24.04
+FROM ${BASE_IMAGE}
 
 ENV DEBIAN_FRONTEND=noninteractive
 COPY container-check.sh /usr/local/bin/tsukuhako-deb-check

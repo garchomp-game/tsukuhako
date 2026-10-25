@@ -27,7 +27,7 @@
     "maintainer": "garchomp-game <otoka.japanesedrum@gmail.com>",
     "vendor": "ツクハコ",
     "synopsis": "ツクハコ — 開発環境と学びの道具箱",
-    "description": "開発環境を生成するツールと使い始めのガイド、教材を同梱しています。Linux Mint 22.3 x64向けの候補です。アプリ本体の導入とDocker等の開発準備は別の段階です。",
+    "description": "開発環境を生成するツールと使い始めのガイド、教材を同梱しています。Debian・Ubuntu系のx64向けdebです。アプリ本体の導入とDocker等の開発準備は別の段階です。",
     "syncDesktopName": true,
     "desktop": {
       "entry": {

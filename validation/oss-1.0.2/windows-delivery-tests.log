@@ -1,0 +1,11 @@
+✔ Windows delivery: exact installer bytes, MIT notice, concrete first-run guide and checksums (67.343824ms)
+✔ Windows delivery rejects tampered bytes and a missing passing CI smoke (127.279641ms)
+✔ Artifact manifest rejects dirty product source and non-executable Windows input (73.265888ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 323.439217

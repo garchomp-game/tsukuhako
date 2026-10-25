@@ -17,7 +17,7 @@ LinuxではPCの準備が足りなくても先にファイルを作れます。�
 
 [Linuxの準備](lesson:setup/linux) · [Windows / WSL 2の準備](lesson:setup/windows) · [macOSの参考手順](lesson:setup/macos)
 
-今回の主対象候補はLinux Mint 22.3 x64です。WindowsとmacOSの参考手順は、それぞれの章で確認範囲を説明しています。
+主な配布対象はWindows 11 x64です。Linux x64にはDebian・Ubuntu系のdebとFedora・Rocky Linux系のrpmを用意しています。OSごとの確認範囲は配布ページで確認してください。macOSは参考手順のみです。
 
 教材はネット接続やDockerなしでも読めます。コンテナーの初回起動や依存ファイルの取得にはネット接続が必要です。準備チェックはOSの総メモリとHOMEの空き容量を表示しますが、全構成共通の推奨容量は未測定です。
 

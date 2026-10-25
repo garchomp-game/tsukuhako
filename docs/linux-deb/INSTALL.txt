@@ -1,10 +1,11 @@
-ツクハコ 1.0.1 — Linux Mint 22.3 x64向け候補
+ツクハコ 1.0.2 — Debian・Ubuntu系 Linux x64向けdeb
 
-この候補は所有者による標準GUIでの初回導入・メニュー起動の確認待ちです。
-Ubuntu・Debianや他のMint版を検証済みとして案内するものではありません。
+対象形式：Debian・Ubuntu系（Linux Mintを含む）のx64 / amd64。
+確認したOSと範囲：https://github.com/garchomp-game/tsukuhako/blob/main/validation/oss-1.0.2/REPORT.md
+コンテナーでの依存解決・導入検査は、実際のデスクトップ操作の確認とは別です。
 
-1. tsukuhako-linux-amd64-1.0.1.deb をファイルマネージャーで開きます。
-2. Linux Mint標準の「パッケージインストーラー」（Captain）で、名前と版を
+1. tsukuhako-linux-amd64-1.0.2.deb をファイルマネージャーで開きます。
+2. OSのパッケージインストーラー（MintではCaptainなど）で、名前と版を
    確認し、インストールします。管理者認証は本体・メニューをPCへ登録する
    ためのものです。OS側の不足ライブラリを取得する通信が必要な場合があります。
 3. アプリケーションメニューで「ツクハコ」を検索して起動します。
@@ -13,6 +14,11 @@ Ubuntu・Debianや他のMint版を検証済みとして案内するものでは�
    アカウント登録は不要です。ガイドはオフラインでも読めます。
 5. 「準備チェック」でDocker・VS Code等を確認します。本体の導入完了と
    開発環境の準備完了は別です。最初の候補は「はじめてのWeb画面」です。
+
+ファイルを開いて導入できない場合は、ダウンロード先のターミナルで
+  sudo apt install ./tsukuhako-linux-amd64-1.0.2.deb
+を実行できます。Linux MintでNalaを使用している場合は、同じファイルを
+sudo nala install ./tsukuhako-linux-amd64-1.0.2.deb で指定できます。
 
 通常の起動に端末・chmod・特別な起動フラグは不要です。
 アプリを管理者として起動したり、OSやアプリの保護機能を無効にしないでください。
@@ -26,7 +32,7 @@ Node.js・npm・Python・ビルドツールは、本体の利用だけなら導�
 初回の更新試験は試験用の旧版で実施しています。過去のtar版は自動削除しません。
 tar版から移る場合は旧版を閉じ、導入後はメニューから起動してください。
 
-削除：ツクハコを閉じ、Mintのパッケージ管理画面（Synaptic等）でパッケージ名
+削除：ツクハコを閉じ、OSのパッケージ管理画面（Synaptic等）でパッケージ名
 「tsukuhako」を検索して削除します。本体とメニューが削除対象です。
 生成したプロジェクト、Dockerのデータ、読書設定は残します。
 読書設定等は通常 ~/.config/tsukuhako にあります（XDG_CONFIG_HOMEを指定した

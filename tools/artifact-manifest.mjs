@@ -7,6 +7,9 @@ if(!artifact||!['linux','windows'].includes(platform))throw Error('Usage: node t
 const info=JSON.parse(fs.readFileSync(path.join(root,'dist/desktop-app/build-info.json')));
 if(info.dirty)throw Error('Uncommitted source cannot be a release artifact');
 const data=fs.readFileSync(artifact);
-const result={productVersion:info.productVersion,sourceCommit:info.sourceCommit,file:path.basename(artifact),bytes:data.length,sha256:createHash('sha256').update(data).digest('hex'),platform,architecture:'x64',signing:platform==='windows'?'UNSIGNED_VALIDATION_BUILD':'UNSIGNED_TAR_ARCHIVE',buildEnvironment:{platform:process.platform,architecture:process.arch,category:process.env.GITHUB_ACTIONS?'CI':'REAL_HOST',runUrl:process.env.GITHUB_RUN_ID?`https://github.com/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`:null},osRuntimeVerification:'NOT_RUN_AT_BUILD',verificationReport:`validation/release-${info.productVersion}/REPORT.md`};
+if(platform==='windows'&&(path.extname(artifact).toLowerCase()!=='.exe'||data.subarray(0,2).toString()!=='MZ'))throw Error('Expected a Windows executable installer');
+const verificationReport=['platforms','oss','onboarding','release'].map(prefix=>`validation/${prefix}-${info.productVersion}/REPORT.md`).find(file=>fs.existsSync(path.join(root,file)));
+if(!verificationReport)throw Error('Create the versioned release verification report before packaging');
+const result={productVersion:info.productVersion,sourceCommit:info.sourceCommit,file:path.basename(artifact),bytes:data.length,sha256:createHash('sha256').update(data).digest('hex'),platform,architecture:'x64',signing:platform==='windows'?'UNSIGNED':'UNSIGNED_TAR_ARCHIVE',buildEnvironment:{platform:process.platform,architecture:process.arch,category:process.env.GITHUB_ACTIONS?'CI':'REAL_HOST',runUrl:process.env.GITHUB_RUN_ID?`https://github.com/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`:null},osRuntimeVerification:'NOT_RUN_AT_BUILD',verificationReport,license:'MIT'};
 fs.writeFileSync(artifact+'.manifest.json',JSON.stringify(result,null,2)+'\n');
 console.log(JSON.stringify(result,null,2));

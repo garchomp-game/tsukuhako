@@ -1,0 +1,34 @@
+ツクハコ 1.0.2 — Fedora・Rocky LinuxなどのRPM系Linux向け（x86_64）
+
+1. tsukuhako-linux-x86_64-1.0.2.rpm をダウンロードします。
+   https://github.com/garchomp-game/tsukuhako/releases/tag/v1.0.2
+2. ファイルを開いてパッケージ管理画面からインストールします。
+   端末を使う場合は、ダウンロード先で次を実行します。
+   sudo dnf install ./tsukuhako-linux-x86_64-1.0.2.rpm
+3. アプリケーションメニューから「ツクハコ」を起動します。
+4. 「はじめてのWeb画面で始める」を押し、画面の案内に沿って進めます。
+
+本体の閲覧・ファイル作成にアカウント登録、ホストのNode.js・Pythonは不要です。
+開発環境を動かす際にはDocker、VS CodeとDev Containers拡張が必要です。
+アプリ内のLinux準備手順から、使っているOSに合う公式案内へ進めます。
+Rocky LinuxでのDocker導入は、使っている版に対応する手順を確認してください。
+Docker（Fedora）：https://docs.docker.com/engine/install/fedora/
+Docker（RHEL）：https://docs.docker.com/engine/install/rhel/
+VS Code（RPM系）：https://code.visualstudio.com/docs/setup/linux
+
+更新：ツクハコを閉じ、新版のrpmを同じようにdnfでインストールします。
+削除：ツクハコを閉じ、パッケージ管理画面で削除するか、次を実行します。
+  sudo dnf remove tsukuhako
+本体を削除しても、生成したプロジェクト、Dockerデータ、読書設定は残ります。
+読書設定は通常 ~/.config/tsukuhako（XDG_CONFIG_HOME指定時はその配下）です。
+
+未署名のRPMです。SHA256SUMSの同名行を sha256sum コマンドの結果と比較できます。
+OSの警告や署名ポリシーで止まった場合は、表示内容を記録して確認してください。
+アプリを管理者で起動したり、SELinuxやsandbox等の保護を無効化しないでください。
+
+検証対象はRocky Linux 9とFedora 44のコンテナー内での依存解決・導入・更新・削除です。
+デスクトップGUI起動、実機のSELinux、開発環境からサンプル画面表示までの通し操作は
+別の確認です。RHEL実機、他の版、ARMの動作確認を意味しません。
+実施結果：https://github.com/garchomp-game/tsukuhako/blob/main/validation/oss-1.0.2/REPORT.md
+
+無料のOSSです。MITライセンス（同梱LICENSE）に従って利用できます。

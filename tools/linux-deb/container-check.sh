@@ -1,5 +1,5 @@
 #!/bin/bash
-# Runs only inside the dedicated, disposable Ubuntu container created by the JS runner.
+# Runs only inside the dedicated, disposable Debian/Ubuntu container created by the JS runner.
 set -Eeuo pipefail
 umask 022
 

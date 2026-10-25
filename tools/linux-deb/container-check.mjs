@@ -15,11 +15,13 @@ for(const signal of ['SIGINT','SIGTERM'])process.on(signal,()=>{interruptedSigna
 function options(argv){
   const result={};
   for(let i=0;i<argv.length;i+=2){
-    assert(['--deb','--evidence'].includes(argv[i])&&argv[i+1], 'Use --deb FILE --evidence NEW_DIRECTORY');
+    assert(['--deb','--evidence','--image'].includes(argv[i])&&argv[i+1], 'Use --deb FILE --evidence NEW_DIRECTORY [--image ubuntu:24.04|debian:13]');
     assert(!result[argv[i]],'Duplicate option');result[argv[i]]=argv[i+1];
   }
   assert(result['--deb']&&result['--evidence'],'Use --deb FILE --evidence NEW_DIRECTORY');
-  return{deb:fs.realpathSync(result['--deb']),evidence:path.resolve(result['--evidence'])};
+  const baseImage=result['--image']||'ubuntu:24.04';
+  assert(/^(?:ubuntu|debian):[A-Za-z0-9][A-Za-z0-9_.-]*(?:@sha256:[a-f0-9]{64})?$/.test(baseImage),'Use a versioned official ubuntu or debian image, optionally pinned by SHA-256 digest');
+  return{deb:fs.realpathSync(result['--deb']),evidence:path.resolve(result['--evidence']),baseImage};
 }
 async function run(exe,args,log){
   assert(!interruptedSignal,`Interrupted by ${interruptedSignal}`);
@@ -33,7 +35,7 @@ async function run(exe,args,log){
   if(code!==0)throw new Error(`${exe} exited ${code}; ${path.basename(log)}\n${tail}`);
 }
 
-const {deb,evidence}=options(process.argv.slice(2));
+const {deb,evidence,baseImage}=options(process.argv.slice(2));
 assert(fs.statSync(deb).isFile(),'deb must be a regular file');
 assert(!fs.existsSync(evidence),'Evidence directory already exists; choose a new directory');
 const fields=Object.fromEntries(['Package','Version','Architecture','Depends'].map(field=>[field,read('dpkg-deb',['-f',deb,field])]));
@@ -53,11 +55,12 @@ const result={category:'ISOLATED_CONTAINER',interaction:'AUTOMATED',result:'FAIL
   hostPackageInstallation:false,hostHomeMounted:false,dockerSocketMounted:false,hostAppArmorMounted:false,privileged:false};
 let created=false,imageBuilt=false,failed;
 try{
-  console.log('Building an Ubuntu 24.04 lifecycle image without application runtime libraries.');
-  await run('docker',['build','--label',label,'-t',image,'-f',path.join(directory,'Dockerfile.validation'),directory],path.join(evidence,'image-build.log'));
+  console.log(`Building a ${baseImage} lifecycle image without application runtime libraries.`);
+  await run('docker',['build','--build-arg',`BASE_IMAGE=${baseImage}`,'--label',label,'-t',image,'-f',path.join(directory,'Dockerfile.validation'),directory],path.join(evidence,'image-build.log'));
   imageBuilt=true;
   const imageInfo=JSON.parse(read('docker',['image','inspect',image]))[0];
-  result.image={id:imageInfo.Id,created:imageInfo.Created,base:'ubuntu:24.04',architecture:imageInfo.Architecture};
+  assert.equal(imageInfo.Architecture,'amd64','Use an amd64 validation image for the amd64 deb');
+  result.image={id:imageInfo.Id,created:imageInfo.Created,base:baseImage,architecture:imageInfo.Architecture};
   const args=['create','--name',name,'--label',label,'--cpus','2','--memory','2g','--pids-limit','256',
     '--mount',`type=bind,src=${deb},dst=/input/final.deb,readonly`,image,input.sha256,fields.Package,fields.Version,fields.Architecture];
   result.containerId=read('docker',args);created=true;

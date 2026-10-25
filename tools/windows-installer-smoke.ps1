@@ -37,6 +37,8 @@ try {
   if (-not (Test-Path $exe)) { throw 'Installed executable missing' }
   $installed=Get-Content (Join-Path $installDir 'resources/app/build-info.json') -Raw | ConvertFrom-Json
   if ($installed.sourceCommit -ne $manifest.sourceCommit -or $installed.productVersion -ne $manifest.productVersion) { throw 'Installed product does not match artifact' }
+  & node tools/verify-desktop-bundle.mjs (Join-Path $installDir 'resources/app')
+  if ($LASTEXITCODE -ne 0) { throw 'Installed resources/license check failed' }
   $ownedUninstallers=@(Get-ChildItem -LiteralPath $installDir -Filter 'Uninstall *.exe' -File)
   if($ownedUninstallers.Count -eq 1) { $uninstaller=$ownedUninstallers[0].FullName }
   $keys=@(Get-ItemProperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*' -ErrorAction SilentlyContinue | Where-Object { $_.UninstallString -and $_.UninstallString.Contains($installDir) })
@@ -76,7 +78,7 @@ try {
   }
   if ($rendererExit -ne 0 -or $result.launch.status -ne 'PASS' -or $result.retention.status -ne 'PASS') { throw 'Renderer or retention smoke failed; inspect partial results' }
   $manifest | Add-Member -Force -NotePropertyName runtimeVerification -NotePropertyValue @{
-    category='CI'; status='PASS'; report='windows-smoke-evidence / installer-smoke.json'
+    category='CI'; status='PASS'; report='tsukuhako-windows-smoke-evidence / installer-smoke.json'
     summary='Windows Server 2022 CIの管理者権限を持つrunnerで、同じexeのユーザー単位導入、導入先からの起動・教材表示、削除、隔離した実読書データのSHA保持を確認。Win11通常ユーザー・WSL/DBの保持は未確認。'
   }
   $manifest | ConvertTo-Json -Depth 12 | Set-Content -Encoding utf8 ($Installer + '.manifest.json')

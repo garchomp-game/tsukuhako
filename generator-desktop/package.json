@@ -1,6 +1,6 @@
 {
   "name": "tsukuhako-desktop",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "type": "module",
   "main": "main.mjs",
@@ -12,7 +12,8 @@
     "package:windows": "electron-builder --config electron-builder.json --win nsis --x64 --publish never",
     "test:package": "node --test tests/packaging.check.mjs",
     "package:linux": "electron-builder --config electron-builder.linux.json --linux deb --x64 --publish never",
-    "curriculum": "node ../tools/build-curriculum.mjs"
+    "curriculum": "node ../tools/build-curriculum.mjs",
+    "package:rpm": "node ../tools/linux-rpm/build.mjs"
   },
   "dependencies": {
     "markdown-it": "15.0.3",

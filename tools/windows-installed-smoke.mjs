@@ -22,14 +22,23 @@ try{
  const context=browser.contexts()[0];let page=context.pages().find(p=>p.url().startsWith('app://tsukuhako/'));
  if(!page)page=await context.waitForEvent('page',{timeout:10000});
  page.setDefaultTimeout(15000);page.on('pageerror',e=>errors.push(e.message));page.on('crash',()=>errors.push('renderer crash'));page.on('console',m=>{if(m.type()==='error')errors.push(m.text())});
- await expect(page.locator('.version')).toContainText('0.4.4');
+ const installedInfo=JSON.parse(fs.readFileSync(path.join(path.dirname(exe),'resources/app/build-info.json'),'utf8'));
+ await expect(page.locator('.version b')).toHaveText(installedInfo.productVersion);record.productVersion=installedInfo.productVersion;record.sourceCommit=installedInfo.sourceCommit;
  const windowInfo=()=>JSON.parse(execFileSync('powershell.exe',['-NoProfile','-Command',`$p=Get-Process -Id ${child.pid}; @{pid=$p.Id; handle=$p.MainWindowHandle.ToInt64(); title=$p.MainWindowTitle; responding=$p.Responding; sessionId=$p.SessionId} | ConvertTo-Json -Compress`],{encoding:'utf8'}));
  await expect.poll(()=>windowInfo().handle,{timeout:10000}).not.toBe(0);record.window=windowInfo();expect(record.window.responding).toBe(true);
  await page.getByRole('navigation',{name:'ツクハコの画面'}).getByRole('button',{name:'学ぶ',exact:true}).click();
- await page.getByRole('navigation',{name:'章の一覧'}).getByRole('button',{name:'最初の一歩',exact:true}).click();
- await expect(page.locator('.markdown h1')).toHaveText('F2：最初の一歩');await expect(page.locator('.markdown')).toContainText('初期構成処理が正常終了');
+ await expect(page.locator('.reader-toolbar')).toBeVisible();
+ const toc=page.getByRole('combobox',{name:'教材・ガイドを選ぶ',exact:true});
+ if(!await toc.isVisible())await page.getByRole('button',{name:'目次を開く',exact:true}).click();
+ if(await toc.inputValue()!=='F2'){
+  await toc.selectOption('F2');
+  if(!await toc.isVisible())await page.getByRole('button',{name:'目次を開く',exact:true}).click();
+ }
+ await page.getByRole('navigation',{name:'章の一覧'}).getByRole('button',{name:'サンプル画面を表示する',exact:true}).click();
+ await expect(page.locator('.markdown h1')).toHaveText('はじめてのWeb画面：サンプル画面を表示する');await expect(page.locator('.markdown')).toContainText('初期処理の正常終了');
  await page.getByRole('region',{name:'教材本文'}).focus();await page.keyboard.press('PageDown');await pause(700);
  const settingsFile=path.join(profile,'reading.json');await expect.poll(()=>fs.existsSync(settingsFile)).toBe(true);
+ await expect.poll(()=>JSON.parse(fs.readFileSync(settingsFile,'utf8')).scroll).toBeGreaterThan(0);
  const settings=JSON.parse(fs.readFileSync(settingsFile,'utf8'));expect(settings.lessonId).toBe('F2');expect(settings.chapterId).toBe('first');expect(settings.scroll).toBeGreaterThan(0);
  record.savedReading=settings;record.chapterLoaded=true;record.url=page.url();await page.screenshot({path:path.join(out,'installed-lesson.png')});
  const alerts=await page.getByRole('alert').allTextContents();expect(alerts).toEqual([]);expect(errors).toEqual([]);

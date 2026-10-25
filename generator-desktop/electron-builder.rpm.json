@@ -1,0 +1,74 @@
+{
+  "appId": "jp.tsukuhako.desktop",
+  "productName": "tsukuhako",
+  "electronVersion": "44.9.1",
+  "directories": {
+    "app": "../dist/desktop-app",
+    "output": "../dist/linux-rpm"
+  },
+  "asar": false,
+  "npmRebuild": false,
+  "files": [
+    "package.json"
+  ],
+  "publish": null,
+  "linux": {
+    "target": [
+      {
+        "target": "rpm",
+        "arch": [
+          "x64"
+        ]
+      }
+    ],
+    "executableName": "tsukuhako",
+    "icon": "public/brand-mark.png",
+    "category": "Development",
+    "maintainer": "garchomp-game <otoka.japanesedrum@gmail.com>",
+    "vendor": "ツクハコ",
+    "synopsis": "ツクハコ — 開発環境と学びの道具箱",
+    "description": "開発環境を生成するツールと使い始めのガイド、教材を同梱しています。Fedora・Rocky LinuxなどのRPM系Linux x64向けです。本体の導入とDocker等の開発準備は別の段階です。",
+    "syncDesktopName": true,
+    "desktop": {
+      "entry": {
+        "Name": "ツクハコ",
+        "Comment": "開発環境を作り、同梱ガイドと教材で学ぶ",
+        "Keywords": "ツクハコ;Tsukuhako;Development;Learning;",
+        "Terminal": "false"
+      }
+    }
+  },
+  "extraResources": [
+    {
+      "from": "../dist/desktop-app",
+      "to": "app",
+      "filter": [
+        "**/*",
+        "!package.json"
+      ]
+    }
+  ],
+  "rpm": {
+    "packageName": "tsukuhako",
+    "artifactName": "tsukuhako-linux-x86_64-${version}.rpm",
+    "compression": "xz",
+    "afterRemove": "installer/rpm-after-remove.sh",
+    "depends": [
+      "gtk3",
+      "libnotify",
+      "nss",
+      "libXScrnSaver",
+      "libXtst",
+      "xdg-utils",
+      "at-spi2-core",
+      "libuuid",
+      "libsecret",
+      "alsa-lib",
+      "mesa-libgbm"
+    ],
+    "fpm": [
+      "--rpm-rpmbuild-define",
+      "_build_id_links none"
+    ]
+  }
+}

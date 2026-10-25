@@ -1,0 +1,36 @@
+ツクハコ {{VERSION}} — Windows 11 x64（Intel / AMD）
+
+1. {{INSTALLER}} を普段のWindowsユーザーで開きます。
+2. 導入後は、スタートメニューから「ツクハコ」を起動します。
+3. 「はじめてのWeb画面で始める」を押し、画面の案内に沿って進めます。
+   Windowsでは、開発に使うWSLを選び、「WSL用ファイルを準備」を行います。
+   保存先は選んだWSLのホームフォルダー内にします。
+4. 作成後の「サンプル画面を表示する手順へ」を開き、
+   「このフォルダーをVS Codeで開く」から、その下の手順へ進みます。
+
+本体・教材の利用には、会員登録やPC側のNode.js・npm・Pythonは不要です。
+サンプルを動かす段階で、WSL 2、Docker Desktop、Windows版VS Codeと
+MicrosoftのWSL・Dev Containers拡張が必要です。アプリ内のWindows準備手順で
+不足するものを確認できます。開発環境の初回起動にはネット接続が必要です。
+Dev Container用の設定ファイルはツクハコが作成します。
+
+現在のインストーラーは未署名です。Windowsの確認画面や組織の制限で停止する
+場合があります。提供元を確認し、保護機能を無効化せず、表示された内容を
+記録してください。Windows ARM向けではありません。
+
+今回確認した範囲：
+{{VERIFICATION}}
+Windows 11通常ユーザーでの初回警告・実WSL・Docker・VS Codeからの
+サンプル表示は、Windows Server CIの確認には含みません。
+
+更新：ツクハコを閉じ、新しい版のインストーラーを開きます。
+削除：Windowsの「設定」→「アプリ」→「インストールされているアプリ」で
+「ツクハコ」を選びます。本体とスタートメニューの登録を削除します。
+生成したプロジェクト、WSL、Dockerデータ、WSL内の ~/.tsukuhako-helper、
+読書設定（通常 %APPDATA%\tsukuhako）は別に残します。
+
+無料のOSSです。購入・登録は必要ありません。
+配布元：https://github.com/garchomp-game/tsukuhako/releases
+不具合報告：https://github.com/garchomp-game/tsukuhako/issues
+MITライセンス：同梱のLICENSEを参照してください。
+報告にはOS・版・操作・エラーを添え、認証情報や.envの内容は載せないでください。
